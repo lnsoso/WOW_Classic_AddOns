@@ -1,0 +1,10 @@
+lightweight tag 9a2288f96569deb2ec770543493e509d005093aa 1.0.7
+Author:	Britt Yazel <bwyazel@gmail.com>
+Date:	Thu Jul 4 11:45:25 2019 -0700
+
+commit 9a2288f96569deb2ec770543493e509d005093aa
+Author: Britt Yazel <bwyazel@gmail.com>
+Date:   Thu Jul 4 11:45:25 2019 -0700
+
+    Update Ace3 Libs
+

@@ -1,0 +1,12 @@
+------------------------------------------------------------------------
+r70 | bsmorgan | 2019-10-06 11:42:23 +0000 (Sun, 06 Oct 2019) | 1 line
+Changed paths:
+   A /trunk/Plugins/BootyBayGazette.lua
+   M /trunk/Skillet-Classic.toc
+   M /trunk/Skillet.lua
+   M /trunk/UI/MainFrame.lua
+   M /trunk/UI/Sorting.lua
+
+- Don't steal the "Train" button
+------------------------------------------------------------------------
+

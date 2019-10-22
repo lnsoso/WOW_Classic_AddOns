@@ -1,0 +1,15 @@
+## Interface: 80200
+## Title: Raid Frame Indicators
+## Notes: Adds indicators to the standard raid frames
+## Author: Szandos
+## X-Credits-Maintainer: Soyier
+## Version: 1.0.7
+## DefaultState: enabled
+## SavedVariables: IndicatorsDB
+## X-Email: bwyazel@gmail.com
+
+
+Libs\embeds.xml
+
+RaidFrameIndicators.lua
+RaidFrameIndicatorsConfig.lua

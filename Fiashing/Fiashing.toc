@@ -1,0 +1,6 @@
+## Interface: 11302
+## Title: Fiashing
+## Notes: Loot helper
+## Author: Ginger
+## Version: 1.0
+Fiashing.lua

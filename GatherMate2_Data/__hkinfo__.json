@@ -1,0 +1,14 @@
+{
+    "fileName": "gathermate2_data",
+    "localName": "GatherMate2_Data",
+    "searchName": "GatherMate2_Data",
+    "target": "curse",
+    "version": "v32.0",
+    "addonsMap": [
+        "GatherMate2_Data"
+    ],
+    "interfaceMap": [],
+    "children": [],
+    "name": "GatherMate2_Data",
+    "gameVersion": "8.2.0"
+}

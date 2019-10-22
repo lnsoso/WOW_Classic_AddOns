@@ -1,0 +1,31 @@
+## Interface: 11302
+## Title: Hitlist
+## Author: coolmodi
+## Version: 1.0
+## Notes: Provides a syncronized list of people that need to die.
+## SavedVariables: Hitlist_settings, Hitlist_data
+
+libs/ChatThrottleLib/ChatThrottleLib.lua
+libs/SettingsCreator.lua
+
+i18n/loc.lua
+i18n/enUS.lua
+i18n/deDE.lua
+
+UI/LastAttackersList.lua
+UI/LastAttackersList_function.lua
+UI/MinimapIcon.lua
+UI/TargetNotification.lua
+UI/TargetNotification_functions.lua
+UI/NearbyList.lua
+UI/NearbyList_functions.lua
+UI/TooltipDisplay.lua
+UI/MainUI.lua
+UI/MainUI_functions.lua
+
+main.lua
+settings.lua
+spellUtils.lua
+sync.lua
+slashcmd.lua
+events.lua
