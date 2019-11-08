@@ -102,14 +102,12 @@ function Skillet:GetItemLevel(item)
 end
 
 function Skillet:GetItemIDFromLink(link)	-- works with items or enchants
-	--DA.DEBUG(3,"GetItemIDFromLink("..DA.PLINK(link)..")")
+	--DA.DEBUG(3,"GetItemIDFromLink("..tostring(DA.PLINK(link))..")")
 	if (link) then
 		local linktype, id = string.match(link, "|H([^:]+):(%d+)")
 		--DA.DEBUG(3,"linktype= "..tostring(linktype)..", id= "..tostring(id))
 		if id then
-			return tonumber(id);
-		else
-			return nil
+			return tonumber(id), tostring(linktype)
 		end
 	end
 end
@@ -164,11 +162,16 @@ end
 --
 function Skillet:GetTradeSkillItemLink(index)
 	local recipe, recipeID = self:GetRecipeDataByTradeIndex(self.currentTrade, index)
-		if recipe then
-		local _, link = GetItemInfo(recipe.itemID)
+	local _, link
+	if recipe then
+		if self.isCraft then
+			link = GetCraftItemLink(index)
+		else
+			_, link = GetItemInfo(recipe.itemID)
+		end
 		return link
 	end
-		return nil
+	return nil
 end
 
 function Skillet:GetNumTradeSkills(tradeOverride, playerOverride)
@@ -221,20 +224,6 @@ function Skillet:GetTradeSkillReagentItemLink(skillIndex, index)
 		end
 	end
 		return nil
-end
-
---
--- Gets a link to the recipe (not the item creafted by the recipe)
--- for the current tradeskill
---
-function Skillet:GetTradeSkillRecipeLink(skillIndex)
-	local recipe, id = self:GetRecipeDataByTradeIndex(self.currentTrade, skillIndex)
-	if recipe and id then
-	--DA.DEBUG(0,"get tradeskill recipe link: "..(id or "nil"))
-		local link = GetSpellLink(id)		
-		return link
-	end
-	return nil
 end
 
 function Skillet:GetTradeSkillTools(skillIndex)

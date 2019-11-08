@@ -102,11 +102,23 @@ local function createShoppingListFrame(self)
 	SkilletShowQueuesInItemOrder:SetChecked(Skillet.db.char.item_order)
 	SkilletShowQueuesMergeItemsText:SetText(L["Merge items"])
 	SkilletShowQueuesMergeItems:SetChecked(Skillet.db.char.merge_items)
+--[[
 	SkilletShowQueuesIncludeGuildText:SetText(L["Include guild"])
 	SkilletShowQueuesIncludeGuild:SetChecked(Skillet.db.char.include_guild)
-	-- Button to retrieve items needed from the bank
+]]--
+--
+-- Button to retrieve items needed from the bank
+--
 	SkilletShoppingListRetrieveButton:SetText(L["Retrieve"])
-
+	SkilletShoppingListRetrieveButton:Hide()
+--
+-- Button to create an Auctionator search list for Shopping List contents
+--   should only show if the Auction House is open, Auctionator is
+--   installed, and the Auctionator plugin is enabled
+--   It should be hidden when the Auction House is closed
+--   Start with it (unconditionally) hidden
+--
+	SkilletSLAuctionatorButton:Hide()
 --
 -- The frame enclosing the scroll list needs a border and a background
 --
@@ -146,7 +158,7 @@ function Skillet:ShoppingListButton_OnEnter(button)
 end
 
 function Skillet:ClearShoppingList(player)
-	--DA.DEBUG(0,"ClearShoppingList(",player,")")
+	--DA.DEBUG(0,"ClearShoppingList("..tostring(player)..")")
 	local playerList
 	if player then
 		playerList = { player }
@@ -156,10 +168,10 @@ function Skillet:ClearShoppingList(player)
 			table.insert(playerList, player)
 		end
 	end
-	DA.DEBUG(0,"clear shopping list for: "..(player or "all players"))
+	--DA.DEBUG(0,"clear shopping list for: "..(player or "all players"))
 	for i=1,#playerList,1 do
 		local player = playerList[i]
-		DA.DEBUG(1,"player: "..player)
+		--DA.DEBUG(1,"player: "..player)
 		self.db.realm.reagentsInQueue[player] = {}
 		self.db.realm.queueData[player] = {}
 		self.db.realm.inventoryData[player] = {}
@@ -168,8 +180,15 @@ function Skillet:ClearShoppingList(player)
 	self:UpdateTradeSkillWindow()
 end
 
+--
+-- In Classic, there is no guildbank
+--
+--[[
 function Skillet:GetShoppingList(player, includeGuildbank)
 	--DA.DEBUG(0,"GetShoppingList("..tostring(player)..", "..tostring(includeGuildbank)..")")
+]]--
+function Skillet:GetShoppingList(player)
+	--DA.DEBUG(0,"GetShoppingList("..tostring(player)..")")
 	self:InventoryScan()
 --[[
 	if not Skillet.db.global.cachedGuildbank then
@@ -190,11 +209,11 @@ function Skillet:GetShoppingList(player, includeGuildbank)
 	--DA.DEBUG(0,"shopping list for: "..(player or "all players"))
 	local usedInventory = {}  -- only use the items from each player once
 	local curPlayer = self.currentPlayer
-	local usedGuild = {}
 	if not usedInventory[curPlayer] then
 		usedInventory[curPlayer] = {}
 	end
 --[[
+	local usedGuild = {}
 	local curGuild = GetGuildInfo("player")
 	if curGuild and not cachedGuildbank[curGuild] then
 		cachedGuildbank[curGuild] = {}
@@ -260,12 +279,18 @@ function Skillet:GetShoppingList(player, includeGuildbank)
 	return list
 end
 
+--
+-- In Classic, there is no guildbank
+--
 local function cache_list(self)
 	local name = nil
 	if not Skillet.db.char.include_alts then
 		name = Skillet.currentPlayer
 	end
+--[[
 	self.cachedShoppingList = self:GetShoppingList(name, Skillet.db.char.include_guild)
+]]--
+	self.cachedShoppingList = self:GetShoppingList(name)
 end
 
 local function indexBank()
@@ -465,6 +490,9 @@ function Skillet:AUCTION_HOUSE_SHOW()
 	if #self.cachedShoppingList == 0 then
 		return
 	end
+	if AuctionatorLoaded and self.ATRPlugin and self.db.profile.plugins.ATR.enabled then
+		SkilletSLAuctionatorButton:Show()
+	end
 	self:DisplayShoppingList(false) -- false -> not at a bank
 end
 
@@ -474,6 +502,9 @@ end
 function Skillet:AUCTION_HOUSE_CLOSED()
 	self.auctionOpen = false
 	self:UnregisterEvent("AUCTION_OWNED_LIST_UPDATE")
+	if AuctionatorLoaded and self.ATRPlugin and self.db.profile.plugins.ATR.enabled then
+		SkilletSLAuctionatorButton:Hide()
+	end
 	self:HideShoppingList()
 end
 
@@ -863,7 +894,7 @@ end
 -- Called to update the shopping list window
 --
 function Skillet:UpdateShoppingListWindow(use_cached_recipes)
-	--DA.DEBUG(0,"UpdateShoppingListWindow("..tostring(use_cached_recipes)..")")
+	DA.DEBUG(0,"UpdateShoppingListWindow("..tostring(use_cached_recipes)..")")
 	local num_buttons = 0
 	if not self.shoppingList or not self.shoppingList:IsVisible() then
 		return
@@ -995,13 +1026,14 @@ function Skillet:DisplayShoppingList(atBank)
 	if not self.shoppingList then
 		self.shoppingList = createShoppingListFrame(self)
 	end
-	local frame = self.shoppingList
+	SkilletSLAuctionatorButton:Hide()
 	if atBank then
 		SkilletShoppingListRetrieveButton:Show()
 	else
 		SkilletShoppingListRetrieveButton:Hide()
 	end
 	cache_list(self)
+	local frame = self.shoppingList
 	if not frame:IsVisible() then
 		frame:Show()
 	end

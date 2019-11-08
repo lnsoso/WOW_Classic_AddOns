@@ -21,6 +21,8 @@ if not L then return end
 L[" days"] = " giorni"
 L["About"] = "Riguardo a"
 L["ABOUTDESC"] = "Stampa le informazioni riguardo a Skillet"
+--[[Translation missing --]]
+--[[ L["Add Recipe to Ignored List"] = ""--]] 
 L["Add to Ignore Materials"] = true
 L["alts"] = true
 L["Appearance"] = "Aspetto"
@@ -38,11 +40,15 @@ L["By Quality"] = "Per Qualita'"
 L["By Skill Level"] = "Per Livello Abilita'"
 L["can be created by crafting reagents"] = true
 L["can be created from reagents in your inventory"] = "puo' essere creato con i reagenti presenti nel tuo inventario"
+--[[Translation missing --]]
+--[[ L["can be created from reagents on all characters"] = ""--]] 
 L["can be created from reagents on other characters"] = "puo' essere creato con i reagenti presenti su tutti i tuoi personaggi"
 L["can be created with reagents bought at vendor"] = true
 --[[Translation missing --]]
 --[[ L["Changing profession to"] = ""--]] 
 L["Clear"] = "Pulisci"
+--[[Translation missing --]]
+--[[ L["Click"] = ""--]] 
 L["click here to add a note"] = "premere qui per aggiungere una nota"
 L["Click to toggle favorite"] = true
 L["Collapse all groups"] = "Collassa tutti i gruppi"
@@ -50,6 +56,8 @@ L["Config"] = "Configura"
 L["CONFIGDESC"] = "Apre la finestra di configurazione di Skillet"
 L["CONFIRMQUEUECLEARDESC"] = "Use Alt-left-click instead of left-click to clear the queue"
 L["CONFIRMQUEUECLEARNAME"] = "Use Alt-click to clear queue"
+--[[Translation missing --]]
+--[[ L["Conflict with the addon TradeSkillMaster"] = ""--]] 
 L["Copy"] = true
 L["Could not find bag space for"] = "Non trovo spazio nell borse per"
 L["craftable"] = "crabile"
@@ -83,6 +91,8 @@ L["Expand all groups"] = "Espandi tutti i gruppi"
 L["Features"] = "Caratteristiche"
 L["FEATURESDESC"] = "Comportamenti opzionali che possono essere attivati o disattivati"
 L["Filter"] = "Filtro"
+--[[Translation missing --]]
+--[[ L["Flat"] = ""--]] 
 L["Flush All Data"] = true
 L["Flush Recipe Data"] = true
 L["FLUSHALLDATADESC"] = "Flush all Skillet data"
@@ -99,6 +109,8 @@ L["Hide uncraftable"] = "Nascondi non creabili"
 --[[ L["HIDEBLIZZARDFRAMEDESC"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["HIDEBLIZZARDFRAMENAME"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Ignore"] = ""--]] 
 L["IGNORECLEARDESC"] = "Clear all entries from the Ignored Materials list."
 L["Ignored List"] = true
 L["Ignored Materials Clear"] = true
@@ -115,6 +127,8 @@ L["Include guild"] = "Include gilda"
 --[[ L["INCLUDEREAGENTSNAME"] = ""--]] 
 L["Inventory"] = "Inventario"
 L["INVENTORYDESC"] = "Informazioni dell'Inventario"
+--[[Translation missing --]]
+--[[ L["InvSlot"] = ""--]] 
 L["is now disabled"] = "e' ora disabilitato"
 L["is now enabled"] = "e' ora abiltiato"
 L["Learned"] = true
@@ -123,6 +137,8 @@ L["Link Recipe"] = true
 L["LINKCRAFTABLEREAGENTSDESC"] = "Se puoi creare un reagente necessario alla ricetta, cliccando il reagente ti portera' alla sua ricetta"
 L["LINKCRAFTABLEREAGENTSNAME"] = "Rendi reagenti clickabili"
 L["Load"] = "Carica"
+--[[Translation missing --]]
+--[[ L["Lock/Unlock"] = ""--]] 
 L["Market"] = true
 L["Merge items"] = "Unisce oggetti"
 L["Move Down"] = "Muovi verso il basso"
@@ -130,8 +146,12 @@ L["Move to Bottom"] = "Muovi al fondo"
 L["Move to Top"] = "Muovi all'inizio"
 L["Move Up"] = "Muovi verso l'alto"
 L["need"] = "necessario"
+--[[Translation missing --]]
+--[[ L["New"] = ""--]] 
 L["New Group"] = true
 L["No Data"] = "Nessun Dato"
+--[[Translation missing --]]
+--[[ L["No headers, try again"] = ""--]] 
 L["No such queue saved"] = "Nessuna lista simile salvata"
 L["None"] = "Nessuno"
 L["not yet cached"] = "non ancora salvato"
@@ -142,6 +162,10 @@ L["Order by item"] = "Ordina per oggetto"
 L["Paste"] = true
 L["Pause"] = "Pausa"
 L["Plugins"] = true
+--[[Translation missing --]]
+--[[ L["Press"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Press Okay to continue changing professions"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Press Process to continue"] = ""--]] 
 L["Process"] = "Processo"
@@ -158,10 +182,16 @@ L["QUEUEGLYPHREAGENTSNAME"] = "Accoda reagenti per Glifi"
 L["QUEUEONLYVIEWDESC"] = "Show Standalone Queue Window only when set, show both Standalone Queue Window and Skillet Window when clear."
 L["QUEUEONLYVIEWNAME"] = "Only show Standalone Queue"
 L["Queues"] = "Code"
+--[[Translation missing --]]
+--[[ L["reagent id seems corrupt!"] = ""--]] 
 L["Reagents"] = "Reagenti"
 L["reagents in inventory"] = "reagenti in inventario"
 L["Really delete this queue?"] = "Vuoi cancellare veramente questa coda?"
 L["Remove Favorite"] = true
+--[[Translation missing --]]
+--[[ L["Remove Recipe from Ignored List"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Rename"] = ""--]] 
 L["Rename Group"] = true
 L["Rescan"] = "Riscansiona"
 L["Reset"] = "Comando di reimpostazione posizione"
@@ -183,6 +213,8 @@ L["Selected Addon"] = "Addon Selezionato"
 L["Selection"] = true
 L["Sells for "] = "Vendibile per "
 L["Set Favorite"] = true
+--[[Translation missing --]]
+--[[ L["shift-click to link"] = ""--]] 
 L["Shopping Clear"] = "Lista della Spesa pulita"
 L["Shopping List"] = "Lista della Spesa"
 L["SHOPPINGCLEARDESC"] = "Pulisci la Lista della Spesa"
@@ -216,6 +248,8 @@ L["Source:"] = "Sorgente:"
 L["STANDBYDESC"] = "Scambia stato di attesa acceso/spento"
 L["STANDBYNAME"] = "attesa"
 L["Start"] = "Inizia"
+--[[Translation missing --]]
+--[[ L["SubClass"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["SUPPORTCRAFTINGDESC"] = ""--]] 
 --[[Translation missing --]]

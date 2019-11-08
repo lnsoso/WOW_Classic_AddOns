@@ -256,12 +256,31 @@
 				</OnClick>
 			</Scripts>
 		</Button>
-
 		<!--
-			#
-			# Check boxes for various recipe filtering options.
-			#
-			-->
+		# Shopping List Auctionator button
+		-->
+		<Button name="SkilletSLAuctionatorButton" inherits="UIPanelButtonTemplate" text="Auctionator" parent="SkilletShoppingList">
+			<Size>
+				<AbsDimension x="85" y="22"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOMLEFT" relativeTo="SkilletShoppingList" relativePoint="BOTTOMLEFT">
+					<Offset>
+						<AbsDimension x="5" y="50"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Scripts>
+				<OnClick>
+					Skillet:AuctionatorSearch(true)
+				</OnClick>
+			</Scripts>
+		</Button>
+		<!--
+		#
+		# Check boxes for various recipe filtering options.
+		#
+		-->
 		<CheckButton name="SkilletShowQueuesFromAllAlts" inherits="SkilletShoppingListCheckButtonTemplate">
 			<Anchors>
 				<Anchor point="BOTTOMRIGHT" relativeTo="SkilletShoppingList" relativePoint="BOTTOMRIGHT">
@@ -278,6 +297,10 @@
 			</Scripts>
 		</CheckButton>
 
+		<!--
+		#
+		#  In Classic, there is no guildbank.
+		#
 		<CheckButton name="SkilletShowQueuesIncludeGuild" inherits="SkilletShoppingListCheckButtonTemplate">
 			<Anchors>
 				<Anchor point="BOTTOMRIGHT" relativeTo="SkilletShoppingList" relativePoint="BOTTOMRIGHT">
@@ -293,6 +316,7 @@
 				</OnClick>
 			</Scripts>
 		</CheckButton>
+		-->
 
 		<CheckButton name="SkilletShowQueuesInItemOrder" inherits="SkilletShoppingListCheckButtonTemplate2">
 			<Anchors>

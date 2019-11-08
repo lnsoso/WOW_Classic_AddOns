@@ -1,0 +1,13 @@
+changeset:   214:0dcec8cfae36
+tag:         v4.73-classic
+user:        elchefe12345
+date:        Sun Sep 29 20:46:21 2019 +0200
+summary:     corrected default Mind Flay settings for classic (modify other spells manually!)
+
+
+changeset:   213:7eccb990c938
+user:        elchefe12345
+date:        Sun Sep 29 20:06:30 2019 +0200
+summary:     classic fix related to channeled spells
+
+

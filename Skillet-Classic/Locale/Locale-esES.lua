@@ -21,6 +21,8 @@ if not L then return end
 L[" days"] = "días (acento)"
 L["About"] = "Acerca de"
 L["ABOUTDESC"] = "Imprime información acerca de Skillet"
+--[[Translation missing --]]
+L["Add Recipe to Ignored List"] = "Add Recipe to Ignored List"
 L["Add to Ignore Materials"] = "Añadir a Materiales ignorados"
 L["alts"] = "Alter"
 L["Appearance"] = "Apariencia"
@@ -38,11 +40,15 @@ L["By Quality"] = "Por Calidad"
 L["By Skill Level"] = "Por Nivel de Habilidad"
 L["can be created by crafting reagents"] = "Puede ser creado por materiales creados"
 L["can be created from reagents in your inventory"] = "puede ser creado con los reactivos de tu inventario"
+--[[Translation missing --]]
+L["can be created from reagents on all characters"] = "can be created from reagents on all characters"
 L["can be created from reagents on other characters"] = "puede ser creado con los materiales de todos tus caracteres"
 L["can be created with reagents bought at vendor"] = "puede ser creado con materiales comprados al vendedor"
 --[[Translation missing --]]
 L["Changing profession to"] = "Changing profession to"
 L["Clear"] = "Limpiar"
+--[[Translation missing --]]
+L["Click"] = "Click"
 L["click here to add a note"] = "Click aquí para añadir una nota"
 L["Click to toggle favorite"] = "click para intercambiar favoritos"
 L["Collapse all groups"] = "Contraer todos los grupos"
@@ -50,6 +56,8 @@ L["Config"] = "Configuración"
 L["CONFIGDESC"] = "\"Abre una ventana de configuración para Skillet \" configuracion  descendente"
 L["CONFIRMQUEUECLEARDESC"] = "Usa Alt Click Izq en vez de click Izquierdo para limpiar la cola de la lista"
 L["CONFIRMQUEUECLEARNAME"] = "usa Alt click para limpiar la cola de la lista"
+--[[Translation missing --]]
+L["Conflict with the addon TradeSkillMaster"] = "Conflict with the addon TradeSkillMaster"
 L["Copy"] = "copia"
 L["Could not find bag space for"] = "No puedo encontrar un espacio en la bolsa para"
 L["craftable"] = "Manufacturable"
@@ -85,6 +93,8 @@ L["Expand all groups"] = "Expandir todos los grupos"
 L["Features"] = "Características"
 L["FEATURESDESC"] = "Comportamiento opcional que puede activarse y desactivarse"
 L["Filter"] = "Filtro"
+--[[Translation missing --]]
+L["Flat"] = "Flat"
 L["Flush All Data"] = "Limpiar todos los datos"
 L["Flush Recipe Data"] = "Limpiar datos de recetas"
 L["FLUSHALLDATADESC"] = [=[Limpiar todos los datos de Skillet
@@ -103,6 +113,8 @@ L["Hide uncraftable"] = "Ocultar Imposibles de Crear"
 L["HIDEBLIZZARDFRAMEDESC"] = "Hide Blizzard TradeSkill frame when showing Skillet frame"
 --[[Translation missing --]]
 L["HIDEBLIZZARDFRAMENAME"] = "Hide Blizzard Frame"
+--[[Translation missing --]]
+L["Ignore"] = "Ignore"
 L["IGNORECLEARDESC"] = "Quitar todas las entradas de la lista de Materiales Ignorados"
 L["Ignored List"] = "Lista de Ignorados"
 L["Ignored Materials Clear"] = "quitar Materiales ignorados "
@@ -120,6 +132,8 @@ L["INCLUDEREAGENTSDESC"] = "Add reagent names to the item text that is searched.
 L["INCLUDEREAGENTSNAME"] = "Include Reagents in Search"
 L["Inventory"] = "Inventario"
 L["INVENTORYDESC"] = "Información del Inventario"
+--[[Translation missing --]]
+L["InvSlot"] = "InvSlot"
 L["is now disabled"] = "ahora esta deshabilitado"
 L["is now enabled"] = "ahora esta habilitado"
 L["Learned"] = "Aprendido"
@@ -128,6 +142,8 @@ L["Link Recipe"] = "Enlaza la receta"
 L["LINKCRAFTABLEREAGENTSDESC"] = "Si puedes crear un reactivo necesario para la receta actual, clickenado el reactivo le llevará a su receta."
 L["LINKCRAFTABLEREAGENTSNAME"] = "Hacer reactivos clickeables"
 L["Load"] = "Cargar"
+--[[Translation missing --]]
+L["Lock/Unlock"] = "Lock/Unlock"
 L["Market"] = "Market"
 L["Merge items"] = "Merge items"
 L["Move Down"] = "Mover abajo"
@@ -135,8 +151,12 @@ L["Move to Bottom"] = "Mover al Final"
 L["Move to Top"] = "Mover al Inicio"
 L["Move Up"] = "Mover arriba"
 L["need"] = "necesita"
+--[[Translation missing --]]
+L["New"] = "New"
 L["New Group"] = "nuevo grupo"
 L["No Data"] = "No Datos"
+--[[Translation missing --]]
+L["No headers, try again"] = "No headers, try again"
 L["No such queue saved"] = "Esta cola no esta guardada"
 L["None"] = "Ninguno"
 L["not yet cached"] = "aún no en caché"
@@ -147,6 +167,10 @@ L["Order by item"] = "ordenar por objeto"
 L["Paste"] = "pegar"
 L["Pause"] = "Pausar"
 L["Plugins"] = "accesorios"
+--[[Translation missing --]]
+L["Press"] = "Press"
+--[[Translation missing --]]
+L["Press Okay to continue changing professions"] = "Press Okay to continue changing professions"
 --[[Translation missing --]]
 L["Press Process to continue"] = "Press Process to continue"
 L["Process"] = "Procesando"
@@ -163,10 +187,16 @@ L["QUEUEGLYPHREAGENTSNAME"] = "Cola de productos necesarios para Gilfos"
 L["QUEUEONLYVIEWDESC"] = "ver ventana independiente de la cola solo cuando esta seleccionado, muestra ambos, ventana independiente de la cola y la ventana de skillet cuando no seleccionado"
 L["QUEUEONLYVIEWNAME"] = "Mostar solo Cola independiente"
 L["Queues"] = "Encolado Guardar/ Cargar"
+--[[Translation missing --]]
+L["reagent id seems corrupt!"] = "reagent id seems corrupt!"
 L["Reagents"] = "Componentes"
 L["reagents in inventory"] = "reactivos en el inventario"
 L["Really delete this queue?"] = "Borrar esta cola realmente?"
 L["Remove Favorite"] = "Quitar de favoritos"
+--[[Translation missing --]]
+L["Remove Recipe from Ignored List"] = "Remove Recipe from Ignored List"
+--[[Translation missing --]]
+L["Rename"] = "Rename"
 L["Rename Group"] = [=[Renombrar grupo
 ]=]
 L["Rescan"] = "Rescanear"
@@ -192,6 +222,8 @@ L["Selection"] = [=[Selección
 ]=]
 L["Sells for "] = "Se vende por"
 L["Set Favorite"] = "Añadir Favorito"
+--[[Translation missing --]]
+L["shift-click to link"] = "shift-click to link"
 L["Shopping Clear"] = "Limpia lista compra"
 L["Shopping List"] = "Lista Compra"
 L["SHOPPINGCLEARDESC"] = "Limpia lista de la compra"
@@ -227,6 +259,8 @@ L["Source:"] = "Procedencia::"
 L["STANDBYDESC"] = "Intercambio pausa on/off"
 L["STANDBYNAME"] = "Pausa"
 L["Start"] = "Iniciar"
+--[[Translation missing --]]
+L["SubClass"] = "SubClass"
 --[[Translation missing --]]
 L["SUPPORTCRAFTINGDESC"] = "Include support for Crafting professions (requires a /reload)"
 --[[Translation missing --]]

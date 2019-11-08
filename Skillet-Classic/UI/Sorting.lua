@@ -178,6 +178,12 @@ local function SkillIsFilteredOut(skillIndex)
 		end
 	end
 --
+--	call our internal recipe filter
+--
+	if Skillet:RecipeFilter(skillIndex) then
+		return true
+	end
+--
 --	call any external recipe filters
 --
 	if Skillet.recipeFilters then
@@ -237,8 +243,8 @@ local function SkillIsFilteredOut(skillIndex)
 						DA.DEBUG(1,"skillIndex= "..tostring(skillIndex).." ("..tostring(recipe.name)..")")
 						tooltip:SetTradeSkillItem(skillIndex)
 						local tiplines = tooltip:NumLines()
+						DA.DEBUG(1,"Found "..tostring(tiplines).." tiplines")
 						for i=1, tiplines, 1 do
-							DA.DEBUG(1,"Found "..tostring(tiplines).." tiplines")
 							searchText = searchText.." "..string.lower(_G["SkilletParsingTooltipTextLeft"..i]:GetText() or " ")
 							searchText = searchText.." "..string.lower(_G["SkilletParsingTooltipTextRight"..i]:GetText() or " ")
 						end
@@ -345,27 +351,30 @@ end
 -- currently selected tradekskill and sorting method
 -- if no sorting, then headers will be included
 --
-function Skillet:SortAndFilterRecipes()
-	DA.DEBUG(0,"SortAndFilterRecipes()")
+function Skillet:SortAndFilterRecipes() -- SAFR: 
 	local skillListKey = Skillet.currentPlayer..":"..Skillet.currentTrade..":"..Skillet.currentGroupLabel
 	local numSkills = Skillet:GetNumSkills(Skillet.currentPlayer, Skillet.currentTrade)
+	DA.DEBUG(0,"SortAndFilterRecipes(), skillListKey= "..tostring(skillListKey))
 	if not Skillet.data.sortedSkillList then
-		--DA.DEBUG(1,"Skillet.data.sortedSkillList = {}")
+		--DA.DEBUG(1,"SAFR: Skillet.data.sortedSkillList = {}")
 		Skillet.data.sortedSkillList = {}
 	end
 	if not Skillet.data.sortedSkillList[skillListKey] then
-		--DA.DEBUG(1,"Skillet.data.sortedSkillList[skillListKey] = {}")
+		--DA.DEBUG(1,"SAFR: Skillet.data.sortedSkillList[skillListKey] = {}")
 		Skillet.data.sortedSkillList[skillListKey] = {}
 	end
 	local sortedSkillList = Skillet.data.sortedSkillList[skillListKey]
 	local oldLength = #sortedSkillList
-	--DA.DEBUG(1,"oldLength= "..tostring(oldLength))
 	local button_index = 0
 	local searchtext = Skillet:GetTradeSkillOption("searchtext")
 	local groupLabel = Skillet.currentGroupLabel
-	DA.DEBUG(1,"searchtext="..tostring(searchtext)..", groupLabel="..tostring(groupLabel))
+	DA.DEBUG(1,"SAFR: searchtext="..tostring(searchtext)..", groupLabel="..tostring(groupLabel))
 	if searchtext and searchtext ~= "" or groupLabel == "Flat" then
-		DA.DEBUG(1,"SortAndFilterRecipes groupLabel= "..tostring(groupLabel))
+--	DA.DEBUG(1,"SAFR: groupLabel="..tostring(groupLabel))
+--	if groupLabel == "Flat" or groupLabel == "Blizzard" then
+--
+-- no prep necessary, just loop through the list and filter or search as directed
+--
 		for i=1, numSkills, 1 do
 			local skill = Skillet:GetSkill(Skillet.currentPlayer, Skillet.currentTrade, i)
 			if skill then
@@ -376,15 +385,20 @@ function Skillet:SortAndFilterRecipes()
 						sortedSkillList[button_index] = {["recipeID"] = skill.id, ["spellID"] = recipe.spellID, ["name"] = recipe.name, ["skillIndex"] = i, ["recipeData"] = recipe, ["skillData"] = skill, ["depth"] = 0}
 					elseif i == Skillet.selectedSkill then
 --
---if filtered out and selected - deselect
+-- if filtered out and selected - deselect
 --
 						Skillet.selectedSkill = nil
 					end
 				else
-					DA.DEBUG(2,"i= "..tostring(i).." is a header")
+					DA.DEBUG(2,"SAFR: i= "..tostring(i).." is a header")
 				end
 			end
-		end
+		end	-- for
+		--DA.DEBUG(1,"SAFR: numSkills= "..tostring(numSkills)..", oldLength= "..tostring(oldLength)..", button_index= "..tostring(button_index))
+--
+-- if the last result was larger than this result,
+-- get rid of the extra old results.
+--
 		if oldLength > button_index then
 			while oldLength > button_index do
 				sortedSkillList[oldLength] = nil
@@ -400,21 +414,35 @@ function Skillet:SortAndFilterRecipes()
 				return recipe_sort_method(Skillet.currentTrade, b, a)
 			end)
 		end
+		--DA.DEBUG(1,"SAFR: sorted "..button_index.." skills")
 	else
+--
+-- A custom group
+--
 		local group = Skillet:RecipeGroupFind(Skillet.currentPlayer, Skillet.currentTrade, Skillet.currentGroupLabel, Skillet.currentGroup)
-		DA.DEBUG(1,"current grouping "..Skillet.currentGroupLabel.." "..(Skillet.currentGroup or "nil"))
+		--DA.DEBUG(1,"SAFR: current grouping "..tostring(Skillet.currentGroupLabel).." "..tostring(Skillet.currentGroup))
 		if recipe_sort_method ~= NOSORT then
 			Skillet:RecipeGroupSort(group, recipe_sort_method, is_sort_desc())
 		end
+		local depth, index = 1, 1
 		if Skillet.currentGroup then
 			Skillet:RecipeGroupInitFlatten(group, sortedSkillList)
-			button_index = Skillet:RecipeGroupFlatten(group, 1, sortedSkillList, 1)
+			depth, index = 1, 1
 		else
-			button_index = Skillet:RecipeGroupFlatten(group, 0, sortedSkillList, 0)
+			depth, index = 0, 0
 		end
+--
+-- RecipeGroupFlatten(group, depth, list, index)
+--   does filtering (only if the skillIndex is correct) and sorting
+--   but not searching
+--
+		button_index = Skillet:RecipeGroupFlatten(group, depth, sortedSkillList, index)
+		--DA.DEBUG(1,"SAFR: sorted "..tostring(button_index).." skills in "..tostring(Skillet.currentGroupLabel))
 	end
-	--DA.DEBUG(0,"sorted "..button_index.." skills")
 	sortedSkillList.count = button_index
+--
+-- (none of the current callers use the return value)
+--
 	return button_index
 end
 
@@ -511,7 +539,7 @@ end
 --
 -- The method we use the initialize the sorting drop down.
 --
-function Skillet:SortDropdown_Initialize()
+function Skillet.SortDropdown_Initialize(menuFrame,level)
 	recipe_sort_method = NOSORT
 	local info
 	local i = 0
@@ -542,86 +570,5 @@ function Skillet:SortDropdown_OnClick()
 	recipe_sort_method = entry.sorter
 	show_sort_toggle()
 	Skillet:SortAndFilterRecipes()
-	Skillet:UpdateTradeSkillWindow()
-end
-
---
--- called when the new filter drop down is first loaded
---
-function Skillet:FilterDropDown_OnLoad()
-	DA.DEBUG(0,"FilterDropDown_OnLoad()")
-	UIDropDownMenu_Initialize(SkilletFilterDropdown, Skillet.FilterDropDown_Initialize)
-	SkilletFilterDropdown.displayMode = "MENU"  -- changes the pop-up borders to be rounded instead of square
-end
-
---
--- Called when the new filter drop down is displayed
---
-function Skillet:FilterDropDown_OnShow()
-	DA.DEBUG(0,"FilterDropDown_OnShow()")
-	UIDropDownMenu_Initialize(SkilletFilterDropdown, Skillet.FilterDropDown_Initialize)
-	SkilletFilterDropdown.displayMode = "MENU"  -- changes the pop-up borders to be rounded instead of square
-	if Skillet.unlearnedRecipes then
-		UIDropDownMenu_SetSelectedID(SkilletFilterDropdown, 2)
-	else
-		UIDropDownMenu_SetSelectedID(SkilletFilterDropdown, 1)
-	end
-end
-
---
--- The method we use the initialize the new filter drop down.
---
-function Skillet:FilterDropDown_Initialize()
-	DA.DEBUG(0,"FilterDropDown_Initialize()")
-	local info
-	local i = 1
-
-	info = UIDropDownMenu_CreateInfo()
-	info.text = L["None"]
-	info.func = Skillet.FilterDropDown_OnClick
-	info.value = i
-	if self then
-		info.owner = self:GetParent()
-	end
-	UIDropDownMenu_AddButton(info)
-	i = i + 1
-
---[[
-	info = UIDropDownMenu_CreateInfo()
-	info.text = L["SubClass"]
-	info.func = Skillet.FilterDropDown_OnClick
-	info.value = i
-	if self then
-		info.owner = self:GetParent()
-	end
-	UIDropDownMenu_AddButton(info)
-	i = i + 1
-
-	info = UIDropDownMenu_CreateInfo()
-	info.text = L["Slot"]
-	info.func = Skillet.FilterDropDown_OnClick
-	info.value = i
-	if self then
-		info.owner = self:GetParent()
-	end
-	UIDropDownMenu_AddButton(info)
-	i = i + 1
-]]--
-end
-
---
--- Called when the user selects an item in the new filter drop down
---
-function Skillet:FilterDropDown_OnClick()
-	DA.DEBUG(0,"FilterDropDown_OnClick()")
-	UIDropDownMenu_SetSelectedID(SkilletFilterDropdown, self:GetID())
-	local index = self:GetID()
-	if index == 1 then
---		Skillet:SetTradeSkillLearned()
-	elseif index == 2 then
---		Skillet:SetTradeSkillUnlearned()
-	end
-	Skillet.dataScanned = false
-	Skillet:RescanTrade()
 	Skillet:UpdateTradeSkillWindow()
 end
