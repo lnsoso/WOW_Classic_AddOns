@@ -1,0 +1,9 @@
+## Interface: 11302
+## Title: Supply Bag
+## Notes: Supply Bag
+## SavedVariables: SupplyBagSavedVariables
+## SavedVariablesPerCharacter: SupplyBagSavedVariablesPerCharacter
+## Version: 0.2
+## Author: viktor
+
+main.lua
