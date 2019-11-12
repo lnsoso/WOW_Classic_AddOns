@@ -1,0 +1,12 @@
+tag 86fb1b0b267ee0aef0254b90a11e372830e8c0d4 8.2-2-classic-release
+Author:	Hizuro <hizuro@gmx.net>
+Date:	Fri Sep 27 15:23:01 2019 +0200
+
+Tagging as 8.2-2-classic-release
+
+commit 1eca4d301d3b59990d610ab3372675d3e9b8d5c4
+Author: Hizuro <hizuro@gmx.net>
+Date:   Fri Sep 27 15:21:57 2019 +0200
+
+    Fix SetBindings error for classic clients
+
