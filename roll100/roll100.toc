@@ -1,4 +1,0 @@
-## Interface: 11302
-## Title: ROLL100
-
-core.lua
