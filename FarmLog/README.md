@@ -18,8 +18,9 @@ FarmLog now tracks Black Lotus picking and shows respawn timers! (need DBM addon
     * Reputation gain per faction
     * XP gained
     * Skill levels
-    * Honor gain (not tested yet, will be available in phase 2)
+    * Honor gain, HKs, DKs, ranks kill count
     * Black Lotus pick time and location
+    * Deaths
 * Allows reporting farm results
 * Display farm yield in a window with all looted items
 * Allows filtering item poor and common items
@@ -50,12 +51,59 @@ Another thing is that the more time & data you have per session, the more accura
  This may also happen if you have addons like "Leatrix Plus" with "Fast loot" option enabled. This causes loot to be received before loot window is opened, so the addon doesn't know where it came from.
 
 
+![Preview 1](https://github.com/E1ila/FarmLog/blob/master/Preview5.png)
+![Preview 1](https://github.com/E1ila/FarmLog/blob/master/Preview6.png)
 ![Preview 1](https://github.com/E1ila/FarmLog/blob/master/Preview2.png)
 ![Preview 2](https://github.com/E1ila/FarmLog/blob/master/Preview.png)
 ![Preview 3](https://github.com/E1ila/FarmLog/blob/master/Preview3.png)
 ![Preview 4](https://github.com/E1ila/FarmLog/blob/master/Preview4.png)
 
 ### Changes 
+* 1.17.9
+    * With Auto Instance Switch enabled, FarmLog will now resume a session if current farm is an instance farm. When choosing a farm that's used in an instance, it'll bind the farm session to that instance and from that moment on, when you enter that instance while on this farm session, the addon will just resume it, instead of switching to "Dire Maul" farm. If FarmLog is set to another session, not related to DM, it will switch to "Dire Maul" farm session once you go into DM. Hope I explained it well, if not - just try and see how it works.
+    * Added `/farm` command to toggle session active/paused.
+    * Starting a new session will enable Current session view
+    * Diminishing returns reset is checked upon login as well, for Honor % tooltip
+    * Disabled mouse interaction of Honor Frenzy frame
+* 1.17.8
+    * Honor frenzy count! Shows how many you've killed in a row and how much honor it yielded.
+* 1.17.7
+    * Numbers bigger than 999 will use a thusands separator
+    * Using known vendor price when recalculating profit, this fixes some vendor items with no value due wow API thottle
+    * Removed number of instances form pvp mode
+* 1.17.6
+    * Supporting TradeSkillManager addon for AH price check!
+* 1.17.5
+    * Showing honor % to be received on enemy player tooltip! 
+    * Fixed Fishing bug when loot was attributed to "Unknown", thanks https://github.com/aEnigmatic
+    * Added integration with Auctionator for AH item value, thanks https://github.com/aEnigmatic
+    * Supporting items with no AH nor vendor value (Mature Black Dragon Sinew, etc)
+    * Supporting BigWigs for Black Lotus timer
+* 1.17.2
+    * Added XP/hour, contribution by github.com/Tanoh
+    * Fixed crash for unknown XP & money loot events
+* 1.17.1
+    * Added + button in All Farms window to create a new farm, will use the text in search box
+* 1.17
+    * Heads-up Display! Minified window with quick summary of your current session.
+    * PvP mode! You can now switch between viewing honor or drops for each farm.
+    * Added option to pause session on login, so it won't run after logging back in
+* 1.16
+    * Options screen! You can now configure FarmLog to your liking. Write `/fl` or Shift+Click the minimap button to see the option screen.
+* 1.15.2
+    * Counting rank kill count, instead of player names. This will reduce overload on the log and display more relevant information in later weeks, when we have higher ranks.
+    * Starting  a new session now resets session time
+    * Fixed bug introduced in 1.15.1 causing mob kills to not be counted
+* 1.15.1
+    * Fixed calculation of honor to support the diminishing return effect for honor
+* 1.15
+    * Supporting honor farm! Have a pleasant ranking.
+* 1.14.3 
+    * Fixed bug when holding shift on an item in loot log, it would show wrong "each" price
+    * Added `/fl blp NAME` command to log a BL picked by another player
+    * Fixed loading errors for new users
+* 1.14.2
+    * Fixed error showing up sometimes when picking BL
 * 1.14
     * Multi-session farms! You can now see current session yield, or change to total view. Now you can tell if your current session has been better than past ones or clear current session without affecting past metrics.
 * 1.13.2
@@ -135,27 +183,25 @@ Another thing is that the more time & data you have per session, the more accura
     * Initial release.
 
 ### To do
-* Count instance IDs (total & last hour)
 * Track traded gold (for enchanting, etc)
-* Support Chest / Container opening
-* Track deaths
 * Show repair bill
-* Allow listing loot without mob names
 * Allow custom attribution loot to certain mob
 * Support multiboxing GPH
-* Add button to add a new session / rename
+* Add button to add a new farm / rename
 * Show menu when clicking items on list - delete/ignore/set AH price/reassign
-* Sort lists 
 * Remove specific item from the log
 * Show drop chances
-* Show items value
-* Allow automatic start session when choosing session name
-* Save GPH calc in session var
 * Allow ignoring certain drop from g/h calc
-* Ignore gray items in AH scan
 * Allow filtering loot window with buttons
-* Allow sub-sessions
 * Start instance session on first hit
 * Allow manually increasing/decreasing kill values
 * Allow sending session report
-* Ask if user wants to resume when logging in
+* Show list of instances and times
+* Allow adding new farm with name in search box
+* Show AH scan time
+* Allow scanning using a UI button
+* Add diminishing returns to target tooltip
+* Format numbers with thosands separator
+* Show honor in last 10 seconds
+* Allow to show specific lines from log in HUD
+* Allow tracking rested XP
