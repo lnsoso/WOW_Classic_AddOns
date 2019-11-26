@@ -1,10 +1,69 @@
 QuestieLocale = {};
 QuestieLocale.locale = {};
+LangItemLookup = {}
 LangNameLookup= {};
-LangQuestLookup = {};
+LangObjectNameLookup = {};
 LangObjectLookup = {};
+LangQuestLookup = {};
+LangContinentLookup = {}
+LangZoneLookup = {}
+
+-------------------------
+--Import modules.
+-------------------------
+---@type QuestieDB
+local QuestieDB = QuestieLoader:ImportModule("QuestieDB");
 
 local locale = 'enUS';
+
+-- Initialize database tables with localization
+function QuestieLocale:Initialize()
+    -- Load item locales
+    for id, name in pairs(LangItemLookup[locale] or {}) do
+        if QuestieDB.itemData[id] and name then
+            QuestieDB.itemData[id][QuestieDB.itemKeys.name] = name
+        end
+    end
+    -- Load quest locales
+    for id, data in pairs(LangQuestLookup[locale] or {}) do
+        if QuestieDB.questData[id] then
+            if data[1] then
+                QuestieDB.questData[id][QuestieDB.questKeys.name] = data[1]
+            end
+            -- TODO add details text to questDB.lua (data[2])
+            if data[3] then
+                 -- needs to be saved as a table for tooltips to have lines
+                 -- TODO: split string into ~80 char lines
+                QuestieDB.questData[id][QuestieDB.questKeys.objectivesText] = {data[3]}
+            end
+        end
+    end
+    -- Load NPC locales
+    for id, name in pairs(LangNameLookup[locale] or {}) do
+        if QuestieDB.npcData[id] and name then
+            QuestieDB.npcData[id][QuestieDB.npcKeys.name] = name
+        end
+    end
+    -- Load object locales
+    for id, name in pairs(LangObjectLookup[locale] or {}) do
+        if QuestieDB.objectData[id] and name then
+            QuestieDB.objectData[id][QuestieDB.objectKeys.name] = name
+        end
+    end
+    -- Create {['name'] = {ID, },} table for lookup of possible object IDs by name
+    for id, data in pairs(QuestieDB.objectData) do
+        local name = data[QuestieDB.objectKeys.name]
+        if name then -- We (meaning me, BreakBB) introduced Fake IDs for objects to show additional locations, so we need to check this
+            if not LangObjectNameLookup[name] then
+                LangObjectNameLookup[name] = {}
+            end
+            table.insert(LangObjectNameLookup[name], id)
+        end
+    end
+    -- Load continent and zone locales
+    LangContinentLookup = LangContinentLookup[locale] or LangContinentLookup["enUS"] or {}
+    LangZoneLookup = LangZoneLookup[locale] or LangZoneLookup["enUS"] or {}
+end
 
 function QuestieLocale:FallbackLocale(lang)
 
@@ -18,7 +77,7 @@ function QuestieLocale:FallbackLocale(lang)
         return 'enUS';
     elseif lang == 'enCN' then
         return 'zhCN';
-    elseif lang == 'enTW' then 
+    elseif lang == 'enTW' then
         return 'zhTW';
     elseif lang == 'esMX' then
         return 'esES';
@@ -61,7 +120,7 @@ end
 function QuestieLocale:_GetUIString(key, ...)
     if key then
         -- convert all args to string
-        local arg = {...};        
+        local arg = {...}
         for i, v in ipairs(arg) do
             arg[i] = tostring(v);
         end
