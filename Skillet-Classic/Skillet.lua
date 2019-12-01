@@ -36,7 +36,7 @@ Skillet.version = MAJOR_VERSION
 Skillet.package = PACKAGE_VERSION
 Skillet.build = ADDON_BUILD
 Skillet.project = WOW_PROJECT_ID
-local isClassic = WOW_PROJECT_ID == 2
+local isClassic = WOW_PROJECT_ID == WOW_PROJECT_CLASSIC
 
 Skillet.isCraft = false			-- true for the Blizzard Craft UI, false for the Blizzard TradeSkill UI
 Skillet.lastCraft = false		-- help events know when to call ConfigureRecipeControls()
@@ -198,17 +198,25 @@ function Skillet:OnInitialize()
 	end
 
 --
--- Change the dataVersion when code changes obsolete 
--- the current saved variables database.
+-- Change the dataVersion when (major) code changes
+-- obsolete the current saved variables database.
+--
+-- Change the customVersion when code changes obsolete 
+-- the custom group specific saved variables data.
+--
+-- Change the queueVersion when code changes obsolete 
+-- the queue specific saved variables data.
 --
 -- Change the recipeVersion when code changes obsolete 
--- the recipe specific saved variables database.
+-- the recipe specific saved variables data.
 --
 -- When Blizzard releases a new build, there's a chance that
 -- recipes have changed (i.e. different reagent requirements) so
 -- we clear the saved variables recipe data just to be safe.
 --
 	local dataVersion = 5
+	local queueVersion = 1
+	local customVersion = 1
 	local recipeVersion = 3
 	local _,wowBuild,_,wowVersion = GetBuildInfo();
 	self.wowBuild = wowBuild
@@ -216,6 +224,12 @@ function Skillet:OnInitialize()
 	if not self.db.global.dataVersion or self.db.global.dataVersion ~= dataVersion then
 		self.db.global.dataVersion = dataVersion
 		self:FlushAllData()
+	elseif not self.db.global.customVersion or self.db.global.customVersion ~= customVersion then
+		self.db.global.customVersion = customVersion
+--		self:FlushCustomData()			-- allow one release before doing anything
+	elseif not self.db.global.queueVersion or self.db.global.queueVersion ~= queueVersion then
+		self.db.global.queueVersion = queueVersion
+--		self:FlushQueueData()			-- allow one release before doing anything
 	elseif not self.db.global.recipeVersion or self.db.global.recipeVersion ~= recipeVersion then
 		self.db.global.recipeVersion = recipeVersion
 		self:FlushRecipeData()
@@ -301,6 +315,9 @@ function Skillet:OnInitialize()
 	end
 	Skillet.FixBugs = Skillet.db.profile.FixBugs
 
+--
+-- Create a static popup for changing professions
+--
 StaticPopupDialogs["SKILLET_CONTINUE_CHANGE"] = {
 	text = "Skillet-Classic\n"..L["Press Okay to continue changing professions"],
 	button1 = OKAY,
@@ -320,6 +337,14 @@ StaticPopupDialogs["SKILLET_CONTINUE_CHANGE"] = {
 	self:InitializeDatabase(UnitName("player"))
 end
 
+--
+-- These functions reset parts of the database primarily
+-- when code changes obsolete the current database.
+--
+-- FlushAllData covers everything and (hopefully) is
+-- rarely used. There is a dataVersion number to
+-- increment to trigger a call.
+--
 function Skillet:FlushAllData()
 	Skillet.data = {}
 	Skillet.db.realm.tradeSkills = {}
@@ -330,17 +355,41 @@ function Skillet:FlushAllData()
 	Skillet.db.realm.bankData = {}
 	Skillet.db.realm.bankDetails = {}
 	Skillet.db.realm.userIgnoredMats = {}
+	Skillet:FlushCustomData()
+	Skillet:FlushQueueData()
 	Skillet:FlushRecipeData()
 end
 
+--
+-- Custom Groups data could represent significant
+-- effort by the player so don't clear it without
+-- good cause.
+--
+function Skillet:FlushCustomData()
+	Skillet.db.realm.groupDB = {}
+	Skillet.db.realm.groupSN = {}
+end
+
+--
+-- Saved queues are in the profile so
+-- clearing these tables is just the current
+-- queue and should have minimal impact.
+--
+function Skillet:FlushQueueData()
+	Skillet.db.realm.queueData = {}
+	Skillet.db.realm.reagentsInQueue = {}
+end
+
+--
+-- Recipe data is constantly getting rebuilt so
+-- clearing it should have minimal (if any) impact.
+-- Blizzard's "stealth" changes to recipes are the
+-- primary reason this function exists.
+--
 function Skillet:FlushRecipeData()
 	Skillet.db.global.recipeDB = {}
 	Skillet.db.global.itemRecipeUsedIn = {}
 	Skillet.db.global.itemRecipeSource = {}
-	Skillet.db.realm.queueData = {}
-	Skillet.db.realm.reagentsInQueue = {}
-	Skillet.db.realm.groupDB = {}
-	Skillet.db.realm.groupSN = {}
 	Skillet.db.realm.skillDB = {}
 	Skillet.db.realm.subClass = {}
 	Skillet.db.realm.invSlot = {}
@@ -350,6 +399,8 @@ end
 -- MissingVendorItem entries can be a string when bought with gold
 -- or a table when bought with an alternate currency
 -- table entries are {name, quantity, currencyName, currencyID, currencyCount}
+--
+-- Note: Classic doesn't have any alternate currencies yet.
 --
 function Skillet:InitializeMissingVendorItems()
 	self.db.global.MissingVendorItems = {
@@ -596,7 +647,7 @@ function Skillet:OnEnable()
 --
 	self:UpgradeDataAndOptions()
 	self:CollectTradeSkillData()
-	self:UpdateAutoTradeButtons()
+	self:CreateAdditionalButtonsList()
 	self:EnablePlugins()
 	self:DisableBlizzardFrame()
 end
@@ -718,6 +769,8 @@ function Skillet:CRAFT_SHOW()
 		if Skillet.tradeSkillFrame and Skillet.tradeSkillFrame:IsVisible() then
 			Skillet.isCraft = nil
 			Skillet:SkilletClose()
+			Skillet.changingTrade = nil
+			Skillet.processingSpell = nil
 		end
 		ShowUIPanel(CraftFrame)
 		return
@@ -800,32 +853,33 @@ function Skillet:SkilletShow()
 	else
 		name, rank, maxRank = GetTradeSkillLine()
 	end
-	--DA.DEBUG(0,"name= '"..tostring(name).."', rank= "..tostring(rank)..", maxRank= "..tostring(maxRank))
-	self.currentTrade = self.tradeSkillIDsByName[name]
+	DA.DEBUG(0,"name= '"..tostring(name).."', rank= "..tostring(rank)..", maxRank= "..tostring(maxRank))
+	if name then self.currentTrade = self.tradeSkillIDsByName[name] end
 	if self:IsSupportedTradeskill(self.currentTrade) then
 		self:InventoryScan()
 		--DA.DEBUG(0,"SkilletShow: "..self.currentTrade..", name= '"..tostring(name).."', rank= "..tostring(rank)..", maxRank= "..tostring(maxRank))
 		self.selectedSkill = nil
 		self.dataScanned = false
 		self:ScheduleTimer("SkilletShowWindow", 0.5)
-		if Skillet.db.profile.hide_blizzard_frame then
-			if self.isCraft then
+		if self.isCraft then
+			if Skillet.db.profile.support_crafting then
+				self:StealEnchantButton()
+			end
+			if Skillet.db.profile.hide_blizzard_frame then
 				--DA.DEBUG(0,"HideUIPanel(CraftFrame)")
 				Skillet.hideCraftFrame = true
 				HideUIPanel(CraftFrame)
 				if Skillet.tradeShow then
 					CloseTradeSkill()
 				end
-				if Skillet.db.profile.support_crafting then
-					self:StealEnchantButton()
-				end
-			else
-				--DA.DEBUG(0,"HideUIPanel(TradeSkillFrame)")
-				Skillet.hideTradeSkillFrame = true
-				HideUIPanel(TradeSkillFrame)
-				if Skillet.craftShow then
-					CloseCraft()
-				end
+			end
+		elseif Skillet.db.profile.hide_blizzard_frame then
+			--DA.DEBUG(0,"HideUIPanel(TradeSkillFrame)")
+			Skillet.hideTradeSkillFrame = true
+			HideUIPanel(TradeSkillFrame)
+			if Skillet.craftShow then
+				self:RestoreEnchantButton()
+				CloseCraft()
 			end
 		end
 	else
@@ -1031,40 +1085,58 @@ end
 
 --
 -- Make sure profession changes are spaced out
+--   delayChange is set when ChangeTradeSkill is called
+--     and cleared here when the timer expires.
 --
 function Skillet:DelayChange()
+	DA.DEBUG(0,"DelayChange()")
 	Skillet.delayChange = false
-	if Skillet.needChange then
-		Skillet.needChange = false
-		Skillet:ChangeTradeSkill(Skillet.changingTrade, Skillet.changingName)
+	if Skillet.delayNeeded then
+		Skillet.delayNeeded = false
+		Skillet:ChangeTradeSkill(Skillet.delayTrade, Skillet.delayName)
 	end
 end
 
 --
 -- Change to a different profession but
--- not more often than once every .5 seconds
+--   not more often than once every .5 seconds.
+-- If called too quickly, delayNeeded is set and
+--   the change is deferred until DelayChange is called.
 --
 function Skillet:ChangeTradeSkill(tradeID, tradeName)
 	DA.DEBUG(0,"ChangeTradeSkill("..tostring(tradeID)..", "..tostring(tradeName)..")")
-	if not Skillet.delayChange then
-		DA.DEBUG(1,"ChangeTradeSkill: executing CastSpellByName("..tostring(tradeName)..")")
-		CastSpellByName(tradeName) -- trigger the whole rescan process via a TRADE_SKILL_SHOW or CRAFT_SHOW event
-		Skillet.changingTrade = tradeID
-		Skillet.changingName = tradeName
-		Skillet.delayChange = true
-		Skillet:ScheduleTimer("DelayChange", 0.5)
+	if not self.delayChange then
+		local spellID = tradeID
+		if tradeID == 2575 then spellID = 2656 end		-- Ye old Mining vs. Smelting issue
+		local spell = self:GetTradeName(spellID)
+		--DA.DEBUG(1,"tradeID= "..tostring(tradeID)..", tradeName= "..tostring(tradeName)..", Mining= "..tostring(Mining)..", Smelting= "..tostring(Smelting))
+		DA.DEBUG(1,"ChangeTradeSkill: executing CastSpellByName("..tostring(spell)..")")
+		self.processingSpell = spell
+		CastSpellByName(spell) -- trigger the whole rescan process via a TRADE_SKILL_SHOW or CRAFT_SHOW event
+		self.delayTrade = tradeID
+		self.delayName = tradeName
+		self.delayChange = true
+		self:ScheduleTimer("DelayChange", 0.5)
 	else
 		DA.DEBUG(1,"ChangeTradeSkill: waiting for callback")
-		Skillet.needChange = true
+		self.delayNeeded = true
 	end
 end
 
+--
+-- Called from a static popup to change professions
+--   changingTrade and changingName should be set to
+--   the target profession.
+--
 function Skillet:ContinueChange()
 	DA.DEBUG(0,"ContinueChange()")
-	self.isCraft = self.skillIsCraft[Skillet.changingTrade]
-	self.currentTrade = Skillet.changingTrade
-	Skillet:ChangeTradeSkill(Skillet.changingTrade, Skillet.changingName)
+	self.isCraft = self.skillIsCraft[self.changingTrade]
+	DA.DEBUG(1,"ContinueChange: changingTrade= "..tostring(self.changingTrade)..", changingName= "..tostring(self.changingName)..
+	  ", isCraft= "..tostring(self.isCraft))
+	self.currentTrade = self.changingTrade
+	self:ChangeTradeSkill(self.changingTrade, self.changingName)
 end
+
 --
 -- Either change to a different profession or change the currently selected recipe
 --
@@ -1076,6 +1148,7 @@ function Skillet:SetTradeSkill(player, tradeID, skillIndex)
 	end
 	if tradeID ~= self.currentTrade then
 		local oldTradeID = self.currentTrade
+		local tradeName = self:GetTradeName(tradeID)
 		if self.skillIsCraft[oldTradeID] ~= self.skillIsCraft[TradeID] then
 			self.ignoreClose = true
 			self.isCraft = self.skillIsCraft[TradeID]	-- the skill we are going to
@@ -1085,14 +1158,6 @@ function Skillet:SetTradeSkill(player, tradeID, skillIndex)
 		self.selectedSkill = nil
 		self.currentGroup = nil
 		self:HideNotesWindow()
---
--- Using English spell names won't work for other locales
---
-		local tradeName = self:GetTradeName(tradeID)
-		local Mining = self:GetTradeName(MINING)
-		local Smelting = self:GetTradeName(SMELTING)
-		DA.DEBUG(0,"cast: "..tostring(spellName))
-		if tradeName == Mining then tradeName = Smelting end
 		self:ChangeTradeSkill(tradeID, tradeName)
 	else
 		self:SetSelectedSkill(skillIndex, false)
@@ -1155,7 +1220,8 @@ function Skillet:HideAllWindows()
 	end
 	self.currentTrade = nil
 	self.selectedSkill = nil
-	self.changingTrade = nil
+--	self.changingTrade = nil
+--	self.processingSkill = nil
 	return closed
 end
 

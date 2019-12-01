@@ -133,6 +133,7 @@ addon.Cooldowns = {
         [197871] = { duration = 60, class = "PRIEST", specID = { 256 } }, -- Dark Archangel
         [204263] = { duration = 45, class = "PRIEST", specID = { 256, 257 } }, -- Shining Force
         [209780] = { duration = 12, class = "PRIEST", specID = { 256} }, -- Premonition
+          [209885] = { parent = 209780 },
 
         -- Holy
 
@@ -184,7 +185,7 @@ addon.Cooldowns = {
         [114158] = { duration = 60, class = "PALADIN", specID = { 65 } }, -- Light's Hammer
         [183415] = { duration = 180, class = "PALADIN", specID = { 65 } }, -- Aura of Mercy
         [200652] = { duration = 90, class = "PALADIN", specID = { 65 } }, -- Tyr's Deliverance
-        [210294] = { duration = 45, class = "PALADIN", specID = { 65 } }, -- Divine Favor
+        [210294] = { duration = 25, class = "PALADIN", specID = { 65 } }, -- Divine Favor
         [214202] = { duration = 30, class = "PALADIN", specID = { 65 }, charges = 2 }, -- Rule of Law
 
         -- Protection
@@ -454,7 +455,6 @@ addon.Cooldowns = {
     [187650] = { duration = { default = 30, [255] = 20 }, class = "HUNTER" }, -- Freezing Trap
     [202914] = { duration = 60, class = "HUNTER" }, -- Spider Sting
     [209997] = { duration = 30, class = "HUNTER" }, -- Play Dead
-    [266779] = { duration = 30, class = "HUNTER" }, -- Coordinated Assault
 
         -- Beast Mastery
 
@@ -495,6 +495,7 @@ addon.Cooldowns = {
         [203415] = { duration = 45, class = "HUNTER", specID = { 255 } }, -- Fury of the Eagle
         [205691] = { duration = 120, class = "HUNTER", specID = { 255 } }, -- Dire Beast: Basilisk
         [212640] = { duration = 25, class = "HUNTER", specID = { 255 } }, -- Mending Bandage
+        [266779] = { duration = 20, class = "HUNTER", specID = { 255 } }, -- Coordinated Assault
 
     -- Mage
 

@@ -1,35 +1,23 @@
-# [2.14.6](https://github.com/WeakAuras/WeakAuras2/tree/2.14.6) (2019-08-30)
+# [2.15.5](https://github.com/WeakAuras/WeakAuras2/tree/2.15.5) (2019-10-22)
 
-[Full Changelog](https://github.com/WeakAuras/WeakAuras2/compare/2.14.5...2.14.6)
+[Full Changelog](https://github.com/WeakAuras/WeakAuras2/compare/2.15.4...2.15.5)
 
 ## Highlights
 
- - Bug fixes! Bug fixes! Get your bug fixes! 
+ - A few more bug fixes 
 
 ## Commits
 
-InfusOnWoW (1):
+Stanzilla (1):
 
-- Fix regression Talent Selected Trigger
-
-LAMBOLEY Lucas (1):
-
-- Update .luacheckrc
-
-Stanzilla (2):
-
-- add back the missing true(th)
-- remove last remnants of sticky duration, see our [wiki](https://github.com/WeakAuras/WeakAuras2/wiki/Deprecations) on what to use instead
+- drop branch name from PR artifacts
 
 Vardex (1):
 
-- Fix wrong duration for oh enchantment
+- Fix weapon enchant shortened name
 
-mrbuds (5):
+mrbuds (2):
 
-- fix nil error in stance trigger
-- fix WeakAuras.GetProperties with unknown region type fixes #1643
-- classic: WA_GetUnitAura return duration & expirationTime from LibClassicDurations
-- fix a bug with combat log trigger arguments fix #1638
-- classic: fix register unknown event in bufftrigger1
+- swing timer: fix nil error if no offhand equiped
+- update "Cooldown Progress (Equipment Slot)" for handling amno fixes #1762 refresh on UNIT_INVENTORY_CHANGED add a stacksFunc
 

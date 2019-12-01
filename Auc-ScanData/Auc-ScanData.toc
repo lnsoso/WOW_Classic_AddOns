@@ -8,7 +8,7 @@
 ## OptionalDeps: Auc-Util-PriceLevel
 ##
 ## Version: 8.2.6365 (SwimmingSeadragon)
-## Revision: $Id: Auc-ScanData.toc 6365 2019-09-25 00:20:07Z none $
+## Revision: $Id: Auc-ScanData.toc 6365 2019-10-20 00:10:07Z none $
 ## Author: Norganna's AddOns
 ## X-Part-Of: Auctioneer
 ## X-Category: Auction House

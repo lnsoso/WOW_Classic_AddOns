@@ -332,7 +332,7 @@ function Skillet:ProcessQueue(altMode)
 --
 	if command then
 		if command.op == "iterate" then
-			self.queuecasting = true
+			self.queueCasting = true
 			--DA.DEBUG(1,"command= "..DA.DUMP1(command)..", currentTrade= "..tostring(currentTrade))
 			local recipeID = command.recipeID
 			local tradeID = command.tradeID
@@ -340,12 +340,8 @@ function Skillet:ProcessQueue(altMode)
 			local recipeIndex = command.recipeIndex
 			local count = command.count
 			if self.currentTrade ~= tradeID and tradeName then
-				local Mining = self:GetTradeName(2575)
-				local Smelting = self:GetTradeName(2656)
-				--DA.DEBUG(1,"tradeID= "..tostring(tradeID)..", tradeName= "..tostring(tradeName)..", Mining= "..tostring(Mining)..", Smelting= "..tostring(Smelting))
-				if tradeName == Mining then tradeName = Smelting end
 				self:Print(L["Changing profession to"],tradeName,L["Press Process to continue"])
-				self.queuecasting = false
+				self.queueCasting = false
 				self:ChangeTradeSkill(tradeID, tradeName)
 				self:QueueMoveToTop(qpos)
 				return
@@ -374,7 +370,7 @@ function Skillet:ProcessQueue(altMode)
 				if itemID then
 					DA.DEBUG(0,"UseItemByName("..tostring(itemID)..")")
 					UseItemByName(itemID)
-					self.queuecasting = false
+					self.queueCasting = false
 				end
 			end
 			return
@@ -423,14 +419,18 @@ function Skillet:QueueItems(count)
 	return count
 end
 
+--
 -- Queue the max number of craftable items for the currently selected skill
+--
 function Skillet:QueueAllItems()
 	DA.DEBUG(0,"QueueAllItems()");
 	local count = self:QueueItems()						-- no argument means queue em all
 	return count
 end
 
+--
 -- Adds the currently selected number of items to the queue and then starts the queue
+--
 function Skillet:CreateItems(count)
 	local mouse = GetMouseButtonClicked()
 	DA.DEBUG(0,"CreateItems("..tostring(count).."), "..tostring(mouse))
@@ -439,13 +439,17 @@ function Skillet:CreateItems(count)
 	end
 end
 
+--
 -- Adds one item to the queue and then starts the queue
+--
 function Skillet:EnchantItem()
 	DA.DEBUG(0,"EnchantItem()")
 	self:CreateItems(1)
 end
 
+--
 -- Queue and create the max number of craftable items for the currently selected skill
+--
 function Skillet:CreateAllItems()
 	local mouse = GetMouseButtonClicked()
 	DA.DEBUG(0,"CreateAllItems(), "..tostring(mouse))
@@ -472,7 +476,7 @@ function Skillet:UNIT_SPELLCAST_SUCCEEDED(event, unit, castGUID, spellID)
 	self.castSpellName = GetSpellInfo(spellID)
 	DA.TRACE("spellID= "..tostring(spellID)..", spellName= "..tostring(self.castSpellName)..", processingSpell= "..tostring(self.processingSpell))
 	if unit == "player" then
-		if (self.processingSpell and self.processingSpell == self.castSpellName) or self.changingTrade then
+		if self.processingSpell and self.processingSpell == self.castSpellName then
 			Skillet:ContinueCast(self.castSpellName)
 		end
 	end
@@ -548,17 +552,21 @@ function Skillet:UI_INFO_MESSAGE(event, errorType, message)
 end
 
 function Skillet:ContinueCast(spell)
-	DA.DEBUG(0,"ContinueCast("..tostring(spell)..")")
+	DA.DEBUG(0,"ContinueCast("..tostring(spell).."): changingTrade= "..tostring(self.changingTrade)..
+	  ", processingSpell= "..tostring(self.processingSpell)..", queueCasting= "..tostring(self.queueCasting))
 	if self.changingTrade then			-- contains the tradeID we are changing to
-		self.changingTrade = nil
+		self.currentTrade = self.changingTrade
 		Skillet:SkilletShow()			-- seems to let DoTradeSkill know we have changed
+--		self.processingSpell = nil
+--		self.changingTrade = nil
 	else
 		self:AdjustInventory()
 	end
 end
 
 function Skillet:StopCast(spell, success)
-	DA.DEBUG(0,"StopCast("..tostring(spell)..", "..tostring(success)..")")
+	DA.DEBUG(0,"StopCast("..tostring(spell)..", "..tostring(success).."): changingTrade= "..tostring(self.changingTrade)..
+	  ", processingSpell= "..tostring(self.processingSpell)..", queueCasting= "..tostring(self.queueCasting))
 	if not self.db.realm.queueData then
 		self.db.realm.queueData = {}
 	end
@@ -578,10 +586,12 @@ function Skillet:StopCast(spell, success)
 			else
 				command = queue[qpos]
 			end
-			-- empty queue or command not found (removed?)
+--
+-- empty queue or command not found (removed?)
+--
 			if not queue[1] or not command then
 				DA.DEBUG(0,"StopCast empty queue[1]= "..tostring(queue[1])..", command= "..tostring(command))
-				self.queuecasting = false
+				self.queueCasting = false
 				self.processingSpell = nil
 				self.processingPosition = nil
 				self.processingCommand = nil
@@ -592,7 +602,7 @@ function Skillet:StopCast(spell, success)
 				command.count = command.count - 1
 				if command.count < 1 then
 					DA.DEBUG(0,"StopCast "..tostring(command.count).." < 1")
-					self.queuecasting = false
+					self.queueCasting = false
 					self.processingSpell = nil
 					self.processingPosition = nil
 					self.processingCommand = nil
@@ -603,10 +613,10 @@ function Skillet:StopCast(spell, success)
 			end
 		else
 			DA.DEBUG(0,"StopCast without success")
+			self.queueCasting = false
 			self.processingSpell = nil
 			self.processingPosition = nil
 			self.processingCommand = nil
-			self.queuecasting = false
 		end
 		DA.DEBUG(0,"StopCast is updating window")
 		self:AdjustInventory()
@@ -615,27 +625,20 @@ function Skillet:StopCast(spell, success)
 	end
 end
 
--- Stop a trade skill currently in prograess. We cannot cancel the current
--- item as that requires a "SpellStopCasting" call which can only be
--- made from secure code. All this does is stop repeating after the current item
-function Skillet:CancelCast()
-	DA.DEBUG(0,"CancelCast()")
---	StopTradeSkillRepeat()
-end
-
+--
 -- Removes an item from the queue
+--
 function Skillet:RemoveQueuedCommand(queueIndex)
 	DA.DEBUG(0,"RemoveQueuedCommand("..tostring(queueIndex)..")")
-	if queueIndex == 1 then
-		self:CancelCast()
-	end
 	self.reagentsChanged = {}
 	self:RemoveFromQueue(queueIndex)
 	self:UpdateQueueWindow()
 	self:UpdateTradeSkillWindow()
 end
 
+--
 -- Rebuilds reagentsInQueue list
+--
 function Skillet:ScanQueuedReagents()
 	DA.DEBUG(0,"ScanQueuedReagents()")
 	if self.linkedSkill or self.isGuild then

@@ -5,7 +5,7 @@
 ## SavedVariables: SwatterData
 ##
 ## Version: 8.2.6377 (SwimmingSeadragon)
-## Revision: $Id: !Swatter.toc 6377 2019-09-25 00:20:07Z none $
+## Revision: $Id: !Swatter.toc 6377 2019-10-20 00:10:07Z none $
 ## Author: Norganna's AddOns
 ## X-Part-Of: Libraries
 ## X-Category: Library

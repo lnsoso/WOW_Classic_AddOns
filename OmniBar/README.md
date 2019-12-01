@@ -8,6 +8,23 @@ https://github.com/jordonwow/omnibar/issues
 **Submit a pull request:**
 https://github.com/jordonwow/omnibar/pulls
 
+## v10.6
+* Bug fixes
+
+## v10.5
+* Fix Custom Spells
+
+## v10.4
+* Add Earth Shock for Classic
+
+## v10.3
+* Bug fixes
+
+## v10.2
+* Fix Coordinated Assault
+* Fix Divine Favor cooldown
+* Fix Premonition
+
 ## v10.1
 * Bug fixes
 

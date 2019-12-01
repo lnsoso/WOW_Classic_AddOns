@@ -1,0 +1,21 @@
+tag ca33043542887e415e17ba1628aa69ae6fcc2036 v1.1-release
+Author:	cloudbells <chriszmn@gmail.com>
+Date:	Wed Sep 25 22:35:42 2019 +0200
+
+Bug fixes
+
+commit 8dc855e0417316a440b8876e6c97cb19be6f585e
+Author: cloudbells <chriszmn@gmail.com>
+Date:   Wed Sep 25 22:35:05 2019 +0200
+
+    Removed a line
+
+commit 9be7bebb59b9124eec666c40033856647c450db5
+Author: cloudbells <chriszmn@gmail.com>
+Date:   Wed Sep 25 22:31:21 2019 +0200
+
+    Removed support for dungeons, bug fix
+    
+    - Fixed bug where zones changed before entering the dungeon, which meant logging didn't start
+    - Removed support for dungeons since WarcraftLogs has no support for them and they aren't supported by the fix
+

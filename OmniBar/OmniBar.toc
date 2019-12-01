@@ -1,7 +1,7 @@
 ## Interface: 11302
 ## Title: OmniBar
 ## Notes: Tracks enemy cooldowns
-## Version: v10.1
+## Version: v10.6
 ## Author: Jordon
 ## DefaultState: Enabled
 ## SavedVariables: OmniBarDB
@@ -18,9 +18,11 @@ Libs\AceHook-3.0\AceHook-3.0.xml
 Libs\AceGUI-3.0\AceGUI-3.0.xml
 Libs\AceConfig-3.0\AceConfig-3.0.xml
 Libs\AceLocale-3.0\AceLocale-3.0.xml
+Libs\LibDualSpec-1.0\LibDualSpec-1.0.lua
 
 Locales\Locales.xml
 OmniBar.xml
+Retail.lua
 Classic.lua
 OmniBar.lua
 Options.lua

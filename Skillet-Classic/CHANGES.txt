@@ -1,14 +1,29 @@
 ------------------------------------------------------------------------
-r117 | bsmorgan | 2019-11-06 03:26:37 +0000 (Wed, 06 Nov 2019) | 2 lines
+r126 | bsmorgan | 2019-11-24 16:11:15 +0000 (Sun, 24 Nov 2019) | 1 line
 Changed paths:
-   M /trunk/Skillet-Classic.toc
-   M /trunk/SkilletOptions.lua
-   M /trunk/UI/IgnoreList.lua
+   M /trunk/Skillet.lua
+   M /trunk/SkilletQueue.lua
    M /trunk/UI/MainFrame.lua
-   M /trunk/UI/MerchantWindow.lua
+
+- More fix for issue #129
+------------------------------------------------------------------------
+r125 | bsmorgan | 2019-11-24 04:54:54 +0000 (Sun, 24 Nov 2019) | 1 line
+Changed paths:
+   M /trunk/Skillet.lua
+   M /trunk/SkilletQueue.lua
+
+- Fix issue #129
+------------------------------------------------------------------------
+r124 | bsmorgan | 2019-11-23 17:01:31 +0000 (Sat, 23 Nov 2019) | 3 lines
+Changed paths:
+   M /trunk/Plugins/MissingTradeSkillsList.lua
+   M /trunk/Skillet.lua
+   M /trunk/SkilletQueue.lua
+   M /trunk/UI/MainFrame.lua
    M /trunk/UI/ShoppingList.lua
 
-- Fix issue #116
-- Fix other bugs
+- Fix MissingTradeSkillsList button moving
+- Fix Auctionator buttons
+- Move all CastSpellByName calls into Skillet.lua
 ------------------------------------------------------------------------
 

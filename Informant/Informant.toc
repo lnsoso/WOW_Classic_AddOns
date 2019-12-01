@@ -8,7 +8,7 @@
 ## SavedVariables: InformantConfig, InformantLocalUpdates
 ##
 ## Version: 8.2.6374 (SwimmingSeadragon)
-## Revision: $Id: Informant.toc 6374 2019-09-25 00:20:07Z none $
+## Revision: $Id: Informant.toc 6374 2019-10-20 00:10:07Z none $
 ## Author: Norganna's AddOns
 ## X-Part-Of: Auctioneer
 ## X-Category: Item Data
