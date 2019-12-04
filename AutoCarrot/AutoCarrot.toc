@@ -1,0 +1,7 @@
+## Interface: 11302 
+## Title: AutoCarrot
+## Author: kebabstorm
+## Notes: Equips Carrot on a Stick automatically when mounted
+## SavedVariablesPerCharacter: AutoCarrot_trinketId, AutoCarrot_Disabled
+## Version: 1.13.2
+AutoCarrot.lua
