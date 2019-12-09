@@ -361,7 +361,6 @@ function CreateStatsDropdown(node)
 			info.text = L["AddToKOSList"]
 			info.func = function() Spy:ToggleKOSPlayer(true, unit.name) end
 			info.value = nil
---			UIDropDownMenu_AddButton(info, level)
 			UIDropDownMenu_AddButton(info, UIDROPDOWNMENU_MENU_LEVEL)			
 			
 			info.isTitle = nil
@@ -374,7 +373,6 @@ function CreateStatsDropdown(node)
 				SpyStats:Recalulate()
 				end 
 			info.value = nil
---			UIDropDownMenu_AddButton(info, level)
 			UIDropDownMenu_AddButton(info, UIDROPDOWNMENU_MENU_LEVEL)			
 		else
 			info = UIDropDownMenu_CreateInfo()
@@ -392,7 +390,15 @@ function CreateStatsDropdown(node)
 			info.text = L["RemoveFromKOSList"]
 			info.func = function() Spy:ToggleKOSPlayer(false, unit.name) end
 			info.value = nil
---			UIDropDownMenu_AddButton(info, level)
+			UIDropDownMenu_AddButton(info, UIDROPDOWNMENU_MENU_LEVEL)
+
+			info.isTitle = nil
+			info.notCheckable = true
+			info.hasArrow = false
+			info.disabled = nil
+			info.text = L["KOSReasonClear"]
+			info.func = function() Spy:SetKOSReason(unit.name, nil) end
+			info.value = nil
 			UIDropDownMenu_AddButton(info, UIDROPDOWNMENU_MENU_LEVEL)			
 		end	
 

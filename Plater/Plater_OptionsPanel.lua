@@ -1627,6 +1627,18 @@ local debuff_options = {
 		name = "Show Buffs Casted by the Unit",
 		desc = "Show Buffs Casted by the Unit it self",
 	},
+
+	{
+		type = "toggle",
+		get = function() return Plater.db.profile.aura_show_enemy_buffs end,
+		set = function (self, fixedparam, value) 
+			Plater.db.profile.aura_show_enemy_buffs = value
+			Plater.RefreshDBUpvalues()
+			Plater.UpdateAllPlates()
+		end,
+		name = "Show all enemy Buffs",
+		desc = "Show all Buffs on the enemy unit.\nTo track single buffs only, add them to the Buff Tracking white list.",
+	},
 	--border color is buff
 	{
 		type = "color",
@@ -7927,6 +7939,9 @@ local relevance_options = {
 	end
 	local on_select_friendlynpc_bignametext_text_font = function (_, _, value)
 		Plater.db.profile.plate_config.friendlynpc.big_actorname_text_font = value
+		Plater.UpdateAllPlates()
+	end
+	local on_select_friendlynpc_bigtitletext_text_font = function (_, _, value)
 		Plater.db.profile.plate_config.friendlynpc.big_actortitle_text_font = value
 		Plater.UpdateAllPlates()
 	end
@@ -8021,13 +8036,12 @@ local relevance_options = {
 		{type = "blank"},
 		
 		{type = "label", get = function() return "Npc Name Text When no Health Bar Shown:" end, text_template = DF:GetTemplate ("font", "ORANGE_FONT_TEMPLATE")},
-		--profession text size
+		--text size
 		{
 			type = "range",
 			get = function() return Plater.db.profile.plate_config.friendlynpc.big_actorname_text_size end,
 			set = function (self, fixedparam, value) 
 				Plater.db.profile.plate_config.friendlynpc.big_actorname_text_size = value
-				Plater.db.profile.plate_config.friendlynpc.big_actortitle_text_size = value
 				Plater.UpdateAllPlates()
 			end,
 			min = 6,
@@ -8036,7 +8050,7 @@ local relevance_options = {
 			name = L["OPTIONS_SIZE"],
 			desc = "Size of the text.",
 		},
-		--profession text font
+		--text font
 		{
 			type = "select",
 			get = function() return Plater.db.profile.plate_config.friendlynpc.big_actorname_text_font end,
@@ -8070,7 +8084,7 @@ local relevance_options = {
 			desc = "|cFFFFFF00Important|r: hide and show nameplates to see changes.",
 		},
 		
-		--profession text color
+		--text color
 		{
 			type = "color",
 			get = function()
@@ -8085,6 +8099,56 @@ local relevance_options = {
 			name = L["OPTIONS_COLOR"],
 			desc = "The color of the text.",
 		},
+		
+		{type = "label", get = function() return "Npc Title Text When no Health Bar Shown:" end, text_template = DF:GetTemplate ("font", "ORANGE_FONT_TEMPLATE")},
+		--profession text size
+		{
+			type = "range",
+			get = function() return Plater.db.profile.plate_config.friendlynpc.big_actortitle_text_size end,
+			set = function (self, fixedparam, value) 
+				Plater.db.profile.plate_config.friendlynpc.big_actortitle_text_size = value
+				Plater.UpdateAllPlates()
+			end,
+			min = 6,
+			max = 99,
+			step = 1,
+			name = L["OPTIONS_SIZE"],
+			desc = "Size of the text.",
+		},
+		--profession text font
+		{
+			type = "select",
+			get = function() return Plater.db.profile.plate_config.friendlynpc.big_actortitle_text_font end,
+			values = function() return DF:BuildDropDownFontList (on_select_friendlynpc_bigtitletext_text_font) end,
+			name = L["OPTIONS_FONT"],
+			desc = "Font of the text.",
+		},
+		
+		--profession text outline options
+		{
+			type = "select",
+			get = function() return Plater.db.profile.plate_config.friendlynpc.big_actortitle_text_outline end,
+			values = function() return build_outline_modes_table ("friendlynpc", "big_actortitle_text_outline") end,
+			name = L["OPTIONS_OUTLINE"],
+			desc = "Outline",
+		},
+		
+		--profession text shadow color
+		{
+			type = "color",
+			get = function()
+				local color = Plater.db.profile.plate_config.friendlynpc.big_actortitle_text_shadow_color
+				return {color[1], color[2], color[3], color[4]}
+			end,
+			set = function (self, r, g, b, a) 
+				local color = Plater.db.profile.plate_config.friendlynpc.big_actortitle_text_shadow_color
+				color[1], color[2], color[3], color[4] = r, g, b, a
+				Plater.UpdateAllPlates()
+			end,
+			name = L["OPTIONS_SHADOWCOLOR"],
+			desc = "|cFFFFFF00Important|r: hide and show nameplates to see changes.",
+		},
+		
 		--profession text color
 		{
 			type = "color",
@@ -8099,7 +8163,7 @@ local relevance_options = {
 			end,
 			name = "Profession Text Color",
 			desc = "The color of the profession text below the npc name.",
-		},			
+		},
 
 		{type = "breakline"},
 

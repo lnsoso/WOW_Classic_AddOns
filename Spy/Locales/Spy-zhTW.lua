@@ -5,7 +5,7 @@ if not L then return end
 -- Addon information
 L["Spy"] = "偵測敵方玩家 Spy"
 L["Version"] = "版本"
---L["LoadDescription"] = "|cff9933ff偵測敵方玩家插件已載入，輸入 |cffffffff/spy|cff9933ff 查看更多指令選項。"
+L["VersionCheck"] = "|cffc41e3a警告！ 安裝了錯誤的Spy版本。 刪除此版本並安裝Spy Classic。"
 L["SpyEnabled"] = "|cff9933ff偵測敵方玩家插件已啟用。"
 L["SpyDisabled"] = "|cff9933ff偵測敵方玩家插件已停用，輸入 |cffffffff/spy enable|cff9933ff 來啟用。"
 L["UpgradeAvailable"] = "|cff9933ff偵測敵方玩家插件已有新版本，可以到這裡下載：\n|cffffffffhttps://www.curseforge.com/wow/addons/spy-classic"
@@ -25,10 +25,8 @@ L["SpyDescription2"] = [[
 |cffffd000附近清單|cffffffff
 附近清單會顯示已經被偵測到在附近的任何敵方玩家。點一下清單中的名字可以將玩家選取為目標，但是只能在非戰鬥中使用。一段時間後沒有偵測到的玩家會從清單中自動移除。
 
-標題列的清空按鈕可以立即清空清單，按住 CTRL 鍵來清空可以快速啟用/停用 Spy。
-
 |cffffd000最近清單|cffffffff
-最近清單會顯示最近一小時內偵測到的所有敵方玩家。
+顯示在一小時內檢測到的所有敵人。
 
 |cffffd000忽略清單|cffffffff
 Spy 不會顯示被加入到忽略清單中的玩家。透過滑鼠右鍵選單，或是按住 CTRL 鍵點擊名字將玩家加入清單和移除。
@@ -38,12 +36,11 @@ Spy 不會顯示被加入到忽略清單中的玩家。透過滑鼠右鍵選單�
 
 滑鼠右鍵選單也可以設定將某人加入到即殺清單的原因。如果你想要輸入不在清單中的原因，請在其他清單中使用 "自行輸入原因..."。
 
-
 |cffffd000作者: Slipjack |cffffffff
-
 ]]
+
 L["EnableSpy"] = "啟用"
-L["EnableSpyDescription"] = "現在和登入時都要啟用 Spy。"
+L["EnableSpyDescription"] = "啟用或禁用 Spy。"
 L["EnabledInBattlegrounds"] = "戰場中啟用"
 L["EnabledInBattlegroundsDescription"] = "身處在戰場中時啟用或停用 Spy。"
 L["EnabledInArenas"] = "競技場中啟用"
@@ -55,7 +52,7 @@ L["DisableWhenPVPUnflaggedDescription"] = "依據自身的 PVP 狀態啟用或�
 
 L["DisplayOptions"] = "顯示"
 L["DisplayOptionsDescription"] = [[
-自動顯示或隱藏 Spy。
+Spy 窗口的選項和工具提示。
 ]]
 L["ShowOnDetection"] = "偵測到敵方玩家時顯示"
 L["ShowOnDetectionDescription"] = "偵測到敵方玩家時會自動將隱藏的 Spy 視窗和附近清單顯示出來。"
@@ -94,12 +91,19 @@ L["SelectFont"] = "選擇字體"
 L["SelectFontDescription"] = "選擇 Spy 視窗使用的字體。"
 L["RowHeight"] = "選擇列高"
 L["RowHeightDescription"] = "選擇 Spy 視窗橫列的高度。"
+L["Texture"] = "質地"
+L["TextureDescription"] = "選擇 Spy 窗口的紋理"
 
 L["AlertOptions"] = "警告"
 L["AlertOptionsDescription"] = [[
-遇到時可以將詳情通報到聊天頻道，並且控制偵測到敵方玩家時 Spy 該如何發出警告。
+當檢測到敵方玩家時的警報，公告和警告選項。
 ]]
-L["Announce"] = "通報到:"
+L["SoundChannel"] = "選擇聲音通道"
+L["Master"] = "主音量"
+L["SFX"] = "音效音量"
+L["Music"] = "音樂音量"
+L["Ambience"] = "環境音量"
+L["Announce"] = "發送公告至："
 L["None"] = "無"
 L["NoneDescription"] = "偵測到敵方玩家時不要通報。"
 L["Self"] = "自己"
@@ -136,7 +140,7 @@ L["StopAlertsOnTaxiDescription"] = "在飛行路線上停止所有新的警報�
 
 L["ListOptions"] = "附近清單"
 L["ListOptionsDescription"] = [[
-設定 Spy 該如何將敵方玩家加入附近清單和移除。
+關於如何添加和刪除敵方玩家的選項。
 ]]
 L["RemoveUndetected"] = "多久後從附近清單中移除敵方玩家:"
 L["1Min"] = "1 分鐘"
@@ -156,18 +160,19 @@ L["ShowNearbyListDescription"] = "偵測到敵方玩家時顯示附近清單，�
 L["PrioritiseKoS"] = "附近清單中優先排序即殺的敵方玩家"
 L["PrioritiseKoSDescription"] = "在附近清單中總是將即殺的敵方玩家顯示在最前面。"
 
-L["MinimapOptions"] = "地圖"
-L["MinimapOptionsDescription"] = [[
-提供額外的功能給能夠從小地圖追蹤人形生物的玩家。
+L["MapOptions"] = "地圖"
+L["MapOptionsDescription"] = [[
+世界地圖和小地圖的選項，包括圖標和工具提示。
 ]]
-L["MinimapTracking"] = "啟用小地圖追蹤"
-L["MinimapTrackingDescription"] = "啟用小地圖追蹤和偵測，在小地圖偵測到的已知敵方玩家會加入到附近清單。"
+L["MinimapDetection"] = "啟用小地圖檢測"
+L["MinimapDetectionDescription"] = "將光標移到在小地圖上檢測到的已知敵方玩家上，會將他們添加到“附近”列表中。"
+L["MinimapNote"] = "          注意：僅適用於可以追踪人形生物的玩家。"
 L["MinimapDetails"] = "滑鼠提示中顯示等級/職業細節"
 L["MinimapDetailsDescription"] = "更新小地圖的滑鼠提示，隨著敵人名字一併顯示等級/職業的詳細資訊。"
-L["DisplayOnMap"] = "在地圖上顯示敵人位置"
-L["DisplayOnMapDescription"] = "在世界地圖和小地圖上顯示由隊伍、團隊或公會其他 Spy 使用者偵測到的敵人位置。"
+L["DisplayOnMap"] = "在地圖上顯示圖標"
+L["DisplayOnMapDescription"] = "Display map icons for the location of other Spy users in your party, raid and guild when they detect enemies."
 L["SwitchToZone"] = "偵測到敵人時切換到目前區域的地圖"
-L["SwitchToZoneDescription"] = "打開世界地圖並且偵測到敵人時，會自動切換到玩家目前所在的區域地圖。"
+L["SwitchToZoneDescription"] = "當檢測到敵人時，將地圖更改為玩家當前區域地圖。"
 L["MapDisplayLimit"] = "限制顯示的地圖圖示:"
 L["LimitNone"] = "任何地方"
 L["LimitNoneDescription"] = "無視目前所在的地區，在地圖上顯示所有偵測到的敵人。"
@@ -178,7 +183,7 @@ L["LimitSameContinentDescription"] = "只顯示同一塊大陸中偵測到的敵
 
 L["DataOptions"] = "資料維護"
 L["DataOptionsDescription"] = [[
-設定 Spy 如何收集和維護資料。
+關於 Spy 如何維護和收集數據的選項。
 ]]
 L["PurgeData"] = "清除多久後未偵測到的敵方玩家:"
 L["OneDay"] = "1 天"
@@ -200,10 +205,7 @@ L["PurgeWinLossDataDescription"] = "使用相同的時間，清除勝/敗資料�
 L["ShareData"] = "和其他 Spy 使用者分享資料"
 L["ShareDataDescription"] = "和隊伍、團隊和公會中也有使用 Spy 插件的玩家分享你遇到敵方玩家的詳情。"
 L["UseData"] = "使用來自於其他 Spy 使用者的資料"
-L["UseDataDescription"] = [[使用從隊伍、團隊和公會中也有使用 Spy 插件的玩家收集到的資料。
-
-另一個 Spy 使用者偵測到的敵方玩家，也會加入到你的附近清單中 (如果還有空間的話)。
-]]
+L["UseDataDescription"] = "使用從隊伍、團隊和公會中也有使用 Spy 插件的玩家收集到的資料。"
 L["ShareKOSBetweenCharacters"] = "不同角色共用即殺玩家資料"
 L["ShareKOSBetweenCharactersDescription"] = "分享標記為即殺的玩家給你在同一個伺服器、同陣營的其他角色。"
 
@@ -294,12 +296,13 @@ L["Player"] = " (玩家)"
 L["KOSReason"] = "即殺"
 L["KOSReasonIndent"] = "    "
 L["KOSReasonOther"] = "自行輸入原因..."
-L["KOSReasonClear"] = "清空"
+L["KOSReasonClear"] = "明確原因"
 L["StatsWins"] = "|cff40ff00勝："
 L["StatsSeparator"] = "  "
 L["StatsLoses"] = "|cff0070dd敗："
 L["Located"] = "位置:"
 L["Yards"] = "碼"
+L["LocalDefenseChannelName"] = "本地防務"
 
 Spy_KOSReasonListLength = 6
 Spy_KOSReasonList = {
@@ -433,26 +436,9 @@ L["TROLL"] = "巨魔"
 --L["DARK IRON DWARF"] = "黑铁矮人"
 --L["MAG'HAR ORC"] = "玛格汉兽人"
 
---++ Font descriptions
-L["2002"] = "2002"
-L["2002 BOLD"] = "2002 Bold"
-L["ARIAL NARROW"] = "Arial Narrow" -- default chat font
-L["AR ZhongkaiGBK Medium"] = "AR ZhongkaiGBK Medium"
-L["BIG NOODLE TITLING"] = "Big Noodle Titling"
-L["EXPRESSWAY"] = "Expressway"
-L["FRIZ QUADRATA TT"] = "Friz Quadrata TT" -- default main UI font
-L["FRIZQUADRATACTT"] = "Friz Quadrata CTT"
-L["MOK"] = "MoK"
-L["MORPHEUS"] = "Morpheus" -- default in game mail font
-L["NIMROD MT"] = "Nimrod MT"
-L["SKURRI"] = "Skurri" -- default unit frame combat font
-						
 -- Stealth abilities
-L["Stealth"] = "隱形"
+L["Stealth"] = "潜行"
 L["Prowl"] = "潛行"
-
--- Channel names
-L["LocalDefenseChannelName"] = "本地防務"
 
 --++ Minimap color codes
 --L["MinimapClassTextDEATHKNIGHT"] = "|cffc41e3a"

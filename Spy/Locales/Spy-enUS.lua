@@ -5,7 +5,7 @@ if not L then return end
 -- Addon information
 L["Spy"] = "Spy"
 L["Version"] = "Version"
---L["LoadDescription"] = "|cff9933ffSpy addon loaded. Type |cffffffff/spy|cff9933ff for options."
+L["VersionCheck"] = "|cffc41e3aWarning! The wrong version of Spy is installed. Remove this version and install Spy Classic."
 L["SpyEnabled"] = "|cff9933ffSpy addon enabled."
 L["SpyDisabled"] = "|cff9933ffSpy addon disabled. Type |cffffffff/spy enable|cff9933ff to enable."
 L["UpgradeAvailable"] = "|cff9933ffA new version of Spy is available. It can be downloaded from:\n|cffffffffhttps://www.curseforge.com/wow/addons/spy-classic"
@@ -23,12 +23,10 @@ Spy is an addon that will alert you to the presence of nearby enemy players.
 L["SpyDescription2"] = [[
 
 |cffffd000Nearby list|cffffffff
-The Nearby list displays any enemy players that have been detected nearby. Clicking the list allows you to target the player, however this only works out of combat. Players are removed from the list if they have not been detected after a period of time.
-
-The clear button in the title bar can be used to clear the list, and holding Control while clearing the list will allow you to quickly enable/disable Spy.
+Displays enemy players that have been detected nearby. Players are removed from the list if they have not been detected after a period of time.
 
 |cffffd000Last Hour list|cffffffff
-The Last Hour list displays all enemies that have been detected in the last hour.
+Displays all enemies that have been detected in the last hour.
 
 |cffffd000Ignore list|cffffffff
 Players that are added to the Ignore list will not be reported by Spy. You can add and remove players to/from this list by using the button's drop down menu or by holding the Control key while clicking the button.
@@ -38,12 +36,11 @@ Players on your Kill On Sight list cause an alarm to sound when detected. You ca
 
 The drop down menu can also be used to set the reasons why you have added someone to the Kill On Sight list. If you want to enter a specific reason that is not in the list, then use the "Enter your own reason..." in the Other list.
 
-
 |cffffd000Author: Slipjack|cffffffff
-
 ]]
+
 L["EnableSpy"] = "Enable Spy"
-L["EnableSpyDescription"] = "Enables or disables Spy both now and also on login."
+L["EnableSpyDescription"] = "Enables or disables Spy."
 L["EnabledInBattlegrounds"] = "Enable Spy in battlegrounds"
 L["EnabledInBattlegroundsDescription"] = "Enables or disables Spy when you are in a battleground."
 L["EnabledInArenas"] = "Enable Spy in arenas"
@@ -55,7 +52,7 @@ L["DisableWhenPVPUnflaggedDescription"] = "Enables or disables Spy depending on 
 
 L["DisplayOptions"] = "Display"
 L["DisplayOptionsDescription"] = [[
-Spy can be shown or hidden automatically.
+Options for the Spy window and tooltips.
 ]]
 L["ShowOnDetection"] = "Show Spy when enemy players are detected"
 L["ShowOnDetectionDescription"] = "Set this to display the Spy window and the Nearby list if Spy is hidden when enemy players are detected."
@@ -94,12 +91,19 @@ L["SelectFont"] = "Select a Font"
 L["SelectFontDescription"] = "Select a Font for the Spy Window."
 L["RowHeight"] = "Select the Row Height"
 L["RowHeightDescription"] = "Select the Row Height for the Spy window."
+L["Texture"] = "Texture"
+L["TextureDescription"] = "Select a texture for the Spy Window"
 
 L["AlertOptions"] = "Alerts"
 L["AlertOptionsDescription"] = [[
-You can announce the details on an encounter to a chat channel and control how Spy alerts you when enemy players are detected.
+Options for alerts, announcements and warnings when enemy players are detected.
 ]]
-L["Announce"] = "Announce to:"
+L["SoundChannel"] = "Select Sound Channel"
+L["Master"] = "Master"
+L["SFX"] = "Sound Effects"
+L["Music"] = "Music"
+L["Ambience"] = "Ambience"
+L["Announce"] = "Send announcements to:"
 L["None"] = "None"
 L["NoneDescription"] = "Do not announce when enemy players are detected."
 L["Self"] = "Self"
@@ -124,19 +128,19 @@ L["WarnOnRace"] = "Warn upon Race detection"
 L["WarnOnRaceDescription"] = "Set this to sound an alert when the selected Race is detected."
 L["SelectWarnRace"] = "Select Race for detection"
 L["SelectWarnRaceDescription"] = "Select a Race for audio alert."
-L["WarnRaceNote"] = "Note: You must target the enemy at least once so their Race can be added to the database. Upon the next detection an alert will sound. This does not work the same as detecting nearby enemies in combat."
+L["WarnRaceNote"] = "Note: You must target an enemy at least once so their Race can be added to the database. Upon the next detection an alert will sound. This does not work the same as detecting nearby enemies in combat."
 L["DisplayWarningsInErrorsFrame"] = "Display warnings in the errors frame"
 L["DisplayWarningsInErrorsFrameDescription"] = "Set this to use the errors frame to display warnings instead of using the graphical popup frames."
 L["EnableSound"] = "Enable audio alerts"
 L["EnableSoundDescription"] = "Set this to enable audio alerts when enemy players are detected. Different alerts sound if an enemy player gains stealth or if an enemy player is on your Kill On Sight list."
-L["OnlySoundKoS"] = "Only sound audio alerts for the KoS list"
+L["OnlySoundKoS"] = "Only sound audio alerts for Kill On Sight detection"
 L["OnlySoundKoSDescription"] = "Set this to only play audio alerts when enemy players on the Kill on Sight list are detected."
 L["StopAlertsOnTaxi"] = "Turn off alerts while on a flight path"
 L["StopAlertsOnTaxiDescription"] = "Stop all new alerts and warnings while on a flight path."
 
 L["ListOptions"] = "Nearby List"
 L["ListOptionsDescription"] = [[
-You can configure how Spy adds and removes enemy players to and from the Nearby list.
+Options on how enemy players are added and removed.
 ]]
 L["RemoveUndetected"] = "Remove enemy players from the Nearby list after:"
 L["1Min"] = "1 minute"
@@ -156,21 +160,22 @@ L["ShowNearbyListDescription"] = "Set this to display the Nearby list if it is n
 L["PrioritiseKoS"] = "Prioritise Kill On Sight enemy players in the Nearby list"
 L["PrioritiseKoSDescription"] = "Set this to always show Kill On Sight enemy players first in the Nearby list."
 
-L["MinimapOptions"] = "Map"
-L["MinimapOptionsDescription"] = [[
-For players who can track humanoids the minimap can be utilised to provide additional features.
+L["MapOptions"] = "Map"
+L["MapOptionsDescription"] = [[
+Options for world map and minimap including icons and tooltips.
 ]]
-L["MinimapTracking"] = "Enable minimap tracking"
-L["MinimapTrackingDescription"] = "Set this to enable minimap tracking and detection. Known enemy players detected on the minimap will be added to the Nearby list."
+L["MinimapDetection"] = "Enable minimap detection"
+L["MinimapDetectionDescription"] = "Rolling the cursor over known enemy players detected on the minimap will add them to the Nearby list."
+L["MinimapNote"] = "          Note: Only works for players that can Track Humanoids."
 L["MinimapDetails"] = "Display level/class details in tooltips"
 L["MinimapDetailsDescription"] = "Set this to update the map tooltips so that level/class details are displayed alongside enemy names."
-L["DisplayOnMap"] = "Display enemy location on map"
-L["DisplayOnMapDescription"] = "Set this to display on the world map and minimap the location of enemies detected by other Spy users in your party, raid and guild."
+L["DisplayOnMap"] = "Display icons on the map"
+L["DisplayOnMapDescription"] = "Display map icons for the location of other Spy users in your party, raid and guild when they detect enemies."
 L["SwitchToZone"] = "Switch to current zone map on enemy detection"
-L["SwitchToZoneDescription"] = "If the World Map is open this will change the map to the players current zone map when enemies are detected."
+L["SwitchToZoneDescription"] = "Change the map to the players current zone map when enemies are detected."
 L["MapDisplayLimit"] = "Limit displayed map icons to:"
 L["LimitNone"] = "Everywhere"
-L["LimitNoneDescription"] = "Displayes all detected enemies on the map regardless of your current location."
+L["LimitNoneDescription"] = "Displays all detected enemies on the map regardless of your current location."
 L["LimitSameZone"] = "Same zone"
 L["LimitSameZoneDescription"] = "Only displays detected enemies on the map if you are in the same zone."
 L["LimitSameContinent"] = "Same continent"
@@ -178,7 +183,7 @@ L["LimitSameContinentDescription"] = "Only displays detected enemies on the map 
 
 L["DataOptions"] = "Data Management"
 L["DataOptionsDescription"] = [[
-You can configure how Spy maintains and gathers its data.
+Options on how Spy maintains and gathers data.
 ]]
 L["PurgeData"] = "Purge undetected enemy player data after:"
 L["OneDay"] = "1 day"
@@ -200,10 +205,7 @@ L["PurgeWinLossDataDescription"] = "Set this to purge win/loss data of your enem
 L["ShareData"] = "Share data with other Spy addon users"
 L["ShareDataDescription"] = "Set this to share the details of your enemy player encounters with other Spy users in your party, raid and guild."
 L["UseData"] = "Use data from other Spy addon users"
-L["UseDataDescription"] = [[Set this to use the data collected by other Spy users in your party, raid and guild.
-
-If another Spy user detects an enemy player then that enemy player will be added to your Nearby list if there is room.
-]]
+L["UseDataDescription"] = "Set this to use the data collected by other Spy users in your party, raid and guild."
 L["ShareKOSBetweenCharacters"] = "Share Kill On Sight players between your characters"
 L["ShareKOSBetweenCharactersDescription"] = "Set this to share the players you mark as Kill On Sight between other characters that you play on the same server and faction."
 
@@ -283,7 +285,7 @@ L["AddToIgnoreList"] = "Add to Ignore list"
 L["AddToKOSList"] = "Add to Kill On Sight list"
 L["RemoveFromIgnoreList"] = "Remove from Ignore list"
 L["RemoveFromKOSList"] = "Remove from Kill On Sight list"
-L["RemoveFromStatsList"] = "Remove from Statistics List"   --++
+L["RemoveFromStatsList"] = "Remove from Statistics List"
 L["AnnounceDropDownMenu"] = "Announce"
 L["KOSReasonDropDownMenu"] = "Set Kill On Sight reason"
 L["PartyDropDownMenu"] = "Party"
@@ -294,12 +296,13 @@ L["Player"] = " (Player)"
 L["KOSReason"] = "Kill On Sight"
 L["KOSReasonIndent"] = "    "
 L["KOSReasonOther"] = "Enter your own reason..."
-L["KOSReasonClear"] = "Clear"
+L["KOSReasonClear"] = "Clear Reason"
 L["StatsWins"] = "|cff40ff00Wins: "
 L["StatsSeparator"] = "  "
-L["StatsLoses"] = "|cff0070ddLoses: "
+L["StatsLoses"] = "|cff0070ddLosses: "
 L["Located"] = "located:"
 L["Yards"] = "yards"
+L["LocalDefenseChannelName"] = "LocalDefense"
 
 Spy_KOSReasonListLength = 6
 Spy_KOSReasonList = {
@@ -433,26 +436,9 @@ L["GOBLIN"] = "Goblin"
 --L["DARK IRON DWARF"] = "Dark Iron Dwarf"
 --L["MAG'HAR ORC"] = "Mag'har Orc"
 
---++ Font descriptions
-L["2002"] = "2002"
-L["2002 BOLD"] = "2002 Bold"
-L["ARIAL NARROW"] = "Arial Narrow" -- default chat font
-L["AR ZhongkaiGBK Medium"] = "AR ZhongkaiGBK Medium"
-L["BIG NOODLE TITLING"] = "Big Noodle Titling"
-L["EXPRESSWAY"] = "Expressway"
-L["FRIZ QUADRATA TT"] = "Friz Quadrata TT" -- default main UI font
-L["FRIZQUADRATACTT"] = "Friz Quadrata CTT"
-L["MOK"] = "MoK"
-L["MORPHEUS"] = "Morpheus" -- default in game mail font
-L["NIMROD MT"] = "Nimrod MT"
-L["SKURRI"] = "Skurri" -- default unit frame combat font
-						
 -- Stealth abilities
 L["Stealth"] = "Stealth"
 L["Prowl"] = "Prowl"
-
--- Channel names
-L["LocalDefenseChannelName"] = "LocalDefense"
 
 --++ Minimap color codes
 --L["MinimapClassTextDEATHKNIGHT"] = "|cffc41e3a"

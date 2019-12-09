@@ -5,7 +5,7 @@ if not L then return end
 -- Addon information
 L["Spy"] = "Spy"
 L["Version"] = "버전"
---L["LoadDescription"] = "|cff9933ffSpy 애드온이 로드되었습니다. |cffffffff/spy|cff9933ff 을 입력해 옵션창을 켤 수 있습니다."
+L["VersionCheck"] = "|cffc41e3a경고! 잘못된 Spy 버전이 설치되었습니다. 이 버전을 제거하고 Spy Classic 을 설치하십시오."
 L["SpyEnabled"] = "|cff9933ffSpy 애드온이 활성화되었습니다.."
 L["SpyDisabled"] = "|cff9933ffSpy 애드온이 비활성화되었습니다. |cffffffff/spy enable|cff9933ff 을 입력해 활성화 시키십시오."
 L["UpgradeAvailable"] = "|cff9933ffA Spy의 새로운 버전을 사용할 수 있습니다. 다운로드 주소:\n|cffffffffhttps://www.curseforge.com/wow/addons/spy-classic"
@@ -25,10 +25,8 @@ L["SpyDescription2"] = [[
 |cffffd000근접한 적 목록|cffffffff
 근접한 적 목록은 근처에 있는 탐지 된 적을 표시합니다. 근접한 적 목록을 클릭하면 적을 타겟팅하지만, 전투 상황은 아닙니다. 근접한 적에 등록된 플레이어가 일정 시간이 지나도 탐지되지 않는다면 자동으로 지워집니다.
 
-타이틀 바에 있는 지우기 버튼을 이용해 근접한 적 목록을 지울 수 있고, 지우기 버튼을 Ctrl + 좌클릭을 해서 Spy를 빠르게 활성화/비활성화 시킬 수 있습니다.
-
 |cffffd0001시간 내 목록|cffffffff
-1시간 내 목록은 1시간 이내에 탐지된 모든 적을 표시합니다.
+한 시간 안에 감지 된 모든 적을 표시합니다.
 
 |cffffd000제외 목록|cffffffff
 제외 목록에 포함 된 적 플레이어는 Spy에 기록되지 않습니다. 드롭다운 메뉴 또는 목록을 Ctrl + 좌클릭 으로 플레이어를 제외목록에 추가 / 제거 할 수 있습니다.
@@ -38,12 +36,11 @@ L["SpyDescription2"] = [[
 
 드롭다운 메뉴로 살생부 명단에 추가한 이유를 설정 할 수 있습니다. 만약 알맞은 이유가 없다면, "이유를 입력하세요..." 를 선택해 직접 작성 할 수 있습니다.
 
-
 |cffffd000제작자: Slipjack|cffffffff
-
 ]]
+
 L["EnableSpy"] = "Spy 활성화"
-L["EnableSpyDescription"] = "현재 설정과 로그인 시 Spy를 활성화 또는 비활성화 합니다."
+L["EnableSpyDescription"] = "Spy 활성화 또는 비활성화."
 L["EnabledInBattlegrounds"] = "전장일 때 Spy 활성화"
 L["EnabledInBattlegroundsDescription"] = "전장에 있을 때 Spy를 활성화 또는 비활성화 합니다."
 L["EnabledInArenas"] = "아레나에 있을 때 Spy 활성화"
@@ -55,7 +52,7 @@ L["DisableWhenPVPUnflaggedDescription"] = "PVP 상태일 경우 Spy를 활성화
 
 L["DisplayOptions"] = "디스플레이"
 L["DisplayOptionsDescription"] = [[
-Spy 챵을 자동으로 표시 또는 숨기기 합니다.
+Spy 창 및 툴팁 옵션.
 ]]
 L["ShowOnDetection"] = "적 플레이어가 탐지될 경우 Spy 창 표시"
 L["ShowOnDetectionDescription"] = "Spy 창이 숨겨져 있을 때 적 플레이어가 탐지될 경우 근접한 적 목록을 표시하려면 체크하십시오."
@@ -94,12 +91,19 @@ L["SelectFont"] = "폰트 설정"
 L["SelectFontDescription"] = "Spy 창의 폰트를 선택하세요."
 L["RowHeight"] = "열 높이 설정"
 L["RowHeightDescription"] = "Spy 창의 열 높이를 설정하세요."
+L["Texture"] = "질감 배경"
+L["TextureDescription"] = "Spy 창의 질감을 선택하십시오"
 
 L["AlertOptions"] = "경고"
 L["AlertOptionsDescription"] = [[
-채팅 채널에 적 세부사항을 알릴수 있으며, 적 플레이어를 탐지했을 때 어떻게 알림을 나타낼 지 설정 할 수 있습니다.
+적 플레이어가 감지 될 때 경고, 알림 및 경고 옵션.
 ]]
-L["Announce"] = "알림 대상(채팅채널):"
+L["SoundChannel"] = "사운드 채널을 선택하십시오"
+L["Master"] = "주 음량"
+L["SFX"] = "효과음"
+L["Music"] = "배경음악"
+L["Ambience"] = "환경 소리"
+L["Announce"] = "공지 사항 보내기 :"
 L["None"] = "없음"
 L["NoneDescription"] = "적 플레이어가 탐지되어도 알리지 않습니다."
 L["Self"] = "자기자신"
@@ -136,7 +140,7 @@ L["StopAlertsOnTaxiDescription"] = "비행 경로에서 모든 새로운 경고 
 
 L["ListOptions"] = "근접한 적 목록"
 L["ListOptionsDescription"] = [[
-근접한 적 목록에 어떻게 적을 추가/삭제 할 지 설정 할 수 있습니다.
+적 플레이어를 추가하고 제거하는 방법에 대한 옵션.
 ]]
 L["RemoveUndetected"] = "근접한 적 목록에서 지워지는 시간:"
 L["1Min"] = "1 분"
@@ -156,18 +160,19 @@ L["ShowNearbyListDescription"] = "근접한 적 목록을 표시하지 않을 �
 L["PrioritiseKoS"] = "살생부 명단에 있는 근접한 적을 우선 표시"
 L["PrioritiseKoSDescription"] = "살생부 명단에 있는 적을 근접한 적 목록의 최우선으로 표시하려면 체크하십시오."
 
-L["MinimapOptions"] = "지도"
-L["MinimapOptionsDescription"] = [[
-인간형을 추적할 수 있는 플레이어는 미니맵을 사용해 추가 기능을 사용 할 수 있습니다.
+L["MapOptions"] = "지도"
+L["MapOptionsDescription"] = [[
+아이콘 및 툴팁을 포함한 세계지도 및 미니 맵 옵션.
 ]]
-L["MinimapTracking"] = "미니맵 트랙킹 활성화"
-L["MinimapTrackingDescription"] = "미니맵 트랙킹과 탐지를 사용하려면 체크하십시오. 미니맵에 탐지된 적 플레이어는 근접한 적 목록에 추가됩니다."
+L["MinimapDetection"] = "미니 맵 감지 활성화"
+L["MinimapDetectionDescription"] = "미니 맵에서 감지 된 알려진 적 플레이어 위로 커서를 가져 가면 근처 적 목록에 추가됩니다."
+L["MinimapNote"] = "          참고 : 휴머노이드를 추적 할 수있는 플레이어 만 사용할 수 있습니다."
 L["MinimapDetails"] = "레벨/직업을 툴팁에 표시"
 L["MinimapDetailsDescription"] = "적의 이름 옆에 레벨/직업을 지도 툴팁에 표시하려면 체크하십시오."
-L["DisplayOnMap"] = "적의 위치를 지도에 표시"
-L["DisplayOnMapDescription"] = "Spy 애드온을 사용하는 파티원, 길드원, 공격대원이 탐지한 적을 세계 지도, 미니맵에 표시하려면 체크하십시오."
+L["DisplayOnMap"] = "지도에 아이콘 표시"
+L["DisplayOnMapDescription"] = "Display map icons for the location of other Spy users in your party, raid and guild when they detect enemies."
 L["SwitchToZone"] = "적 탐지시 현재 지역으로 지도 전환"
-L["SwitchToZoneDescription"] = "세계 지도가 켜져있을 때 적이 탐지된 경우 플레이어의 현재 위치로 전환합니다."
+L["SwitchToZoneDescription"] = "적이 감지되면 플레이어의 현재 영역 맵으로 맵을 변경하십시오."
 L["MapDisplayLimit"] = "지도 아이콘 표시 제한:"
 L["LimitNone"] = "모든 곳"
 L["LimitNoneDescription"] = "현재 위치와 상관 없이 탐지된 모든 적을 지도에 표시합니다."
@@ -178,7 +183,7 @@ L["LimitSameContinentDescription"] = "같은 대륙에 있는 탐지된 적만 �
 
 L["DataOptions"] = "데이터 관리"
 L["DataOptionsDescription"] = [[
-Spy 애드온이 데이터를 보관하고 수집하는 방법을 설정 할 수 있습니다.
+Spy 가 데이터를 유지 관리하고 수집하는 방법에 대한 옵션.
 ]]
 L["PurgeData"] = "일정 기간 후 적 데이터 삭제:"
 L["OneDay"] = "1 일"
@@ -200,10 +205,7 @@ L["PurgeWinLossDataDescription"] = "시간 설정 값 기준으로 탐지되지 
 L["ShareData"] = "다른 Spy 애드온 유저와 데이터 공유"
 L["ShareDataDescription"] = "Spy 애드온을 사용하는 파티원, 길드원, 공격대원과 적 플레이어 정보를 공유하려면 체크하십시오."
 L["UseData"] = "다른 Spy 애드온 유저의 데이터를 사용"
-L["UseDataDescription"] = [[Spy 애드온을 사용하는 파티원, 길드원, 공격대원의 적 플레이어 정보를 수집하려면 체크하십시오.
-
-다른 Spy 애드온 유저가 적 플레이어를 탐지했을 시, 적 플레이어가 같은 방에 있을 때 근접한 적 목록에 추가합니다.
-]]
+L["UseDataDescription"] = "Spy 애드온을 사용하는 파티원, 길드원, 공격대원의 적 플레이어 정보를 수집하려면 체크하십시오."
 L["ShareKOSBetweenCharacters"] = "캐릭터 간 살생부 공유"
 L["ShareKOSBetweenCharactersDescription"] = "같은 서버, 같은 진영의 캐릭터와 살생부로 표시한 적 플레이어를 공유하려면 체크하십시오."
 
@@ -294,12 +296,13 @@ L["Player"] = " (플레이어)"
 L["KOSReason"] = "살생부"
 L["KOSReasonIndent"] = "    "
 L["KOSReasonOther"] = "이유를 입력하세요..."
-L["KOSReasonClear"] = "지우기"
+L["KOSReasonClear"] = "이유 지우기"
 L["StatsWins"] = "|cff40ff00승: "
 L["StatsSeparator"] = "  "
 L["StatsLoses"] = "|cff0070dd패: "
 L["Located"] = "위치:"
 L["Yards"] = "야드"
+L["LocalDefenseChannelName"] = "수비"
 
 Spy_KOSReasonListLength = 6
 Spy_KOSReasonList = {
@@ -433,26 +436,9 @@ L["GOBLIN"] = "고블린"
 --L["DARK IRON DWARF"] = "검은무쇠 드워프"
 --L["MAG'HAR ORC"] = "마그하르 오크"
 
---++ Font descriptions
-L["2002"] = "2002"
-L["2002 BOLD"] = "2002 Bold"
-L["ARIAL NARROW"] = "Arial Narrow" -- default chat font
-L["AR ZhongkaiGBK Medium"] = "AR ZhongkaiGBK Medium"
-L["BIG NOODLE TITLING"] = "Big Noodle Titling"
-L["EXPRESSWAY"] = "Expressway"
-L["FRIZ QUADRATA TT"] = "Friz Quadrata TT" -- default main UI font
-L["FRIZQUADRATACTT"] = "FrizQuadrataCTT"
-L["MOK"] = "MoK"
-L["MORPHEUS"] = "Morpheus" -- default in game mail font
-L["NIMROD MT"] = "Nimrod MT"
-L["SKURRI"] = "Skurri" -- default unit frame combat font
-						
 -- Stealth abilities
 L["Stealth"] = "은신"
 L["Prowl"] = "숨기"
-
--- Channel names
-L["LocalDefenseChannelName"] = "수비"
 
 --++ Minimap color codes
 --L["MinimapClassTextDEATHKNIGHT"] = "|cffc41e3a"

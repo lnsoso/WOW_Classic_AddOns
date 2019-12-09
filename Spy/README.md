@@ -108,11 +108,15 @@ If an enemy player doesn't perform any actions recorded in your combat log then 
 ***Why can't I target an enemy player Spy has just reported?***
 The most likely explanation for this - if you are not in combat - is that while they are near, they are not within targeting range. 
 
-***Why doesn't Spy work in sanctuaries?***
-Spy doesn't work in sanctuary locations such as Dalaran or Shattrath City because PvP combat is disabled for all players. 
-
 ***How can I turn off Spy temporarily?***
 This can be done by holding the Control key while clicking the Clear button in the title bar. You may want to do this when there are a lot of enemy players around and you don't want the continuous alerts.
 
 ***I don't want a warning to be displayed or any alerts to sound. How can I turn them off?***
 This can be done by holding the Shift key while clicking the Clear button in the title bar. You may want to do this when there are a lot of enemy players around and you don't want to hear the audio alerts.
+
+***How do I retain my KoS list and win/loss records beyond 90 days***
+The data management options were designed to reduce the overall size of the database and will purge players based on the time settings. If you check the options:
+ - Purge Kill on Sight players based on undetected time
+     and
+ - Purge win/loss data based on undetected time
+then enemy players will be removed based on the number of days selected (i.e., 90 days). If all you want to retain is the win/loss data beyond 90 days - you just need to ensure that option remains unchecked. If you also want to retain players on your Kill on Sight list where a Killing Blow was not recorded - you will also need that option unchecked.

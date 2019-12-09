@@ -132,7 +132,6 @@ function Colors:UpdateColor(Branch, Name)
 	end
 end
 
-
 function Colors:UnregisterItem(Item)
 	for k1, Branch in pairs(ItemsToUpdate) do
 		for k2, Name in pairs(Branch) do

@@ -1,0 +1,15 @@
+## Interface: 11302
+## Version: 8.2.5.6
+## Title: CT_Library |cFF333333(Classic)
+## Notes: Library features for CTMod. 
+## DefaultState: Enabled
+## Author: Cide, TS, Resike, Dahk
+
+
+Libs\LibStub\LibStub.lua
+Libs\LibUIDropDownMenu\LibUIDropDownMenu.xml
+
+CT_Library.lua
+localization.lua
+CT_Library_TitanPlugin.lua
+

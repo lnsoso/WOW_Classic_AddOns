@@ -6,7 +6,8 @@ function Spy:CreateFrame(Name, Title, Height, Width, ShowFunc, HideFunc)
 	local theFrame = CreateFrame("Frame", Name, UIParent)
 
 	theFrame:ClearAllPoints()
-	theFrame:SetPoint("TOPLEFT", UIParent)  
+--	theFrame:SetPoint("TOPLEFT", UIParent)
+	theFrame:SetPoint("CENTER", UIParent)
 	theFrame:SetHeight(Height)
 	theFrame:SetWidth(Width)
 	if not Spy.db.profile.InvertSpy then
@@ -61,7 +62,7 @@ function Spy:CreateFrame(Name, Title, Height, Width, ShowFunc, HideFunc)
 			Spy:SaveMainWindowPosition()
 		end
 	end)
---	end
+
 	theFrame.ShowFunc = ShowFunc
 	theFrame:SetScript("OnShow",
 	function(self)

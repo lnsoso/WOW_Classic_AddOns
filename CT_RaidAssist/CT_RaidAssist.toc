@@ -1,0 +1,15 @@
+## Interface: 11302
+## Version: 8.2.5.6
+## Title: CT_RaidAssist |cFF333333(Classic)
+## Author: TS & Cide (Original), Dargen (MT Addon), DDC (Redesign)
+## Notes: Monitor raid HP and click cast buffs, debuff removals, resurrections
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## Dependencies: CT_Library
+## SavedVariables: CT_RaidAssistOptions
+
+Libs/LibDurability.lua
+
+CT_RaidAssist.lua
+CT_RaidAssist_ExpansionData.lua
+localization.lua

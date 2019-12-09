@@ -247,13 +247,9 @@ end
 function Spy:UpdateBarTextures()
 	for k, v in pairs(Spy.MainWindow.Rows) do
 		v.StatusBar:SetStatusBarTexture(SM:Fetch(SM.MediaType.STATUSBAR, Spy.db.profile.BarTexture))
---		if IsAddOnLoaded("Tukui") then v.StatusBar:SetStatusBarTexture("Interface\\AddOns\\Tukui\\medias\\textures\\normTex.tga") end
---		if IsAddOnLoaded("ElvUI") then v.StatusBar:SetStatusBarTexture("Interface\\AddOns\\ElvUI\\media\\textures\\normTex.tga") end
 	end
-
 	if Spy.db.profile.Font then
 		Spy:SetFont(Spy.db.profile.Font)
---		if IsAddOnLoaded("Tukui") then Spy:SetFont("Interface\AddOns\Tukui\medias\fonts\normal_font.ttf") end
 	end
 end
 
@@ -262,8 +258,6 @@ function Spy:SetBarTextures(handle)
 	Spy.db.profile.BarTexture=handle
 	for k, v in pairs(Spy.MainWindow.Rows) do
 		v.StatusBar:SetStatusBarTexture(Texture)
---		if IsAddOnLoaded("Tukui") then v.StatusBar:SetStatusBarTexture("Interface\\AddOns\\Tukui\\medias\\textures\\normTex.tga") end
---		if IsAddOnLoaded("ElvUI") then v.StatusBar:SetStatusBarTexture("Interface\\AddOns\\ElvUI\\media\\textures\\normTex.tga") end
 	end
 end
 
@@ -871,13 +865,21 @@ function Spy:MainWindowPrevMode()
 end
 
 function Spy:SaveMainWindowPosition()
-	Spy.db.profile.MainWindow.Position.x = Spy.MainWindow:GetLeft()
-	Spy.db.profile.MainWindow.Position.y = Spy.MainWindow:GetTop()
+	local xOfs, yOfs = Spy.MainWindow:GetCenter() 
+	local efs = Spy.MainWindow:GetEffectiveScale()
+	local uis = UIParent:GetScale()
+	xOfs = xOfs * efs - GetScreenWidth() * uis / 2
+	yOfs = yOfs * efs - GetScreenHeight() * uis / 2
+
+	Spy.db.profile.MainWindow.Position.x = xOfs / uis
+	Spy.db.profile.MainWindow.Position.y = yOfs / uis
 	Spy.db.profile.MainWindow.Position.w = Spy.MainWindow:GetWidth()
 	Spy.db.profile.MainWindow.Position.h = Spy.MainWindow:GetHeight()
 end
 
 function Spy:RestoreMainWindowPosition(x, y, width, height)
+    x = x * UIParent:GetScale() / Spy.MainWindow:GetEffectiveScale()
+    y = y * UIParent:GetScale() / Spy.MainWindow:GetEffectiveScale()
 	Spy.MainWindow:ClearAllPoints()
 	if not Spy.db.profile.InvertSpy then 	
 		Spy.MainWindow:SetPoint("TOPLEFT", UIParent, "BOTTOMLEFT", x, y)
@@ -904,7 +906,7 @@ function Spy:ShowTooltip(self, show, id)
 				GameTooltip:SetPoint("BOTTOMRIGHT", "UIParent", "BOTTOMRIGHT", -CONTAINER_OFFSET_X - 13, CONTAINER_OFFSET_Y)
 			else
 				GameTooltip:SetOwner(self, Spy.db.profile.TooltipAnchor)
-			end			
+			end
 			GameTooltip:ClearLines()
 			GameTooltip:AddLine(string.gsub(name, "%-", " - "), titleText.r, titleText.g, titleText.b)
 
@@ -1088,7 +1090,7 @@ function Spy:ShowAlert(type, name, source, location)
 		Spy.AlertType = type
 	elseif type == "prowl" and Spy.AlertType ~= "kos" and Spy.AlertType ~= "kosguild" then
 		Spy.Colors:RegisterBorder("Alert", "Stealth Border", Spy.AlertWindow)
-		Spy.AlertWindow.Icon:SetBackdrop({ bgFile = "Interface\\Icons\\Ability_Ambush" }) --++		
+		Spy.AlertWindow.Icon:SetBackdrop({ bgFile = "Interface\\Icons\\Ability_Ambush" })
 		Spy.Colors:RegisterBorder("Alert", "Background", Spy.AlertWindow.Icon)
 		Spy.Colors:RegisterBackground("Alert", "Icon", Spy.AlertWindow.Icon)
 		Spy.Colors:RegisterFont("Alert", "Stealth Text", Spy.AlertWindow.Title)

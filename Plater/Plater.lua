@@ -47,9 +47,6 @@ local InCombatLockdown = InCombatLockdown
 local UnitIsPlayer = UnitIsPlayer
 local UnitClassification = UnitClassification
 --local UnitDetailedThreatSituation = UnitDetailedThreatSituation
-local UnitAura = UnitAura
-local UnitBuff = UnitBuff
-local UnitDebuff = UnitDebuff
 local UnitCanAttack = UnitCanAttack
 local IsSpellInRange = IsSpellInRange
 local abs = math.abs
@@ -71,8 +68,7 @@ local UnitIsQuestBoss = UnitIsQuestBoss or function() return false end
 
 local LibSharedMedia = LibStub:GetLibrary ("LibSharedMedia-3.0")
 local LCG = LibStub:GetLibrary("LibCustomGlow-1.0")
-local LCD = LibStub:GetLibrary("LibClassicDurations")
-LCD:Register("Plater")
+
 local _
 
 local Plater = DF:CreateAddOn ("Plater", "PlaterDB", PLATER_DEFAULT_SETTINGS, { --options table
@@ -82,6 +78,15 @@ local Plater = DF:CreateAddOn ("Plater", "PlaterDB", PLATER_DEFAULT_SETTINGS, { 
 		
 	}
 })
+
+-- support for LibClassicDurations from https://github.com/rgd87/LibClassicDurations by d87
+local UnitAura = _G.UnitAura
+local LCD = LibStub:GetLibrary("LibClassicDurations", true)
+if LCD then
+	LCD:Register(Plater)
+	LCD.RegisterCallback(Plater, "UNIT_BUFF", function(event, unit)end)
+	UnitAura = LCD.UnitAuraWithBuffs
+end
 
 --threat stuff from: https://github.com/EsreverWoW/ClassicThreatMeter by EsreverWoW
 local ThreatLib = LibStub:GetLibrary ("ThreatClassic-1.0")
@@ -677,6 +682,7 @@ Plater.DefaultSpellRangeList = {
 	local DB_AURA_SHOW_ENRAGE
 	local DB_AURA_SHOW_BYPLAYER
 	local DB_AURA_SHOW_BYUNIT
+	local DB_AURA_SHOW_ENEMY_BUFFS
 	local DB_AURA_PADDING
 
 	local DB_AURA_GROW_DIRECTION --> main aura frame
@@ -1324,6 +1330,7 @@ Plater.DefaultSpellRangeList = {
 		DB_AURA_SHOW_ENRAGE = profile.aura_show_enrage
 		DB_AURA_SHOW_BYPLAYER = profile.aura_show_aura_by_the_player
 		DB_AURA_SHOW_BYUNIT = profile.aura_show_buff_by_the_unit
+		DB_AURA_SHOW_ENEMY_BUFFS = profile.aura_show_enemy_buffs
 		DB_AURA_PADDING = profile.aura_padding
 
 		DB_AURA_GROW_DIRECTION = profile.aura_grow_direction
@@ -4595,17 +4602,10 @@ end
 		if (isBuff) then
 			--> buffs
 			for i = 1, BUFF_MAX_DISPLAY do
-				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitBuff (unit, i)
+				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitAura(unit, i, "HELPFUL")
 				if (not name) then
 					break
 				else
-				
-					--> try getting correct aura times for classic
-					local durationNew, expirationTimeNew = LCD:GetAuraDurationByUnit(unit, spellId, caster, name)
-					if duration == 0 and durationNew then
-						duration = durationNew
-						expirationTime = expirationTimeNew
-					end
 					
 					local auraType = "BUFF"
 					--verify is this aura is in the table passed
@@ -4635,17 +4635,10 @@ end
 			for i = 1, BUFF_MAX_DISPLAY do
 				--using the PLAYER filter it'll avoid special auras to be scan
 				--local name, texture, count, auraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitDebuff (unit, i, "HARMFUL|PLAYER")
-				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitDebuff (unit, i)
+				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitAura(unit, i, "HARMFUL")
 				if (not name) then
 					break
 				else
-					
-					--> try getting correct aura times for classic
-					local durationNew, expirationTimeNew = LCD:GetAuraDurationByUnit(unit, spellId, caster, name)
-					if duration == 0 and durationNew then
-						duration = durationNew
-						expirationTime = expirationTimeNew
-					end
 					
 					local auraType = "DEBUFF"
 					--checking here if the debuff is placed by the player
@@ -4691,24 +4684,19 @@ end
 	function Plater.UpdateAuras_Automatic (self, unit)
 		Plater.ResetAuraContainer (self)
 		
+		local reaction = UnitReaction(unit, "player");
+		
 		--> debuffs
 			for i = 1, BUFF_MAX_DISPLAY do
 			
 				--todo: fix the variable name inconsistence, here the buff name is called "spellName" in the other loop below is called "name"
-				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, canApplyAura, isBossDebuff, isCastByPlayer, nameplateShowAll = UnitDebuff (unit, i)
+				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, canApplyAura, isBossDebuff, isCastByPlayer, nameplateShowAll = UnitAura(unit, i, "HARMFUL")
 				--start as false, during the checks can be changed to true, if is true this debuff is added on the nameplate
 				local can_show_this_debuff
 				local auraType = "DEBUFF"
 				
 				if (not name) then
 					break
-				end
-				
-				--> try getting correct aura times for classic
-				local durationNew, expirationTimeNew = LCD:GetAuraDurationByUnit(unit, spellId, caster, name)
-				if duration == 0 and durationNew then
-					duration = durationNew
-					expirationTime = expirationTimeNew
 				end
 				
 				--check if the debuff isn't filtered out
@@ -4758,18 +4746,11 @@ end
 		
 		--> buffs
 			for i = 1, BUFF_MAX_DISPLAY do
-				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, canApplyAura, isBossDebuff, isCastByPlayer, nameplateShowAll = UnitBuff (unit, i)
+				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, canApplyAura, isBossDebuff, isCastByPlayer, nameplateShowAll = UnitAura(unit, i, "HELPFUL")
 				local auraType = "BUFF"
 				
 				if (not name) then
 					break
-				end
-				
-				--> try getting correct aura times for classic
-				local durationNew, expirationTimeNew = LCD:GetAuraDurationByUnit(unit, spellId, caster, name)
-				if duration == 0 and durationNew then
-					duration = durationNew
-					expirationTime = expirationTimeNew
 				end
 				
 				--> check for special auras added by the user it self
@@ -4812,6 +4793,11 @@ end
 							local auraIconFrame, buffFrame = Plater.GetAuraIcon (self, true)
 							Plater.AddAura (buffFrame, auraIconFrame, i, name, texture, count, auraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, nil, nil, nil, nil, actualAuraType)
 						
+						--> is a buff on an enemy unit
+						elseif (DB_AURA_SHOW_ENEMY_BUFFS and reaction <= UNITREACTION_HOSTILE) then
+							local auraIconFrame, buffFrame = Plater.GetAuraIcon (self, true)
+							Plater.AddAura (buffFrame, auraIconFrame, i, name, texture, count, auraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, true, nil, nil, nil, actualAuraType)
+						
 						--> is casted by the unit it self
 						elseif (DB_AURA_SHOW_BYUNIT and caster and UnitIsUnit (caster, unit) and not isCastByPlayer) then
 							local auraIconFrame, buffFrame = Plater.GetAuraIcon (self, true)
@@ -4838,18 +4824,11 @@ end
 		--> debuffs
 		if (Plater.db.profile.aura_show_debuffs_personal) then
 			for i = 1, BUFF_MAX_DISPLAY do
-				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitDebuff ("player", i)
+				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitAura(unit, i, "HARMFUL")
 				local auraType = "DEBUFF"
 				
 				if (not name) then
 					break
-				end
-				
-				--> try getting correct aura times for classic
-				local durationNew, expirationTimeNew = LCD:GetAuraDurationByUnit("player", spellId, caster, name)
-				if duration == 0 and durationNew then
-					duration = durationNew
-					expirationTime = expirationTimeNew
 				end
 					
 				if (not DB_DEBUFF_BANNED [name]) then
@@ -4875,18 +4854,11 @@ end
 		--> buffs
 		if (Plater.db.profile.aura_show_buffs_personal) then
 			for i = 1, BUFF_MAX_DISPLAY do
-				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitBuff ("player", i, nil, "PLAYER")
+				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitAura(unit, i, "HELPFUL")
 				local auraType = "BUFF"
 				
 				if (not name) then
 					break
-				end
-				
-				--> try getting correct aura times for classic
-				local durationNew, expirationTimeNew = LCD:GetAuraDurationByUnit("player", spellId, caster, name)
-				if duration == 0 and durationNew then
-					duration = durationNew
-					expirationTime = expirationTimeNew
 				end
 					
 				--> only show buffs casted by the player it self and less than 1 minute in duration

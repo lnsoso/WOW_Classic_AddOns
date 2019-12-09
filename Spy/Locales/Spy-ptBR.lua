@@ -5,7 +5,7 @@ if not L then return end
 -- Addon information
 L["Spy"] = "Spy"
 L["Version"] = "Versão"
---L["LoadDescription"] = "|cff9933ffSpy foi carregado. Digite |cffffffff/spy|cff9933ff para opções."
+L["VersionCheck"] = "|cffc41e3aAtenção! A versão errada do Spy está instalada. Remova esta versão e instale o Spy Classic."
 L["SpyEnabled"] = "|cff9933ffSpy addon ativado."
 L["SpyDisabled"] = "|cff9933ffSpy addon desativado. Digite |cffffffff/spy enable|cff9933ff para ativar."
 L["UpgradeAvailable"] = "|cff9933ffA nova versão do Spy está disponivel. Baixe-o em:\n|cffffffffhttps://www.curseforge.com/wow/addons/spy-classic"
@@ -23,12 +23,10 @@ Spy é um addon que vai alerta-lo da presença de jogadores inimigos nas proximi
 L["SpyDescription2"] = [[
 
 |cffffd000Lista de Proximidades|cffffffff
-A lista de Proximidades mostra qualquer inimigo detectado nas proximidades. Clicando na lista você irá mirar no jogador, mas isso só funciona fora de combate. Jogadores são removidos da lista se não forem mais detectados após um certo período de tempo.
-
-O botão limpar na barra de titulo é usado para limpar a lista, e segurando Ctrl enquanto limpa a lista permite a você rapidamente ativar/desativar o Spy.
+A lista de Proximidades mostra qualquer inimigo detectado nas proximidades. Jogadores são removidos da lista se não forem mais detectados após um certo período de tempo.
 
 |cffffd000Lista da Última Hora|cffffffff
-A Lista da Última Hora mostra todos os inimigos detectados na ultima hora.
+Exibe todos os inimigos detectados em uma hora.
 
 |cffffd000Lista de Ignorados|cffffffff
 Jogadores que são adicionados à lista de Ignorados não serão reportados pelo Spy. Você pode adicionar ou remover jogadores dessa lista usando o menu de contexto ou segurando Ctrl enquanto clicando no botão.
@@ -38,10 +36,9 @@ Jogadores que são adicionados à Lista Negra são reportados pelo Spy através 
 
 O menu de contexto também permite que você justifique as razões que o levou a colocar determinada pessoa na Lista Negra. Se quiser colocar uma motivo especifico que não tenha na lista, em seguida, use "Digite seu próprio motivo..." em Outra lista..
 
-
 |cffffd000Autor: Slipjack |cffffffff
-
 ]]
+
 L["EnableSpy"] = "Ativar Spy"
 L["EnableSpyDescription"] = "Ativa ou desativa o Spy."
 L["EnabledInBattlegrounds"] = "Ativar Spy em CB"
@@ -55,7 +52,7 @@ L["DisableWhenPVPUnflaggedDescription"] = "Ativa ou desativa o Spy dependendo se
 
 L["DisplayOptions"] = "Exibição"
 L["DisplayOptionsDescription"] = [[
-Spy pode ser mostrado e escondido automaticamente.
+Opções para a janela Spy e dicas de ferramentas.
 ]]
 L["ShowOnDetection"] = "Mostrar Spy quando um inimigo for detectado"
 L["ShowOnDetectionDescription"] = "Marque isso para que o Spy mostre a lista de Proximidades quando um inimigo for detectado."
@@ -91,14 +88,21 @@ L["TooltipDisplayKOSReasonDescription"] = "Marque isso para que seja mostrado na
 L["TooltipDisplayLastSeen"] = "Mostrar detalhes da ultima vez visto nas dicas"
 L["TooltipDisplayLastSeenDescription"] = "Marque isso para que seja mostrado nas dicas de jogador o ultimo local e hora em que aquele jogador foi visto."
 L["SelectFont"] = "Selekt e Font"
-L["SelectFontDescription"] = "Selecione um tipo de letra para o Spy mostre ."
+L["SelectFontDescription"] = "Selecione um tipo de letra para a janela Spy."
 L["RowHeight"] = "Selecione a altura da linha"
-L["RowHeightDescription"] = "Selecione a altura da linha para a janela do espião."
+L["RowHeightDescription"] = "Selecione a altura da linha para a janela Spy."
+L["Texture"] = "Textura"
+L["TextureDescription"] = "Selecione a textura da janela Spy"
 
 L["AlertOptions"] = "Alertas"
 L["AlertOptionsDescription"] = [[
-Você pode anunciar em qualquer canal do chat os detalhes de um encontro e controlar como o Spy te alerta quando um inimigo é detectado.
+Opções para alertas, anúncios e avisos quando jogadores inimigos são detectados.
 ]]
+L["SoundChannel"] = "Selecionar canal de som"
+L["Master"] = "Geral"
+L["SFX"] = "Efeitos sonoros"
+L["Music"] = "Musica"
+L["Ambience"] = "Ambiência"
 L["Announce"] = "Anunciar Para:"
 L["None"] = "Ninguem"
 L["NoneDescription"] = "Não anunciar quando jogadores inimigos forem detectados."
@@ -156,18 +160,19 @@ L["ShowNearbyListDescription"] = "Marque isso para que ao detectar jogadores ini
 L["PrioritiseKoS"] = "Piorizar inimigos da Lista Negra na lista de Proximidades"
 L["PrioritiseKoSDescription"] = "Marque isso para sempre motrar primeiro inimigos da Lista Negra na lista de Proximidades."
 
-L["MinimapOptions"] = "Mapa"
-L["MinimapOptionsDescription"] = [[
-Para jogadores que podem rastrear humanóides o minimapa pode ser utilizado para fornecer recursos adicionais.
+L["MapOptions"] = "Mapa"
+L["MapOptionsDescription"] = [[
+Opções para mapa-múndi e minimapa, incluindo ícones e dicas de ferramentas.
 ]]
-L["MinimapTracking"] = "Ativar rastreamento no minimapa"
-L["MinimapTrackingDescription"] = "Marque isso para ativar rastreamento e detecção no minimapa. Jogadores inimigos detectados no minimapa serão adicionados à lista de Proximidades."
+L["MinimapDetection"] = "Ativar detecção de minimapa"
+L["MinimapDetectionDescription"] = "Rolar o cursor sobre jogadores inimigos conhecidos detectados no minimapa os adicionará à lista de Proximidades."
+L["MinimapNote"] = "          Nota: Funciona apenas para jogadores que podem rastrear humanoides."
 L["MinimapDetails"] = "Mostrar detalhes de level/classe nas dicas"
 L["MinimapDetailsDescription"] = "Marque isso para atualizar as dicas do mapa para que o level e a classe sejam mostrados juntamente com o nome dos inimigos."
-L["DisplayOnMap"] = "Mostrar localização do inimigo no mapa"
-L["DisplayOnMapDescription"] = "Marque isso para que seja mostrado no mapa-múndi e no minimapa a localização dos inimigos detectados por outros usuários do Spy em seu grupo, raide e guilda."
+L["DisplayOnMap"] = "Exibir ícones no mapa"
+L["DisplayOnMapDescription"] = "Exiba ícones de mapa para a localização de outros usuários do SPY em seu grupo, invasão e guilda quando detectar inimigos."
 L["SwitchToZone"] = "Mudar para o mapa actual zona de detecção de inimigo"
-L["SwitchToZoneDescription"] = "Se o mapa do mundo está aberto isso vai mudar o mapa para o jogadores mapa da zona atual quando são detectados inimigos."
+L["SwitchToZoneDescription"] = "Mude o mapa para o mapa da zona atual do jogador quando inimigos forem detectados."
 L["MapDisplayLimit"] = "Limitar icones mostrados no mapa para:"
 L["LimitNone"] = "Todos os lugares"
 L["LimitNoneDescription"] = "Mostrar no mapa todos os inimigos detectados independente da sua atual localização."
@@ -178,7 +183,7 @@ L["LimitSameContinentDescription"] = "Mostrar no mapa somente inimigos que estej
 
 L["DataOptions"] = "Gerenciamento de Dados"
 L["DataOptionsDescription"] = [[
-Você pode configurar como o Spy coleta e mantem os dados.
+Opções sobre como o Spy mantém e reúne dados.
 ]]
 L["PurgeData"] = "Limpar dados de inimigos não detectados após:"
 L["OneDay"] = "1 dia"
@@ -200,10 +205,7 @@ L["PurgeWinLossDateDescription"] = "Defina esta opção para limpar os dados win
 L["ShareData"] = "Compartilhar dados com outros usuários do Spy"
 L["ShareDataDescription"] = "Marque isso para compartilhar os dados dos inimigos encontrados com outros usuários do Spy em seu grupo, raide e guilda."
 L["UseData"] = "Usar dados de outros usuários do Spy"
-L["UseDataDescription"] = [[Marque isso para usar dados coletados por outros usuários do Spy em seu grupo, raide e guilda.
-
-Se outro usuário do Spy detectar um jogador inimigo ele será adicionado a sua lista de Proximidades se ela não estiver cheia
-]]
+L["UseDataDescription"] = "Marque isso para usar dados coletados por outros usuários do Spy em seu grupo, raide e guilda."
 L["ShareKOSBetweenCharacters"] = "Compartilhar Lista Negra entre todos os seus personagens"
 L["ShareKOSBetweenCharactersDescription"] = "Marque isso para que a Lista Negra seja compartilhada entre todos os seus personagens do mesmo reino e facção."
 
@@ -294,12 +296,13 @@ L["Player"] = " (Jogador)"
 L["KOSReason"] = "Lista Negra"
 L["KOSReasonIndent"] = "    "
 L["KOSReasonOther"] = "Digite seu próprio motivo..."
-L["KOSReasonClear"] = "Limpar"
+L["KOSReasonClear"] = "Limpar motivo"
 L["StatsWins"] = "|cff40ff00Vitórias: "
 L["StatsSeparator"] = "  "
 L["StatsLoses"] = "|cff0070ddDerrotas: "
 L["Located"] = "localizado:"
 L["Yards"] = "jardas"
+L["LocalDefenseChannelName"] = "DefesaLocal"
 
 Spy_KOSReasonListLength = 6
 Spy_KOSReasonList = {
@@ -433,26 +436,9 @@ L["TROLL"] = "Troll"
 --L["DARK IRON DWARF"] = "Anão Ferro Negro"
 --L["MAG'HAR ORC"] = "Orc Mag'har"
 
---++ Font descriptions
-L["2002"] = "2002"
-L["2002 BOLD"] = "2002 Bold"
-L["ARIAL NARROW"] = "Arial Narrow" -- default chat font
-L["AR ZhongkaiGBK Medium"] = "AR ZhongkaiGBK Medium"
-L["BIG NOODLE TITLING"] = "Big Noodle Titling"
-L["EXPRESSWAY"] = "Expressway"
-L["FRIZ QUADRATA TT"] = "Friz Quadrata TT" -- default main UI font
-L["FRIZQUADRATACTT"] = "Friz Quadrata CTT"
-L["MOK"] = "MoK"
-L["MORPHEUS"] = "Morpheus" -- default in game mail font
-L["NIMROD MT"] = "Nimrod MT"
-L["SKURRI"] = "Skurri" -- default unit frame combat font
-
 -- Stealth abilities
 L["Stealth"] = "Furtividade"
 L["Prowl"] = "Espreitar"
-
--- Channel names
-L["LocalDefenseChannelName"] = "DefesaLocal"
 
 --++ Minimap color codes
 --L["MinimapClassTextDEATHKNIGHT"] = "|cffc41e3a"

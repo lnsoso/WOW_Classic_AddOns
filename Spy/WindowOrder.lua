@@ -58,7 +58,7 @@ end
 function Spy:ResetPositionAllWindows()
 	for k, v in pairs(AllWindows) do
 		v:ClearAllPoints()
-		v:SetPoint("CENTER", UIParent, "CENTER", -550, 0)
+		v:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
 	end
 end
 

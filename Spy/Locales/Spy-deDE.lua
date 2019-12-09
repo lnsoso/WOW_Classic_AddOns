@@ -5,7 +5,7 @@ if not L then return end
 --Addon-Informationen
 L["Spy"] = "Spy"
 L["Version"] = "Version"
---L["LoadDescription"] = "|cff9933ffSpy-Addon geladen. Tippen Sie |cffffffff/spy|cff9933ff für Optionen."
+L["VersionCheck"] = "|cffc41e3aWarnung! Die falsche Version von Spy ist installiert. Entfernen Sie diese Version und installieren Sie Spy Classic."
 L["SpyEnabled"] = "|cff9933ffSpy-Addon aktiviert."
 L["SpyDisabled"] = "|cff9933ffSpy-Addon deaktiviert. Tippen Sie |cffffffff/Spy enable|cff9933ff um es zu aktivieren."
 L["UpgradeAvailable"] = "|cff9933ffEine neue Version von Spy ist verfügbar. Es kann von: \n| cffffffffhttps://www.curseforge.com/wow/addons/spy-classic heruntergeladen werden."
@@ -23,12 +23,10 @@ Spy ist ein Addon, das Sie über das Vorhandensein von, in der Nähe befindliche
 L["SpyDescription2"] = [[
 
 |cffffd000In der Nähe-Liste|cffffffff
-Die "In der Nähe"-Liste zeigt alle feindlichen Spieler, die in der Nähe entdeckt wurden. Durch Klicken auf die Liste können Sie den Spieler als Ziel erfassen, allerdings funktioniert dies nur außerhalb des Kampfes . Spieler, die für eine gewisse Zeit nicht erkannt wurden, werden aus der Liste entfernt.
-
-Mit dem Löschen-Button in der Titelleiste kann die Liste gelöscht werden. Indem Sie Ctrl beim Löschen der Liste gedrückt halten, können Sie schnell den Spy aktivieren/deaktivieren .
+Die "In der Nähe"-Liste zeigt alle feindlichen Spieler, die in der Nähe entdeckt wurden.  Spieler, die für eine gewisse Zeit nicht erkannt wurden, werden aus der Liste entfernt.
 
 |cffffd000Letzte Stunde-Liste|cffffffff
-Die "Letzte Stunde"-Liste zeigt alle Feinde, die in der letzten Stunde erkannt wurden.
+Zeigt alle Feinde, die in der letzten Stunde erkannt wurden.
 
 |cffffd000Ignorierliste|cffffffff
 Spieler, die der Ignorierliste hinzugefügt werden, werden nicht vom Spy gemeldet. Mithilfe des Dropdown-Menüs der Schaltfläche oder Halten der STRG-Taste beim Klicken auf die Schaltfläche können Sie Spieler zu der Liste hinzufügen oder entfernen.
@@ -38,12 +36,11 @@ Wird ein Spieler der "Bei Sichtkontakt zu Töten"-Liste erkannt, erklingt ein Al
 
 Ausserdem können Sie mithilfe des Dropdown-Menüs die Gründe hinterlegen, warum Sie jemanden zu der "Bei Sichtkontakt zu Töten"-Liste hinzugefügt haben. Möchten Sie einen nicht in der Liste hinterlegten Grund eingeben, verwenden Sie "Geben Sie Ihren eigenen Grund..." in der anderen Liste.
 
-
 |cffffd000Autor: Slipjack |cffffffff
-
 ]]
+
 L["EnableSpy"] = "Aktiviert Spy"
-L["EnableSpyDescription"] = "Aktiviert oder deaktiviert Spy sowohl jetzt als auch bei Login."
+L["EnableSpyDescription"] = "Aktiviert oder deaktiviert Spy."
 L["EnabledInBattlegrounds"] = "Aktiviert Spy in Schlachtfeldern"
 L["EnabledInBattlegroundsDescription"] = "Aktiviert oder deaktiviert Spy, wenn Sie in einer Arena sind."
 L["EnabledInArenas"] = "Aktiviert Spy in Arenen"
@@ -55,7 +52,7 @@ L["DisableWhenPVPUnflaggedDescription"] = "Aktiviert oder deaktiviert Spy, abhä
  
 L["DisplayOptions"] = "Anzeigen"
 L["DisplayOptionsDescription"] = [[
-Spy kann automatisch ein- und ausgeblendet werden.
+Optionen für das Spy-Fenster und QuickInfos.
 ]]
 L["ShowOnDetection"] = "Blendet Spy ein, wenn feindliche Spieler erkannt werden"
 L["ShowOnDetectionDescription"] = "Wählen Sie diese Einstellung, um das Spy-Fenster und In der Nähe-Liste anzuzeigen, wenn Spy verborgen ist und feindliche Spieler erkannt werden."
@@ -94,12 +91,19 @@ L["SelectFont"] = "Wählen Sie eine Schriftart"
 L["SelectFontDescription"] = "Wählen Sie eine Schriftart für das Spy-Fenster."
 L["RowHeight"] = "Wählen Sie die Zeilenhöhe aus"
 L["RowHeightDescription"] = "Wählen Sie die Zeilenhöhe für das Spy-Fenster aus."
+L["Texture"] = "Textur"
+L["TextureDescription"] = "Wählen Sie eine Textur für das SPY-Fenster"
  
 L["AlertOptions"] = "Warnungen"
 L["AlertOptionsDescription"] = [[
-Sie können die Details einer Begegnung in einem Chat-Kanal bekannt machen und festlegen, wie Spy Sie warnt, wenn feindliche Spieler erkannt werden.
+Optionen für Warnungen, Ankündigungen und Warnungen, wenn feindliche Spieler erkannt werden.
 ]]
-L["Announce"] = "Melden:"
+L["SoundChannel"] = "Wählen Sie Tonkanal"
+L["Master"] = "Gesamt"
+L["SFX"] = "Effekte"
+L["Music"] = "Musik"
+L["Ambience"] = "Umgebung"
+L["Announce"] = "Ankündigungen senden an:"
 L["None"] = "Nichts"
 L["NoneDescription"] = "Melde nichts, wenn feindliche Spieler erkannt werden."
 L["Self"] = "Selbst"
@@ -136,7 +140,7 @@ L["StopAlertsOnTaxiDescription"] = "Stoppen Sie alle neuen Alarme und Warnungen,
  
 L["ListOptions"] = "In der Nähe-Liste"
 L["ListOptionsDescription"] = [[
-Sie können einstellen, wie Spy feindliche Spieler zu der In der Nähe-Liste hinzufügt und entfernt .
+Optionen, wie feindliche Spieler hinzugefügt und entfernt werden.
 ]]
 L["RemoveUndetected"] = "Entfernt feindliche Spieler aus der In der Nähe-Liste nach:"
 L["1Min"] = "1 Minute"
@@ -156,18 +160,19 @@ L["ShowNearbyListDescription"] = "Stellen Sie hier die Anzeige der In der Nähe-
 L["PrioritiseKoS"] = "Priorisiere feindliche Spieler auf der In der Nähe-Liste, die sofort getötet werden sollen."
 L["PrioritiseKoSDescription"] = "Stellen Sie hier ein, das feindliche Spieler, die sofort getötet werden sollen, immer zuerst  auf der In der Nähe-Liste erscheinen."
  
-L["MinimapOptions"] = "Karte"
-L["MinimapOptionsDescription"] = [[
-Spieler, die Humanoide verfolgen können, können die Minikarte für zusätzliche Features nutzen.
+L["MapOptions"] = "Karte"
+L["MapOptionsDescription"] = [[
+Optionen für Weltkarte und Minikarte, einschließlich Symbole und QuickInfos.
 ]]
-L["MinimapTracking"] = "Aktiviere Minimap-Tracking"
-L["MinimapTrackingDescription"] = "Stellen Sie hier die Verfolgung und Entdeckung auf der Minikarte ein. Bekannte feindliche Spieler, die auf der Minikarte entdeckt werden, werden der In der Nähe-Liste hinzugefügt."
+L["MinimapDetection"] = "Aktiviere Minikarte Entdeckung"
+L["MinimapDetectionDescription"] = "Wenn Sie den Mauszeiger über bekannte feindliche Spieler bewegen, die auf der Minikarte gefunden wurden, werden diese zur Nähe-Liste hinzugefügt."
+L["MinimapNote"] = "          Hinweis: Funktioniert nur für Spieler, die Humanoide verfolgen können."
 L["MinimapDetails"] = "Zeige die Details der Level/Klassen in QuickInfos an."
 L["MinimapDetailsDescription"] = "Aktualisieren Sie hier die QuickInfo der Karte, sodass die Details der Level/Klassen neben feindlichen Namen angezeigt werden."
-L["DisplayOnMap"] = "Zeigt die Lokalisation der Feinde auf der Karte an."
-L["DisplayOnMapDescription"] = "Zeigt die Lokalisation der Feinde auf der Weltkarte und der Minikarte an, welche von anderen Spy-Benutzern Ihrer Gruppe und Gilde entdeckt wurden."
+L["DisplayOnMap"] = "Symbole auf der Karte anzeigen"
+L["DisplayOnMapDescription"] = "Zeigen Sie Kartensymbole für die Position anderer Spy-Benutzer in Ihrer Gruppe, Schlachtzug und Gilde an, wenn sie Feinde erkennen."
 L["SwitchToZone"] = "Wechseln Sie in der aktuellen Zonenkarte auf feindliche Erkennung"
-L["SwitchToZoneDescription"] = "Wenn die Weltkarte  geöffnet ist, wird diese Einstellung die Karte auf die aktuelle Zonenkarte des Spielers ändern, sobald Feinde entdeckt werden."
+L["SwitchToZoneDescription"] = "Change the map to the players current zone map when enemies are detected."
 L["MapDisplayLimit"] = "Limitiert angezeigte Kartensymbole auf:"
 L["LimitNone"] = "Überall"
 L["LimitNoneDescription"] = "Zeigt, unabhängig von Ihrem aktuellen Standort, alle erkannten Feinde auf der Karte an."
@@ -178,7 +183,7 @@ L["LimitSameContinentDescription"] = "Zeigt nur die entdeckten Feinde auf der Ka
  
 L["DataOptions"] = "Datenmanagement"
 L["DataOptionsDescription"] = [[
-Hier können Sie konfigurieren, wie Spy ihre Daten verwaltet und sammelt.
+Optionen, wie Spy Daten verwaltet und sammelt.
 ]]
 L["PurgeData"] = "Eliminiert unentdeckte feindliche Spieler-Daten nach:"
 L["OneDay"] = "1 Tag"
@@ -200,10 +205,7 @@ L["PurgeWinLossDataDescription"] = "Stellt die Eliminierung der Sieg/Verlust-Dat
 L["ShareData"] = "Teile die Daten mit anderen Spy-Benutzern."
 L["ShareDataDescription"] = "Stellt ein, dass Details Ihrer feindlichen Spieler-Begegnungen mit anderen Spy-Benutzern Ihrer Gruppe und Gilde geteilt werden."
 L["UseData"] = "Verwende Daten anderer Spy-Benutzer."
-L["UseDataDescription"] = [[Stelle dies ein, um gesammelte Daten anderer Spy-Benutzer Ihrer Gruppe und Gilde zu verwenden.
- 
-Entdeckt ein anderer Spy-Benutzer einen feindlichen Spieler, wird dieser Spieler zu Ihrer In der Nähe-Liste hinzugefügt, falls Platz vorhanden ist.
-]]
+L["UseDataDescription"] = "Stelle dies ein, um gesammelte Daten anderer Spy-Benutzer Ihrer Gruppe und Gilde zu verwenden."
 L["ShareKOSBetweenCharacters"] = "Teile Sofort zu tötende Spieler mit Ihren anderen Charakteren."
 L["ShareKOSBetweenCharactersDescription"] = "Wählen Sie diese Einstellung, um die Sofort zu tötende Spieler mit Ihren anderen Charakteren auf dem gleichen Server und Lager zu teilen."
  
@@ -294,12 +296,13 @@ L["Player"] = "(Spieler)"
 L["KOSReason"] = "Sofort zu töten"
 L["KOSReasonIndent"] = "    "
 L["KOSReasonOther"] = "Geben Sie Ihren eigenen Grund ein ..."
-L["KOSReasonClear"] = "Löschen"
+L["KOSReasonClear"] = "Löschen Grund"
 L["StatsWins"] = "|cff40ff00Gewinne:"
 L["StatsSeparator"] = ""
 L["StatsLoses"] = "|cff0070ddNiederlagen:"
 L["Located"] = "lokalisiert:"
 L["Yards"] = "Yards"
+L["LocalDefenseChannelName"] = "LokaleVerteidigung"
  
 Spy_KOSReasonListLength = 6
 Spy_KOSReasonList = {
@@ -433,26 +436,9 @@ L["TROLL"] = "Troll"
 --L["DARK IRON DWARF"] = "Dunkeleisenzwerg"
 --L["MAG'HAR ORC"] = "Mag'har"
  
---++ Font descriptions
-L["2002"] = "2002"
-L["2002 BOLD"] = "2002 Bold"
-L["ARIAL NARROW"] = "Arial Narrow" -- default chat font
-L["AR ZhongkaiGBK Medium"] = "AR ZhongkaiGBK Medium"
-L["BIG NOODLE TITLING"] = "Big Noodle Titling"
-L["EXPRESSWAY"] = "Expressway"
-L["FRIZ QUADRATA TT"] = "Friz Quadrata TT" -- default main UI font
-L["FRIZQUADRATACTT"] = "Friz Quadrata CTT"
-L["MOK"] = "MoK"
-L["MORPHEUS"] = "Morpheus" -- default in game mail font
-L["NIMROD MT"] = "Nimrod MT"
-L["SKURRI"] = "Skurri" -- default unit frame combat font
-
- --Stealth Fähigkeiten
-L["Stealth"] = "tarnen"
-L["Prowl"] = "schleichen"
- 
---Kanalnamen
-L["LocalDefenseChannelName"] = "LokaleVerteidigung"
+--Stealth Fähigkeiten
+L["Stealth"] = "Verstohlenheit"
+L["Prowl"] = "Schleichen"
  
 --++ Minimap-Farbcodes
 --L["MinimapClassTextDEATHKNIGHT"] = "|cffc41e3a"
