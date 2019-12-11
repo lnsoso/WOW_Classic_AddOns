@@ -46,16 +46,19 @@ local pairs = pairs
 local InCombatLockdown = InCombatLockdown
 local UnitIsPlayer = UnitIsPlayer
 local UnitClassification = UnitClassification
---local UnitDetailedThreatSituation = UnitDetailedThreatSituation
+local UnitDetailedThreatSituation = UnitDetailedThreatSituation
+local UnitAura = UnitAura
+local UnitBuff = UnitBuff
+local UnitDebuff = UnitDebuff
 local UnitCanAttack = UnitCanAttack
 local IsSpellInRange = IsSpellInRange
 local abs = math.abs
 local format = string.format
 local GetSpellInfo = GetSpellInfo
 local UnitIsUnit = UnitIsUnit
---local type = type
---local tonumber = tonumber
---local select = select
+local type = type
+local tonumber = tonumber
+local select = select
 local UnitGUID = UnitGUID
 local strsplit = strsplit
 local lower = string.lower
@@ -63,12 +66,8 @@ local floor = floor
 local max = math.max
 local min = math.min
 
---classic
-local UnitIsQuestBoss = UnitIsQuestBoss or function() return false end
-
 local LibSharedMedia = LibStub:GetLibrary ("LibSharedMedia-3.0")
 local LCG = LibStub:GetLibrary("LibCustomGlow-1.0")
-
 local _
 
 local Plater = DF:CreateAddOn ("Plater", "PlaterDB", PLATER_DEFAULT_SETTINGS, { --options table
@@ -78,27 +77,6 @@ local Plater = DF:CreateAddOn ("Plater", "PlaterDB", PLATER_DEFAULT_SETTINGS, { 
 		
 	}
 })
-
--- support for LibClassicDurations from https://github.com/rgd87/LibClassicDurations by d87
-local UnitAura = _G.UnitAura
-local LCD = LibStub:GetLibrary("LibClassicDurations", true)
-if LCD then
-	LCD:Register(Plater)
-	LCD.RegisterCallback(Plater, "UNIT_BUFF", function(event, unit)end)
-	UnitAura = LCD.UnitAuraWithBuffs
-end
-
---threat stuff from: https://github.com/EsreverWoW/ClassicThreatMeter by EsreverWoW
-local ThreatLib = LibStub:GetLibrary ("ThreatClassic-1.0")
-
-local UnitThreatSituation = function (unit, mob)
-    return ThreatLib:UnitThreatSituation (unit, mob)
-end
-
-local UnitDetailedThreatSituation = function (unit, mob)
-    return ThreatLib:UnitDetailedThreatSituation (unit, mob)
-end
-
 
 --> when a hook script is compiled, it increases the build version, so the handler for running scripts will notice in the change and update the script in real time
 local PLATER_HOOK_BUILD = 1
@@ -682,7 +660,6 @@ Plater.DefaultSpellRangeList = {
 	local DB_AURA_SHOW_ENRAGE
 	local DB_AURA_SHOW_BYPLAYER
 	local DB_AURA_SHOW_BYUNIT
-	local DB_AURA_SHOW_ENEMY_BUFFS
 	local DB_AURA_PADDING
 
 	local DB_AURA_GROW_DIRECTION --> main aura frame
@@ -829,8 +806,82 @@ Plater.DefaultSpellRangeList = {
 	--> update if can use execute indicators - this function needs to be updated when a new execute spell is added, removed, modified
 	--> in scripts you can use Plater.SetExecuteRange or override this function completelly
 	function Plater.GetHealthCutoffValue()
-		--no classic
-		if (true) then return end
+		Plater.SetExecuteRange (false)
+		
+		if (not Plater.db.profile.health_cutoff) then
+			return
+		end
+		
+		local classLoc, class = UnitClass ("player")
+		local spec = GetSpecialization()
+		if (spec and class) then
+		
+			if (class == "PRIEST") then
+				--playing as shadow?
+				local specID = GetSpecializationInfo (spec)
+				if (specID and specID ~= 0) then
+					if (specID == 258) then --shadow
+						local _, _, _, using_SWDeath = GetTalentInfo (5, 2, 1)
+						if (using_SWDeath) then
+							Plater.SetExecuteRange (true, 0.20)
+						end
+					end
+				end
+				
+			elseif (class == "MAGE") then
+				--playing fire mage?
+				local specID = GetSpecializationInfo (spec)
+				if (specID and specID ~= 0) then
+					if (specID == 63) then --fire
+						local _, _, _, using_SearingTouch = GetTalentInfo (1, 3, 1)
+						if (using_SearingTouch) then
+							Plater.SetExecuteRange (true, 0.30)
+						end
+					end
+				end
+				
+				
+			elseif (class == "WARRIOR") then
+				--is playing as a Arms warrior?
+				local specID = GetSpecializationInfo (spec)
+				if (specID and specID ~= 0) then
+					if (specID == 71 or specID == 72) then --arms or fury
+						Plater.SetExecuteRange (true, 0.20)
+						
+						if (specID == 71) then --arms
+							local _, _, _, using_Massacre = GetTalentInfo (3, 1, 1)
+							if (using_Massacre) then
+								--if using massacre, execute can be used at 35% health in Arms spec
+								Plater.SetExecuteRange (true, 0.35)
+							end
+						end
+					end
+				end
+				
+			elseif (class == "HUNTER") then
+				local specID = GetSpecializationInfo (spec)
+				if (specID and specID ~= 0) then
+					if (specID == 253) then --beast mastery
+						--> is using killer instinct?
+						local _, _, _, using_KillerInstinct = GetTalentInfo (1, 1, 1)
+						if (using_KillerInstinct) then
+							Plater.SetExecuteRange (true, 0.35)
+						end
+					end
+				end
+			elseif (class == "PALADIN") then
+				local specID = GetSpecializationInfo (spec)
+				if (specID and specID ~= 0) then
+					if (specID == 70) then --retribution paladin
+						--> is using hammer of wrath?
+						local _, _, _, using_HammerOfWrath = GetTalentInfo (2, 3, 1)
+						if (using_HammerOfWrath) then
+							Plater.SetExecuteRange (true, 0.2)
+						end
+					end
+				end
+			end
+		end
 	end	
 
 	--> range check ~range
@@ -849,71 +900,69 @@ Plater.DefaultSpellRangeList = {
 			return
 		end
 		
-		if (not (Plater.SpellForRangeCheck == nil or Plater.SpellForRangeCheck == '')) then
-			--check when the unit just has been added to the screen
-			if (onAdded) then
-				--range check when the nameplate is added
-				if (Plater.SpellBookForRangeCheck) then
-					if (IsSpellInRange (Plater.SpellForRangeCheck, Plater.SpellBookForRangeCheck, plateFrame [MEMBER_UNITID]) == 1) then
-						plateFrame.FadedIn = true
-						local alpha = Plater.GetPlateAlpha (plateFrame)
-						plateFrame.unitFrame:SetAlpha (alpha)
-						plateFrame [MEMBER_ALPHA] = alpha
-						plateFrame [MEMBER_RANGE] = true
-						plateFrame.unitFrame [MEMBER_RANGE] = true
-					else
-						plateFrame.FadedIn = nil
-						local alpha = Plater.db.profile.range_check_alpha
-						plateFrame.unitFrame:SetAlpha (alpha)
-						plateFrame [MEMBER_ALPHA] = alpha
-						plateFrame [MEMBER_RANGE] = false
-						plateFrame.unitFrame [MEMBER_RANGE] = false
+		--check when the unit just has been added to the screen
+		if (onAdded) then
+			--range check when the nameplate is added
+			if (Plater.SpellBookForRangeCheck) then
+				if (IsSpellInRange (Plater.SpellForRangeCheck, Plater.SpellBookForRangeCheck, plateFrame [MEMBER_UNITID]) == 1) then
+					plateFrame.FadedIn = true
+					local alpha = Plater.GetPlateAlpha (plateFrame)
+					plateFrame.unitFrame:SetAlpha (alpha)
+					plateFrame [MEMBER_ALPHA] = alpha
+					plateFrame [MEMBER_RANGE] = true
+					plateFrame.unitFrame [MEMBER_RANGE] = true
+				else
+					plateFrame.FadedIn = nil
+					local alpha = Plater.db.profile.range_check_alpha
+					plateFrame.unitFrame:SetAlpha (alpha)
+					plateFrame [MEMBER_ALPHA] = alpha
+					plateFrame [MEMBER_RANGE] = false
+					plateFrame.unitFrame [MEMBER_RANGE] = false
+				end
+			else
+				if (IsSpellInRange (Plater.SpellForRangeCheck, plateFrame [MEMBER_UNITID]) == 1) then
+					plateFrame.FadedIn = true
+					local alpha = Plater.GetPlateAlpha (plateFrame)
+					plateFrame.unitFrame:SetAlpha (alpha)
+					plateFrame [MEMBER_ALPHA] = alpha
+					plateFrame [MEMBER_RANGE] = true
+					plateFrame.unitFrame [MEMBER_RANGE] = true
+				else
+					plateFrame.FadedIn = nil
+					local alpha = Plater.db.profile.range_check_alpha
+					plateFrame.unitFrame:SetAlpha (alpha)
+					plateFrame [MEMBER_ALPHA] = alpha
+					plateFrame [MEMBER_RANGE] = false
+					plateFrame.unitFrame [MEMBER_RANGE] = false
+				end
+			end
+		else
+			--regular range check during throttled tick
+			if (Plater.SpellBookForRangeCheck) then
+				--using a spell book spell index for the range check, this is disabled at the moment in the function below
+				if (IsSpellInRange (Plater.SpellForRangeCheck, Plater.SpellBookForRangeCheck, plateFrame [MEMBER_UNITID]) == 1) then
+					if (not plateFrame.FadedIn and not plateFrame.unitFrame.FadeIn.playing) then
+						plateFrame:RangeFadeIn()
 					end
 				else
-					if (IsSpellInRange (Plater.SpellForRangeCheck, plateFrame [MEMBER_UNITID]) == 1) then
-						plateFrame.FadedIn = true
-						local alpha = Plater.GetPlateAlpha (plateFrame)
-						plateFrame.unitFrame:SetAlpha (alpha)
-						plateFrame [MEMBER_ALPHA] = alpha
-						plateFrame [MEMBER_RANGE] = true
-						plateFrame.unitFrame [MEMBER_RANGE] = true
-					else
-						plateFrame.FadedIn = nil
-						local alpha = Plater.db.profile.range_check_alpha
-						plateFrame.unitFrame:SetAlpha (alpha)
-						plateFrame [MEMBER_ALPHA] = alpha
-						plateFrame [MEMBER_RANGE] = false
-						plateFrame.unitFrame [MEMBER_RANGE] = false
+					if (plateFrame.FadedIn and not plateFrame.unitFrame.FadeOut.playing) then
+						plateFrame:RangeFadeOut()
 					end
 				end
 			else
-				--regular range check during throttled tick
-				if (Plater.SpellBookForRangeCheck) then
-					--using a spell book spell index for the range check, this is disabled at the moment in the function below
-					if (IsSpellInRange (Plater.SpellForRangeCheck, Plater.SpellBookForRangeCheck, plateFrame [MEMBER_UNITID]) == 1) then
-						if (not plateFrame.FadedIn and not plateFrame.unitFrame.FadeIn.playing) then
-							plateFrame:RangeFadeIn()
-						end
-					else
-						if (plateFrame.FadedIn and not plateFrame.unitFrame.FadeOut.playing) then
-							plateFrame:RangeFadeOut()
-						end
+				--using a spell name for the range check
+				if (IsSpellInRange (Plater.SpellForRangeCheck, plateFrame [MEMBER_UNITID]) == 1) then
+					if (not plateFrame.FadedIn and not plateFrame.unitFrame.FadeIn.playing) then
+						plateFrame:RangeFadeIn()
 					end
+					plateFrame [MEMBER_RANGE] = true
+					plateFrame.unitFrame [MEMBER_RANGE] = true
 				else
-					--using a spell name for the range check
-					if (IsSpellInRange (Plater.SpellForRangeCheck, plateFrame [MEMBER_UNITID]) == 1) then
-						if (not plateFrame.FadedIn and not plateFrame.unitFrame.FadeIn.playing) then
-							plateFrame:RangeFadeIn()
-						end
-						plateFrame [MEMBER_RANGE] = true
-						plateFrame.unitFrame [MEMBER_RANGE] = true
-					else
-						if (plateFrame.FadedIn and not plateFrame.unitFrame.FadeOut.playing) then
-							plateFrame:RangeFadeOut()
-						end
-						plateFrame [MEMBER_RANGE] = false
-						plateFrame.unitFrame [MEMBER_RANGE] = false
+					if (plateFrame.FadedIn and not plateFrame.unitFrame.FadeOut.playing) then
+						plateFrame:RangeFadeOut()
 					end
+					plateFrame [MEMBER_RANGE] = false
+					plateFrame.unitFrame [MEMBER_RANGE] = false
 				end
 			end
 		end
@@ -926,18 +975,50 @@ Plater.DefaultSpellRangeList = {
 	--> execute after player logon or when the player changes its spec
 	function Plater.GetSpellForRangeCheck()
 		Plater.SpellBookForRangeCheck = nil
-		Plater.SpellForRangeCheck = PlaterDBChr.spellRangeCheck
-		
-		--no classic
-		--if (true) then return end
+
+		local specIndex = GetSpecialization()
+		if (specIndex) then
+			local specID = GetSpecializationInfo (specIndex)
+			if (specID and specID ~= 0) then
+				--the local character saved variable hold the spell name used for the range check
+				Plater.SpellForRangeCheck = PlaterDBChr.spellRangeCheck [specID]
+				
+				--getting the spell slot from the spellbook doesn't fix the problem with the demonhunter taunt ability
+				--the rest of the code of this function is disabled, maybe in the future I'll revisit it
+
+				--[=[
+				--attempt ot get the spellbook slot for this spell
+				for i = 1, GetNumSpellTabs() do
+					local name, texture, offset, numEntries, isGuild, offspecID = GetSpellTabInfo (i)
+					
+					--is the tab enabled?
+					if (offspecID == 0) then
+						for slotIndex = offset, offset + numEntries - 1 do
+							local skillType, spellID = GetSpellBookItemInfo (slotIndex, BOOKTYPE_SPELL)
+							if (skillType == "SPELL" or skillType == "FUTURESPELL") then
+								local spellName = GetSpellInfo (spellID)
+								if (spellName == Plater.SpellForRangeCheck) then
+									Plater.SpellForRangeCheck = FindSpellBookSlotBySpellID (spellID)
+									Plater.SpellBookForRangeCheck = skillType
+									break
+								end
+							end
+						end
+					end
+				end
+				--]=]
+			else
+				C_Timer.After (5, re_GetSpellForRangeCheck)
+			end
+		else
+			C_Timer.After (5, re_GetSpellForRangeCheck)
+		end
+
 	end	
 
 	-- ~tank --todo: make these functions be inside the Plater object
 	--true if the 'player' unit is a tank
 	local function IsPlayerEffectivelyTank()
-		--todo: tank detection
-		if true then return false end
-
 		local assignedRole = UnitGroupRolesAssigned ("player")
 		if (assignedRole == "NONE") then
 			local spec = GetSpecialization()
@@ -948,27 +1029,14 @@ Plater.DefaultSpellRangeList = {
 
 	--return true if the unit is in tank role
 	local function IsUnitEffectivelyTank (unit)
-		--todo: need some thing here
-		--return UnitGroupRolesAssigned (unit) == "TANK"
-
-	end
-	
-	-- toggle Threat Color Mode between tank / dps
-	function Plater.ToggleThreatColorMode()
-		Plater.db.profile.tank_threat_colors = not Plater.db.profile.tank_threat_colors
-		Plater.RefreshTankCache()
-		if Plater.PlayerIsTank then
-			print("Plater: Using Tank Threat Colors")
-		else
-			print("Plater: Using DPS Threat Colors")
-		end
+		return UnitGroupRolesAssigned (unit) == "TANK"
 	end
 	
 	--iterate among group members and store the names of all tanks in the group
 	--this is called when the player enter, leave or when the group roster is changed
 	--tank cache is used mostly in the aggro check to know if the player is a tank
 	function Plater.RefreshTankCache() --private
-		Plater.PlayerIsTank = Plater.db.profile.tank_threat_colors
+		Plater.PlayerIsTank = false
 	
 		wipe (TANK_CACHE)
 		
@@ -1035,7 +1103,7 @@ Plater.DefaultSpellRangeList = {
 
 	--> return true if the resource bar should shown above the nameplate in the current target nameplate
 	function Plater.IsShowingResourcesOnTarget() --private
-		return Plater.db.profile.resource_on_target
+		return GetCVar ("nameplateShowSelf") == CVAR_ENABLED and GetCVar ("nameplateResourceOnTarget") == CVAR_ENABLED
 	end
 	
 	--> when the player left a zone but is in combat, wait 1 second and trigger the zone changed again
@@ -1156,6 +1224,7 @@ Plater.DefaultSpellRangeList = {
 		
 		--> personal and resources
 		cvarTable ["nameplateShowSelf"] = GetCVar ("nameplateShowSelf")
+		cvarTable ["nameplateResourceOnTarget"] = GetCVar ("nameplateResourceOnTarget")
 		cvarTable ["nameplatePersonalShowAlways"] = GetCVar ("nameplatePersonalShowAlways")
 		cvarTable ["nameplatePersonalShowWithTarget"] = GetCVar ("nameplatePersonalShowWithTarget")
 		cvarTable ["nameplatePersonalShowInCombat"] = GetCVar ("nameplatePersonalShowInCombat")
@@ -1330,7 +1399,6 @@ Plater.DefaultSpellRangeList = {
 		DB_AURA_SHOW_ENRAGE = profile.aura_show_enrage
 		DB_AURA_SHOW_BYPLAYER = profile.aura_show_aura_by_the_player
 		DB_AURA_SHOW_BYUNIT = profile.aura_show_buff_by_the_unit
-		DB_AURA_SHOW_ENEMY_BUFFS = profile.aura_show_enemy_buffs
 		DB_AURA_PADDING = profile.aura_padding
 
 		DB_AURA_GROW_DIRECTION = profile.aura_grow_direction
@@ -1357,7 +1425,7 @@ Plater.DefaultSpellRangeList = {
 							tinsert (frameAnimations, data)
 						end
 					end
-
+					
 					SPELL_WITH_ANIMATIONS [spellName] = frameAnimations
 				end
 				
@@ -1781,12 +1849,11 @@ Plater.DefaultSpellRangeList = {
 
 		FRIENDLIST_UPDATE = function()
 			wipe (Plater.FriendsCache)
-			
-			for i = 1, C_FriendList.GetNumFriends() do
-				local info = C_FriendList.GetFriendInfoByIndex (i)
-				if (info.connected and info.name) then
-					Plater.FriendsCache [info.name] = true
-					Plater.FriendsCache [DF:RemoveRealmName (info.name)] = true
+			for i = 1, GetNumFriends() do
+				local toonName, level, class, area, connected, status, note = GetFriendInfo (i)
+				if (connected and toonName) then
+					Plater.FriendsCache [toonName] = true
+					Plater.FriendsCache [DF:RemoveRealmName (toonName)] = true
 				end
 			end
 			for i = 1, BNGetNumFriends() do 
@@ -2028,7 +2095,7 @@ Plater.DefaultSpellRangeList = {
 				else
 					newUnitFrame = DF:CreateUnitFrame (plateFrame, plateFrame:GetName() .. "PlaterUnitFrame", unitFrameOptions, healthBarOptions, castBarOptions)
 				end
-				
+
 				plateFrame.unitFrame = newUnitFrame
 				plateFrame.unitFrame:EnableMouse (false)
 				
@@ -2040,6 +2107,10 @@ Plater.DefaultSpellRangeList = {
 				
 				--OnHide handler
 				newUnitFrame:HookScript ("OnHide", newUnitFrame.OnHideWidget)
+
+				--OnHealthUpdate
+				newUnitFrame.healthBar:SetHook ("OnHealthChange", Plater.OnHealthChange)
+				newUnitFrame.healthBar:SetHook ("OnHealthMaxChange", Plater.OnHealthMaxChange)
 				
 				--register details framework hooks
 				newUnitFrame.castBar:SetHook ("OnShow", Plater.CastBarOnShow_Hook)
@@ -2201,7 +2272,7 @@ Plater.DefaultSpellRangeList = {
 				--overlay for the healthbar showing the healthbar of the execute (shown when the unit is on execute range)
 				local executeRange = healthBar:CreateTexture (nil, "border")
 				executeRange:SetTexture ([[Interface\AddOns\Plater\images\execute_bar]])
-				DFPixelUtil.SetPoint (executeRange, "left", healthBar, "left", 0, 0)
+				PixelUtil.SetPoint (executeRange, "left", healthBar, "left", 0, 0)
 				healthBar.executeRange = executeRange
 				healthBar.ExecuteRangeBar = executeRange --alias for scripting
 				executeRange:Hide()
@@ -2213,7 +2284,7 @@ Plater.DefaultSpellRangeList = {
 				executeGlowUp:SetHeight (32)		
 				executeGlowUp:SetBlendMode ("ADD")
 				executeGlowUp:Hide()
-				DFPixelUtil.SetPoint (executeGlowUp, "bottom", healthBar, "top", 0, 0)
+				PixelUtil.SetPoint (executeGlowUp, "bottom", healthBar, "top", 0, 0)
 				healthBar.ExecuteGlowUp = executeGlowUp
 				
 				local executeGlowDown = healthBar:CreateTexture (nil, "overlay")
@@ -2222,7 +2293,7 @@ Plater.DefaultSpellRangeList = {
 				executeGlowDown:SetHeight (30)
 				executeGlowDown:SetBlendMode ("ADD")
 				executeGlowDown:Hide()
-				DFPixelUtil.SetPoint (executeGlowDown, "top", healthBar, "bottom", 0, 0)
+				PixelUtil.SetPoint (executeGlowDown, "top", healthBar, "bottom", 0, 0)
 				healthBar.ExecuteGlowDown = executeGlowDown
 				
 				local executeGlowAnimationOnPlay = function (self)
@@ -2243,7 +2314,7 @@ Plater.DefaultSpellRangeList = {
 			--> create the raid target widgets
 				--raid target inside the health bar
 				local raidTarget = healthBar:CreateTexture (nil, "overlay")
-				DFPixelUtil.SetPoint (raidTarget, "right", raidTarget:GetParent(), "right", -2, 0)
+				PixelUtil.SetPoint (raidTarget, "right", raidTarget:GetParent(), "right", -2, 0)
 				plateFrame.RaidTarget = raidTarget
 				healthBar.ExtraRaidMark = raidTarget --alias for scripting
 
@@ -2251,7 +2322,7 @@ Plater.DefaultSpellRangeList = {
 				plateFrame.unitFrame.PlaterRaidTargetFrame = CreateFrame ("frame", nil, plateFrame.unitFrame)
 				local targetFrame = plateFrame.unitFrame.PlaterRaidTargetFrame
 				targetFrame:SetSize (22, 22)
-				DFPixelUtil.SetPoint (targetFrame, "right", healthBar, "left", -15, 0)
+				PixelUtil.SetPoint (targetFrame, "right", healthBar, "left", -15, 0)
 				
 				--icon
 				targetFrame.RaidTargetIcon = targetFrame:CreateTexture (nil, "artwork")
@@ -2281,7 +2352,7 @@ Plater.DefaultSpellRangeList = {
 			
 			--> unit name
 				--regular name
-				plateFrame.unitFrame.unitName:SetParent (healthBar) --the name is parented to unitFrame in the framework
+				plateFrame.unitFrame.unitName:SetParent (healthBar) --the name is parented to unitFrame in the framework, parent it to health bar
 				healthBar.unitName = plateFrame.unitFrame.unitName
 				healthBar.PlateFrame = plateFrame
 				plateFrame.unitName = plateFrame.unitFrame.unitName
@@ -2291,12 +2362,12 @@ Plater.DefaultSpellRangeList = {
 				--special name and title
 				local ActorNameSpecial = plateFrame:CreateFontString (nil, "artwork", "GameFontNormal")
 				plateFrame.ActorNameSpecial = ActorNameSpecial
-				DFPixelUtil.SetPoint (plateFrame.ActorNameSpecial, "center", plateFrame, "center", 0, 0)
+				PixelUtil.SetPoint (plateFrame.ActorNameSpecial, "center", plateFrame, "center", 0, 0)
 				plateFrame.ActorNameSpecial:Hide()
 				
 				local ActorTitleSpecial = plateFrame:CreateFontString (nil, "artwork", "GameFontNormal")
 				plateFrame.ActorTitleSpecial = ActorTitleSpecial
-				DFPixelUtil.SetPoint (plateFrame.ActorTitleSpecial, "top", ActorNameSpecial, "bottom", 0, -2)
+				PixelUtil.SetPoint (plateFrame.ActorTitleSpecial, "top", ActorNameSpecial, "bottom", 0, -2)
 				plateFrame.ActorTitleSpecial:Hide()
 				
 				plateFrame.unitFrame.ActorNameSpecial = ActorNameSpecial --alias for scripts
@@ -2389,18 +2460,18 @@ Plater.DefaultSpellRangeList = {
 			
 			--> border
 				--create a border using default borders from the retail game
-				local healthBarBorder = CreateFrame ("frame", nil, plateFrame.unitFrame.healthBar, "PlaterNamePlateFullBorderTemplate")
+				local healthBarBorder = CreateFrame ("frame", nil, plateFrame.unitFrame.healthBar, "NamePlateFullBorderTemplate")
 				plateFrame.unitFrame.healthBar.border = healthBarBorder
 				
-				local powerBarBorder = CreateFrame ("frame", nil, plateFrame.unitFrame.powerBar, "PlaterNamePlateFullBorderTemplate")
+				local powerBarBorder = CreateFrame ("frame", nil, plateFrame.unitFrame.powerBar, "NamePlateFullBorderTemplate")
 				plateFrame.unitFrame.powerBar.border = powerBarBorder
 				powerBarBorder:SetVertexColor (0, 0, 0, 1)
 			
 			--> focus indicator
 				local focusIndicator = healthBar:CreateTexture (nil, "overlay")
 				focusIndicator:SetDrawLayer ("overlay", 2)
-				DFPixelUtil.SetPoint (focusIndicator, "topleft", healthBar, "topleft", 0, 0)
-				DFPixelUtil.SetPoint (focusIndicator, "bottomright", healthBar, "bottomright", 0, 0)
+				PixelUtil.SetPoint (focusIndicator, "topleft", healthBar, "topleft", 0, 0)
+				PixelUtil.SetPoint (focusIndicator, "bottomright", healthBar, "bottomright", 0, 0)
 				focusIndicator:Hide()
 				healthBar.FocusIndicator = focusIndicator
 				plateFrame.FocusIndicator = focusIndicator
@@ -2408,8 +2479,8 @@ Plater.DefaultSpellRangeList = {
 			
 			--> low aggro warning
 				plateFrame.unitFrame.aggroGlowUpper = plateFrame:CreateTexture (nil, "background", -4)
-				DFPixelUtil.SetPoint (plateFrame.unitFrame.aggroGlowUpper, "bottomleft", plateFrame.unitFrame.healthBar, "topleft", -3, 0)
-				DFPixelUtil.SetPoint (plateFrame.unitFrame.aggroGlowUpper, "bottomright", plateFrame.unitFrame.healthBar, "topright", 3, 0)
+				PixelUtil.SetPoint (plateFrame.unitFrame.aggroGlowUpper, "bottomleft", plateFrame.unitFrame.healthBar, "topleft", -3, 0)
+				PixelUtil.SetPoint (plateFrame.unitFrame.aggroGlowUpper, "bottomright", plateFrame.unitFrame.healthBar, "topright", 3, 0)
 				plateFrame.unitFrame.aggroGlowUpper:SetTexture ([[Interface\BUTTONS\UI-Panel-Button-Glow]])
 				plateFrame.unitFrame.aggroGlowUpper:SetTexCoord (0, 95/128, 0, 9/64)
 				plateFrame.unitFrame.aggroGlowUpper:SetBlendMode ("ADD")
@@ -2417,8 +2488,8 @@ Plater.DefaultSpellRangeList = {
 				plateFrame.unitFrame.aggroGlowUpper:Hide()
 				
 				plateFrame.unitFrame.aggroGlowLower = plateFrame:CreateTexture (nil, "background", -4)
-				DFPixelUtil.SetPoint (plateFrame.unitFrame.aggroGlowLower, "topleft", plateFrame.unitFrame.healthBar, "bottomleft", -3, 0)
-				DFPixelUtil.SetPoint (plateFrame.unitFrame.aggroGlowLower, "topright", plateFrame.unitFrame.healthBar, "bottomright", 3, 0)
+				PixelUtil.SetPoint (plateFrame.unitFrame.aggroGlowLower, "topleft", plateFrame.unitFrame.healthBar, "bottomleft", -3, 0)
+				PixelUtil.SetPoint (plateFrame.unitFrame.aggroGlowLower, "topright", plateFrame.unitFrame.healthBar, "bottomright", 3, 0)
 				plateFrame.unitFrame.aggroGlowLower:SetTexture ([[Interface\BUTTONS\UI-Panel-Button-Glow]])
 				plateFrame.unitFrame.aggroGlowLower:SetTexCoord (0, 95/128, 30/64, 38/64)
 				plateFrame.unitFrame.aggroGlowLower:SetBlendMode ("ADD")
@@ -2681,7 +2752,6 @@ Plater.DefaultSpellRangeList = {
 							end
 							
 							--get threat situation to expose it to scripts already in the nameplate added hook
-							--todo: threat
 							local isTanking, threatStatus, threatpct = UnitDetailedThreatSituation ("player", unitID)
 							unitFrame.namePlateThreatIsTanking = isTanking
 							unitFrame.namePlateThreatStatus = threatStatus
@@ -2693,9 +2763,9 @@ Plater.DefaultSpellRangeList = {
 			
 			--icone da cast bar
 			castBar.Icon:ClearAllPoints()
-			DFPixelUtil.SetPoint (castBar.Icon, "left", castBar, "left", 0, 0)
+			PixelUtil.SetPoint (castBar.Icon, "left", castBar, "left", 0, 0)
 			castBar.BorderShield:ClearAllPoints()
-			DFPixelUtil.SetPoint (castBar.BorderShield, "left", castBar, "left", 0, 0)
+			PixelUtil.SetPoint (castBar.BorderShield, "left", castBar, "left", 0, 0)
 			
 			--esconde os glow de aggro
 			unitFrame.aggroGlowUpper:Hide()
@@ -2859,14 +2929,20 @@ function Plater.OnInit() --private
 		PlaterDBChr.first_run3 = PlaterDBChr.first_run3 or {}
 		PlaterDBChr.debuffsBanned = PlaterDBChr.debuffsBanned or {}
 		PlaterDBChr.buffsBanned = PlaterDBChr.buffsBanned or {}
-		PlaterDBChr.spellRangeCheck = PlaterDBChr.spellRangeCheck or ""
+		PlaterDBChr.spellRangeCheck = PlaterDBChr.spellRangeCheck or {}
+
+	--to fix: attempt to index field 'spellRangeCheck' (a string value)
+		if (type (PlaterDBChr.spellRangeCheck) ~= "table") then
+			PlaterDBChr.spellRangeCheck = {}
+		end
 	
 	--range check spells
-		if type(PlaterDBChr.spellRangeCheck) == "table" then
-			PlaterDBChr.spellRangeCheck = nil
+		for specID, _ in pairs (Plater.SpecList [select (2, UnitClass ("player"))]) do
+			if (PlaterDBChr.spellRangeCheck [specID] == nil) then
+				PlaterDBChr.spellRangeCheck [specID] = GetSpellInfo (Plater.DefaultSpellRangeList [specID])
+			end
 		end
-		--PlaterDBChr.spellRangeCheck = GetSpellInfo (Plater.DefaultSpellRangeList)
-		Plater.SpellForRangeCheck = nil
+		Plater.SpellForRangeCheck = ""
 	
 	--who is the player
 		Plater.PlayerGUID = UnitGUID ("player")
@@ -2962,6 +3038,7 @@ function Plater.OnInit() --private
 		Plater.EventHandlerFrame:RegisterEvent ("NAME_PLATE_UNIT_REMOVED")
 		
 		Plater.EventHandlerFrame:RegisterEvent ("PLAYER_TARGET_CHANGED")
+		Plater.EventHandlerFrame:RegisterEvent ("PLAYER_FOCUS_CHANGED")
 		
 		Plater.EventHandlerFrame:RegisterEvent ("PLAYER_REGEN_DISABLED")
 		Plater.EventHandlerFrame:RegisterEvent ("PLAYER_REGEN_ENABLED")
@@ -2978,15 +3055,18 @@ function Plater.OnInit() --private
 		Plater.EventHandlerFrame:RegisterEvent ("QUEST_REMOVED")
 		Plater.EventHandlerFrame:RegisterEvent ("QUEST_ACCEPT_CONFIRM")
 		Plater.EventHandlerFrame:RegisterEvent ("QUEST_COMPLETE")
-
+		Plater.EventHandlerFrame:RegisterEvent ("QUEST_POI_UPDATE")
 		Plater.EventHandlerFrame:RegisterEvent ("QUEST_DETAIL")
 		Plater.EventHandlerFrame:RegisterEvent ("QUEST_FINISHED")
 		Plater.EventHandlerFrame:RegisterEvent ("QUEST_GREETING")
 		Plater.EventHandlerFrame:RegisterEvent ("QUEST_LOG_UPDATE")
 		Plater.EventHandlerFrame:RegisterEvent ("UNIT_QUEST_LOG_CHANGED")
+		Plater.EventHandlerFrame:RegisterEvent ("PLAYER_SPECIALIZATION_CHANGED")
+		Plater.EventHandlerFrame:RegisterEvent ("PLAYER_TALENT_UPDATE")
 		
 		Plater.EventHandlerFrame:RegisterEvent ("ENCOUNTER_START")
 		Plater.EventHandlerFrame:RegisterEvent ("ENCOUNTER_END")
+		Plater.EventHandlerFrame:RegisterEvent ("CHALLENGE_MODE_START")
 		
 		Plater.EventHandlerFrame:RegisterEvent ("UNIT_NAME_UPDATE")
 		
@@ -3156,7 +3236,7 @@ function Plater.OnInit() --private
 		function Plater.UpdatePersonalBar (self)
 			local showSelf = GetCVarBool ("nameplateShowSelf")
 			if (not showSelf) then
-				if Plater.db.profile.resource_on_target then
+				if (GetCVarBool ("nameplateResourceOnTarget")) then
 					Plater.UpdateResourceFrame()
 				end
 				return
@@ -3233,10 +3313,8 @@ function Plater.OnInit() --private
 		local on_personal_bar_update = function (self)
 			return Plater.UpdatePersonalBar (self)
 		end
-
-		--todo: this func doesn't exists on classic, need a workaround
 		--can also hook 'ClassNameplateBar:ShowNameplateBar()' which will show and call NamePlateDriverFrame:SetClassNameplateBar(self); which will call SetupClassNameplateBars()
-		--hooksecurefunc (NamePlateDriverFrame, "SetupClassNameplateBars", on_personal_bar_update)
+		hooksecurefunc (NamePlateDriverFrame, "SetupClassNameplateBars", on_personal_bar_update)
 
 		--update the resource location and anchor
 		function Plater.UpdateResourceFrame()
@@ -3248,7 +3326,7 @@ function Plater.OnInit() --private
 			local onCurrentTarget
 			
 			if (not showSelf) then
-				onCurrentTarget = Plater.db.profile.resource_on_target
+				onCurrentTarget = GetCVarBool ("nameplateResourceOnTarget")
 				if (not onCurrentTarget) then
 					return
 				end
@@ -3264,7 +3342,7 @@ function Plater.OnInit() --private
 			resourceFrame:SetAlpha (Plater.db.profile.resources.alpha)
 			
 			--check if resources are placed on the current target
-			onCurrentTarget = Plater.db.profile.resource_on_target
+			onCurrentTarget = GetCVarBool ("nameplateResourceOnTarget")
 			if (onCurrentTarget) then
 				--resource bar are placed on the current target nameplate
 				local targetPlateFrame = C_NamePlate.GetNamePlateForUnit ("target")
@@ -3663,14 +3741,8 @@ function Plater.OnInit() --private
 	--> health frame
 
 	function Plater.QuickHealthUpdate (unitFrame)
-		local unitHealth = 0
-		local unitHealthMax = 0
-		if RealMobHealth then
-			unitHealth, unitHealthMax = RealMobHealth.GetUnitHealth(unitFrame.unit)
-		else
-			unitHealth = UnitHealth (unitFrame.unit)
-			unitHealthMax = UnitHealthMax (unitFrame.unit)
-		end
+		local unitHealth = UnitHealth (unitFrame.unit)
+		local unitHealthMax = UnitHealthMax (unitFrame.unit)
 		unitFrame.healthBar:SetMinMaxValues (0, unitHealthMax)
 		unitFrame.healthBar:SetValue (unitHealth)
 		
@@ -3772,33 +3844,31 @@ function Plater.OnInit() --private
 			Plater.CheckLifePercentText (unitFrame)
 		end
 	end
-	
-	local on_health_change = function (self)
+
+	--self is the healthBar (it's parent is the unitFrame)
+	function Plater.OnUpdateHealthMax (self)
+		--the framework already set the min max values
+		self.CurrentHealthMax = self.currentHealthMax -- o.0 hãããnnn
+		Plater.CheckLifePercentText (self.unitFrame)
+	end
+
+	function Plater.OnHealthChange (self, unitId)
 		Plater.OnUpdateHealth (self)
 		
 		--> run on health changed hook
 		if (HOOK_HEALTH_UPDATE.ScriptAmount > 0) then
-			run_on_health_change_hook (self.unitFrame)
+			return run_on_health_change_hook (self.unitFrame)
 		end
 	end
-	hooksecurefunc (DF.HealthFrameFunctions, "UpdateHealth", on_health_change)
 	
-	--self is the healthBar (it's parent is the unitFrame)
-	function Plater.OnUpdateHealthMax (self)
-		--the framework already set the min max values
-		self.CurrentHealthMax = self.currentHealthMax
-		Plater.CheckLifePercentText (self.unitFrame)
-	end
-	
-	local on_healthmax_change = function (self)
+	function Plater.OnHealthMaxChange (self, unitId)
 		Plater.OnUpdateHealthMax (self)
 		
 		--> run on health changed hook
 		if (HOOK_HEALTH_UPDATE.ScriptAmount > 0) then
-			run_on_health_change_hook (self.unitFrame)
+			return run_on_health_change_hook (self.unitFrame)
 		end
 	end
-	hooksecurefunc (DF.HealthFrameFunctions, "UpdateMaxHealth", on_healthmax_change)
 	
 	--> profile changes and refreshes ~db
 		Plater.db.RegisterCallback (Plater, "OnProfileChanged", "RefreshConfigProfileChanged")
@@ -4602,11 +4672,10 @@ end
 		if (isBuff) then
 			--> buffs
 			for i = 1, BUFF_MAX_DISPLAY do
-				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitAura(unit, i, "HELPFUL")
+				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitBuff (unit, i)
 				if (not name) then
 					break
 				else
-					
 					local auraType = "BUFF"
 					--verify is this aura is in the table passed
 					if (aurasToCheck [name]) then
@@ -4635,11 +4704,10 @@ end
 			for i = 1, BUFF_MAX_DISPLAY do
 				--using the PLAYER filter it'll avoid special auras to be scan
 				--local name, texture, count, auraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitDebuff (unit, i, "HARMFUL|PLAYER")
-				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitAura(unit, i, "HARMFUL")
+				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitDebuff (unit, i)
 				if (not name) then
 					break
 				else
-					
 					local auraType = "DEBUFF"
 					--checking here if the debuff is placed by the player
 					--if (caster and aurasToCheck [name] and UnitIsUnit (caster, "player")) then --this doesn't track the pet, so auras like freeze from mage frost elemental won't show
@@ -4684,23 +4752,20 @@ end
 	function Plater.UpdateAuras_Automatic (self, unit)
 		Plater.ResetAuraContainer (self)
 		
-		local reaction = UnitReaction(unit, "player");
-		
 		--> debuffs
 			for i = 1, BUFF_MAX_DISPLAY do
 			
 				--todo: fix the variable name inconsistence, here the buff name is called "spellName" in the other loop below is called "name"
-				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, canApplyAura, isBossDebuff, isCastByPlayer, nameplateShowAll = UnitAura(unit, i, "HARMFUL")
+				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, canApplyAura, isBossDebuff, isCastByPlayer, nameplateShowAll = UnitDebuff (unit, i)
 				--start as false, during the checks can be changed to true, if is true this debuff is added on the nameplate
 				local can_show_this_debuff
 				local auraType = "DEBUFF"
 				
 				if (not name) then
 					break
-				end
 				
 				--check if the debuff isn't filtered out
-				if (not DB_DEBUFF_BANNED [name]) then
+				elseif (not DB_DEBUFF_BANNED [name]) then
 			
 					--> if true it'll show all auras - this can be called from scripts to debug aura things
 					if (Plater.DebugAuras) then
@@ -4714,7 +4779,7 @@ end
 						can_show_this_debuff = true
 					
 					--> is casted by the player
-					elseif (DB_AURA_SHOW_BYPLAYER and caster and (UnitIsUnit (caster, "player") or UnitIsUnit (caster, "pet"))) then
+					elseif (DB_AURA_SHOW_BYPLAYER and caster and (UnitIsUnit (caster, "player") or UnitIsUnit (caster, "pet") or Plater.PlayerPetCache[UnitGUID(caster)])) then
 						can_show_this_debuff = true
 						
 					--> user added this buff to track in the buff tracking tab
@@ -4746,7 +4811,7 @@ end
 		
 		--> buffs
 			for i = 1, BUFF_MAX_DISPLAY do
-				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, canApplyAura, isBossDebuff, isCastByPlayer, nameplateShowAll = UnitAura(unit, i, "HELPFUL")
+				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, canApplyAura, isBossDebuff, isCastByPlayer, nameplateShowAll = UnitBuff (unit, i)
 				local auraType = "BUFF"
 				
 				if (not name) then
@@ -4793,11 +4858,6 @@ end
 							local auraIconFrame, buffFrame = Plater.GetAuraIcon (self, true)
 							Plater.AddAura (buffFrame, auraIconFrame, i, name, texture, count, auraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, nil, nil, nil, nil, actualAuraType)
 						
-						--> is a buff on an enemy unit
-						elseif (DB_AURA_SHOW_ENEMY_BUFFS and reaction <= UNITREACTION_HOSTILE) then
-							local auraIconFrame, buffFrame = Plater.GetAuraIcon (self, true)
-							Plater.AddAura (buffFrame, auraIconFrame, i, name, texture, count, auraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, true, nil, nil, nil, actualAuraType)
-						
 						--> is casted by the unit it self
 						elseif (DB_AURA_SHOW_BYUNIT and caster and UnitIsUnit (caster, unit) and not isCastByPlayer) then
 							local auraIconFrame, buffFrame = Plater.GetAuraIcon (self, true)
@@ -4824,14 +4884,13 @@ end
 		--> debuffs
 		if (Plater.db.profile.aura_show_debuffs_personal) then
 			for i = 1, BUFF_MAX_DISPLAY do
-				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitAura(unit, i, "HARMFUL")
+				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitDebuff ("player", i)
 				local auraType = "DEBUFF"
 				
 				if (not name) then
 					break
-				end
 					
-				if (not DB_DEBUFF_BANNED [name]) then
+				elseif (not DB_DEBUFF_BANNED [name]) then
 					local auraIconFrame, buffFrame = Plater.GetAuraIcon (self)
 					Plater.AddAura (buffFrame, auraIconFrame, i, name, texture, count, auraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, false, false, true, true, actualAuraType)
 					
@@ -4854,15 +4913,14 @@ end
 		--> buffs
 		if (Plater.db.profile.aura_show_buffs_personal) then
 			for i = 1, BUFF_MAX_DISPLAY do
-				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitAura(unit, i, "HELPFUL")
+				local name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitBuff ("player", i, nil, "PLAYER")
 				local auraType = "BUFF"
 				
 				if (not name) then
 					break
-				end
 					
 				--> only show buffs casted by the player it self and less than 1 minute in duration
-				if (not DB_BUFF_BANNED [name] and (duration and (duration > 0 and duration < 60)) and (caster and UnitIsUnit (caster, "player"))) then
+				elseif (not DB_BUFF_BANNED [name] and (duration and (duration > 0 and duration < 60)) and (caster and UnitIsUnit (caster, "player"))) then
 					local auraIconFrame, buffFrame = Plater.GetAuraIcon (self, true)
 					Plater.AddAura (buffFrame, auraIconFrame, i, name, texture, count, auraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, false, false, false, true, actualAuraType)
 
@@ -5110,8 +5168,8 @@ end
 			--health bar
 				-- ensure that we are using the configured size, as it will be automatically scaled
 				healthBar:ClearAllPoints()
-				DFPixelUtil.SetPoint (healthBar, "center", unitFrame, "center", profile.global_offset_x, profile.global_offset_y)
-				DFPixelUtil.SetSize (healthBar, healthBarWidth, healthBarHeight)
+				PixelUtil.SetPoint (healthBar, "center", unitFrame, "center", profile.global_offset_x, profile.global_offset_y)
+				PixelUtil.SetSize (healthBar, healthBarWidth, healthBarHeight)
 		--end of patch
 			--update scale
 			Plater.UpdateUIParentScale (plateFrame)
@@ -5130,24 +5188,24 @@ end
 				local yOffSet = (plateFrame:GetHeight() - healthBarHeight) / 2
 				
 				healthBar:ClearAllPoints()
-				DFPixelUtil.SetPoint (healthBar, "topleft", unitFrame, "topleft", xOffSet + profile.global_offset_x, -yOffSet + profile.global_offset_y)
-				DFPixelUtil.SetPoint (healthBar, "bottomright", unitFrame, "bottomright", -xOffSet + profile.global_offset_x, yOffSet + profile.global_offset_y)
+				PixelUtil.SetPoint (healthBar, "topleft", unitFrame, "topleft", xOffSet + profile.global_offset_x, -yOffSet + profile.global_offset_y)
+				PixelUtil.SetPoint (healthBar, "bottomright", unitFrame, "bottomright", -xOffSet + profile.global_offset_x, yOffSet + profile.global_offset_y)
 		end
 		
 		--cast bar - is set by default below the healthbar
 			castBar:ClearAllPoints()
-			DFPixelUtil.SetPoint (castBar, "topleft", healthBar, "bottomleft", castBarOffSetX, castBarOffSetY)
-			DFPixelUtil.SetPoint (castBar, "topright", healthBar, "bottomright", -castBarOffSetX, castBarOffSetY)
-			DFPixelUtil.SetHeight (castBar, castBarHeight)
-			DFPixelUtil.SetSize (castBar.Icon, castBarHeight, castBarHeight)
-			DFPixelUtil.SetSize (castBar.BorderShield, castBarHeight * 1.4, castBarHeight * 1.4)
-			DFPixelUtil.SetSize (castBar.Spark, profile.cast_statusbar_spark_width, castBarHeight)
+			PixelUtil.SetPoint (castBar, "topleft", healthBar, "bottomleft", castBarOffSetX, castBarOffSetY)
+			PixelUtil.SetPoint (castBar, "topright", healthBar, "bottomright", -castBarOffSetX, castBarOffSetY)
+			PixelUtil.SetHeight (castBar, castBarHeight)
+			PixelUtil.SetSize (castBar.Icon, castBarHeight, castBarHeight)
+			PixelUtil.SetSize (castBar.BorderShield, castBarHeight * 1.4, castBarHeight * 1.4)
+			PixelUtil.SetSize (castBar.Spark, profile.cast_statusbar_spark_width, castBarHeight)
 
 		--power bar
 			powerBar:ClearAllPoints()
-			DFPixelUtil.SetPoint (powerBar, "topleft", healthBar, "bottomleft", powerBarOffSetX, powerBarOffSetY)
-			DFPixelUtil.SetPoint (powerBar, "topright", healthBar, "bottomright", -powerBarOffSetX, powerBarOffSetY)
-			DFPixelUtil.SetSize (powerBar, powerBarWidth, powerBarHeight)
+			PixelUtil.SetPoint (powerBar, "topleft", healthBar, "bottomleft", powerBarOffSetX, powerBarOffSetY)
+			PixelUtil.SetPoint (powerBar, "topright", healthBar, "bottomright", -powerBarOffSetX, powerBarOffSetY)
+			PixelUtil.SetSize (powerBar, powerBarWidth, powerBarHeight)
 			
 			--power bar are hidden by default, show it if there's a custom size for it
 			if (unitFrame.customPowerBarWidth and unitFrame.customPowerBarHeight) then
@@ -5158,10 +5216,10 @@ end
 			--DB_AURA_Y_OFFSET = profile.aura_y_offset is from the buff Settings tab
 			--plateConfigs.buff_frame_y_offset is the offset from the actor type, e.g. enemy npc
 			buffFrame1:ClearAllPoints()
-			DFPixelUtil.SetPoint (buffFrame1, "bottom", unitFrame, "top", DB_AURA_X_OFFSET,  plateConfigs.buff_frame_y_offset + DB_AURA_Y_OFFSET)
+			PixelUtil.SetPoint (buffFrame1, "bottom", unitFrame, "top", DB_AURA_X_OFFSET,  plateConfigs.buff_frame_y_offset + DB_AURA_Y_OFFSET)
 			
 			buffFrame2:ClearAllPoints()
-			DFPixelUtil.SetPoint (buffFrame2, "bottom", unitFrame, "top", Plater.db.profile.aura2_x_offset,  plateConfigs.buff_frame_y_offset + Plater.db.profile.aura2_y_offset)
+			PixelUtil.SetPoint (buffFrame2, "bottom", unitFrame, "top", Plater.db.profile.aura2_x_offset,  plateConfigs.buff_frame_y_offset + Plater.db.profile.aura2_y_offset)
 	end
 	
 	--debug function to print the size of the anchor for each aura container
@@ -5513,12 +5571,7 @@ end
 			return
 		end
 		
-		--todo: threat on classic
-		local isTanking, threatStatus, threatpct= UnitDetailedThreatSituation ("player", self.displayedUnit)
-		if threatpct == nil and threatStatus == 0 and UnitIsUnit("player", self.displayedUnit.."target") then
-			isTanking = 1
-			threatStatus = 3
-		end
+		local isTanking, threatStatus, threatpct = UnitDetailedThreatSituation ("player", self.displayedUnit)
 		
 		--expose all threat situation to scripts
 		self.namePlateThreatIsTanking = isTanking
@@ -5626,7 +5679,11 @@ end
 			--dps
 			if (isTanking) then
 				--the player is tanking as dps
-				set_aggro_color (self, unpack (DB_AGGRO_DPS_COLORS.aggro))
+				if Plater.db.profile.dps.use_aggro_solo and not IsInGroup() then
+					set_aggro_color (self, unpack (DB_AGGRO_DPS_COLORS.solo))
+				else
+					set_aggro_color (self, unpack (DB_AGGRO_DPS_COLORS.aggro))
+				end
 				if (not self.PlateFrame.playerHasAggro and IS_IN_INSTANCE) then
 					self.PlateFrame.PlayBodyFlash ("-AGGRO-")
 				end
@@ -5637,7 +5694,7 @@ end
 					Plater.CheckRange (self.PlateFrame, true)
 				end
 			else 	
-				if (threatStatus == 0 and threatpct == nil) then
+				if (threatStatus == nil) then
 					self.PlateFrame.playerHasAggro = false
 					
 					--> unit is in combat?
@@ -5669,14 +5726,22 @@ end
 					end
 				else
 					if (threatStatus == 3) then --player is tanking the mob as dps
-						set_aggro_color (self, unpack (DB_AGGRO_DPS_COLORS.aggro))
+						if Plater.db.profile.dps.use_aggro_solo and not IsInGroup() then
+							set_aggro_color (self, unpack (DB_AGGRO_DPS_COLORS.solo))
+						else
+							set_aggro_color (self, unpack (DB_AGGRO_DPS_COLORS.aggro))
+						end
 						if (not self.PlateFrame.playerHasAggro and IS_IN_INSTANCE) then
 							self.PlateFrame.PlayBodyFlash ("-AGGRO-")
 						end
 						self.PlateFrame.playerHasAggro = true
 						
 					elseif (threatStatus == 2) then --player is tanking the mob with low aggro
-						set_aggro_color (self, unpack (DB_AGGRO_DPS_COLORS.aggro))
+						if Plater.db.profile.dps.use_aggro_solo and not IsInGroup() then
+							set_aggro_color (self, unpack (DB_AGGRO_DPS_COLORS.solo))
+						else
+							set_aggro_color (self, unpack (DB_AGGRO_DPS_COLORS.aggro))
+						end
 						self.PlateFrame.playerHasAggro = true
 						
 					else --the unit isn't attacking the player based on the threat situation
@@ -5688,7 +5753,11 @@ end
 							--show aggro warning indicators
 							self.aggroGlowUpper:Show()
 							self.aggroGlowLower:Show()
-							colorToUse = DB_AGGRO_DPS_COLORS.pulling
+							if Plater.db.profile.dps.use_aggro_solo and not IsInGroup() then
+								colorToUse = DB_AGGRO_DPS_COLORS.solo
+							else
+								colorToUse = DB_AGGRO_DPS_COLORS.pulling
+							end
 							
 						elseif (threatStatus == 0) then
 							colorToUse = DB_AGGRO_DPS_COLORS.noaggro
@@ -5861,16 +5930,16 @@ end
 		plateFrame.TargetNeonUp:SetVertexColor (unpack (color))
 		plateFrame.TargetNeonUp:SetAlpha (alpha)
 		plateFrame.TargetNeonUp:SetTexture (texture)
-		DFPixelUtil.SetHeight (plateFrame.TargetNeonUp, height)
-		DFPixelUtil.SetPoint (plateFrame.TargetNeonUp, "bottomleft", healthBar, "topleft", 0, 0)
-		DFPixelUtil.SetPoint (plateFrame.TargetNeonUp, "bottomright", healthBar, "topright", 0, 0)
+		PixelUtil.SetHeight (plateFrame.TargetNeonUp, height)
+		PixelUtil.SetPoint (plateFrame.TargetNeonUp, "bottomleft", healthBar, "topleft", 0, 0)
+		PixelUtil.SetPoint (plateFrame.TargetNeonUp, "bottomright", healthBar, "topright", 0, 0)
 
 		plateFrame.TargetNeonDown:SetVertexColor (unpack (color))
 		plateFrame.TargetNeonDown:SetAlpha (alpha)
 		plateFrame.TargetNeonDown:SetTexture (texture)
-		DFPixelUtil.SetHeight (plateFrame.TargetNeonDown, height)
-		DFPixelUtil.SetPoint (plateFrame.TargetNeonDown, "topleft", healthBar, "bottomleft", 0, 0)
-		DFPixelUtil.SetPoint (plateFrame.TargetNeonDown, "topright", healthBar, "bottomright", 0, 0)
+		PixelUtil.SetHeight (plateFrame.TargetNeonDown, height)
+		PixelUtil.SetPoint (plateFrame.TargetNeonDown, "topleft", healthBar, "bottomleft", 0, 0)
+		PixelUtil.SetPoint (plateFrame.TargetNeonDown, "topright", healthBar, "bottomright", 0, 0)
 	end
 
 	function Plater.UpdateTargetIndicator (plateFrame)
@@ -5919,16 +5988,16 @@ end
 				texture:SetDesaturated (desaturated)
 				
 				if (i == 1) then
-					DFPixelUtil.SetPoint (texture, "topleft", plateFrame.unitFrame.healthBar, "topleft", -x, y)
+					PixelUtil.SetPoint (texture, "topleft", plateFrame.unitFrame.healthBar, "topleft", -x, y)
 					
 				elseif (i == 2) then
-					DFPixelUtil.SetPoint (texture, "bottomleft", plateFrame.unitFrame.healthBar, "bottomleft", -x, -y)
+					PixelUtil.SetPoint (texture, "bottomleft", plateFrame.unitFrame.healthBar, "bottomleft", -x, -y)
 					
 				elseif (i == 3) then
-					DFPixelUtil.SetPoint (texture, "bottomright", plateFrame.unitFrame.healthBar, "bottomright", x, -y)
+					PixelUtil.SetPoint (texture, "bottomright", plateFrame.unitFrame.healthBar, "bottomright", x, -y)
 					
 				elseif (i == 4) then
-					DFPixelUtil.SetPoint (texture, "topright", plateFrame.unitFrame.healthBar, "topright", x, y)
+					PixelUtil.SetPoint (texture, "topright", plateFrame.unitFrame.healthBar, "topright", x, y)
 					
 				end
 			end
@@ -5945,16 +6014,16 @@ end
 				texture:SetTexture (path)
 				texture:SetBlendMode (blend)
 				texture:SetTexCoord (unpack (coords [i]))
-				DFPixelUtil.SetSize (texture, width * scale, height * scale)
+				PixelUtil.SetSize (texture, width * scale, height * scale)
 				texture:SetDesaturated (desaturated)
 				texture:SetAlpha (alpha)
 				texture:SetVertexColor (overlayColorR, overlayColorG, overlayColorB)
 				
 				if (i == 1) then
-					DFPixelUtil.SetPoint (texture, "left", plateFrame.unitFrame.healthBar, "left", -x, y)
+					PixelUtil.SetPoint (texture, "left", plateFrame.unitFrame.healthBar, "left", -x, y)
 					
 				elseif (i == 2) then
-					DFPixelUtil.SetPoint (texture, "right", plateFrame.unitFrame.healthBar, "right", x, -y)
+					PixelUtil.SetPoint (texture, "right", plateFrame.unitFrame.healthBar, "right", x, -y)
 				end
 			end
 			
@@ -6001,7 +6070,7 @@ end
 			
 			--set the point of the name and guild texts
 			nameFontString:ClearAllPoints()
-			DFPixelUtil.SetPoint (plateFrame.ActorNameSpecial, "center", plateFrame, "center", 0, 10)
+			PixelUtil.SetPoint (plateFrame.ActorNameSpecial, "center", plateFrame, "center", 0, 10)
 			
 			--format the color if is the same guild, a friend from friends list or color by player class
 			if (Plater.db.profile.plate_config [ACTORTYPE_FRIENDLY_PLAYER].actorname_use_guild_color and plateFrame.playerGuildName == Plater.PlayerGuildName) then
@@ -6041,8 +6110,8 @@ end
 			plateFrame.ActorNameSpecial:ClearAllPoints()
 			plateFrame.ActorTitleSpecial:ClearAllPoints()
 			
-			DFPixelUtil.SetPoint (plateFrame.ActorNameSpecial, "center", plateFrame, "center", 0, 10)
-			DFPixelUtil.SetPoint (plateFrame.ActorTitleSpecial, "top", plateFrame.ActorNameSpecial, "bottom", 0, -2)
+			PixelUtil.SetPoint (plateFrame.ActorNameSpecial, "center", plateFrame, "center", 0, 10)
+			PixelUtil.SetPoint (plateFrame.ActorTitleSpecial, "top", plateFrame.ActorNameSpecial, "bottom", 0, -2)
 
 			--there's two ways of showing this for friendly npcs (selected from the options panel): show all names or only npcs with profession names
 			--enemy npcs always show all
@@ -6086,7 +6155,7 @@ end
 						subTitle = DF:RemoveRealmName (subTitle)
 						plateFrame.ActorTitleSpecial:SetText ("<" .. subTitle .. ">")
 						plateFrame.ActorTitleSpecial:ClearAllPoints()
-						DFPixelUtil.SetPoint (plateFrame.ActorTitleSpecial, "top", plateFrame.ActorNameSpecial, "bottom", 0, -2)
+						PixelUtil.SetPoint (plateFrame.ActorTitleSpecial, "top", plateFrame.ActorNameSpecial, "bottom", 0, -2)
 						
 						plateFrame.ActorTitleSpecial:SetTextColor (r, g, b, a)
 						DF:SetFontSize (plateFrame.ActorTitleSpecial, plateConfigs.big_actortitle_text_size)
@@ -6114,7 +6183,7 @@ end
 						subTitle = DF:RemoveRealmName (subTitle)
 						plateFrame.ActorTitleSpecial:SetText ("<" .. subTitle .. ">")
 						plateFrame.ActorTitleSpecial:ClearAllPoints()
-						DFPixelUtil.SetPoint (plateFrame.ActorTitleSpecial, "top", plateFrame.ActorNameSpecial, "bottom", 0, -2)
+						PixelUtil.SetPoint (plateFrame.ActorTitleSpecial, "top", plateFrame.ActorNameSpecial, "bottom", 0, -2)
 						
 						plateFrame.ActorTitleSpecial:SetTextColor (unpack (plateConfigs.big_actortitle_text_color))
 						DF:SetFontSize (plateFrame.ActorTitleSpecial, plateConfigs.big_actortitle_text_size)
@@ -6134,7 +6203,7 @@ end
 						subTitle = DF:RemoveRealmName (subTitle)
 						plateFrame.ActorTitleSpecial:SetText ("<" .. subTitle .. ">")
 						plateFrame.ActorTitleSpecial:ClearAllPoints()
-						DFPixelUtil.SetPoint (plateFrame.ActorTitleSpecial, "top", plateFrame.ActorNameSpecial, "bottom", 0, -2)
+						PixelUtil.SetPoint (plateFrame.ActorTitleSpecial, "top", plateFrame.ActorNameSpecial, "bottom", 0, -2)
 						
 						plateFrame.ActorTitleSpecial:SetTextColor (unpack (plateConfigs.big_actortitle_text_color))
 						plateFrame.ActorNameSpecial:SetTextColor (unpack (plateConfigs.big_actorname_text_color))
@@ -6188,7 +6257,7 @@ end
 			Plater.SetFontOutlineAndShadow (nameString, plateConfigs.actorname_text_outline, plateConfigs.actorname_text_shadow_color, plateConfigs.actorname_text_shadow_color_offset[1], plateConfigs.actorname_text_shadow_color_offset[2])
 
 			Plater.SetAnchor (nameString, plateConfigs.actorname_text_anchor)
-			--DFPixelUtil.SetHeight (nameString, nameString:GetLineHeight())
+			--PixelUtil.SetHeight (nameString, nameString:GetLineHeight())
 		end
 		
 		if (plateFrame.playerGuildName) then
@@ -6291,7 +6360,7 @@ end
 				DF:SetFontColor (lifeString, plateConfigs.percent_text_color)
 
 				Plater.SetAnchor (lifeString, plateConfigs.percent_text_anchor)
-				DFPixelUtil.SetHeight (lifeString, lifeString:GetLineHeight())
+				PixelUtil.SetHeight (lifeString, lifeString:GetLineHeight())
 				
 				lifeString:SetAlpha (plateConfigs.percent_text_alpha)
 			end
@@ -6334,7 +6403,7 @@ end
 	end
 	
 	function Plater.UpdateLifePercentText (healthBar, unitId, showHealthAmount, showPercentAmount, showDecimals) -- ~health
-	
+		
 		--get the cached health amount for performance
 		local currentHealth, maxHealth = healthBar.CurrentHealth, healthBar.CurrentHealthMax
 		
@@ -6742,8 +6811,8 @@ end
 			unitFrame.targetOverlayTexture:SetAlpha (profile.health_selection_overlay_alpha)
 			
 			--heal prediction
-			unitFrame.healthBar.Settings.ShowHealingPrediction = false --Plater.db.profile.show_health_prediction
-			unitFrame.healthBar.Settings.ShowShields = false --Plater.db.profile.show_shield_prediction
+			unitFrame.healthBar.Settings.ShowHealingPrediction = Plater.db.profile.show_health_prediction
+			unitFrame.healthBar.Settings.ShowShields = Plater.db.profile.show_shield_prediction
 			if (unitFrame.healthBar.unit) then
 				unitFrame.healthBar:UNIT_HEALTH()
 			end
@@ -7086,9 +7155,9 @@ end
 			local attachTo = plateFrame.IconIndicators [plateFrame.IconIndicators.Next - 1]
 			--se for menor que 4 ele deve crescer para o lado da esquerda, nos outros casos vai para a direita
 			if (Plater.db.profile.indicator_anchor.side < 4) then
-				DFPixelUtil.SetPoint (thisIndicator, "right", attachTo, "left", -2, 0)
+				PixelUtil.SetPoint (thisIndicator, "right", attachTo, "left", -2, 0)
 			else
-				DFPixelUtil.SetPoint (thisIndicator, "left", attachTo, "right", 1, 0)
+				PixelUtil.SetPoint (thisIndicator, "left", attachTo, "right", 1, 0)
 			end
 		end
 		
@@ -7166,55 +7235,55 @@ end
 	local anchor_functions = {
 		function (widget, config, attachTo)--1
 			widget:ClearAllPoints()
-			DFPixelUtil.SetPoint (widget, "bottomleft", attachTo, "topleft", config.x, config.y, 0, 0)
+			PixelUtil.SetPoint (widget, "bottomleft", attachTo, "topleft", config.x, config.y, 0, 0)
 		end,
 		function (widget, config, attachTo)--2
 			widget:ClearAllPoints()
-			DFPixelUtil.SetPoint (widget, "right", attachTo, "left", config.x, config.y, 0, 0)
+			PixelUtil.SetPoint (widget, "right", attachTo, "left", config.x, config.y, 0, 0)
 		end,
 		function (widget, config, attachTo)--3
 			widget:ClearAllPoints()
-			DFPixelUtil.SetPoint (widget, "topleft", attachTo, "bottomleft", config.x, config.y, 0, 0)
+			PixelUtil.SetPoint (widget, "topleft", attachTo, "bottomleft", config.x, config.y, 0, 0)
 		end,
 		function (widget, config, attachTo)--4
 			widget:ClearAllPoints()
-			DFPixelUtil.SetPoint (widget, "top", attachTo, "bottom", config.x, config.y, 0, 0)
+			PixelUtil.SetPoint (widget, "top", attachTo, "bottom", config.x, config.y, 0, 0)
 		end,
 		function (widget, config, attachTo)--5
 			widget:ClearAllPoints()
-			DFPixelUtil.SetPoint (widget, "topright", attachTo, "bottomright", config.x, config.y, 0, 0)
+			PixelUtil.SetPoint (widget, "topright", attachTo, "bottomright", config.x, config.y, 0, 0)
 		end,
 		function (widget, config, attachTo)--6
 			widget:ClearAllPoints()
-			DFPixelUtil.SetPoint (widget, "left", attachTo, "right", config.x, config.y, 0, 0)
+			PixelUtil.SetPoint (widget, "left", attachTo, "right", config.x, config.y, 0, 0)
 		end,
 		function (widget, config, attachTo)--7
 			widget:ClearAllPoints()
-			DFPixelUtil.SetPoint (widget, "bottomright", attachTo, "topright", config.x, config.y, 0, 0)
+			PixelUtil.SetPoint (widget, "bottomright", attachTo, "topright", config.x, config.y, 0, 0)
 		end,
 		function (widget, config, attachTo)--8
 			widget:ClearAllPoints()
-			DFPixelUtil.SetPoint (widget, "bottom", attachTo, "top", config.x, config.y, 0, 0)
+			PixelUtil.SetPoint (widget, "bottom", attachTo, "top", config.x, config.y, 0, 0)
 		end,
 		function (widget, config, attachTo)--9
 			widget:ClearAllPoints()
-			DFPixelUtil.SetPoint (widget, "center", attachTo, "center", config.x, config.y, 0, 0)
+			PixelUtil.SetPoint (widget, "center", attachTo, "center", config.x, config.y, 0, 0)
 		end,
 		function (widget, config, attachTo)--10
 			widget:ClearAllPoints()
-			DFPixelUtil.SetPoint (widget, "left", attachTo, "left", config.x, config.y, 0, 0)
+			PixelUtil.SetPoint (widget, "left", attachTo, "left", config.x, config.y, 0, 0)
 		end,
 		function (widget, config, attachTo)--11
 			widget:ClearAllPoints()
-			DFPixelUtil.SetPoint (widget, "right", attachTo, "right", config.x, config.y, 0, 0)
+			PixelUtil.SetPoint (widget, "right", attachTo, "right", config.x, config.y, 0, 0)
 		end,
 		function (widget, config, attachTo)--12
 			widget:ClearAllPoints()
-			DFPixelUtil.SetPoint (widget, "top", attachTo, "top", config.x, config.y, 0, 0)
+			PixelUtil.SetPoint (widget, "top", attachTo, "top", config.x, config.y, 0, 0)
 		end,
 		function (widget, config, attachTo)--13
 			widget:ClearAllPoints()
-			DFPixelUtil.SetPoint (widget, "bottom", attachTo, "bottom", config.x, config.y, 0, 0)
+			PixelUtil.SetPoint (widget, "bottom", attachTo, "bottom", config.x, config.y, 0, 0)
 		end
 	}
 
@@ -7944,6 +8013,7 @@ function Plater.SetCVarsOnFirstRun()
 	
 	--disabled:
 		--SetCVar ("nameplateShowSelf", CVAR_DISABLED)
+		--SetCVar ("nameplateResourceOnTarget", CVAR_DISABLED)
 		--SetCVar ("nameplateShowFriends", CVAR_ENABLED)
 	--> location of the personal bar
 	--	SetCVar ("nameplateSelfBottomInset", 20 / 100)
@@ -7956,6 +8026,7 @@ function Plater.SetCVarsOnFirstRun()
 	
 	--> make nameplates always shown and down't show minions
 	SetCVar ("nameplateShowAll", CVAR_ENABLED)
+	SetCVar ("ShowNamePlateLoseAggroFlash", CVAR_ENABLED) --blizzard flash
 	
 	--scale when it is too far away from the camera
 	SetCVar ("nameplateMinScale", 1)
@@ -8057,36 +8128,18 @@ end
 		plateFrame.unitFrame.QuestAmountCurrent = nil
 		plateFrame.unitFrame.QuestAmountTotal = nil
 		
-		local useQuestie = false
-		if QuestieTooltips then
-			ScanQuestTextCache = QuestieTooltips:GetTooltip("u_"..plateFrame [MEMBER_NAME])
-			if not ScanQuestTextCache then
-				ScanQuestTextCache = {}
-			end
-			useQuestie = true
-		else
-			GameTooltipScanQuest:SetOwner (WorldFrame, "ANCHOR_NONE")
-			GameTooltipScanQuest:SetHyperlink ("unit:" .. plateFrame [MEMBER_GUID])
-			
-			--8.2 tooltip changes fix by GentMerc#9560 on Discord
-			for i = 1, GameTooltipScanQuest:NumLines() do
-				ScanQuestTextCache [i] = _G ["PlaterScanQuestTooltipTextLeft" .. i]
-			end
+		GameTooltipScanQuest:SetOwner (WorldFrame, "ANCHOR_NONE")
+		GameTooltipScanQuest:SetHyperlink ("unit:" .. plateFrame [MEMBER_GUID])
+
+		--8.2 tooltip changes fix by GentMerc#9560 on Discord
+		for i = 1, GameTooltipScanQuest:NumLines() do
+			ScanQuestTextCache [i] = _G ["PlaterScanQuestTooltipTextLeft" .. i]
 		end
 		
 		local isQuestUnit = false
 		local atLeastOneQuestUnfinished = false
 		for i = 1, #ScanQuestTextCache do
-			local text = nil
-			if useQuestie then
-				text = ScanQuestTextCache [i]
-				text = gsub(text,"|c........","") -- remove coloring begin
-				text = gsub(text,"|r","") -- remove color end
-				text = gsub(text,"%[.*%] ","") -- remove level text
-			else
-				text = ScanQuestTextCache [i]:GetText()
-			end
-
+			local text = ScanQuestTextCache [i]:GetText()
 			if (Plater.QuestCache [text]) then
 				--unit belongs to a quest
 				isQuestUnit = true
@@ -8094,17 +8147,7 @@ end
 				local j = i
 				while (ScanQuestTextCache [j+1]) do
 					--check if the unit objective isn't already done
-					local nextLineText = nil
-					if useQuestie then
-						nextLineText = ScanQuestTextCache [j+1]
-						if nextLineText then
-							nextLineText = gsub(nextLineText,"|c........","") -- remove coloring begin
-							nextLineText = gsub(nextLineText,"|r","") -- remove color end
-						end
-					else
-						nextLineText = ScanQuestTextCache [j+1]:GetText()
-					end
-
+					local nextLineText = ScanQuestTextCache [j+1]:GetText()
 					if (nextLineText) then
 						if not nextLineText:match(THREAT_TOOLTIP) then
 							local p1, p2 = nextLineText:match ("(%d+)/(%d+)") 
@@ -8165,6 +8208,22 @@ end
 			local title, level, suggestedGroup, isHeader, isCollapsed, isComplete, frequency, questId, startEvent, displayQuestID, isOnMap, hasLocalPOI, isTask, isStory = GetQuestLogTitle (questId)
 			if (type (questId) == "number" and questId > 0) then -- and not isComplete
 				Plater.QuestCache [title] = true
+			end
+		end
+		
+		local mapId = C_Map.GetBestMapForUnit ("player")
+		if (mapId) then
+			local worldQuests = C_TaskQuest.GetQuestsForPlayerByMapID (mapId)
+			if (type (worldQuests) == "table") then
+				for i, questTable in ipairs (worldQuests) do
+					local x, y, floor, numObjectives, questId, inProgress = questTable.x, questTable.y, questTable.floor, questTable.numObjectives, questTable.questId, questTable.inProgress
+					if (type (questId) == "number" and questId > 0) then
+						local questName = C_TaskQuest.GetQuestInfoByQuestID (questId)
+						if (questName) then
+							Plater.QuestCache [questName] = true
+						end
+					end
+				end
 			end
 		end
 		
@@ -8753,7 +8812,7 @@ end
 		--> glow
 		local glow = f:CreateTexture (nil, "background")
 		glow:SetTexture ([[Interface\AddOns\Plater\images\nameplate_glow]])
-		DFPixelUtil.SetPoint (glow, "center", frame, "center", 0, 0)
+		PixelUtil.SetPoint (glow, "center", frame, "center", 0, 0)
 		glow:SetSize (frame:GetWidth() + frame:GetWidth()/2.3, 36)
 		glow:SetBlendMode ("ADD")
 		glow:SetVertexColor (DF:ParseColors (color or "white"))
@@ -9008,23 +9067,21 @@ end
 		if (spellName) then
 			return IsSpellInRange (spellName, unitFrame [MEMBER_UNITID]) == 1
 			
-		elseif (not (Plater.SpellForRangeCheck == nil or Plater.SpellForRangeCheck == '')) then
-			if (Plater.SpellBookForRangeCheck) then
-				if (IsSpellInRange (Plater.SpellForRangeCheck, Plater.SpellBookForRangeCheck, unitFrame [MEMBER_UNITID]) == 1) then
-					unitFrame [MEMBER_RANGE] = true
-					return true
-				else
-					unitFrame [MEMBER_RANGE] = false
-					return false
-				end
+		elseif (Plater.SpellBookForRangeCheck) then
+			if (IsSpellInRange (Plater.SpellForRangeCheck, Plater.SpellBookForRangeCheck, unitFrame [MEMBER_UNITID]) == 1) then
+				unitFrame [MEMBER_RANGE] = true
+				return true
 			else
-				if (IsSpellInRange (Plater.SpellForRangeCheck, unitFrame [MEMBER_UNITID]) == 1) then
-					unitFrame [MEMBER_RANGE] = true
-					return true
-				else
-					unitFrame [MEMBER_RANGE] = false
-					return false
-				end
+				unitFrame [MEMBER_RANGE] = false
+				return false
+			end
+		else
+			if (IsSpellInRange (Plater.SpellForRangeCheck, unitFrame [MEMBER_UNITID]) == 1) then
+				unitFrame [MEMBER_RANGE] = true
+				return true
+			else
+				unitFrame [MEMBER_RANGE] = false
+				return false
 			end
 		end
 	end
@@ -9324,7 +9381,18 @@ end
 					end
 				end
 			end
-		end
+		end,
+		
+		IsProtected = function (self)
+		-- assume that nameplates are always protected since 8.2
+			if self then
+				if self.PlateFrame then
+					return self.PlateFrame:IsProtected()
+				end
+			end
+			
+			return false
+		end,
 	}
 	 
 	function Plater.GetAllScripts (scriptType)
@@ -9818,7 +9886,7 @@ end
 				if (type (triggerId) == "number") then
 					triggerId = GetSpellInfo (triggerId)
 					if (not triggerId) then
-						--Plater:Msg ("failed to get the spell name for spellId: " .. (scriptObject [triggerContainer] [i] or "invalid spellId"))
+						Plater:Msg ("failed to get the spell name for spellId: " .. (scriptObject [triggerContainer] [i] or "invalid spellId"))
 					end
 				end
 			

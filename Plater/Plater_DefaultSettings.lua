@@ -501,8 +501,6 @@ PLATER_DEFAULT_SETTINGS = {
 		show_health_prediction = false,
 		show_shield_prediction = false,
 		
-		resource_on_target = true,
-		
 		show_interrupt_author = true,
 		
 		--allow scripts to store default values of cvars when they perform automatically changes
@@ -659,7 +657,6 @@ PLATER_DEFAULT_SETTINGS = {
 		aura_show_enrage = false,
 		aura_show_aura_by_the_player = true,
 		aura_show_buff_by_the_unit = true,
-		aura_show_enemy_buffs = false,
 		aura_border_colors_by_type = false,
 		
 		aura_border_colors = {
@@ -703,8 +700,8 @@ PLATER_DEFAULT_SETTINGS = {
 		
 		not_affecting_combat_enabled = false,
 		not_affecting_combat_alpha = 0.799999,
-		range_check_enabled = false,
-		range_check_alpha = 1,
+		range_check_enabled = true,
+		range_check_alpha = 0.5,
 		
 		target_highlight = true,
 		target_highlight_alpha = 0.75,
@@ -2386,7 +2383,6 @@ PLATER_DEFAULT_SETTINGS = {
 		},
 		
 		aggro_can_check_notank = false,
-		tank_threat_colors = false,
 		
 		tank = {
 			colors = {
@@ -2402,10 +2398,12 @@ PLATER_DEFAULT_SETTINGS = {
 		dps = {
 			colors = {
 				aggro = {1, 0.109803, 0},
+				solo = {.5, .5, 1},
 				noaggro = {.5, .5, 1},
 				pulling = {1, .8, 0},
 				notontank = {.5, .5, 1}, --color inside dungeon when the mob is not in the tank aggro and not on the player
 			},
+			use_aggro_solo = false,
 		},
 		
 		news_frame = {},

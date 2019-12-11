@@ -1,10 +1,52 @@
-lightweight tag 4ea4aa332c2f626d4b864499eae1f3258dcdc2b8 v8.2.0.276
-Author:	Tercioo <terciob19@hotmail.com>
-Date:	Sat Aug 17 12:06:08 2019 -0300
+lightweight tag 3e26ef068d2f13301024f72ab393ff78b9b0b26d Plater-8.2.5.281-Retail
+Author:	GitHub <noreply@github.com>
+Date:	Wed Nov 27 12:00:35 2019 +0100
 
-commit 4ea4aa332c2f626d4b864499eae1f3258dcdc2b8
-Author: Tercioo <terciob19@hotmail.com>
-Date:   Sat Aug 17 12:06:08 2019 -0300
+commit c53a70317ff2cc779c41a3ae9c630cd1c03d109f
+Author: Tercio Jose <terciob19@hotmail.com>
+Date:   Tue Nov 26 13:37:18 2019 -0300
 
-    On exporting a profile, do not export the trashcan for scripts and mods
+    Update issue templates
+    
+    When opening a new issue, this template is shown instead of a blank text area.
+    The template file can be edited at any time.
+
+commit c53a70317ff2cc779c41a3ae9c630cd1c03d109f
+Author: Tercio Jose <terciob19@hotmail.com>
+Date:   Tue Nov 26 13:37:18 2019 -0300
+
+    Update issue templates
+    
+    When opening a new issue, this template is shown instead of a blank text area.
+    The template file can be edited at any time.
+
+commit b3cafc60d2de8f27e2a88f2e77a4606c3b65e7cc
+Author: Continuity <continuity@gmx.net>
+Date:   Mon Nov 25 16:06:00 2019 +0100
+
+    - fixing "Cast by Player" debuff recognition if caster is a player totem c1be41b
+
+commit c668616d9d19100bed42f37038fb346c8a7efade
+Author: Continuity <continuity@gmx.net>
+Date:   Wed Nov 20 20:01:00 2019 +0100
+
+    - lib update: DF v161
+
+commit c668616d9d19100bed42f37038fb346c8a7efade
+Author: Continuity <continuity@gmx.net>
+Date:   Wed Nov 20 20:01:00 2019 +0100
+
+    - lib update: DF v161
+
+commit 16e333e2215f82b3065f5d70641f9a36dc5a3dd3
+Author: Continuity <continuity@gmx.net>
+Date:   Tue Nov 19 14:25:59 2019 +0100
+
+    - adding text options for the npc title
+
+commit 16e333e2215f82b3065f5d70641f9a36dc5a3dd3
+Author: Continuity <continuity@gmx.net>
+Date:   Tue Nov 19 14:25:59 2019 +0100
+
+    - adding text options for the npc title
 

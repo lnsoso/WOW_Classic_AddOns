@@ -1652,9 +1652,9 @@ function DF:CreateCoolTip()
 			if (CoolTip.Type == 2) then --> with bars
 				if (CoolTip.OptionsTable.MinWidth) then
 					local w = frame1.w + 34
-					DFPixelUtil.SetWidth (frame1, math.max (w, CoolTip.OptionsTable.MinWidth))
+					PixelUtil.SetWidth (frame1, math.max (w, CoolTip.OptionsTable.MinWidth))
 				else
-					DFPixelUtil.SetWidth (frame1, frame1.w + 34)
+					PixelUtil.SetWidth (frame1, frame1.w + 34)
 				end
 			else
 				--> width stability check
@@ -1666,24 +1666,24 @@ function DF:CreateCoolTip()
 				end
 				
 				if (CoolTip.OptionsTable.MinWidth) then
-					DFPixelUtil.SetWidth (frame1, math.max (width, CoolTip.OptionsTable.MinWidth))
+					PixelUtil.SetWidth (frame1, math.max (width, CoolTip.OptionsTable.MinWidth))
 				else
-					DFPixelUtil.SetWidth (frame1, width)
+					PixelUtil.SetWidth (frame1, width)
 				end
 			end
 		end
 		
 		if (CoolTip.OptionsTable.FixedHeight) then
-			DFPixelUtil.SetHeight (frame1, CoolTip.OptionsTable.FixedHeight)
+			PixelUtil.SetHeight (frame1, CoolTip.OptionsTable.FixedHeight)
 		else
 			if (CoolTip.OptionsTable.AlignAsBlizzTooltip) then
-				DFPixelUtil.SetHeight (frame1, ((temp-10) * -1) + (CoolTip.OptionsTable.AlignAsBlizzTooltipFrameHeightOffset or 0))
+				PixelUtil.SetHeight (frame1, ((temp-10) * -1) + (CoolTip.OptionsTable.AlignAsBlizzTooltipFrameHeightOffset or 0))
 				
 			elseif (CoolTip.OptionsTable.IgnoreButtonAutoHeight) then
-				DFPixelUtil.SetHeight (frame1, (temp+spacing) * -1)
+				PixelUtil.SetHeight (frame1, (temp+spacing) * -1)
 				
 			else
-				DFPixelUtil.SetHeight (frame1, _math_max ( (frame1.hHeight * CoolTip.Indexes) + 8 + ((CoolTip.OptionsTable.ButtonsYMod or 0)*-1), 22 ))
+				PixelUtil.SetHeight (frame1, _math_max ( (frame1.hHeight * CoolTip.Indexes) + 8 + ((CoolTip.OptionsTable.ButtonsYMod or 0)*-1), 22 ))
 			end
 		end
 
@@ -1925,7 +1925,7 @@ function DF:CreateCoolTip()
 		local anchor = CoolTip.OptionsTable.Anchor or CoolTip.Host
 		
 		--frame1:SetPoint (CoolTip.OptionsTable.MyAnchor, anchor, CoolTip.OptionsTable.RelativeAnchor, 0 + moveX + CoolTip.OptionsTable.WidthAnchorMod, 10 + CoolTip.OptionsTable.HeightAnchorMod + moveY)
-		DFPixelUtil.SetPoint (frame1, CoolTip.OptionsTable.MyAnchor, anchor, CoolTip.OptionsTable.RelativeAnchor, 0 + moveX + CoolTip.OptionsTable.WidthAnchorMod, 10 + CoolTip.OptionsTable.HeightAnchorMod + moveY)
+		PixelUtil.SetPoint (frame1, CoolTip.OptionsTable.MyAnchor, anchor, CoolTip.OptionsTable.RelativeAnchor, 0 + moveX + CoolTip.OptionsTable.WidthAnchorMod, 10 + CoolTip.OptionsTable.HeightAnchorMod + moveY)
 		
 		if (not x_mod) then
 			--> check if cooltip is out of screen bounds

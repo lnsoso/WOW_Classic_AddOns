@@ -51,8 +51,7 @@ L["OPTIONS_PROFILE_ERROR_PROFILENAME"] = "Ungültiger Profilname"
 L["OPTIONS_PROFILE_ERROR_STRINGINVALID"] = "Ungültige Profildatei."
 L["OPTIONS_PROFILE_ERROR_WRONGTAB"] = [=[Ungültige Profildatei.
 Importiere Skripte oder Mods im Skript-Tab.]=]
---[[Translation missing --]]
---[[ L["OPTIONS_PROFILE_IMPORT_OVERWRITE"] = ""--]] 
+L["OPTIONS_PROFILE_IMPORT_OVERWRITE"] = "Das Profil '%s' existiert bereits. Soll es überschrieben werden?"
 L["OPTIONS_SETTINGS_COPIED"] = "Einstellungen kopiert."
 L["OPTIONS_SETTINGS_FAIL_COPIED"] = "Fehler beim kopieren der Einstllungen für den aktuell ausgewählten Reiter."
 L["OPTIONS_SHADOWCOLOR"] = "Schatten-Farbe"

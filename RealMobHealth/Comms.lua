@@ -40,6 +40,7 @@ local function BroadcastMessage(pre,msg)--	Bloadcasts to all available group cha
 	if IsInGuild() then SendMessage(pre,msg,"GUILD"); end
 	if IsInRaid() then SendMessage(pre,msg,"RAID");
 	elseif IsInGroup() then SendMessage(pre,msg,"PARTY"); end
+	SendMessage(pre,msg,"YELL");--	New channel in 1.13.3
 end
 
 AddOn.SendMessage=SendMessage;
