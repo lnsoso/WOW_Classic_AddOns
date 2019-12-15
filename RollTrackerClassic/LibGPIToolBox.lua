@@ -28,6 +28,18 @@ Tool.IconClassBig={
   ["PALADIN"]=	"|TInterface\\WorldStateFrame\\ICONS-CLASSES:18:18:-4:4:256:256:0:64:128:192|t",
   }  
   
+Tool.RaidIconNames=ICON_TAG_LIST
+Tool.RaidIcon={
+	"|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_1:0|t", -- [1]
+	"|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_2:0|t", -- [2]
+	"|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_3:0|t", -- [3]
+	"|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_4:0|t", -- [4]
+	"|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_5:0|t", -- [5]
+	"|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_6:0|t", -- [6]
+	"|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:0|t", -- [7]
+	"|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:0|t", -- [8]
+}
+  
 Tool.Classes=CLASS_SORT_ORDER
 Tool.ClassName=LOCALIZED_CLASS_NAMES_MALE
 Tool.ClassColor=RAID_CLASS_COLORS
@@ -133,7 +145,26 @@ function Tool.EnableMoving(frame,callback)
 end
 
 -- misc tools
-	
+
+function Tool.RGBtoEscape(r, g, b,a)
+	if type(r)=="table" then
+		a=r.a
+		g=r.g
+		b=r.b
+		r=r.r
+	end		
+	r = r~=nil and r <= 1 and r >= 0 and r or 1
+	g = g~=nil and g <= 1 and g >= 0 and g or 1
+	b = b~=nil and b <= 1 and b >= 0 and b or 1
+	a = a~=nil and a <= 1 and a >= 0 and a or 1
+	return string.format("|c%02x%02x%02x%02x", a*255, r*255, g*255, b*255)
+end
+
+function Tool.GetRaidIcon(name)
+	local x=string.gsub(string.lower(name),"[%{%}]","")
+	return  ICON_TAG_LIST[x] and Tool.RaidIcon[ICON_TAG_LIST[x]] or name
+end
+
 function Tool.UnitDistanceSquared(uId)
 	--partly copied from DBM
 	--    * Paul Emmerich (Tandanu @ EU-Aegwynn) (DBM-Core)
@@ -147,7 +178,7 @@ function Tool.UnitDistanceSquared(uId)
 		if checkedDistance then
 			range=distanceSquared
 		elseif  C_Map.GetBestMapForUnit(uId)~= C_Map.GetBestMapForUnit("player") then
-			range = 100000
+			range = 1000000
 		elseif IsItemInRange(8149, uId) then 
 			range = 64 -- 8 --Voodoo Charm
 		elseif CheckInteractDistance(uId, 3) then 
@@ -163,7 +194,7 @@ function Tool.UnitDistanceSquared(uId)
 		elseif UnitInRange(uId) then 
 			range = 1849--43 item scheck of 34471 also good for 43
 		else 
-			range = 100000 
+			range = 10000 
 		end
 	end
 	return range

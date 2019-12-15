@@ -1,4 +1,4 @@
-## Interface: 80205
+## Interface: 11303
 ## Title: Plater
 ## Notes: Nameplate addon designed for advanced users.
 ## SavedVariables: PlaterDB
@@ -19,6 +19,8 @@ locales\ptBR.lua
 locales\ruRU.lua
 locales\zhCN.lua
 locales\zhTW.lua
+
+Plater.xml
 
 Plater_DefaultSettings.lua
 

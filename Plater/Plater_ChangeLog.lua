@@ -8,6 +8,27 @@ function Plater.GetChangelogTable()
 	if (not Plater.ChangeLogTable) then
 		Plater.ChangeLogTable = {
 
+			{1575627153,  "Bug Fix", "Nov 27th, 2019", "Tank recognition for player and raid tanks is now be more reliable and include raid role assignment 'MAINTANK'"},
+			{1575627153,  "Bug Fix", "Nov 25th, 2019", "Fixing 'Cast by Player' debuff recognition if the caster is a player totem."},
+			{1575627153,  "Options Changes", "Nov 19th, 2019", "Adding text options for the npc title."},
+			{1575627153,  "New Feature", "Nov 19th, 2019", "Adding support for enemy buff tracking."},
+			{1575627153,  "Bug Fix", "Oct 30th, 2019", "Fixing spell cast push-back hiding the castbar in some cases."},
+			{1575627153,  "Bug Fix", "Oct 28rd, 2019", "Removing Demoralizing Roar from CC list, as it is no CC in classic."},
+			{1575627153,  "Bug Fix", "Oct 23rd, 2019", "Fixing global nameplate offset for Custom Strata Channels."},
+			{1575627153,  "Bug Fix", "Sep 26th, 2019", "'Import Profile' should no longer cause broken mods."},
+			{1575627153,  "New Feature", "Sep 26th, 2019", "'Import Profile' is now asking to overwrite an existing profile."},
+			{1575627153,  "Bug Fix", "Sep 20th, 2019", "Mod conditions are updated to reflect classic options."},
+			{1575627153,  "New Feature", "Sep 8th, 2019", "Adding option to switch between DPS and Tank Threat colors, including macro support via '/run Plater.ToggleThreatColorMode()'."},
+			{1575627153,  "Bug Fix", "Sep 7th, 2019", "Fixing friends colors."},
+			{1575627153,  "Bug Fix", "Sep 7th, 2019", "Fixing spell range check."},
+			{1575627153,  "New Feature", "Sep 7th, 2019", "Adding support for the addon 'Questie' to enable plater quest recognition."},
+			{1575627153,  "Bug Fix", "Aug 30th, 2019", "Fixing spell name on castbar."},
+			{1575627153,  "New Feature", "Aug 30th, 2019", "Adding support for 'Real Mob Health' (addon to show ral health values)."},
+			{1575627153,  "New Feature", "Aug 30th, 2019", "Adding support for LibClassicDurations for aura timers on nameplates."},
+			{1575627153,  "Bug Fix", "Aug 29th, 2019", "Fixing Power Bar."},
+			{1575627153,  "Options Changes", "Aug 29th, 2019", "General settings cleanup for health, absorb, view distance and Personal Bar according to support in classic."},
+			{1575627153,  "Options Changes", "Aug 29th, 2019", "Removing settings for personal display and resources on target."},
+			
 			{1562097297,  "Bug Fix", "July 2nd, 2019", "Fixed spell animations."},
 			{1562097297,  "Bug Fix", "July 2nd, 2019", "Fixed script errors which was spamming in the chat."},
 			{1562097297,  "Bug Fix", "July 2nd, 2019", "Fixed buffs sometimes not showing in the aura frame 2."},

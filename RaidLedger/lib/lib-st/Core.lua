@@ -1,8 +1,12 @@
-local MAJOR, MINOR = "ScrollingTable", tonumber("1572431539") or 40300;
-local lib, oldminor = LibStub:NewLibrary(MAJOR, MINOR);
-if not lib then
-	return; -- Already loaded and no upgrade necessary.
-end
+local _, ADDONSELF = ...
+-- local MAJOR, MINOR = "ScrollingTable", tonumber("1576118506") or 40300;
+-- local lib, oldminor = LibStub:NewLibrary(MAJOR, MINOR);
+-- if not lib then
+-- 	return; -- Already loaded and no upgrade necessary.
+-- end
+ADDONSELF.st = {}
+local lib = ADDONSELF.st
+
 
 do
 	lib.SORT_ASC = 1;
@@ -27,7 +31,7 @@ do
 
 	local SetWidth = function(self)
 		local width = 13;
-		for num, col in pairs(self.cols) do
+		for _, col in pairs(self.cols) do
 			width = width + col.width;
 		end
 		self.frame:SetWidth(width+20);
@@ -115,7 +119,7 @@ do
 		for i = 1, num do
 			local row = self.rows[i];
 			if not row then
-				row = CreateFrame("Button", self.frame:GetName().."Row"..i, self.frame);
+				row = CreateFrame("Button", nil, self.frame);
 				self.rows[i] = row;
 				if i > 1 then
 					row:SetPoint("TOPLEFT", self.rows[i-1], "BOTTOMLEFT", 0, 0);
@@ -133,8 +137,8 @@ do
 			for j = 1, #self.cols do
 				local col = row.cols[j];
 				if not col then
-					col = CreateFrame("Button", row:GetName().."col"..j, row);
-					col.text = row:CreateFontString(col:GetName().."text", "OVERLAY", "GameFontNormal");
+					col = CreateFrame("Button", nil, row);
+					col.text = row:CreateFontString(nil, "OVERLAY", "GameFontNormal");
 					row.cols[j] = col;
 					local align = self.cols[j].align or "LEFT";
 					col.text:SetJustifyH(align);
@@ -164,8 +168,8 @@ do
 				col.text:SetPoint("BOTTOM", col, "BOTTOM", 0, 0);
 				col.text:SetWidth(self.cols[j].width - 2*lrpadding);
 			end
-			j = #self.cols + 1;
-			col = row.cols[j];
+			local j = #self.cols + 1;
+			local col = row.cols[j];
 			while col do
 				col:Hide();
 				j = j + 1;
@@ -191,7 +195,7 @@ do
 
 		local row = self.head
 		if not row then
-			row = CreateFrame("Frame", self.frame:GetName().."Head", self.frame);
+			row = CreateFrame("Frame", nil, self.frame);
 			row:SetPoint("BOTTOMLEFT", self.frame, "TOPLEFT", 4, 0);
 			row:SetPoint("BOTTOMRIGHT", self.frame, "TOPRIGHT", -4, 0);
 			row:SetHeight(self.rowHeight);
@@ -213,10 +217,9 @@ do
 			end
 
 			-- Now proceed to set up the columns.
-			local colFrameName = row:GetName().."Col"..i;
 			local col = nil
 			if not col then
-				col = CreateFrame("Button", colFrameName, row);
+				col = CreateFrame("Button", nil, row);
 				col:RegisterForClicks("AnyUp");	 -- LS: right clicking on header
 
 				if self.events then
@@ -229,7 +232,7 @@ do
 			end
 			row.cols[i] = col;
 
-			local fs = col:CreateFontString(col:GetName().."fs", "OVERLAY", "GameFontNormal");
+			local fs = col:CreateFontString(nil, "OVERLAY", "GameFontNormal");
 			fs:SetAllPoints(col);
 			fs:SetPoint("LEFT", col, "LEFT", lrpadding, 0);
 			fs:SetPoint("RIGHT", col, "RIGHT", -lrpadding, 0);
@@ -432,11 +435,11 @@ do
 		return result;
 	end
 
-	function GetDefaultHighlightBlank(self)
+	local function GetDefaultHighlightBlank(self)
 		return self.defaulthighlightblank;
 	end
 
-	function SetDefaultHighlightBlank(self, red, green, blue, alpha)
+	local function SetDefaultHighlightBlank(self, red, green, blue, alpha)
 		if not self.defaulthighlightblank then
 			self.defaulthighlightblank = defaulthighlightblank;
 		end
@@ -447,11 +450,11 @@ do
 		if alpha then self.defaulthighlightblank["a"] = alpha; end
 	end
 
-	function GetDefaultHighlight(self)
+	local function GetDefaultHighlight(self)
 		return self.defaulthighlight;
 	end
 
-	function SetDefaultHighlight(self, red, green, blue, alpha)
+	local function SetDefaultHighlight(self, red, green, blue, alpha)
 		if not self.defaulthighlight then
 			self.defaulthighlight = defaulthighlight;
 		end
@@ -526,17 +529,17 @@ do
 
 			local colorargs = nil;
 			if not color then
-			 	color = cols[column].color;
-			 	if not color then
-			 		color = rowdata.color;
-			 		if not color then
-			 			color = defaultcolor;
-			 		else
-			 			colorargs = rowdata.colorargs;
-			 		end
-			 	else
-			 		colorargs = cols[column].colorargs;
-			 	end
+				color = cols[column].color;
+				if not color then
+					color = rowdata.color;
+					if not color then
+						color = defaultcolor;
+					else
+						colorargs = rowdata.colorargs;
+					end
+				else
+					colorargs = cols[column].colorargs;
+				end
 			else
 				colorargs = celldata.colorargs;
 			end
@@ -620,9 +623,7 @@ do
 
 	function lib:CreateST(cols, numRows, rowHeight, highlight, parent)
 		local st = {};
-		self.framecount = self.framecount or 1;
-		local f = CreateFrame("Frame", "ScrollTable" .. self.framecount, parent or UIParent);
-		self.framecount = self.framecount + 1;
+		local f = CreateFrame("Frame", nil, parent);
 		st.showing = true;
 		st.frame = f;
 
@@ -718,10 +719,9 @@ do
 
 		f:SetBackdrop(ScrollPaneBackdrop);
 		f:SetBackdropColor(0.1,0.1,0.1);
-		f:SetPoint("CENTER",UIParent,"CENTER",0,0);
 
 		-- build scroll frame
-		local scrollframe = CreateFrame("ScrollFrame", f:GetName().."ScrollFrame", f, "FauxScrollFrameTemplate");
+		local scrollframe = CreateFrame("ScrollFrame", nil, f, "FauxScrollFrameTemplate");
 		st.scrollframe = scrollframe;
 		scrollframe:Show();
 		scrollframe:SetScript("OnHide", function(self, ...)
@@ -731,14 +731,14 @@ do
 		scrollframe:SetPoint("TOPLEFT", f, "TOPLEFT", 0, -4);
 		scrollframe:SetPoint("BOTTOMRIGHT", f, "BOTTOMRIGHT", -26, 3);
 
-		local scrolltrough = CreateFrame("Frame", f:GetName().."ScrollTrough", scrollframe);
+		local scrolltrough = CreateFrame("Frame", nil, scrollframe);
 		scrolltrough:SetWidth(17);
 		scrolltrough:SetPoint("TOPRIGHT", f, "TOPRIGHT", -4, -3);
 		scrolltrough:SetPoint("BOTTOMRIGHT", f, "BOTTOMRIGHT", -4, 4);
 		scrolltrough.background = scrolltrough:CreateTexture(nil, "BACKGROUND");
 		scrolltrough.background:SetAllPoints(scrolltrough);
 		scrolltrough.background:SetColorTexture(0.05, 0.05, 0.05, 1.0);
-		local scrolltroughborder = CreateFrame("Frame", f:GetName().."ScrollTroughBorder", scrollframe);
+		local scrolltroughborder = CreateFrame("Frame", nil, scrollframe);
 		scrolltroughborder:SetWidth(1);
 		scrolltroughborder:SetPoint("TOPRIGHT", scrolltrough, "TOPLEFT");
 		scrolltroughborder:SetPoint("BOTTOMRIGHT", scrolltrough, "BOTTOMLEFT");

@@ -1,38 +1,10 @@
-Changes since tag v1.0.0
+lightweight tag c54adf49a72d4bfe288573835b7c559680a3683c v1.4.1
+Author:	Boshi Lian <farmer1992@gmail.com>
+Date:	Wed Dec 11 18:41:46 2019 -0800
 
-commit 3e5eb1680f8e0d628d9e38966a592908d605eda0
+commit c54adf49a72d4bfe288573835b7c559680a3683c
 Author: Boshi Lian <farmer1992@gmail.com>
-Date:   Wed Oct 30 03:32:19 2019 -0700
+Date:   Wed Dec 11 18:41:46 2019 -0800
 
-    support shift + click to add to ledger
-
-commit 5c2ac5022b3e978d53e86d0c4b628274fbd09863
-Author: Boshi Lian <farmer1992@gmail.com>
-Date:   Sun Oct 27 04:54:43 2019 -0700
-
-    add msg if convert failed
-
-commit cd15faed07660dd2dfc7c9022eab1b0d649cb25e
-Author: Boshi Lian <farmer1992@gmail.com>
-Date:   Sun Oct 27 04:34:40 2019 -0700
-
-    add custom income button
-
-commit 83561b7827d9f0b7a2610205d11a6924c71472f6
-Author: Boshi Lian <farmer1992@gmail.com>
-Date:   Sun Oct 27 03:15:14 2019 -0700
-
-    customize compensation
-
-commit a97b6616e39fa100801bcb178fb51a0e5b0cd601
-Author: Boshi Lian <farmer1992@gmail.com>
-Date:   Thu Oct 24 09:25:00 2019 -0700
-
-    add cap and toggle command
-
-commit af5430da9a19573b915d24532a836edb5fedb9e1
-Author: Boshi Lian <farmer1992@gmail.com>
-Date:   Wed Oct 23 14:09:45 2019 -0700
-
-    Update README.md
+    update toc
 

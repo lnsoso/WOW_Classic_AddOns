@@ -1,5 +1,5 @@
-﻿local VERSION = "1.17.10"
-local VERSION_INT = 1.1710
+﻿local VERSION = "1.19"
+local VERSION_INT = 1.1900
 local ADDON_NAME = "FarmLog"
 local CREDITS = "by |cff40C7EBKof|r @ |cffff2222Shazzrah|r"
 local FONT_NAME = "Fonts\\FRIZQT__.TTF"
@@ -7,6 +7,7 @@ local MAX_AH_RETRY = 0
 
 local L = FarmLog_BuildLocalization()
 local UNKNOWN_MOBNAME = L["Unknown"]
+local CONSUMES_MOBNAME = L["Consumes"]
 local REALM = GetRealmName()
 
 FarmLog.L = L 
@@ -22,6 +23,12 @@ local DROP_META_INDEX_COUNT =  1
 local DROP_META_INDEX_VALUE =  2
 local DROP_META_INDEX_VALUE_EACH =  3
 local DROP_META_INDEX_VALUE_TYPE =  4
+
+local BG_INSTANCE_NAMES = {
+	["Warsong Gulch"] = true,
+	["Alterac Valley"] = true,
+	["Arathi Basin"] = true,
+}
 
 local VALUE_TYPE_MANUAL = 'M'
 local VALUE_TYPE_SCAN = 'S'
@@ -64,6 +71,10 @@ local TEXT_COLOR = {
 	["deaths"] = "ee3333",
 	["gathering"] = "38c98d",
 	["unknown"] = "888888",
+	["consumes"] = "3ddb9f",
+	["bgs"] = "6a78f9",
+	["bgswin"] = "2ed154",
+	["bgsloss"] = "d4422f",
 }
 
 TEXT_COLOR[L["Skinning"]] = TEXT_COLOR["gathering"]
@@ -71,6 +82,7 @@ TEXT_COLOR[L["Herbalism"]] = TEXT_COLOR["gathering"]
 TEXT_COLOR[L["Mining"]] = TEXT_COLOR["gathering"]
 TEXT_COLOR[L["Fishing"]] = TEXT_COLOR["gathering"]
 TEXT_COLOR[UNKNOWN_MOBNAME] = TEXT_COLOR["unknown"]
+TEXT_COLOR[CONSUMES_MOBNAME] = TEXT_COLOR["consumes"]
 
 local TITLE_COLOR = "|cff4CB4ff"
 local SPELL_HERBING = 2366
@@ -117,7 +129,7 @@ FLogGlobalVars = {
 	debug = false,
 	ahPrice = {},
 	ahScan = {},
-	ahMinQuality = 1,
+	ahMinQuality = 3,
 	ignoredItems = {},
 	track = {
 		drops = true,
@@ -129,10 +141,12 @@ FLogGlobalVars = {
 		consumes = true,
 		money = true,
 		xp = true,
-		skill = true,
+		skill = false,
 		rep = true,
 		deaths = true,
+		levelup = true,
 		resets = true,
+		bgs = true,
 	},
 	hud = {
 		paddingX = 8,
@@ -140,12 +154,12 @@ FLogGlobalVars = {
 		fontName = FONT_NAME,
 		fontSize = 12,
 		alpha = 0.7,
-		locked = false,
-		show = false,
 	},
 	showBlackLotusTimer = true,
 	autoSwitchInstances = false,
+	autoResumeBGs = true,
 	resumeSessionOnSwitch = true,
+	honorDRinBGs = true,
 	reportTo = {},
 	dismissLootWindowOnEsc = false,
 	groupByMobName = true,
@@ -158,7 +172,7 @@ FLogGlobalVars = {
 	bls = {}, -- BL pick log
 	sortBy = SORT_BY_TEXT,
 	sortSessionBy = SORT_BY_TEXT,
-	ver = VERSION,
+	ver = VERSION_INT,
 }
 
 FLogVars = {
@@ -186,7 +200,11 @@ FLogVars = {
 	viewTotal = false,
 	farms = {},
 	todayKills = {},
-	ver = VERSION,
+	ver = VERSION_INT,
+	hud = {
+		show = false,
+		locked = false,
+	}
 }
 
 local function emptySession() 
@@ -195,6 +213,7 @@ local function emptySession()
 		kills = {},
 		ranks = {},
 		skill = {},
+		consumes = {},
 		rep = {},
 		gold = 0,
 		vendor = 0,
@@ -206,6 +225,9 @@ local function emptySession()
 		deaths = 0,
 		seconds = 0,
 		resets = 0,
+		bgs = {},
+		bgsWin = {},
+		bgsLoss = {},
 	}
 end 
 
@@ -240,6 +262,9 @@ local honorFrenzySetTime = nil
 local honorFrenzyTotal = 0
 local honorFrenzyKills = 0
 local honorFrenzyTest = false
+local selfPlayerName = nil
+local selfPlayerFaction = nil 
+local bgResultRecorded = false
 
 lastLootedMobs = {}
 
@@ -307,6 +332,9 @@ local function GetShortCoinTextureString(money)
 		money = math.floor(money / 10000) * 10000
 	elseif money > 10000 then 
 		money = math.floor(money / 100) * 100
+	end 
+	if money < 0 then 
+		return "-"..GetCoinTextureString(money * -1, 12)
 	end 
 	return GetCoinTextureString(money, 12)
 end 
@@ -391,7 +419,7 @@ local function GetAHScanPrice(itemLink)
 	return FLogGlobalVars.ahScan[REALM][itemLink]
 end 
 
-local function GetManualPrice(itemLink)
+function FarmLog:GetManualPrice(itemLink)
 	return FLogGlobalVars.ahPrice[REALM][itemLink]
 end 
 
@@ -437,6 +465,7 @@ function FarmLog:Migrate()
 			["hks"] = 0,
 			["dks"] = 0,
 			["ranks"] = {},
+			["consumes"] = {},
 		}
 		FLogSVTotalSeconds = nil 
 		out("Migrated previous session into session 'default'.")
@@ -638,6 +667,38 @@ function FarmLog:Migrate()
 		FLogGlobalVars.showHonorFrenzyCounter = true		
 	end 
 
+	if FLogVars.ver < 1.1800 then 
+		for _, farm in pairs(FLogVars.farms) do 
+			if not farm.current.consumes then farm.current.consumes = {} end 
+			if not farm.past.consumes then farm.past.consumes = {} end 
+		end 
+	end 
+
+	if FLogVars.ver < 1.1801 then 
+		FLogVars.hud = {
+			show = FLogGlobalVars.hud.show,
+			locked = FLogGlobalVars.hud.locked,
+		}
+	end 
+
+	if FLogGlobalVars.ver < 1.1803 then 
+		FLogGlobalVars.track.levelup = true 
+	end 
+
+	if FLogVars.ver < 1.1900 then 
+		for _, farm in pairs(FLogVars.farms) do 
+			if not farm.current.bgs then farm.current.bgs = {} end 
+			if not farm.past.bgs then farm.past.bgs = {} end 
+			if not farm.current.bgsWin then farm.current.bgsWin = {} end 
+			if not farm.past.bgsWin then farm.past.bgsWin = {} end 
+			if not farm.current.bgsLoss then farm.current.bgsLoss = {} end 
+			if not farm.past.bgsLoss then farm.past.bgsLoss = {} end 
+		end 
+		FLogGlobalVars.track.bgs = true
+		FLogGlobalVars.honorDRinBGs = true 
+		FLogGlobalVars.autoResumeBGs = true 
+	end 
+
 	FLogVars.ver = VERSION_INT
 	FLogGlobalVars.ver = VERSION_INT
 end 
@@ -791,7 +852,7 @@ end
 
 function FarmLog:ResetSessionVars()
 	local session = emptySession()
-	if FLogVars.inInstance then 
+	if FLogVars.inInstance and not BG_INSTANCE_NAMES[FLogVars.instanceName] then 
 		session.resets = 1
 	end 
 	local farm = FLogVars.farms[FLogVars.currentFarm]
@@ -869,7 +930,7 @@ function FarmLog:NewSession()
 	local mergedSessions = {}
 	for key, _ in pairs(newSession) do 
 		local mergeFunc = nil 
-		if key == "drops" then mergeFunc = mergeDrops end 
+		if key == "drops" or key == "consumes" then mergeFunc = mergeDrops end 
 		mergedSessions[key] = GetSessionVar(key, true, nil, mergeFunc)
 	end 	
 	SetFarmVar("past", mergedSessions)
@@ -1190,7 +1251,21 @@ function FarmLog_MainWindow:Refresh()
 		SetFarmVar("honorPerHour", honorPerHour)
 		SetFarmVar("honor", honor)
 	end 
-	
+
+	if FLogGlobalVars.track.bgs then 
+		local wins = GetSessionVar("bgsWin", FLogVars.viewTotal)
+		local losses = GetSessionVar("bgsLoss", FLogVars.viewTotal)
+		for bg, count in pairs(GetSessionVar("bgs", FLogVars.viewTotal)) do 
+			self:AddRow(bg, nil, count, TEXT_COLOR["bgs"]) 
+			if wins and isPositive(wins[bg]) then 
+				self:AddRow("    "..L["Won"], nil, wins[bg], TEXT_COLOR["bgswin"]) 
+			end 
+			if losses and isPositive(losses[bg]) then 
+				self:AddRow("    "..L["Lost"], nil, losses[bg], TEXT_COLOR["bgsloss"]) 
+			end 
+		end 
+	end 
+
 	local deaths = FLogGlobalVars.track.deaths and GetSessionVar("deaths", FLogVars.viewTotal)
 	if isPositive(deaths) then 
 		self:AddRow(numberToString(deaths).." "..L["Deaths"], nil, nil, TEXT_COLOR["deaths"]) 
@@ -1205,6 +1280,10 @@ function FarmLog_MainWindow:Refresh()
 			self:AddRow("+"..levels.." "..skillName, nil, nil, TEXT_COLOR["skill"])
 		end
 	end 
+	local levelup = FLogGlobalVars.track.levelup and GetSessionVar("levelup", FLogVars.viewTotal)
+	if isPositive(levelup) then 
+		self:AddRow(levelup.." "..L["Character levels"], nil, nil, TEXT_COLOR["skill"]) 
+	end 
 
 	if FLogGlobalVars.track.ranks then 
 		local sessionRanks = GetSessionVar("ranks", FLogVars.viewTotal)
@@ -1214,31 +1293,40 @@ function FarmLog_MainWindow:Refresh()
 		end
 	end 
 
+	local sortLinksByText = FLogGlobalVars.sortBy == SORT_BY_TEXT or FLogGlobalVars.sortBy == SORT_BY_KILLS
+	local extractGold = function (meta) return meta[DROP_META_INDEX_VALUE] end  
+	local extractLink = function (link) return GetItemInfo(link) or link end  
+	local valueIndex = DROP_META_INDEX_VALUE
+	if IsShiftKeyDown() then valueIndex = DROP_META_INDEX_VALUE_EACH end 
+
+	local addDropRows = function (dropMap, indent) 
+		local sortedItemLinks = SortMapKeys(dropMap, not sortLinksByText, not sortLinksByText, extractLink, extractGold)
+		for _, itemLink in ipairs(sortedItemLinks) do			
+			if not FLogGlobalVars.ignoredItems[itemLink] then 
+				local meta = dropMap[itemLink]
+				local colorType = meta[DROP_META_INDEX_VALUE_TYPE] or "?"
+				local color = VALUE_TYPE_COLOR[colorType]
+				-- debug("|cff999999FarmLog_MainWindow:Refresh|r link |cffff9900"..itemLink.."|r color |cffff9900"..color.."|r")
+				local text = itemLink
+				if indent then text = "    "..text end 
+				local row = self:AddRow(text, GetShortCoinTextureString(meta[valueIndex]), meta[DROP_META_INDEX_COUNT], nil, color)
+				SetItemTooltip(row, itemLink)
+				SetItemActions(row, self:GetOnLogItemClick(itemLink))
+				row.root:Show();
+			end 
+		end		
+	end 
+
+	if FLogGlobalVars.track.consumes then 
+		local sessionConsumes = GetSessionVar("consumes", FLogVars.viewTotal, nil, mergeDrops)
+		if sessionConsumes[CONSUMES_MOBNAME] then 
+			self:AddRow(CONSUMES_MOBNAME, nil, 1, TEXT_COLOR[CONSUMES_MOBNAME])
+			addDropRows(sessionConsumes[CONSUMES_MOBNAME] or {}, true)
+		end 
+	end 
+
 	if FLogGlobalVars.track.kills and not pvpMode then 
 		local sessionDrops = GetSessionVar("drops", FLogVars.viewTotal, nil, mergeDrops)
-		local sortLinksByText = FLogGlobalVars.sortBy == SORT_BY_TEXT or FLogGlobalVars.sortBy == SORT_BY_KILLS
-		local extractGold = function (meta) return meta[DROP_META_INDEX_VALUE] end  
-		local extractLink = function (link) return GetItemInfo(link) or link end  
-		local valueIndex = DROP_META_INDEX_VALUE
-		if IsShiftKeyDown() then valueIndex = DROP_META_INDEX_VALUE_EACH end 
-
-		local addDropRows = function (dropMap, indent) 
-			local sortedItemLinks = SortMapKeys(dropMap, not sortLinksByText, not sortLinksByText, extractLink, extractGold)
-			for _, itemLink in ipairs(sortedItemLinks) do			
-				if not FLogGlobalVars.ignoredItems[itemLink] then 
-					local meta = dropMap[itemLink]
-					local colorType = meta[DROP_META_INDEX_VALUE_TYPE] or "?"
-					local color = VALUE_TYPE_COLOR[colorType]
-					-- debug("|cff999999FarmLog_MainWindow:Refresh|r link |cffff9900"..itemLink.."|r color |cffff9900"..color.."|r")
-					local text = itemLink
-					if indent then text = "    "..text end 
-					local row = self:AddRow(text, GetShortCoinTextureString(meta[valueIndex]), meta[DROP_META_INDEX_COUNT], nil, color)
-					SetItemTooltip(row, itemLink)
-					SetItemActions(row, self:GetOnLogItemClick(itemLink))
-					row.root:Show();
-				end 
-			end		
-		end 
 
 		if FLogGlobalVars.groupByMobName then 
 			local sessionKills = GetSessionVar("kills", FLogVars.viewTotal)
@@ -1309,26 +1397,38 @@ function FarmLog_MainWindow:RecalcTotals()
 	local recalcMeta = function (session) 
 		local sessionVendor = 0
 		local sessionAH = 0
-		for mobName, drops in pairs(session.drops) do
-			for itemLink, meta in pairs(drops) do
-				if not FLogGlobalVars.ignoredItems[itemLink] then
-					local vendorPrice = meta[DROP_META_INDEX_VALUE_TYPE] == VALUE_TYPE_VENDOR and meta[DROP_META_INDEX_VALUE_EACH]
-					local value, priceType = getItemValue(itemLink, vendorPrice)
-					local count = meta[DROP_META_INDEX_COUNT]
-					local totalValue = value * count
 
-					meta[DROP_META_INDEX_VALUE] = totalValue
-					meta[DROP_META_INDEX_VALUE_EACH] = value
-					meta[DROP_META_INDEX_VALUE_TYPE] = priceType
-
-					if priceType == VALUE_TYPE_VENDOR then
-						sessionVendor = sessionVendor + totalValue
-					elseif priceType == VALUE_TYPE_MANUAL or priceType == VALUE_TYPE_SCAN then
-						sessionAH = sessionAH + totalValue
+		local function recalc(section, mul) 
+			for mobName, drops in pairs(session[section]) do
+				for itemLink, meta in pairs(drops) do
+					if not FLogGlobalVars.ignoredItems[itemLink] then
+						local vendorPrice = meta[DROP_META_INDEX_VALUE_TYPE] == VALUE_TYPE_VENDOR and meta[DROP_META_INDEX_VALUE_EACH]
+						local value, priceType = FarmLog:GetItemValue(itemLink)
+						local count = meta[DROP_META_INDEX_COUNT]
+						local totalValue = value * count
+	
+						meta[DROP_META_INDEX_VALUE] = totalValue
+						meta[DROP_META_INDEX_VALUE_EACH] = value
+						meta[DROP_META_INDEX_VALUE_TYPE] = priceType
+	
+						if priceType == VALUE_TYPE_VENDOR then
+							sessionVendor = sessionVendor + totalValue * mul
+						elseif priceType == VALUE_TYPE_MANUAL or priceType == VALUE_TYPE_SCAN then
+							sessionAH = sessionAH + totalValue * mul
+						end
+						-- debug("section "..section.." totalValue "..totalValue.." mul "..mul.." sessionVendor "..sessionVendor)
 					end
 				end
-			end
-		end
+			end	
+		end 
+
+		if FLogGlobalVars.track.drops then 
+			recalc("drops", 1)
+		end 
+		if FLogGlobalVars.track.consumes then 
+			recalc("consumes", -1)
+		end 
+
 		session.vendor = sessionVendor
 		session.ah = sessionAH
 	end 
@@ -1531,6 +1631,23 @@ function FarmLog:OnSpellCastEvent(unit, target, guid, spellId)
 	end 
 end 
 
+function FarmLog:OnSpellCastSuccessEvent(unit, target, spellId)
+	debug("|cff999999OnSpellCastSuccessEvent|r spellId |cffff9900"..tostring(spellId).."|r unit |cffff9900"..tostring(unit))
+	if not FLogGlobalVars.track.consumes or unit ~= "player" then return end 
+	local buffmeta = FarmLog.Consumes[tostring(spellId)]
+	if buffmeta and buffmeta.item then 
+		-- item has/had to be in bags for get by name to work
+		local _, itemLink, _, _, _, _, _, _, _, _, vendorPrice = GetItemInfo(buffmeta.item)
+		if itemLink then 
+			itemLink = normalizeLink(itemLink) -- remove player level from link
+			FarmLog:InsertLoot(CONSUMES_MOBNAME, itemLink, buffmeta.quantity or 1, vendorPrice, "consumes", -1)
+			FarmLog_MainWindow:Refresh()
+		else 
+			debug("Could not fetch item link for "..buffmeta.item)
+		end 
+	end 
+end 
+
 -- Honor event
 
 local HonorGainStrings = {
@@ -1539,8 +1656,12 @@ local HonorGainStrings = {
 }
 
 function FarmLog:EstimatedHonorPercent(unitName)
-	local timesKilledToday = FLogVars.todayKills[unitName] or 0
-	return 1 - min(0.25 * timesKilledToday, 1)
+	if not FLogGlobalVars.honorDRinBGs and FLogVars.inInstance then 
+		return 1
+	else 
+		local timesKilledToday = FLogVars.todayKills[unitName] or 0
+		return 1 - min(0.25 * timesKilledToday, 1)
+	end 
 end 
 
 function FarmLog:CheckPvPDayReset()
@@ -1572,8 +1693,10 @@ function FarmLog:OnCombatHonorEvent(text)
 
 			-- count character kills for honor diminishing returns effect 
 			local honorDR = self:EstimatedHonorPercent(name)
-			local timesKilledToday = (FLogVars.todayKills[name] or 0) + 1
-			FLogVars.todayKills[name] = timesKilledToday
+			if FLogGlobalVars.honorDRinBGs or not FLogVars.inInstance then 
+				local timesKilledToday = (FLogVars.todayKills[name] or 0) + 1
+				FLogVars.todayKills[name] = timesKilledToday
+			end 
 
 			if isPositive(honor) then 
 				local adjustedHonor = math.floor(tonumber(honor) * honorDR)
@@ -1605,6 +1728,15 @@ function FarmLog:OnPlayerDead()
 	IncreaseSessionVar("deaths", 1)
 	FarmLog_MainWindow:Refresh()
 end 
+
+function FarmLog:OnPlayerLevelUp()
+	if not FLogGlobalVars.track.levelup then return end 
+	-- debug("|cff999999OnPlayerDead|r")
+	IncreaseSessionVar("levelup", 1)
+	FarmLog_MainWindow:Refresh()
+end 
+
+
 
 -- Trade skills event
 
@@ -1705,11 +1837,12 @@ end
 -- Combat log event
 
 function FarmLog:OnCombatLogEvent()
-	if not FLogGlobalVars.track.kills then return end 
-
 	local eventInfo = {CombatLogGetCurrentEventInfo()}
 	local eventName = eventInfo[2]
+
 	if eventName == "PARTY_KILL" then 
+		if not FLogGlobalVars.track.kills then return end 
+
 		local mobName = eventInfo[9]
 		local mobGuid = eventInfo[8]
 		local mobFlags = eventInfo[10]
@@ -1929,7 +2062,7 @@ function FarmLog:ShowBlackLotusTimers()
 						local text = L["blacklotus-short"]..": "..zoneName
 						if DBM then 
 							DBM:CreatePizzaTimer(seconds, text)
-						else 
+						elseif SlashCmdList.BIGWIGSLOCALBAR then 
 							SlashCmdList.BIGWIGSLOCALBAR(seconds.." "..text)
 						end 
 					end 
@@ -1940,20 +2073,21 @@ function FarmLog:ShowBlackLotusTimers()
 end 
 
 -- Loot helper
-function getItemValue(itemLink, vendorPrice)
-	local ahValue = GetManualPrice(itemLink)
+function FarmLog:GetItemValue(itemLink)
+	local _, _, quality, _, _, _, _, _, _, _, vendorPrice = GetItemInfo(itemLink)
+	local normLink = normalizeLink(itemLink)
+	local ahValue = FarmLog:GetManualPrice(normLink)
 	if ahValue then
 		return ahValue, VALUE_TYPE_MANUAL
-	else
+	elseif not quality or quality >= FLogGlobalVars.ahMinQuality then 
+		-- debug("GetItemValue   "..itemLink.."   quality "..quality)
 		local GetTSMPrice = TSM_API and function(link) 
-			local TSM_ItemString = TSM_API.ToItemString(itemLink)
+			local TSM_ItemString = TSM_API.ToItemString(normLink)
 			return TSM_API.GetCustomPriceValue("dbmarket", TSM_ItemString)
 		end
 		local PriceCheck = Atr_GetAuctionBuyout or GetTSMPrice or GetAHScanPrice
-		ahValue = PriceCheck(itemLink)
+		ahValue = PriceCheck(normLink)
 	end
-
-	vendorPrice = (vendorPrice or select(11, GetItemInfo(itemLink))) or 0;
 
 	-- check if AH price (-15%) > vendor price + 1s
 	if isPositive(ahValue) and (not isPositive(vendorPrice) or ahValue * 0.85 > vendorPrice + 100) then
@@ -1966,19 +2100,21 @@ end
 
 -- Loot receive event
 
-function FarmLog:InsertLoot(mobName, itemLink, count, vendorPrice)
-	if not FLogGlobalVars.track.drops or not mobName or not itemLink or not count then return end 
+function FarmLog:InsertLoot(mobName, itemLink, count, vendorPrice, section, mul)
+	section = section or "drops"
+	mul = mul or 1
+	if not FLogGlobalVars.track[section] or not mobName or not itemLink or not count then return end 
 
-	local value, priceType = getItemValue(itemLink, vendorPrice)
+	local value, priceType = FarmLog:GetItemValue(itemLink)
 
 	if priceType == VALUE_TYPE_VENDOR then
-		IncreaseSessionVar("vendor", value * count)
+		IncreaseSessionVar("vendor", value * count * mul)
 	elseif priceType == VALUE_TYPE_MANUAL or priceType == VALUE_TYPE_SCAN then
-		IncreaseSessionVar("ah", value * count)
+		IncreaseSessionVar("ah", value * count * mul)
 	end 
 	debug("|cff999999FarmLog:InsertLoot|r using |cffff9900"..priceType.."|r price of |cffff9900"..value)
 
-	local sessionDrops = GetSessionVar("drops", false)
+	local sessionDrops = GetSessionVar(section, false)
 	if not sessionDrops[mobName] then		
 		sessionDrops[mobName] = {}
 	end 
@@ -2084,8 +2220,6 @@ end
 function FarmLog:OnAddonLoaded()
 	out("|cffffbb00v"..tostring(VERSION).."|r "..CREDITS..", "..L["loaded-welcome"]);
 
-	BL_ITEM_NAME = GetItemInfo(BL_ITEMID)
-
 	FarmLog:Migrate()	
 
 	if not FLogGlobalVars.ahScan[REALM] then FLogGlobalVars.ahScan[REALM] = {} end 
@@ -2117,7 +2251,7 @@ function FarmLog:OnAddonLoaded()
 	FarmLog_MainWindow_Buttons_SortKillsButton.disabled = not FLogGlobalVars.groupByMobName
 	FarmLog_MainWindow_Buttons_ToggleCurrentButton.selected = not FLogVars.viewTotal
 	FarmLog_MainWindow_Buttons_TogglePvPButton.selected = GetFarmVar("pvpMode") == true
-	FarmLog_MainWindow_ToggleHUDButton.selected = FLogGlobalVars.hud.show == true
+	FarmLog_MainWindow_ToggleHUDButton.selected = FLogVars.hud.show == true
 	FarmLog_SetTextButtonBackdropColor(FarmLog_MainWindow_ToggleHUDButton)
 	FarmLog_SetTextButtonBackdropColor(FarmLog_MainWindow_Buttons_SortAbcButton)
 	FarmLog_SetTextButtonBackdropColor(FarmLog_MainWindow_Buttons_SortGoldButton)
@@ -2151,10 +2285,17 @@ function FarmLog:OnAddonLoaded()
 	else 
 		FarmLog_MainWindow:Hide()
 	end 
-	if FLogGlobalVars.hud.show then 
+	if not FarmLog_MainWindow:GetPoint() then 
+		FarmLog_MainWindow:ResetPosition()
+	end 
+
+	if FLogVars.hud.show then 
 		FarmLog_HUD:Show()
 	else 
 		FarmLog_HUD:Hide()
+	end 
+	if not FarmLog_HUD:GetPoint() then 
+		FarmLog_HUD:ResetPosition()
 	end 
 	addonLoadedTime = time()
 
@@ -2165,8 +2306,6 @@ function FarmLog:OnAddonLoaded()
 			end 
 		end 
 	end 
-
-	FarmLog:CheckPvPDayReset()
 
 	-- Options UI
 	FarmLog.InterfacePanel:AddonLoaded()
@@ -2180,6 +2319,15 @@ end
 function FarmLog:OnEnteringWorld(isInitialLogin, isReload) 
 	self:PurgeInstances()
 	self:UpdateInstanceCount()
+
+	BL_ITEM_NAME = GetItemInfo(BL_ITEMID)
+	local playerNameParts = {_G.string.split("-", (UnitFullName("player")))}
+	selfPlayerName = playerNameParts[1]
+	if (UnitFactionGroup("player")) == "Horde" then 
+		selfPlayerFaction = 0
+	else 
+		selfPlayerFaction = 1
+	end 
 
 	if isInitialLogin or isReload then 
 		-- init session
@@ -2198,45 +2346,53 @@ function FarmLog:OnEnteringWorld(isInitialLogin, isReload)
 	inInstance = tobool(inInstance)
 	local instanceName = GetInstanceInfo()
 	local now = time()
+	local farm = FLogVars.farms[FLogVars.currentFarm]
 	debug("|cff999999FarmLog:OnEnteringWorld|r FLogVars.inInstance |cffff9900"..tostring(FLogVars.inInstance).."|r inInstance |cffff9900"..tostring(inInstance))
 
 	if FLogVars.inInstance and not inInstance then 
 		FLogVars.inInstance = false
 		FLogVars.instanceName = nil
 		self:CloseOpenInstances()
-		if FLogGlobalVars.autoSwitchInstances then 
+		if BG_INSTANCE_NAMES[farm.instanceName] or FLogGlobalVars.autoSwitchInstances then 
 			self:PauseSession()
 		end 
 	elseif inInstance then
-		FLogVars.inInstance = true
-		FLogVars.instanceName = instanceName
-		if FLogGlobalVars.autoSwitchInstances then 
-			local farm = FLogVars.farms[FLogVars.currentFarm]
+		if FLogGlobalVars.autoSwitchInstances or (FLogGlobalVars.autoResumeBGs and BG_INSTANCE_NAMES[farm.instanceName] and farm.instanceName == instanceName) then 
 			if farm.instanceName == instanceName then 
 				self:ResumeSession()
 			else 
 				self:SwitchFarm(instanceName, true, true)
 			end
 		end 
-		if FLogGlobalVars.track.resets then 
-			local lastInstance, lastIndex = self:GetLastInstance(instanceName)
-			if lastInstance and lastInstance.leave and now - lastInstance.leave >= INSTANCE_RESET_SECONDS then 
-				-- after 1 hour of not being inside the instance, treat this instance as reset
-				lastInstance = nil 
+		-- ignore BGs
+		if BG_INSTANCE_NAMES[instanceName] then 
+			if FLogGlobalVars.track.bgs and not FLogVars.inInstance then 
+				bgResultRecorded = false 
+				IncreaseSessionDictVar("bgs", instanceName, 1)
 			end 
-			if not lastInstance then 
-				FarmLog:AddInstance(instanceName, now)
-			else 
-				self:AskQuestion(L["new-instance-title"], L["new-instance-question"], function () 
-					-- yes
+		else 		
+			if FLogGlobalVars.track.resets then 
+				local lastInstance, lastIndex = self:GetLastInstance(instanceName)
+				if lastInstance and lastInstance.leave and now - lastInstance.leave >= INSTANCE_RESET_SECONDS then 
+					-- after 1 hour of not being inside the instance, treat this instance as reset
+					lastInstance = nil 
+				end 
+				if not lastInstance then 
 					FarmLog:AddInstance(instanceName, now)
-				end, function () 
-					-- no
-					lastInstance.leave = nil 
-					FarmLog:RepushInstance(lastIndex)
-				end)
-			end 
-		end
+				else 
+					self:AskQuestion(L["new-instance-title"], L["new-instance-question"], function () 
+						-- yes
+						FarmLog:AddInstance(instanceName, now)
+					end, function () 
+						-- no
+						lastInstance.leave = nil 
+						FarmLog:RepushInstance(lastIndex)
+					end)
+				end 
+			end
+		end 
+		FLogVars.inInstance = true
+		FLogVars.instanceName = instanceName
 	end
 	FarmLog_MainWindow:Refresh()
 end 
@@ -2263,6 +2419,25 @@ function FarmLog:OnEnterCombat()
 	end 
 end 
 
+-- Battleground events 
+
+function FarmLog:OnUpdateBattlefieldStatus(arg1, arg2, arg3) 
+	debug("OnUpdateBattlefieldStatus - "..tostring(arg1 or "").."  "..tostring(arg2 or "").."  "..tostring(arg3 or ""))
+	local winner = GetBattlefieldWinner()
+	debug("GetBattlefieldWinner() = "..tostring(winner))
+	debug("FLogVars.instanceName = "..(FLogVars.instanceName or ""))
+	if selfPlayerFaction and FLogVars.instanceName and winner and not bgResultRecorded then 
+		bgResultRecorded = true
+		if winner == selfPlayerFaction then 
+			IncreaseSessionDictVar("bgsWin", FLogVars.instanceName, 1)
+			debug("Battlefield won")
+		else 
+			IncreaseSessionDictVar("bgsLoss", FLogVars.instanceName, 1)
+			debug("Battlefield lost")
+		end 
+	end 
+end 
+
 -- Tooltip extend --------------------------------------------------------------------------
 
 local OriginalOnTooltipSetUnit = nil 
@@ -2271,11 +2446,13 @@ local function OnTooltipSetUnit(...)
 	OriginalOnTooltipSetUnit(GameTooltip, ...)
 
 	local _, unit = GameTooltip:GetUnit()
-	if unit and UnitExists(unit) and UnitIsEnemy(unit, "player") and UnitIsPlayer(unit) and UnitLevel(unit) >= UnitLevel("player") - 10 then 
-		local name = UnitName(unit)
-		local honor = FarmLog:EstimatedHonorPercent(name) * 100
-		GameTooltip:AddLine("|cff"..HonorDRColor[honor]..honor.."% "..L["Honor"])
-	end 
+	if FLogGlobalVars.honorDRinBGs or not FLogVars.inInstance then 
+		if unit and UnitExists(unit) and UnitIsEnemy(unit, "player") and UnitIsPlayer(unit) and UnitLevel(unit) >= UnitLevel("player") - 10 then 
+			local name = UnitName(unit)
+			local honor = FarmLog:EstimatedHonorPercent(name) * 100
+			GameTooltip:AddLine("|cff"..HonorDRColor[honor]..honor.."% "..L["Honor"])
+		end
+	end  
 	
 	GameTooltip:Show()
 end
@@ -2390,10 +2567,16 @@ function FarmLog:OnEvent(event, ...)
 			self:OnMoneyEvent(...)	
 		elseif event == "UNIT_SPELLCAST_SENT" then 
 			self:OnSpellCastEvent(...)
+		elseif event == "UNIT_SPELLCAST_SUCCEEDED" then 
+			self:OnSpellCastSuccessEvent(...)
 		elseif event == "CHAT_MSG_COMBAT_FACTION_CHANGE" then 
 			self:OnCombatFactionChange(...)
 		elseif event == "PLAYER_DEAD" then 
 			self:OnPlayerDead(...)
+		elseif event == "PLAYER_LEVEL_UP" then 
+			self:OnPlayerLevelUp(...)
+		elseif event == "UPDATE_BATTLEFIELD_STATUS" then 
+			self:OnUpdateBattlefieldStatus()
 		end 
 	end 
 
@@ -2402,9 +2585,7 @@ function FarmLog:OnEvent(event, ...)
 	elseif event == "CHAT_MSG_COMBAT_HONOR_GAIN" then 
 		self:OnCombatHonorEvent(...);			
 	elseif event == "CHAT_MSG_LOOT" then
-		if (... and (strfind(..., L["loot"]))) then
-			self:OnLootEvent(...)		
-		end	
+		self:OnLootEvent(...)		
 	elseif event == "ADDON_LOADED" and ... == ADDON_NAME then		
 		self:OnAddonLoaded(...)
 	elseif event == "PLAYER_LOGOUT" then 
@@ -2427,7 +2608,7 @@ function FarmLog:OnUpdate()
 	local now = time()
 	if FLogVars.enabled then 
 		FarmLog_MainWindow:UpdateTime()
-		if FLogGlobalVars.hud.show then 
+		if FLogVars.hud.show then 
 			FarmLog_HUD:Refresh()
 			if now - lastHudDressUp >= HUD_DRESSUP_TIME then 
 				FarmLog_HUD:DressUp()
@@ -2449,6 +2630,7 @@ function FarmLog:OnUpdate()
 		addonLoadedTime = nil 
 		self:CheckTimerAddons()
 		self:ShowBlackLotusTimers()
+		self:CheckPvPDayReset() -- this may return 0 if called too soon
 	end 
 	if GameTooltip:IsShown() then
 		if GameTooltip:IsOwned(Minimap) then 
@@ -2525,7 +2707,7 @@ function FarmLog_MinimapButton:ResetPosition()
 end 
 
 function FarmLog_MinimapButton:DragStopped() 
-	local point, relativeTo, relativePoint, x, y = FarmLog_MinimapButton:GetPoint();
+	local point, relativeTo, relativePoint, x, y = FarmLog_MinimapButton:GetPoint()
 	FLogVars.minimapButtonPosition.point = point;													
 	FLogVars.minimapButtonPosition.x = x;
 	FLogVars.minimapButtonPosition.y = y;
@@ -2686,13 +2868,13 @@ function FarmLog_HUD:DressUp()
 end 
 
 function FarmLog_HUD:DragStart() 
-	if not FLogGlobalVars.hud.locked then 
+	if not FLogVars.hud.locked then 
 		self:StartMoving()
 	end 
 end 
 
 function FarmLog_HUD:DragStop() 
-	if not FLogGlobalVars.hud.locked then 
+	if not FLogVars.hud.locked then 
 		self:StopMovingOrSizing()
 	end 
 end 
@@ -2861,17 +3043,13 @@ end
 function FarmLog_MainWindow_ToggleHUDButton:Clicked(button) 
 	if button == "RightButton" then 
 		FarmLog_HUD:ResetPosition()
-		FLogGlobalVars.hud.show = true 
+		FLogVars.hud.show = true 
 	else 
-		FLogGlobalVars.hud.show = not FLogGlobalVars.hud.show
+		FLogVars.hud.show = not FLogVars.hud.show
 	end 
 
-	self.selected = FLogGlobalVars.hud.show
-	if FLogGlobalVars.hud.show then 
-		if not FLogGlobalVars.hud.resetOnce then 
-			FLogGlobalVars.hud.resetOnce = true 
-			FarmLog_HUD:ResetPosition()
-		end 
+	self.selected = FLogVars.hud.show
+	if FLogVars.hud.show then 
 		FarmLog_HUD:Refresh()
 		FarmLog_HUD:DressUp()
 		FarmLog_HUD:Show()
@@ -3199,10 +3377,10 @@ SlashCmdList.FARMLOG = function(msg)
 		elseif "HUD" == cmd then 
 			if FarmLog_HUD:IsShown() then 
 				FarmLog_HUD:Hide()
-				FLogGlobalVars.hud.show = false
+				FLogVars.hud.show = false
 			else 
 				FarmLog_HUD:Show()
-				FLogGlobalVars.hud.show = true
+				FLogVars.hud.show = true
 			end 
 		elseif "BL" == cmd then 
 			FarmLog:ShowBlackLotusLog()

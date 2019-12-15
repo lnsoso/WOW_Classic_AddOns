@@ -1,15 +1,28 @@
+-- Some pieces of the code here were taken from NeatPlates https://www.curseforge.com/wow/addons/neatplates
 
-local function CreatePanelFrame(reference, name, title)
+local function CreatePanelFrame(reference, title)
 	local panelframe = CreateFrame( "Frame", reference, UIParent);
-	panelframe.name = name
+	panelframe.name = title
 	panelframe.Label = panelframe:CreateFontString(nil, 'ARTWORK', 'GameFontNormalLarge')
 	panelframe.Label:SetPoint("TOPLEFT", panelframe, "TOPLEFT", 16, -16)
 	panelframe.Label:SetHeight(15)
 	panelframe.Label:SetWidth(350)
 	panelframe.Label:SetJustifyH("LEFT")
 	panelframe.Label:SetJustifyV("TOP")
-	panelframe.Label:SetText(title or name)
+	panelframe.Label:SetText(title)
 	return panelframe
+end
+
+local function CreateHelpFrame(reference, text)
+	local helpframe = CreateFrame( "Frame", reference, UIParent);
+	helpframe.name = reference
+	helpframe.Label = helpframe:CreateFontString(nil, 'ARTWORK', 'GameFontNormalLarge')
+	helpframe.Label:SetPoint("TOPLEFT", helpframe, "TOPLEFT", 16, -16)
+	helpframe.Label:SetPoint("RIGHT", helpframe, "RIGHT", -16, 16)
+	helpframe.Label:SetJustifyH("LEFT")
+	helpframe.Label:SetJustifyV("TOP")
+	helpframe.Label:SetText(text)
+	return helpframe
 end
 
 local function CreateCheckButton(reference, parent, label)
@@ -19,12 +32,21 @@ local function CreateCheckButton(reference, parent, label)
 	return checkbutton
 end
 
-local function SetTrackFlag(flag, state)
+local function SetTrackFlag(flag, state, recalc)
 	FLogGlobalVars.track[flag] = state
+	if recalc then 
+		FarmLog_MainWindow:RecalcTotals()
+	end 
 	FarmLog_MainWindow:Refresh()
 end 
 
-local InterfacePanel = CreatePanelFrame("FarmLogInterfacePanel", "FarmLog", nil)
+
+
+------------------------------------------------
+-- Build Options UI
+------------------------------------------------
+
+local InterfacePanel = CreatePanelFrame("FarmLogInterfacePanel", "FarmLog")
 InterfaceOptions_AddCategory(InterfacePanel);
 FarmLog.InterfacePanel = InterfacePanel
 
@@ -55,7 +77,7 @@ panel.DividerLine:SetPoint("TOPLEFT", panel.Label, "BOTTOMLEFT", -6, -8)
 -- Main Scrolled Frame
 ------------------------------
 panel.MainFrame = CreateFrame("Frame")
-panel.MainFrame:SetWidth(412)
+panel.MainFrame:SetWidth(500)
 panel.MainFrame:SetHeight(100) 		-- If the items inside the frame overflow, it automatically adjusts the height.
 
 -- Scrollable Panel Window
@@ -85,13 +107,22 @@ panel.ScrollFrameBorder:SetBackdropBorderColor(0.2, 0.2, 0.2, 0)
 
 local mfpanel = panel.MainFrame
 
+mfpanel.TopHelp = mfpanel:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
+mfpanel.TopHelp:SetFont(font, 12)
+mfpanel.TopHelp:SetText(L["options-help-sessions"])
+mfpanel.TopHelp:SetPoint("TOPLEFT", 25, 0)
+mfpanel.TopHelp:SetPoint("RIGHT", -20, 0)
+mfpanel.TopHelp:SetJustifyH("LEFT")
+mfpanel.TopHelp:SetJustifyV("TOP")
+mfpanel.TopHelp:SetTextColor(1, 1, 1, 1)
+
 ----------------------------------------------
 -- General
 ----------------------------------------------
 mfpanel.GeneralCategoryTitle = mfpanel:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
 mfpanel.GeneralCategoryTitle:SetFont(font, 16)
 mfpanel.GeneralCategoryTitle:SetText(L["General"])
-mfpanel.GeneralCategoryTitle:SetPoint("TOPLEFT", 20, -10)
+mfpanel.GeneralCategoryTitle:SetPoint("TOPLEFT", mfpanel.TopHelp, "BOTTOMLEFT", 0, -20)
 
 mfpanel.AutoSwitchInstances = CreateCheckButton("FarmLogOptions_AutoSwitchInstances", mfpanel, L["autoSwitchInstances"])
 mfpanel.AutoSwitchInstances:SetPoint("TOPLEFT", mfpanel.GeneralCategoryTitle, "BOTTOMLEFT", 0, -8)
@@ -119,12 +150,50 @@ mfpanel.ShowBlackLotusTimer.tooltipText = L["showBlackLotusTimer-tooltip"]
 
 
 ----------------------------------------------
+-- Prices
+----------------------------------------------
+mfpanel.PricesCategoryTitle = mfpanel:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
+mfpanel.PricesCategoryTitle:SetFont(font, 16)
+mfpanel.PricesCategoryTitle:SetText(L["Prices"])
+mfpanel.PricesCategoryTitle:SetPoint("TOPLEFT", mfpanel.ShowBlackLotusTimer, "BOTTOMLEFT", 0, -20)
+
+mfpanel.AHMinQuality = mfpanel:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
+mfpanel.AHMinQuality:SetPoint("TOPLEFT", mfpanel.PricesCategoryTitle, "BOTTOMLEFT", 0, -12)
+mfpanel.AHMinQuality:SetWidth(170)
+mfpanel.AHMinQuality:SetJustifyH("LEFT")
+mfpanel.AHMinQuality:SetText(L["AH Min Quality"])
+
+local function AHMinQualityDropdown_OnClick(self)
+	for i = 0,4 do 
+		if L["ah-quality-"..i] == self.value then 
+			FLogGlobalVars.ahMinQuality = i 
+			UIDropDownMenu_SetText(mfpanel.AHMinQualityDropdown, L["ah-quality-"..i])
+			FarmLog_MainWindow:RecalcTotals()
+			FarmLog_MainWindow:Refresh()
+			break
+		end 
+	end 
+end
+mfpanel.AHMinQualityDropdown = CreateFrame("Frame", "FarmLogAHMinQualityDropdown", mfpanel, "UIDropDownMenuTemplate")
+mfpanel.AHMinQualityDropdown:SetPoint("TOPLEFT", mfpanel.AHMinQuality, "BOTTOMLEFT", -20, -2)
+UIDropDownMenu_SetWidth(mfpanel.AHMinQualityDropdown, 200) 
+UIDropDownMenu_Initialize(mfpanel.AHMinQualityDropdown, function (frame, level, menuList)
+	local info = UIDropDownMenu_CreateInfo()
+	info.func = AHMinQualityDropdown_OnClick
+	for i = 0,4 do 
+		info.text, info.checked = L["ah-quality-"..i], i == FLogGlobalVars.ahMinQuality
+		UIDropDownMenu_AddButton(info)
+	end 
+end)
+
+
+----------------------------------------------
 -- Tracking
 ----------------------------------------------
 mfpanel.TrackingCategoryTitle = mfpanel:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
 mfpanel.TrackingCategoryTitle:SetFont(font, 16)
 mfpanel.TrackingCategoryTitle:SetText(L["Tracking"])
-mfpanel.TrackingCategoryTitle:SetPoint("TOPLEFT", mfpanel.ShowBlackLotusTimer, "BOTTOMLEFT", 0, -20)
+mfpanel.TrackingCategoryTitle:SetPoint("TOPLEFT", mfpanel.AHMinQualityDropdown, "BOTTOMLEFT", 20, -20)
 
 mfpanel.TrackKills = CreateCheckButton("FarmLogOptions_TrackKills", mfpanel, L["Mobs Kill Count"])
 mfpanel.TrackKills:SetPoint("TOPLEFT", mfpanel.TrackingCategoryTitle, "BOTTOMLEFT", 0, -8)
@@ -179,7 +248,7 @@ mfpanel.TrackResets:SetScript("OnClick", function(self) SetTrackFlag("resets", s
 
 mfpanel.TrackConsumes = CreateCheckButton("FarmLogOptions_TrackConsumes", mfpanel, L["Consumes Used"])
 mfpanel.TrackConsumes:SetPoint("TOPLEFT", mfpanel.TrackResets, "TOPLEFT", 0, -25)
-mfpanel.TrackConsumes:SetScript("OnClick", function(self) SetTrackFlag("consumes", self:GetChecked()) end)
+mfpanel.TrackConsumes:SetScript("OnClick", function(self) SetTrackFlag("consumes", self:GetChecked(), true) end)
 
 mfpanel.TrackMoney = CreateCheckButton("FarmLogOptions_TrackMoney", mfpanel, L["Money Gained"])
 mfpanel.TrackMoney:SetPoint("TOPLEFT", mfpanel.TrackConsumes, "TOPLEFT", 0, -25)
@@ -202,8 +271,16 @@ mfpanel.ShowHonorFrenzyCounter = CreateCheckButton("FarmLogOptions_ShowHonorFren
 mfpanel.ShowHonorFrenzyCounter:SetPoint("TOPLEFT", mfpanel.ShowHonorPercentOnTooltip, "TOPLEFT", 0, -25)
 mfpanel.ShowHonorFrenzyCounter:SetScript("OnClick", function(self) FLogGlobalVars.showHonorFrenzyCounter = self:GetChecked() end)
 
+mfpanel.HonorDRinBGs = CreateCheckButton("FarmLogOptions_HonorDRinBGs", mfpanel, L["honorDRinBGs"])
+mfpanel.HonorDRinBGs:SetPoint("TOPLEFT", mfpanel.ShowHonorFrenzyCounter, "TOPLEFT", 0, -25)
+mfpanel.HonorDRinBGs:SetScript("OnClick", function(self) FLogGlobalVars.honorDRinBGs = self:GetChecked() end)
+
+mfpanel.AutoResumeBGs = CreateCheckButton("FarmLogOptions_AutoResumeBGs", mfpanel, L["autoResumeBGs"])
+mfpanel.AutoResumeBGs:SetPoint("TOPLEFT", mfpanel.HonorDRinBGs, "TOPLEFT", 0, -25)
+mfpanel.AutoResumeBGs:SetScript("OnClick", function(self) FLogGlobalVars.autoResumeBGs = self:GetChecked() end)
+
 mfpanel.MoveHonorFrenzyButton = CreateFrame("Button", "FarmLogOptions_MoveHonorFrenzyButton", mfpanel, "FarmLogPanelButtonTemplate")
-mfpanel.MoveHonorFrenzyButton:SetPoint("TOPLEFT", mfpanel.ShowHonorFrenzyCounter, "BOTTOMLEFT", -0, -5)
+mfpanel.MoveHonorFrenzyButton:SetPoint("TOPLEFT", mfpanel.AutoResumeBGs, "BOTTOMLEFT", -0, -5)
 mfpanel.MoveHonorFrenzyButton:SetWidth(200)
 mfpanel.MoveHonorFrenzyButton:SetText(L["Move Honor Frenzy Frame"])
 mfpanel.MoveHonorFrenzyButton:SetScript("OnClick", function(self) FarmLog_HonorFrenzyMeter:Add(100, true) end)
@@ -248,6 +325,8 @@ function InterfacePanel:AddonLoaded()
 	InterfacePanel.MainFrame.ShowHonorPercentOnTooltip:SetChecked(FLogGlobalVars.showHonorPercentOnTooltip)
 	InterfacePanel.MainFrame.ShowHonorFrenzyCounter:SetChecked(FLogGlobalVars.showHonorFrenzyCounter)
 	InterfacePanel.MainFrame.PauseOnLogin:SetChecked(FLogGlobalVars.pauseOnLogin)
+	InterfacePanel.MainFrame.HonorDRinBGs:SetChecked(FLogGlobalVars.honorDRinBGs)
+	InterfacePanel.MainFrame.AutoResumeBGs:SetChecked(FLogGlobalVars.autoResumeBGs)
 
 	InterfacePanel.MainFrame.TrackLoot:SetChecked(FLogGlobalVars.track.drops)
 	InterfacePanel.MainFrame.TrackKills:SetChecked(FLogGlobalVars.track.kills)
@@ -262,4 +341,6 @@ function InterfacePanel:AddonLoaded()
 	InterfacePanel.MainFrame.TrackRep:SetChecked(FLogGlobalVars.track.rep)
 	InterfacePanel.MainFrame.TrackDeaths:SetChecked(FLogGlobalVars.track.deaths)
 	InterfacePanel.MainFrame.TrackResets:SetChecked(FLogGlobalVars.track.resets)
+
+	UIDropDownMenu_SetText(InterfacePanel.MainFrame.AHMinQualityDropdown, L["ah-quality-"..FLogGlobalVars.ahMinQuality])
 end 

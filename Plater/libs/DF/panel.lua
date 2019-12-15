@@ -19,6 +19,12 @@ local UnitGroupRolesAssigned = DetailsFramework.UnitGroupRolesAssigned
 local cleanfunction = function() end
 local APIFrameFunctions
 
+local CastingInfo
+local ChannelInfo
+
+--classic
+local UnitHasVehicleUI = function() return false end
+
 do
 	local metaPrototype = {
 		WidgetType = "panel",
@@ -3839,7 +3845,7 @@ function DF:CreateTabContainer (parent, title, frame_name, frame_list, options_t
 		title:SetPoint ("topleft", mainTitle, "bottomleft", 0, 0)
 		
 		local tabButton = DF:CreateButton (mainFrame, DF.TabContainerFunctions.SelectIndex, button_width, button_height, frame.title, i, nil, nil, nil, nil, false, button_tab_template)
-		PixelUtil.SetSize (tabButton, button_width, button_height)
+		DFPixelUtil.SetSize (tabButton, button_width, button_height)
 		tabButton:SetFrameLevel (220)
 		tabButton.textsize = button_text_size
 		tabButton.mainFrame = mainFrame
@@ -3884,7 +3890,7 @@ function DF:CreateTabContainer (parent, title, frame_name, frame_list, options_t
 	
 	for i = 2, #mainFrame.AllButtons do
 		local button = mainFrame.AllButtons [i]
-		PixelUtil.SetPoint (button, "topleft", mainTitle, "topleft", x, y)
+		DFPixelUtil.SetPoint (button, "topleft", mainTitle, "topleft", x, y)
 		x = x + button_width + 2
 		
 		if (i % amount_buttons_per_row == 0) then
@@ -4992,8 +4998,8 @@ DF.IconRowFunctions = {
 			local newIconFrame = CreateFrame ("frame", "$parentIcon" .. self.NextIcon, self)
 			
 			newIconFrame.Texture = newIconFrame:CreateTexture (nil, "artwork")
-			PixelUtil.SetPoint (newIconFrame.Texture, "topleft", newIconFrame, "topleft", 1, -1)
-			PixelUtil.SetPoint (newIconFrame.Texture, "bottomright", newIconFrame, "bottomright", -1, 1)
+			DFPixelUtil.SetPoint (newIconFrame.Texture, "topleft", newIconFrame, "topleft", 1, -1)
+			DFPixelUtil.SetPoint (newIconFrame.Texture, "bottomright", newIconFrame, "bottomright", -1, 1)
 			
 			newIconFrame.Border = newIconFrame:CreateTexture (nil, "background")
 			newIconFrame.Border:SetAllPoints()
@@ -5031,16 +5037,16 @@ DF.IconRowFunctions = {
 
 		if (growDirection == 1) then --grow to right
 			if (self.NextIcon == 1) then
-				PixelUtil.SetPoint (iconFrame, "left", anchorTo, "left", xPadding, 0)
+				DFPixelUtil.SetPoint (iconFrame, "left", anchorTo, "left", xPadding, 0)
 			else
-				PixelUtil.SetPoint (iconFrame, "left", anchorTo, "right", xPadding, 0)
+				DFPixelUtil.SetPoint (iconFrame, "left", anchorTo, "right", xPadding, 0)
 			end
 			
 		elseif (growDirection == 2) then --grow to left
 			if (self.NextIcon == 1) then
-				PixelUtil.SetPoint (iconFrame, "right", anchorTo, "right", xPadding, 0)
+				DFPixelUtil.SetPoint (iconFrame, "right", anchorTo, "right", xPadding, 0)
 			else
-				PixelUtil.SetPoint (iconFrame, "right", anchorTo, "left", xPadding, 0)
+				DFPixelUtil.SetPoint (iconFrame, "right", anchorTo, "left", xPadding, 0)
 			end
 			
 		end
@@ -5109,7 +5115,7 @@ DF.IconRowFunctions = {
 				iconFrame.Desc:Hide()
 			end
 			
-			PixelUtil.SetSize (iconFrame, self.options.icon_width, self.options.icon_height)
+			DFPixelUtil.SetSize (iconFrame, self.options.icon_width, self.options.icon_height)
 			iconFrame:Show()
 			
 			--> update the size of the frame
@@ -5211,354 +5217,225 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --> ~header
 
---mixed functions
 DF.HeaderFunctions = {
 	AddFrameToHeaderAlignment = function (self, frame)
 		self.FramesToAlign = self.FramesToAlign or {}
 		tinsert (self.FramesToAlign, frame)
 	end,
 
-	--@self: an object like a line
-	--@headerFrame: the main header frame
-	--@anchor: which side the columnHeaders are attach
 	AlignWithHeader = function (self, headerFrame, anchor)
-		local columnHeaderFrames = headerFrame.columnHeadersCreated
+		local headerFrames = headerFrame.HeadersCreated
 		anchor = anchor or "topleft"
 		
 		for i = 1, #self.FramesToAlign do
 			local frame = self.FramesToAlign [i]
 			frame:ClearAllPoints()
 			
-			local columnHeader = columnHeaderFrames [i]
+			local headerFrame = headerFrames [i]
 			local offset = 0
 			
-			if (columnHeader.columnAlign == "right") then
-				offset = columnHeader:GetWidth()
+			if (headerFrame.columnAlign == "right") then
+				offset = headerFrame:GetWidth()
 				if (frame:GetObjectType() == "FontString") then
 					frame:SetJustifyH ("right")
 				end
 			end
 			
-			frame:SetPoint (columnHeader.columnAlign, self, anchor, columnHeader.XPosition + columnHeader.columnOffset + offset, 0)
-		end
-	end,
-
-	--@self: column header button
-	OnClick = function (self, buttonClicked)
-		
-		--get the header main frame
-		local headerFrame = self:GetParent()		
-
-		--if this header does not have a clickable header, just ignore
-		if (not headerFrame.columnSelected) then
-			return
-		end
-
-		--get the latest column header selected
-		local previousColumnHeader = headerFrame.columnHeadersCreated [headerFrame.columnSelected]
-		previousColumnHeader.Arrow:Hide()
-		headerFrame:ResetColumnHeaderBackdrop (previousColumnHeader)
-		headerFrame:SetBackdropColorForSelectedColumnHeader (self)
-
-		if (headerFrame.columnSelected == self.columnIndex) then
-			self.order = self.order ~= "ASC" and "ASC" or "DESC"
-		end
-		headerFrame.columnOrder = self.order
-
-		--set the new column header selected
-		headerFrame.columnSelected = self.columnIndex
-
-		headerFrame:UpdateSortArrow (self)
-
-		if (headerFrame.options.header_click_callback) then
-			--callback with the main header frame, column header, column index and column order as payload
-			local okay, errortext = pcall (headerFrame.options.header_click_callback, headerFrame, self, self.columnIndex, self.order)
-			if (not okay) then
-				print ("DF: Header onClick callback error:", errortext)
-			end
+			frame:SetPoint (headerFrame.columnAlign, self, anchor, headerFrame.XPosition + headerFrame.columnOffset + offset, 0)
 		end
 	end,
 }
 
 DF.HeaderCoreFunctions = {
 	SetHeaderTable = function (self, newTable)
-		self.columnHeadersCreated = self.columnHeadersCreated or {}
+		self.HeadersCreated = self.HeadersCreated or {}
 		self.HeaderTable = newTable
 		self.NextHeader = 1
 		self.HeaderWidth = 0
 		self.HeaderHeight = 0
 		self:Refresh()
 	end,
-
-	--return which header is current selected and the the order ASC DESC
-	GetSelectedColumn = function (self)
-		return self.columnSelected, self.columnHeadersCreated [self.columnSelected or 1].order
-	end,
 	
-	--clean up and rebuild the header following the header options
-	--@self: main header frame
 	Refresh = function (self)
+	
 		--> refresh background frame
 		self:SetBackdrop (self.options.backdrop)
 		self:SetBackdropColor (unpack (self.options.backdrop_color))
 		self:SetBackdropBorderColor (unpack (self.options.backdrop_border_color))
 	
 		--> reset all header frames
-		for i = 1, #self.columnHeadersCreated do
-			local columnHeader = self.columnHeadersCreated [i]
-			columnHeader.InUse = false
-			columnHeader:Hide()
+		for i = 1, #self.HeadersCreated do
+			self.HeadersCreated [i].InUse = false
+			self.HeadersCreated [i]:Hide()
 		end
 	
-		local previousColumnHeader
+		local previousHeaderFrame
 		local growDirection = string.lower (self.options.grow_direction)
 	
 		--> update header frames
 		local headerSize = #self.HeaderTable
 		for i = 1, headerSize do
-
-			--> get the header button, a new one is created if it doesn't exists yet
-			local columnHeader = self:GetNextHeader()
-			self:UpdateColumnHeader (columnHeader, i)
+			local headerFrame = self:GetNextHeader()
+			self:UpdateHeaderFrame (headerFrame, i)
 			
 			--> grow direction
-			if (not previousColumnHeader) then
-				columnHeader:SetPoint ("topleft", self, "topleft", 0, 0)
+			if (not previousHeaderFrame) then
+				headerFrame:SetPoint ("topleft", self, "topleft", 0, 0)
 				
 				if (growDirection == "right") then
 					if (self.options.use_line_separators) then
-						columnHeader.Separator:Show()
-						columnHeader.Separator:SetWidth (self.options.line_separator_width)
-						columnHeader.Separator:SetColorTexture (unpack (self.options.line_separator_color))
+						headerFrame.Separator:Show()
+						headerFrame.Separator:SetWidth (self.options.line_separator_width)
+						headerFrame.Separator:SetColorTexture (unpack (self.options.line_separator_color))
 						
-						columnHeader.Separator:ClearAllPoints()
+						headerFrame.Separator:ClearAllPoints()
 						if (self.options.line_separator_gap_align) then
-							columnHeader.Separator:SetPoint ("topleft", columnHeader, "topright", 0, 0)
+							headerFrame.Separator:SetPoint ("topleft", headerFrame, "topright", 0, 0)
 						else
-							columnHeader.Separator:SetPoint ("topright", columnHeader, "topright", 0, 0)
+							headerFrame.Separator:SetPoint ("topright", headerFrame, "topright", 0, 0)
 						end
-						columnHeader.Separator:SetHeight (self.options.line_separator_height)
+						headerFrame.Separator:SetHeight (self.options.line_separator_height)
 					end
 				end
 				
 			else
 				if (growDirection == "right") then
-					columnHeader:SetPoint ("topleft", previousColumnHeader, "topright", self.options.padding, 0)
+					headerFrame:SetPoint ("topleft", previousHeaderFrame, "topright", self.options.padding, 0)
 
 					if (self.options.use_line_separators) then
-						columnHeader.Separator:Show()
-						columnHeader.Separator:SetWidth (self.options.line_separator_width)
-						columnHeader.Separator:SetColorTexture (unpack (self.options.line_separator_color))
+						headerFrame.Separator:Show()
+						headerFrame.Separator:SetWidth (self.options.line_separator_width)
+						headerFrame.Separator:SetColorTexture (unpack (self.options.line_separator_color))
 						
-						columnHeader.Separator:ClearAllPoints()
+						headerFrame.Separator:ClearAllPoints()
 						if (self.options.line_separator_gap_align) then
-							columnHeader.Separator:SetPoint ("topleft", columnHeader, "topright", 0, 0)
+							headerFrame.Separator:SetPoint ("topleft", headerFrame, "topright", 0, 0)
 						else
-							columnHeader.Separator:SetPoint ("topleft", columnHeader, "topright", 0, 0)
+							headerFrame.Separator:SetPoint ("topleft", headerFrame, "topright", 0, 0)
 						end
-						columnHeader.Separator:SetHeight (self.options.line_separator_height)
+						headerFrame.Separator:SetHeight (self.options.line_separator_height)
 						
 						if (headerSize == i) then
-							columnHeader.Separator:Hide()
+							headerFrame.Separator:Hide()
 						end
 					end
 					
 				elseif (growDirection == "left") then
-					columnHeader:SetPoint ("topright", previousColumnHeader, "topleft", -self.options.padding, 0)
+					headerFrame:SetPoint ("topright", previousHeaderFrame, "topleft", -self.options.padding, 0)
 					
 				elseif (growDirection == "bottom") then
-					columnHeader:SetPoint ("topleft", previousColumnHeader, "bottomleft", 0, -self.options.padding)
+					headerFrame:SetPoint ("topleft", previousHeaderFrame, "bottomleft", 0, -self.options.padding)
 					
 				elseif (growDirection == "top") then
-					columnHeader:SetPoint ("bottomleft", previousColumnHeader, "topleft", 0, self.options.padding)
+					headerFrame:SetPoint ("bottomleft", previousHeaderFrame, "topleft", 0, self.options.padding)
 				end
 			end
 			
-			previousColumnHeader = columnHeader
+			previousHeaderFrame = headerFrame
 		end
 		
 		self:SetSize (self.HeaderWidth, self.HeaderHeight)
 
 	end,
 	
-	--@self: main header frame
-	UpdateSortArrow = function (self, columnHeader, defaultShown, defaultOrder)
-
-		local options = self.options
-		local order = defaultOrder or columnHeader.order
-		local arrowIcon = columnHeader.Arrow
-		
-		if (type (defaultShown) ~= "boolean") then
-			arrowIcon:Show()
-		else
-			arrowIcon:SetShown (defaultShown)
-			if (defaultShown) then
-				self:SetBackdropColorForSelectedColumnHeader (columnHeader)
-			end
-		end
-
-		arrowIcon:SetAlpha (options.arrow_alpha)
-
-		if (order == "ASC") then
-			arrowIcon:SetTexture (options.arrow_up_texture)
-			arrowIcon:SetTexCoord (unpack (options.arrow_up_texture_coords))
-			arrowIcon:SetSize (unpack (options.arrow_up_size))
-
-		elseif (order == "DESC") then
-			arrowIcon:SetTexture (options.arrow_down_texture)
-			arrowIcon:SetTexCoord (unpack (options.arrow_down_texture_coords))
-			arrowIcon:SetSize (unpack (options.arrow_down_size))
-		end
-
-	end,
-
-	--@self: main header frame
-	UpdateColumnHeader = function (self, columnHeader, headerIndex)
+	UpdateHeaderFrame = function (self, headerFrame, headerIndex)
 		local headerData = self.HeaderTable [headerIndex]
 		
 		if (headerData.icon) then
-			columnHeader.Icon:SetTexture (headerData.icon)
+			headerFrame.Icon:SetTexture (headerData.icon)
 			
 			if (headerData.texcoord) then
-				columnHeader.Icon:SetTexCoord (unpack (headerData.texcoord))
+				headerFrame.Icon:SetTexCoord (unpack (headerData.texcoord))
 			else
-				columnHeader.Icon:SetTexCoord (0, 1, 0, 1)
+				headerFrame.Icon:SetTexCoord (0, 1, 0, 1)
 			end
 			
-			columnHeader.Icon:SetPoint ("left", columnHeader, "left", self.options.padding, 0)
-			columnHeader.Icon:Show()
+			headerFrame.Icon:SetPoint ("left", headerFrame, "left", self.options.padding, 0)
+			headerFrame.Icon:Show()
 		end
 		
 		if (headerData.text) then
-			columnHeader.Text:SetText (headerData.text)
+			headerFrame.Text:SetText (headerData.text)
 			
 			--> text options
-			DF:SetFontColor (columnHeader.Text, self.options.text_color)
-			DF:SetFontSize (columnHeader.Text, self.options.text_size)
-			DF:SetFontOutline (columnHeader.Text, self.options.text_shadow)
+			DF:SetFontColor (headerFrame.Text, self.options.text_color)
+			DF:SetFontSize (headerFrame.Text, self.options.text_size)
+			DF:SetFontOutline (headerFrame.Text, self.options.text_shadow)
 			
 			--> point
 			if (not headerData.icon) then
-				columnHeader.Text:SetPoint ("left", columnHeader, "left", self.options.padding, 0)
+				headerFrame.Text:SetPoint ("left", headerFrame, "left", self.options.padding, 0)
 			else
-				columnHeader.Text:SetPoint ("left", columnHeader.Icon, "right", self.options.padding, 0)
+				headerFrame.Text:SetPoint ("left", headerFrame.Icon, "right", self.options.padding, 0)
 			end
 			
-			columnHeader.Text:Show()
-		end
-
-		--column header index
-		columnHeader.columnIndex = headerIndex
-
-		if (headerData.canSort) then
-			columnHeader.order = "DESC"
-			columnHeader.Arrow:SetTexture (self.options.arrow_up_texture)
-		else
-			columnHeader.Arrow:Hide()
-		end
-
-		if (headerData.selected) then
-			columnHeader.Arrow:Show()
-			columnHeader.Arrow:SetAlpha (.843)
-			self:UpdateSortArrow (columnHeader, true, columnHeader.order)
-			self.columnSelected = headerIndex
-		else
-			if (headerData.canSort) then
-				self:UpdateSortArrow (columnHeader, false, columnHeader.order)
-			end
+			headerFrame.Text:Show()
 		end
 		
 		--> size
 		if (headerData.width) then
-			columnHeader:SetWidth (headerData.width)
+			headerFrame:SetWidth (headerData.width)
 		end
 		if (headerData.height) then
-			columnHeader:SetHeight (headerData.height)
+			headerFrame:SetHeight (headerData.height)
 		end
 		
-		columnHeader.XPosition = self.HeaderWidth-- + self.options.padding
-		columnHeader.YPosition = self.HeaderHeight-- + self.options.padding
+		headerFrame.XPosition = self.HeaderWidth-- + self.options.padding
+		headerFrame.YPosition = self.HeaderHeight-- + self.options.padding
 		
-		columnHeader.columnAlign = headerData.align or "left"
-		columnHeader.columnOffset = headerData.offset or 0
+		headerFrame.columnAlign = headerData.align or "left"
+		headerFrame.columnOffset = headerData.offset or 0
 		
 		--> add the header piece size to the total header size
 		local growDirection = string.lower (self.options.grow_direction)
 		
 		if (growDirection == "right" or growDirection == "left") then
-			self.HeaderWidth = self.HeaderWidth + columnHeader:GetWidth() + self.options.padding
-			self.HeaderHeight = math.max (self.HeaderHeight, columnHeader:GetHeight())
+			self.HeaderWidth = self.HeaderWidth + headerFrame:GetWidth() + self.options.padding
+			self.HeaderHeight = math.max (self.HeaderHeight, headerFrame:GetHeight())
 			
 		elseif (growDirection == "top" or growDirection == "bottom") then
-			self.HeaderWidth =  math.max (self.HeaderWidth, columnHeader:GetWidth())
-			self.HeaderHeight = self.HeaderHeight + columnHeader:GetHeight() + self.options.padding
+			self.HeaderWidth =  math.max (self.HeaderWidth, headerFrame:GetWidth())
+			self.HeaderHeight = self.HeaderHeight + headerFrame:GetHeight() + self.options.padding
 		end
 
-		columnHeader:Show()
-		columnHeader.InUse = true
+		headerFrame:Show()
+		headerFrame.InUse = true
 	end,
 	
-	--reset column header backdrop
-	--@self: main header frame
-	ResetColumnHeaderBackdrop = function (self, columnHeader)
-		columnHeader:SetBackdrop (self.options.header_backdrop)
-		columnHeader:SetBackdropColor (unpack (self.options.header_backdrop_color))
-		columnHeader:SetBackdropBorderColor (unpack (self.options.header_backdrop_border_color))
-	end,
-
-	--@self: main header frame
-	SetBackdropColorForSelectedColumnHeader = function (self, columnHeader)
-		columnHeader:SetBackdropColor (unpack (self.options.header_backdrop_color_selected))
-	end,
-
-	--clear the column header
-	--@self: main header frame
-	ClearColumnHeader = function (self, columnHeader)
-		columnHeader:SetSize (self.options.header_width, self.options.header_height)
-		self:ResetColumnHeaderBackdrop (columnHeader)
+	RefreshHeader = function (self, headerFrame)
+		headerFrame:SetSize (self.options.header_width, self.options.header_height)
+		headerFrame:SetBackdrop (self.options.header_backdrop)
+		headerFrame:SetBackdropColor (unpack (self.options.header_backdrop_color))
+		headerFrame:SetBackdropBorderColor (unpack (self.options.header_backdrop_border_color))
 		
-		columnHeader:ClearAllPoints()
+		headerFrame:ClearAllPoints()
 		
-		columnHeader.Icon:SetTexture ("")
-		columnHeader.Icon:Hide()
-		columnHeader.Text:SetText ("")
-		columnHeader.Text:Hide()
+		headerFrame.Icon:SetTexture ("")
+		headerFrame.Icon:Hide()
+		headerFrame.Text:SetText ("")
+		headerFrame.Text:Hide()
 	end,
 	
-	--get the next column header, create one if doesn't exists
-	--@self: main header frame
 	GetNextHeader = function (self)
 		local nextHeader = self.NextHeader
-		local columnHeader = self.columnHeadersCreated [nextHeader]
+		local headerFrame = self.HeadersCreated [nextHeader]
 		
-		if (not columnHeader) then
-			--create a new column header
+		if (not headerFrame) then
 			local newHeader = CreateFrame ("button", "$parentHeaderIndex" .. nextHeader, self)
-			newHeader:SetScript ("OnClick", DF.HeaderFunctions.OnClick)
-
-			--header icon
-			DF:CreateImage (newHeader, "", self.options.header_height, self.options.header_height, "ARTWORK", nil, "Icon", "$parentIcon")
-			--header separator
-			DF:CreateImage (newHeader, "", 1, 1, "ARTWORK", nil, "Separator", "$parentSeparator")
-			--header name text
-			DF:CreateLabel (newHeader, "", self.options.text_size, self.options.text_color, "GameFontNormal", "Text", "$parentText", "ARTWORK")
-			--header selected and order icon
-			DF:CreateImage (newHeader, self.options.arrow_up_texture, 12, 12, "ARTWORK", nil, "Arrow", "$parentArrow")
-
-			newHeader.Arrow:SetPoint ("right", newHeader, "right", -1, 0)
-
-			newHeader.Separator:Hide()
-			newHeader.Arrow:Hide()
-
-			self:UpdateSortArrow (newHeader, false, "DESC")
 			
-			tinsert (self.columnHeadersCreated, newHeader)
-			columnHeader = newHeader
+			DF:CreateImage (newHeader, "", self.options.header_height, self.options.header_height, "ARTWORK", nil, "Icon", "$parentIcon")
+			DF:CreateImage (newHeader, "", 1, 1, "ARTWORK", nil, "Separator", "$parentSeparator")
+			DF:CreateLabel (newHeader, "", self.options.text_size, self.options.text_color, "GameFontNormal", "Text", "$parentText", "ARTWORK")
+			
+			newHeader.Separator:Hide()
+			
+			tinsert (self.HeadersCreated, newHeader)
+			headerFrame = newHeader
 		end
 		
-		self:ClearColumnHeader (columnHeader)
+		self:RefreshHeader (headerFrame)
 		self.NextHeader = self.NextHeader + 1
-		return columnHeader
+		return headerFrame
 	end,
 	
 	NextHeader = 1,
@@ -5580,19 +5457,10 @@ local default_header_options = {
 	--each piece of the header
 	header_backdrop = {bgFile = [[Interface\Tooltips\UI-Tooltip-Background]], tileSize = 64, tile = true},
 	header_backdrop_color = {0, 0, 0, 0.5},
-	header_backdrop_color_selected = {0.3, 0.3, 0.3, 0.5},
 	header_backdrop_border_color = {0, 0, 0, 0},
 	header_width = 120,
 	header_height = 20,
-
-	arrow_up_texture = [[Interface\Buttons\Arrow-Up-Down]],
-	arrow_up_texture_coords = {0, 1, 6/16, 1},
-	arrow_up_size = {12, 11},
-	arrow_down_texture = [[Interface\Buttons\Arrow-Down-Down]],
-	arrow_down_texture_coords = {0, 1, 0, 11/16},
-	arrow_down_size = {12, 11},
-	arrow_alpha = 0.659,
-
+	
 	use_line_separators = false,
 	line_separator_color = {.1, .1, .1, .6},
 	line_separator_width = 1,
@@ -5600,8 +5468,8 @@ local default_header_options = {
 	line_separator_gap_align = false,
 }
 
-function DF:CreateHeader (parent, headerTable, options, frameName)
-	local f = CreateFrame ("frame", frameName or "$parentHeaderLine", parent)
+function DF:CreateHeader (parent, headerTable, options)
+	local f = CreateFrame ("frame", "$parentHeaderLine", parent)
 	
 	DF:Mixin (f, DF.OptionsFunctions)
 	DF:Mixin (f, DF.HeaderCoreFunctions)
@@ -5613,7 +5481,7 @@ function DF:CreateHeader (parent, headerTable, options, frameName)
 	f:SetBackdropBorderColor (unpack (f.options.backdrop_border_color))
 	
 	f:SetHeaderTable (headerTable)
-
+	
 	return f
 end
 
@@ -5818,13 +5686,17 @@ local default_load_conditions_frame_options = {
 function DF:CreateLoadFilterParser (callback)
 	local f = CreateFrame ("frame")
 	f:RegisterEvent ("PLAYER_ENTERING_WORLD")
-	f:RegisterEvent ("PLAYER_SPECIALIZATION_CHANGED")
-	f:RegisterEvent ("PLAYER_TALENT_UPDATE")
-	f:RegisterEvent ("PLAYER_ROLES_ASSIGNED")
 	f:RegisterEvent ("ZONE_CHANGED_NEW_AREA")
-	f:RegisterEvent ("CHALLENGE_MODE_START")
 	f:RegisterEvent ("ENCOUNTER_START")
 	f:RegisterEvent ("PLAYER_REGEN_ENABLED")
+	
+	--events not existant in classic
+	if (not DF.IsClassicWow()) then
+		f:RegisterEvent ("PLAYER_SPECIALIZATION_CHANGED")
+		f:RegisterEvent ("PLAYER_TALENT_UPDATE")
+		f:RegisterEvent ("PLAYER_ROLES_ASSIGNED")
+		f:RegisterEvent ("CHALLENGE_MODE_START")
+	end
 	
 	f:SetScript ("OnEvent", function (self, event, ...)
 		if (event == "ENCOUNTER_START") then
@@ -5883,6 +5755,8 @@ function DF:PassLoadFilters (loadTable, encounterID)
 	end
 	
 	--spec
+	-- todo classic: specs - ignore for now
+	--[[
 	if (loadTable.spec.Enabled) then
 		local canCheckTalents = true
 		
@@ -5907,13 +5781,15 @@ function DF:PassLoadFilters (loadTable, encounterID)
 			if (specIndex) then
 				local specID = DetailsFramework.GetSpecializationInfo (specIndex)
 				if (not loadTable.spec [specID]) then
-					return false
+					-- todo classic: specs - ignore for now
+					--return false
 				end
 			else
 				return false
 			end
 		end
 	end
+	--]]
 	
 	--race
 	if (loadTable.race.Enabled) then
@@ -5924,6 +5800,8 @@ function DF:PassLoadFilters (loadTable, encounterID)
 	end
 	
 	--talents
+	-- todo classic: talents
+	--[[
 	if (loadTable.talent.Enabled) then
 		local talentsInUse = DF:GetCharacterTalents (false, true)
 		local hasTalent
@@ -5937,8 +5815,11 @@ function DF:PassLoadFilters (loadTable, encounterID)
 			return false
 		end
 	end
+	--]]
 	
 	--pvptalent
+	-- not in classic
+	--[[
 	if (loadTable.pvptalent.Enabled) then
 		local talentsInUse = DF:GetCharacterPvPTalents (false, true)
 		local hasTalent
@@ -5952,6 +5833,7 @@ function DF:PassLoadFilters (loadTable, encounterID)
 			return false
 		end
 	end
+	--]]
 	
 	--group
 	if (loadTable.group.Enabled) then
@@ -5962,6 +5844,8 @@ function DF:PassLoadFilters (loadTable, encounterID)
 	end
 	
 	--role
+	-- todo classic: role - just ignore now
+	--[[
 	if (loadTable.role.Enabled) then
 		local assignedRole = UnitGroupRolesAssigned ("player")
 		if (assignedRole == "NONE") then
@@ -5974,9 +5858,12 @@ function DF:PassLoadFilters (loadTable, encounterID)
 			return false
 		end
 	end
+	--]]
 	
 	--affix
-	if (loadTable.affix.Enabled) then
+	-- not in classic
+	--[[
+	if (loadTable.affix.Enabled and false) then --dont need to run on classic
 		local isInMythicDungeon = C_ChallengeMode.IsChallengeModeActive()
 		if (not isInMythicDungeon) then
 			return false
@@ -5995,6 +5882,7 @@ function DF:PassLoadFilters (loadTable, encounterID)
 			return false
 		end
 	end
+	--]]
 	
 	--encounter id
 	if (loadTable.encounter_ids.Enabled) then
@@ -6123,6 +6011,8 @@ function DF:OpenLoadConditionsPanel (optionsTable, callback, frameOptions)
 			tinsert (f.AllRadioGroups, classGroup)
 		
 		--create the radio group for character spec
+		-- not in classic...
+		--[[
 			local specs = {}
 			for _, specID in ipairs (DF:GetClassSpecIDs (select (2, UnitClass ("player")))) do
 				local specID, specName, specDescription, specIcon, specBackground, specRole, specClass = DetailsFramework.GetSpecializationInfoByID (specID)
@@ -6138,6 +6028,7 @@ function DF:OpenLoadConditionsPanel (optionsTable, callback, frameOptions)
 			specGroup:SetPoint ("topleft", f, "topleft", anchorPositions.spec [1], anchorPositions.spec [2])
 			specGroup.DBKey = "spec"
 			tinsert (f.AllRadioGroups, specGroup)
+			--]]
 			
 		--create radio group for character races
 			local raceList = {}
@@ -6156,6 +6047,7 @@ function DF:OpenLoadConditionsPanel (optionsTable, callback, frameOptions)
 			
 		--create radio group for talents
 			local talentList = {}
+			-- todo: classic talents
 			for _, talentTable in ipairs (DF:GetCharacterTalents()) do
 				tinsert (talentList, {
 					name = talentTable.Name, 
@@ -6254,6 +6146,8 @@ function DF:OpenLoadConditionsPanel (optionsTable, callback, frameOptions)
 			
 		--create radio group for pvp talents
 			local pvpTalentList = {}
+			-- not in classic:
+			--[[
 			for _, talentTable in ipairs (DF:GetCharacterPvPTalents()) do
 				tinsert (pvpTalentList, {
 					name = talentTable.Name, 
@@ -6263,6 +6157,7 @@ function DF:OpenLoadConditionsPanel (optionsTable, callback, frameOptions)
 					texture = talentTable.Texture,
 				})
 			end
+			--]]
 			local pvpTalentGroup = DF:CreateRadionGroup (f, pvpTalentList, name, {width = 200, height = 200, title = "Characer PvP Talents"}, {offset_x = 150, amount_per_line = 3})
 			pvpTalentGroup:SetPoint ("topleft", f, "topleft", anchorPositions.pvptalent [1], anchorPositions.pvptalent [2])
 			pvpTalentGroup.DBKey = "pvptalent"
@@ -6366,6 +6261,8 @@ function DF:OpenLoadConditionsPanel (optionsTable, callback, frameOptions)
 			tinsert (f.AllRadioGroups, groupTypesGroup)
 		
 		--create radio for character roles
+		-- not in classic
+		--[[
 			local roleTypes = {}
 			for _, roleTable in ipairs (DF:GetRoleTypes()) do
 				tinsert (roleTypes, {
@@ -6379,8 +6276,11 @@ function DF:OpenLoadConditionsPanel (optionsTable, callback, frameOptions)
 			roleTypesGroup:SetPoint ("topleft", f, "topleft", anchorPositions.role [1], anchorPositions.role [2])
 			roleTypesGroup.DBKey = "role"
 			tinsert (f.AllRadioGroups, roleTypesGroup)
+			--]]
 		
 		--create radio group for mythic+ affixes
+		-- not in classic:
+		--[[
 			local affixes = {}
 			for i = 2, 1000 do
 				local affixName, desc, texture = C_ChallengeMode.GetAffixInfo (i)
@@ -6398,6 +6298,7 @@ function DF:OpenLoadConditionsPanel (optionsTable, callback, frameOptions)
 			affixTypesGroup:SetPoint ("topleft", f, "topleft", anchorPositions.affix [1], anchorPositions.affix [2])
 			affixTypesGroup.DBKey = "affix"
 			tinsert (f.AllRadioGroups, affixTypesGroup)
+			--]]
 		
 		--text entries functions
 			local textEntryRefresh = function (self)
@@ -6682,7 +6583,7 @@ function DF:CreateDataScrollFrame (parent, name, options)
 end
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
---> "WHAT's NEW" window
+--> what's new window
 
 local default_newsframe_options = {
 	width = 400,
@@ -6771,18 +6672,9 @@ end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --> statusbar info
 
---[[
-	authorTable = {
-		{
-			authorName = "author name 1",
-			link = "twitter.com/author1Handle",
-		}
-	}
-]]
-
-function DF:BuildStatusbarAuthorInfo (f, addonBy, authorsNameString)
-
-	local authorName = DF:CreateLabel (f, "" .. (addonBy or "An addon by") .. "|cFFFFFFFF" .. (authorsNameString or "Terciob") .. "|r")
+function DF:BuildStatusbarAuthorInfo (f)
+	
+	local authorName = DF:CreateLabel (f, "An addon by |cFFFFFFFFTercioo|r")
 	authorName.textcolor = "silver"
 	local discordLabel = DF:CreateLabel (f, "Discord: ")
 	discordLabel.textcolor = "silver"
@@ -6805,7 +6697,6 @@ function DF:BuildStatusbarAuthorInfo (f, addonBy, authorsNameString)
 	discordTextEntry:SetHook ("OnEditFocusGained", function()
 		discordTextEntry:HighlightText()
 	end)
-
 end
 
 
@@ -6861,83 +6752,67 @@ DF.StatusBarFunctions = {
 	healthBar:SetTexture (texture)
 --]=]
 
---debug performance isn't placed anywhere
---how to use debug performance: I don't remember
+local debugPerformance = {
+	eventCall = {},
+	unitCall = {},
+	functionCall = {},
+	CPUUsageByFunction = {},
+}
 
-	--Details:Dump (debugPerformance)
-
-	local debugPerformance = {
-		eventCall = {},
-		unitCall = {},
-		functionCall = {},
-		CPUUsageByFunction = {},
-	}
-
-	local function CalcPerformance (type, data)
-		if (type == "event") then
-			debugPerformance.eventCall [data] = (debugPerformance.eventCall [data] or 0) + 1
-			
-		elseif (type == "unit") then
-			debugPerformance.unitCall [data] = (debugPerformance.unitCall [data] or 0) + 1
+local function CalcPerformance (type, data)
+	if (type == "event") then
+		debugPerformance.eventCall [data] = (debugPerformance.eventCall [data] or 0) + 1
 		
-		elseif (type == "call") then
-			debugPerformance.functionCall [data] = (debugPerformance.functionCall [data] or 0) + 1
-			
-		end
-	end
-
-	function DF_CalcCpuUsage (name)
-		local cpu = debugPerformance.CPUUsageByFunction [name] or {usage = 0, last = 0, active = false}
-		debugPerformance.CPUUsageByFunction [name] = cpu
-		
-		if (cpu.active) then
-			cpu.active = false
-			local diff = debugprofilestop() - cpu.last
-			cpu.usage = cpu.usage + diff
-		else
-			cpu.active = true
-			cpu.last = debugprofilestop()
-		end
-	end
-
-	function UnitFrameStats()
-		for functionName, functionTable in pairs (debugPerformance.CPUUsageByFunction) do
-			debugPerformance.CPUUsageByFunction [functionName] = floor (functionTable.usage)
-		end
-		
-		for functionName, functionTable in pairs (debugPerformance.CPUUsageByFunction) do
-			debugPerformance.CPUUsageByFunction [functionName] = {usage = 0, last = 0, active = false}
-		end
-	end
---end of performance calcs
-
---healthBar meta prototype
-	local healthBarMetaPrototype = {
-		WidgetType = "healthBar",
-		SetHook = DF.SetHook,
-		RunHooksForWidget = DF.RunHooksForWidget,
-	}
-	_G [DF.GlobalWidgetControlNames ["healthBar"]] = _G [DF.GlobalWidgetControlNames ["healthBar"]] or healthBarMetaPrototype
-
-	local healthBarMetaFunctions = _G [DF.GlobalWidgetControlNames ["healthBar"]]
-
---hook list
-	local defaultHooksForHealthBar = {
-		OnHide = {}, 
-		OnShow = {}, 
-		OnHealthChange = {}, 
-		OnHealthMaxChange = {},
-	}
-
-	--use the hook already existing
-	healthBarMetaFunctions.HookList = healthBarMetaFunctions.HookList or defaultHooksForHealthBar
-	--copy the non existing values from a new version to the already existing hook table
-	DF.table.deploy (healthBarMetaFunctions.HookList, defaultHooksForHealthBar)
+	elseif (type == "unit") then
+		debugPerformance.unitCall [data] = (debugPerformance.unitCall [data] or 0) + 1
 	
---> Health Bar Meta Functions
+	elseif (type == "call") then
+		debugPerformance.functionCall [data] = (debugPerformance.functionCall [data] or 0) + 1
+		
+	end
+end
 
-	--health bar settings
-	healthBarMetaFunctions.Settings = {
+function DF_CalcCpuUsage (name)
+	local cpu = debugPerformance.CPUUsageByFunction [name] or {usage = 0, last = 0, active = false}
+	debugPerformance.CPUUsageByFunction [name] = cpu
+	
+	if (cpu.active) then
+		cpu.active = false
+		local diff = debugprofilestop() - cpu.last
+		cpu.usage = cpu.usage + diff
+	else
+		cpu.active = true
+		cpu.last = debugprofilestop()
+	end
+end
+
+function UnitFrameStats()
+	for functionName, functionTable in pairs (debugPerformance.CPUUsageByFunction) do
+		debugPerformance.CPUUsageByFunction [functionName] = floor (functionTable.usage)
+	end
+
+	Details:Dump (debugPerformance)
+	
+	for functionName, functionTable in pairs (debugPerformance.CPUUsageByFunction) do
+		debugPerformance.CPUUsageByFunction [functionName] = {usage = 0, last = 0, active = false}
+	end
+end
+
+
+--CalcPerformance ("unit", data)
+
+DF.HealthFrameFunctions = {
+
+	WidgetType = "healthBar",
+	SetHook = DF.SetHook,
+	RunHooksForWidget = DF.RunHooksForWidget,
+	
+	HookList = {
+		OnHide = {}, 
+		OnShow = {},
+	},
+
+	Settings = {
 		CanTick = false, --> if true calls the method 'OnTick' every tick, the function needs to be overloaded, it receives self and deltaTime as parameters
 		ShowHealingPrediction = true, --> when casting a healing pass, show the amount of health that spell will heal
 		ShowShields = true, --> indicator of the amount of damage absortion the unit has
@@ -6952,29 +6827,32 @@ DF.StatusBarFunctions = {
 		--default size
 		Width = 100,
 		Height = 20,
-	}
+	},
 	
-	healthBarMetaFunctions.HealthBarEvents = {
+	HealthBarEvents = {
 		{"PLAYER_ENTERING_WORLD"},
 		--{"UNIT_HEALTH", true},
 		{"UNIT_MAXHEALTH", true},
 		{"UNIT_HEALTH_FREQUENT", true},
-		{"UNIT_HEAL_PREDICTION", true},
-		{"UNIT_ABSORB_AMOUNT_CHANGED", true},
-		{"UNIT_HEAL_ABSORB_AMOUNT_CHANGED", true},
-	}
+	},
 	
 	--> setup the castbar to be used by another unit
-	healthBarMetaFunctions.SetUnit = function (self, unit, displayedUnit)
+	SetUnit = function (self, unit, displayedUnit)
 		if (self.unit ~= unit or self.displayedUnit ~= displayedUnit or unit == nil) then
+		
+			CalcPerformance ("call", "SetUnit")
 		
 			self.unit = unit
 			self.displayedUnit = displayedUnit or unit
 
 			--> register events
 			if (unit) then
-				self.currentHealth = UnitHealth (unit) or 0
-				self.currentHealthMax = UnitHealthMax (unit) or 0
+				if RealMobHealth then
+					self.currentHealth, self.currentHealthMax = RealMobHealth.GetUnitHealth(unit)
+				else
+					self.currentHealth = UnitHealth (unit) or 0
+					self.currentHealthMax = UnitHealthMax (unit) or 0
+				end
 				
 				for _, eventTable in ipairs (self.HealthBarEvents) do
 					local event = eventTable [1]
@@ -6988,13 +6866,13 @@ DF.StatusBarFunctions = {
 				
 				--> check for settings and update some events
 				if (not self.Settings.ShowHealingPrediction) then
-					self:UnregisterEvent ("UNIT_HEAL_PREDICTION")
-					self:UnregisterEvent ("UNIT_HEAL_ABSORB_AMOUNT_CHANGED")
+					--self:UnregisterEvent ("UNIT_HEAL_PREDICTION")
+					--self:UnregisterEvent ("UNIT_HEAL_ABSORB_AMOUNT_CHANGED")
 					self.incomingHealIndicator:Hide()
 					self.healAbsorbIndicator:Hide()
 				end
 				if (not self.Settings.ShowShields) then
-					self:UnregisterEvent ("UNIT_ABSORB_AMOUNT_CHANGED")
+					--self:UnregisterEvent ("UNIT_ABSORB_AMOUNT_CHANGED")
 					self.shieldAbsorbIndicator:Hide()
 					self.shieldAbsorbGlow:Hide()
 				end
@@ -7020,11 +6898,11 @@ DF.StatusBarFunctions = {
 				self:Hide()
 			end
 		end
-	end
+	end,
 	
-	healthBarMetaFunctions.Initialize = function (self)
-		PixelUtil.SetWidth (self, self.Settings.Width, 1)
-		PixelUtil.SetHeight (self, self.Settings.Height, 1)
+	Initialize = function (self)
+		DFPixelUtil.SetWidth (self, self.Settings.Width, 1)
+		DFPixelUtil.SetHeight (self, self.Settings.Height, 1)
 		
 		self:SetTexture (self.Settings.Texture)
 		
@@ -7045,39 +6923,55 @@ DF.StatusBarFunctions = {
 		self.shieldAbsorbGlow:Hide()
 		
 		self:SetUnit (nil)
-	end
+		
+		CalcPerformance ("call", "HealthBar-Initialize")
+	end,
 	
-	--call every tick
-	healthBarMetaFunctions.OnTick = function (self, deltaTime) end --if overrided, set 'CanTick' to true on the settings table
+	--> call every tick
+	OnTick = function (self, deltaTime) end, --if overrided, set 'CanTick' to true on the settings table
 
-	--when an event happen for this unit, send it to the apropriate function
-	healthBarMetaFunctions.OnEvent = function (self, event, ...)
+	--> when an event happen for this unit, send it to the apropriate function
+	OnEvent = function (self, event, ...)
+		CalcPerformance ("unit", self.unit)
+		CalcPerformance ("event", event)
+		CalcPerformance ("call", "HealthBar-OnEvent")
+	
+		DF_CalcCpuUsage ("healthBar-OnEvent")
 		local eventFunc = self [event]
 		if (eventFunc) then
 			--the function doesn't receive which event was, only 'self' and the parameters
 			eventFunc (self, ...)
 		end
-	end
+		DF_CalcCpuUsage ("healthBar-OnEvent")
+	end,
 
-	--when the unit max health is changed
-	healthBarMetaFunctions.UpdateMaxHealth = function (self)
-		local maxHealth = UnitHealthMax (self.displayedUnit)
-		self:SetMinMaxValues (0, maxHealth)
-		self.currentHealthMax = maxHealth
+	--colocar mais coisas aqui, um member dizendo quanto de health e o health max da unit
+	UpdateMaxHealth = function (self)
+			local maxHealth, _ = 0
+			if RealMobHealth then
+				_,  maxHealth = RealMobHealth.GetUnitHealth(self.displayedUnit)
+			else
+				maxHealth, _ = UnitHealthMax (self.displayedUnit)
+			end
+			self:SetMinMaxValues (0, maxHealth)
+			self.currentHealthMax = maxHealth
+	end,
 
-		self:RunHooksForWidget ("OnHealthMaxChange", self, self.displayedUnit)
-	end
-
-	healthBarMetaFunctions.UpdateHealth = function (self)
-		local health = UnitHealth (self.displayedUnit)
+	UpdateHealth = function (self)
+		local health = 0
+		if RealMobHealth then
+			health, maxHealth = RealMobHealth.GetUnitHealth(self.displayedUnit)
+			self:SetMinMaxValues (0, maxHealth)
+			self.currentHealthMax = maxHealth
+		else
+			health = UnitHealth (self.displayedUnit)
+		end
 		self.currentHealth = health
-		PixelUtil.SetStatusBarValue (self, health)
-
-		self:RunHooksForWidget ("OnHealthChange", self, self.displayedUnit)
-	end
+		DFPixelUtil.SetStatusBarValue (self, health)
+	end,
 	
-	--health and absorbs prediction
-	healthBarMetaFunctions.UpdateHealPrediction = function (self)
+	--isso aqui vai ser complicado!
+	UpdateHealPrediction = function (self)
 		local currentHealth = self.currentHealth
 		local currentHealthMax = self.currentHealthMax
 		local healthPercent = currentHealth / currentHealthMax
@@ -7144,50 +7038,50 @@ DF.StatusBarFunctions = {
 			self.shieldAbsorbIndicator:Hide()
 			self.shieldAbsorbGlow:Hide()
 		end
-	end
+		
+		DF_CalcCpuUsage ("HealthBar-UpdateHealPrediction")
+	end,
 
-	--> Health Events
-		healthBarMetaFunctions.PLAYER_ENTERING_WORLD = function (self, ...) 
-			self:UpdateMaxHealth()
-			self:UpdateHealth()
-			self:UpdateHealPrediction()
-		end
+	PLAYER_ENTERING_WORLD = function (self, ...) 
+		self:UpdateMaxHealth()
+		self:UpdateHealth()
+		self:UpdateHealPrediction()
+	end,
+	
+	--> health events
+	UNIT_HEALTH = function (self, ...) 
+		self:UpdateHealth()
+		self:UpdateHealPrediction()
+		
+		local unitName = UnitName (self.unit)
+		CalcPerformance ("call", "HealthBar-UNIT_HEALTH-" .. unitName)
+	end,
+	UNIT_HEALTH_FREQUENT = function (self, ...)
+		self:UpdateHealth()
+		self:UpdateHealPrediction()
+	end,
+	UNIT_MAXHEALTH = function (self, ...)
+		self:UpdateMaxHealth()
+		self:UpdateHealth()
+		self:UpdateHealPrediction()
+	end,
 
-		healthBarMetaFunctions.UNIT_HEALTH = function (self, ...) 
-			self:UpdateHealth()
-			self:UpdateHealPrediction()
-		end
-
-		healthBarMetaFunctions.UNIT_HEALTH_FREQUENT = function (self, ...)
-			self:UpdateHealth()
-			self:UpdateHealPrediction()
-		end
-
-		healthBarMetaFunctions.UNIT_MAXHEALTH = function (self, ...)
-			self:UpdateMaxHealth()
-			self:UpdateHealth()
-			self:UpdateHealPrediction()
-		end
-
-
-		healthBarMetaFunctions.UNIT_HEAL_PREDICTION = function (self, ...)
-			self:UpdateMaxHealth()
-			self:UpdateHealth()
-			self:UpdateHealPrediction()
-		end
-
-		healthBarMetaFunctions.UNIT_ABSORB_AMOUNT_CHANGED = function (self, ...)
-			self:UpdateMaxHealth()
-			self:UpdateHealth()
-			self:UpdateHealPrediction()
-		end
-
-		healthBarMetaFunctions.UNIT_HEAL_ABSORB_AMOUNT_CHANGED = function (self, ...)
-			self:UpdateMaxHealth()
-			self:UpdateHealth()
-			self:UpdateHealPrediction()
-		end
-
+	UNIT_HEAL_PREDICTION = function (self, ...)
+		self:UpdateMaxHealth()
+		self:UpdateHealth()
+		self:UpdateHealPrediction()
+	end,
+	UNIT_ABSORB_AMOUNT_CHANGED = function (self, ...)
+		self:UpdateMaxHealth()
+		self:UpdateHealth()
+		self:UpdateHealPrediction()
+	end,
+	UNIT_HEAL_ABSORB_AMOUNT_CHANGED = function (self, ...)
+		self:UpdateMaxHealth()
+		self:UpdateHealth()
+		self:UpdateHealPrediction()
+	end,
+}
 
 -- ~healthbar
 function DF:CreateHealthBar (parent, name, settingsOverride)
@@ -7219,18 +7113,18 @@ function DF:CreateHealthBar (parent, name, settingsOverride)
 		end
 
 	--> mixins
-	DF:Mixin (healthBar, healthBarMetaFunctions)
+	DF:Mixin (healthBar, DF.HealthFrameFunctions)
 	DF:Mixin (healthBar, DF.StatusBarFunctions)
 	
 	--> settings and hooks
-	local settings = DF.table.copy ({}, healthBarMetaFunctions.Settings)
+	local settings = DF.table.copy ({}, DF.HealthFrameFunctions.Settings)
 	if (settingsOverride) then
 		DF.table.copy (settings, settingsOverride)
 	end
 	healthBar.Settings = settings
-
-	--> hook list
-	healthBar.HookList = DF.table.copy ({}, healthBarMetaFunctions.HookList)
+	
+	local hookList = DF.table.copy ({}, DF.HealthFrameFunctions.HookList)
+	healthBar.HookList = hookList
 	
 	--> initialize the cast bar
 	healthBar:Initialize()
@@ -7279,8 +7173,8 @@ DF.PowerFrameFunctions = {
 	PowerBarEvents = {
 		{"PLAYER_ENTERING_WORLD"},
 		{"UNIT_DISPLAYPOWER", true},
-		{"UNIT_POWER_BAR_SHOW", true},
-		{"UNIT_POWER_BAR_HIDE", true},
+		--{"UNIT_POWER_BAR_SHOW", true},
+		--{"UNIT_POWER_BAR_HIDE", true},
 		{"UNIT_MAXPOWER", true},
 		{"UNIT_POWER_UPDATE", true},
 		{"UNIT_POWER_FREQUENT", true},
@@ -7330,8 +7224,8 @@ DF.PowerFrameFunctions = {
 	end,
 	
 	Initialize = function (self)
-		PixelUtil.SetWidth (self, self.Settings.Width)
-		PixelUtil.SetHeight (self, self.Settings.Height)
+		DFPixelUtil.SetWidth (self, self.Settings.Width)
+		DFPixelUtil.SetHeight (self, self.Settings.Height)
 		
 		self:SetTexture (self.Settings.Texture)
 		
@@ -7340,7 +7234,7 @@ DF.PowerFrameFunctions = {
 		
 		if (self.Settings.ShowPercentText) then
 			self.percentText:Show()
-			PixelUtil.SetPoint (self.percentText, "center", self, "center", 0, 0)
+			DFPixelUtil.SetPoint (self.percentText, "center", self, "center", 0, 0)
 			
 			DF:SetFontSize (self.percentText, 9)
 			DF:SetFontColor (self.percentText, "white")
@@ -7357,11 +7251,13 @@ DF.PowerFrameFunctions = {
 
 	--> when an event happen for this unit, send it to the apropriate function
 	OnEvent = function (self, event, ...)
+		DF_CalcCpuUsage ("Powerbar-OnEvent")
 		local eventFunc = self [event]
 		if (eventFunc) then
 			--the function doesn't receive which event was, only 'self' and the parameters
 			eventFunc (self, ...)
 		end
+		DF_CalcCpuUsage ("Powerbar-OnEvent")
 	end,
 	
 	UpdatePowerBar = function (self)
@@ -7381,27 +7277,32 @@ DF.PowerFrameFunctions = {
 		end
 	end,
 	UpdatePower = function (self)
+		DF_CalcCpuUsage ("Powerbar-UpdatePower")
 		self.currentPower = UnitPower (self.displayedUnit, self.powerType)
-		PixelUtil.SetStatusBarValue (self, self.currentPower)
+		DFPixelUtil.SetStatusBarValue (self, self.currentPower)
 		
 		if (self.Settings.ShowPercentText) then
 			self.percentText:SetText (floor (self.currentPower / self.currentPowerMax * 100) .. "%")
 		end
+		DF_CalcCpuUsage ("Powerbar-UpdatePower")
 	end,
 	
 	--> when a event different from unit_power_update is triggered, update which type of power the unit should show
 	UpdatePowerInfo = function (self)
+		DF_CalcCpuUsage ("Powerbar-UpdatePowerInfo")
 		if (self.Settings.ShowAlternatePower) then
 			local _, minPower, _, _, _, _, showOnRaid = UnitAlternatePowerInfo (self.displayedUnit)
 			if (showOnRaid and IsInGroup()) then
 				self.powerType = ALTERNATE_POWER_INDEX
 				self.minPower = minPower
+				DF_CalcCpuUsage ("Powerbar-UpdatePowerInfo")
 				return
 			end
 		end
 		
 		self.powerType = UnitPowerType (self.displayedUnit)
 		self.minPower = 0
+		DF_CalcCpuUsage ("Powerbar-UpdatePowerInfo")
 	end,
 	
 	--> tint the bar with the color of the power, e.g. blue for a mana bar
@@ -7530,8 +7431,8 @@ DF.CastFrameFunctions = {
 		{"UNIT_SPELLCAST_CHANNEL_START"},
 		{"UNIT_SPELLCAST_CHANNEL_UPDATE"},
 		{"UNIT_SPELLCAST_CHANNEL_STOP"},
-		{"UNIT_SPELLCAST_INTERRUPTIBLE"},
-		{"UNIT_SPELLCAST_NOT_INTERRUPTIBLE"},
+		--{"UNIT_SPELLCAST_INTERRUPTIBLE"},
+		--{"UNIT_SPELLCAST_NOT_INTERRUPTIBLE"},
 		{"PLAYER_ENTERING_WORLD"},
 		{"UNIT_SPELLCAST_START", true},
 		{"UNIT_SPELLCAST_STOP", true},
@@ -7586,8 +7487,8 @@ DF.CastFrameFunctions = {
 		self.Colors = self.Settings.Colors
 		
 		self:SetUnit (nil)
-		PixelUtil.SetWidth (self, self.Settings.Width)
-		PixelUtil.SetHeight (self, self.Settings.Height)
+		DFPixelUtil.SetWidth (self, self.Settings.Width)
+		DFPixelUtil.SetHeight (self, self.Settings.Height)
 		
 		self.background:SetColorTexture (self.Settings.BackgroundColor:GetColor())
 		self.background:SetAllPoints()		
@@ -7835,7 +7736,7 @@ DF.CastFrameFunctions = {
 		
 		if (self.unit) then
 			if (self.casting) then
-				local name, text, texture, startTime = UnitCastingInfo (self.unit)
+				local name, text, texture, startTime = CastingInfo (self.unit)
 				if (name) then
 					self.value = GetTime() - self.spellStartTime
 				end
@@ -7843,7 +7744,7 @@ DF.CastFrameFunctions = {
 				self:RunHooksForWidget ("OnShow", self, self.unit)
 				
 			elseif (self.channeling) then
-				local name, text, texture, endTime = UnitChannelInfo (self.unit)
+					local name, text, texture, endTime = ChannelInfo (self.unit)
 				if (name) then
 					self.value = self.spellEndTime - GetTime()
 				end
@@ -7855,6 +7756,7 @@ DF.CastFrameFunctions = {
 	
 	--it's triggering several events since it's not registered for the unit with RegisterUnitEvent
 	OnEvent = function (self, event, ...)
+
 		local arg1 = ...
 		local unit = self.unit
 
@@ -7937,8 +7839,10 @@ DF.CastFrameFunctions = {
 	end,
 	
 	OnTick = function (self, deltaTime)
+		DF_CalcCpuUsage ("CastBar-OnTick")
 		if (self.casting) then
 			if (not self:OnTick_Casting (deltaTime)) then
+				DF_CalcCpuUsage ("CastBar-OnTick")
 				return
 			end
 
@@ -7951,6 +7855,7 @@ DF.CastFrameFunctions = {
 			
 		elseif (self.channeling) then
 			if (not self:OnTick_Channeling (deltaTime)) then
+				DF_CalcCpuUsage ("CastBar-OnTick")
 				return
 			end
 			
@@ -7961,6 +7866,7 @@ DF.CastFrameFunctions = {
 				self.lazyUpdateCooldown = self.Settings.LazyUpdateCooldown
 			end
 		end
+		DF_CalcCpuUsage ("CastBar-OnTick")
 	end,
 	
 	--> animation start script
@@ -8033,8 +7939,9 @@ DF.CastFrameFunctions = {
 	end,
 	
 	PLAYER_ENTERING_WORLD = function (self, unit, arg1)
-		local isChannel = UnitChannelInfo (unit)
-		local isRegularCast = UnitCastingInfo (unit)
+		local isChannel = ChannelInfo (unit)
+		local isChannel = false
+		local isRegularCast = CastingInfo (unit)
 		
 		if (isChannel) then
 			self.channeling = true
@@ -8057,10 +7964,16 @@ DF.CastFrameFunctions = {
 	
 	UNIT_SPELLCAST_START = function (self, unit)
 
-		local name, text, texture, startTime, endTime, isTradeSkill, castID, notInterruptible, spellID = UnitCastingInfo (unit)
-		
+		local name, text, texture, startTime, endTime, isTradeSkill, castID, notInterruptible, spellID = CastingInfo (unit)
+
+		if (not name) then
+			--print (unit, name, text, texture, "no name, bye", type (unit))
+			return
+		end
+
 		--> is valid?
 		if (not self:IsValid (unit, name, isTradeSkill, true)) then
+			print ("not valid, bye")
 			return
 		end
 		
@@ -8085,7 +7998,7 @@ DF.CastFrameFunctions = {
 			self:SetAlpha (1)
 			self.Icon:SetTexture (texture)
 			self.Icon:Show()
-			self.Text:SetText (text)
+			self.Text:SetText (name)
 			
 			if (self.Settings.ShowCastTime and self.Settings.CanLazyTick) then
 				self.percentText:Show()
@@ -8112,7 +8025,7 @@ DF.CastFrameFunctions = {
 	end,
 	
 	UNIT_SPELLCAST_CHANNEL_START = function (self, unit, ...)
-		local name, text, texture, startTime, endTime, isTradeSkill, notInterruptible, spellID = UnitChannelInfo (unit)
+		local name, text, texture, startTime, endTime, isTradeSkill, notInterruptible, spellID = ChannelInfo (unit)
 
 		--> is valid?
 		if (not self:IsValid (unit, name, isTradeSkill, true)) then
@@ -8141,7 +8054,7 @@ DF.CastFrameFunctions = {
 			self:SetAlpha (1)
 			self.Icon:SetTexture (texture)
 			self.Icon:Show()
-			self.Text:SetText (text)
+			self.Text:SetText (name)
 			
 			if (self.Settings.ShowCastTime and self.Settings.CanLazyTick) then
 				self.percentText:Show()
@@ -8273,7 +8186,7 @@ DF.CastFrameFunctions = {
 	end,
 
 	UNIT_SPELLCAST_DELAYED = function (self, unit, ...)
-		local name, text, texture, startTime, endTime, isTradeSkill, castID, notInterruptible = UnitCastingInfo (unit)
+		local name, text, texture, startTime, endTime, isTradeSkill, castID, notInterruptible = CastingInfo (unit)
 		
 		if (not self:IsValid (unit, name, isTradeSkill)) then
 			return
@@ -8283,12 +8196,14 @@ DF.CastFrameFunctions = {
 		self.spellStartTime = startTime / 1000
 		self.spellEndTime = endTime / 1000
 		self.value = GetTime() - self.spellStartTime
+		if self.value < 0 then self.value = 0 end
 		self.maxValue = self.spellEndTime - self.spellStartTime
 		self:SetMinMaxValues (0, self.maxValue)
+		self:SetValue (self.value)
 	end,
 
 	UNIT_SPELLCAST_CHANNEL_UPDATE = function (self, unit, ...)
-		local name, text, texture, startTime, endTime, isTradeSkill = UnitChannelInfo (unit)
+		local name, text, texture, startTime, endTime, isTradeSkill = ChannelInfo (unit)
 		
 		if (not self:IsValid (unit, name, isTradeSkill)) then
 			return
@@ -8298,11 +8213,6 @@ DF.CastFrameFunctions = {
 		self.spellStartTime = startTime / 1000
 		self.spellEndTime = endTime / 1000
 		self.value = self.spellEndTime - GetTime()
-
-		if (self.value < 0) then 
-			self.value = 0 
-		end
-
 		self.maxValue = self.spellEndTime - self.spellStartTime
 		self:SetMinMaxValues (0, self.maxValue)
 		self:SetValue (self.value)
@@ -8323,6 +8233,88 @@ DF.CastFrameFunctions = {
 	end,
 
 }
+
+local fCast = CreateFrame("frame")
+
+local getCastBar = function (unitId)
+	local plateFrame = C_NamePlate.GetNamePlateForUnit (unitId)
+	if (not plateFrame) then
+		return
+	end
+
+	local castBar = plateFrame.unitFrame and plateFrame.unitFrame.castBar
+	if (not castBar) then
+		return
+	end
+
+	return castBar
+end
+
+local triggerCastEvent = function (castBar, event, unitId, ...)
+	if (castBar) then
+		DF.CastFrameFunctions.OnEvent (castBar, event, unitId)
+	end
+end
+
+local funcCast = function (event, unitId, ...)
+	local castBar = getCastBar (unitId)
+	if (castBar) then
+		triggerCastEvent (castBar, event, unitId)
+	end
+end
+
+fCast.UNIT_SPELLCAST_START = function (self, event, unitId, ...)
+	triggerCastEvent (getCastBar (unitId), event, unitId)
+end
+
+fCast.UNIT_SPELLCAST_STOP = function (self, event, unitId, ...)
+	triggerCastEvent (getCastBar (unitId), event, unitId)
+end
+
+fCast.UNIT_SPELLCAST_DELAYED = function (self, event, unitId, ...)
+	triggerCastEvent (getCastBar (unitId), event, unitId)
+end
+
+fCast.UNIT_SPELLCAST_FAILED = function (self, event, unitId, ...)
+	triggerCastEvent (getCastBar (unitId), event, unitId)
+end
+
+fCast.UNIT_SPELLCAST_INTERRUPTED = function (self, event, unitId, ...)
+	triggerCastEvent (getCastBar (unitId), event, unitId)
+end
+
+fCast.UNIT_SPELLCAST_CHANNEL_START = function (self, event, unitId, ...)
+	triggerCastEvent (getCastBar (unitId), event, unitId)
+end
+
+fCast.UNIT_SPELLCAST_CHANNEL_UPDATE = function (self, event, unitId, ...)
+	triggerCastEvent (getCastBar (unitId), event, unitId)
+end
+
+fCast.UNIT_SPELLCAST_CHANNEL_STOP = function (self, event, unitId, ...)
+	triggerCastEvent (getCastBar (unitId), event, unitId)
+end
+
+local LibCC = LibStub ("LibClassicCasterino", true)
+
+if LibCC then
+    LibCC.RegisterCallback(fCast,"UNIT_SPELLCAST_START", funcCast)
+    LibCC.RegisterCallback(fCast,"UNIT_SPELLCAST_DELAYED", funcCast) -- only for player
+    LibCC.RegisterCallback(fCast,"UNIT_SPELLCAST_STOP", funcCast)
+    LibCC.RegisterCallback(fCast,"UNIT_SPELLCAST_FAILED", funcCast)
+    LibCC.RegisterCallback(fCast,"UNIT_SPELLCAST_INTERRUPTED", funcCast)
+    LibCC.RegisterCallback(fCast,"UNIT_SPELLCAST_CHANNEL_START", funcCast)
+    LibCC.RegisterCallback(fCast,"UNIT_SPELLCAST_CHANNEL_UPDATE", funcCast) -- only for player
+	LibCC.RegisterCallback(fCast,"UNIT_SPELLCAST_CHANNEL_STOP", funcCast)
+
+    CastingInfo = function(unit)
+        return LibCC:UnitCastingInfo (unit)
+	end	
+
+    ChannelInfo = function(unit)
+        return LibCC:UnitChannelInfo (unit)
+    end	
+end
 
 -- ~castbar
 
@@ -8434,10 +8426,10 @@ DF.BorderFunctions = {
 	end,
 	
 	SetBorderThickness = function (self, newThickness)
-		PixelUtil.SetWidth (f.leftBorder, newThickness, newThickness)
-		PixelUtil.SetWidth (f.rightBorder, newThickness, newThickness)
-		PixelUtil.SetHeight (f.topBorder, newThickness, newThickness)
-		PixelUtil.SetHeight (f.bottomBorder, newThickness, newThickness)
+		DFPixelUtil.SetWidth (f.leftBorder, newThickness, newThickness)
+		DFPixelUtil.SetWidth (f.rightBorder, newThickness, newThickness)
+		DFPixelUtil.SetHeight (f.topBorder, newThickness, newThickness)
+		DFPixelUtil.SetHeight (f.bottomBorder, newThickness, newThickness)
 	end,
 	
 	WidgetType = "border",
@@ -8462,9 +8454,9 @@ function DF:CreateBorderFrame (parent, name)
 		leftBorder:SetColorTexture (1, 1, 1, 1)
 		tinsert (f.allTextures, leftBorder)
 		f.leftBorder = leftBorder
-		PixelUtil.SetPoint (leftBorder, "topright", f, "topleft", 0, 1, 0, 1)
-		PixelUtil.SetPoint (leftBorder, "bottomright", f, "bottomleft", 0, -1, 0, -1)
-		PixelUtil.SetWidth (leftBorder, 1, 1)
+		DFPixelUtil.SetPoint (leftBorder, "topright", f, "topleft", 0, 1, 0, 1)
+		DFPixelUtil.SetPoint (leftBorder, "bottomright", f, "bottomleft", 0, -1, 0, -1)
+		DFPixelUtil.SetWidth (leftBorder, 1, 1)
 
 	--> create right border
 		local rightBorder = f:CreateTexture (nil, "overlay")
@@ -8472,9 +8464,9 @@ function DF:CreateBorderFrame (parent, name)
 		rightBorder:SetColorTexture (1, 1, 1, 1)
 		tinsert (f.allTextures, rightBorder)
 		f.rightBorder = rightBorder
-		PixelUtil.SetPoint (rightBorder, "topleft", f, "topright", 0, 1, 0, 1)
-		PixelUtil.SetPoint (rightBorder, "bottomleft", f, "bottomright", 0, -1, 0, -1)
-		PixelUtil.SetWidth (rightBorder, 1, 1)
+		DFPixelUtil.SetPoint (rightBorder, "topleft", f, "topright", 0, 1, 0, 1)
+		DFPixelUtil.SetPoint (rightBorder, "bottomleft", f, "bottomright", 0, -1, 0, -1)
+		DFPixelUtil.SetWidth (rightBorder, 1, 1)
 	
 	--> create top border
 		local topBorder = f:CreateTexture (nil, "overlay")
@@ -8482,9 +8474,9 @@ function DF:CreateBorderFrame (parent, name)
 		topBorder:SetColorTexture (1, 1, 1, 1)
 		tinsert (f.allTextures, topBorder)
 		f.topBorder = topBorder
-		PixelUtil.SetPoint (topBorder, "bottomleft", f, "topleft", 0, 0, 0, 0)
-		PixelUtil.SetPoint (topBorder, "bottomright", f, "topright", 0, 0, 0, 0)
-		PixelUtil.SetHeight (topBorder, 1, 1)
+		DFPixelUtil.SetPoint (topBorder, "bottomleft", f, "topleft", 0, 0, 0, 0)
+		DFPixelUtil.SetPoint (topBorder, "bottomright", f, "topright", 0, 0, 0, 0)
+		DFPixelUtil.SetHeight (topBorder, 1, 1)
 	
 	--> create  border
 		local bottomBorder = f:CreateTexture (nil, "overlay")
@@ -8492,9 +8484,9 @@ function DF:CreateBorderFrame (parent, name)
 		bottomBorder:SetColorTexture (1, 1, 1, 1)
 		tinsert (f.allTextures, bottomBorder)
 		f.bottomBorder = bottomBorder
-		PixelUtil.SetPoint (bottomBorder, "topleft", f, "bottomleft", 0, 0, 0, 0)
-		PixelUtil.SetPoint (bottomBorder, "topright", f, "bottomright", 0, 0, 0, 0)
-		PixelUtil.SetHeight (bottomBorder, 1, 1)
+		DFPixelUtil.SetPoint (bottomBorder, "topleft", f, "bottomleft", 0, 0, 0, 0)
+		DFPixelUtil.SetPoint (bottomBorder, "topright", f, "bottomright", 0, 0, 0, 0)
+		DFPixelUtil.SetHeight (bottomBorder, 1, 1)
 		
 	return f
 end
@@ -8565,36 +8557,36 @@ end
 			--> run for one unit
 			{"UNIT_NAME_UPDATE", true},
 			{"UNIT_CONNECTION", true},
-			{"UNIT_ENTERED_VEHICLE", true},
-			{"UNIT_EXITED_VEHICLE", true},
+			--{"UNIT_ENTERED_VEHICLE", true},
+			--{"UNIT_EXITED_VEHICLE", true},
 			{"UNIT_PET", true},
-			{"UNIT_THREAT_LIST_UPDATE", true},
+			--{"UNIT_THREAT_LIST_UPDATE", true},
 		},
 
 		--> used when a event is triggered to quickly check if is a unit event
 		IsUnitEvent = {
 			["UNIT_NAME_UPDATE"] = true,
 			["UNIT_CONNECTION"] = true,
-			["UNIT_ENTERED_VEHICLE"] = true,
-			["UNIT_EXITED_VEHICLE"] = true,
+			--["UNIT_ENTERED_VEHICLE"] = true,
+			--["UNIT_EXITED_VEHICLE"] = true,
 			["UNIT_PET"] = true,
-			["UNIT_THREAT_LIST_UPDATE"] = true,
+			--["UNIT_THREAT_LIST_UPDATE"] = true,
 		},
 		
 		Initialize = function (self)
 			self.border:SetBorderColor (self.Settings.BorderColor)
 			
-			PixelUtil.SetWidth (self, self.Settings.Width, 1)
-			PixelUtil.SetHeight (self, self.Settings.Height, 1)
+			DFPixelUtil.SetWidth (self, self.Settings.Width, 1)
+			DFPixelUtil.SetHeight (self, self.Settings.Height, 1)
 
-			PixelUtil.SetPoint (self.powerBar, "bottomleft", self, "bottomleft", 0, 0, 1, 1)
-			PixelUtil.SetPoint (self.powerBar, "bottomright", self, "bottomright", 0, 0, 1, 1)
-			PixelUtil.SetHeight (self.powerBar, self.Settings.PowerBarHeight, 1)
+			DFPixelUtil.SetPoint (self.powerBar, "bottomleft", self, "bottomleft", 0, 0, 1, 1)
+			DFPixelUtil.SetPoint (self.powerBar, "bottomright", self, "bottomright", 0, 0, 1, 1)
+			DFPixelUtil.SetHeight (self.powerBar, self.Settings.PowerBarHeight, 1)
 			
 			--make the castbar overlap the powerbar
-			PixelUtil.SetPoint (self.castBar, "bottomleft", self, "bottomleft", 0, 0, 1, 1)
-			PixelUtil.SetPoint (self.castBar, "bottomright", self, "bottomright", 0, 0, 1, 1)
-			PixelUtil.SetHeight (self.castBar, self.Settings.CastBarHeight, 1)
+			DFPixelUtil.SetPoint (self.castBar, "bottomleft", self, "bottomleft", 0, 0, 1, 1)
+			DFPixelUtil.SetPoint (self.castBar, "bottomright", self, "bottomright", 0, 0, 1, 1)
+			DFPixelUtil.SetHeight (self.castBar, self.Settings.CastBarHeight, 1)
 		end,
 		
 		SetHealthBarColor = function (self, r, g, b, a)
@@ -8615,7 +8607,7 @@ end
 			
 			--> check settings and unregister events for disabled features
 			if (not self.Settings.ColorByAggro) then
-				self:UnregisterEvent ("UNIT_THREAT_LIST_UPDATE")
+				--self:UnregisterEvent ("UNIT_THREAT_LIST_UPDATE")
 			end
 			
 			--> set scripts
@@ -8645,6 +8637,7 @@ end
 		--> when an event happen for this unit, send it to the apropriate function
 		OnEvent = function (self, event, ...)
 			--> run the function for this event
+			DF_CalcCpuUsage ("unitFrame-OnEvent")
 			local eventFunc = self [event]
 			if (eventFunc) then
 				--> is this event an unit event?
@@ -8658,6 +8651,7 @@ end
 					eventFunc (self, ...)
 				end
 			end
+			DF_CalcCpuUsage ("unitFrame-OnEvent")
 		end,
 		
 		OnHide = function (self)
@@ -8987,7 +8981,7 @@ function DF:CreateUnitFrame (parent, name, unitFrameSettingsOverride, healthBarS
 		do
 			--artwork
 			f.unitName = f:CreateFontString (nil, "artwork", "GameFontHighlightSmall")
-			PixelUtil.SetPoint (f.unitName, "topleft", healthBar, "topleft", 2, -2, 1, 1)
+			DFPixelUtil.SetPoint (f.unitName, "topleft", healthBar, "topleft", 2, -2, 1, 1)
 
 			--target overlay - it's parented in the healthbar so other widgets won't get the overlay
 			f.targetOverlay = overlayFrame:CreateTexture (nil, "artwork")
@@ -9253,7 +9247,7 @@ DF.TimeLineBlockFunctions = {
 			
 			local block = self:GetBlock (i)
 			block:Show()
-			PixelUtil.SetPoint (block, "left", self, "left", xOffset + headerWidth, 0)
+			DFPixelUtil.SetPoint (block, "left", self, "left", xOffset + headerWidth, 0)
 
 			block.info.spellId = spellId
 			block.info.time = time
@@ -9271,7 +9265,7 @@ DF.TimeLineBlockFunctions = {
 					block.icon:SetDesaturated (false)
 				end
 				
-				PixelUtil.SetSize (block, self:GetHeight(), self:GetHeight())
+				DFPixelUtil.SetSize (block, self:GetHeight(), self:GetHeight())
 				
 				if (isAura) then
 					block.auraLength:Show()
@@ -9284,7 +9278,7 @@ DF.TimeLineBlockFunctions = {
 				block.background:SetVertexColor (0, 0, 0, 0)
 			else
 				block.background:SetVertexColor (unpack (color))
-				PixelUtil.SetSize (block, width, self:GetHeight())
+				DFPixelUtil.SetSize (block, width, self:GetHeight())
 				block.auraLength:Hide()
 			end
 		end

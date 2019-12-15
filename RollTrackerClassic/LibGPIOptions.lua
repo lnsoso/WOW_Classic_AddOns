@@ -18,6 +18,7 @@ function Options.Init(doOk,doCancel,doDefault)
 	Options.Panel={}
 	Options.Frames={}
 	Options.CBox={}
+	Options.Color={}
 	Options.Btn={}
 	Options.Edit={}
 	Options.Vars={}
@@ -34,6 +35,16 @@ function Options.DoOk()
 			Options.Vars[name .. "_db"] [Options.Vars[name]] = cbox:GetChecked()
 		end
 	end
+	
+	for name,color in pairs(Options.Color) do
+		if Options.Vars[name .. "_db"]~=nil and Options.Vars[name]~=nil then
+			Options.Vars[name .. "_db"] [Options.Vars[name]].r=color.ColR
+			Options.Vars[name .. "_db"] [Options.Vars[name]].g=color.ColG
+			Options.Vars[name .. "_db"] [Options.Vars[name]].b=color.ColB
+			Options.Vars[name .. "_db"] [Options.Vars[name]].a=color.ColA
+		end
+	end	
+	
 	for name,edit in pairs(Options.Edit) do
 		if Options.Vars[name .. "_onlynumbers"] then 
 			Options.Vars[name .. "_db"] [Options.Vars[name]] = edit:GetNumber()
@@ -57,6 +68,20 @@ function Options.DoCancel()
 			cbox:SetChecked( Options.Vars[name .. "_db"] [Options.Vars[name]] )
 		end
 	end
+	
+	for name,color in pairs(Options.Color) do
+		if Options.Vars[name .. "_db"]~=nil and Options.Vars[name]~=nil then
+			color:GetNormalTexture():SetVertexColor(
+				Options.Vars[name .. "_db"] [Options.Vars[name]].r,
+				Options.Vars[name .. "_db"] [Options.Vars[name]].g,
+				Options.Vars[name .. "_db"] [Options.Vars[name]].b,
+				Options.Vars[name .. "_db"] [Options.Vars[name]].a
+			)
+			color.ColR,color.ColG,color.ColB,color.ColA=Options.Vars[name .. "_db"] [Options.Vars[name]].r, Options.Vars[name .. "_db"] [Options.Vars[name]].g,	Options.Vars[name .. "_db"] [Options.Vars[name]].b,	Options.Vars[name .. "_db"] [Options.Vars[name]].a
+		end
+	end
+	
+	
 	for name,edit in pairs(Options.Edit) do
 		if Options.Vars[name .. "_onlynumbers"] then 
 			edit:SetNumber( Options.Vars[name .. "_db"] [Options.Vars[name]] )
@@ -73,6 +98,18 @@ function Options.DoDefault()
 			Options.Vars[name .. "_db"] [Options.Vars[name]]= Options.Vars[name .. "_init"]
 		end
 	end
+	
+	for name,color in pairs(Options.Color) do
+		if Options.Vars[name .. "_db"]~=nil and Options.Vars[name]~=nil then
+			Options.Vars[name .. "_db"] [Options.Vars[name]].r = Options.Vars[name .. "_init"].r
+			Options.Vars[name .. "_db"] [Options.Vars[name]].g = Options.Vars[name .. "_init"].g
+			Options.Vars[name .. "_db"] [Options.Vars[name]].b = Options.Vars[name .. "_init"].b
+			Options.Vars[name .. "_db"] [Options.Vars[name]].a = Options.Vars[name .. "_init"].a
+
+		end
+	end
+	
+	
 	for name,edit in pairs(Options.Edit) do
 		Options.Vars[name .. "_db"] [Options.Vars[name]]= Options.Vars[name .. "_init"]
 	end
@@ -266,6 +303,99 @@ function Options.AddCheckBox(DB,Var,Init,Text,width)
 	
 	return Options.CBox[ButtonName]
 end
+
+function Options.AddColorButton(DB,Var,Init,Text,width)
+	local c=Options.Frames.count+1
+	
+	local textFrame=Options.AddText(Text,width)
+	textFrame:SetTextColor(1,1,1)
+	local h=textFrame:GetHeight()
+	
+	Options.Frames.count=c	
+	local ButtonName=Options.Prefix .."COLOR_"..c
+	
+	if Init==nil then
+		Init={r=1,g=1,b=1,a=1}
+	end
+	
+	Options.Index[c]=ButtonName	
+	
+	Options.Vars[ButtonName]=Var
+	Options.Vars[ButtonName.."_init"]=Init
+	Options.Vars[ButtonName.."_db"]=DB
+	
+	if DB~=nil and Var~=nil then
+		if DB[Var] == nil then 
+			DB[Var]={}
+			DB[Var].r=Init.r 
+			DB[Var].g=Init.g 
+			DB[Var].b=Init.b 
+			DB[Var].a=Init.a 
+		end
+	end
+	
+	Options.Color[ButtonName] = CreateFrame("Button", ButtonName, Options.CurrentPanel)
+	
+	local but=Options.Color[ButtonName]
+	
+	but:SetWidth(h)
+	but:SetHeight(h)
+	but.ColTex=but:CreateTexture(ButtonName.."Background","BACKGROUND")
+	but.ColTex:SetPoint("CENTER")
+	but.ColTex:SetWidth(h-2)
+	but.ColTex:SetHeight(h-2)
+	but.ColTex:SetColorTexture(1,1,1,1)
+	but:SetScript("OnEnter",
+		function (self)
+			_G[self:GetName() .. "Background"]:SetVertexColor(1.0, 0.82, 0.0)
+		end
+	)
+	but:SetScript("OnLeave",
+		function (self)
+			_G[self:GetName() .. "Background"]:SetVertexColor(1.0, 1.0, 1.0)
+		end
+	)
+	but:SetNormalTexture("Interface\\ChatFrame\\ChatFrameColorSwatch")
+	
+	
+	but:ClearAllPoints()
+	
+	but:SetPoint("TOPLEFT", Options.NextRelativ,"TOPRIGHT", 5, 0)
+	
+	but:SetScale(Options.scale)
+	
+	but:GetNormalTexture():SetVertexColor(DB[Var].r,DB[Var].g,DB[Var].b,DB[Var].a)
+	but.ColR,but.ColG,but.ColB,but.ColA=DB[Var].r,DB[Var].g,DB[Var].b,DB[Var].a
+		
+	local function callback(previousValues)
+		local newR, newG, newB, newA
+
+		if previousValues then
+			newR, newG, newB, newA = unpack(previousValues)
+		else
+			newA, newR, newG, newB = 1.0 - OpacitySliderFrame:GetValue(), ColorPickerFrame:GetColorRGB()
+		end
+		but:GetNormalTexture():SetVertexColor(newR, newG, newB, newA)
+		but.ColR,but.ColG,but.ColB,but.ColA=newR, newG, newB, newA		
+	end
+	
+	but:SetScript(
+		"OnClick",
+		function(self)
+			local r, g, b, a = but.ColR,but.ColG,but.ColB,but.ColA
+			ColorPickerFrame.hasOpacity, ColorPickerFrame.opacity = true, 1.0 - a
+			ColorPickerFrame.previousValues = {r, g, b, a}
+			ColorPickerFrame.func, ColorPickerFrame.opacityFunc, ColorPickerFrame.cancelFunc = callback, callback, callback
+			ColorPickerFrame:SetColorRGB(r, g, b)
+			ColorPickerFrame:Hide()
+			ColorPickerFrame:Show()
+		end
+	)
+	
+	return but
+end
+
+
 
 function Options.EditCheckBox(toEdit,DB,Var,Init,Text,width)
 	local ButtonName=toEdit:GetName()
@@ -466,8 +596,8 @@ function Options.AddEditBox(DB,Var,Init,TXTLeft,width,widthLeft,onlynumbers,tool
 	return Options.Edit[ButtonName]
 end
 
-function Options.AddSpace()
-	Options.NextRelativY=Options.NextRelativY-20
+function Options.AddSpace(factor)
+	Options.NextRelativY=Options.NextRelativY-20*(factor or 1)
 end
 
 function Options.Open(panel)

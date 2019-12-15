@@ -1,12 +1,11 @@
 ## Interface: 11303
-## Title: RealMobHealth v2.14
-## Version: 2.14
+## Title: RealMobHealth v2.16
+## Version: 2.16
 ## X-APIVersion: 3.2
 ## Author: SDPhantom
-
-## SavedVariables: RealMobHealth_Options,RealMobHealth_CreatureHealthCache,RealMobHealth_PeerHealthCache
-
+## SavedVariables: RealMobHealth_Options,RealMobHealth_CreatureHealthCache, RealMobHealth_PeerHealthCache
 ## Notes: Mob Health for Classic
+## X-Revision: BigFoot
 
 Localization.lua
 SharedFuncs.lua

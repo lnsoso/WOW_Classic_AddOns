@@ -7,7 +7,7 @@ local fonts = SM:List("font")
 local _
 
 Spy = LibStub("AceAddon-3.0"):NewAddon("Spy", "AceConsole-3.0", "AceEvent-3.0", "AceComm-3.0", "AceTimer-3.0")
-Spy.Version = "1.0.17"
+Spy.Version = "1.0.18"
 Spy.DatabaseVersion = "1.1"
 Spy.Signature = "[Spy]"
 Spy.ButtonLimit = 15
@@ -774,7 +774,7 @@ Spy.options = {
 					name = L["MapOptionsDescription"],
 					type = "description",
 					order = 1,
-					fontSize = "medium",					
+					fontSize = "medium",
 				},
 				MinimapDetection = {
 					name = L["MinimapDetection"],
@@ -892,7 +892,7 @@ Spy.options = {
 					name = L["DataOptionsDescription"],
 					type = "description",
 					order = 1,
-					fontSize = "medium",					
+					fontSize = "medium",
 				},
 				PurgeData = {
 					name = L["PurgeData"],
@@ -1251,7 +1251,7 @@ local Default_Profile = {
 		SwitchToZone=false,
 		MapDisplayLimit="SameZone",
 		DisplayTooltipNearSpyWindow=false,
-		TooltipAnchor="ANCHOR_CURSOR",		
+		TooltipAnchor="ANCHOR_CURSOR",
 		DisplayWinLossStatistics=true,
 		DisplayKOSReason=true,
 		DisplayLastSeen=true,
@@ -1262,7 +1262,7 @@ local Default_Profile = {
 		InvertSpy=false,
 		ResizeSpy=true,
 		ResizeSpyLimit=15,
-		SoundChannel="SFX",		
+		SoundChannel="SFX",
 		Announce="None",
 		OnlyAnnounceKoS=false,
 		WarnOnStealth=true,
@@ -1273,7 +1273,7 @@ local Default_Profile = {
 		DisplayWarningsInErrorsFrame=false,
 		EnableSound=true,
 		OnlySoundKoS=false, 
-		StopAlertsOnTaxi=true,			
+		StopAlertsOnTaxi=true,
 		RemoveUndetected="OneMinute",
 		ShowNearbyList=true,
 		PrioritiseKoS=true,
@@ -1284,7 +1284,8 @@ local Default_Profile = {
 		UseData=false,
 		ShareKOSBetweenCharacters=true,
 		AppendUnitNameCheck=false,
-		AppendUnitKoSCheck=false,		
+		AppendUnitKoSCheck=false,
+		ClampToScreen = false,
 	}
 }
 
@@ -1442,6 +1443,8 @@ end
 function Spy:HandleProfileChanges()
 	Spy:CreateMainWindow()
 	Spy:UpdateTimeoutSettings()
+	Spy:ScaleWindows(Spy.db.profile.Scaling)	
+	Spy:SetStrataAndClamp()	
 	Spy:LockWindows(Spy.db.profile.Locked)
 end
 
@@ -1659,9 +1662,9 @@ function Spy:OnInitialize()
 	Spy:LockWindows(Spy.db.profile.Locked)
 	ChatFrame_AddMessageEventFilter("CHAT_MSG_SYSTEM", Spy.FilterNotInParty)
 	Spy.WoWBuildInfo = select(4, GetBuildInfo())
-	if Spy.WoWBuildInfo ~= 11302 then 	
-		DEFAULT_CHAT_FRAME:AddMessage(L["VersionCheck"])		
-	end 
+	if Spy.WoWBuildInfo > 20000 then 	
+		DEFAULT_CHAT_FRAME:AddMessage(L["VersionCheck"])
+	end
 end
 --[[
 function Spy:ChannelNoticeEvent(_, chStatus, _, _, Channel)
@@ -1867,7 +1870,7 @@ timestamp, event, hideCaster, srcGUID, srcName, srcFlags, sourceRaidFlags, dstGU
 				local detected = true
 				local playerData = SpyPerCharDB.PlayerData[srcName]
 				if not playerData or playerData.isGuess then
-					learnt, playerData = Spy:ParseUnitAbility(true, event, srcName, class, race, arg12, arg13)		 -- P8.0 chg	
+					learnt, playerData = Spy:ParseUnitAbility(true, event, srcName, class, race, arg12, arg13)		 -- P8.0 chg
 				end
 				if not learnt then
 					detected = Spy:UpdatePlayerData(srcName, class, nil, race, nil, true, nil)
@@ -1875,10 +1878,10 @@ timestamp, event, hideCaster, srcGUID, srcName, srcFlags, sourceRaidFlags, dstGU
 
 				if detected then
 					Spy:AddDetected(srcName, timestamp, learnt)
-					if event == "SPELL_AURA_APPLIED" and (arg13 == L["Stealth"]) then	-- P8.0	chg			
+					if event == "SPELL_AURA_APPLIED" and (arg13 == L["Stealth"]) then	-- P8.0	chg
 						Spy:AlertStealthPlayer(srcName)
 					end	
-					if event == "SPELL_AURA_APPLIED" and (arg13 == L["Prowl"]) then		-- P8.0	chg		
+					if event == "SPELL_AURA_APPLIED" and (arg13 == L["Prowl"]) then		-- P8.0	chg
 						Spy:AlertProwlPlayer(srcName)						
 					end
 				end
@@ -1904,7 +1907,7 @@ timestamp, event, hideCaster, srcGUID, srcName, srcFlags, sourceRaidFlags, dstGU
 				local detected = true
 				local playerData = SpyPerCharDB.PlayerData[dstName]
 				if not playerData or playerData.isGuess then
-					learnt, playerData = Spy:ParseUnitAbility(false, event, dstName, class, race, arg12, arg13)		 -- P8.0 chg	
+					learnt, playerData = Spy:ParseUnitAbility(false, event, dstName, class, race, arg12, arg13)		 -- P8.0 chg
 				end
 				if not learnt then
 					detected = Spy:UpdatePlayerData(dstName, class, nil, race, nil, true, nil)
@@ -1931,10 +1934,10 @@ timestamp, event, hideCaster, srcGUID, srcName, srcFlags, sourceRaidFlags, dstGU
 		if (combatEvent[event] and srcName == petName) then		
 			if event == "SWING_DAMAGE" then
 --				_, overkill = ...
-				if arg13 == nil then overkill = 0 else overkill = arg13 end	 				
+				if arg13 == nil then overkill = 0 else overkill = arg13 end
 			else
 --				_, _, _, _, overkill = ...
-				if arg16 == nil then overkill = 0 else overkill = arg16 end	 				
+				if arg16 == nil then overkill = 0 else overkill = arg16 end
 			end
 --			if arg16 == nil then overkill = 0 else overkill = arg16 end			
 			if (overkill > 1 and srcName == petName) and dstName then
@@ -1942,7 +1945,7 @@ timestamp, event, hideCaster, srcGUID, srcName, srcFlags, sourceRaidFlags, dstGU
 				if playerData then
 					if not playerData.wins then playerData.wins = 0 end
 					playerData.wins = playerData.wins + 1
---					PlaySoundFile("Interface\\AddOns\\Spy\\Sounds\\neck-snap.mp3, Spy.db.profile.SoundChannel")
+--					PlaySoundFile("Interface\\AddOns\\Spy\\Sounds\\neck-snap.mp3", Spy.db.profile.SoundChannel)
 --					DEFAULT_CHAT_FRAME:AddMessage("Your pet ".. petName .. " killed " .. dstName);
 				end
 			end
@@ -1969,7 +1972,7 @@ function Spy:CommReceived(prefix, message, distribution, source)
 	if Spy.EnabledInZone and Spy.db.profile.UseData then
 		if prefix == Spy.Signature and message and source ~= Spy.CharacterName then
 			local version, player, class, level, race, zone, subZone, mapX, mapY, guild, mapID = strsplit("|", message)	 -- P8.0
-			if mapID == nil then 
+			if mapID == nil then
 				mapID = ""
 			end	
 			if player ~= nil and (not Spy.InInstance or zone == GetZoneText()) then
@@ -2003,7 +2006,7 @@ function Spy:CommReceived(prefix, message, distribution, source)
 							return
 						end
 						if (Spy.EnemyFactionName == "Alliance" and race ~= "Dwarf" and race ~= "Gnome" and race ~= "Human" and race ~=  "Night Elf")
-						or (Spy.EnemyFactionName == "Horde" and race ~= "Orc" and race ~= "Tauren" and race ~= "Troll" and race ~= "Undead") then 						
+						or (Spy.EnemyFactionName == "Horde" and race ~= "Orc" and race ~= "Tauren" and race ~= "Troll" and race ~= "Undead") then
 							return
 						end
 					else
@@ -2108,7 +2111,7 @@ function Spy:ShowMapNote(player)
 			currentContinentID = currentMapID
 		end
 		local mapID, mapX, mapY = playerData.mapID, playerData.mapX, playerData.mapY
- 		local continentInfo = MapUtil.GetMapParentInfo(mapID, Enum.UIMapType.Continent, true)
+		local continentInfo = MapUtil.GetMapParentInfo(mapID, Enum.UIMapType.Continent, true)
 		if continentInfo then
 			continentID = continentInfo.mapID	
 		else

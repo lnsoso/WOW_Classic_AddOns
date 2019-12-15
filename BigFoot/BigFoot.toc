@@ -1,4 +1,4 @@
-﻿## Interface: 11302
+﻿## Interface: 11303
 ## Title: BigFoot Base Library
 ## Title-zhCN: [大脚] |cff0055FF基本库|r
 ## Title-zhTW: [大腳] |cff0055FF基本庫|r
@@ -47,6 +47,7 @@ Util\Validation.lua
 Util\ScanQuestLog.lua
 Util\Patch.lua
 Util\Cvar.lua
+Util\GetTotemInfo.lua
 
 Config\BagManagement.lua
 Config\ActionBar.lua

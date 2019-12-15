@@ -51,14 +51,31 @@ Another thing is that the more time & data you have per session, the more accura
  This may also happen if you have addons like "Leatrix Plus" with "Fast loot" option enabled. This causes loot to be received before loot window is opened, so the addon doesn't know where it came from.
 
 
-![Preview 1](https://github.com/E1ila/FarmLog/blob/master/Preview5.png)
-![Preview 1](https://github.com/E1ila/FarmLog/blob/master/Preview6.png)
-![Preview 1](https://github.com/E1ila/FarmLog/blob/master/Preview2.png)
-![Preview 2](https://github.com/E1ila/FarmLog/blob/master/Preview.png)
-![Preview 3](https://github.com/E1ila/FarmLog/blob/master/Preview3.png)
-![Preview 4](https://github.com/E1ila/FarmLog/blob/master/Preview4.png)
+![Preview 1](https://github.com/E1ila/FarmLog/blob/master/Preview7.png)
+![Preview 2](https://github.com/E1ila/FarmLog/blob/master/Preview5.png)
+![Preview 3](https://github.com/E1ila/FarmLog/blob/master/Preview6.png)
+![Preview 4](https://github.com/E1ila/FarmLog/blob/master/Preview2.png)
+![Preview 5](https://github.com/E1ila/FarmLog/blob/master/Preview.png)
+![Preview 6](https://github.com/E1ila/FarmLog/blob/master/Preview3.png)
+![Preview 7](https://github.com/E1ila/FarmLog/blob/master/Preview4.png)
 
 ### Changes 
+* 1.19
+    * Counting battle grounds count, as well as wins/loss count
+    * BGs are not counted for instance lock count
+    * Honor diminshing returns can be disabled for BGs (still not confirmed if it's enabled in BGs)
+    * Added separate option to resume/pause a BG farm, so if you initiated a BG farm session, it'll know to pause when you leave BG and resume when youo come back.
+    * Added level-up count
+* 1.18.3
+    * Fixed bug causing consumes used on different levels (character level up) to be shown seperately on the log.
+* 1.18.2 
+    * Fixed (non) parsing of loot messages for non-english languages.
+    * Fixed an error when starting new session when old one had consumes in it.
+* 1.18.1
+    * Added option for AH min quality, this will allow choosing for which item quality price will be taken from an AH scan. For instance, if min quality is Rare+, vendor price will be used for green items and below.
+    * Fixed HUD positioning issue, it should now show correctly.
+* 1.18
+    * Consumes tracking! Will now log all (hopefully) consumes you've been using in your session. Their value will be deducted from the vendor price, thus affecting GPH. You can disable it from the options screen (`/fl`), or manually adjust consumes prices with `/fl set [Item Link] 1` to set an item's price to 1 gold, it'll try to use Auctionator or TSM price first. If you find any missing consume, feel free to report in https://github.com/E1ila/FarmLog
 * 1.17.9
     * With Auto Instance Switch enabled, FarmLog will now resume a session if current farm is an instance farm. When choosing a farm that's used in an instance, it'll bind the farm session to that instance and from that moment on, when you enter that instance while on this farm session, the addon will just resume it, instead of switching to "Dire Maul" farm. If FarmLog is set to another session, not related to DM, it will switch to "Dire Maul" farm session once you go into DM. Hope I explained it well, if not - just try and see how it works.
     * Added `/farm` command to toggle session active/paused.
@@ -205,3 +222,13 @@ Another thing is that the more time & data you have per session, the more accura
 * Show honor in last 10 seconds
 * Allow to show specific lines from log in HUD
 * Allow tracking rested XP
+* Disable using AH prices
+
+### MIT License
+Copyright 2019 https://github.com/E1ila
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

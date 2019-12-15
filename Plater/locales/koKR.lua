@@ -54,7 +54,8 @@ L["OPTIONS_PROFILE_ERROR_STRINGINVALID"] = "부적합한 프로필 문자열입�
 L["OPTIONS_PROFILE_ERROR_WRONGTAB"] = [=[잘못된 프로필입니다.
 
 스크립트나 모드에서 가져오기 해보세요.]=]
-L["OPTIONS_PROFILE_IMPORT_OVERWRITE"] = "'%s' 프로필은 이미 존재합니다. 덮어쓰시겠습니까?"
+--[[Translation missing --]]
+--[[ L["OPTIONS_PROFILE_IMPORT_OVERWRITE"] = ""--]] 
 L["OPTIONS_SETTINGS_COPIED"] = "설정이 복사되었습니다."
 L["OPTIONS_SETTINGS_FAIL_COPIED"] = "현재 선택된 탭의 설정을 가져오지 못했습니다."
 L["OPTIONS_SHADOWCOLOR"] = "그림자 색상"
@@ -78,7 +79,8 @@ L["OPTIONS_TABNAME_PLAYERENEMY"] = "적 플레이어"
 L["OPTIONS_TABNAME_PLAYERFRIENDLY"] = "아군 플레이어"
 L["OPTIONS_TABNAME_PROFILES"] = "프로필"
 L["OPTIONS_TABNAME_SCRIPTING"] = "스크립트"
-L["OPTIONS_TABNAME_STRATA"] = "프레임 우선순위"
+--[[Translation missing --]]
+--[[ L["OPTIONS_TABNAME_STRATA"] = ""--]] 
 L["OPTIONS_TABNAME_TARGET"] = "대상"
 L["OPTIONS_TABNAME_THREAT"] = "위협 수준 / 어그로"
 L["OPTIONS_TEXTURE"] = "텍스쳐"

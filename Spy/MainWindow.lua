@@ -500,9 +500,13 @@ function Spy:CreateMainWindow()
 		end)
 	
 		local theFrame = Spy.MainWindow
+	
 		theFrame:SetResizable(true)
 		theFrame:SetMinResize(90, 34)
 		theFrame:SetMaxResize(300, 264)
+		
+		theFrame.SaveMainWindowPosition = Spy.SaveMainWindowPosition		
+		
 		theFrame:SetScript("OnSizeChanged",
 		function(self)
 			if (self.isResizing) then
@@ -513,8 +517,7 @@ function Spy:CreateMainWindow()
 		theFrame.TitleClick = CreateFrame("FRAME", nil, theFrame)
 		theFrame.TitleClick:SetAllPoints(theFrame.Title)
 		theFrame.TitleClick:EnableMouse(true)
-		theFrame.TitleClick:SetScript("OnMouseDown",
-		function(self, button) 
+		theFrame.TitleClick:SetScript("OnMouseDown", function(self, button) 
 			local parent = self:GetParent()
 			if (((not parent.isLocked) or (parent.isLocked == 0)) and (button == "LeftButton")) then
 				Spy:SetWindowTop(parent)
@@ -522,13 +525,13 @@ function Spy:CreateMainWindow()
 				parent.isMoving = true;
 			end
 		end)
-		theFrame.TitleClick:SetScript("OnMouseUp",
-		function(self) 
+		theFrame.TitleClick:SetScript("OnMouseUp", function(self) 
 			local parent = self:GetParent()
 			if (parent.isMoving) then
 				parent:StopMovingOrSizing();
 				parent.isMoving = false;
 				Spy:SaveMainWindowPosition()
+--				parent:SaveMainWindowPosition()
 			end
 		end)
 		if not Spy.db.profile.InvertSpy then
@@ -542,9 +545,23 @@ function Spy:CreateMainWindow()
 			theFrame.DragBottomRight:SetAlpha(0)
 			theFrame.DragBottomRight:SetPoint("BOTTOMRIGHT", theFrame, "BOTTOMRIGHT", 0, 0)
 			theFrame.DragBottomRight:EnableMouse(true)
-			theFrame.DragBottomRight:SetScript("OnEnter", function(self) theFrame.DragBottomRight:SetAlpha(1)	end)
-			theFrame.DragBottomRight:SetScript("OnMouseDown", function(self, button) if (((not self:GetParent().isLocked) or (self:GetParent().isLocked == 0)) and (button == "LeftButton")) then self:GetParent().isResizing = true; self:GetParent():StartSizing("BOTTOMRIGHT") end end)
-			theFrame.DragBottomRight:SetScript("OnMouseUp", function(self, button) if self:GetParent().isResizing == true then self:GetParent():StopMovingOrSizing(); Spy:SaveMainWindowPosition(); Spy:RefreshCurrentList(); self:GetParent().isResizing = false; end end)
+			theFrame.DragBottomRight:SetScript("OnEnter", function(self)
+			theFrame.DragBottomRight:SetAlpha(1) end)
+			theFrame.DragBottomRight:SetScript("OnMouseDown", function(self, button)
+				if (((not self:GetParent().isLocked) or (self:GetParent().isLocked == 0)) and (button == "LeftButton")) then 
+					self:GetParent().isResizing = true;
+					self:GetParent():StartSizing("BOTTOMRIGHT") 
+				end
+			end)
+			theFrame.DragBottomRight:SetScript("OnMouseUp", function(self, button)
+				if self:GetParent().isResizing == true then
+					self:GetParent():StopMovingOrSizing();
+					Spy:SaveMainWindowPosition();
+--					self:GetParent():SaveMainWindowPosition()						
+					Spy:RefreshCurrentList();
+					self:GetParent().isResizing = false;
+				end
+			end)
 			theFrame.DragBottomRight:SetScript("OnLeave", function(self) theFrame.DragBottomRight:SetAlpha(0) end)
 		
 			theFrame.DragBottomLeft = CreateFrame("Button", "SpyResizeGripLeft", theFrame)
@@ -557,10 +574,25 @@ function Spy:CreateMainWindow()
 			theFrame.DragBottomLeft:SetAlpha(0)		
 			theFrame.DragBottomLeft:SetPoint("BOTTOMLEFT", theFrame, "BOTTOMLEFT", 0, 0)
 			theFrame.DragBottomLeft:EnableMouse(true)
-			theFrame.DragBottomLeft:SetScript("OnEnter", function(self) theFrame.DragBottomLeft:SetAlpha(1)	end)		
-			theFrame.DragBottomLeft:SetScript("OnMouseDown", function(self, button) if (((not self:GetParent().isLocked) or (self:GetParent().isLocked == 0)) and (button == "LeftButton")) then self:GetParent().isResizing = true; self:GetParent():StartSizing("BOTTOMLEFT") end end)
-			theFrame.DragBottomLeft:SetScript("OnMouseUp", function(self, button) if self:GetParent().isResizing == true then self:GetParent():StopMovingOrSizing(); Spy:SaveMainWindowPosition(); Spy:RefreshCurrentList(); self:GetParent().isResizing = false; end end)
-			theFrame.DragBottomLeft:SetScript("OnLeave", function(self) theFrame.DragBottomLeft:SetAlpha(0) end)
+			theFrame.DragBottomLeft:SetScript("OnEnter", function(self)
+			theFrame.DragBottomLeft:SetAlpha(1) end)
+			theFrame.DragBottomLeft:SetScript("OnMouseDown", function(self, button)
+				if (((not self:GetParent().isLocked) or (self:GetParent().isLocked == 0)) and (button == "LeftButton")) then
+					self:GetParent().isResizing = true;
+					self:GetParent():StartSizing("BOTTOMLEFT")
+				end
+			end)
+			theFrame.DragBottomLeft:SetScript("OnMouseUp", function(self, button)
+				if self:GetParent().isResizing == true then
+					self:GetParent():StopMovingOrSizing();
+					Spy:SaveMainWindowPosition();
+--					self:GetParent():SaveMainWindowPosition()
+					Spy:RefreshCurrentList();
+					self:GetParent().isResizing = false;
+				end
+			end)
+			theFrame.DragBottomLeft:SetScript("OnLeave", function(self)
+			theFrame.DragBottomLeft:SetAlpha(0) end)
 		else
 			theFrame.DragTopRight = CreateFrame("Button", "SpyResizeGripRight", theFrame)
 			theFrame.DragTopRight:Show()
@@ -605,13 +637,17 @@ function Spy:CreateMainWindow()
 			theFrame.RightButton:SetPoint("BOTTOMRIGHT", theFrame, "BOTTOMRIGHT", -23, -16.5)
 		end		
 		theFrame.RightButton:SetScript("OnEnter", function(self)
-		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-		GameTooltip:AddLine(L["Left/Right"], 1, 0.82, 0, 1)
-		GameTooltip:AddLine(L["Left/RightDescription"],0,0,0,1)
-		GameTooltip:Show()
+			GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+			GameTooltip:AddLine(L["Left/Right"], 1, 0.82, 0, 1)
+			GameTooltip:AddLine(L["Left/RightDescription"],0,0,0,1)
+			GameTooltip:Show()
 		end)
-		theFrame.RightButton:SetScript("OnLeave", function(self) GameTooltip:Hide() end)
-		theFrame.RightButton:SetScript("OnClick", function() Spy:MainWindowNextMode() end)
+		theFrame.RightButton:SetScript("OnLeave", function(self)
+			GameTooltip:Hide()
+		end)
+		theFrame.RightButton:SetScript("OnClick", function()
+			Spy:MainWindowNextMode()
+		end)
 		theFrame.RightButton:SetFrameLevel(theFrame.RightButton:GetFrameLevel() + 1)
 
 		theFrame.LeftButton = CreateFrame("Button", nil, theFrame)
@@ -622,13 +658,17 @@ function Spy:CreateMainWindow()
 		theFrame.LeftButton:SetHeight(16)
 		theFrame.LeftButton:SetPoint("RIGHT", theFrame.RightButton, "LEFT", 0, 0)
 		theFrame.LeftButton:SetScript("OnEnter", function(self)
-		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-		GameTooltip:AddLine(L["Left/Right"], 1, 0.82, 0, 1)
-		GameTooltip:AddLine(L["Left/RightDescription"],0,0,0,1)
-		GameTooltip:Show()
+			GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+			GameTooltip:AddLine(L["Left/Right"], 1, 0.82, 0, 1)
+			GameTooltip:AddLine(L["Left/RightDescription"],0,0,0,1)
+			GameTooltip:Show()
 		end)
-		theFrame.LeftButton:SetScript("OnLeave", function(self) GameTooltip:Hide() end)
-		theFrame.LeftButton:SetScript("OnClick", function() Spy:MainWindowPrevMode() end)
+		theFrame.LeftButton:SetScript("OnLeave", function(self)
+			GameTooltip:Hide()
+		end)
+		theFrame.LeftButton:SetScript("OnClick", function()
+			Spy:MainWindowPrevMode()
+		end)
 		theFrame.LeftButton:SetFrameLevel(theFrame.LeftButton:GetFrameLevel() + 1)
 
 		theFrame.ClearButton = CreateFrame("Button", nil, theFrame)
@@ -639,13 +679,17 @@ function Spy:CreateMainWindow()
 		theFrame.ClearButton:SetHeight(16)
 		theFrame.ClearButton:SetPoint("RIGHT", theFrame.LeftButton,"LEFT", 0, 0)
 		theFrame.ClearButton:SetScript("OnEnter", function(self)
-		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-		GameTooltip:AddLine(L["Clear"], 1, 0.82, 0, 1)
-		GameTooltip:AddLine(L["ClearDescription"],0,0,0,1)
-		GameTooltip:Show()
+			GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+			GameTooltip:AddLine(L["Clear"], 1, 0.82, 0, 1)
+			GameTooltip:AddLine(L["ClearDescription"],0,0,0,1)
+			GameTooltip:Show()
 		end)
-		theFrame.ClearButton:SetScript("OnLeave", function(self) GameTooltip:Hide() end)
-		theFrame.ClearButton:SetScript("OnClick", function() Spy:ClearList() end)
+		theFrame.ClearButton:SetScript("OnLeave", function(self)
+			GameTooltip:Hide()
+		end)
+		theFrame.ClearButton:SetScript("OnClick", function()
+			Spy:ClearList()
+		end)
 		theFrame.ClearButton:SetFrameLevel(theFrame.ClearButton:GetFrameLevel() + 1)
 		
 		theFrame.StatsButton = CreateFrame("Button", nil, theFrame)
@@ -656,13 +700,17 @@ function Spy:CreateMainWindow()
 		theFrame.StatsButton:SetHeight(12)
 		theFrame.StatsButton:SetPoint("RIGHT", theFrame.ClearButton,"LEFT", -4, 0)
 		theFrame.StatsButton:SetScript("OnEnter", function(self)
-		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-		GameTooltip:AddLine(L["Statistics"], 1, 0.82, 0, 1)
-		GameTooltip:AddLine(L["StatsDescription"],0,0,0,1)
-		GameTooltip:Show()
+			GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+			GameTooltip:AddLine(L["Statistics"], 1, 0.82, 0, 1)
+			GameTooltip:AddLine(L["StatsDescription"],0,0,0,1)
+			GameTooltip:Show()
 		end)
-		theFrame.StatsButton:SetScript("OnLeave", function(self) GameTooltip:Hide() end)
-		theFrame.StatsButton:SetScript("OnClick", function() SpyStats:Toggle() end) 
+		theFrame.StatsButton:SetScript("OnLeave", function(self)
+			GameTooltip:Hide()
+		end)
+		theFrame.StatsButton:SetScript("OnClick", function()
+			SpyStats:Toggle()
+		end)
 		theFrame.StatsButton:SetFrameLevel(theFrame.StatsButton:GetFrameLevel() + 1)
 		
 		theFrame.CountFrame = CreateFrame("Frame", "CountFrame", theFrame)
@@ -686,12 +734,14 @@ function Spy:CreateMainWindow()
 		theFrame.CountButton:SetAlpha(.0)		
 		theFrame.CountButton:SetPoint("RIGHT", theFrame.StatsButton,"LEFT", -4, 0)
 		theFrame.CountButton:SetScript("OnEnter", function(self)
-		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-		GameTooltip:AddLine(L["NearbyCount"], 1, 0.82, 0, 1)
-		GameTooltip:AddLine(L["NearbyCountDescription"],0,0,0,1)
-		GameTooltip:Show()
+			GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+			GameTooltip:AddLine(L["NearbyCount"], 1, 0.82, 0, 1)
+			GameTooltip:AddLine(L["NearbyCountDescription"],0,0,0,1)
+			GameTooltip:Show()
 		end)
-		theFrame.CountButton:SetScript("OnLeave", function(self) GameTooltip:Hide() end)
+		theFrame.CountButton:SetScript("OnLeave", function(self)
+			GameTooltip:Hide()
+		end)
 		theFrame.CountButton:SetFrameLevel(theFrame.CountButton:GetFrameLevel() + 1) 		
 		
 		Spy.MainWindow.Rows = {}
@@ -701,6 +751,7 @@ function Spy:CreateMainWindow()
 			Spy:CreateRow(i)
 		end
 
+--		theFrame.SavePosition = Spy.SaveMainWindowPosition
 		Spy:RestoreMainWindowPosition(Spy.db.profile.MainWindow.Position.x, Spy.db.profile.MainWindow.Position.y, Spy.db.profile.MainWindow.Position.w, 34)
 		Spy:SetupMainWindowButtons()
 		Spy:ResizeMainWindow()
@@ -865,6 +916,8 @@ function Spy:MainWindowPrevMode()
 end
 
 function Spy:SaveMainWindowPosition()
+--	local xOfs = Spy.MainWindow:GetLeft()
+--	local yOfs = Spy.MainWindow:GetTop()	
 	local xOfs, yOfs = Spy.MainWindow:GetCenter() 
 	local efs = Spy.MainWindow:GetEffectiveScale()
 	local uis = UIParent:GetScale()
@@ -892,6 +945,7 @@ function Spy:RestoreMainWindowPosition(x, y, width, height)
 	end
 	Spy.MainWindow:SetHeight(height)
 	Spy:SaveMainWindowPosition()
+--	Spy.MainWindow:SavePosition()
 end
 
 function Spy:ShowTooltip(self, show, id)

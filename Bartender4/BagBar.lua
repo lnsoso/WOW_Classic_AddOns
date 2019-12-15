@@ -92,6 +92,9 @@ function BagBar:FeedButtons()
 		self.buttons = {}
 	end
 
+	table_insert(self.buttons, KeyRingButton)
+	count = count + 1
+
 	if not self.config.onebag then
 		table_insert(self.buttons, CharacterBag3Slot)
 		table_insert(self.buttons, CharacterBag2Slot)
@@ -105,7 +108,9 @@ function BagBar:FeedButtons()
 	for i,v in pairs(self.buttons) do
 		v:SetParent(self)
 		v:Show()
-		v:SetNormalTexture("")
+		if v ~= KeyRingButton then
+			v:SetNormalTexture("")
+		end
 
 		if Masque then
 			local group = self.MasqueGroup

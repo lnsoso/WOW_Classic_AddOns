@@ -1,0 +1,30 @@
+tag 02199769f36d050300d1df04204c7f43c96e9c3a 1.13.40-classic
+Author:	Floraline <floraline@ophiuchus.org>
+Date:	Tue Nov 5 20:56:00 2019 +0100
+
+tagging for release
+
+commit 2e3cbfbbb0b73aaef966588356a37a9c601ac2a3
+Author: Floraline <floraline@ophiuchus.org>
+Date:   Tue Nov 5 20:55:09 2019 +0100
+
+    classic
+
+commit 644b32eef43534dcfafe2a84dac2f091ad811452
+Author: Floraline <floraline@ophiuchus.org>
+Date:   Wed Oct 23 01:05:42 2019 +0200
+
+    Bump version
+
+commit 6764d11089f6ca594843298042dbf8b30fdc05dc
+Author: Floraline <floraline@ophiuchus.org>
+Date:   Wed Oct 23 01:04:40 2019 +0200
+
+    Fix a bug with ranked spells
+
+commit b19f142038ee82a43cb676c01ce0d9585e72a061
+Author: Floraline <floraline@ophiuchus.org>
+Date:   Wed Oct 23 01:03:56 2019 +0200
+
+    Add a seal bar for Paladins
+

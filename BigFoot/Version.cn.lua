@@ -1,6 +1,6 @@
 if GetLocale()~='zhCN' then return end
-local main= "1.13.2."
-local minor = "28"
+local main= "1.13.3."
+local minor = "30"
 BIGFOOT_VERSION = "zhCN"..main..minor;
 
 function GetMinorVersion()
@@ -8,6 +8,17 @@ function GetMinorVersion()
 end
 
 BigFootChangelog_ah();
+
+	BigFootChangelog_at("2019/12/13 (1.13.3.30)")
+	BigFootChangelog_ar("大脚插件","添加附近敌对玩家列表(Spy)。")
+	BigFootChangelog_ar("大脚插件","修复部分已知问题。")
+	BigFootChangelog_ar("大脚插件","同步更新整合类插件。")
+
+
+	BigFootChangelog_at("2019/12/12 (1.13.3.29)")
+	BigFootChangelog_ar("大脚插件","版本号同步至游戏版本。")
+	BigFootChangelog_ar("大脚插件","同步更新整合类插件。")
+
 
 	BigFootChangelog_at("2019/12/09 (1.13.2.28)")
 	BigFootChangelog_ar("大脚插件","同步更新整合类插件。")
@@ -166,4 +177,4 @@ BigFootChangelog_ah();
 BigFootChangelog_af();
 
 
-BF_VERSION_CHECKSUM = "58"
+BF_VERSION_CHECKSUM = "50"

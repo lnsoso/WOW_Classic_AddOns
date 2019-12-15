@@ -9,6 +9,20 @@ RollTrackerClassic_Addon=RTC
 --[[
 
 	RollTracker Classic 
+	1.91
+		- TOC-Update
+	
+	1.90 
+		- Option: Change color of every text
+		- Option: Announce automatic rolls.
+		
+	1.81 Beta
+		- /rtc announce <value> - output the <value> highest rolls.
+		- New option to always output a list with the highest rolls.
+		- /rt removed - because of conflict with other addons, use /rtc instead.
+		- change guild-rank-color to green
+		- rank of own guild should now always visible		
+		
 	1.80
 		- Optional: Show Guild and Rank (Members need to be near the player!)
 		- Optional: Countdown - rightclick on "Announce" or "/rtc cd"
@@ -53,13 +67,8 @@ RollTrackerClassic_Addon=RTC
 	Originally written by Coth of Gilneas and Morodan of Khadgar.
 	Russian translation by tierggg and Hubbotu
 	
-	TODO 
-		- timer für ausblenden.
-		- Wichtig: Combatlockdown für LootHistory!
 
 ]]--
-
-RTC.OnDebug=true
 
 
 RTC.Version=GetAddOnMetadata(TOCNAME, "Version") 
@@ -81,7 +90,6 @@ RTC.LOOTTRACKER_MAXLINES=1000
 function RTC.GetPlayerList(unsort)
 	local count,start
 	local prefix
-	local localizedClass, englishClass, classIndex
 	local ret={}
 	local retName={}
 		
@@ -95,26 +103,25 @@ function RTC.GetPlayerList(unsort)
 		start=0
 	end
 	
-	local playerGuild = GetGuildInfo("player")
 	
 	for index = start,count do
-		local name=""
 		local guildName, guildRankName, guildRankIndex, realm
+		local id
 		if index>0 then
-			name=GetUnitName(prefix..index)
-			localizedClass, englishClass, classIndex = UnitClass(prefix..index)
-			guildName, guildRankName, guildRankIndex, realm = GetGuildInfo(prefix..index)
+			id=prefix..index
 		else
-			name=GetUnitName("player")
-			localizedClass, englishClass, classIndex = UnitClass("player")
-			guildName, guildRankName, guildRankIndex, realm = GetGuildInfo("player")
+			id="player"
 		end
+		local name=GetUnitName(id)
+		local localizedClass, englishClass, classIndex = UnitClass(id)
+		
 		local rank=""
-		if guildName and guildRankName then
-			if guildName ~= playerGuild then 
+		if IsInGuild() and UnitIsInMyGuild(id) then 
+			rank="<".. GuildControlGetRankName( C_GuildInfo.GetGuildRankOrder( UnitGUID(id) ) )..">"
+		else	
+			local guildName, guildRankName, guildRankIndex, realm = GetGuildInfo(id)
+			if guildName and guildRankName then
 				rank="<"..guildName.." / "..guildRankName..">"
-			else
-				rank="<"..guildRankName..">"
 			end
 		end
 
@@ -203,7 +210,7 @@ function RTC.AddChat(msg)
 		if IsInGroup() or IsInRaid() then
 			SendChatMessage(msg , RTC.GetAutoChannel())
 		else
-			DEFAULT_CHAT_FRAME:AddMessage(msg)
+			DEFAULT_CHAT_FRAME:AddMessage(msg,RTC.DB.ColorChat.r,RTC.DB.ColorChat.g,RTC.DB.ColorChat.b,RTC.DB.ColorChat.a)
 		end
 	end
 end
@@ -489,17 +496,29 @@ function RTC.OptionsInit()
 	RTCO_CheckBox("ShowClassIcon",true)
 	RTCO_CheckBox("ShowGuildRank",true)
 	RTC.Options.AddSpace()
-	--(DB,Var,Init,TXTLeft,width,widthLeft,onlynumbers,tooltip,suggestion)
+	RTCO_CheckBox("AutmaticAnnounce",false)
+	RTC.Options.AddEditBox(RTC.DB,"AnnounceList",1,L["EdtAnnounceList"],50,300,true)
+	RTC.Options.AddSpace()	
 	RTC.Options.AddText(L["MsgStartCD"])
-	RTC.Options.AddSpace()
+	RTC.Options.AddSpace(0.2)
 	RTC.Options.AddEditBox(RTC.DB,"DefaultCD",5,L["EdtDefaultCD"],50,300,true)
 	RTC.Options.AddEditBox(RTC.DB,"CDRefresh",3,L["EdtCDRefresh"],50,300,true)
 	
 	
 	RTC.Options.AddSpace()
+	RTC.Options.AddText(L["BtnLootRolls"])
+	RTC.Options.AddSpace(0.2)
 	RTCO_CheckBox("AutoLootRolls",true)
 	RTCO_CheckBox("AutoCloseLootRolls",true)
 	RTC.Options.AddEditBox(RTC.DB,"AutoCloseDelay",5,L["EdtAutoCloseDelay"],50,300,true)
+	RTC.Options.AddSpace()
+	RTC.Options.AddColorButton(RTC.DB,"ColorNormal",{a=1,r=1,g=1,b=1},L["BtnColorNormal"])
+	RTC.Options.AddColorButton(RTC.DB,"ColorCheat",{a=1,r=1,g=.8,b=.8},L["BtnColorCheat"])
+	RTC.Options.AddColorButton(RTC.DB,"ColorGuild",{a=1,r=.2,g=1,b=.2},L["BtnColorGuild"])
+	RTC.Options.AddColorButton(RTC.DB,"ColorInfo",{a=1,r=.6,g=.6,b=.6},L["BtnColorInfo"])
+	RTC.Options.AddColorButton(RTC.DB,"ColorChat",{a=1,r=1,g=1,b=1},L["BtnColorChat"])
+	RTC.Options.AddColorButton(RTC.DB,"ColorScroll",{a=1,r=.8,g=.8,b=.8},L["BtnColorScroll"])
+	
 	RTC.Options.AddSpace()
 	RTCO_CheckBox("OnDebug",false)
 	
@@ -687,7 +706,7 @@ function RTC.Init ()
 		elseif tContains({"false","0","disable"},value) then
 			DB[var]=false
 		end
-		DEFAULT_CHAT_FRAME:AddMessage(RTC.MSGPREFIX.."Set "..var.." to "..tostring(DB[var]))
+		DEFAULT_CHAT_FRAME:AddMessage(RTC.MSGPREFIX.."Set "..var.." to "..tostring(DB[var]),RTC.DB.ColorChat.r,RTC.DB.ColorChat.g,RTC.DB.ColorChat.b,RTC.DB.ColorChat.a)
 		RTC.OptionsUpdate()
 	end
 	
@@ -703,7 +722,10 @@ function RTC.Init ()
 				{"loot",L["SlashUndoLoot"],RTC.UndoLoot,true},
 			},
 		},
-		{"announce",L["SlashAnnounce"],RTC.RollAnnounce},
+		{"announce","",{
+				{"%",L["SlashAnnounce"],RTC.RollAnnounce},
+			},
+		},
 		{"notrolled",L["SlashNotRolled"],RTC.NotRolled},
 		{"close",L["SlashClose"],RTC.HideWindow},
 		{"reset",L["SlashReset"],RTC.ResetWindow},
@@ -767,7 +789,11 @@ function RTC.Timers()
 	end
 
 	if RTC.Countdown ~=nil then
-		local sec=math.floor(RTC.Countdown-GetTime())
+		local sec=math.floor(RTC.Countdown-GetTime()+0.999)
+		if sec>10 then
+			sec=math.floor((sec+4)/5)*5
+		end
+		
 		if sec ~= lastCountDown then
 			lastCountDown=sec
 			if sec>0  then
@@ -789,7 +815,7 @@ function RTC.Timers()
 end
 
 function RTC.StartCountdown(x)
-	local ti=GetTime() + (x or RTC.DB.DefaultCD)+0.999
+	local ti=GetTime() + (x or RTC.DB.DefaultCD)
 	if RTC.Countdown==nil or RTC.Countdown<ti then
 		RTC.Countdown=ti
 	end
@@ -902,9 +928,16 @@ function RTC.RaidRollList()
 	end
 end
 
-
 function RTC.AddRoll(name,roll,low,high)
 	local ok=false
+	if name=="*" then
+		for i=1,5 do
+			RTC.AddRoll("rndneed"..i,tostring(random(1,100)),"1","100")
+			RTC.AddRoll("rndgreed"..i,tostring(random(1,50)),"1","50")
+		end
+		return 
+	end
+	
 	if RTC.IsRaidRoll and low=="1" and tonumber(high)==#RTC.IsRaidRoll and name==GetUnitName("player") then
 		roll=tonumber(roll)
 		RTC.AddChat(RTC.MSGPREFIX..string.format(L["MsgRaidRoll"],RTC.IsRaidRoll[roll].name,roll))
@@ -927,6 +960,7 @@ function RTC.AddRoll(name,roll,low,high)
 	end
 	
 	if ok then
+	
 		RTC.rollNames[name] = RTC.rollNames[name] and RTC.rollNames[name] + 1 or 1
 		table.insert(RTC.rollArray, {
 			Name = name,
@@ -937,25 +971,32 @@ function RTC.AddRoll(name,roll,low,high)
 		})
 		
 		RTC.ShowWindow(1)
-		if RTC.Countdown then
+		
+		if RTC.allRolled and RTC.DB.AutmaticAnnounce then
+			RTC.BtnAnnounce()
+		elseif RTC.Countdown then
 			RTC.StartCountdown(RTC.DB.CDRefresh)
 		end
 	else	
-		DEFAULT_CHAT_FRAME:AddMessage(string.format(RTC.MSGPREFIX .. L["MsgCheat"],name,roll,low,high))
+		DEFAULT_CHAT_FRAME:AddMessage(string.format(RTC.MSGPREFIX .. L["MsgCheat"],name,roll,low,high),RTC.DB.ColorChat.r,RTC.DB.ColorChat.g,RTC.DB.ColorChat.b,RTC.DB.ColorChat.a)
 	end
 end
 
 function RTC.SortRolls(a, b)
 	return a.Roll < b.Roll
 end
+function RTC.SortRollsRev(a, b)
+	return a.Roll > b.Roll
+end
 
 function RTC.FormatRollText (roll,party,partyName)
-	local colorTied= "|cffffffff"
-	local colorCheat=((roll.Low ~= 1 or roll.High ~= 100) or (roll.Count > 1)) and  "|cffffcccc" or "|cffffffff"
+	local colorTied= RTC.Tool.RGBtoEscape(RTC.DB.ColorNormal)
+	local colorCheat=((roll.Low ~= 1 or roll.High ~= 100) or (roll.Count > 1)) and  RTC.Tool.RGBtoEscape(RTC.DB.ColorCheat) or colorTied
 	local txtRange=(roll.Low ~= 1 or roll.High ~= 100) and format(" (%d-%d)", roll.Low, roll.High)  or ""
 	
 	local colorName
 	local iconClass
+	local colorRank=RTC.Tool.RGBtoEscape(RTC.DB.ColorGuild)
 	local rank=""
 	
 	if partyName[roll.Name] and partyName[roll.Name].class then
@@ -964,6 +1005,7 @@ function RTC.FormatRollText (roll,party,partyName)
 	end
 	if colorName==nil or RTC.DB.ColorName==false then colorName=colorCheat end
 	if iconClass==nil or RTC.DB.ShowClassIcon==false then iconClass=""	end
+	if RTC.DB.ColorName==false then colorRank=colorCheat end
 	
 	if RTC.DB.ShowGuildRank and partyName[roll.Name] and partyName[roll.Name].rank then
 		rank=" "..partyName[roll.Name].rank
@@ -971,8 +1013,8 @@ function RTC.FormatRollText (roll,party,partyName)
 	
 	local txtCount=roll.Count > 1 and format(" [%d]", roll.Count) or ""
 	
-	return colorTied..string.format("%3d",roll.Roll).."|r: "..
-			iconClass..colorName.. roll.Name .. rank.."|r "..
+	return colorTied..string.format("%3d",roll.Roll)..": "..
+			iconClass..colorName.. roll.Name ..colorRank.. rank.."|r "..
 			colorCheat..txtRange.."|r "..
 			colorCheat..txtCount.."\n"
 
@@ -993,14 +1035,14 @@ function RTC.UpdateRollList ()
 				rtxt=RTC.FormatRollText(roll,party,partyName)..rtxt
 			end
 		end
-		rollText = "|cFFAAAAAA" .. L["TxtNeed"] .."\n" .. rtxt 		
+		rollText = RTC.Tool.RGBtoEscape(RTC.DB.ColorInfo) .. L["TxtNeed"] .."\n" .. rtxt 		
 		rtxt=""
 		for i, roll in pairs(RTC.rollArray) do
 			if roll.Roll==0 or roll.High == 50 then
 				rtxt=RTC.FormatRollText(roll,party,partyName)..rtxt
 			end			
 		end
-		rollText = rollText .. "\n|cFFAAAAAA" .. L["TxtGreed"] .. "\n" .. rtxt
+		rollText = rollText .. "\n"..RTC.Tool.RGBtoEscape(RTC.DB.ColorInfo) .. L["TxtGreed"] .. "\n" .. rtxt
 	else
 		for i, roll in pairs(RTC.rollArray) do
 			rollText=RTC.FormatRollText(roll,party,partyName) .. rollText
@@ -1008,9 +1050,10 @@ function RTC.UpdateRollList ()
 	end
 
 	--if IsInGroup() or IsInRaid() then
-	rollText = rollText.."|cFFAAAAAA" .. L["TxtLine"] .. "\n"
-	local gtxt=""
+	rollText = rollText.. RTC.Tool.RGBtoEscape(RTC.DB.ColorInfo) .. L["TxtLine"] .. "\n"
+	local gtxt=RTC.Tool.RGBtoEscape(RTC.DB.ColorInfo)
 	local missClasses={}
+	RTC.allRolled=true
 	for i,p in ipairs(party) do 
 		if RTC.rollNames[p.name]==nil or RTC.rollNames[p.name]==0 then
 			local iconClass=RTC.Tool.IconClass[partyName[p.name].class]
@@ -1024,6 +1067,7 @@ function RTC.UpdateRollList ()
 				rank=" "..partyName[p.name].rank
 			end
 			gtxt = gtxt.. iconClass .. p.name ..rank .."\n"
+			RTC.allRolled=false
 		end
 	end
 	local ctxt=""
@@ -1057,7 +1101,7 @@ end
 function RTC.ClearRolls (doMsg)
 	if #RTC.rollArray>0 then
 		if doMsg then
-			DEFAULT_CHAT_FRAME:AddMessage(RTC.MSGPREFIX .. L["MsgRollCleared"])
+			DEFAULT_CHAT_FRAME:AddMessage(RTC.MSGPREFIX .. L["MsgRollCleared"],RTC.DB.ColorChat.r,RTC.DB.ColorChat.g,RTC.DB.ColorChat.b,RTC.DB.ColorChat.a)
 		end
 	
 		RTC.rollUndoArray = RTC.rollArray
@@ -1071,7 +1115,7 @@ end
 function RTC.UndoRolls (doMsg)
 	if #RTC.rollUndoArray>0 then
 		if doMsg then
-			DEFAULT_CHAT_FRAME:AddMessage(RTC.MSGPREFIX .. L["MsgUndoRoll"])
+			DEFAULT_CHAT_FRAME:AddMessage(RTC.MSGPREFIX .. L["MsgUndoRoll"],RTC.DB.ColorChat.r,RTC.DB.ColorChat.g,RTC.DB.ColorChat.b,RTC.DB.ColorChat.a)
 		end
 		RTC.rollArray = RTC.rollUndoArray
 		RTC.rollNames = RTC.rollUndoNames
@@ -1118,20 +1162,22 @@ function RTC.StartRoll (...)
 	RTC.AddChat(L["MsgBar"])
 end	
 
-function RTC.RollAnnounce ()
+function RTC.RollAnnounce (numbers)
 	local winNum=0
 	local winName=""
 	local max=-1
 	local addPrefix=""
 	local msg=""
+	local list={}
+	numbers=(tonumber(numbers) or RTC.DB.AnnounceList or 1)
+	if numbers==1 then numbers=0 end
 	
-	
+	table.sort(RTC.rollArray, RTC.SortRollsRev)
 	
 	if RTC.DB.NeedAndGreed then
 		for i, roll in pairs(RTC.rollArray) do		
 			if (RTC.DB.AnnounceIgnoreDouble==false or roll.Count==1) and
-			  (roll.Roll>0 and roll.Low==1 and roll.High==100) then
-		
+			  (roll.Roll>0 and roll.Low==1 and roll.High==100) then		
 				if roll.Roll==max then
 					winNum=winNum+1
 					winName=winName..", "..roll.Name
@@ -1139,6 +1185,10 @@ function RTC.RollAnnounce ()
 					max=roll.Roll
 					winNum=1
 					winName=roll.Name
+				end
+				if numbers>0 then
+					numbers=numbers-1
+					tinsert(list,roll.Roll.." "..roll.Name.." ("..roll.Low.."-"..roll.High..")")
 				end
 			end
 		end
@@ -1155,6 +1205,10 @@ function RTC.RollAnnounce ()
 						max=roll.Roll
 						winNum=1
 						winName=roll.Name
+					end
+					if numbers>0 then
+						numbers=numbers-1
+						tinsert(list,roll.Roll.." "..roll.Name.." ("..roll.Low.."-"..roll.High..")")
 					end
 				end
 			end
@@ -1177,6 +1231,10 @@ function RTC.RollAnnounce ()
 					winNum=1
 					winName=roll.Name
 				end
+				if numbers>0 then
+					numbers=numbers-1
+					tinsert(list,roll.Roll.." "..roll.Name.." ("..roll.Low.."-"..roll.High..")")
+				end
 			end
 		end
 	end
@@ -1190,6 +1248,11 @@ function RTC.RollAnnounce ()
 	end
 	
 	RTC.AddChat(msg)
+	for i,out in ipairs(list) do
+		RTC.AddChat(out)
+	end
+	
+	
 	RTC.StopCountdown()
 end
 
@@ -1228,7 +1291,7 @@ function RTC.AddLoot (name,lootitem)
 		["class"]=class,
 		["timestamp"]=t,
 		}
-	RTC.DB.DEBUGHELP_ITEM=lootitem
+	--RTC.DB.DEBUGHELP_ITEM=lootitem
 	
 	loot.itemName, loot.itemLink, loot.itemRarity, loot.itemLevel, _, _,
 		_, _, _, loot.itemIcon, loot.itemSellPrice,loot.itemType =GetItemInfo(string.match(lootitem,"|H(.+)%["))
@@ -1258,7 +1321,7 @@ end
 function RTC.ClearLoot(doMsg)
 	if #RollTrackerClassicLoot>0 then
 		if doMsg then
-			DEFAULT_CHAT_FRAME:AddMessage(RTC.MSGPREFIX .. L["MsgLootCleared"])
+			DEFAULT_CHAT_FRAME:AddMessage(RTC.MSGPREFIX .. L["MsgLootCleared"],RTC.DB.ColorChat.r,RTC.DB.ColorChat.g,RTC.DB.ColorChat.b,RTC.DB.ColorChat.a)
 		end
 		RTC.lootUndo = RollTrackerClassicLoot
 		RollTrackerClassicLoot={}
@@ -1269,7 +1332,7 @@ end
 function RTC.UndoLoot (doMsg)
 	if #RTC.lootUndo>0 then
 		if doMsg then
-			DEFAULT_CHAT_FRAME:AddMessage(RTC.MSGPREFIX .. L["MsgUndoLoot"])
+			DEFAULT_CHAT_FRAME:AddMessage(RTC.MSGPREFIX .. L["MsgUndoLoot"],RTC.DB.ColorChat.r,RTC.DB.ColorChat.g,RTC.DB.ColorChat.b,RTC.DB.ColorChat.a)
 		end
 		RollTrackerClassicLoot = RTC.lootUndo
 		RTC.lootUndo = {}	
@@ -1311,7 +1374,7 @@ function RTC.LootList_AddItem (loot)
 					icon..loot.itemLink..stack
 					)
 	end
-	RollTrackerClassicLootFrame_MessageFrame:AddMessage( Text,.8,.8,.8)
+	RollTrackerClassicLootFrame_MessageFrame:AddMessage( Text,RTC.DB.ColorScroll.r,RTC.DB.ColorScroll.g,RTC.DB.ColorScroll.b,RTC.DB.ColorScroll.a)
 end
 
 function RTC.LootListInit()
@@ -1333,7 +1396,7 @@ function RTC.LootListInit()
 			RTC.LootList_AddItem(loot)
 		end
 	else
-		RollTrackerClassicLootFrame_MessageFrame:AddMessage( L["MsgLTnotenabled"],.8,.8,.8)
+		RollTrackerClassicLootFrame_MessageFrame:AddMessage( L["MsgLTnotenabled"],RTC.DB.ColorScroll.r,RTC.DB.ColorScroll.g,RTC.DB.ColorScroll.b,RTC.DB.ColorScroll.a)
 	end
 
 end
@@ -1390,7 +1453,7 @@ function RTC.CSVList_AddItem (loot,hide)
 	if hide then
 		return text
 	else
-		RollTrackerClassicCSVFrame_MessageFrame:AddMessage( text,.8,.8,.8)
+		RollTrackerClassicCSVFrame_MessageFrame:AddMessage( text,RTC.DB.ColorScroll.r,RTC.DB.ColorScroll.g,RTC.DB.ColorScroll.b,RTC.DB.ColorScroll.a)
 	end
 end
 

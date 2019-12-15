@@ -1,0 +1,16 @@
+## Interface: 11303
+## Title: Speedy Mount
+## Author: Lanaisha - Pyrewood Village
+## Version: 1.0.8
+## Notes: Changes gear when mounted
+## DefaultState: Enabled
+## SavedVariables: SpeedyMountDB
+# OptionalDeps: Ace3
+# X-Embeds: Ace3
+
+libraries\embed.xml
+locales\locales.xml
+
+init.lua
+mounts.lua
+core.lua
