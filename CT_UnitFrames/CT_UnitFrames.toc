@@ -1,4 +1,4 @@
-## Interface: 11302
+## Interface: 11303
 ## Version: 8.2.5.2
 ## Title: CT_UnitFrames |cFF333333(Classic)
 ## Notes: Changes display of hp/mana values and adds a percentage.

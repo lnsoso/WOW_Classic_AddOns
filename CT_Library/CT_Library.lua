@@ -19,7 +19,7 @@
 -----------------------------------------------
 -- Initialization
 
-local LIBRARY_VERSION = 8.256;
+local LIBRARY_VERSION = 8.258;
 local LIBRARY_NAME = "CT_Library";
 
 local _G = getfenv(0);
@@ -229,7 +229,7 @@ function lib:displayTooltip(obj, text, anchor, offx, offy, owner)
 	if ( not anchor ) then
 		GameTooltip_SetDefaultAnchor(tooltip, owner);
 	elseif (anchor == "CT_ABOVEBELOW") then
-		if (owner:GetBottom() <= UIParent:GetTop() - owner:GetTop()) then
+		if (owner:GetBottom() * owner:GetEffectiveScale() <= (UIParent:GetTop() * UIParent:GetEffectiveScale()) - (owner:GetTop() * owner:GetEffectiveScale())) then
 			tooltip:SetOwner(owner, "ANCHOR_TOP", offx or 0, offy or 0);
 		else
 			tooltip:SetOwner(owner, "ANCHOR_BOTTOM", offx or 0, -(offy or 0));
@@ -1426,18 +1426,19 @@ objectHandlers.backdrop = function(self, parent, name, virtual, option, backdrop
 end
 
 -- FontString
+-- #r:b:g:just:max where just is the justification and max is the maximum width (strings will shrink to fit within it)
+-- Do not use maximum width when also setting #s:___:___ because then the width is strictly controlled!
 objectHandlers.font = function(self, parent, name, virtual, option, text, data, layer)
 	-- Data
-	local r, g, b, justify;
-	local a, b, c, d = splitString(data, colonSeparator);
+	local r, g, b, justify, maxwidth;
+	local a, b, c, d, e = splitString(data, colonSeparator);
 
 	-- Parse our attributes
-	r = tonumber(a);
-	if ( r ) then
-		g, b = tonumber(b), tonumber(c);
-		justify = d;
+	if ( tonumber(a) and tonumber(b) and tonumber(c) ) then
+		r, g, b = tonumber(a), tonumber(b), tonumber(c);
+		justify, maxwidth = d, tonumber(e);
 	else
-		justify = a;
+		justify = a, tonumber(b);
 	end
 
 	-- Create FontString
@@ -1445,20 +1446,38 @@ objectHandlers.font = function(self, parent, name, virtual, option, text, data, 
 
 	-- Justify
 	if ( justify ) then
-		local h = match(justify, "[lLrR]");
-		local v = match(justify, "[tTbB]");
+		local h = match(justify, "[lLrRcC]");
+		local v = match(justify, "[tTbBmM]");
 
 		if ( h == "l" ) then
 			fontString:SetJustifyH("LEFT");
 		elseif ( h == "r" ) then
 			fontString:SetJustifyH("RIGHT");
+		elseif ( h == "c" ) then
+			fontString:SetJustifyH("CENTER");
 		end
 
 		if ( v == "t" ) then
 			fontString:SetJustifyV("TOP");
 		elseif ( v == "b" ) then
 			fontString:SetJustifyV("BOTTOM");
+		elseif ( v == "m") then
+			fontString:SetJustifyV("MIDDLE");
 		end
+	end
+
+	-- Maximum width (to support localization
+	if (maxwidth) then
+		hooksecurefunc(fontString, "SetText", function()
+			local fontName, fontHeight, fontFlags = fontString:GetFont();
+			fontString.originalFontHeight = fontString.originalFontHeight or fontHeight;
+			if (fontString.originalFontHeight ~= fontHeight) then
+				fontString:SetFont(fontName, fontString.originalFontHeight, fontFlags);
+			end
+			if (fontString:GetWidth() > maxwidth) then
+				fontString:SetFont(fontName, fontString.originalFontHeight / fontString:GetWidth() * maxwidth, fontFlags);
+			end
+		end);
 	end
 
 	-- Color

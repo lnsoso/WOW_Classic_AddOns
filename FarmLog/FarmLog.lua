@@ -1,5 +1,5 @@
-﻿local VERSION = "1.19"
-local VERSION_INT = 1.1900
+﻿local VERSION = "1.19.3"
+local VERSION_INT = 1.1903
 local ADDON_NAME = "FarmLog"
 local CREDITS = "by |cff40C7EBKof|r @ |cffff2222Shazzrah|r"
 local FONT_NAME = "Fonts\\FRIZQT__.TTF"
@@ -115,15 +115,8 @@ local SKILL_HERB_TEXT = (string.gsub((GetSpellInfo(9134)),"%A",""))
 local PLAYER_WARN_COOLDOWN = 60
 local BL_SEEN_TIMEOUT = 20 * 60
 local BL_TIMERS_DELAY = 5
-local BL_SPAWN_TIME_SECONDS = 3600
 local BL_ITEMID = 13468
 local BL_ITEM_NAME = ""
--- briarthorn FarmLog:SetBlackLotusItemId(2450)
--- peacebloom FarmLog:SetBlackLotusItemId(2447)
--- earthroot FarmLog:SetBlackLotusItemId(2449)
--- silverleaf FarmLog:SetBlackLotusItemId(765)
--- mageroyal FarmLog:SetBlackLotusItemId(785)
--- Stranglekelp FarmLog:SetBlackLotusItemId(3820)
 
 FLogGlobalVars = {
 	debug = false,
@@ -166,6 +159,7 @@ FLogGlobalVars = {
 	pauseOnLogin = true,
 	showHonorPercentOnTooltip = true,
 	showHonorFrenzyCounter = true,
+	blackLotusTimeSeconds = 3600,
 	instances = {},
 	blt = {}, -- BL timers
 	blp = {}, -- BL pick/fail counters
@@ -698,6 +692,8 @@ function FarmLog:Migrate()
 		FLogGlobalVars.honorDRinBGs = true 
 		FLogGlobalVars.autoResumeBGs = true 
 	end 
+
+	if not FLogGlobalVars.blackLotusTimeSeconds then FLogGlobalVars.blackLotusTimeSeconds = 3600 end 
 
 	FLogVars.ver = VERSION_INT
 	FLogGlobalVars.ver = VERSION_INT
@@ -1650,11 +1646,6 @@ end
 
 -- Honor event
 
-local HonorGainStrings = {
-	_G.COMBATLOG_DISHONORGAIN,
-	_G.COMBATLOG_HONORGAIN,
-}
-
 function FarmLog:EstimatedHonorPercent(unitName)
 	if not FLogGlobalVars.honorDRinBGs and FLogVars.inInstance then 
 		return 1
@@ -1678,48 +1669,59 @@ function FarmLog:OnCombatHonorEvent(text)
 
 	FarmLog:CheckPvPDayReset()
 
-	local name = FLogDeformat(text, HonorGainStrings[1])
+	local name = FLogDeformat(text, _G.COMBATLOG_DISHONORGAIN)
 	if name then 
 		if FLogVars.enabled and FLogGlobalVars.track.dks then 
 			IncreaseSessionVar("dks", 1)
 		end 
-	else 
-		local rank, honor
-		name, rank, honor = FLogDeformat(text, HonorGainStrings[2])
-		if name and #name > 0 then 
-			if FLogVars.enabled and FLogGlobalVars.track.hks then 
-				IncreaseSessionVar("hks", 1)
-			end 
+		if FLogVars.enabled then FarmLog_MainWindow:Refresh() end 
+		return 
+	end 
 
-			-- count character kills for honor diminishing returns effect 
-			local honorDR = self:EstimatedHonorPercent(name)
-			if FLogGlobalVars.honorDRinBGs or not FLogVars.inInstance then 
-				local timesKilledToday = (FLogVars.todayKills[name] or 0) + 1
-				FLogVars.todayKills[name] = timesKilledToday
-			end 
-
-			if isPositive(honor) then 
-				local adjustedHonor = math.floor(tonumber(honor) * honorDR)
-				if FLogGlobalVars.showHonorFrenzyCounter then 
-					FarmLog_HonorFrenzyMeter:Add(adjustedHonor)
-				end 
-				if FLogVars.enabled and FLogGlobalVars.track.honor then 
-					IncreaseSessionVar("honor", adjustedHonor)
-				end 
-				debug("|cff999999OnCombatHonorEvent|r |cffff9900"..name.."|r estimated honor |cffff9900"..tostring(honor).."|r DR |cffff99ff"..tostring(honorDR).."|r adjusted |cffff9900"..adjustedHonor)
-			end 
-
-			if FLogVars.enabled and FLogGlobalVars.track.ranks and rank and #rank > 0 then 
-				local sessionRanks = GetSessionVar("ranks", false)
-				sessionRanks[rank] = (sessionRanks[rank] or 0) + 1
-			end 	
-		else 
-			debug("|cff999999OnCombatHonorEvent|r unrecognized honor event |cffff9900"..tostring(text))
+	local rank, honor
+	name, rank, honor = FLogDeformat(text, _G.COMBATLOG_HONORGAIN) -- %s dies, honorable kill Rank: %s (Estimated Honor Points: %d)
+	if name and #name > 0 then 
+		if FLogVars.enabled and FLogGlobalVars.track.hks then 
+			IncreaseSessionVar("hks", 1)
 		end 
+
+		-- count character kills for honor diminishing returns effect 
+		local honorDR = self:EstimatedHonorPercent(name)
+		if FLogGlobalVars.honorDRinBGs or not FLogVars.inInstance then 
+			local timesKilledToday = (FLogVars.todayKills[name] or 0) + 1
+			FLogVars.todayKills[name] = timesKilledToday
+		end 
+
+		if isPositive(honor) then 
+			local adjustedHonor = math.floor(tonumber(honor) * honorDR)
+			if FLogGlobalVars.showHonorFrenzyCounter then 
+				FarmLog_HonorFrenzyMeter:Add(adjustedHonor)
+			end 
+			if FLogVars.enabled and FLogGlobalVars.track.honor then 
+				IncreaseSessionVar("honor", adjustedHonor)
+			end 
+			debug("|cff999999OnCombatHonorEvent|r |cffff9900"..name.."|r estimated honor |cffff9900"..tostring(honor).."|r DR |cffff99ff"..tostring(honorDR).."|r adjusted |cffff9900"..adjustedHonor)
+		end 
+
+		if FLogVars.enabled and FLogGlobalVars.track.ranks and rank and #rank > 0 then 
+			local sessionRanks = GetSessionVar("ranks", false)
+			sessionRanks[rank] = (sessionRanks[rank] or 0) + 1
+		end 	
+		if FLogVars.enabled then FarmLog_MainWindow:Refresh() end 
+		return 
 	end 
-	if FLogVars.enabled then 
-		FarmLog_MainWindow:Refresh()
+
+	honor = FLogDeformat(text, _G.COMBATLOG_HONORAWARD) -- You have been awarded %d honor points.
+	if isPositive(honor) then 
+		if FLogVars.enabled and FLogGlobalVars.track.honor then 
+			IncreaseSessionVar("honor", honor)
+		end 
+		debug("|cff999999OnCombatHonorEvent|r honor award |cffff9900"..tostring(honor))
+		if FLogVars.enabled then FarmLog_MainWindow:Refresh() end 
+		return 
 	end 
+
+	debug("|cff999999OnCombatHonorEvent|r unrecognized honor event |cffff9900"..tostring(text))
 end 
 
 function FarmLog:OnPlayerDead()
@@ -2057,8 +2059,8 @@ function FarmLog:ShowBlackLotusTimers()
 			if realmName == REALM then 
 				for zoneName, lastPick in pairs(timers) do 
 					local delta = now - lastPick
-					if delta < BL_SPAWN_TIME_SECONDS then 
-						local seconds = BL_SPAWN_TIME_SECONDS - delta
+					if delta < FLogGlobalVars.blackLotusTimeSeconds then 
+						local seconds = FLogGlobalVars.blackLotusTimeSeconds - delta
 						local text = L["blacklotus-short"]..": "..zoneName
 						if DBM then 
 							DBM:CreatePizzaTimer(seconds, text)

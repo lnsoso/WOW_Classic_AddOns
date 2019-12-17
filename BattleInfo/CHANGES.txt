@@ -1,0 +1,10 @@
+lightweight tag d56b3a4f544ff59c34fb1214a195557e40658e64 v2.2.2
+Author:	Boshi Lian <farmer1992@gmail.com>
+Date:	Mon Dec 16 04:07:41 2019 -0800
+
+commit d56b3a4f544ff59c34fb1214a195557e40658e64
+Author: Boshi Lian <farmer1992@gmail.com>
+Date:   Mon Dec 16 04:07:41 2019 -0800
+
+    add alterac tower indicator
+

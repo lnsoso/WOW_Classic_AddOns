@@ -50,7 +50,7 @@ local function moveFlightBar()
 		MainMenuBarVehicleLeaveButton:SetPoint("RIGHT", StanceButton1, "LEFT", -10, 0);
 	else
 		MainMenuBarVehicleLeaveButton:ClearAllPoints();
-		MainMenuBarVehicleLeaveButton:SetPoint("RIGHT", StanceBarFrame, "LEFT", -10, 0);
+		MainMenuBarVehicleLeaveButton:SetPoint("RIGHT", ctRelativeFrame, "BOTTOM", -492, 90);
 	end
 end
 
@@ -136,10 +136,10 @@ local function addon_Register()
 	module:registerAddon(
 		"Stance Bar",  -- option name
 		"CTStanceBarFrame",  -- used in frame names
-		"Stance Bar",  -- shown in options window & tooltips
-		"Stance Bar",  -- title for horizontal orientation
+		module.text["CT_BottomBar/Options/StanceBar"],  -- shown in options window & tooltips
+		module.text["CT_BottomBar/Options/StanceBar"],  -- title for horizontal orientation
 		nil,  -- title for vertical orientation
-		{ "BOTTOMLEFT", StanceBarFrame, "TOPLEFT", 11, 3 },
+		{ "BOTTOMLEFT", ctRelativeFrame, "BOTTOM", -482, 60 },
 		{ -- settings
 			orientation = "ACROSS",
 		},
@@ -165,10 +165,10 @@ local function addon_Register()
 	module:registerAddon(
 		"Flight Bar",  -- option name
 		"CTFlightBarFrame",  -- used in frame names
-		"Stop Flying Button",  -- shown in options window & tooltips
-		"Stop Flying",  -- title for horizontal orientation
+		module.text["CT_BottomBar/Options/FlightBar"],  -- shown in options window & tooltips
+		module.text["CT_BottomBar/Options/FlightBar"],  -- title for horizontal orientation
 		nil,  -- title for vertical orientation
-		{ "RIGHT", StanceBarFrame, "LEFT", -10, 0 },
+		{ "RIGHT", ctRelativeFrame, "BOTTOM", -492, 90 },
 		{ -- settings
 			orientation = "ACROSS",
 		},

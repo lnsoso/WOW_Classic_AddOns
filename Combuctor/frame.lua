@@ -368,11 +368,11 @@ function InventoryFrame:UpdateBagFrame()
 	if self.sets.showBags then	--若展示背包
 		for i,bagID in ipairs(self.sets.bags) do	--背包的bagID为0,1,2,3,4；银行的bagID为-1,5,6,7,8,9,10,11，-3
 			if self.selTab ~=  2 then
-				-- if bagID ~= KEYRING_CONTAINER then
+				if bagID ~= KEYRING_CONTAINER then
 					local bag = Combuctor.Bag:Get(i+self.bagIdOffset, bagID)
 					bag:Set(self, bagID)
 					table.insert(self.bagButtons, bag)
-				-- end
+				end
 			else
 				if bagID ~= KEYRING_CONTAINER and bagID ~= REAGENTBANK_CONTAINER then
 					local bag = Combuctor.Bag:Get(i+self.bagIdOffset, bagID)
@@ -899,12 +899,12 @@ function InventoryFrame:SetItemFrameSize(width)
 end
 
 function InventoryFrame:OnFrameShow()
-	local getBackPackSize=function()
-		local count =0
-		for i=0,4,1 do
-			count=count+GetContainerNumSlots(i)
+	local getBackPackSize = function()
+		local count = 0
+		for i=0,4 do
+			count = count + GetContainerNumSlots(i)
 		end
-		count=count+GetContainerNumSlots(-2) --for KeyRing
+		-- count=count+GetContainerNumSlots(KEYRING_CONTAINER) --for KeyRing
 		return count
 	end
 

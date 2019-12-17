@@ -1,4 +1,4 @@
-## Interface: 11302
+## Interface: 11303
 ## Version: 8.2.5.6
 ## Title: CT_Core |cFF333333(Classic)
 ## Notes: General nifty features for CTMod.

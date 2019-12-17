@@ -3031,6 +3031,9 @@ function Plater.OnInit() --private
 		
 		Plater.EventHandlerFrame:RegisterEvent ("GROUP_ROSTER_UPDATE")
 		
+		Plater.EventHandlerFrame:RegisterEvent ("UNIT_INVENTORY_CHANGED")
+		Plater.EventHandlerFrame:RegisterEvent ("UPDATE_SHAPESHIFT_FORM")
+		
 		--many times at saved variables load the spell database isn't loaded yet
 		function Plater:PLAYER_LOGIN()
 			C_Timer.After (0.1, Plater.UpdatePlateClickSpace)

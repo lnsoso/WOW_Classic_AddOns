@@ -2,7 +2,7 @@ local mod	= DBM:NewMod("z30", "DBM-PvP")
 
 local pairs, ipairs, type, tonumber, select, math = pairs, ipairs, type, tonumber, select, math
 
-mod:SetRevision("20190908234935")
+mod:SetRevision("20191212133243")
 mod:SetZone(DBM_DISABLE_ZONE_DETECTION)
 
 mod:AddBoolOption("AutoTurnIn")
@@ -15,7 +15,7 @@ do
 	local bgzone = false
 
 	function mod:OnInitialize()
-		if DBM:GetCurrentArea() == 30 then
+		if DBM:GetCurrentArea() == 30 or DBM:GetCurrentArea() == 2197 then
 			bgzone = true
 			self:RegisterShortTermEvents(
 				"GOSSIP_SHOW",
@@ -63,14 +63,14 @@ local quests = {
 }
 
 do
-	do
+	if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
 		local tooltip = CreateFrame("GameTooltip", "DBM-PvP_Tooltip")
 		tooltip:SetOwner(UIParent, "ANCHOR_NONE")
 		tooltip:AddFontStrings(tooltip:CreateFontString("$parentText", nil, "GameTooltipText"), tooltip:CreateFontString("$parentTextRight", nil, "GameTooltipText"))
 
 		local function getQuestName(id)
 			tooltip:ClearLines()
-			tooltip:SetHyperlink("quest:"..id)
+			tooltip:SetHyperlink("quest:"..id)--Quest tooltip type doesn't exist until Wrath
 			return _G[tooltip:GetName().."Text"]:GetText()
 		end
 

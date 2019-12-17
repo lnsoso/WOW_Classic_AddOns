@@ -1,5 +1,5 @@
-## Interface: 11302
-## Version: 8.2.5.5
+## Interface: 11303
+## Version: 8.2.5.8
 ## Title: CT_BarMod |cFF333333(Classic)
 ## Notes: Intuitive yet powerful action bar addon.
 ## DefaultState: Enabled

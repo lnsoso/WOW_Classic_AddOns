@@ -9,6 +9,13 @@ RollTrackerClassic_Addon=RTC
 --[[
 
 	RollTracker Classic 
+	2.00
+		- remove /rt (again)
+		- russian update by Arrogant_Dreamer 
+	
+	1.92
+		- Option to Enable/disable on overworld, in battleground, in dungeon, in raiddungeon
+	
 	1.91
 		- TOC-Update
 	
@@ -215,6 +222,15 @@ function RTC.AddChat(msg)
 	end
 end
 
+function RTC.AllowInInstance()
+	local inInstance, instanceType = IsInInstance()
+	if instanceType=="arena" then
+		instanceType="pvp"
+	elseif instanceType=="scenario" then
+		instanceType="party"
+	end
+	return RTC.DB["NotfiyIn"..instanceType]
+end
 
 -- LootHistory
 local function MyLootHistoryFrame_FullUpdate(self)
@@ -476,6 +492,12 @@ function RTC.OptionsInit()
 	RTC.Options.AddCheckBox(RTC.DB.Minimap,"lock",false,L["CboxLockMinimapButton"])
 	RTC.Options.AddCheckBox(RTC.DB.Minimap,"lockDistance",false,L["CboxLockMinimapButtonDistance"])
 	RTC.Options.AddSpace()
+	RTCO_CheckBox("NotfiyInnone",true)
+	RTCO_CheckBox("NotfiyInpvp",false)
+	RTCO_CheckBox("NotfiyInparty",true)
+	RTCO_CheckBox("NotfiyInraid",true)
+	
+	RTC.Options.AddSpace()
 	RTCO_CheckBox("ClearOnClose",true)	
 	RTCO_CheckBox("ClearOnAnnounce", true)	
 	RTCO_CheckBox("CloseOnAnnounce", true)	
@@ -710,7 +732,7 @@ function RTC.Init ()
 		RTC.OptionsUpdate()
 	end
 	
-	RTC.Tool.SlashCommand({"/rtc","/rt","/rolltracker","/rolltrackerclassic"},{
+	RTC.Tool.SlashCommand({"/rtc","/rolltracker","/rolltrackerclassic"},{
 		{"clear","",{
 				{"rolls",L["SlashClearRolls"],RTC.ClearRolls,true},
 				{"loot",L["SlashClearLoot"],RTC.ClearLoot,true},
@@ -945,6 +967,9 @@ function RTC.AddRoll(name,roll,low,high)
 		return 
 	end
 	
+	if not RTC.AllowInInstance() then
+		return
+	end
 	
 	-- check for rerolls. >1 if rolled before
 	if RTC.DB.NeedAndGreed then

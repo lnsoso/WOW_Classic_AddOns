@@ -4,11 +4,12 @@
 ## Author: d87
 ## SavedVariablesPerCharacter: NRunDB_Char
 ## SavedVariables: NRunDB_Global, NugRunningConfigCustom
-## Version: 1.13.31
+## Version: 1.13.32
 ## X-WoWI-ID: 10440
 ## X-Curse-Project-ID: 27470
 ## Dependencies: BigFoot
 ## X-Revision: BigFoot
+Libs\LibTotemInfo-1.0\LibTotemInfo-1.0.lua
 
 helpers.lua
 classic.config.lua

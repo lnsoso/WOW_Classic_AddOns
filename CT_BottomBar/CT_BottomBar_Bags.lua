@@ -116,13 +116,13 @@ local function addon_Register()
 		y = 28;
 	elseif (module:getGameVersion() == CT_GAME_VERSION_CLASSIC) then
 		x = 300;
-		y = 3;
+		y = 2;
 	end		
 	module:registerAddon(
 		"Bags Bar",  -- option name
 		"BagsBar",  -- used in frame names
-		"Bags Bar",  -- shown in options window & tooltips
-		"Bags Bar",  -- title for horizontal orientation
+		module.text["CT_BottomBar/Options/BagsBar"],  -- shown in options window & tooltips
+		module.text["CT_BottomBar/Options/BagsBar"],  -- title for horizontal orientation
 		"Bags",  -- title for vertical orientation
 		{ "BOTTOMLEFT", ctRelativeFrame, "BOTTOM", x, y },  --default position
 		{ -- settings

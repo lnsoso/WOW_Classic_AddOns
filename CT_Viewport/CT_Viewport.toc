@@ -1,4 +1,4 @@
-## Interface: 11302
+## Interface: 11303
 ## Version: 8.2.0.4
 ## Title: CT_Viewport |cFF333333(Classic)
 ## Notes: Allows you to change the rendered world's size.

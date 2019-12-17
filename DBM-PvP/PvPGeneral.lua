@@ -3,8 +3,9 @@ local L		= mod:GetLocalizedStrings()
 
 local ipairs, math = ipairs, math
 local IsInInstance, CreateFrame = IsInInstance, CreateFrame
+local GetPlayerFactionGroup = GetPlayerFactionGroup or UnitFactionGroup--Classic Compat fix
 
-mod:SetRevision("20190908234735")
+mod:SetRevision("20191214222110")
 mod:SetZone(DBM_DISABLE_ZONE_DETECTION)
 
 --mod:AddBoolOption("ColorByClass", true)
@@ -15,8 +16,8 @@ mod:RegisterEvents(
 	"ZONE_CHANGED_NEW_AREA",
 	"PLAYER_ENTERING_WORLD",
 	"PLAYER_DEAD",
-	"START_TIMER",
-	"UPDATE_BATTLEFIELD_STATUS"
+	"START_TIMER"
+--	"UPDATE_BATTLEFIELD_STATUS"
 )
 
 do
@@ -60,15 +61,17 @@ do
 	local tonumber = tonumber
 	local C_UIWidgetManager, TimerTracker = C_UIWidgetManager, TimerTracker
 	-- Interface\\Icons\\INV_BannerPVP_02.blp || Interface\\Icons\\INV_BannerPVP_01.blp
-	local remainingTimer	= mod:NewTimer(0, "TimerRemaining", GetPlayerFactionGroup() == "Alliance" and "132486" or "132485")
+	local remainingTimer	= mod:NewTimer(0, "TimerRemaining", GetPlayerFactionGroup("player") == "Alliance" and "132486" or "132485")
 	local timerShadow		= mod:NewNextTimer(90, 34709)
 	local timerDamp			= mod:NewCastTimer(300, 110310)
 
 	function mod:START_TIMER(_, timeSeconds)
 		local _, instanceType = IsInInstance()
 		if (instanceType == "pvp" or instanceType == "arena" or instanceType == "scenario") and self.Options.TimerRemaining then
-			for _, bar in ipairs(TimerTracker.timerList) do
-				bar.bar:Hide()
+			if TimerTracker then
+				for _, bar in ipairs(TimerTracker.timerList) do
+					bar.bar:Hide()
+				end
 			end
 			remainingTimer:Start(timeSeconds)
 		end
@@ -88,11 +91,12 @@ do
 	end
 end
 
+--[[
 do
-	local format, tostring = format, tostring
+	local format, tostring = string.format, tostring
 	local GetBattlefieldStatus, GetBattlefieldPortExpiration, PVP_TEAMSIZE = GetBattlefieldStatus, GetBattlefieldPortExpiration, PVP_TEAMSIZE
 	-- Interface\\Icons\\INV_BannerPVP_02.blp || Interface\\Icons\\INV_BannerPVP_01.blp
-	local inviteTimer = mod:NewTimer(60, "TimerInvite", GetPlayerFactionGroup() == "Alliance" and "132486" or "132485")
+	local inviteTimer = mod:NewTimer(60, "TimerInvite", GetPlayerFactionGroup("player") == "Alliance" and "132486" or "132485")
 
 	function mod:UPDATE_BATTLEFIELD_STATUS(queueID)
 		if self.Options.TimerInvite then
@@ -112,6 +116,7 @@ do
 		end
 	end
 end
+--]]
 
 -- Utility functions
 local scoreFrame1, scoreFrame2, scoreFrameToWin, scoreFrame1Text, scoreFrame2Text, scoreFrameToWinText
@@ -265,9 +270,9 @@ do
 end
 
 do
-	local GetTime, UnitFactionGroup, FACTION_HORDE, FACTION_ALLIANCE = GetTime, UnitFactionGroup, FACTION_HORDE, FACTION_ALLIANCE
+	local GetTime, FACTION_HORDE, FACTION_ALLIANCE = GetTime, FACTION_HORDE, FACTION_ALLIANCE
 	-- Interface\\Icons\\INV_BannerPVP_02.blp || Interface\\Icons\\INV_BannerPVP_01.blp
-	local winTimer = mod:NewTimer(30, "TimerWin", GetPlayerFactionGroup() == "Alliance" and "132486" or "132485")
+	local winTimer = mod:NewTimer(30, "TimerWin", GetPlayerFactionGroup("player") == "Alliance" and "132486" or "132485")
 
 	function mod:UpdateWinTimer(maxScore, allianceScore, hordeScore, allianceBases, hordeBases)
 		local gameTime = GetTime()
@@ -302,7 +307,7 @@ do
 		end
 		if self.Options.ShowBasesToWin then
 			local friendlyLast, enemyLast, friendlyBases, enemyBases
-			if UnitFactionGroup("player") == "Alliance" then
+			if GetPlayerFactionGroup("player") == "Alliance" then
 				friendlyLast = allianceScore
 				enemyLast = hordeScore
 				friendlyBases = allianceBases
@@ -339,7 +344,8 @@ do
 
 	function mod:AREA_POIS_UPDATED(widget)
 		local allyBases, hordeBases = 0, 0
-		if subscribedMapID ~= 0 and widget and widget.widgetID == 1671 then
+		local widgetID = widget and widget.widgetID
+		if subscribedMapID ~= 0 and widgetID and widgetID == 1671 then
 			local isAtlas = false
 			for _, areaPOIID in ipairs(C_AreaPoiInfo.GetAreaPOIForMap(subscribedMapID)) do
 				local areaPOIInfo = C_AreaPoiInfo.GetAreaPOIInfo(subscribedMapID, areaPOIID)
@@ -393,7 +399,7 @@ do
 					end
 				end
 			end
-		elseif widget and widget.widgetID == 1683 then
+		elseif widgetID and widgetID == 1683 then
 			local widgetInfo = C_UIWidgetManager.GetDoubleStateIconRowVisualizationInfo(1683)
 			for _, v in pairs(widgetInfo.leftIcons) do
 				if v.iconState == 1 then
@@ -408,8 +414,10 @@ do
 		else
 			return
 		end
-		local info = C_UIWidgetManager.GetDoubleStatusBarWidgetVisualizationInfo(1671)
-		self:UpdateWinTimer(info.leftBarMax, info.leftBarValue, info.rightBarValue, allyBases, hordeBases)
+		local info = C_UIWidgetManager.GetDoubleStatusBarWidgetVisualizationInfo(widgetID)
+		if info then
+			self:UpdateWinTimer(info.leftBarMax, info.leftBarValue, info.rightBarValue, allyBases, hordeBases)
+		end
 	end
 	mod.UPDATE_UI_WIDGET = mod.AREA_POIS_UPDATED
 end

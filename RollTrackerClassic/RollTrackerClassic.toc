@@ -1,7 +1,7 @@
 ## Interface: 11303
 ## Title: RollTracker Classic
 ## Notes: Keeps tracks of /rolls and loot
-## Version: 1.91
+## Version: 1.92
 ## Author: GPI
 ## DefaultState: enabled
 ## SavedVariables: RollTrackerClassicDB,RollTrackerClassicLoot
