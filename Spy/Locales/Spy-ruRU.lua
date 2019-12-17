@@ -64,6 +64,8 @@ L["ShowKoSButton"] = "Show KOS button on the enemy target frame"
 L["ShowKoSButtonDescription"] = "Set this to show the KOS button on the enemy player's target frame."
 L["LockSpy"] = "Lock the Spy window"
 L["LockSpyDescription"] = "Locks the Spy window in place so it doesn't move."
+L["ClampToScreen"] = "Прикрепить к экрану"
+L["ClampToScreenDescription"] = "Управляет возможностью перемещения окна Spy с экрана"
 L["InvertSpy"] = "Invert the Spy window"
 L["InvertSpyDescription"] = "Flips the Spy window upside down."
 L["Reload"] = "Reload UI"
@@ -302,7 +304,7 @@ L["StatsSeparator"] = "  "
 L["StatsLoses"] = "|cff0070ddLosses: "
 L["Located"] = "located:"
 L["Yards"] = "yards"
-L["LocalDefenseChannelName"] = "Оборона" -- has to be exact (use /3 in game for the channel name)
+L["LocalDefenseChannelName"] = "ОборонаЛокальный" 
 
 Spy_KOSReasonListLength = 6
 Spy_KOSReasonList = {

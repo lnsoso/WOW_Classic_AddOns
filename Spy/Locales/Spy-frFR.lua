@@ -1,389 +1,391 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("Spy", "frFR")
 if not L then return end
-
+-- TOC Note: "Détecte et vous avertit de la présence de joueurs ennemis à proximité."
 
 -- Addon information
 L["Spy"] = "Spy"
 L["Version"] = "Version"
 L["VersionCheck"] = "|cffc41e3aAttention! La mauvaise version de Spy est installée. Supprimez cette version et installez Spy Classic."
-L["SpyEnabled"] = "|cff9933ffSpy addon enabled."
-L["SpyDisabled"] = "|cff9933ffSpy addon disabled. Type |cffffffff/spy enable|cff9933ff to enable."
-L["UpgradeAvailable"] = "|cff9933ffA new version of Spy is available. It can be downloaded from:\n|cffffffffhttps://www.curseforge.com/wow/addons/spy-classic"
+L["SpyEnabled"] = "|cff9933ffAddon SPY activé"
+L["SpyDisabled"] = "|cff9933ffAddon SPY désactivé. Taper |cffffffff/spy enable|cff9933ff pour l'activer"
+L["UpgradeAvailable"] = "|cff9933ffUne nouvelle version de Spy est disponible. Elle peut être téléchargée à partir de:\n|cffffffffhttps://www.curseforge.com/wow/addons/spy-classic"
 
 -- Configuration frame name
 L["Spy Option"] = "Spy"
 
 -- Configuration strings
-L["Profiles"] = "Profiles"
+L["Profiles"] = "Profils"
 
-L["GeneralSettings"] = "General Settings"
+L["GeneralSettings"] = "Configuration générale"
 L["SpyDescription1"] = [[
-Spy is an addon that will alert you to the presence of nearby enemy players.
+SPY est un addon qui vous avertit de la présence de joueurs ennemis à proximité.
 ]]
 L["SpyDescription2"] = [[
 
-|cffffd000Nearby list|cffffffff
-Displays enemy players that have been detected nearby. Players are removed from the list if they have not been detected after a period of time.
+|cffffd000Liste des ennemis à proximité|cffffffff
+Affiche les joueurs ennemis qui ont été détectés à proximité. Les joueurs sont retirés de la liste s'ils n'ont pas été détectés après un certain temps.
 
-|cffffd000Last Hour list|cffffffff
-Displays all enemies that have been detected in the last hour.
+|cffffd000Liste des dernières heures|cffffffff
+Affiche tous les ennemis qui ont été détectés au cours de la dernière heure.
 
-|cffffd000Ignore list|cffffffff
-Players that are added to the Ignore list will not be reported by Spy. You can add and remove players to/from this list by using the button's drop down menu or by holding the Control key while clicking the button.
+|cffffd000Liste des joueurs à ignorer|cffffffff
+Les joueurs qui sont ajoutés à la liste d'ignorés ne seront pas signalés par Spy. Vous pouvez ajouter et supprimer des joueurs de cette liste en utilisant le menu déroulant du bouton ou en maintenant la touche Ctrl enfoncée tout en cliquant sur le bouton.
 
-|cffffd000Kill On Sight list|cffffffff
-Players on your Kill On Sight list cause an alarm to sound when detected. You can add and remove players to/from this list by using the button's drop down menu or by holding the Shift key while clicking the button.
+|cffffd000Liste des Tuer à vue|cffffffff
+Les joueurs de votre liste \"Tuer à vue\" déclenchent une alarme lorsqu'ils sont détectés. Vous pouvez ajouter et supprimer des joueurs de cette liste en utilisant le menu déroulant du bouton ou en maintenant la touche Maj enfoncée tout en cliquant sur le bouton.
 
-The drop down menu can also be used to set the reasons why you have added someone to the Kill On Sight list. If you want to enter a specific reason that is not in the list, then use the "Enter your own reason..." in the Other list.
+Le menu déroulant peut également être utilisé pour définir les raisons pour lesquelles vous avez ajouté quelqu'un à la liste "Tuer à vue". Si vous voulez entrer un raison spécifique qui n'est pas dans la liste, utilisez le bouton "Entrez votre propre raison ..." dans la liste "Autre".
 
-|cffffd000Author: Slipjack|cffffffff
+|cffffd000Auteur: Slipjack|cffffffff
 ]]
 
-L["EnableSpy"] = "Enable Spy"
-L["EnableSpyDescription"] = "Enables or disables Spy."
-L["EnabledInBattlegrounds"] = "Enable Spy in battlegrounds"
-L["EnabledInBattlegroundsDescription"] = "Enables or disables Spy when you are in a battleground."
-L["EnabledInArenas"] = "Enable Spy in arenas"
-L["EnabledInArenasDescription"] = "Enables or disables Spy when you are in an arena."
-L["EnabledInWintergrasp"] = "Enable Spy in world combat zones"
-L["EnabledInWintergraspDescription"] = "Enables or disables Spy when you are in world combat zones such as Lake Wintergrasp in Northrend."
-L["DisableWhenPVPUnflagged"] = "Disable Spy when not flagged for PVP"
-L["DisableWhenPVPUnflaggedDescription"] = "Enables or disables Spy depending on your PVP status."
+L["EnableSpy"] = "Activer Spy"
+L["EnableSpyDescription"] = "Active ou désactive Spy."
+L["EnabledInBattlegrounds"] = "Activer Spy en champs de bataille"
+L["EnabledInBattlegroundsDescription"] = "Active ou désactive Spy lorsque vous êtes sur un champ de bataille."
+L["EnabledInArenas"] = "Activer Spy en arènes"
+L["EnabledInArenasDescription"] = "Active ou désactive Spy lorsque vous êtes dans une arène."
+L["EnabledInWintergrasp"] = "Activer Spy en zone de combat mondiale"
+L["EnabledInWintergraspDescription"] = "Active ou désactive Spy lorsque vous êtes dans des zones de combat mondial comme le Joug-d’Hiver en Northrend."
+L["DisableWhenPVPUnflagged"] = "Désactiver Spy lorsque le mode JcJ est désactiver"
+L["DisableWhenPVPUnflaggedDescription"] = "Active ou désactive Spy en fonction de votre statut JcJ."
 
-L["DisplayOptions"] = "Display"
+L["DisplayOptions"] = "Affichage"
 L["DisplayOptionsDescription"] = [[
-Options for the Spy window and tooltips.
+Options pour la fenêtre Spy et les infobulles.
 ]]
-L["ShowOnDetection"] = "Show Spy when enemy players are detected"
-L["ShowOnDetectionDescription"] = "Set this to display the Spy window and the Nearby list if Spy is hidden when enemy players are detected."
-L["HideSpy"] = "Hide Spy when no enemy players are detected"
-L["HideSpyDescription"] = "Set this to hide Spy when the Nearby list is displayed and it becomes empty. Spy will not be hidden if you clear the list manually."
-L["ShowOnlyPvPFlagged"] = "Show only enemy players flagged for PvP"
-L["ShowOnlyPvPFlaggedDescription"] = "Set this to show only enemy players that are flagged for PvP in the Nearby list."
-L["ShowKoSButton"] = "Show KOS button on the enemy target frame"
-L["ShowKoSButtonDescription"] = "Set this to show the KOS button on the enemy player's target frame."
-L["LockSpy"] = "Lock the Spy window"
-L["LockSpyDescription"] = "Locks the Spy window in place so it doesn't move."
-L["InvertSpy"] = "Invert the Spy window"
-L["InvertSpyDescription"] = "Flips the Spy window upside down."
+L["ShowOnDetection"] = "Afficher Spy lorsque des joueurs ennemis sont détectés"
+L["ShowOnDetectionDescription"] = "Choisir cette option pour afficher la fenêtre SPY et la liste des ennemis proches si SPY est masqué lorsque des joueurs ennemis sont détectés."
+L["HideSpy"] = "Cacher SPY quand aucun ennemi est détecté"
+L["HideSpyDescription"] = "Choisir cette option pour masquer SPY lorsque la liste des ennemis proches s'affiche et qu'elle devient vide. SPY ne sera pas caché si vous effacez la liste manuellement."
+L["ShowOnlyPvPFlagged"] = "Afficher uniquement les joueurs ennemis marqués pour le JcJ."
+L["ShowOnlyPvPFlaggedDescription"] = "Choisir cette option pour n'afficher que les joueurs ennemis qui ont activé le mode JcJ dans la liste des joueurs à proximité."
+L["ShowKoSButton"] = "Afficher le bouton TaV dans le cadre cible ennemi"
+L["ShowKoSButtonDescription"] = "Choisir ce paramètre pour afficher le bouton TaV sur le cadre cible du joueur ennemi."
+L["LockSpy"] = "Verrouillez la fenêtre SPY"
+L["LockSpyDescription"] = "Verrouille la fenêtre Spy pour qu'elle ne bouge pas."
+L["ClampToScreen"] = "Garder à l'écran"
+L["ClampToScreenDescription"] = "Contrôle si la fenêtre Spy peut être déplacée hors écran."
+L["InvertSpy"] = "Inverser la fenêtre Spy"
+L["InvertSpyDescription"] = "Renverse la fenêtre Spy"
 L["Reload"] = "Reload UI"
-L["ReloadDescription"] = "Required when changing the Spy window."
-L["ResizeSpy"] = "Resize the Spy window automatically"
-L["ResizeSpyDescription"] = "Set this to automatically resize the Spy window as enemy players are added and removed."
-L["ResizeSpyLimit"] = "List Limit"
-L["ResizeSpyLimitDescription"] = "Limit the number of enemy players shown in the Spy window."
-L["DisplayTooltipNearSpyWindow"] = "Display tooltip near the Spy window"
-L["DisplayTooltipNearSpyWindowDescription"] = "Set this to display tooltips near the Spy window."
-L["SelectTooltipAnchor"] = "Tooltip Anchor Point"
-L["SelectTooltipAnchorDescription"] = "Select the anchor point for the tooltip if the option above has been checked"
-L["ANCHOR_CURSOR"] = "Cursor"
-L["ANCHOR_TOP"] = "Top"
-L["ANCHOR_BOTTOM"] = "Bottom"
-L["ANCHOR_LEFT"] = "Left"			
-L["ANCHOR_RIGHT"] = "Right"
-L["TooltipDisplayWinLoss"] = "Display win/loss statistics in tooltip"
-L["TooltipDisplayWinLossDescription"] = "Set this to display the win/loss statistics of a player in the player's tooltip."
-L["TooltipDisplayKOSReason"] = "Display Kill On Sight reasons in tooltip"
-L["TooltipDisplayKOSReasonDescription"] = "Set this to display the Kill On Sight reasons of a player in the player's tooltip."
-L["TooltipDisplayLastSeen"] = "Display last seen details in tooltip"
-L["TooltipDisplayLastSeenDescription"] = "Set this to display the last known time and location of a player in the player's tooltip."
-L["SelectFont"] = "Select a Font"
-L["SelectFontDescription"] = "Select a Font for the Spy Window."
-L["RowHeight"] = "Select the Row Height"
-L["RowHeightDescription"] = "Select the Row Height for the Spy window."
+L["ReloadDescription"] = "Requis lors du changement de la fenêtre SPY."
+L["ResizeSpy"] = "Redimensionner la fenêtre Spy automatiquement"
+L["ResizeSpyDescription"] = "Choisir cette option pour redimensionner automatiquement la fenêtre Spy au fur et à mesure que les joueurs ennemis sont ajoutés et supprimés."
+L["ResizeSpyLimit"] = "Limite de liste"
+L["ResizeSpyLimitDescription"] = "Limite le nombre de joueurs ennemis affichés dans la fenêtre Spy."
+L["DisplayTooltipNearSpyWindow"] = "Afficher la bulle d'aide près de la fenêtre Spy"
+L["DisplayTooltipNearSpyWindowDescription"] = "Choisir cette option pour afficher des infobulles près de la fenêtre Spy."
+L["SelectTooltipAnchor"] = "Point d'ancrage de l'infobulle"
+L["SelectTooltipAnchorDescription"] = "Sélectionnez le point d'ancrage de l'infobulle si l'option ci-dessus a été cochée."
+L["ANCHOR_CURSOR"] = "Curseur"
+L["ANCHOR_TOP"] = "Haut"
+L["ANCHOR_BOTTOM"] = "Sous"
+L["ANCHOR_LEFT"] = "Gauche"			
+L["ANCHOR_RIGHT"] = "Droite"
+L["TooltipDisplayWinLoss"] = "Afficher les statistiques de Victoire/Défaite dans l'info-bulle"
+L["TooltipDisplayWinLossDescription"] = "Choisir cette option pour afficher les statistiques des Victoire/Défaite d'un joueur dans la bulle d'aide du joueur."
+L["TooltipDisplayKOSReason"] = "Afficher les raisons de \"tuer à vue\" dans l'info-bulle"
+L["TooltipDisplayKOSReasonDescription"] = "Réglez-le pour afficher les raisons de tuer à vue d'un joueur dans l'info-bulle du joueur."
+L["TooltipDisplayLastSeen"] = "Afficher le détail des derniers vus dans l'infobulle"
+L["TooltipDisplayLastSeenDescription"] = "Choisir cette option pour afficher la dernière heure et la dernière position connues d'un joueur dans l'info-bulle du joueur."
+L["SelectFont"] = "Choisir une police"
+L["SelectFontDescription"] = "Sélectionnez une police pour la fenêtre SPY."
+L["RowHeight"] = "Sélectionner la hauteur de ligne"
+L["RowHeightDescription"] = "Sélectionnez la hauteur de ligne pour la fenêtre Spy."
 L["Texture"] = "Texture"
-L["TextureDescription"] = "Select a texture for the Spy Window"
+L["TextureDescription"] = "Sélectionner une texture pour la fenêtre d'espionnage"
 					
-L["AlertOptions"] = "Alerts"
+L["AlertOptions"] = "Alertes"
 L["AlertOptionsDescription"] = [[
-Options for alerts, announcements and warnings when enemy players are detected.
+Options d'alertes, d'annonces et d'avertissements lorsque des joueurs ennemis sont détectés.
 ]]
-L["SoundChannel"] = "Select Sound Channel"
-L["Master"] = "Master"
-L["SFX"] = "Sound Effects"
-L["Music"] = "Music"
-L["Ambience"] = "Ambience"
-L["Announce"] = "Send announcements to:"
-L["None"] = "None"
-L["NoneDescription"] = "Do not announce when enemy players are detected."
-L["Self"] = "Self"
-L["SelfDescription"] = "Announce to yourself when enemy players are detected."
-L["Party"] = "Party"
-L["PartyDescription"] = "Announce to your party when enemy players are detected."
-L["Guild"] = "Guild"
-L["GuildDescription"] = "Announce to your guild when enemy players are detected."
+L["SoundChannel"] = "Sélectionner le canal sonore"
+L["Master"] = "Global"
+L["SFX"] = "Effets"
+L["Music"] = "Musique"
+L["Ambience"] = "Ambiance"
+L["Announce"] = "Envoyer les annonces à:"
+L["None"] = "Aucun"
+L["NoneDescription"] = "Ne pas annoncer lorsque des joueurs ennemis sont détectés."
+L["Self"] = "Soi"
+L["SelfDescription"] = "Annoncer à vous même lorsqu'un joueur ennemi est détecté."
+L["Party"] = "Groupe"
+L["PartyDescription"] = "Annoncez à votre groupe lorsque des joueurs ennemis sont détectés."
+L["Guild"] = "Guilde"
+L["GuildDescription"] = "Annoncez votre guilde lorsque des joueurs ennemis sont détectés."
 L["Raid"] = "Raid"
-L["RaidDescription"] = "Announce to your raid when enemy players are detected."
-L["LocalDefense"] = "Local Defense"
-L["LocalDefenseDescription"] = "Announce to the Local Defense channel when enemy players are detected."
-L["OnlyAnnounceKoS"] = "Only announce enemy players that are Kill On Sight"
-L["OnlyAnnounceKoSDescription"] = "Set this to only announce enemy players that are on your Kill On Sight list."
-L["WarnOnStealth"] = "Warn upon stealth detection"
-L["WarnOnStealthDescription"] = "Set this to display a warning and sound an alert when an enemy player gains stealth."
-L["WarnOnKOS"] = "Warn upon Kill On Sight detection"
-L["WarnOnKOSDescription"] = "Set this to display a warning and sound an alert when an enemy player on your Kill On Sight list is detected."
-L["WarnOnKOSGuild"] = "Warn upon Kill On Sight guild detection"
-L["WarnOnKOSGuildDescription"] = "Set this to display a warning and sound an alert when an enemy player in the same guild as someone on your Kill On Sight list is detected."
-L["WarnOnRace"] = "Warn upon Race detection"
-L["WarnOnRaceDescription"] = "Set this to sound an alert when the selected Race is detected."
-L["SelectWarnRace"] = "Select Race for detection"
-L["SelectWarnRaceDescription"] = "Select a Race for audio alert."
-L["WarnRaceNote"] = "Note: You must target an enemy at least once so their Race can be added to the database. Upon the next detection an alert will sound. This does not work the same as detecting nearby enemies in combat."
-L["DisplayWarningsInErrorsFrame"] = "Display warnings in the errors frame"
-L["DisplayWarningsInErrorsFrameDescription"] = "Set this to use the errors frame to display warnings instead of using the graphical popup frames."
-L["EnableSound"] = "Enable audio alerts"
-L["EnableSoundDescription"] = "Set this to enable audio alerts when enemy players are detected. Different alerts sound if an enemy player gains stealth or if an enemy player is on your Kill On Sight list."
-L["OnlySoundKoS"] = "Only sound audio alerts for Kill on Sight detection"
-L["OnlySoundKoSDescription"] = "Set this to only play audio alerts when enemy players on the Kill on Sight list are detected."
-L["StopAlertsOnTaxi"] = "Turn off alerts while on a flight path"
-L["StopAlertsOnTaxiDescription"] = "Stop all new alerts and warnings while on a flight path."
+L["RaidDescription"] = "Annoncez votre raid lorsque des joueurs ennemis sont détectés."
+L["LocalDefense"] = "Défense locale"
+L["LocalDefenseDescription"] = "Annoncer sur le canal de défense locale lorsqu'un joueur ennemi est détecté"
+L["OnlyAnnounceKoS"] = "annoncer uniquement les ennemis figurant sur la liste des tuer à vue"
+L["OnlyAnnounceKoSDescription"] = "Choisissez cette option pour annoncer uniquement les joueurs ennemis présents dans votre liste Tuer à vue."
+L["WarnOnStealth"] = "Avertir si une furtivité est détectée"
+L["WarnOnStealthDescription"] = "Choisissez cette option pour afficher un avertissement et déclencher une alerte lorsqu'un joueur ennemi active la furtivité."
+L["WarnOnKOS"] = "Avertissement en cas de détection Tuer à vue"
+L["WarnOnKOSDescription"] = "Choisissez cette option pour afficher un avertissement et déclencher une alerte lorsqu'un joueur ennemi de la même guilde qu'un ennemi dans votre liste de Tuer à vue est détecté."
+L["WarnOnKOSGuild"] = "Avertissement en cas de détection d'une guilde Tuer à vue"
+L["WarnOnKOSGuildDescription"] = "Choisissez cette option pour afficher un avertissement et déclencher une alerte lorsqu'un joueur ennemi de votre liste Tuer à vue est détecté."
+L["WarnOnRace"] = "Avertissement en cas de détection de race"
+L["WarnOnRaceDescription"] = "Choisir cette option pour déclencher une alerte lorsque la race sélectionnée est détectée."
+L["SelectWarnRace"] = "Sélectionnez la race à détecter"
+L["SelectWarnRaceDescription"] = "Sélectionnez une race pour l'alerte audio."
+L["WarnRaceNote"] = "Note: Vous devez cibler un ennemi au moins une fois pour que sa race puisse être ajoutée à la base de données. Lors de la détection suivante, une alerte retentit. Cela ne fonctionne pas de la même façon que de détecter les ennemis proches au combat."
+L["DisplayWarningsInErrorsFrame"] = "Afficher les avertissements dans le cadre d'erreurs"
+L["DisplayWarningsInErrorsFrameDescription"] = "Choisir cette option pour utiliser le cadre d'erreurs afin d'afficher les avertissements au lieu d'utiliser les cadres contextuels graphiques."
+L["EnableSound"] = "Activer les alertes audio"
+L["EnableSoundDescription"] = "Choisissez cette option pour activer les alertes audio lorsque des joueurs ennemis sont détectés. Différentes alertes sonneront si un joueur ennemi utilise la furtivité ou si un joueur ennemi est sur votre liste Tuer à vue."
+L["OnlySoundKoS"] = "Seules les alertes sonores pour la détection tuer à vue"
+L["OnlySoundKoSDescription"] = "Choisissez cette option pour entendre les alertes audio uniquement lorsque les joueurs de la liste Tuer à vue sont détectés."
+L["StopAlertsOnTaxi"] = "Désactiver les alertes lors de l'utilisation d'une trajectoire de vol"
+L["StopAlertsOnTaxiDescription"] = "Arrêtez tous les nouveaux avertissements et avertissements lorsque vous utilisez une trajectoire de vol."
 
-L["ListOptions"] = "Nearby List"
+L["ListOptions"] = "Liste à proximité"
 L["ListOptionsDescription"] = [[
-Options on how enemy players are added and removed.
+Options sur la façon dont les joueurs ennemis sont ajoutés et supprimés.
 ]]
-L["RemoveUndetected"] = "Remove enemy players from the Nearby list after:"
+L["RemoveUndetected"] = "Supprimez les joueurs ennemis de la liste des joueurs à proximité après:"
 L["1Min"] = "1 minute"
-L["1MinDescription"] = "Remove an enemy player who has been undetected for over 1 minute."
+L["1MinDescription"] = "Retirez un joueur ennemi qui n'a pas été détecté depuis plus d'une minute."
 L["2Min"] = "2 minutes"
-L["2MinDescription"] = "Remove an enemy player who has been undetected for over 2 minutes."
+L["2MinDescription"] = "Retirez un joueur ennemi qui n'a pas été détecté depuis plus de 2 minutes."
 L["5Min"] = "5 minutes"
-L["5MinDescription"] = "Remove an enemy player who has been undetected for over 5 minutes."
+L["5MinDescription"] = "Retirez un joueur ennemi qui n'a pas été détecté depuis plus de 5 minutes."
 L["10Min"] = "10 minutes"
-L["10MinDescription"] = "Remove an enemy player who has been undetected for over 10 minutes."
+L["10MinDescription"] = "Retirez un joueur ennemi qui n'a pas été détecté depuis plus de 10 minutes."
 L["15Min"] = "15 minutes"
-L["15MinDescription"] = "Remove an enemy player who has been undetected for over 15 minutes."
-L["Never"] = "Never remove"
-L["NeverDescription"] = "Never remove enemy players. The Nearby list can still be cleared manually."
-L["ShowNearbyList"] = "Switch to the Nearby list upon enemy player detection"
-L["ShowNearbyListDescription"] = "Set this to display the Nearby list if it is not already visible when enemy players are detected."
-L["PrioritiseKoS"] = "Prioritise Kill On Sight enemy players in the Nearby list"
-L["PrioritiseKoSDescription"] = "Set this to always show Kill On Sight enemy players first in the Nearby list."
+L["15MinDescription"] = "Retirez un joueur ennemi qui n'a pas été détecté depuis plus de 15 minutes."
+L["Never"] = "Ne jamais enlevé"
+L["NeverDescription"] = "Ne jamais retirer les joueurs ennemis. La liste des ennemis proche peut être effacée manuellement."
+L["ShowNearbyList"] = "Passez à la liste des ennemis proches lors de la détection d'un joueur ennemi"
+L["ShowNearbyListDescription"] = "Choisir cette option pour afficher la liste Proche si elle n'est pas déjà visible lorsque des joueurs ennemis sont détectés."
+L["PrioritiseKoS"] = "Prioriser les joueurs ennemis Tuer à vue dans la liste des joueurs à proximité"
+L["PrioritiseKoSDescription"] = "Choisissez cette option pour toujours afficher les joueurs ennemis Tuer à vue en premier dans la liste des ennemis proches."
 
-L["MapOptions"] = "Map"
+L["MapOptions"] = "Carte"
 L["MapOptionsDescription"] = [[
-Options for world map and minimap including icons and tooltips.
+Options pour la carte du monde et la mini-carte, y compris les icônes et les info-bulles.
 ]]
-L["MinimapDetection"] = "Enable minimap detection"
-L["MinimapDetectionDescription"] = "Rolling the cursor over known enemy players detected on the minimap will add them to the Nearby list."
-L["MinimapNote"] = "          Note: Only works for players that can Track Humanoids."
-L["MinimapDetails"] = "Display level/class details in tooltips"
-L["MinimapDetailsDescription"] = "Set this to update the map tooltips so that level/class details are displayed alongside enemy names."
-L["DisplayOnMap"] = "Display icons on the map"
-L["DisplayOnMapDescription"] = "Display map icons for the location of other Spy users in your party, raid and guild when they detect enemies."
-L["SwitchToZone"] = "Switch to current zone map on enemy detection"
-L["SwitchToZoneDescription"] = "Change the map to the players current zone map when enemies are detected."
-L["MapDisplayLimit"] = "Limit displayed map icons to:"
-L["LimitNone"] = "Everywhere"
-L["LimitNoneDescription"] = "Displays all detected enemies on the map regardless of your current location."
-L["LimitSameZone"] = "Same zone"
-L["LimitSameZoneDescription"] = "Only displays detected enemies on the map if you are in the same zone."
-L["LimitSameContinent"] = "Same continent"
-L["LimitSameContinentDescription"] = "Only displays detected enemies on the map if you are on the same continent."
+L["MinimapDetection"] = "Activer la détection sur la minimap"
+L["MinimapDetectionDescription"] = "Faire glisser le curseur sur les joueurs ennemis connus détectés sur la minimap les ajoutera à la liste des joueurs les plus proches."
+L["MinimapNote"] = "          Note: Ne fonctionne que pour les joueurs qui peuvent traquer les humanoïdes."
+L["MinimapDetails"] = "Affiché le niveau/class dans l’infobulle"
+L["MinimapDetailsDescription"] = "Choisir cette option pour mettre à jour les infobulles de la carte de sorte que les détails de niveau/classe soient affichés à côté du nom des ennemis."
+L["DisplayOnMap"] = "Afficher les icônes sur la carte"
+L["DisplayOnMapDescription"] = "Affichez les icônes de la carte pour localiser les autres utilisateurs Spy de votre groupe / raid / guilde lorsqu'ils détectent des ennemis."
+L["SwitchToZone"] = "Passer à la carte de zone actuelle lors de la détection d'un ennemi"
+L["SwitchToZoneDescription"] = "Change l'affichage de la carte vers la zone actuelle lors de la détection d’ennemis."
+L["MapDisplayLimit"] = "Limiter l'affichage des icônes de la carte à:"
+L["LimitNone"] = "Partout"
+L["LimitNoneDescription"] = "Affiche tous les ennemis détectés sur la carte, quel que soit votre emplacement actuel."
+L["LimitSameZone"] = "Même zone"
+L["LimitSameZoneDescription"] = "N'affiche que les ennemis détectés dans la carte si vous êtes dans la même zone."
+L["LimitSameContinent"] = "Même continent"
+L["LimitSameContinentDescription"] = "N'affiche que les ennemis détectés dans la carte si vous êtes sur le même continent."
 
-L["DataOptions"] = "Data Management"
+L["DataOptions"] = "Gestion des données"
 L["DataOptionsDescription"] = [[
-Options on how Spy maintains and gathers data.
+Options sur la façon dont Spy maintient et recueille les données.
 ]]
-L["PurgeData"] = "Purge undetected enemy player data after:"
-L["OneDay"] = "1 day"
-L["OneDayDescription"] = "Purge data for enemy players that have been undetected for 1 day."
-L["FiveDays"] = "5 days"
-L["FiveDaysDescription"] = "Purge data for enemy players that have been undetected for 5 days."
-L["TenDays"] = "10 days"
-L["TenDaysDescription"] = "Purge data for enemy players that have been undetected for 10 days."
-L["ThirtyDays"] = "30 days"
-L["ThirtyDaysDescription"] = "Purge data for enemy players that have been undetected for 30 days."
-L["SixtyDays"] = "60 days"
-L["SixtyDaysDescription"] = "Purge data for enemy players that have been undetected for 60 days."
-L["NinetyDays"] = "90 days"
-L["NinetyDaysDescription"] = "Purge data for enemy players that have been undetected for 90 days."
-L["PurgeKoS"] = "Purge Kill on Sight players based on undetected time."
-L["PurgeKoSDescription"] = "Set this to purge Kill on Sight players that have been undetected based on the time settings for undetected players."
-L["PurgeWinLossData"] = "Purge win/loss data based on undetected time."
-L["PurgeWinLossDataDescription"] = "Set this to purge win/loss data of your enemy encounters based on the time settings for undetected players."
-L["ShareData"] = "Share data with other Spy addon users"
-L["ShareDataDescription"] = "Set this to share the details of your enemy player encounters with other Spy users in your party, raid and guild."
-L["UseData"] = "Use data from other Spy addon users"
-L["UseDataDescription"] = "Set this to use the data collected by other Spy users in your party, raid and guild."
-L["ShareKOSBetweenCharacters"] = "Share Kill On Sight players between your characters"
-L["ShareKOSBetweenCharactersDescription"] = "Set this to share the players you mark as Kill On Sight between other characters that you play on the same server and faction."
+L["PurgeData"] = "Purger les données des joueurs ennemis non détectés après:"
+L["OneDay"] = "1 jour"
+L["OneDayDescription"] = "Purger les données des joueurs ennemis qui n'ont pas été détectés pendant 1 jour."
+L["FiveDays"] = "5 jours"
+L["FiveDaysDescription"] = "Purgez les données des joueurs ennemis qui n'ont pas été détectés depuis 5 jours.."
+L["TenDays"] = "10 jours"
+L["TenDaysDescription"] = "Purger les données des joueurs ennemis qui n'ont pas été détectés pendant 10 jours."
+L["ThirtyDays"] = "30 jours"
+L["ThirtyDaysDescription"] = "Purger les données des joueurs ennemis qui n'ont pas été détectés pendant 30 jours."
+L["SixtyDays"] = "60 jours"
+L["SixtyDaysDescription"] = "Purgez les données des joueurs ennemis qui n'ont pas été détectés depuis 60 jours."
+L["NinetyDays"] = "90 jours"
+L["NinetyDaysDescription"] = "Purgez les données des joueurs ennemis qui n'ont pas été détectés depuis 90 jours."
+L["PurgeKoS"] = "Purger les joueurs de la Tuer à vue en fonction du temps de non détection."
+L["PurgeKoSDescription"] = "Choisir cette option pour purger les joueurs Tuer à vue qui n'ont pas été détectés en fonction des paramètres de temps pour les joueurs non détectés."
+L["PurgeWinLossData"] = "Purgez les données de Victoire/Défaite en fonction du temps non détection."
+L["PurgeWinLossDataDescription"] = "Choisir cette option pour purger les données de Victoire/Défaite de vos rencontres ennemies en fonction des paramètres de temps pour les joueurs non détectés."
+L["ShareData"] = "Partager des données avec d'autres utilisateurs de Spy"
+L["ShareDataDescription"] = "Choisissez cette option pour partager les détails de vos rencontres avec des joueurs ennemis avec d'autres utilisateurs Spy de votre groupe, de votre raid et de votre guilde."
+L["UseData"] = "Utiliser les données d'autres utilisateurs de Spy"
+L["UseDataDescription"] = "Choisir cette option pour utiliser les données collectées par d'autres utilisateurs de Spy dans votre groupe, raid et guilde."
+L["ShareKOSBetweenCharacters"] = "Partagez des joueurs Tuer à vue entre vos personnages"
+L["ShareKOSBetweenCharactersDescription"] = "Choisir cette option pour partager les joueurs présent dans votre liste des Tuer à vue avec les autres personnages que vous jouez sur le même serveur et la même faction."
 
-L["SlashCommand"] = "Slash Command"
-L["SpySlashDescription"] = "These buttons execute the same functions as the ones in the slash command /spy"
-L["Enable"] = "Enable"
-L["EnableDescription"] = "Enables Spy and shows the main window."
-L["Show"] = "Show"
-L["ShowDescription"] = "Shows the main window."
-L["Reset"] = "Reset"
-L["ResetDescription"] = "Resets the position and appearance of the main window."
-L["ClearSlash"] = "Clear"
-L["ClearSlashDescription"] = "Clears the list of players that have been detected."
+L["SlashCommand"] = "Commande Slash"
+L["SpySlashDescription"] = "Ces boutons exécutent les mêmes fonctions que celles de la commande /spy"
+L["Enable"] = "Activer"
+L["EnableDescription"] = "Active Spy et affiche la fenêtre principale."
+L["Show"] = "Afficher"
+L["ShowDescription"] = "SAffichez la fenêtre Spy."
+L["Reset"] = "Réinitialiser"
+L["ResetDescription"] = "Réinitialise la position et l'apparence de la fenêtre principale."
+L["ClearSlash"] = "Effacer"
+L["ClearSlashDescription"] = "Effacer la liste des joueurs qui ont été détecté"
 L["Config"] = "Config"
-L["ConfigDescription"] = "Open the Interface Addons configuration window for Spy."
-L["KOS"] = "KOS"
-L["KOSDescription"] = "Add/remove a player to/from the Kill On Sight list."
-L["InvalidInput"] = "Invalid Input"
+L["ConfigDescription"] = "Ouvre la fenêtre de configuration de Spy"
+L["KOS"] = "TAV"
+L["KOSDescription"] = "Ajouter / retirer un joueur à / de la liste Tuer à vue"
+L["InvalidInput"] = "Saisie invalide"
 L["Ignore"] = "Ignore"
-L["IgnoreDescription"] = "Add/remove a player to/from the Ignore list."
+L["IgnoreDescription"] = "Ajouter/retirer un joueur à/de la liste ingnore."
 
 -- Lists
-L["Nearby"] = "Nearby"
-L["LastHour"] = "Last Hour"
-L["Ignore"] = "Ignore"
-L["KillOnSight"] = "Kill On Sight"
+L["Nearby"] = "Proche"
+L["LastHour"] = "Dernière heure"
+L["Ignore"] = "Ignorer"
+L["KillOnSight"] = "Tuer à vue"
 
 --Stats
-L["Time"] = "Time"	
-L["List"] = "List"
-L["Filter"] = "Filter"
-L["Show Only"] = "Show Only"
-L["KOS"] = "KOS"
-L["Won/Lost"] = "Won/Lost"
-L["Reason"] = "Reason"	 
-L["HonorKills"] = "Honor Kills"
-L["PvPDeaths"] = "PvP Deaths"
+L["Time"] = "Temps"	
+L["List"] = "Liste"
+L["Filter"] = "filtre"
+L["Show Only"] = "Afficher seulement"
+L["KOS"] = "TAV"
+L["Won/Lost"] = "Victoire/Défaite"
+L["Reason"] = "Raison"	 
+L["HonorKills"] = "l'honneur tue"
+L["PvPDeaths"] = "Décès JcJ"
 
 -- Output messages
-L["AlertStealthTitle"] = "Stealth player detected!"
-L["AlertKOSTitle"] = "Kill On Sight player detected!"
-L["AlertKOSGuildTitle"] = "Kill On Sight player guild detected!"
-L["AlertTitle_kosaway"] = "Kill On Sight player located by "
-L["AlertTitle_kosguildaway"] = "Kill On Sight player guild located by "
-L["StealthWarning"] = "|cff9933ffStealth player detected: |cffffffff"
-L["KOSWarning"] = "|cffff0000Kill On Sight player detected: |cffffffff"
-L["KOSGuildWarning"] = "|cffff0000Kill On Sight player guild detected: |cffffffff"
+L["AlertStealthTitle"] = "Joueur furtif détecté!"
+L["AlertKOSTitle"] = "Joueur Tuer à vue détecté!"
+L["AlertKOSGuildTitle"] = "Guilde Tuer à vue détecté!"
+L["AlertTitle_kosaway"] = "Joueur Tuer à vue détecté par "
+L["AlertTitle_kosguildaway"] = "Guilde Tuer à vue détecté par: "
+L["StealthWarning"] = "|cff9933ffJoueur furtif détecté: |cffffffff"
+L["KOSWarning"] = "|cffff0000Guilde Tuer à vue détecté par: |cffffffff"
+L["KOSGuildWarning"] = "|cffff0000Guilde Tuer à vue détecté: |cffffffff"
 L["SpySignatureColored"] = "|cff9933ff[Spy] "
-L["PlayerDetectedColored"] = "Player detected: |cffffffff"
-L["PlayersDetectedColored"] = "Players detected: |cffffffff"
-L["KillOnSightDetectedColored"] = "Kill On Sight player detected: |cffffffff"
-L["PlayerAddedToIgnoreColored"] = "Added player to Ignore list: |cffffffff"
-L["PlayerRemovedFromIgnoreColored"] = "Removed player from Ignore list: |cffffffff"
-L["PlayerAddedToKOSColored"] = "Added player to Kill On Sight list: |cffffffff"
-L["PlayerRemovedFromKOSColored"] = "Removed player from Kill On Sight list: |cffffffff"
-L["PlayerDetected"] = "[Spy] Player detected: "
-L["KillOnSightDetected"] = "[Spy] Kill On Sight player detected: "
-L["Level"] = "Level"
-L["LastSeen"] = "Last seen"
-L["LessThanOneMinuteAgo"] = "less than a minute ago"
-L["MinutesAgo"] = "minutes ago"
-L["HoursAgo"] = "hours ago"
-L["DaysAgo"] = "days ago"
-L["Close"] = "Close"
-L["CloseDescription"] = "|cffffffffHides the Spy window. By default will show again when the next enemy player is detected."
-L["Left/Right"] = "Left/Right"
-L["Left/RightDescription"] = "|cffffffffNavigates between the Nearby, Last Hour, Ignore and Kill On Sight lists."
-L["Clear"] = "Clear"
-L["ClearDescription"] = "|cffffffffClears the list of players that have been detected. CTRL-Click will turn Spy On/Off. Shift-Click will turn all sound On/Off."
-L["SoundEnabled"] = "Audio alerts enabled"
-L["SoundDisabled"] = "Audio alerts disabled"
-L["NearbyCount"] = "Nearby Count"
-L["NearbyCountDescription"] = "|cffffffffCount of nearby players."
-L["Statistics"] = "Statistics"
-L["StatsDescription"] = "|cffffffffShows a list of enemy players encountered, win/loss records and where they were last seen."
-L["AddToIgnoreList"] = "Add to Ignore list"
-L["AddToKOSList"] = "Add to Kill On Sight list"
-L["RemoveFromIgnoreList"] = "Remove from Ignore list"
-L["RemoveFromKOSList"] = "Remove from Kill On Sight list"
-L["RemoveFromStatsList"] = "Remove from Statistics List"   
-L["AnnounceDropDownMenu"] = "Announce"
-L["KOSReasonDropDownMenu"] = "Set Kill On Sight reason"
-L["PartyDropDownMenu"] = "Party"
+L["PlayerDetectedColored"] = "Joueur détecté: |cffffffff"
+L["PlayersDetectedColored"] = "Joueurs détectés: |cffffffff"
+L["KillOnSightDetectedColored"] = "Joueur Tuer à vue détecté: |cffffffff"
+L["PlayerAddedToIgnoreColored"] = "Joueur ajouté à la liste Ignore: |cffffffff"
+L["PlayerRemovedFromIgnoreColored"] = "Suppression du joueur de la liste Ignore: |cffffffff"
+L["PlayerAddedToKOSColored"] = "Joueur ajouté à la liste Tuer à vue: |cffffffff"
+L["PlayerRemovedFromKOSColored"] = "Suppression du joueur de la liste Tuer à vue: |cffffffff"
+L["PlayerDetected"] = "[Spy] Joueur détecté: "
+L["KillOnSightDetected"] = "[Spy] Joueur Tuer à vue détecté: "
+L["Level"] = "Niveau"
+L["LastSeen"] = "vue dernière fois il y a"
+L["LessThanOneMinuteAgo"] = "il y a moins d'une minute"
+L["MinutesAgo"] = "minutes"
+L["HoursAgo"] = "heures"
+L["DaysAgo"] = "jours"
+L["Close"] = "Fermer"
+L["CloseDescription"] = "|cffffffffMasque la fenêtre Espion, elle réapparaîtra lorsque le prochain joueur ennemi sera détecté."
+L["Left/Right"] = "Gauche/Droite"
+L["Left/RightDescription"] = "|cffffffffNavigue entre les listes A proximité, Dernière heure, Ignore et Tuer à vue"
+L["Clear"] = "Effacer"
+L["ClearDescription"] = "|cffffffffEfface la liste des joueurs qui ont été détectés. Control-Click activera ou désactivera Spy. Shift-Click activera ou désactivera tous les sons."
+L["SoundEnabled"] = "Alertes audio activées"
+L["SoundDisabled"] = "Alertes audio désactivées"
+L["NearbyCount"] = "comte à proximité"
+L["NearbyCountDescription"] = "|cffffffffNombre d’ennemis à proximité"
+L["Statistics"] = "Statistiques"
+L["StatsDescription"] = "|cffffffffAffiche une liste des joueurs ennemis rencontrés, les statistiques de Victoire/Défaite et l'endroit où ils ont été vus pour la dernière fois."
+L["AddToIgnoreList"] = "Ajouter à votre liste ignore"
+L["AddToKOSList"] = "Ajouter à la liste Tuer à vue"
+L["RemoveFromIgnoreList"] = "Retirer de la liste Ignorer"
+L["RemoveFromKOSList"] = "Retirer de la liste Tuer à vue"
+L["RemoveFromStatsList"] = "Retirer de la liste des statistiques"   
+L["AnnounceDropDownMenu"] = "Annoncer"
+L["KOSReasonDropDownMenu"] = "Saisir une raison pour Tuer à vue"
+L["PartyDropDownMenu"] = "Groupe"
 L["RaidDropDownMenu"] = "Raid"
-L["GuildDropDownMenu"] = "Guild"
-L["LocalDefenseDropDownMenu"] = "Local Defense"
-L["Player"] = " (Player)"
-L["KOSReason"] = "Kill On Sight"
+L["GuildDropDownMenu"] = "Guilde"
+L["LocalDefenseDropDownMenu"] = "Défense locale"
+L["Player"] = " (Joueur)"
+L["KOSReason"] = "Tuer à Vue"
 L["KOSReasonIndent"] = "    "
-L["KOSReasonOther"] = "Enter your own reason..."
-L["KOSReasonClear"] = "Clear Reason"
-L["StatsWins"] = "|cff40ff00Wins: "
+L["KOSReasonOther"] = "Saisir votre propre raison..."
+L["KOSReasonClear"] = "Effacer la raison"
+L["StatsWins"] = "|cff40ff00Victoires: "
 L["StatsSeparator"] = "  "
-L["StatsLoses"] = "|cff0070ddLosses: "
-L["Located"] = "located:"
-L["Yards"] = "yards"
+L["StatsLoses"] = "|cff0070ddDéfaites: "
+L["Located"] = "localisé:"
+L["Yards"] = "mètres"
 L["LocalDefenseChannelName"] = "Défenselocale"
 
 Spy_KOSReasonListLength = 6
 Spy_KOSReasonList = {
 	[1] = {
-		["title"] = "Started combat";
+		["title"] = "Commencé le combat";
 		["content"] = {
-			"Attacked me for no reason",
-			"Attacked me at a quest giver", 
-			"Attacked me while I was fighting NPCs",
-			"Attacked me while I was near an instance",
-			"Attacked me while I was AFK",
-			"Attacked me while I was mounted/flying",
-			"Attacked me while I had low health/mana",
+			"M'a attaqué sans raison",
+			"M'a attaqué au donneur de quête", 
+			"M'a attaqué pendant que je combattais des PNJ",
+			"M'a attaqué alors que j'étais proche d'une instance",
+			"M'a attaqué alors que je suis AFK",
+			"M'a attaqué pendant que j'étais monté",
+			"M'a attaqué lorsque j'étais bas en vie/mana",
 		};
 	},
 	[2] = {
-		["title"] = "Style of combat";
+		["title"] = "Style de combat";
 		["content"] = {
-			"Ambushed me",
-			"Always attacks me on sight",
-			"Killed me with a higher level character",
-			"Steamrolled me with a group of enemies",
-			"Doesn't attack without backup",
-			"Always calls for help",
-			"Uses too much crowd control",
+			"Me tendre une embuscade",
+			"M'attaque toujours à vue",
+			"M'a tué avec un caractère de haut niveau",
+			"Ganked moi avec un groupe d'ennemis",
+			"N'attaquez pas sans renforts",
+			"Appelle toujours à l'aide",
+			"Utilise trop de contrôle (stun, fear ...)",
 		};
 	},
 	[3] = {
-		["title"] = "Camping";
+		["title"] = "Camper";
 		["content"] = {
-			"Camped me",
-			"Camped an alt",
-			"Camped lowbies",
-			"Camped from stealth",
-			"Camped guild members",
-			"Camped game NPCs/objectives",
-			"Camped a city/site",
+			"Le joueur me campe",
+			"campé mon autre caractère",
+			"Caractère de niveau inférieur campés",
+			"Camping furtif",
+			"Membres de guilde campés",
+			"Camping sur un PNJ/objectif",
+			"Camping dans une ville/lieu",
 		};
 	},
 	[4] = {
-		["title"] = "Questing";
+		["title"] = "Quête";
 		["content"] = {
-			"Attacked me while I was questing",
-			"Attacked me after I helped with a quest",
-			"Interfered with a quest objective",
-			"Started a quest I wanted to do",
-			"Killed my faction's NPCs",
-			"Killed a quest NPC",
+			"M'a attaqué alors que j'étais en quête",
+			"M'a attaqué après l'avoir aidé pour une quête",
+			"Interférer avec un objectif de quête",
+			"Commencé une quête que je voulais faire",
+			"Tué les PNJ de ma faction",
+			"Tue les PNJ de quête",
 		};
 	},
 	[5] = {
-		["title"] = "Stole resources";
+		["title"] = "A volé des ressources";
 		["content"] = {
-			"Gathered herbs I wanted",
-			"Gathered minerals I wanted",
-			"Gathered resources I wanted",
-			"Killed me and stole my target/rare NPC",
-			"Skinned my kills",
-			"Salvaged my kills",
-			"Fished in my pool",
+			"Rassemblé les herbes que je voulais",
+			"Rassemblé le minéral que je voulais",
+			"Rassemblé les ressources que je voulais",
+			"Il m'a tué et m'a volé ma cible ou un PNJ rare",
+			"A dépecé mes mobs",
+			"A pris des articles de mes mobs",
+			"Pêché dans ma piscine",
 		};
 	},
 	[6] = {
-		["title"] = "Other";
+		["title"] = "Autre";
 		["content"] = {
-			"Flagged for PvP",
-			"Pushed me off a cliff",
-			"Uses engineering tricks",
-			"Always manages to escape",
-			"Uses items and skills to escape",
-			"Exploits game mechanics",
-			"Enter your own reason...",
+			"Flaggé JcJ",
+			"M'a poussé d'une falaise",
+			"Utilise des objets d'ingénierie",
+			"Parvient toujours à s'échapper",
+			"Utilise des objets et des compétences pour s'échapper",
+			"Exploite la mécanique du jeu",
+			"Saisir votre propre raison...",
 		};
 	},
 }
 
 StaticPopupDialogs["Spy_SetKOSReasonOther"] = {
 	preferredIndex=STATICPOPUPS_NUMDIALOGS,  -- http://forums.wowace.com/showthread.php?p=320956
-	text = "Enter the Kill On Sight reason for %s:",
-	button1 = "Set",
-	button2 = "Cancel",
+	text = "Entrez une raison pour tuer à vue pour %s:",
+	button1 = "Saisir",
+	button2 = "Annuler",
 	timeout = 120,
 	hasEditBox = 1,
 	editBoxWidth = 260,	
@@ -394,7 +396,7 @@ StaticPopupDialogs["Spy_SetKOSReasonOther"] = {
 	end,
     	OnAccept = function(self)
 		local reason = self.editBox:GetText()
-		Spy:SetKOSReason(self.playerName, "Enter your own reason...", reason)
+		Spy:SetKOSReason(self.playerName, "Saisir votre propre raison...", reason)
 	end,
 };
 

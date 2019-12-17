@@ -1,0 +1,12 @@
+## Interface: 11303
+## Title: |cff336699SpellAnnouncer |cffFBB709Classic
+## Author: Pit @ Firemaw-EU
+## Version: 1.0.0
+
+## SavedVariables: SpellAnnouncerClassicDB
+
+Embeds.xml
+
+Data.lua
+Core.lua
+Options.lua
