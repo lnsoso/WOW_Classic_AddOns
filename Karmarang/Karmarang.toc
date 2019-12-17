@@ -1,0 +1,16 @@
+## Interface: 11303
+## Title: Karmarang
+## Notes: Rate players and leave comments to remember.
+## Author: Benjamin Bober
+## Version: 1.16
+## Dependencies: ChatThrottleLib
+## SavedVariables: KARMA_DB, KARMA_DB_AUX, KARMA_OPT
+
+karmarang-data.lua
+karmarang-dialog.lua
+karmarang-language.lua
+karmarang-main.lua
+karmarang-misc.lua
+
+localization\karmarang-deDE.lua
+localization\karmarang-zhCN.lua
