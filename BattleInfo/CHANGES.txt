@@ -1,10 +1,46 @@
-lightweight tag d56b3a4f544ff59c34fb1214a195557e40658e64 v2.2.2
+lightweight tag 0d97f2d85c68a4eb8bae8ba7e1b2e50c6d62a520 v2.2.4
 Author:	Boshi Lian <farmer1992@gmail.com>
-Date:	Mon Dec 16 04:07:41 2019 -0800
+Date:	Wed Dec 18 17:54:31 2019 -0800
 
-commit d56b3a4f544ff59c34fb1214a195557e40658e64
+commit 0d97f2d85c68a4eb8bae8ba7e1b2e50c6d62a520
 Author: Boshi Lian <farmer1992@gmail.com>
-Date:   Mon Dec 16 04:07:41 2019 -0800
+Date:   Wed Dec 18 17:54:31 2019 -0800
 
-    add alterac tower indicator
+    add ttl
+
+commit f048f05ed0a0c1fbc7dd069b900ee1d6303657d1
+Author: Boshi Lian <farmer1992@gmail.com>
+Date:   Wed Dec 18 17:43:34 2019 -0800
+
+    introduce instance time
+
+commit 121f0cdbf175c036ff6a25265e1322b8d915a3e9
+Author: Boshi Lian <farmer1992@gmail.com>
+Date:   Wed Dec 18 15:38:03 2019 -0800
+
+    introduce zone help
+
+commit 4f70eef7e1a65fa6c21227f7a72237005df839cd
+Author: Boshi Lian <farmer1992@gmail.com>
+Date:   Wed Dec 18 08:07:18 2019 -0800
+
+    add total bg num
+
+commit c23867d0d636328ad6e4c8858258e809ab34eedc
+Author: Boshi Lian <farmer1992@gmail.com>
+Date:   Wed Dec 18 07:55:24 2019 -0800
+
+    better memory usage
+
+commit 220991520e29e52deeb54744b4176582850c3907
+Author: Boshi Lian <farmer1992@gmail.com>
+Date:   Wed Dec 18 07:44:55 2019 -0800
+
+    optimize code
+
+commit 99dd8e34af91640d677d628ce5e43939ec2f3a24
+Author: Boshi Lian <farmer1992@gmail.com>
+Date:   Tue Dec 17 21:10:14 2019 -0800
+
+    better label pos
 

@@ -29,8 +29,8 @@ Auras =
 	},
 	["PRIEST"] =
 	{
-		17,		-- Power Word: Shield test!
-		139,	-- Renew Test!
+		--17,		-- Power Word: Shield test!
+		--139,	-- Renew Test!
 		10060,	-- Power Infusion
 	},
 	["ROGUE"] =
@@ -52,7 +52,7 @@ Auras =
 	{
 		871,	-- Shield Wall
 		12975,	-- Last Stand
-		2565,	-- Shield Block
+		--2565,	-- Shield Block
 		12328,	-- Death Wish
 		1719,	-- Recklessness
 		20230,	-- Retaliation

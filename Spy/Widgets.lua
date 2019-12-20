@@ -6,6 +6,7 @@ function Spy:CreateFrame(Name, Title, Height, Width, ShowFunc, HideFunc)
 	local theFrame = CreateFrame("Frame", Name, UIParent)
 
 	theFrame:ClearAllPoints()
+	theFrame:SetClampedToScreen(true)	
 --	theFrame:SetPoint("TOPLEFT", UIParent)
 	theFrame:SetPoint("CENTER", UIParent)
 	theFrame:SetHeight(Height)
@@ -58,6 +59,9 @@ function Spy:CreateFrame(Name, Title, Height, Width, ShowFunc, HideFunc)
 			self:StopMovingOrSizing();
 			self.isMoving = false;
 			Spy:SaveMainWindowPosition()
+--			if self.SavePosition then
+--				self:SavePosition()
+--			end
 		end
 	end)
 

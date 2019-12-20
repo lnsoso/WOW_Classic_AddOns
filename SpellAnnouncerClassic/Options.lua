@@ -152,7 +152,7 @@ function SAC:CreateOptions()
 			auras = {
 				order = 13,
 				type = 'select',
-				name = 'Auras - ' .. CHATGROUPS[self.db.char.options.chatGroup],
+				name = 'AuraName',
 				values = SAC.aurasList,
 				style = 'radio',
 				set = 'SetAuraList',
@@ -228,7 +228,7 @@ function SAC:CreateOptions()
 			spells = {
 				order = 40,
 				type = 'select',
-				name = 'Spells - ' .. CHATGROUPS[self.db.char.options.chatGroup],
+				name = 'SpellName',
 				values = SAC.spellsList,
 				style = 'radio',
 				set = 'SetSpellsList',
@@ -303,7 +303,7 @@ function SAC:CreateOptions()
 			pvp = {
 				order = 56,
 				type = 'select',
-				name = 'PVP - ' .. CHATGROUPS[self.db.char.options.chatGroup],
+				name = 'PvpName',
 				values = SAC.pvpAllList,
 				style = 'radio',
 				set = 'SetPvpList',
@@ -335,6 +335,9 @@ function SAC:CreateOptions()
 	self:RegisterChatCommand("sac", "OpenOptions")
 	self:RegisterChatCommand("spellannouncer", "OpenOptions")
 	
+	self.Options.args.auras.name = SAC:AuraName()
+	self.Options.args.spells.name = SAC:SpellName()
+	self.Options.args.pvp.name = SAC:PvpName()
 end
 
 -- Show the options for SpellAnnouncer Classic by using /sac
@@ -349,7 +352,9 @@ end
 function SAC:InitializeDefaultSettings()
 
 	if self.db.char.reset == nil or self.db.char.reset == false then
-		self.db.char.options = nil
+		if self.db.char.options ~= nil then
+			self.db.char.options = nil
+		end
 		self.db.char.reset = true
 	end
 
@@ -498,7 +503,7 @@ function SAC:InitializeDefaultSettings()
 
 	if self.db.char.options.pvp == nil then
 		self.db.char.options.pvp = GetSpellInfo(self.pvpSpellIDs[1])
-	end
+	end	
 
 end
 
@@ -548,6 +553,18 @@ function SAC:CopyCurrent()
 			end
 		end
 	end
+end
+
+function SAC:AuraName()
+	return 'Auras - ' .. CHATGROUPS[self.db.char.options.chatGroup]
+end
+
+function SAC:SpellName()
+	return 'Spells - ' .. CHATGROUPS[self.db.char.options.chatGroup]
+end
+
+function SAC:PvpName()
+	return 'PVP - ' .. CHATGROUPS[self.db.char.options.chatGroup]
 end
 
 -- Disables menuoptions based on what party option is selected.

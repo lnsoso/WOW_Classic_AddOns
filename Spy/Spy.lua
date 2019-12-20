@@ -7,7 +7,7 @@ local fonts = SM:List("font")
 local _
 
 Spy = LibStub("AceAddon-3.0"):NewAddon("Spy", "AceConsole-3.0", "AceEvent-3.0", "AceComm-3.0", "AceTimer-3.0")
-Spy.Version = "1.0.19"
+Spy.Version = "1.0.18"
 Spy.DatabaseVersion = "1.1"
 Spy.Signature = "[Spy]"
 Spy.ButtonLimit = 15
@@ -205,7 +205,7 @@ Spy.options = {
 					desc = L["LockSpyDescription"],
 					type = "toggle",
 					order = 5,
---					width = "full",
+					width = "full",
 					get = function(info) 
 						return Spy.db.profile.Locked
 					end,
@@ -215,25 +215,11 @@ Spy.options = {
 						Spy:RefreshCurrentList()						
 					end,
 				},
-				ClampToScreen = {
-					name = L["ClampToScreen"],
-					desc = L["ClampToScreenDescription"],				
-					type = "toggle",
-					order = 6,
-					width = "double",					
-					get = function(info) 
-						return Spy.db.profile.ClampToScreen
-					end,					
-					set = function(info, value)
-						Spy.db.profile.ClampToScreen = value
-						Spy:ClampToScreen(value)
-					end,
-				},
 				InvertSpy = {
 					name = L["InvertSpy"],
 					desc = L["InvertSpyDescription"],
 					type = "toggle",
-					order = 7,
+					order = 6,
 					get = function(info)
 						return Spy.db.profile.InvertSpy
 					end,
@@ -245,7 +231,7 @@ Spy.options = {
 					name = L["Reload"],
 					desc = L["ReloadDescription"],
 					type = 'execute',
-					order = 8,					
+					order = 7,					
 					width = .6,					
 					func = function()
 						C_UI.Reload()
@@ -255,7 +241,7 @@ Spy.options = {
 					name = L["ResizeSpy"],
 					desc = L["ResizeSpyDescription"],
 					type = "toggle",
-					order = 9,
+					order = 8,
 					width = "full",
 					get = function(info)
 						return Spy.db.profile.ResizeSpy
@@ -267,7 +253,7 @@ Spy.options = {
 				},
 				ResizeSpyLimit = {  
 					type = "range",
-					order = 10,
+					order = 9,
 					name = L["ResizeSpyLimit"],
 					desc = L["ResizeSpyLimitDescription"],
 					min = 1, max = 15, step = 1,
@@ -284,7 +270,7 @@ Spy.options = {
 					name = L["DisplayTooltipNearSpyWindow"],
 					desc = L["DisplayTooltipNearSpyWindowDescription"],
 					type = "toggle",
-					order = 11,
+					order = 10,
 					width = "full",
 					get = function(info)
 						return Spy.db.profile.DisplayTooltipNearSpyWindow
@@ -295,7 +281,7 @@ Spy.options = {
 				},	
 				SelectTooltipAnchor = {
 					type = "select",
-					order = 12,
+					order = 11,
 					name = L["SelectTooltipAnchor"],
 					desc = L["SelectTooltipAnchorDescription"],
 					values = { 
@@ -314,7 +300,7 @@ Spy.options = {
 					name = L["TooltipDisplayWinLoss"],
 					desc = L["TooltipDisplayWinLossDescription"],
 					type = "toggle",
-					order = 13,
+					order = 12,
 					width = "full",
 					get = function(info)
 						return Spy.db.profile.DisplayWinLossStatistics
@@ -327,7 +313,7 @@ Spy.options = {
 					name = L["TooltipDisplayKOSReason"],
 					desc = L["TooltipDisplayKOSReasonDescription"],
 					type = "toggle",
-					order = 14,
+					order = 13,
 					width = "full",
 					get = function(info)
 						return Spy.db.profile.DisplayKOSReason
@@ -340,7 +326,7 @@ Spy.options = {
 					name = L["TooltipDisplayLastSeen"],
 					desc = L["TooltipDisplayLastSeenDescription"],
 					type = "toggle",
-					order = 15,
+					order = 14,
 					width = "full",
 					get = function(info)
 						return Spy.db.profile.DisplayLastSeen
@@ -351,7 +337,7 @@ Spy.options = {
 				},
 				SelectFont = {
 					type = "select",
-					order = 16,
+					order = 15,
 					name = L["SelectFont"],
 					desc = L["SelectFontDescription"],
 					values = fonts,
@@ -369,7 +355,7 @@ Spy.options = {
 				},
 				RowHeight = {
 					type = "range",
-					order = 17,
+					order = 16,
 					name = L["RowHeight"], 
 					desc = L["RowHeightDescription"], 
 					min = 8, max = 20, step = 1,
@@ -381,7 +367,7 @@ Spy.options = {
 				},
 				BarTexture = {
 					type = "select",				
-					order = 18,
+					order = 17,
 					name = L["Texture"],	
 					desc = L["TextureDescription"],	
 					dialogControl = "LSM30_Statusbar",					
@@ -1229,7 +1215,7 @@ local Default_Profile = {
 				LeftButton=true,
 				RightButton=true,
 			},
-			RowHeight=14,
+			RowHeight=18,
 			RowSpacing=2,
 			TextHeight=12,
 			AutoHide=true,
@@ -1252,7 +1238,6 @@ local Default_Profile = {
 		MainWindowVis=true,
 		CurrentList=1,
 		Locked=false,
-		ClampToScreen=true,		
 		Font="Friz Quadrata TT",
 		Scaling=1,
 		Enabled=true,
@@ -1286,7 +1271,7 @@ local Default_Profile = {
 		WarnOnRace=false,
 		SelectWarnRace="None",		
 		DisplayWarningsInErrorsFrame=false,
-		EnableSound=true,
+		EnableSound=false,
 		OnlySoundKoS=false, 
 		StopAlertsOnTaxi=true,
 		RemoveUndetected="OneMinute",
@@ -1300,6 +1285,7 @@ local Default_Profile = {
 		ShareKOSBetweenCharacters=true,
 		AppendUnitNameCheck=false,
 		AppendUnitKoSCheck=false,
+		ClampToScreen = false,
 	}
 }
 
@@ -1457,8 +1443,9 @@ end
 function Spy:HandleProfileChanges()
 	Spy:CreateMainWindow()
 	Spy:UpdateTimeoutSettings()
+	Spy:ScaleWindows(Spy.db.profile.Scaling)	
+	Spy:SetStrataAndClamp()	
 	Spy:LockWindows(Spy.db.profile.Locked)
-	Spy:ClampToScreen(Spy.db.profile.ClampToScreen)	
 end
 
 function Spy:RegisterModuleOptions(name, optionTbl, displayName)
@@ -1509,7 +1496,7 @@ function Spy:UpdateTimeoutSettings()
 	end
 end
 
-function Spy:ResetMainWindow() -- not used
+function Spy:ResetMainWindow()
 	Spy:EnableSpy(true, true)
 	Spy:CreateMainWindow()
 	Spy:RestoreMainWindowPosition(Default_Profile.profile.MainWindow.Position.x, Default_Profile.profile.MainWindow.Position.y, Default_Profile.profile.MainWindow.Position.w, 34)
@@ -1673,7 +1660,6 @@ function Spy:OnInitialize()
 	end
 
 	Spy:LockWindows(Spy.db.profile.Locked)
-	Spy:ClampToScreen(Spy.db.profile.ClampToScreen)	
 	ChatFrame_AddMessageEventFilter("CHAT_MSG_SYSTEM", Spy.FilterNotInParty)
 	Spy.WoWBuildInfo = select(4, GetBuildInfo())
 	if Spy.WoWBuildInfo > 20000 then 	

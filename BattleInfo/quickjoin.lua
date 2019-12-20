@@ -2,14 +2,12 @@ local _, ADDONSELF = ...
 local L = ADDONSELF.L
 local RegEvent = ADDONSELF.regevent
 
--- ADDONSELF.Print = function(msg)
---     DEFAULT_CHAT_FRAME:AddMessage("|CFFFF0000<|r|CFFFFD100RaidLedger|r|CFFFF0000>|r"..(msg or "nil"))
--- end
-
+RegEvent("BATTLEFIELDS_SHOW", function()
+    BattlefieldFrameNameHeader:SetText(BATTLEFIELD_NAME .. " " .. TOTAL .. " " ..  GetNumBattlefields())
+end)
 
 RegEvent("ADDON_LOADED", function()
     do
-
         local toidx = function(txt)
             local n = tonumber(txt)
             if n == 0 then
@@ -70,7 +68,8 @@ RegEvent("ADDON_LOADED", function()
         t:SetScript("OnEscapePressed", function() HideUIPanel(BattlefieldFrame) end)
 
         local l = t:CreateFontString(nil, "ARTWORK", "GameFontNormal")
-        l:SetPoint("TOPLEFT", t, -100, -5)
+        l:SetPoint("TOPRIGHT", t, "TOPLEFT", -10, -5)
+        l:SetJustifyH("RIGHT")
         l:SetText(L["Quick select"])
 
     end
