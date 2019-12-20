@@ -1,0 +1,1 @@
+BackgroundColor = { Red = 0.0, Green = 0.0, Blue = 0.0, Alpha = 0.5 }
