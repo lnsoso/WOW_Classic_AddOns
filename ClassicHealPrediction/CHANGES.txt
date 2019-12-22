@@ -1,22 +1,10 @@
-lightweight tag 6d48b9717ae1aaf7176cd6f3e5725a28defa35ee v1.4.0
+lightweight tag 500d7daed7b277f90d5587a1da6f42a7482fde16 v1.4.2
 Author:	dev7355608 <dev7355608@gmail.com>
-Date:	Sat Dec 14 03:27:08 2019 +0100
+Date:	Fri Dec 20 19:38:40 2019 +0100
 
-commit 6d48b9717ae1aaf7176cd6f3e5725a28defa35ee
+commit 500d7daed7b277f90d5587a1da6f42a7482fde16
 Author: dev7355608 <dev7355608@gmail.com>
-Date:   Sat Dec 14 02:47:15 2019 +0100
+Date:   Fri Dec 20 19:38:40 2019 +0100
 
-    Add animated loss bar to player unit frame
-
-commit 505f203e74ddfebe2227b1d4da4a57fb17843b44
-Author: dev7355608 <dev7355608@gmail.com>
-Date:   Fri Dec 13 18:45:05 2019 +0100
-
-    Update all frames when settings change
-
-commit 4d844c67ad671b40d76dc3e0f3688fc75e2c3625
-Author: dev7355608 <dev7355608@gmail.com>
-Date:   Fri Dec 13 18:21:35 2019 +0100
-
-    Improve status text in raid frames
+    Remove UnitCastingInfo and UnitGetTotalAbsorbs
 
