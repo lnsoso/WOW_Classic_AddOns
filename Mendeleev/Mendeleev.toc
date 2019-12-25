@@ -1,4 +1,4 @@
-﻿## Interface: 11302
+﻿## Interface: 70000
 ## Title: Mendeleev
 ## Version: 3.0
 ## Notes: Adds various information based on PeriodicTable to item tooltips.
@@ -11,17 +11,17 @@
 ## Notes-zhTW: 在提示中顯示物品的詳細資訊，包括掉落位置、聲望要求、用途等。基於 PeriodicTable。
 ## Author: Rabbit
 ## X-Credits: MoonWolf for the orginal PT1-based version, Kemayo, Elkano, Nymbia (PT3).
-## OptionalDeps: Ace3, LibBabble-Boss-3.0, LibBabble-Zone-3.0, LibBabble-Class-3.0, LibPeriodicTable-3.1, AtlasLoot
+## OptionalDeps: Ace3, LibBabble-Boss-3.0, LibBabble-Zone-3.0, LibPeriodicTable-3.1, AtlasLoot
 ## X-Category: Inventory
 ## SavedVariables: MendeleevDB
 ## X-Email: rabbit.magtheridon@gmail.com
-## X-Curse-Packaged-Version: r261
+## X-Curse-Packaged-Version: r332
 ## X-Curse-Project-Name: Mendeleev
 ## X-Curse-Project-ID: mendeleev
 ## X-Curse-Repository-ID: wow/mendeleev/mainline
 
-## X-Revision: 261
-## X-Date: 2009-05-15T17:37:49Z
+## X-Revision: 332
+## X-Date: 2016-07-27T06:20:21Z
 
 #@no-lib-strip@
 embeds.xml
@@ -42,5 +42,6 @@ Set_Instances_Classic_low.lua
 Set_Instances_Classic_high.lua
 Set_Instances_BC.lua
 Set_Instances_WotLK.lua
+Set_Instances_Cata.lua
 Mendeleev.lua
 

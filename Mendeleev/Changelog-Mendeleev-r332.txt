@@ -1,0 +1,31 @@
+------------------------------------------------------------------------
+r332 | elkano | 2016-07-27 06:20:21 +0000 (Wed, 27 Jul 2016) | 4 lines
+Changed paths:
+   M /trunk/Mendeleev.lua
+
+- reverted last commit; scan is back to being event triggered
+- list of recipes is now obtained via API calls instead of using data from TradeSkillUI
+http://www.wowinterface.com/portal.php?id=10&a=17
+
+------------------------------------------------------------------------
+r331 | elkano | 2016-07-26 16:44:10 +0000 (Tue, 26 Jul 2016) | 2 lines
+Changed paths:
+   M /trunk/Mendeleev.lua
+
+changed trigger for tradeskill scans from event to post-hook
+apply hook when TradeSkillUI is loaded
+------------------------------------------------------------------------
+r330 | elkano | 2016-07-24 12:32:58 +0000 (Sun, 24 Jul 2016) | 1 line
+Changed paths:
+   M /trunk/Mendeleev.lua
+   M /trunk/Mendeleev.toc
+
+code fixes for WoW 7.0.3
+------------------------------------------------------------------------
+r329 | elkano | 2014-11-14 16:03:09 +0000 (Fri, 14 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/Mendeleev.lua
+   M /trunk/Mendeleev.toc
+
+fixes for WoW 6.x; data is NOT up2date for WoD
+------------------------------------------------------------------------

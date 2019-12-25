@@ -1,0 +1,16 @@
+lightweight tag c9833a44dac6c552afcaec4045ead1fed7b3bb5b v8.2.5.046
+Author:	Tercio Jose <terciob19@hotmail.com>
+Date:	Sun Nov 17 11:57:28 2019 -0300
+
+commit c9833a44dac6c552afcaec4045ead1fed7b3bb5b
+Author: Tercio Jose <terciob19@hotmail.com>
+Date:   Sun Nov 17 11:57:28 2019 -0300
+
+    Sync plugin version with github release version
+
+commit 46ceec8e9700a7e57b81135065b208bc2526c2d7
+Author: Tercio Jose <terciob19@hotmail.com>
+Date:   Sun Nov 17 11:55:53 2019 -0300
+
+    Fixed plugin load issue
+

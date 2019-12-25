@@ -488,8 +488,19 @@ function SpellBinding:GetConflictText(key, action, newSet, activeAction, current
 end
 
 function SpellBinding:GetActionString(action)
-	if action:match("^SPELL %d+$") then
-		action = action:gsub("%d+", GetSpellInfo)
+
+	local ac = action:match("^SPELL %d+$")
+
+	if ac then
+	
+		local spellId = tonumber(ac:match("%d+"))
+		local name, rank = GetSpellInfo(spellId)
+	
+		action = action:gsub("%d+", name)
+		
+		if rank and IsSpellKnown(spellId) then
+			action = action .. "(Rank "..rank..")"
+		end
 	end
 	return action
 end
@@ -520,11 +531,15 @@ local typeLabels = {
 
 local getName = {
 	SPELL = function(data)
-		local name, rank = GetSpellInfo(data)
+	
+		local id = tonumber(data)
+		local name, rank = GetSpellInfo(id)
 
-		--print (name .. rank);
-		--print("id: " .. data ..", name: " .. name .. ", rank: " .. rank)
-		return format("%s", name, rank);
+		if rank and IsSpellKnown(id) then			
+			return format("%s (rank #%d)", name, rank);
+		end
+				
+		return format("%s", name);
 	end,
 	ITEM = GetItemInfo,
 	COMMAND = function(data)
