@@ -1,0 +1,8 @@
+## Interface: 11302
+## Title: ExoLink
+## Notes: 
+## Version: 1.0.1
+
+Libraries\Libraries.xml
+
+ExoLink.lua

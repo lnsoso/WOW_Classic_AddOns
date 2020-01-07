@@ -1,0 +1,10 @@
+## Interface: 11303
+## Title: LootTables Classic v0.85
+## Author: Sentaryo
+## Version: 0.85
+## Notes: Lets you see npc drops.
+## DefaultState: enabled
+
+Database.lua
+Main.lua
+MenuElements.xml

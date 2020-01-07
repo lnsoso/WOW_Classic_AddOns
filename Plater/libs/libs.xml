@@ -18,7 +18,7 @@
 	<Include file="LibDeflate\lib.xml"/>
 	<Include file="LibCustomGlow-1.0\LibCustomGlow-1.0.xml"/>
 	<Include file="AceBucket-3.0\AceBucket-3.0.xml"/>
-	<Include file="ThreatClassic-1.0\lib.xml"/>
+	<Include file="LibThreatClassic2\lib.xml"/>
 	<Script file="LibDataBroker-1.1\LibDataBroker-1.1.lua"/>
 	<Script file="LibDBIcon-1.0\LibDBIcon-1.0.lua"/>
 	

@@ -1,0 +1,705 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+	<Frame name="LT_ItemListener">
+		<Scripts>
+			<OnLoad>
+				self:RegisterEvent("PLAYER_TARGET_CHANGED")
+				self:RegisterEvent("GET_ITEM_INFO_RECEIVED")
+			</OnLoad>
+			<OnEvent>
+				if (event == "PLAYER_TARGET_CHANGED") then
+					LT_LootBox:SetShown(false)
+					if (UnitGUID("target") == nil) then
+						return
+					end
+					local unitType, zero, server_id, instance_id, zone_uid, npc_id, spawn_uid = strsplit("-", UnitGUID("target"));
+					LT_OnTargetChange(unitType, tonumber(npc_id))
+				elseif (event == "GET_ITEM_INFO_RECEIVED") then
+					local itemID, success = ...
+					LT_TakeFromQuery(itemID, success)
+				end
+			</OnEvent>
+		</Scripts>
+	</Frame>
+	
+	<Button name="LT_ItemFrameTemplate" virtual="true">
+		<Size>
+			<AbsDimension x="180" y="30"/>
+		</Size>
+		<Layers>
+			<Layer level="Background">
+				<Texture parentKey="icon" file="Interface\PaperDoll\UI-Backpack-EmptySlot">
+					<Size x="30" y="30"/>
+					<Anchors>
+						<Anchor point="TopLeft"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+			<Layer level="Artwork">
+				<FontString parentKey="name" inherits="GameFontHighlight" text="Item Name">
+					<Anchors>
+						<Anchor point="TopLeft" x="35" y="-3"/>
+					</Anchors>
+				</FontString>
+				<FontString parentKey="chance" inherits="GameFontHighlight" text="Drop Chance">
+					<Anchors>
+						<Anchor point="TopLeft" x="35" y="-16"/>
+					</Anchors>
+				</FontString>
+				<FontString parentKey="index" inherits="GameFontHighlight" text="Drop Chance">
+					<Anchors>
+						<Anchor point="BottomRight" x="-20" y="0"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+			<Layer level="Highlight">
+				<Texture parentKey="highlightTexture" file="Interface\Scenarios\Objective-Lineglow">
+					<Anchors>
+						<Anchor point="TopLeft"/>
+						<Anchor point="BottomRight"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="0.8"/>
+				</Texture>
+			</Layer>
+		</Layers>
+		<NormalTexture/>
+		<PushedTexture/>
+		<HighlightTexture/>
+		<Scripts>
+			<OnLoad>
+				self.highlightTexture:SetDesaturated(true)
+			</OnLoad>
+			<OnEnter>
+				if not (self.itemLink == nil) then
+					GameTooltip:SetOwner(self, "ANCHOR_LEFT")
+					GameTooltip:ClearLines()
+					GameTooltip:SetHyperlink(self.itemLink)
+					GameTooltip:Show()
+				end
+			</OnEnter>
+			<OnLeave>
+				if not (self.itemLink == nil) then
+					GameTooltip:Hide()
+				end
+			</OnLeave>
+			<OnClick>
+				if not (self.itemLink == nil) then
+					if(IsModifiedClick("DRESSUP")) then
+						DressUpItemLink(self.itemLink)
+					elseif(IsModifiedClick("CHATLINK")) then
+						ChatFrame1EditBox:Insert(self.itemLink)
+					end
+				end
+			</OnClick>
+		</Scripts>
+	</Button>
+	
+	<Frame name="LT_LootBox"  parent="UIParent" inherits="InsetFrameTemplate3" enableMouse="true" hidden="true">
+		<Size>
+			<AbsDimension x="200" y="400"/>
+		</Size>
+		<Anchors>
+			<Anchor point="Center" relativeTo="UIParent" relativePoint="Center">
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="Artwork">
+				<FontString name="LT_LootBoxTitle" inherits="GameFontHighlight" text="Title">
+					<Anchors>
+						<Anchor point="Center">
+							<Offset>
+								<AbsDimension x="0" y="188"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame name="LT_LootBoxOptions" inherits="InsetFrameTemplate3">
+				<Size>
+					<AbsDimension x="150" y="165"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TopLeft" relativePoint="TopRight" x="2" y="0"/>
+				</Anchors>
+				<Frames>
+					<Button name="LT_ChanceDropDown" inherits="UIDropDownMenuTemplate">
+						<Anchors>
+							<Anchor point="TopLeft" x="-10" y="-25"/>
+						</Anchors>
+						<Layers>
+							<Layer level="Artwork">
+								<FontString inherits="GameFontHighlight" text="Minimum Chance">
+									<Anchors>
+										<Anchor point="TopLeft" x="20" y="15"/>
+									</Anchors>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Scripts>
+							<OnLoad>
+								UIDropDownMenu_Initialize(self, LT_ChanceDropDownInit)
+							</OnLoad>
+						</Scripts>
+					</Button>
+					<Button name="LT_QualityDropDown" inherits="UIDropDownMenuTemplate">
+						<Anchors>
+							<Anchor point="TopLeft" relativeTo="LT_ChanceDropDown" relativePoint="TopLeft" x="0" y="-50"/>
+						</Anchors>
+						<Layers>
+							<Layer level="Artwork">
+								<FontString inherits="GameFontHighlight" text="Minimum Quality">
+									<Anchors>
+										<Anchor point="TopLeft" relativePoint="TopLeft" x="20" y="15"/>
+									</Anchors>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Scripts>
+							<OnLoad>
+								UIDropDownMenu_Initialize(self, LT_QualityDropDownInit)
+							</OnLoad>
+						</Scripts>
+					</Button>
+					<Button name="LT_TypeDropDown" inherits="UIDropDownMenuTemplate">
+						<Anchors>
+							<Anchor point="TopLeft" relativeTo="LT_QualityDropDown" relativePoint="TopLeft" x="0" y="-50"/>
+						</Anchors>
+						<Layers>
+							<Layer level="Artwork">
+								<FontString inherits="GameFontHighlight" text="Item Type">
+									<Anchors>
+										<Anchor point="TopLeft" relativePoint="TopLeft" x="20" y="15"/>
+									</Anchors>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Scripts>
+							<OnLoad>
+								UIDropDownMenu_Initialize(self, LT_TypeDropDownInit)
+							</OnLoad>
+						</Scripts>
+					</Button>
+				</Frames>
+			</Frame>
+			<ScrollFrame name="LT_LootBoxScrollFrame" inherits="UIPanelScrollFrameTemplate">
+				<Anchors>
+					<Anchor point="TopLeft" relativePoint="TopLeft" x="3" y="-25"/>
+					<Anchor point="BottomRight" relativePoint="BottomRight" x="-25" y="5"/>
+				</Anchors>
+				<ScrollChild>
+					<Frame name="LT_LootBoxItemListFrame">
+						<Size>
+							<AbsDimension x="170" y="300"/>
+						</Size>
+						<Frames>
+							<Button name="LT_ItemFrame1" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" x="5" y="0"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame2" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame1" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame3" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame2" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame4" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame3" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame5" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame4" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame6" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame5" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame7" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame6" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame8" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame7" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame9" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame8" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame10" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame9" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame11" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame10" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame12" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame11" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame13" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame12" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame14" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame13" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame15" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame14" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame16" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame15" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame17" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame16" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame18" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame17" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame19" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame18" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame20" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame19" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame21" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame20" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame22" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame21" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame23" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame22" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame24" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame23" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame25" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame24" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame26" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame25" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame27" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame26" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame28" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame27" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame29" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame28" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame30" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame29" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame31" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame30" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame32" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame31" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame33" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame32" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame34" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame33" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame35" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame34" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame36" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame35" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame37" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame36" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame38" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame37" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame39" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame38" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame40" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame39" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame41" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame40" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame42" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame41" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame43" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame42" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame44" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame43" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame45" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame44" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame46" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame45" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame47" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame46" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame48" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame47" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame49" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame48" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame50" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame49" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame51" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame50" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame52" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame51" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame53" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame52" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame54" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame53" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame55" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame54" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame56" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame55" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame57" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame56" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame58" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame57" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame59" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame58" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame60" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame59" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame61" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame60" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame62" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame61" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame63" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame62" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame64" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame63" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame65" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame64" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame66" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame65" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame67" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame66" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame68" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame67" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame69" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame68" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame70" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame69" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame71" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame70" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame72" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame71" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame73" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame72" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame74" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame73" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame75" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame74" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame76" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame75" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame77" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame76" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame78" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame77" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame79" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame78" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame80" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame79" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame81" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame80" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame82" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame81" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame83" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame82" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame84" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame83" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame85" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame84" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame86" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame85" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame87" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame86" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame88" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame87" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame89" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame88" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame90" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame89" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame91" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame90" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame92" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame91" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame93" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame92" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame94" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame93" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame95" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame94" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame96" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame95" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame97" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame96" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame98" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame97" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame99" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame98" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+							<Button name="LT_ItemFrame100" inherits="LT_ItemFrameTemplate">
+								<Anchors>
+									<Anchor point="TopLeft" relativeTo="LT_ItemFrame99" relativePoint="BottomLeft" x="0" y="-10"/>
+								</Anchors>
+							</Button>
+						</Frames>
+					</Frame>
+				</ScrollChild>
+			</ScrollFrame>
+		</Frames>
+		<Scripts>
+			<OnUpdate>LT_UpdateLootBox(self, elapsed)</OnUpdate>
+		</Scripts>
+	</Frame>
+</Ui>

@@ -1,10 +1,28 @@
-lightweight tag c54adf49a72d4bfe288573835b7c559680a3683c v1.4.1
+lightweight tag 3ab80152978b8422dbce543609b568c1f4416ef9 v1.4.2
 Author:	Boshi Lian <farmer1992@gmail.com>
-Date:	Wed Dec 11 18:41:46 2019 -0800
+Date:	Wed Jan 1 03:33:40 2020 -0800
 
-commit c54adf49a72d4bfe288573835b7c559680a3683c
+commit 3ab80152978b8422dbce543609b568c1f4416ef9
 Author: Boshi Lian <farmer1992@gmail.com>
-Date:   Wed Dec 11 18:41:46 2019 -0800
+Date:   Wed Jan 1 03:33:40 2020 -0800
 
-    update toc
+    add summary mode
+
+commit 7c6636c1d6fb90ace9c0166f1c177693f5607e23
+Author: Boshi Lian <farmer1992@gmail.com>
+Date:   Wed Jan 1 03:20:11 2020 -0800
+
+    add option header
+
+commit 7062bce9378f5489d0af5f32de3ca20375056670
+Author: Boshi Lian <farmer1992@gmail.com>
+Date:   Wed Dec 18 08:32:21 2019 -0800
+
+    better list vaule
+
+commit 0aa400ddc15bd31835b33ef0cb9a8a3343fde32c
+Author: Boshi Lian <farmer1992@gmail.com>
+Date:   Mon Dec 16 12:58:01 2019 -0800
+
+    Update .pkgmeta
 

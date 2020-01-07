@@ -231,7 +231,7 @@ local buttons = {
 	--[[21]]{ 				name = "copy"						,type = "CheckButton"	,label = LCONFIG.copy					,key = "copy"					, },
 	--[[22]]{ sub = true,	name = "copyTagColor"				,type = "ColorSelect"	,label = LCONFIG.copyTagColor			,key = "copyTagColor"			, },
 	--[[23]]{ sub = true,	name = "copyTagFormat"				,type = "Input"			,label = LCONFIG.copyTagFormat			,key = "copyTagFormat"			,note = LCONFIG.copyTagFormatNotes		,multiLine = false	,width = 240,  },
-			{ sub = true,	name = "copyTagFormat2"				,type = "DropDownMenu"	,label = LCONFIG.copyTagFormat			,key = "copyTagFormat", value = { "%I:%M", "%I:%M:%S", "%I:%M %p", "%I:%M:%S %p", "%H:%M", "%H:%M:%S", }, text = { "03:27", "03:27:32", "03:27 PM", "03:27:32 PM", "15:27", "15:27:32", }, list = true, },
+			{ sub = true,	name = "copyTagFormat2"				,type = "DropDownMenu"	,label = LCONFIG.copyTagFormat			,key = "copyTagFormat", value = { "", "%I:%M", "%I:%M:%S", "%I:%M %p", "%I:%M:%S %p", "%H:%M", "%H:%M:%S", }, text = { "NONE", "03:27", "03:27:32", "03:27 PM", "03:27:32 PM", "15:27", "15:27:32", }, list = true, },
 	--[[14]]{ 				name = "broadCastNewMember"			,type = "CheckButton"	,label = LCONFIG.broadCastNewMember		,key = "broadCastNewMember"		, },
 	--[[15]]{ sub = true,	name = "welcomeToGuild"				,type = "CheckButton"	,label = LCONFIG.welcomeToGuild			,key = "welcomeToGuild"			, },
 	--[[16]]{ sub = true,	name = "welcometoGuildMsg"			,type = "Input"			,label = LCONFIG.welcometoGuildMsg		,key = "welcometoGuildMsg"		,note = L.WTG_STRING.WELCOME_NOTES	,multiLine = true	,width = 640,  },

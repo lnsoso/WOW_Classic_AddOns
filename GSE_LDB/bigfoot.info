@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <AddOnList version="1.0" url="http://wowui.178.com/" purl="http://wowui.178.com/">
-    <AddOn displayName="[怀旧专用] Gnome Sequencer Enhanced（GSE）：自制宏编写" img="/data/wow/1264/ui_logo.jpg" info="ui/1264" name="[怀旧专用] Gnome Sequencer Enhanced（GSE）：自制宏编写" package="down/1264/14489/GSE-2.4_.23-classic_.zip" update="2019-11-29" version="2.4.23-classic" />
+    <AddOn displayName="[怀旧专用] Gnome Sequencer Enhanced（GSE）：自制宏编写" img="/data/wow/1264/ui_logo.jpg" info="ui/1264" name="[怀旧专用] Gnome Sequencer Enhanced（GSE）：自制宏编写" package="down/1264/14692/GSE-2.4_.25-classic_.zip" update="2019-12-31" version="2.4.25-classic" />
 </AddOnList>

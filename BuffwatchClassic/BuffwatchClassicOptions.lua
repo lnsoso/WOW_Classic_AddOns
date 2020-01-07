@@ -14,6 +14,7 @@ BUFFWATCHADDON_G.TOOLTIP.SHOWONLYMINE = "Only show buffs you have cast";
 BUFFWATCHADDON_G.TOOLTIP.SHOWPETS = "Show pets in the player list";
 BUFFWATCHADDON_G.TOOLTIP.SHOWSPIRALS = "Enable cooldown spirals on buff buttons";
 BUFFWATCHADDON_G.TOOLTIP.SORTORDER = "Specifies the sort order for the player list in the Buffwatch Window";
+BUFFWATCHADDON_G.TOOLTIP.VISIBLE = "Show or hide the Buffwatch window";
 
 -- Temp global & player options
 local BuffwatchTempConfig = {};
@@ -101,6 +102,8 @@ function BUFFWATCHADDON.Options_Init()
 
     UIDropDownMenu_SetSelectedValue(Buffwatch_Options_AnchorPoint, BuffwatchPlayerConfig.AnchorPoint);
     UIDropDownMenu_SetText(Buffwatch_Options_AnchorPoint, BuffwatchPlayerConfig.AnchorPoint);
+
+    Buffwatch_Options_Visible:SetChecked(BuffwatchPlayerConfig.Visible);
 
     Buffwatch_Options_ShowPets:SetChecked(BuffwatchPlayerConfig.ShowPets);
 

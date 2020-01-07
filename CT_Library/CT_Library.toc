@@ -1,5 +1,5 @@
 ## Interface: 11303
-## Version: 8.2.5.8
+## Version: 8.2.5.9
 ## Title: CT_Library |cFF333333(Classic)
 ## Notes: Library features for CTMod. 
 ## DefaultState: Enabled

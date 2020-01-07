@@ -1,0 +1,63 @@
+1.00
+- initial upload.
+
+1.1
+- fixed: Tooltips not working for reagents in the enchanting default tradeskill UI.
+
+1.2
+- added: Slash commands to erase all data, generate ItemLinks from IDs or search all your items. Use "/isc ?" to get a listing.
+
+1.3
+- WARNING: installing this update will erase your existing data. The structure has changed too much to keep the old stuff. I hope this will be the last reset of this kind.
+- added: MailQ implementation that allows to track mail operations beyond checking your mailbox:
+	- Mails sent to your known Alts (have had to be logged in before) will now immediately show as "Transit" and can therefore be tracked in the tooltip
+	- You will be warned about mail going to expire soon on any character when logging in
+	- Buying Items off the AH (does not apply to non-buyout bids) will be immediately displayed in your tooltip without visiting a mailbox
+	- Returning mail to known Alts will also count them immediately to their mail-inbox without having to log them in
+
+1.4
+- WARNING: this update comes with yet another data-reset. Sorry, but sometimes changes are bigger than first anticipated and there is a reason this addon is still in Beta. :(
+- fixed: Bank-Bag-Slots 3 to 6 are no longer completely ignored - they will be mocked for their high purchase-price instaed. Thanks to user "Ravidge" for reporting this issue.
+- fixed: attempts to send mail that fail for whatever reason will no longer be registered as actually sent mail.
+- added: the bag-items you hav equipped in the four slots on-character are now counted towards "Gear"; the bag-items equipped in the bank have been added to their own new category: "BankGear". The reason for not adding them to "Bank" is that when i personally look for bags and the tooltip says i have some on a character's bank i would often mistakenly assume they are not in use there.
+- added: you can now use "/isc money" or "/isc m" to get a summary of your worldly riches across the current realm. This will include gold still in the mail inbox and in-transit. It does not include COD mail. I spent quite some time thinking about this but came to the conclusion that if i included CODGold you still have to pay, i should also include CODMail sent by you to other players that you are still waiting for to be payed. And then there would be
+Auctions...at some point i have to draw the line and i think ignoring COD is the right call. The Addon does only list money that you actually have available (or will definetly have available within the next hour in case of transit).
+
+1.5
+WARNING: 1.5 comes with yet another data-reset.
+
+- changed: All lines added to the Tooltip by ISC now use a smaller font size.
+- changed: minor formating changes.
+
+- added: Keyring contents are now displayed in the tooltip.
+- added: ISC now adds the vendor sell price to the tooltip of items.
+- added: owned autions that you cancel will automatically be added directly to your inbox without having to visit a mailbox.
+- added: "/isc m(oney)" is now able to give you a gold summary of all realms you have characters on. Use "/isc m [realmname]" to get the listing. If realmname is ommited, the current realm is used just like in 1.4
+
+1.6
+WARNING: 1.6 comes with yet another data-reset.
+
+- fixed: Visting a mailbox just a single time after login and then loggin out again could generate "ghost mail" in the stored data.
+
+- added: Upon login there now is a message for characters that have not visited their bank in more than 31 days/never.
+- added: you can now erase individual characters from the ISC data with "/isc EraseCharacter [Name-Realm]"
+
+- changed: the default text color for console messages is now grey to better recognize priest class color.
+
+1.7
+- added: Options. You can access the Options through Interface > Addons > ItemSurveyClassic or /isc options or /isc config
+
+1.7b
+- fixed: Items without a sell value no longer display the sell value of the last item you moused over.
+
+- changed: The option to display only "Total: 1" for unique items has been changed to only display the character-line and ommit the total-line instead.
+- changed: receiving mail in-transit will now actually be reported during a play-session and not just once upon login.
+
+1.71
+WARNING: Installing this update will reset all stored data
+
+- fixed: sending several mails to Alts in a row generates false data
+- fixed: opening the bank after a data reset generates a LUA error
+
+1.72
+- fixed: unintended wipe of bank-item-data upon login

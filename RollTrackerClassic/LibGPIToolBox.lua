@@ -152,7 +152,8 @@ function Tool.RGBtoEscape(r, g, b,a)
 		g=r.g
 		b=r.b
 		r=r.r
-	end		
+	end
+	
 	r = r~=nil and r <= 1 and r >= 0 and r or 1
 	g = g~=nil and g <= 1 and g >= 0 and g or 1
 	b = b~=nil and b <= 1 and b >= 0 and b or 1
@@ -502,12 +503,16 @@ local function SelectTab(self)
 			parent.Tabs[i].content:Hide()
 		end
 		self.content:Show()	
+	
+		if parent.Tabs[self:GetID()].OnSelect then
+			parent.Tabs[self:GetID()].OnSelect(self)
+		end
 	end
 end
 
 function Tool.TabHide(frame,id)
 	if id and frame.Tabs and frame.Tabs[id] then
-		frame:Hide()
+		frame.Tabs[id]:Hide()
 	elseif not id and frame.Tabs then
 		for i=1, frame.numTabs do
 			frame.Tabs[i]:Hide()
@@ -517,7 +522,7 @@ end
 
 function Tool.TabShow(frame,id)
 	if id and frame.Tabs and frame.Tabs[id] then
-		frame:Show()
+		frame.Tabs[id]:Show()
 	elseif not id and frame.Tabs then
 		for i=1, frame.numTabs do
 			frame.Tabs[i]:Show()
@@ -528,6 +533,12 @@ end
 function Tool.SelectTab(frame,id)
 	if id and frame.Tabs and frame.Tabs[id] then
 		SelectTab(frame.Tabs[id])
+	end
+end	
+
+function Tool.TabOnSelect(frame,id,func)
+	if id and frame.Tabs and frame.Tabs[id] then
+		frame.Tabs[id].OnSelect=func
 	end
 end	
 	
@@ -543,7 +554,18 @@ function Tool.GetSelectedTab(frame)
 end
 	
 function Tool.AddTab(frame,name,tabFrame,combatlockdown)
-	local frameName=frame:GetName()
+	local frameName
+	
+	if type(frame)=="string" then
+		frameName=frame
+		frame=_G[frameName]
+	else
+		frameName=frame:GetName()
+	end
+	if type(tabFrame)=="string" then
+		tabFrame=_G[tabFrame]
+	end
+	
 	frame.numTabs=frame.numTabs and frame.numTabs+1 or 1
 	if frame.Tabs==nil then frame.Tabs={} end
 	

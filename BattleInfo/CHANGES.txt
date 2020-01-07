@@ -1,46 +1,46 @@
-lightweight tag 0d97f2d85c68a4eb8bae8ba7e1b2e50c6d62a520 v2.2.4
+lightweight tag aa833e43613e101cd5a4f559c748aa78d29c87ea v2.3.0
 Author:	Boshi Lian <farmer1992@gmail.com>
-Date:	Wed Dec 18 17:54:31 2019 -0800
+Date:	Tue Dec 31 00:14:53 2019 -0800
 
-commit 0d97f2d85c68a4eb8bae8ba7e1b2e50c6d62a520
+commit aa833e43613e101cd5a4f559c748aa78d29c87ea
 Author: Boshi Lian <farmer1992@gmail.com>
-Date:   Wed Dec 18 17:54:31 2019 -0800
+Date:   Tue Dec 31 00:14:53 2019 -0800
 
-    add ttl
+    fix alterac
 
-commit f048f05ed0a0c1fbc7dd069b900ee1d6303657d1
+commit c7547c52a84c9921d5446bc3039f9825a481dd9f
 Author: Boshi Lian <farmer1992@gmail.com>
-Date:   Wed Dec 18 17:43:34 2019 -0800
+Date:   Tue Dec 31 00:08:04 2019 -0800
 
-    introduce instance time
+    opt to enter and leave
 
-commit 121f0cdbf175c036ff6a25265e1322b8d915a3e9
+commit 45b5534b9ba82791f354222e5531df439dff43d0
 Author: Boshi Lian <farmer1992@gmail.com>
-Date:   Wed Dec 18 15:38:03 2019 -0800
+Date:   Mon Dec 30 23:11:07 2019 -0800
 
-    introduce zone help
+    fix typo
 
-commit 4f70eef7e1a65fa6c21227f7a72237005df839cd
+commit 038886edee5fa0ee9835dd37589297ef0084aed0
 Author: Boshi Lian <farmer1992@gmail.com>
-Date:   Wed Dec 18 08:07:18 2019 -0800
+Date:   Mon Dec 30 23:07:22 2019 -0800
 
-    add total bg num
+    add replace join buttion
 
-commit c23867d0d636328ad6e4c8858258e809ab34eedc
+commit 65ded79c83ede38faa61bc6b530c85e6f31e36c6
 Author: Boshi Lian <farmer1992@gmail.com>
-Date:   Wed Dec 18 07:55:24 2019 -0800
+Date:   Mon Dec 30 22:32:15 2019 -0800
 
-    better memory usage
+    move reset to opt
 
-commit 220991520e29e52deeb54744b4176582850c3907
+commit 6ff0611c131ec82bc94fe4f5667683704a3bffdb
 Author: Boshi Lian <farmer1992@gmail.com>
-Date:   Wed Dec 18 07:44:55 2019 -0800
+Date:   Mon Dec 30 22:14:39 2019 -0800
 
-    optimize code
+    add option for 2 labels
 
-commit 99dd8e34af91640d677d628ce5e43939ec2f3a24
+commit f0dbd532e095537b954a3c7b36bf981d002bea7c
 Author: Boshi Lian <farmer1992@gmail.com>
-Date:   Tue Dec 17 21:10:14 2019 -0800
+Date:   Mon Dec 30 20:47:26 2019 -0800
 
-    better label pos
+    introduce opt
 

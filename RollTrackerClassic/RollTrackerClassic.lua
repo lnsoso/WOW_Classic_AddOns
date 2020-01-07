@@ -9,6 +9,21 @@ RollTrackerClassic_Addon=RTC
 --[[
 
 	RollTracker Classic 
+	2.10
+		- Fix Korean-Detection
+		- Add Playernote to every Player-Tooltip
+	
+	2.02
+		- Add Player-Tooltip in rolls and loot tab
+		- click on a player name to add a note
+		- When loot tracker is activ show last 10 loots in tooltip
+		- New Command: /rtc notes -- output all player notes
+		- New command: /rtc clear notes -- clear all player notes
+		
+	2.01
+		- Korean translation by BattleE, classe82
+		- Simplified Chinese translation by kokpk
+	
 	2.00
 		- remove /rt (again)
 		- russian update by Arrogant_Dreamer 
@@ -656,6 +671,140 @@ function RTC.OptionsInit()
 	RTC.Options.Indent(-10)
 end
 
+-- notesystem
+local function hooked_createTooltip(self)
+	local name, unit = self:GetUnit()
+	if (name) and (unit) and UnitIsPlayer(unit) and RTC.Notes[name] then
+		self:AddLine(RTC.Notes[name])
+		self:Show()	
+	end
+end
+
+
+local EditEntry
+function RTC.EditNote(entry)
+	StaticPopup_Hide("RollTrackerClassic_AddNote")	
+	if entry then 
+		EditEntry=entry		
+		StaticPopup_Show("RollTrackerClassic_AddNote", entry)
+	end
+end
+
+function RTC.notes_clear()
+	wipe(RTC.Notes)
+	DEFAULT_CHAT_FRAME:AddMessage(RTC.MSGPREFIX .. L["MsgNotesCleared"],RTC.DB.ColorChat.r,RTC.DB.ColorChat.g,RTC.DB.ColorChat.b,RTC.DB.ColorChat.a)
+	
+end
+function RTC.notes_list()
+	local txt=""
+	for name,note in pairs(RTC.Notes) do
+		if note and note~="" and name then
+			txt=name.." "..note.."|n"..txt
+		end
+	end
+	if txt~="" then
+		RTC.Tool.CopyPast(txt)
+	end
+end
+
+local function EnterHyperlink(self,link,text)
+	local part=RTC.Tool.Split(link,":")
+	
+	if part[1]=="player" then 
+		GameTooltip_SetDefaultAnchor(GameTooltip,UIParent)
+		GameTooltip:SetOwner(UIParent,"ANCHOR_PRESERVE")
+		GameTooltip:ClearLines()
+		
+		local guid=UnitGUID(part[2])
+		if guid then
+			GameTooltip:SetHyperlink("|Hunit:"..guid.."|h["..part[2].."]|h")
+		else
+			GameTooltip:AddLine(part[2])
+			GameTooltip:AddLine(RTC.Notes[part[2]] or "")
+		end		
+		
+		if RTC.DB.LootTracker.Enable then 
+			GameTooltip:AddLine(" ")
+			GameTooltip:AddLine(L.MsgPastLoots)
+			local count=0
+			for i=#RollTrackerClassicLoot,1,-1 do
+				local loot=RollTrackerClassicLoot[i]
+				if loot.name==part[2] then
+					RTC.LootList_AddItem (loot,GameTooltip)
+					count=count+1
+					if count==10 then
+						break
+					end
+				end
+			end
+		end
+		GameTooltip:Show()
+	elseif part[1]=="spell" or part[1]=="unit" or part[1]=="item" or part[1]=="enchant" or part[1]=="player" or part[1]=="quest" or part[1]=="trade"  then
+		GameTooltip_SetDefaultAnchor(GameTooltip,UIParent)
+		GameTooltip:SetOwner(UIParent,"ANCHOR_PRESERVE")
+		GameTooltip:ClearLines()
+		GameTooltip:SetHyperlink(link)
+		GameTooltip:Show()
+	end 
+	
+end
+local function LeaveHyperlink(self)
+	GameTooltip:Hide()
+end
+local function ClickHyperlink(self,link,text)
+	local part=RTC.Tool.Split(link,":")
+	if part[1]=="player" then 
+		RTC.EditNote(part[2])
+	end
+end
+
+
+local function initHyperlink(frame)
+	frame:SetHyperlinksEnabled(true);
+	frame:SetScript("OnHyperlinkEnter",EnterHyperlink)
+	frame:SetScript("OnHyperlinkLeave",LeaveHyperlink)	
+	frame:SetScript("OnHyperlinkClick",ClickHyperlink)	
+	
+	if StaticPopupDialogs["RollTrackerClassic_AddNote"]==nil then
+		GameTooltip:HookScript("OnTooltipSetUnit", hooked_createTooltip)
+		
+		StaticPopupDialogs["RollTrackerClassic_AddNote"] = {
+			text = L.MsgAddNote,
+			button1 = ACCEPT,
+			button2 = CANCEL,
+			hasEditBox = 1,
+			maxLetters = 48,
+			countInvisibleLetters = true,
+			editBoxWidth = 350,
+			OnAccept = function(self)
+				RTC.Notes[EditEntry]=self.editBox:GetText()
+			end,
+			OnShow = function(self)
+				self.editBox:SetText(RTC.Notes[EditEntry] or "");
+				self.editBox:SetFocus();
+			end,
+			OnHide = function(self)
+				ChatEdit_FocusActiveWindow();
+				self.editBox:SetText("");			
+			end,
+			EditBoxOnEnterPressed = function(self)
+				local parent = self:GetParent();
+				RTC.Notes[EditEntry]=parent.editBox:GetText()
+				parent:Hide();
+			end,
+			EditBoxOnEscapePressed = function(self)
+				self:GetParent():Hide();
+			end,
+			timeout = 0,
+			exclusive = 1,
+			whileDead = 1,
+			hideOnEscape = 1
+		}
+	
+	end
+	
+end
+
 -- Init
 function RTC.Init ()
 	L=RTC.GetLocale()
@@ -689,6 +838,10 @@ function RTC.Init ()
 	if not RTC.DB.LootTracker.Rarity then RTC.DB.LootTracker.Rarity  = {} end
 	if not RTC.DB.LootTracker.ItemType then RTC.DB.LootTracker.ItemType  = {} end
 	
+	local Realm=GetRealmName()
+	if not RTC.DB.Notes then RTC.DB.Notes  = {} end
+	if not RTC.DB.Notes[Realm] then RTC.DB.Notes[Realm]  = {} end
+	RTC.Notes=RTC.DB.Notes[Realm]
 	
 	
 	local x, y, w, h = RTC.DB.X, RTC.DB.Y, RTC.DB.Width, RTC.DB.Height
@@ -737,6 +890,7 @@ function RTC.Init ()
 				{"rolls",L["SlashClearRolls"],RTC.ClearRolls,true},
 				{"loot",L["SlashClearLoot"],RTC.ClearLoot,true},
 				{"lootrolls",L["SlashClearLootRolls"],RTC.LootHistoryClear},
+				{"notes",L["SlashClearNotes"],RTC.notes_clear},
 			},
 		},
 		{"undo","",{
@@ -757,6 +911,7 @@ function RTC.Init ()
 				{"%","",RTC.AddRoll}
 			},
 		},
+		{"notes",L["SlashNotes"],RTC.notes_list},
 		{"start","",{
 				{"%",L["SlashStart"],RTC.StartRoll}
 			},
@@ -794,8 +949,11 @@ function RTC.Init ()
 	
 	RTC.PopupDynamic=RTC.Tool.CreatePopup(RTC.OptionsUpdate)
 		
-	-- timer
 	RTC.Tool.OnUpdate(RTC.Timers)
+	
+	
+	initHyperlink(RollTrackerRollText)
+	initHyperlink(RollTrackerClassicLootFrame_MessageFrame)
 	RTC.OptionsUpdate()
 end
 
@@ -1038,10 +1196,11 @@ function RTC.FormatRollText (roll,party,partyName)
 	
 	local txtCount=roll.Count > 1 and format(" [%d]", roll.Count) or ""
 	
-	return colorTied..string.format("%3d",roll.Roll)..": "..
+	return 	"|Hplayer:"..roll.Name.."|h"..
+			colorTied..string.format("%3d",roll.Roll)..": "..
 			iconClass..colorName.. roll.Name ..colorRank.. rank.."|r "..
 			colorCheat..txtRange.."|r "..
-			colorCheat..txtCount.."\n"
+			colorCheat..txtCount.."|h\n"
 
 end
 
@@ -1091,7 +1250,7 @@ function RTC.UpdateRollList ()
 			if RTC.DB.ShowGuildRank and partyName[p.name] and partyName[p.name].rank then
 				rank=" "..partyName[p.name].rank
 			end
-			gtxt = gtxt.. iconClass .. p.name ..rank .."\n"
+			gtxt = gtxt.. "|Hplayer:"..p.name.."|h".. iconClass .. p.name ..rank .."|h\n"
 			RTC.allRolled=false
 		end
 	end
@@ -1365,7 +1524,7 @@ function RTC.UndoLoot (doMsg)
 	end
 end
 
-function RTC.LootList_AddItem (loot)
+function RTC.LootList_AddItem (loot,frame)
 	local colorName
 	local iconClass
 	local icon
@@ -1390,16 +1549,24 @@ function RTC.LootList_AddItem (loot)
 	end	
 	
 	local Text
-	if RTC.DB.LootTracker.ShortMessage then
-		Text=iconClass..colorName.. loot.name.."|r".." "..icon..loot.itemLink..stack
+	
+	if frame==nil then 
+		local name="|Hplayer:"..loot.name.."|h"..iconClass..colorName.. loot.name.."|r|h"
+	
+		if RTC.DB.LootTracker.ShortMessage then
+			Text=name.." "..icon..loot.itemLink..stack
+		else
+			Text=string.format(L["MsgLootLine"],
+						date("%y-%m-%d %H:%M",loot.timestamp),
+						name,
+						icon..loot.itemLink..stack
+						)
+		end	
+		RollTrackerClassicLootFrame_MessageFrame:AddMessage( Text,RTC.DB.ColorScroll.r,RTC.DB.ColorScroll.g,RTC.DB.ColorScroll.b,RTC.DB.ColorScroll.a)
 	else
-		Text=string.format(L["MsgLootLine"],
-					date("%y-%m-%d %H:%M",loot.timestamp),
-					iconClass..colorName.. loot.name.."|r",
-					icon..loot.itemLink..stack
-					)
+		Text=date("%y-%m-%d %H:%M",loot.timestamp).." "..icon..loot.itemLink..stack
+		frame:AddLine(Text,RTC.DB.ColorScroll.r,RTC.DB.ColorScroll.g,RTC.DB.ColorScroll.b)
 	end
-	RollTrackerClassicLootFrame_MessageFrame:AddMessage( Text,RTC.DB.ColorScroll.r,RTC.DB.ColorScroll.g,RTC.DB.ColorScroll.b,RTC.DB.ColorScroll.a)
 end
 
 function RTC.LootListInit()

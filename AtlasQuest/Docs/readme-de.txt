@@ -23,8 +23,10 @@ Derzeit leitet Thandrenn (aka Mystery8) das Projekt.
 =============
 
 EN: Thandrenn  (vorher Asurn und Lothaer)
-DE: Telchar und Nalumis  (vorher Asurn und Nihlo)
-CN: yeachan  (vorher DIY)
+DE: Guldukat  (vorher Asurn, Nihlo, Telchar und Nalumis)
+CN: yeachan und Ananhaid (vorher DIY)
+TW: Jill
+RU: EvgeshaH (Non-WOTLK by lorientalas)
 
 
 

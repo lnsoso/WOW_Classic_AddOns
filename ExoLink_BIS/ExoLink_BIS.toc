@@ -1,0 +1,10 @@
+## Interface: 11302
+## Title: ExoLink BestInSlot
+## Notes: 
+## OptionalDeps: LibExtraTip
+## Version: 1.0.1
+
+libs\LibExtraTip\Load.xml
+
+ExoLink_BIS.lua
+Data\BIS.xml

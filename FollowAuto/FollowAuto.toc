@@ -1,0 +1,8 @@
+## Interface: 11302
+## Title: FollowAuto
+## Author: Jason
+## Notes: Automatically following
+## Version: 1.0
+## SavedVariables: settings
+FollowAuto.lua
+

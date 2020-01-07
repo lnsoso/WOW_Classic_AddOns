@@ -30,8 +30,6 @@ local UnitExists = UnitExists
 local UnitHealth = UnitHealth
 local UnitHealthMax = UnitHealthMax
 local UnitCanAssist = UnitCanAssist
-local UnitIsUnit = UnitIsUnit
-local UnitBuff = UnitBuff
 local UnitIsConnected = UnitIsConnected
 local UnitIsGhost = UnitIsGhost
 local UnitIsFeignDeath = UnitIsFeignDeath
@@ -243,7 +241,8 @@ local ClassicHealPredictionDefaultSettings = {
     unitFramesMaxOverflow = toggleValue(0.0, true),
     showGhostStatusText = true,
     showFeignDeathStatusText = true,
-    showAnimatedLossBar = false
+    showAnimatedLossBar = false,
+    showFlaggedMembersRightSide = false
 }
 local ClassicHealPredictionSettings = ClassicHealPredictionDefaultSettings
 
@@ -326,6 +325,7 @@ local checkBoxes
 local checkBox2
 local checkBox3
 local checkBox4
+local checkBox5
 local slider
 local slider2
 local slider3
@@ -341,88 +341,17 @@ local function getIncomingHeals(unit)
         return 0, 0, 0, 0
     end
 
-    local unitGUID = UnitGUID(unit)
-    local playerGUID = UnitGUID("player")
-    local modifier = HealComm:GetHealModifier(unitGUID) or 1.0
-    local myAmount = HealComm:GetHealAmount(unitGUID, HealComm.DIRECT_HEALS, nil, playerGUID) or 0
-    local myAmount2 = HealComm:GetHealAmount(unitGUID, HealComm_OVERTIME_HEALS, nil, playerGUID) or 0
-    local myAmount3 = 0
+    local dstGUID = UnitGUID(unit)
+    local dstBitFlag = ClassicHealPredictionSettings.otherFilter
+    local dstTime = getOtherEndTime()
+    local srcGUID = UnitGUID("player")
+    local srcBitFlag = HealComm.ALL_HEALS
+    local srcTime = nil
 
-    if ClassicHealPredictionSettings.otherDelta >= 0 then
-        if myAmount2 > 0 then
-            local myDelta = 0
+    local modifier = HealComm:GetHealModifier(dstGUID) or 1.0
+    local dstAmount1, dstAmount2, srcAmount1, srcAmount2 = HealComm:GetHealAmountEx(dstGUID, dstBitFlag, dstTime, srcGUID, srcBitFlag, srcTime)
 
-            for i = 1, 40 do
-                local name, _, _, _, _, _, source = UnitBuff(unit, i)
-
-                if name then
-                    if source and UnitIsUnit("player", source) then
-                        myDelta = max(myDelta, tickIntervals[name] or 1)
-                    end
-
-                    if myDelta == 3 then
-                        break
-                    end
-                else
-                    break
-                end
-            end
-
-            local myEndTime = myDelta + GetTime()
-            myAmount3 = HealComm:GetHealAmount(unitGUID, HealComm_OVERTIME_HEALS, myEndTime, playerGUID) or 0
-        end
-
-        local otherFilter = ClassicHealPredictionSettings.otherFilter
-        local otherDelta = ClassicHealPredictionSettings.otherDelta
-        local otherEndTime = otherDelta + GetTime()
-
-        local otherAmount = HealComm:GetOthersHealAmount(unitGUID, otherFilter, otherEndTime) or 0
-        local otherAmount2 = HealComm:GetOthersHealAmount(unitGUID, otherFilter) or 0
-
-        return (myAmount + myAmount3) * modifier, (myAmount2 - myAmount3) * modifier, otherAmount * modifier, (otherAmount2 - otherAmount) * modifier
-    else
-        local otherFilter = ClassicHealPredictionSettings.otherFilter
-        local otherFilter1 = bit.band(otherFilter, HealComm.DIRECT_HEALS)
-        local otherFilter2 = bit.band(otherFilter, HealComm_OVERTIME_HEALS)
-        local otherAmount = otherFilter1 ~= 0 and HealComm:GetOthersHealAmount(unitGUID, otherFilter1) or 0
-        local otherAmount2 = otherFilter2 ~= 0 and HealComm:GetOthersHealAmount(unitGUID, otherFilter2) or 0
-        local otherAmount3 = 0
-
-        if myAmount2 > 0 or otherAmount2 > 0 then
-            local myDelta = 0
-            local otherDelta = 0
-
-            for i = 1, 40 do
-                local name, _, _, _, _, _, source = UnitBuff(unit, i)
-
-                if name then
-                    if source and UnitIsUnit("player", source) then
-                        myDelta = max(myDelta, tickIntervals[name] or 1)
-                    else
-                        otherDelta = max(otherDelta, tickIntervals[name] or 1)
-                    end
-
-                    if myDelta == 3 and otherDelta == 3 then
-                        break
-                    end
-                else
-                    break
-                end
-            end
-
-            if myAmount2 > 0 then
-                local myEndTime = myDelta + GetTime()
-                myAmount3 = HealComm:GetHealAmount(unitGUID, HealComm_OVERTIME_HEALS, myEndTime, playerGUID) or 0
-            end
-
-            if otherAmount2 > 0 then
-                local otherEndTime = otherDelta + GetTime()
-                otherAmount3 = HealComm:GetOthersHealAmount(unitGUID, otherFilter2, otherEndTime) or 0
-            end
-        end
-
-        return (myAmount + myAmount3) * modifier, (myAmount2 - myAmount3) * modifier, (otherAmount + otherAmount3) * modifier, (otherAmount2 - otherAmount3) * modifier
-    end
+    return (srcAmount1 or 0) * modifier, (srcAmount2 or 0) * modifier, (dstAmount1 or 0) * modifier, (dstAmount2 or 0) * modifier
 end
 
 local function updateHealPrediction(frame, unit, cutoff, gradient, colorPalette, colorPalette2, updateFillBar)
@@ -737,7 +666,9 @@ end
 hooksecurefunc(
     "CompactUnitFrame_UpdateUnitEvents",
     function(frame)
-        frame:UnregisterEvent("UNIT_HEALTH")
+        if not frame:IsForbidden() then
+            frame:UnregisterEvent("UNIT_HEALTH")
+        end
     end
 )
 
@@ -847,6 +778,45 @@ do
         end
     )
 end
+
+hooksecurefunc(
+    "CompactRaidFrameContainer_LayoutFrames",
+    function(self)
+        if not ClassicHealPredictionSettings.showFlaggedMembersRightSide then
+            return
+        end
+
+        for i = 1, #self.flowFrames do
+            if type(self.flowFrames[i]) == "table" and self.flowFrames[i].unusedFunc then
+                self.flowFrames[i]:unusedFunc()
+            end
+        end
+
+        FlowContainer_RemoveAllObjects(self)
+        FlowContainer_PauseUpdates(self)
+
+        if self.groupMode == "discrete" then
+            CompactRaidFrameContainer_AddGroups(self)
+        elseif self.groupMode == "flush" then
+            CompactRaidFrameContainer_AddPlayers(self)
+        else
+            error("Unknown group mode")
+        end
+
+        if self.displayPets then
+            CompactRaidFrameContainer_AddPets(self)
+        end
+
+        if self.displayFlaggedMembers then
+            FlowContainer_AddLineBreak(self)
+            CompactRaidFrameContainer_AddFlaggedUnits(self)
+        end
+
+        FlowContainer_ResumeUpdates(self)
+        CompactRaidFrameContainer_UpdateBorder(self)
+        CompactRaidFrameContainer_ReleaseAllReservedFrames(self)
+    end
+)
 
 local function unitFrame_Update(self)
     do
@@ -1576,6 +1546,8 @@ local function ClassicHealPredictionFrame_Refresh()
     checkBox3:SetChecked(ClassicHealPredictionSettings.showGhostStatusText)
 
     checkBox4:SetChecked(ClassicHealPredictionSettings.showFeignDeathStatusText)
+
+    checkBox5:SetChecked(ClassicHealPredictionSettings.showFlaggedMembersRightSide)
 end
 
 local function ClassicHealPredictionFrame_OnEvent(self, event, arg1)
@@ -1679,7 +1651,7 @@ local function ClassicHealPredictionFrame_OnLoad(self)
     )
 
     local title = self:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
-    title:SetPoint("TOPLEFT", 20, -20)
+    title:SetPoint("TOPLEFT", 15, -15)
     title:SetText(ADDON_NAME)
 
     local version = self:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
@@ -1716,7 +1688,7 @@ local function ClassicHealPredictionFrame_OnLoad(self)
         local checkBox = CreateFrame("CheckButton", name, self, template)
 
         if i == 1 then
-            checkBox:SetPoint("TOPLEFT", title, "BOTTOMLEFT", 0, -15)
+            checkBox:SetPoint("TOPLEFT", title, "BOTTOMLEFT", 0, -10)
         else
             local anchor
 
@@ -2030,7 +2002,7 @@ local function ClassicHealPredictionFrame_OnLoad(self)
             colorSwatch.index = i
 
             if k == 1 and j == 1 then
-                colorSwatch:SetPoint("TOPRIGHT", -245, -60)
+                colorSwatch:SetPoint("TOPRIGHT", -235, -50)
             elseif k ~= 1 and j == 1 then
                 colorSwatch:SetPoint("TOPLEFT", colorSwatches[k - 1][1], "BOTTOMLEFT", 0, -8)
             else
@@ -2115,6 +2087,24 @@ local function ClassicHealPredictionFrame_OnLoad(self)
         "OnClick",
         function(self)
             ClassicHealPredictionSettings.showFeignDeathStatusText = self:GetChecked()
+
+            updateAllFrames()
+        end
+    )
+
+    local checkBoxName5 = format("ClassicHealPredictionCheckbox%d", #checkBoxes + 4)
+    checkBox5 = CreateFrame("CheckButton", checkBoxName5, self, "OptionsCheckButtonTemplate")
+    checkBox5:SetPoint("TOPLEFT", checkBox4, "BOTTOMLEFT", 0, 0)
+    checkBox5.Text = _G[checkBoxName5 .. "Text"]
+    checkBox5.Text:SetText("Show main tanks and main assists on the right side in raid frames")
+    checkBox5.Text:SetTextColor(1, 1, 1)
+
+    checkBox5:SetScript(
+        "OnClick",
+        function(self)
+            ClassicHealPredictionSettings.showFlaggedMembersRightSide = self:GetChecked()
+
+            CompactRaidFrameContainer_TryUpdate(CompactRaidFrameContainer)
 
             updateAllFrames()
         end

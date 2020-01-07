@@ -42,6 +42,13 @@ end
 local function setStamp(fmt)
 	fmt = string.gsub(fmt, "\n", "");
 	stamp_fmt = fmt;
+	if fmt == "" then
+		control_copy = false;
+		CHAT_TIMESTAMP_FORMAT = nil;
+		return;
+	elseif alac_GetConfig("copy") then
+		control_copy = true;
+	end
 	if control_copy then
 		set(stamp_fmt);
 	end

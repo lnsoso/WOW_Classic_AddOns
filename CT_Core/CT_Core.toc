@@ -1,5 +1,5 @@
 ## Interface: 11303
-## Version: 8.2.5.6
+## Version: 8.2.5.9
 ## Title: CT_Core |cFF333333(Classic)
 ## Notes: General nifty features for CTMod.
 ## DefaultState: Enabled

@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <meta http-equiv="Refresh" content="5;URL=http://www.178.com" />
+		<meta name="Keywords" content="提供一些关键字，并用短语表示该页面的内容" />
+		<meta name="Description" content="提供一到二句话来描叙该页面" />
+		<meta name="Robots" content="all"/>
+		<title>178游戏主题站 页面访问错误</title>
+		<style type="text/css" media="all">
+			a:link,a:visited{color:#d10200;text-decoration:none;}
+		a:hover{color:#0000ff;text-decoration:underline;}
+		#cont{width:auto;margin:0 auto;position:relative;}
+		.nav{margin:0;padding:30px 0 0 0;text-align:center;}
+		.nav a{margin-right:10px;font-weight:bold;}
+		.go{width:152px;height:133px;display:block;position:absolute;top:90px;left:413px;}
+		.saywhat{position:absolute;top:675px;left:0;}
+		.saywhat p{margin:0;margin-bottom:5px;padding-left:20px;}
+		*{padding:0;margin:0;font-family:"微软雅黑";}
+body{background:url(http://cimg.178.com/www/s/error/body-bg.jpg) repeat;}
+.header{height:422px;background:url(http://cimg.178.com/www/s/error/header.jpg) no-repeat center 0;}
+.wrap{width:380px;margin:0 auto;padding-left:50px;}
+h1{font-size:80px;text-align:center;}
+h2{font-size:16px;}
+p{font-size:14px;line-height:1.5em;}
+span{font-size:12px;}
+a{color:#3597db;}
+		</style>
+	</head>
+	<body>
+    <script src="http://www.178.com/s/js/nav.js" type="text/javascript"></script>
+		<div id="cont">
+			
+<div class="header">
+</div>
+<h1>ERROR!!!</h1>
+<div class="wrap">
+<h2><font color="8a0505">抱歉，你访问的地址有错或页面不存在</font></h2>
+<p style="padding-bottom:10px;"><span>请检查输入的地址是否正确</span></p>
+<p style="color:#363636;padding:10px 0;">5秒之后页面跳转到 <a href="#">首页</a>，您可以点击：<br/><a href="http://www.178.com">返回178首页</a></p>
+<h2 style="padding:10px 0;"><strong style="font-size:24px;font-weight:normal">附注:</strong></h2>
+<p>如果您深夜或周末在178游戏网碰到突发事故，<br/>请您<font color="#8a0505">致电18701409178</font>，O(∩_∩)O谢谢~<br/><span><font color="#8a0505">突发事故包括（网站突然打不开，产品服务突然停止）</font></span></p>
+</div>
+		</div>
+	</body>
+<script type="text/javascript">
+var gaJsHost=document.createElement('script');
+gaJsHost.src=("https:" == document.location.protocol) ? "https://ssl.google-analytics.com/ga.js" : "http://www.google-analytics.com/ga.js";
+gaJsHost.onload = gaJsHost.onreadystatechange = function(){
+   if (this.readyState && this.readyState != 'loaded' && this.readyState != 'complete'){
+     return;
+   }
+   try {
+     var pageTracker = _gat._getTracker("UA-7730459-1");
+     var domain = window.location.href.toLowerCase().match(/http:\/\/(?:[^\/]+\.)?([^\/\.]+\.[^\/\.]+)(?:\/|$)/);
+     pageTracker._setDomainName("."+domain[1]);
+     pageTracker._trackPageview();
+   } catch(err) {}
+}
+
+document.body.insertBefore(gaJsHost,document.body.firstChild);
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256636041'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D1256636041' type='text/javascript'%3E%3C/script%3E"));</script>
+</html>

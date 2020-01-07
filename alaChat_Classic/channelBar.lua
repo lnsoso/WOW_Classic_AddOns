@@ -106,16 +106,16 @@ local function SetEditBoxHeader(idx)
 					ChatEdit_DeactivateChat(editBox);
 				else
 					if editBox:HasFocus() then
-						--local text = editBox:GetText():gsub("/[^%s]+%s", "");
-						--ChatEdit_ActivateChat(editBox);
-						-- editBox:SetText("/"..t[i].." " .. editBox:GetText():gsub("^/[^%s]+%s", ""));
-						ChatEdit_DeactivateChat(editBox);
-					-- else
-						-- ChatEdit_ActivateChat(editBox);
-						-- editBox:SetText("/"..t[i].." ");
+						local text = editBox:GetText():gsub("/[^%s]+%s", "");
+						ChatEdit_ActivateChat(editBox);
+						editBox:SetText("/"..t[i].." " .. editBox:GetText():gsub("^/[^%s]+%s", ""));
+						-- ChatEdit_DeactivateChat(editBox);
+					else
+						ChatEdit_ActivateChat(editBox);
+						editBox:SetText("/"..t[i].." ");
 					end
-					ChatEdit_ActivateChat(editBox);
-					editBox:Insert("/" .. t[i] .. " ");
+					-- ChatEdit_ActivateChat(editBox);
+					-- editBox:Insert("/" .. t[i] .. " ");
 				end
 				return;
 			end
@@ -136,16 +136,16 @@ local function SetEditBoxHeader(idx)
 			ChatEdit_DeactivateChat(editBox);
 		else
 			if editBox:HasFocus() then
-				--local text = editBox:GetText():gsub("^/[^%s]+%s", "");
-				--ChatEdit_ActivateChat(editBox);
-				-- editBox:SetText(PREF[idx] .. editBox:GetText():gsub("^/[^%s]+%s", ""));
-				ChatEdit_DeactivateChat(editBox);
-			-- else
-			-- 	ChatEdit_ActivateChat(editBox);
-			-- 	editBox:SetText(PREF[idx]);
+				local text = editBox:GetText():gsub("^/[^%s]+%s", "");
+				ChatEdit_ActivateChat(editBox);
+				editBox:SetText(PREF[idx] .. editBox:GetText():gsub("^/[^%s]+%s", ""));
+				-- ChatEdit_DeactivateChat(editBox);
+			else
+				ChatEdit_ActivateChat(editBox);
+				editBox:SetText(PREF[idx]);
 			end
-			ChatEdit_ActivateChat(editBox);
-			editBox:Insert(PREF[idx]);
+			-- ChatEdit_ActivateChat(editBox);
+			-- editBox:Insert(PREF[idx]);
 		end
 	end
 end

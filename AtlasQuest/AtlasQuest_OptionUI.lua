@@ -59,20 +59,6 @@ function AtlasQuestOptionFrame_OnShow()
       AQCheckQuestlogButton:SetChecked(false);
     end
 
-    -- AutoQuery
-    if (AQAutoQuery == nil) then
-      AQAutoQueryOption:SetChecked(false);
-    else
-      AQAutoQueryOption:SetChecked(true);
-    end
-
-    -- Suppress Server Query Text
-    if (AQNoQuerySpam == nil) then
-      AQNoQuerySpamOption:SetChecked(false);
-    else
-      AQNoQuerySpamOption:SetChecked(true);
-    end
-
     -- ComparisonTooltips
     if (AQCompareTooltip == nil) then
       AQCompareTooltipOption:SetChecked(false);
@@ -104,13 +90,8 @@ end
 -- Right option
 -----------------------------------------------------------------------------
 function AQRIGHTOption_OnClick()
-     if ((AtlasFrame ~= nil) and (AtlasORAlphaMap == "Atlas")) then
-       AtlasQuestFrame:ClearAllPoints();
-		AtlasQuestFrame:SetPoint("TOP","AtlasFrame", 567, -80);
-     elseif (AtlasORAlphaMap == "AlphaMap") then
-       AtlasQuestFrame:ClearAllPoints();
-       AtlasQuestFrame:SetPoint("TOP","AlphaMapFrame", 400, -107);
-     end
+     AtlasQuestFrame:ClearAllPoints();
+     AtlasQuestFrame:SetPoint("TOP","AtlasFrame", 607, -45);
      AQRIGHTOption:SetChecked(true);
      AQLEFTOption:SetChecked(false);
      if (AQ_ShownSide ~= "Right") then
@@ -125,13 +106,8 @@ end
 -- Left option
 -----------------------------------------------------------------------------
 function AQLEFTOption_OnClick()
-    if ((AtlasFrame ~= nil) and (AtlasORAlphaMap == "Atlas") and ( AQ_ShownSide == "Right") ) then
-       AtlasQuestFrame:ClearAllPoints();
-		AtlasQuestFrame:SetPoint("TOP","AtlasFrame", -556, -80);
-     elseif ((AtlasORAlphaMap == "AlphaMap") and ( AQ_ShownSide == "Right") ) then
-       AtlasQuestFrame:ClearAllPoints();
-       AtlasQuestFrame:SetPoint("TOPLEFT","AlphaMapFrame", -195, -107);
-     end
+     AtlasQuestFrame:ClearAllPoints();
+     AtlasQuestFrame:SetPoint("TOP","AtlasFrame", -597, -45);
      AQRIGHTOption:SetChecked(false);
      AQLEFTOption:SetChecked(true);
      if (AQ_ShownSide ~= "Left") then
@@ -177,35 +153,6 @@ function AQCheckQuestlogButton_OnClick()
 end
 
 
------------------------------------------------------------------------------
--- AutoQuery Option
------------------------------------------------------------------------------
-function AQAutoQueryOption_OnClick()
- if (AQAutoQuery == nil) then
-   AQAutoQuery = "yes";
-   AQAutoQueryOption:SetChecked(true);
- else
-   AQAutoQuery = nil;
-   AQAutoQueryOption:SetChecked(false);
- end
- AtlasQuest_SaveData();
-end
-
-
------------------------------------------------------------------------------
--- Suppress AutoQuery Text Option
------------------------------------------------------------------------------
-function AQNoQuerySpamOption_OnClick()
- if (AQNoQuerySpam == nil) then
-   AQNoQuerySpam = "yes";
-   AQNoQuerySpamOption:SetChecked(true);
- else
-   AQNoQuerySpam = nil;
-   AQNoQuerySpamOption:SetChecked(false);
- end
- AtlasQuest_SaveData();
-end
-
 
 -----------------------------------------------------------------------------
 -- Comparison Tooltips Option
@@ -214,21 +161,17 @@ function AQCompareTooltipOption_OnClick()
  if (AQCompareTooltip == nil) then
    AQCompareTooltip = "yes";
    AQCompareTooltipOption:SetChecked(true);
-	if IsAddOnLoaded("EquipCompare") then
-		EquipCompare_RegisterTooltip(AtlasQuestTooltip);
-	end
-	if IsAddOnLoaded("EQCompare") then
-		EQCompare:RegisterTooltip(AtlasQuestTooltip);
-	end
+   if(EquipCompare_RegisterTooltip) then  -- Register AtlasQuest Tooltip with EquipCompare if it's enabled
+     EquipCompare_RegisterTooltip(AtlasQuestTooltip);
+   end
+
  else
    AQCompareTooltip = nil;
    AQCompareTooltipOption:SetChecked(false);
-	if IsAddOnLoaded("EquipCompare") then -- Unregister the AtlasQuest Tooltip with EquipCompare if it's enabled
+   if(EquipCompare_RegisterTooltip) then  -- Unregister the AtlasQuest Tooltip with EquipCompare if it's enabled
      EquipCompare_UnregisterTooltip(AtlasQuestTooltip);
    end
-	if IsAddOnLoaded("EQCompare") then
-		EQCompare:UnRegisterTooltip(AtlasQuestTooltip);
-	end
+
  end
  AtlasQuest_SaveData();
 end

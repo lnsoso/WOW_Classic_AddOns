@@ -1,4 +1,4 @@
-﻿local L = LibStub("AceLocale-3.0"):NewLocale("Mendeleev", "enUS", true)
+local L = LibStub("AceLocale-3.0"):NewLocale("Mendeleev", "enUS", true)
 
 L["Toggle sets."] = true
 L["Toggle sets from showing information in the tooltip."] = true
@@ -63,7 +63,7 @@ L["SPECIALBAG_GEM"] = "Gems"
 L["SPECIALBAG_INSCRIPTION"] = "Inscription"
 L["SPECIALBAG_LEATHERWORKING"] = "Leatherworking"
 L["SPECIALBAG_MINING"] = "Mining"
-L["SPECIALBAG_TACKLE"] = "Fishing"
+L["SPECIALBAG_SOULSHARD"] = "Soul Shards"
 
 L["Fish"] = true
 L["Meat"] = true
@@ -85,14 +85,6 @@ L["Crusade Card"] = true
 L["Vengeance Card"] = true
 L["Madness Card"] = true
 L["Wrath Card"] = true
-L["Illusion Card"] = true
-L["Berserker! Card"] = true
-L["Greatness Card"] = true
-L["Death Card"] = true
-L["Volcano Card"] = true
-L["Tsunami Card"] = true
-L["Hurricane Card"] = true
-L["Earthquake Card"] = true
 
 -- Sources
 L["Drop"] = true
@@ -102,15 +94,10 @@ L["Crafted"] = true
 
 L["UBRS"] = true
 L["LBRS"] = true
-
+	
 L["Heroic"] = true
-
-L["(10 Man)"] = true
-L["(25 Man)"] = true
-
+	
 -- Tier Sets
-L["Tier token"] = true
-
 L["Tier 1 Set"] = true
 L["Tier 2 Set"] = true
 L["Tier 2.5 Set"] = true
@@ -122,30 +109,7 @@ L["Tier 7.10 Set"] = true
 L["Tier 7.25 Set"] = true
 L["Tier 8.10 Set"] = true
 L["Tier 8.25 Set"] = true
-L["Tier 9.232 Set"] = true
-L["Tier 9.245 Set"] = true
-L["Tier 9.258 Set"] = true
-L["Tier 10.251 Set"] = true
-L["Tier 10.264 Set"] = true
-L["Tier 10.277 Set"] = true
-L["Tier 11.359 Set"] = true
-L["Tier 11.372 Set"] = true
-L["Tier 12.378 Set"] = true
-L["Tier 12.391 Set"] = true
-L["Tier 13.384 Set"] = true
-L["Tier 13.397 Set"] = true
-L["Tier 13.410 Set"] = true
-L["Tier 14.483 Set"] = true
-L["Tier 14.496 Set"] = true
-L["Tier 14.509 Set"] = true
-L["Tier 15.502 Set"] = true
-L["Tier 15.522 Set"] = true
-L["Tier 15.535 Set"] = true
-L["Tier 16.528 Set"] = true
-L["Tier 16.540 Set"] = true
-L["Tier 16.553 Set"] = true
-L["Tier 16.566 Set"] = true
-
+	
 -- Arena Sets
 L["Arena - Season 1 Set"] = true
 L["Arena - Season 2 Set"] = true
@@ -154,60 +118,31 @@ L["Arena - Season 4 Set"] = true
 L["Arena - Season 5 Tier 1 Set"] = true
 L["Arena - Season 5 Tier 2 Set"] = true
 L["Arena - Season 5 Tier 3 Set"] = true
-L["Arena - Season 6 Set"] = true
-L["Arena - Season 7 Set"] = true
-L["Arena - Season 8 Set"] = true
-L["Arena - Season 9 Set"] = true
-
+	
 L["%d%% alc/vol (%d proof)"] = true
 L[" (%d tickets)"] = true
 
 -- Ore Nodes
 L["Copper Vein"] = true
-L["Incendicite Mineral Vein"] = true
 L["Tin Vein"] = true
-L["Lesser Bloodstone Deposit"] = true
-L["Ooze Covered Silver Vein"] = true
 L["Silver Vein"] = true
 L["Iron Deposit"] = true
-L["Indurium Mineral Vein"] = true
 L["Gold Vein"] = true
-L["Ooze Covered Gold Vein"] = true
 L["Mithril Deposit"] = true
-L["Ooze Covered Mithril Deposit"] = true
-L["Ooze Covered Truesilver Deposit"] = true
 L["Truesilver Deposit"] = true
-L["Dark Iron Deposit"] = true
-L["Ooze Covered Thorium Vein"] = true
 L["Small Thorium Vein"] = true
-L["Ooze Covered Rich Thorium Vein"] = true
+L["Hakkari Thorium Vein"] = true
 L["Rich Thorium Vein"] = true
-L["Fel Iron Deposit"] = true
-L["Nethercite Deposit"] = true
-L["Large Obsidian Chunk"] = true
-L["Small Obsidian Chunk"] = true
+L["Dark Iron Deposit"] = true
 L["Adamantite Deposit"] = true
-L["Cobalt Deposit"] = true
-L["Rich Adamantite Deposit"] = true
-L["Ancient Gem Vein"] = true
+L["Fel Iron Deposit"] = true
 L["Khorium Vein"] = true
+L["Rich Adamantite Deposit"] = true
+L["Cobalt Deposit"] = true
 L["Rich Cobalt Deposit"] = true
 L["Saronite Deposit"] = true
-L["Obsidium Deposit"] = true
 L["Rich Saronite Deposit"] = true
-L["Pure Saronite Deposit"] = true
-L["Rich Obsidium Deposit"] = true
 L["Titanium Vein"] = true
-L["Elementium Vein"] = true
-L["Rich Elementium Vein"] = true
-L["Pyrite Deposit"] = true
-L["Rich Pyrite Deposit"] = true
-L["Ghost Iron Deposit"] = true
-L["Rich Ghost Iron Deposit"] = true
-L["Kyparite Deposit"] = true
-L["Rich Kyparite Deposit"] = true
-L["Trillium Vein"] = true
-L["Rich Trillium Vein"] = true
 
 -- Categories
 L["CurrencyItems"] = true
@@ -220,7 +155,7 @@ L["Misc"] = true
 L["QuestMats"] = true
 L["Reagent"] = true
 L["Tradeskill"] = true
-
+	
 L["Trash Mobs"] = true
 
 -- Timed Reward Chest
@@ -229,25 +164,9 @@ L["Timed Reward Chest2"] = true
 L["Timed Reward Chest3"] = true
 L["Timed Reward Chest4"] = true
 
--- Gifts
-L["Gifts"] = true
-L["Gift for"] = true
-L["Chee Chee"] = true
-L["Ella"] = true
-L["Farmer Fung"] = true
-L["Fish Fellreed"] = true
-L["Gina Mudclaw"] = true
-L["Haohan Mudclaw"] = true
-L["Jogu the Drunk"] = true
-L["Old Hillpaw"] = true
-L["Sho"] = true
-L["Tina Mudclaw"] = true
-
 -- depriciated / remove once all translations are updated
 L["Limit 'used in' tree to craftable"] = true
 L["Toggle limiting the 'used in' tree to items the char can craft."] = true
 L["Badge of Justice"] = true
 L["G'eras"] = true
 L["Smith Hauthaa"] = true
-L["Gunship Battle"] = true
-

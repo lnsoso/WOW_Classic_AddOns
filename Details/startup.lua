@@ -1937,7 +1937,19 @@ function _G._detalhes:Start()
 		end
 	end)
 
+	local gameLocale = GetLocale()
+	if gameLocale == "enGB" then
+		gameLocale = "enUS"
+	end
 
+	if (gameLocale ~= "zhTW" and  gameLocale ~= "koKR" and gameLocale ~= "zhCN") then
+		for classFile, colorTable in pairs (Details.class_colors) do
+			local classNameUncap = classFile:gsub ("(%a)([%w_']*)", function (first, rest) return first:upper() .. rest:lower() end)
+			if (classNameUncap) then
+				Details.class_colors [classNameUncap] = colorTable
+			end
+		end
+	end
 
 end
 

@@ -1,6 +1,6 @@
 if GetLocale()~='zhCN' then return end
 local main= "1.13.3."
-local minor = "32"
+local minor = "35"
 BIGFOOT_VERSION = "zhCN"..main..minor;
 
 function GetMinorVersion()
@@ -8,6 +8,21 @@ function GetMinorVersion()
 end
 
 BigFootChangelog_ah();
+
+	BigFootChangelog_at("2020/01/06 (1.13.3.35)")
+	BigFootChangelog_ar("大脚插件","同步更新整合类插件。")
+
+
+	BigFootChangelog_at("2020/01/03 (1.13.3.34)")
+	BigFootChangelog_ar("集结号","升级至最新版本(1.1.0)。")
+
+
+	BigFootChangelog_at("2020/01/02 (1.13.3.33)")
+	BigFootChangelog_ar("大脚插件","新增插件-集结号(MeetingHorn)。")
+	BigFootChangelog_ar("大脚插件","新增插件-战场助手(BattleInfo)。")
+	BigFootChangelog_ar("大脚插件","仇恨统计插件替换(ThreatClassic2)。")
+	BigFootChangelog_ar("大脚插件","同步更新整合类插件。")
+
 
 	BigFootChangelog_at("2019/12/20 (1.13.3.32)")
 	BigFootChangelog_ar("大脚插件","优化部分插件代码逻辑(感谢NGA网友-hu60)。")
@@ -186,4 +201,4 @@ BigFootChangelog_ah();
 BigFootChangelog_af();
 
 
-BF_VERSION_CHECKSUM = "48"
+BF_VERSION_CHECKSUM = "55"

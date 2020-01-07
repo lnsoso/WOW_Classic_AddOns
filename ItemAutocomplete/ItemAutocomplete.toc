@@ -1,0 +1,20 @@
+## Interface: 11303
+## Title: Item Autocomplete
+## Author: Darfink
+## Version: 1.0.2
+## SavedVariables: ItemAutocompleteDB
+
+# Libraries
+Libs\Libs.xml
+
+# Addon
+Ui\ButtonMenu.lua
+Ui\ButtonMenu.xml
+Source\Shared\EventSource.lua
+Source\Shared\Persistence.lua
+Source\Shared\TaskScheduler.lua
+Source\Utility\Algo.lua
+Source\Utility\Functions.lua
+Source\ChatAutocompleteIntegrator.lua
+Source\ItemDatabase.lua
+Source\Main.lua

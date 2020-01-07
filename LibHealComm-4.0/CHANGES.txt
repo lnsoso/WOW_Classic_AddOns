@@ -1,34 +1,52 @@
-tag ce9f0545cc903486d3f1e2e0ab9eac3f233e129b v1.7.3
+tag eeeb2e2766cced8b0a2c5c011152bd99bc789f99 v1.7.4
 Author:	Azilroka <darktemplar9900@yahoo.com>
-Date:	Tue Dec 3 15:18:29 2019 -0600
+Date:	Wed Jan 1 11:23:17 2020 -0600
 
-commit 75ce18a07a4d92fbae01a6171262a0fcdab4aa10
+commit 8597a80b2423d8889a66c3899eca28c2a43440cd
 Author: Azilroka <darktemplar9900@yahoo.com>
-Date:   Tue Dec 3 15:17:53 2019 -0600
+Date:   Wed Jan 1 11:22:54 2020 -0600
 
-    Minor 83
+    ToC Bump
 
-commit 41a9c7d5a3a98bc1fa09c336dd0a36ab2fb7c11d
+commit 03d98b0c8833c90867f3560e73c801d715bb9978
+Author: Azilroka <darktemplar9900@yahoo.com>
+Date:   Wed Jan 1 11:21:48 2020 -0600
+
+    Minor 86
+
+commit b9dda3adbb8ce47e8d096aaac49d975282854025
+Author: Azilroka <darktemplar9900@yahoo.com>
+Date:   Mon Dec 23 15:25:44 2019 -0600
+
+    Minor 85
+
+commit 4dd385d03ee20bd4428d55fd262cc7bfa7584fed
+Author: Azilroka <darktemplar9900@yahoo.com>
+Date:   Mon Dec 23 15:23:13 2019 -0600
+
+    Prevent First Aid Errors
+
+commit e05b023887084b824e60ce9c86b7eff7e4cb4ad2
 Author: dev7355608 <dev7355608@gmail.com>
-Date:   Wed Nov 27 00:34:14 2019 +0100
+Date:   Tue Dec 10 01:49:34 2019 +0100
 
-    Fix delayed heals
+    Fix invalid mappings after GROUP_ROSTER_UPDATE
 
-commit 41a9c7d5a3a98bc1fa09c336dd0a36ab2fb7c11d
+commit e05b023887084b824e60ce9c86b7eff7e4cb4ad2
 Author: dev7355608 <dev7355608@gmail.com>
-Date:   Wed Nov 27 00:34:14 2019 +0100
+Date:   Tue Dec 10 01:49:34 2019 +0100
 
-    Fix delayed heals
+    Fix invalid mappings after GROUP_ROSTER_UPDATE
 
-commit 41a9c7d5a3a98bc1fa09c336dd0a36ab2fb7c11d
+commit 820741b6a97dc0e0da2e5e237e852cbc49d3c559
 Author: dev7355608 <dev7355608@gmail.com>
-Date:   Wed Nov 27 00:34:14 2019 +0100
+Date:   Sat Dec 14 22:30:15 2019 +0100
 
-    Fix delayed heals
+    Add GetHealAmountEx
 
-commit 52a34b71ec42dc08c7a797a181acc8817ef016a3
+commit e05b023887084b824e60ce9c86b7eff7e4cb4ad2
 Author: dev7355608 <dev7355608@gmail.com>
-Date:   Tue Nov 26 00:37:52 2019 +0100
+Date:   Tue Dec 10 01:49:34 2019 +0100
 
-    Fix Swiftmend
+    Fix invalid mappings after GROUP_ROSTER_UPDATE
 

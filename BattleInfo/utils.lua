@@ -12,6 +12,10 @@ ADDONSELF.InBattleground = function()
     return UnitInBattleground("player")
 end
 
+
+ADDONSELF.CLASS_LOC = {}
+FillLocalizedClassList(ADDONSELF.CLASS_LOC)
+
 local BattleZoneHelper = {}
 ADDONSELF.BattleZoneHelper = BattleZoneHelper
 
@@ -55,5 +59,5 @@ function BattleZoneHelper:GetCurrentBG()
 end
 
 RegEvent("ADDON_LOADED", function()
-    ADDONSELF.Print(L["BatteInfo Loaded"])
+    ADDONSELF.Print(L["BattleInfo Loaded"])
 end)

@@ -16,12 +16,12 @@
 		quality = 3,
 		sets = {
 			["InstanceLoot.Ragefire Chasm.Bazzalan"] = BB["Bazzalan"],
-			["InstanceLoot.Ragefire Chasm.Oggleflint"] = BB["Oggleflint"],
 			["InstanceLoot.Ragefire Chasm.Jergosh the Invoker"] = BB["Jergosh the Invoker"],
+			["InstanceLoot.Ragefire Chasm.Maur Grimtotem"] = BB["Maur Grimtotem"],
 			["InstanceLoot.Ragefire Chasm.Taragaman the Hungerer"] = BB["Taragaman the Hungerer"],
 		},
 	})
-
+	
 	table.insert(MENDELEEV_SETS, {
 		name = BZ["The Deadmines"],
 		setindex = "InstanceLoot.The Deadmines",
@@ -30,15 +30,20 @@
 		useval = showDropRate,
 		quality = 3,
 		sets = {
-			["InstanceLoot.The Deadmines.Glubtok"] = BB["Glubtok"],
-			["InstanceLoot.The Deadmines.Helix Gearbreaker"] = BB["Helix Gearbreaker"],
-			["InstanceLoot.The Deadmines.Foe Reaper 5000"] = BB["Foe Reaper 5000"],
-			["InstanceLoot.The Deadmines.Admiral Ripsnarl"] = BB["Admiral Ripsnarl"],
-			["InstanceLoot.The Deadmines.\"Captain\" Cookie"] = BB["\"Captain\" Cookie"],
-			["InstanceLoot.The Deadmines.Vanessa VanCleef"] = BB["Vanessa VanCleef"], -- delete once the dataminer is fixed!
+			["InstanceLoot.The Deadmines.Brainwashed Noble"] = BB["Brainwashed Noble"],
+			["InstanceLoot.The Deadmines.Captain Greenskin"] = BB["Captain Greenskin"],
+			["InstanceLoot.The Deadmines.Cookie"] = BB["Cookie"],
+			["InstanceLoot.The Deadmines.Edwin VanCleef"] = BB["Edwin VanCleef"],
+			["InstanceLoot.The Deadmines.Gilnid"] = BB["Gilnid"],
+			["InstanceLoot.The Deadmines.Marisa du'Paige"] = BB["Marisa du'Paige"],
+			["InstanceLoot.The Deadmines.Miner Johnson"] = BB["Miner Johnson"],
+			["InstanceLoot.The Deadmines.Mr. Smite"] = BB["Mr. Smite"],
+			["InstanceLoot.The Deadmines.Rhahk'Zor"] = BB["Rhahk'Zor"],
+			["InstanceLoot.The Deadmines.Sneed's Shredder"] = BB["Sneed's Shredder"],
+			["InstanceLoot.The Deadmines.Sneed"] = BB["Sneed"],
 		},
 	})
-
+	
 	table.insert(MENDELEEV_SETS, {
 		name = BZ["Wailing Caverns"],
 		setindex = "InstanceLoot.Wailing Caverns",
@@ -61,7 +66,7 @@
 			["InstanceLoot.Wailing Caverns.Verdan the Everliving"] = BB["Verdan the Everliving"],
 		},
 	})
-
+	
 	table.insert(MENDELEEV_SETS, {
 		name = BZ["Shadowfang Keep"],
 		setindex = "InstanceLoot.Shadowfang Keep",
@@ -70,14 +75,17 @@
 		useval = showDropRate,
 		quality = 3,
 		sets = {
-			["InstanceLoot.Shadowfang Keep.Baron Ashbury"] = BB["Baron Ashbury"],
+			["InstanceLoot.Shadowfang Keep.Archmage Arugal"] = BB["Archmage Arugal"],
 			["InstanceLoot.Shadowfang Keep.Baron Silverlaine"] = BB["Baron Silverlaine"],
 			["InstanceLoot.Shadowfang Keep.Commander Springvale"] = BB["Commander Springvale"],
-			["InstanceLoot.Shadowfang Keep.Lord Walden"] = BB["Lord Walden"],
-			["InstanceLoot.Shadowfang Keep.Lord Godfrey"] = BB["Lord Godfrey"],
+			["InstanceLoot.Shadowfang Keep.Deathsworn Captain"] = BB["Deathsworn Captain"],
+			["InstanceLoot.Shadowfang Keep.Fenrus the Devourer"] = BB["Fenrus the Devourer"],
+			["InstanceLoot.Shadowfang Keep.Odo the Blindwatcher"] = BB["Odo the Blindwatcher"],
+			["InstanceLoot.Shadowfang Keep.Razorclaw the Butcher"] = BB["Razorclaw the Butcher"],
+			["InstanceLoot.Shadowfang Keep.Wolf Master Nandos"] = BB["Wolf Master Nandos"],
 		},
 	})
-
+	
 	table.insert(MENDELEEV_SETS, {
 		name = BZ["The Stockade"],
 		setindex = "InstanceLoot.The Stockade",
@@ -86,12 +94,15 @@
 		useval = showDropRate,
 		quality = 3,
 		sets = {
-			["InstanceLoot.The Stockade.Randolph Moloch"] = BB["Randolph Moloch"],
-			["InstanceLoot.The Stockade.Lord Overheat"] = BB["Lord Overheat"],
-			["InstanceLoot.The Stockade.Hogger"] = BB["Hogger"],
+			["InstanceLoot.The Stockade.Bazil Thredd"] = BB["Bazil Thredd"],
+			["InstanceLoot.The Stockade.Bruegal Ironknuckle"] = BB["Bruegal Ironknuckle"],
+			["InstanceLoot.The Stockade.Dextren Ward"] = BB["Dextren Ward"],
+			["InstanceLoot.The Stockade.Hamhock"] = BB["Hamhock"],
+			["InstanceLoot.The Stockade.Kam Deepfury"] = BB["Kam Deepfury"],
+			["InstanceLoot.The Stockade.Targorr the Dread"] = BB["Targorr the Dread"],
 		},
 	})
-
+	
 	table.insert(MENDELEEV_SETS, {
 		name = BZ["Blackfathom Deeps"],
 		setindex = "InstanceLoot.Blackfathom Deeps",
@@ -108,7 +119,7 @@
 			["InstanceLoot.Blackfathom Deeps.Twilight Lord Kelris"] = BB["Twilight Lord Kelris"],
 		},
 	})
-
+	
 	table.insert(MENDELEEV_SETS, {
 		name = BZ["Gnomeregan"],
 		setindex = "InstanceLoot.Gnomeregan",
@@ -126,7 +137,7 @@
 			["InstanceLoot.Gnomeregan.Viscous Fallout"] = BB["Viscous Fallout"]
 		},
 	})
-
+	
 	table.insert(MENDELEEV_SETS, {
 		name = BZ["Razorfen Kraul"],
 		setindex = "InstanceLoot.Razorfen Kraul",
@@ -143,7 +154,7 @@
 			["InstanceLoot.Razorfen Kraul.Overlord Ramtusk"] = BB["Overlord Ramtusk"],
 		},
 	})
-
+	
 	table.insert(MENDELEEV_SETS, {
 		name = BZ["Razorfen Downs"],
 		setindex = "InstanceLoot.Razorfen Downs",
@@ -160,7 +171,7 @@
 			["InstanceLoot.Razorfen Downs.Tuten'kash"] = BB["Tuten'kash"],
 		},
 	})
-
+	
 	table.insert(MENDELEEV_SETS, {
 		name = BZ["Scarlet Monastery"],
 		setindex = "InstanceLoot.Scarlet Monastery",

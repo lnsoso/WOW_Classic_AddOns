@@ -25,45 +25,10 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 ------------------ FRAME INSIDE ATLAS
 
-<!--  Fonts -->
-<!-- Cause Problems with the CN font i will use blizzard default font to prevent problems! -->
-<!-- Blizz Fonts (Height): -->
-
-<!-- GameFontNormalSmall (10)  .. use instead of AQFontVERYSmall but it is smaller -->
-<!-- SystemFont (15)  .. use for AQFontBIG -->
-<!-- QuestFont (13)  .. use for AQFont -->
-<!-- GameFontNormalLarge (16) .. perhaps useful -->
-<!-- QuestFontHighlight (14)  .. perhaps useful -->
-
-<!--
-<FontString name="QuestFont" inherits="MasterFont" font="Fonts\FRIZQT__.TTF" virtual="true">
-  <FontHeight>
-    <AbsValue val="13"/>
-  </FontHeight>
-    <Color r="1.0" g="0.82" b="0"/>
-</FontString>
-
-<FontString name="SystemFont" inherits="MasterFont" font="Fonts\FRIZQT__.TTF" virtual="true">
-  <FontHeight>
-    <AbsValue val="15"/>
-  </FontHeight>
-    <Color r="1.0" g="0.82" b="0"/>
-</FontString>
-
-<FontString name="AQFontVERYSmall" inherits="MasterFont" font="Fonts\FRIZQT__.TTF" virtual="true">
-  <FontHeight>
-    <AbsValue val="11"/>
-    </FontHeight>
-    <Color r="1.0" g="0.82" b="0"/>
-</FontString>
-
-These fonts are useless atm -->
-
-
-<!--  AtlasQuest Inside Atlas/AlphaMap frame -->
-<Frame name="AtlasQuestInsideFrame" toplevel="true" enableMouse="true" parent="AtlasFrame" hidden="false">
+<!--  AtlasQuest Inside Atlas frame -->
+<Frame name="AtlasQuestInsideFrame" toplevel="true" enableMouse="true" parent="AtlasFrame" hidden="false" frameStrata="HIGH">
    <Size>
-      <AbsDimension x="510" y="510"/>
+      <AbsDimension x="513" y="513"/>
    </Size>
    <Anchors>
       <Anchor point="TOPLEFT">
@@ -121,20 +86,20 @@ These fonts are useless atm -->
            <Scripts>
               <OnEnter>
                 AQTHISISSHOWN = 1;
-				AtlasQuestItem_OnEnter(self);
+				AtlasQuestItem_OnEnter();
 			  </OnEnter>
 			  <OnLeave>
-				AtlasQuestItem_OnLeave(self);
+				AtlasQuestItem_OnLeave();
 			  </OnLeave>
 			  <OnClick>
-				AtlasQuestItem_OnClick(self, arg1);
+				AtlasQuestItem_OnClick(arg1);
 			  </OnClick>
-			  <OnLoad>
-                self:RegisterForClicks("LeftButtonDown", "RightButtonDown");
-            </OnLoad>
-            <OnShow>
-	    	      self:SetFrameLevel( self:GetParent():GetFrameLevel() + 1 );
-	         </OnShow>
+			  <!--<OnLoad>
+                AtlasQuestInsideFrame:RegisterForClicks("LeftButtonDown", "RightButtonDown");
+              </OnLoad>-->
+              <OnShow>
+	    	    AtlasQuestInsideFrame:SetFrameLevel( AtlasQuestInsideFrame:GetParent():GetFrameLevel() + 1 );
+	          </OnShow>
            </Scripts>
         </Button>
 ----------------------------------------- FRAME 2  --------------------------------------------------------------
@@ -185,19 +150,19 @@ These fonts are useless atm -->
            <Scripts>
               <OnEnter>
                 AQTHISISSHOWN = 2;
-				AtlasQuestItem_OnEnter(self);
+				AtlasQuestItem_OnEnter();
 			  </OnEnter>
 			  <OnLeave>
-				AtlasQuestItem_OnLeave(self);
+				AtlasQuestItem_OnLeave();
 			  </OnLeave>
 			  <OnClick>
-				AtlasQuestItem_OnClick(self, arg1);
+				AtlasQuestItem_OnClick(arg1);
 			  </OnClick>
-			  <OnLoad>
-                self:RegisterForClicks("LeftButtonDown", "RightButtonDown");
-              </OnLoad>
+			  <!--<OnLoad>
+                AtlasQuestInsideFrame:RegisterForClicks("LeftButtonDown", "RightButtonDown");
+              </OnLoad>-->
               <OnShow>
-	    	    self:SetFrameLevel( self:GetParent():GetFrameLevel() + 1 );
+	    	    AtlasQuestInsideFrame:SetFrameLevel( AtlasQuestInsideFrame:GetParent():GetFrameLevel() + 1 );
 	          </OnShow>
            </Scripts>
         </Button>
@@ -249,19 +214,19 @@ These fonts are useless atm -->
            <Scripts>
               <OnEnter>
                 AQTHISISSHOWN = 3;
-				AtlasQuestItem_OnEnter(self);
+				AtlasQuestItem_OnEnter();
 			  </OnEnter>
 			  <OnLeave>
-				AtlasQuestItem_OnLeave(self);
+				AtlasQuestItem_OnLeave();
 			  </OnLeave>
 			  <OnClick>
-				AtlasQuestItem_OnClick(self, arg1);
+				AtlasQuestItem_OnClick(arg1);
 			  </OnClick>
-			  <OnLoad>
-                self:RegisterForClicks("LeftButtonDown", "RightButtonDown");
-              </OnLoad>
+			  <!--<OnLoad>
+                AtlasQuestInsideFrame:RegisterForClicks("LeftButtonDown", "RightButtonDown");
+              </OnLoad>-->
               <OnShow>
-	    	    self:SetFrameLevel( self:GetParent():GetFrameLevel() + 1 );
+	    	    AtlasQuestInsideFrame:SetFrameLevel( AtlasQuestInsideFrame:GetParent():GetFrameLevel() + 1 );
 	          </OnShow>
            </Scripts>
         </Button>
@@ -313,19 +278,19 @@ These fonts are useless atm -->
            <Scripts>
               <OnEnter>
                 AQTHISISSHOWN = 4;
-				AtlasQuestItem_OnEnter(self);
+				AtlasQuestItem_OnEnter();
 			  </OnEnter>
 			  <OnLeave>
-				AtlasQuestItem_OnLeave(self);
+				AtlasQuestItem_OnLeave();
 			  </OnLeave>
 			  <OnClick>
-				AtlasQuestItem_OnClick(self, arg1);
+				AtlasQuestItem_OnClick(arg1);
 			  </OnClick>
-			  <OnLoad>
-                self:RegisterForClicks("LeftButtonDown", "RightButtonDown");
-              </OnLoad>
+			  <!--<OnLoad>
+                AtlasQuestInsideFrame:RegisterForClicks("LeftButtonDown", "RightButtonDown");
+              </OnLoad>-->
               <OnShow>
-	    	    self:SetFrameLevel( self:GetParent():GetFrameLevel() + 1 );
+	    	    AtlasQuestInsideFrame:SetFrameLevel( AtlasQuestInsideFrame:GetParent():GetFrameLevel() + 1 );
 	          </OnShow>
            </Scripts>
         </Button>
@@ -377,19 +342,19 @@ These fonts are useless atm -->
            <Scripts>
               <OnEnter>
                 AQTHISISSHOWN = 5;
-				AtlasQuestItem_OnEnter(self);
+				AtlasQuestItem_OnEnter();
 			  </OnEnter>
 			  <OnLeave>
-				AtlasQuestItem_OnLeave(self);
+				AtlasQuestItem_OnLeave();
 			  </OnLeave>
 			  <OnClick>
-				AtlasQuestItem_OnClick(self, arg1);
+				AtlasQuestItem_OnClick(arg1);
 			  </OnClick>
-			  <OnLoad>
-                self:RegisterForClicks("LeftButtonDown", "RightButtonDown");
-              </OnLoad>
+			  <!--<OnLoad>
+                AtlasQuestInsideFrame:RegisterForClicks("LeftButtonDown", "RightButtonDown");
+              </OnLoad>-->
               <OnShow>
-	    	    self:SetFrameLevel( self:GetParent():GetFrameLevel() + 1 );
+	    	    AtlasQuestInsideFrame:SetFrameLevel( AtlasQuestInsideFrame:GetParent():GetFrameLevel() + 1 );
 	          </OnShow>
            </Scripts>
         </Button>
@@ -441,19 +406,19 @@ These fonts are useless atm -->
            <Scripts>
               <OnEnter>
                 AQTHISISSHOWN = 6;
-				AtlasQuestItem_OnEnter(self);
+				AtlasQuestItem_OnEnter();
 			  </OnEnter>
 			  <OnLeave>
-				AtlasQuestItem_OnLeave(self);
+				AtlasQuestItem_OnLeave();
 			  </OnLeave>
 			  <OnClick>
-				AtlasQuestItem_OnClick(self, arg1);
+				AtlasQuestItem_OnClick(arg1);
 			  </OnClick>
-			  <OnLoad>
-                self:RegisterForClicks("LeftButtonDown", "RightButtonDown");
-              </OnLoad>
+			  <!--<OnLoad>
+                AtlasQuestInsideFrame:RegisterForClicks("LeftButtonDown", "RightButtonDown");
+              </OnLoad>-->
               <OnShow>
-	    	    self:SetFrameLevel( self:GetParent():GetFrameLevel() + 1 );
+	    	    AtlasQuestInsideFrame:SetFrameLevel( AtlasQuestInsideFrame:GetParent():GetFrameLevel() + 1 );
 	          </OnShow>
            </Scripts>
         </Button>
@@ -471,10 +436,10 @@ These fonts are useless atm -->
 	      </Anchors>
 	      <Scripts>
 		    <OnClick>
-		      AQCLOSE2_OnClick(self);
+		      AQCLOSE2_OnClick();
 	        </OnClick>
 	        <OnShow>
-		    	self:SetFrameLevel( self:GetParent():GetFrameLevel() + 1 );
+		    	AtlasQuestInsideFrame:SetFrameLevel( AtlasQuestInsideFrame:GetParent():GetFrameLevel() + 1 );
 		    </OnShow>
 	      </Scripts>
         </Button>
@@ -485,7 +450,7 @@ These fonts are useless atm -->
 	     <Anchors>
 		  <Anchor point="TOPRIGHT">
 			  <Offset>
-			    	<AbsDimension x="-20" y="-45"/>
+			    	<AbsDimension x="-65" y="-45"/>
 			  </Offset>
 		  </Anchor>
 	     </Anchors>
@@ -493,9 +458,9 @@ These fonts are useless atm -->
            <AbsInset left="0" right="0" top="0" bottom="0"/>
          </HitRectInsets>
 	     <Scripts>
-		   <OnClick> AQFinishedQuest_OnClick(self); </OnClick>
+		   <OnClick> AQFinishedQuest_OnClick(); </OnClick>
 		   <OnShow>
-	         self:SetFrameLevel( self:GetParent():GetFrameLevel() + 2 );
+	         AtlasQuestInsideFrame:SetFrameLevel( AtlasQuestInsideFrame:GetParent():GetFrameLevel() + 2 );
 	       </OnShow>
 	     </Scripts>
         </CheckButton>
@@ -514,9 +479,9 @@ These fonts are useless atm -->
 		 <PushedTexture file="Interface\Glues\Common\Glue-RightArrow-Button-Down"/>
 		 <HighlightTexture file="Interface\Glues\Common\Glue-RightArrow-Button-Highlight" alphaMode="ADD"/>
 	      <Scripts>
-		    <OnClick> AQNextPageR_OnClick(self); </OnClick>
+		    <OnClick> AQNextPageR_OnClick(); </OnClick>
 		    <OnShow>
-	          self:SetFrameLevel( self:GetParent():GetFrameLevel() + 2 );
+	          AtlasQuestInsideFrame:SetFrameLevel( AtlasQuestInsideFrame:GetParent():GetFrameLevel() + 1 );
 	        </OnShow>
 	      </Scripts>
         </Button>
@@ -535,9 +500,9 @@ These fonts are useless atm -->
 		  <PushedTexture file="Interface\Glues\Common\Glue-LeftArrow-Button-Down"/>
 		  <HighlightTexture file="Interface\Glues\Common\Glue-LeftArrow-Button-Highlight" alphaMode="ADD"/>
 	      <Scripts>
-		    <OnClick> AQNextPageL_OnClick(self); </OnClick>
+		    <OnClick> AQNextPageL_OnClick(); </OnClick>
 		    <OnShow>
-	          self:SetFrameLevel( self:GetParent():GetFrameLevel() + 2 );
+	          AtlasQuestInsideFrame:SetFrameLevel( AtlasQuestInsideFrame:GetParent():GetFrameLevel() + 1 );
 	        </OnShow>
 	      </Scripts>
         </Button>
@@ -553,7 +518,7 @@ These fonts are useless atm -->
 				</Texture>
 			</Layer>
 			<Layer level="OVERLAY">
-			  <FontString name="QuestName" inherits="GameFontNormal">
+			  <FontString name="QuestName" inherits="GameFontNormalLarge">
                 <Size>
                   <AbsDimension x="400" y="12"/>
                 </Size>
@@ -601,7 +566,7 @@ These fonts are useless atm -->
                    </Anchor>
                 </Anchors>
                </FontString>
-               <FontString name="StoryTEXT" inherits="GameFontNormal" justifyH = "LEFT" justifyV = "TOP">
+               <FontString name="StoryTEXT" inherits="GameFontNormalLarge" justifyH = "LEFT" justifyV = "TOP">
                 <Size>
                   <AbsDimension x="410" y="450"/>
                 </Size>
@@ -613,7 +578,7 @@ These fonts are useless atm -->
                    </Anchor>
                 </Anchors>
                </FontString>
-               <FontString name="REWARDstext" inherits="GameFontNormal" justifyH = "LEFT" justifyV="TOP" >
+               <FontString name="REWARDstext" inherits="GameFontNormalLarge" justifyH = "LEFT" justifyV="TOP" >
                 <Size>
                   <AbsDimension x="400" y="12"/>
                 </Size>
@@ -632,12 +597,12 @@ These fonts are useless atm -->
                 <Anchors>
                    <Anchor point="TOPRIGHT">
                      <Offset>
-                       <AbsDimension x="-10" y="-50"/>
+                       <AbsDimension x="-50" y="-50"/>
                      </Offset>
                    </Anchor>
                 </Anchors>
                </FontString>
-               <FontString name="AQPageCount" inherits="GameFontNormal" justifyV="TOP">
+               <FontString name="AQPageCount" inherits="GameFontNormalLarge" justifyV="TOP">
                 <Size>
                   <AbsDimension x="50" y="20"/>
                 </Size>
@@ -653,7 +618,7 @@ These fonts are useless atm -->
 		</Layers>
 		<Scripts>
 			<OnEvent>
-				AQ_OnEvent(self, event);
+				AQ_OnEvent(event);
 			</OnEvent>
 		</Scripts>
 	</Frame>
@@ -669,29 +634,29 @@ These fonts are useless atm -->
  			</Anchor>
  		</Anchors>
 	  <Frames>
-	  <Button name="CLOSEbutton3" inherits="OptionsButtonTemplate" text="AtlasQuest">
+	  <Button name="CLOSEbutton3" inherits="UIPanelButtonTemplate" text="AtlasQuest">
           <Size>
             <AbsDimension x="90" y="20"/>
           </Size>
 	      <Anchors>
 		     <Anchor point="TOPRIGHT">
 			   <Offset>
-				  <AbsDimension x="-120" y="-61"/>
+				  <AbsDimension x="-115" y="-50"/>
 			   </Offset>
 		     </Anchor>
 	      </Anchors>
 	      <Scripts>
 		    <OnClick>
-		       AQCLOSE_OnClick(self);
+		       AQCLOSE_OnClick();
 	        </OnClick>
 	        <OnUpdate>
 	        	if ( AtlasFrame == nil ) then
-	        		self:Hide();
+	        		AtlasQuestInsideFrame:Hide();
 	        	end
 	        </OnUpdate>
 	        <OnShow>
 	        	if ( AtlasFrame == nil ) then
-	        		self:Hide();
+	        		AtlasQuestInsideFrame:Hide();
 	        	end
 	        </OnShow>
 	      </Scripts>

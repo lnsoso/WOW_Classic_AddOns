@@ -1,0 +1,42 @@
+## Interface: 11303
+## Title: ItemSurveyClassic
+## Notes: Stores the number of Items in each character's bags, bank and mail and adds this information to ItemTooltips
+## Author: Nathasil
+## Version: 1.72
+## SavedVariables: ItemSurveyClassic_AccountData
+
+Templates\Base.lua
+Templates\Frame.lua
+Templates\ParentFrame.lua
+Templates\OptionsFrame.lua
+Templates\Label.lua
+Templates\ExtendedFrame.lua
+Templates\ButtonFrame.lua
+Templates\UICheckButton.lua
+Templates\SlaveUICheckButton.lua
+
+Utility\Chat.lua
+Utility\Table.lua
+Utility\Item.lua
+Utility\Spell.lua
+
+ISC_Money.lua
+ISC_Bags.lua
+ISC_Keyring.lua
+ISC_Gear.lua
+ISC_Bank.lua
+ISC_Mail.lua
+#ISC_Professions.lua
+
+#ISC_RecipeList.lua
+ISC_CurrentNameTable.lua
+ISC_ItemSearch.lua
+ISC_SlashCommands.lua
+ISC_Tooltip.lua
+ISC_OptionsFrame.lua
+
+ISC_EventHandlers.lua
+ISC_Storage.lua
+ISC_Options.lua
+
+ItemSurveyClassic.lua

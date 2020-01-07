@@ -1,10 +1,28 @@
-lightweight tag 500d7daed7b277f90d5587a1da6f42a7482fde16 v1.4.2
+lightweight tag 642e22d4fa8acd4e38b23f5bf6c5eab0cc2b76ad v1.5.0
 Author:	dev7355608 <dev7355608@gmail.com>
-Date:	Fri Dec 20 19:38:40 2019 +0100
+Date:	Wed Jan 1 19:23:42 2020 +0100
 
-commit 500d7daed7b277f90d5587a1da6f42a7482fde16
+commit 642e22d4fa8acd4e38b23f5bf6c5eab0cc2b76ad
 Author: dev7355608 <dev7355608@gmail.com>
-Date:   Fri Dec 20 19:38:40 2019 +0100
+Date:   Thu Dec 26 17:28:14 2019 +0100
 
-    Remove UnitCastingInfo and UnitGetTotalAbsorbs
+    Use GetHealAmountEx
+
+commit b214603c675d5cfc79a307a592ea2750f0a694dc
+Author: dev7355608 <dev7355608@gmail.com>
+Date:   Wed Jan 1 19:09:08 2020 +0100
+
+    Update dependency
+
+commit c6b10c0aa68fc8c20a915faa7ff8e2f301c7db4d
+Author: dev7355608 <dev7355608@gmail.com>
+Date:   Thu Dec 26 16:17:45 2019 +0100
+
+    Add option to display flagged members on the right
+
+commit c358392e20943a50243940235b3d87bfbc42a3bb
+Author: dev7355608 <dev7355608@gmail.com>
+Date:   Sun Dec 22 22:18:57 2019 +0100
+
+    Fix accessing forbidden frame
 

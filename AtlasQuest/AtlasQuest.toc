@@ -1,33 +1,38 @@
-## Interface: 11302
-## Title: |cfffe7b2cAtlasQuest|r |cff1784d1Classic|r
-## Notes: Shows the Quests for the instance.
-## Notes-deDE: Zeigt die Quests, die es f\195\188r die jeweiligen Instanzen gibt.
+﻿## Interface: 11303
+## Title: AtlasQuest
+## Title-deDE: AtlasQuest
+## Title-koKR: AtlasQuest
+## Title-zhCN: AtlasQuest 副本任务
+## Title-zhTW: |cFFff69b4[任務]|r副本任務 AtlasQuest
+## Title-ruRU: Атлас |r|cFF0099FF[Задания]|r
+## Title-esES: AtlasQuest
+## Title-esMX: AtlasQuest
+## Notes: Shows the Quests for dungeons and battlegrounds.
+## Notes-deDE: Zeigt die Quests, die es für die jeweiligen Instanzen gibt.
 ## Notes-koKR: Shows the Quests for the instance.
-## Notes-zhCN: 显示副本任务
+## Notes-zhCN: Atlas 插件，在 Atlas 面板上显示副本和战场相关任务及副本背景。
+## Notes-zhTW: 顯示副本背景故事、相關任務及BOSS攻略提示
+## Notes-ruRU: Показывает задания в подземельях.
+## Notes-esES: Muestra las misiones para mazmorras y campos de batalla.
+## Notes-esMX: Muestra las misiones para mazmorras y campos de batalla.
 ## Author: Thandrenn
-## Original Author: Asurn
-## Updated by: Ctank
-## Updated by: Cabro
-## Updated by: Loather
-## Updated by: Rabidmax
-## Updated by: Thandrenn (aka Mystery8)
-## CLI by: Dazerdude
-## Version: 1.0(4.2)
-## X-eMail: admin@c-tank.cn
-## X-Website: https://github.com/ctank/wow-classic-atlas
-## X-Category: MYADDONS_CATEGORY_MAP
-## X-Date: Sept 7, 2019
+## Version: 4.11.59
+## X-Author-Faction: Alliance
+## X-Author-Server: Atiesh US
+## X-eMail: mystery8@gmail.com
+## X-Website: https://github.com/thandrenn/AtlasQuest
+## X-Category: Quests
+## X-License: GPLv2
+## X-Credits: AtlasQuest Team
+## X-Localizations: enUS, deDE, zhCN, ruRU, esES, esMX
+## X-Date: December 31, 2019
 ## X-Help: AtlasQuestHelp
-## RequiredDeps: 
-## OptionalDeps: Atlas, AlphaMap, myAddOns
+## RequiredDeps: Atlas
+## OptionalDeps: 
 ## LoadOnDemand: 0
 ## SavedVariablesPerCharacter:
 ## SavedVariables: AtlasQuest_Options,
 ## Dependencies:
-
-Locale\localization.en.lua
-Locale\localization.de.lua
-Locale\localization.cn.lua
 
 AtlasQuest_InsideFrame.xml
 AtlasQuest.xml

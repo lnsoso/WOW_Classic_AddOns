@@ -1,12 +1,12 @@
-## Interface: 11302
+## Interface: 11303
 ## Title: Fishing Buddy (Classic)
-## Version: 0.7 Beta 3
+## Version: 0.7.2 Beta 2
 ## Notes: Help with fishing related tasks -- clothing, fish information, etc.
 ## Notes-deDE: Erleichtert das Angeln - Ausrüstung und Fish-Infos
 ## Notes-frFR: Vous facilite la vie de pecheur. Informations sur les poissons, changement d'habits, etc.
 ## Notes-esES: Ayude con las tareas relacionadas pesca -- ropa, información de los pescados
 ## Author: Sutorix=AT=hotmail.com
-## OptionalDeps: FB_Debugging, Outfitter, myAddOns, Titan, InfoBar, FishWarden
+## OptionalDeps: FB_Debugging, myAddOns, Titan, TownsfolkTracker
 ## SavedVariables: FishingBuddy_Info
 ## SavedVariablesPerCharacter: FishingBuddy_Player, FBODF_PlayerInfo
 ## X-Date: July 21, 2005

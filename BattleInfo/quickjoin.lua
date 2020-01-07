@@ -1,6 +1,7 @@
 local _, ADDONSELF = ...
 local L = ADDONSELF.L
 local RegEvent = ADDONSELF.regevent
+local RegisterKeyChangedCallback = ADDONSELF.RegisterKeyChangedCallback 
 
 RegEvent("BATTLEFIELDS_SHOW", function()
     BattlefieldFrameNameHeader:SetText(BATTLEFIELD_NAME .. " " .. TOTAL .. " " ..  GetNumBattlefields())
@@ -27,13 +28,19 @@ RegEvent("ADDON_LOADED", function()
         t:SetWidth(50)
         t:SetHeight(25)
         t:SetPoint("BOTTOMRIGHT", BattlefieldFrame, -50, 100)
-        t:SetAutoFocus(true)
+
+        RegisterKeyChangedCallback("focus_quickjoin", function(v)
+            t:SetAutoFocus(v)
+        end)
+
         t:SetMaxLetters(6)
         t:SetNumeric(true)
         t:SetScript("OnTextChanged", function()
             local n = t:GetText()
 
             if n == "" then
+                SetSelectedBattlefield(0)
+                BattlefieldListScrollFrame:SetVerticalScroll(0)
                 return
             end
 
@@ -45,6 +52,8 @@ RegEvent("ADDON_LOADED", function()
             local idx = toidx(n)
             if idx then
                 FauxScrollFrame_SetOffset(BattlefieldListScrollFrame, idx)
+                local z,c = BattlefieldListScrollFrame:GetVerticalScrollRange(), GetNumBattlefields()
+                BattlefieldListScrollFrame:SetVerticalScroll(z * idx / (c-9))
                 SetSelectedBattlefield(idx)
                 BattlefieldFrame_Update()
             else

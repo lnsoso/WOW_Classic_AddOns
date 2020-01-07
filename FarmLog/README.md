@@ -60,7 +60,10 @@ Another thing is that the more time & data you have per session, the more accura
 ![Preview 7](https://github.com/E1ila/FarmLog/blob/master/Preview4.png)
 
 ### Changes 
-* 1.19.2
+* 1.19.4
+    * Fixed logging of traded and mail received items. They won't be logged now, only looted items.
+    * "Auto Resume BG Farms" option will now properly affect pausing of sessions when leaving BGs. If it's OFF, session won't be paused when leaving a BG.
+* 1.19.3
     * Fixed tracking of award honor gain
 * 1.19
     * Counting battle grounds count, as well as wins/loss count

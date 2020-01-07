@@ -2,6 +2,7 @@ local _, ADDONSELF = ...
 local L = ADDONSELF.L
 local RegEvent = ADDONSELF.regevent
 local BattleZoneHelper = ADDONSELF.BattleZoneHelper
+local RegisterKeyChangedCallback = ADDONSELF.RegisterKeyChangedCallback 
 
 local elapseCache = {}
 
@@ -142,7 +143,7 @@ local function UpdateBattleListCache()
     local n = GetNumBattlefields()
     for i = 1, n  do
         local instanceID = GetBattlefieldInstanceInfo(i)
-        battleList[mapName][tonumber(instanceID)] = i .. "/" .. n
+        battleList[mapName][tonumber(instanceID)] = { i = i , n = n }
     end
 
     UpdateInstanceButtonText()
@@ -152,15 +153,146 @@ RegEvent("BATTLEFIELDS_SHOW", function()
     C_ChatInfo.SendAddonMessage("BATTLEINFO", "ELAPSE_WANTED", "GUILD")
 end)
 
+local DROP_MENU_LOC_ENTER = 2
+local DROP_MENU_LOC_LEAVE = 1
+
+local function SearchDropMenuLoc(showid, offset)
+    local queued = 0
+
+    for i = 1, MAX_BATTLEFIELD_QUEUES do
+        local status, mapName, instanceID = GetBattlefieldStatus(i)
+        local current = i == showid 
+
+        if current then
+            return i * 4 - offset - queued;
+        end
+
+        if status == "queued" then
+            queued = queued + 1
+        end
+    end    
+end
+
 RegEvent("ADDON_LOADED", function()
     C_ChatInfo.RegisterAddonMessagePrefix("BATTLEINFO")
 
     hooksecurefunc("JoinBattlefield", UpdateBattleListCache)
     hooksecurefunc("BattlefieldFrame_Update", UpdateBattleListCache)
 
+    local joinqueuebtn
+    do
+        local t = CreateFrame("Button", nil, f, "UIPanelButtonTemplate, SecureActionButtonTemplate")
+        t:SetFrameStrata("TOOLTIP")
+        t:SetText(ENTER_BATTLE)
+        t:SetAttribute("type", "macro") -- left click causes macro
+        t:Hide()
+
+        t.updateMacro = function()
+            local loc = SearchDropMenuLoc(t.showid, DROP_MENU_LOC_ENTER)
+            if loc then
+                t:SetAttribute("macrotext", "/click MiniMapBattlefieldFrame RightButton" .. "\r\n" .. "/click [nocombat]DropDownList1Button" .. (loc)) -- text for macro on left click
+            end
+        end        
+
+        t:SetScript("OnUpdate", function()
+            t.updateMacro()
+
+            for i = 1, MAX_BATTLEFIELD_QUEUES do
+                local time = GetBattlefieldPortExpiration(i)
+                if time > 0 then
+                    t:SetText(ENTER_BATTLE .. "(" .. GREEN_FONT_COLOR:WrapTextInColorCode(time) .. ")")
+                end
+                return
+            end
+            t:SetText(ENTER_BATTLE .. "(" .. GREEN_FONT_COLOR:WrapTextInColorCode("?") .. ")")
+        end)
+
+        joinqueuebtn = t
+    end
+
+    -- HAHAHAHAHA 
+    local leavequeuebtn
+    do
+        local t = CreateFrame("Button", nil, f, "UIPanelButtonTemplate, SecureActionButtonTemplate")
+        t:SetFrameStrata("TOOLTIP")
+        t:SetText(L["CTRL+Hide=Leave"])
+        t:SetAttribute("type", "macro") -- left click causes macro
+        t:Hide()
+
+        t.updateMacro = function()
+            local loc = SearchDropMenuLoc(t.showid, DROP_MENU_LOC_LEAVE)
+            if loc then
+                t:SetAttribute("macrotext", "/click MiniMapBattlefieldFrame RightButton" .. "\r\n" .. "/click [nocombat]DropDownList1Button" .. (loc)) -- text for macro on left click
+            end
+        end
+
+        leavequeuebtn = t
+    end
+
+    StaticPopupDialogs["CONFIRM_BATTLEFIELD_ENTRY"].OnHide = function()
+        joinqueuebtn:Hide()
+        joinqueuebtn:ClearAllPoints()
+        leavequeuebtn:Hide()
+        leavequeuebtn:ClearAllPoints()
+    end
+
+
+    local replaceEnter = true
+    local replaceHide = true
+    local flashIcon = true
+
+    RegisterKeyChangedCallback("replace_enter_battle", function(v)
+        replaceEnter = v
+    end)
+    RegisterKeyChangedCallback("replace_hide_battle", function(v)
+        replaceHide = v
+        if v then
+            StaticPopupDialogs["CONFIRM_BATTLEFIELD_ENTRY"].button2 = L["CTRL+Hide=Leave"]
+        else
+            StaticPopupDialogs["CONFIRM_BATTLEFIELD_ENTRY"].button2 = HIDE
+        end
+    end)
+    RegisterKeyChangedCallback("flash_icon", function(v)
+        flashIcon = v
+    end)
+
+
     -- hooksecurefunc(StaticPopupDialogs["CONFIRM_BATTLEFIELD_ENTRY"], "OnShow", function(self)
-    StaticPopupDialogs["CONFIRM_BATTLEFIELD_ENTRY"].OnShow = function(self)
+    StaticPopupDialogs["CONFIRM_BATTLEFIELD_ENTRY"].OnShow = function(self, data)
+        if flashIcon then
+            FlashClientIcon()
+        end
+
         local tx = self.text:GetText()
+        if InCombatLockdown() then
+            ADDONSELF.Print(L["Button may not work properly during combat"])
+            return
+        end
+
+        if replaceEnter then
+            joinqueuebtn.showid = data
+            joinqueuebtn:SetAllPoints(self.button1)
+
+            joinqueuebtn:Show()
+        end
+
+        if replaceHide then
+            leavequeuebtn.showid = data
+            leavequeuebtn:SetAllPoints(self.button2)
+
+            if not self.button2.batteinfohooked then
+                self.button2:SetScript("OnUpdate", function()
+                    leavequeuebtn.updateMacro()
+
+                    if IsControlKeyDown() then
+                        leavequeuebtn:Show()
+                    else
+                        leavequeuebtn:Hide()
+                    end
+                end)
+                self.button2.batteinfohooked = true
+            end
+        end
 
         if string.find(tx, L["List Position"], 1, 1) or string.find(tx, L["New"], 1 , 1) then			
             return
@@ -171,19 +303,27 @@ RegEvent("ADDON_LOADED", function()
             toJ = tonumber(toJ)
             if toJ then
                 if instanceIDs[toJ] then
-                    local text = L["List Position"] .. " " .. instanceIDs[toJ]
+
+                    -- first half 0 - rate -> red (0)
+                    -- second half rate - 100% -> red(0) -> yellow (1)
+                    local rate = 0.45
+                    local pos = instanceIDs[toJ].i
+                    local total = instanceIDs[toJ].n
+
+                    local pos0 = math.max(pos - total * rate - 1, 0)
+
+                    local color = CreateColor(1.0, math.min(pos0 / (total * (1 - rate)), 1) , 0)
+                    local text = color:WrapTextInColorCode(L["List Position"] .. " " .. string.format("%d/%d", pos, total))
 
                     local elp = GetElapseFromCache(mapName, toJ)
                     if elp then
-                        text = SecondsToTime(elp)
+                        text = RED_FONT_COLOR:WrapTextInColorCode(SecondsToTime(elp))
                     end
 
-                    text = RED_FONT_COLOR:WrapTextInColorCode(text)
-
-                    self.text:SetText(string.gsub(tx ,toJ , toJ .. "(" .. text .. ")"))
+                    self.text:SetText(string.gsub(tx ,toJ , YELLOW_FONT_COLOR:WrapTextInColorCode(toJ) .. "(" .. text .. ")"))
                 else
                     local text = GREEN_FONT_COLOR:WrapTextInColorCode(L["New"])
-                    self.text:SetText(string.gsub(tx ,toJ , toJ .. "(" .. text .. ")"))
+                    self.text:SetText(string.gsub(tx ,toJ , YELLOW_FONT_COLOR:WrapTextInColorCode(toJ) .. "(" .. text .. ")"))
 
                 end
                 break

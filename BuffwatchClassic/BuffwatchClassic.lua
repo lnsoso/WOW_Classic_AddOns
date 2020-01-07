@@ -53,6 +53,13 @@
 --  ptBR and ruRU
 -- Other localizations will always cast max rank until they can be added
 
+-- 1.12
+-- Persist visible state between logins
+-- Added checkbox to hide or show Buffwatch in options panel
+
+-- 1.13
+-- ToC update
+
 -- ****************************************************************************
 -- **                                                                        **
 -- **  Variables                                                             **
@@ -64,8 +71,8 @@ local addonName, BUFFWATCHADDON = ...;
 BUFFWATCHADDON_G = { };
 
 BUFFWATCHADDON.NAME = "Buffwatch Classic";
-BUFFWATCHADDON.VERSION = "1.11";
-BUFFWATCHADDON.RELEASE_DATE = "11 Oct 2019";
+BUFFWATCHADDON.VERSION = "1.13";
+BUFFWATCHADDON.RELEASE_DATE = "29 Dec 2019";
 BUFFWATCHADDON.HELPFRAMENAME = "Buffwatch Help";
 BUFFWATCHADDON.MODE_DROPDOWN_LIST = {
     "Solo",
@@ -119,6 +126,7 @@ BUFFWATCHADDON.PLAYER_DEFAULTS = {
     ShowPets                = true,
     SortOrder               = BUFFWATCHADDON.SORTORDER_DROPDOWN_LIST[1],
     Version                 = BUFFWATCHADDON.VERSION,
+    Visible                 = true,
     WindowLocked            = false
 };
 
@@ -344,6 +352,10 @@ end
 
                 BUFFWATCHADDON.HideUnmonitored(nil, BuffwatchPlayerConfig.HideUnmonitored);
                 BUFFWATCHADDON.SetMinimized(nil, BuffwatchPlayerConfig.Minimized);
+
+                if BuffwatchPlayerConfig.Visible == false then
+                    BuffwatchFrame:Hide();
+                end
 
                 initialSetupComplete = true;
             end
@@ -2259,12 +2271,14 @@ function BUFFWATCHADDON_G.Toggle()
 
     else
 
-        if BuffwatchFrame:IsVisible() then
-            BuffwatchFrame:Hide();
-            BUFFWATCHADDON.Print("Type '/bfw toggle' to show the Buffwatch window again.");
-        else
+        BuffwatchPlayerConfig.Visible = not BuffwatchPlayerConfig.Visible;
+
+        if BuffwatchPlayerConfig.Visible then
             BUFFWATCHADDON.Set_UNIT_IDs();
             BuffwatchFrame:Show();
+        else
+            BuffwatchFrame:Hide();
+            BUFFWATCHADDON.Print("Type '/bfw toggle' or go to the interface options to show the Buffwatch window again.");
         end
 
     end
@@ -2658,18 +2672,6 @@ end
 function BUFFWATCHADDON_G.GetPlayer_Order()
 
     return Player_Order;
-
-end
-
-function BUFFWATCHADDON_G.GetBuffwatchConfig()
-
-    return BuffwatchConfig;
-
-end
-
-function BUFFWATCHADDON_G.GetBuffwatchPlayerConfig()
-
-    return BuffwatchPlayerConfig;
 
 end
 

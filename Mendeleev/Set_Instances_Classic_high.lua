@@ -294,6 +294,18 @@
 	})
 	
 	table.insert(MENDELEEV_SETS, {
+		name = BZ["Onyxia's Lair"],
+		setindex = "InstanceLoot.Onyxia's Lair",
+		colour = "|cffB0C4DE",
+		header = BZ["Onyxia's Lair"],
+		useval = showDropRate,
+		quality = 3,
+		sets = {
+			["InstanceLoot.Onyxia's Lair.Onyxia"] = BB["Onyxia"],
+		},
+	})
+	
+	table.insert(MENDELEEV_SETS, {
 		name = BZ["Zul'Gurub"],
 		setindex = "InstanceLoot.Zul'Gurub",
 		colour = "|cffB0C4DE",
