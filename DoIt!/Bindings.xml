@@ -1,0 +1,11 @@
+<Bindings>
+  <Binding name="DOIT_TOGGLE_GOLDSPAM" description="Toggle blocking of gold channel invite spam" header="DOIT">
+    DoIt.BindingGoldSpamToggle()
+  </Binding>
+  <Binding name="DOIT_TOGGLE_MOVER" description="Toggle dynamic frame mover (start/stop)">
+    DoIt.ToggleMover()
+  </Binding>
+  <Binding name="DOIT_TOGGLE_LFG_MANAGE" description="Toggle disabling of the LFG channel in instances">
+    DoIt.ToggleManage()
+  </Binding>
+</Bindings>

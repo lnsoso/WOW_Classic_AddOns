@@ -1,0 +1,38 @@
+## Interface: 80205
+## Title: [|cffffd200DoIt!]|r |cff69ccf0<Core>|r
+## Notes: You can do anything with DoIt! DoIt makes addon design simplier by providing a modular framework and reducing coding time.
+## Author: Nightness
+## SavedVariables: DoIt_MeshNetworking DoIt_Saved
+
+Classy/Init.lua
+Classy/Collection.lua
+Classy/Queue.lua
+Classy/Array.lua
+Classy/Stack.lua
+Classy/LinkedList.lua
+Classy/Observable.lua
+Classy/Tree.lua
+Classy/Hashtable.lua
+Classy/DateTime.lua
+Classy/UnitTests.lua
+Core/Global.lua
+Core/LuaTools.lua
+Core/Textures.lua
+Core/Events.lua
+Core/Async.lua
+Core/Debugger.lua
+Core/Player.lua
+Core/Who.lua
+Core/Durability.lua
+Core/Messenger.lua
+Core/Everyone.lua
+Core/MeshNetwork.lua
+Core/Communications.lua
+Core/Channels.lua
+Core/StaticDialog.lua
+Core/Button.lua
+Core/Frame.lua
+Source/Data.lua
+Source/App.lua
+Source/Main.lua
+Examples.lua
