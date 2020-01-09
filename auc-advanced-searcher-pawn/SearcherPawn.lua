@@ -62,6 +62,8 @@ default("search.pawn.finger", true)
 default("search.pawn.trinket", true)
 default("search.pawn.weapon", true)
 default("search.pawn.offhand", true)
+default("search.pawn.ranged", true)
+default("search.pawn.ammo", true)
 default("search.pawn.unenchanted", false)
 -------------------------------------------------------------------
 
@@ -96,7 +98,7 @@ local convertSlot = {
   {
     nil, -- [1] primary slot
     nil, -- [2] secondary slot
-  }, -- [4] shirt
+  }, -- [4] shirt / body
   {
     "ChestSlot", -- [1] primary slot
     nil, -- [2] secondary slot
@@ -140,7 +142,7 @@ local convertSlot = {
   {
     "MainHandSlot", -- [1] primary slot
     nil, -- [2] secondary slot
-  }, -- [15] ranged
+  }, -- [15] ranged - right
   {
     "BackSlot", -- [1] primary slot
     nil, -- [2] secondary slot
@@ -174,15 +176,15 @@ local convertSlot = {
     nil, -- [2] secondary slot
   }, -- [23] holdable
   {
-    nil, -- [1] primary slot
+    "AmmoSlot", -- [1] primary slot
     nil, -- [2] secondary slot
-  }, -- [24] ammo deprecated
+  }, -- [24] ammo
   {
     "MainHandSlot", -- [1] primary slot
     nil, -- [2] secondary slot
   }, -- [25] thrown
   {
-    "MainHandSlot", -- [1] primary slot
+    "RangedSlot", -- [1] primary slot
     nil, -- [2] secondary slot
   }, -- [26] ranged
 }
@@ -331,8 +333,8 @@ local function CanDualWield()
 
   _candualcache = false
 
-  if pclass == "ROGUE" or pclass == "DEATHKNIGHT" then
-    --Rogues and DK get DualWield for Free after character creation
+  if pclass == "ROGUE" then
+    --Rogues get DualWield for Free after character creation
     _candualcache = true
   else
     -- Warriors have Crazed Berzerker spell if they can dual wield
@@ -507,6 +509,8 @@ local function SlotOK(slot)
       get("search.pawn.back"),     -- [15] cloak
       get("search.pawn.weapon"),   -- [16] weapon
       get("search.pawn.offhand"),  -- [17] offhand
+      get("search.pawn.ranged"),   -- [18] ranged
+      get("search.pawn.ammo"),     -- [19] ammo
   }
 
   -- See if the user wants the slot that this item would occupy
@@ -566,6 +570,24 @@ local function FilterPrice(itemData)
   end -- impoor
 
   return true
+end
+
+local isRanged = {}
+local function IsRangedItem(subtype)
+  local tsize = #(isRanged)
+  if tsize == 0 then
+    table.insert(isRanged, TEXT("BOWS"))
+    table.insert(isRanged, TEXT("GUNS"))
+    table.insert(isRanged, TEXT("WANDS"))
+    table.insert(isRanged, TEXT("CROSSBOWS"))
+    --table.insert(isRanged, TEXT("DAGGERS"))
+    table.insert(isRanged, TEXT("THROWN")) -- These may be removed from the game.
+  end
+  if tContains(isRanged, subtype) then
+    return true
+  end
+
+  return false
 end
 
 -------------------------------------------------------------------
@@ -636,8 +658,13 @@ local function FilterItem(itemData)
   local wanted = SlotOK(primaryslot)
   if not wanted then -- check other slot
     wanted = SlotOK(secondaryslot)
-    if not wanted then -- still not wanted
+    if not wanted then -- still not wanted, check if they have ranged checked
+      if get("search.pawn.ranged") then
+        wanted = IsRangedItem(subtype)
+      end
+      if not wanted then
         return true
+      end
     end
   end
 
@@ -916,6 +943,7 @@ function lib:MakeGuiConfig(gui)
   gui:AddControl(id, "Checkbox",   0.65, 2, "search.pawn.force2h", TEXT("FORCE2H_WEAP"))
   gui:AddTip(id, TEXT("FORCE2H_TIP"))
   gui:AddControl(id, "Checkbox",   0.65, 0, "search.pawn.offhand", TEXT("SHOW_OFFHAND"))
+  gui:AddControl(id, "Checkbox",   0.65, 0, "search.pawn.ranged", TEXT("SHOW_RANGED"))
 end
 
 -------------------------------------------------------------------

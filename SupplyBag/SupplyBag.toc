@@ -3,7 +3,8 @@
 ## Notes: Supply Bag
 ## SavedVariables: SupplyBagSavedVariables
 ## SavedVariablesPerCharacter: SupplyBagSavedVariablesPerCharacter
-## Version: 0.2
+## Version: 0.6
 ## Author: viktor
 
+Libs\Libs.xml
 main.lua

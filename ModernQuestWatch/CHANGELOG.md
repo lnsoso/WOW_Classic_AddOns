@@ -1,7 +1,7 @@
 # Modern QuestWatch
 
-## [1.0.8](https://github.com/ketho-wow/ModernQuestWatch/tree/1.0.8) (2019-08-12)
-[Full Changelog](https://github.com/ketho-wow/ModernQuestWatch/compare/1.0.7...1.0.8)
+## [1.0.9](https://github.com/ketho-wow/ModernQuestWatch/tree/1.0.9) (2019-09-22)
+[Full Changelog](https://github.com/ketho-wow/ModernQuestWatch/compare/1.0.8...1.0.9)
 
-- Fixed quest tracker to only expand downwards.  
-    This will reset the config  
+- Added dynamic anchors depending on screen position #2  
+    Fixed overlapping with right actionbars and quest timers #4 #6 #8  

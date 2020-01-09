@@ -1,6 +1,6 @@
 ﻿-- Pawn by Vger-Azjol-Nerub
 -- www.vgermods.com
--- © 2006-2019 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
+-- © 2006-2020 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
 -- See Readme.htm for more information.
 
 -- 
@@ -96,6 +96,7 @@ Para mais informações sobre personalizar o Pawn, favor veja o arquivo de ajuda
 		["BlockValueInfo"] = "Shield block value.  Increases the damage that a shield absorbs when it successfully blocks.",
 		["Cloth"] = "Tecido",
 		["ClothInfo"] = "Pontos para distribuir se o item for tecido.",
+		["CorruptionInfo"] = "Corruption of N'Zoth.  A negative value for Corruption will remove points from an item's score based on the level of corruption.",
 		["Crit"] = "Crítico",
 		["CritInfo"] = "Ataque crítico. Aumenta a chance de seus ataques e magias de cura acertem com maior potência.",
 		--[[Translation missing --]]
@@ -287,6 +288,7 @@ Para mais informações sobre personalizar o Pawn, favor veja o arquivo de ajuda
 		["Charges"] = "^.+ Cargas?$",
 		["Cloth"] = "^Tecido$",
 		["CooldownRemaining"] = "^Tempo de recarga restante:",
+		["Corruption"] = "^%+?# Corrupção$",
 		["Crit"] = "^%+?# Acerto Crítico%.?$",
 		["Crit2"] = "^%+?# de Acerto Crítico%.?$",
 		["CritPercent"] = "^Equipado: Aumenta em #%% a chance de realizar acertos críticos%.$",
@@ -391,6 +393,7 @@ Para mais informações sobre personalizar o Pawn, favor veja o arquivo de ajuda
 		["Sword"] = "^Espada$",
 		["TemporaryBuffMinutes"] = "^.+%(%d+ min%)$",
 		["TemporaryBuffSeconds"] = "^.+%(%d+ s%)$",
+		["Thrown"] = "^Thrown$",
 		["Thunderforged"] = "^Forjado pelo Trovão$",
 		["Timeless"] = "^Perene$",
 		["Titanforged"] = "^Forja Titânica$",
@@ -635,6 +638,7 @@ Atalho: Shift+clique em uma escala]=],
 		["ValuesFollowSpecialization"] = "Mostrar melhorias para o meu melhor tipo de armadura somente após o nível 50",
 		["ValuesFollowSpecializationTooltip"] = "Ative essa opção para esconder melhorias para armaduras que a sua classe não pode se especializar no nível 50. Por exemplo, no nível 50 paladinos sagrados aprendem Especialização em Armadura de Placas, a qual aumenta o seu intelecto em 5% enquanto usarem apenas armadura de placas. Quando essa opção é escolhida o Pawn nunca vai considerar tecido, couro ou malha para serem melhorias para paladinos sagrados de nível 50 ou mais.",
 		["ValuesHeader"] = "Valores de atributos para %s",
+		["ValuesIgnoreItemType"] = "Items com isso não são usáveis",
 		["ValuesIgnoreStat"] = "Items com isso não são usáveis",
 		["ValuesIgnoreStatTooltip"] = "Ative essa opção para fazer com que qualquer item com esse atributo não tenha valor para essa escala. Por exemplo, xamãs não podem vestir placas, então uma escala designada para um xamã pode marcar placas como não utilizáveis para que armaduras de placa não tenham valor para essa escala.",
 		["ValuesNormalize"] = "Normalizar valores (como o Wowhead)",

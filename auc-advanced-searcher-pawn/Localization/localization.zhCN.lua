@@ -63,6 +63,7 @@ Localization.RegisterAddonStrings("zhCN", "Auc-Searcher-Pawn",
     SHOW_TRINKET      = "饰品";
     SHOW_WEAPON       = "武器";
     SHOW_OFFHAND      = "副手";
+    SHOW_RANGED       = "远程";
 
     --Armor Preference
     ARMORPREF_SELECT_TIP = "寻找装甲时，在搜索结果中只显示所选的护甲类型。过滤掉所有其他的装甲类型。";

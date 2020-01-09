@@ -1,6 +1,6 @@
 ﻿-- Pawn by Vger-Azjol-Nerub
 -- www.vgermods.com
--- © 2006-2019 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
+-- © 2006-2020 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
 -- See Readme.htm for more information.
 
 -- 
@@ -91,6 +91,7 @@ For more information on customizing Pawn, please see the help file (Readme.htm) 
 		["BlockValueInfo"] = "Shield block value.  Increases the damage that a shield absorbs when it successfully blocks.",
 		["Cloth"] = "Cloth",
 		["ClothInfo"] = "Points to be assigned if the item is cloth.",
+		["CorruptionInfo"] = "Corruption of N'Zoth.  A negative value for Corruption will remove points from an item's score based on the level of corruption.",
 		["Crit"] = "Crit",
 		["CritInfo"] = "Critical strike.  Increases the chance that your attacks and healing spells will hit with increased potency.  (In WoW Classic, this only affects physical attacks.)",
 		["DefenseInfo"] = "Defense skill.  Decreases the chance that you'll be hit by boss attacks.",
@@ -260,6 +261,7 @@ For more information on customizing Pawn, please see the help file (Readme.htm) 
 		["Charges"] = "^.+ Charges?$",
 		["Cloth"] = "^Cloth$",
 		["CooldownRemaining"] = "^Cooldown remaining:",
+		["Corruption"] = "^%+?# Corruption$",
 		["Crit"] = "^%+?# Critical [Ss]trike%.?$",
 		["Crit2"] = "^UNUSED$",
 		["CritPercent"] = "^Equip: Improves your chance to get a critical strike by #%%%.$",
@@ -364,6 +366,7 @@ For more information on customizing Pawn, please see the help file (Readme.htm) 
 		["Sword"] = "^Sword$",
 		["TemporaryBuffMinutes"] = "^.+%(%d+ min%)$",
 		["TemporaryBuffSeconds"] = "^.+%(%d+ sec%)$",
+		["Thrown"] = "^Thrown$",
 		["Thunderforged"] = "^Thunderforged$",
 		["Timeless"] = "^Timeless$",
 		["Titanforged"] = "^Titanforged$",
@@ -606,8 +609,9 @@ Shortcut: Shift+click a scale]=],
 		["ValuesFollowSpecialization"] = "Only show upgrades for my best armor type after level 50",
 		["ValuesFollowSpecializationTooltip"] = "Enable this option to hide upgrades for armor that your class does not specialize in after level 50.  For example, at level 50 holy paladins learn Plate Specialization, which increases their intellect by 5% when wearing only plate armor.  When this option is chosen Pawn will never consider cloth, leather, or mail to be upgrades for level 50+ holy paladins.",
 		["ValuesHeader"] = "Stat weights for %s",
+		["ValuesIgnoreItemType"] = "These items are unusable",
 		["ValuesIgnoreStat"] = "Items with this are unusable",
-		["ValuesIgnoreStatTooltip"] = "Enable this option to cause any item with this stat to not get a value for this scale.  For example, shamans can't wear plate, so a scale designed for a shaman can mark plate as unusable so that plate armor doesn't get a value for that scale.",
+		["ValuesIgnoreStatTooltip"] = "Enable this option to cause any item of this type or with this stat to be ignored entirely for this scale.  For example, shamans can't wear plate, so a scale designed for a shaman can mark plate as unusable so that plate armor is never considered an upgrade.",
 		["ValuesNormalize"] = "Normalize values (like Wowhead)",
 		["ValuesNormalizeTooltip"] = [=[Enable this option to divide the final calculated value for an item by the sum of all stat values in your scale, like Wowhead and Lootzor do.  This helps to even out situations like where one scale has stat values around 1 and another has values around 5.  It also helps to keep numbers manageably small.
 

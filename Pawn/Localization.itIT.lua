@@ -1,6 +1,6 @@
 ﻿-- Pawn by Vger-Azjol-Nerub
 -- www.vgermods.com
--- © 2006-2019 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
+-- © 2006-2020 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
 -- See Readme.htm for more information.
 
 -- 
@@ -97,6 +97,7 @@ Per maggiori informazioni su come personalizzare Pawn, per favore leggere il fil
 		["BlockValueInfo"] = "Shield block value.  Increases the damage that a shield absorbs when it successfully blocks.",
 		["Cloth"] = "Stoffa",
 		["ClothInfo"] = "Punti da assegnare se l'oggetto è in stoffa",
+		["CorruptionInfo"] = "Corruption of N'Zoth.  A negative value for Corruption will remove points from an item's score based on the level of corruption.",
 		["Crit"] = "Critico",
 		["CritInfo"] = "Critico. Aumenta la possibilità che i tuoi attacchi e le tue cure colpiscano con potenza maggiore.",
 		--[[Translation missing --]]
@@ -303,6 +304,7 @@ Per maggiori informazioni su come personalizzare Pawn, per favore leggere il fil
 		["Charges"] = "^.+ Cariche?$",
 		["Cloth"] = "^Stoffa$",
 		["CooldownRemaining"] = "^Recupero restante:",
+		["Corruption"] = "^%+?# Corruzione$",
 		["Crit"] = "^%+?# Indice di [Cc]ritico%.?$",
 		["Crit2"] = "UNUSED",
 		--[[Translation missing --]]
@@ -435,6 +437,7 @@ Per maggiori informazioni su come personalizzare Pawn, per favore leggere il fil
 		["Sword"] = "^Spada$",
 		["TemporaryBuffMinutes"] = "^.+%(%d+ min%)",
 		["TemporaryBuffSeconds"] = "^.+%(%d+ sec%)",
+		["Thrown"] = "^Thrown$",
 		["Thunderforged"] = "^Tuonoforgiat[oa]$",
 		["Timeless"] = "^Senza Tempo$",
 		["Titanforged"] = "^Titanforgiato$",
@@ -679,6 +682,7 @@ Scorciatoia: Shift+click su una formula]=],
 		["ValuesFollowSpecialization"] = "Mostra solo i miglioramenti per il mio miglior tipo di armatura dopo il livello 50",
 		["ValuesFollowSpecializationTooltip"] = "Abilita questa opzione per nascondere i miglioramenti dell'armatura in cui la tua classe non è specializzata dopo il livello 50. Per esempio, al livello 50 un paladino sacro impara Specializzazione: Armature a Piastre, che aumenta il proprio intelletto del 5% quando indossa solo armature in piastre. Quando questa opzione è selezionata Pawn non considererà mai stoffa, pelle o maglia come miglioramenti per paladini sacri di livello 50+.",
 		["ValuesHeader"] = "Pesi delle caratteristice per %s",
+		["ValuesIgnoreItemType"] = "Gli oggetti con questa sono inutilizzabili",
 		["ValuesIgnoreStat"] = "Gli oggetti con questa sono inutilizzabili",
 		["ValuesIgnoreStatTooltip"] = "Abilita questa opzione per far in modo che ogni oggetto con questa statistica non ottenga valore per questa formula. Per esempio, gli sciamani non possono indossare piastre, quindi una formula per uno sciamano può impostare piastre come inutilizzabile così che quelle armature non ottengano valore per quella formula.",
 		["ValuesNormalize"] = "Normalizza valori (come Wowhead)",

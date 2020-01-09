@@ -1,6 +1,6 @@
 ﻿-- Pawn by Vger-Azjol-Nerub
 -- www.vgermods.com
--- © 2006-2019 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
+-- © 2006-2020 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
 -- See Readme.htm for more information.
 
 -- 
@@ -87,6 +87,7 @@ PawnLocal =
 		["BlockValueInfo"] = "格挡值: 增加成功格挡后盾牌吸收的伤害值。",
 		["Cloth"] = "布甲",
 		["ClothInfo"] = "物品类型为布甲。",
+		["CorruptionInfo"] = "Corruption of N'Zoth.  A negative value for Corruption will remove points from an item's score based on the level of corruption.",
 		["Crit"] = "爆击",
 		["CritInfo"] = "爆击等级，影响近战、远程和法术的爆击几率。(在经典旧世中, 仅对物理攻击生效。)",
 		["DefenseInfo"] = "防御技能: 减少被首领攻击命中的几率。",
@@ -256,6 +257,7 @@ PawnLocal =
 		["Charges"] = "^.+ Charges?$",
 		["Cloth"] = "^布甲$",
 		["CooldownRemaining"] = "^冷却时间剩余：",
+		["Corruption"] = "^%+?# 腐蚀$",
 		["Crit"] = "^%+?# 爆击$",
 		["Crit2"] = "^UNUSED$",
 		["CritPercent"] = "^装备：使你造成致命一击的几率提高#%%。$",
@@ -360,6 +362,7 @@ PawnLocal =
 		["Sword"] = "^剑$",
 		["TemporaryBuffMinutes"] = "^.+%(%d+ 分钟%)$",
 		["TemporaryBuffSeconds"] = "^.+%(%d+ 秒%)$",
+		["Thrown"] = "^Thrown$",
 		["Thunderforged"] = "雷霆",
 		["Timeless"] = "永恒",
 		["Titanforged"] = "^泰坦造物$",
@@ -602,6 +605,7 @@ Pawn插件默认已经参考AskMrRobot给所有职业的专精建立了标准评
 		["ValuesFollowSpecialization"] = "只有显示50等以后我最佳护甲类型的提升",
 		["ValuesFollowSpecializationTooltip"] = "启用该选项来隐藏50等以后非职业专精的护甲类型。比如，神圣圣骑士在50等学到了鎧甲专精, 当只装备鎧甲时增加智力5%。当此选项选择时Pawn将不会考虑布、皮及锁甲对50+神圣圣骑士的提升",
 		["ValuesHeader"] = "调整 %s 分值",
+		["ValuesIgnoreItemType"] = "带此属性的物品没有用处。",
 		["ValuesIgnoreStat"] = "带此属性的物品没有用处。",
 		["ValuesIgnoreStatTooltip"] = "启用这个选项，将不能使用的物品设为无效。例如萨满不能装备板甲，板甲无论属性再好，对萨满来说，属性权重为0。",
 		["ValuesNormalize"] = "校正数值 (比如 Wowhead)",

@@ -154,7 +154,24 @@ local utf8replace = prg.utf8replace
 local GVAR = {} -- UI Widgets
 
 local locale = GetLocale()
-
+local AV, WG, AB
+if locale == "enUS" then
+	AV = "Alterac Valley"
+	WG = "Warsong Gulch"
+	AB = "Arathi Basin"
+elseif locale == "koKR" then
+	AV = "알터랙 계곡"
+	WG = "전쟁노래 협곡"
+	AB = "아라시 분지"
+elseif locale == "ruRU" then
+	AV = "Альтеракская долина"
+	WG = "Ущелье песни войны"
+	AB = "Низина арати"
+else
+	AV = "Alterac Valley"
+	WG = "Warsong Gulch"
+	AB = "Arathi Basin"
+end
 local inWorld = nil
 local inBattleground = nil
 local inCombat = nil
@@ -331,8 +348,8 @@ local totalFlags = {
 }
 
 local flagIDs = {
-	--[301089] = 1, -- Horde Flag         Warsong Gulch & Twin Peaks
-	--[301091] = 1, -- Alliance Flag      Warsong Gulch & Twin Peaks
+	[301089] = 1, -- Horde Flag         Warsong Gulch & Twin Peaks
+	[301091] = 1, -- Alliance Flag      Warsong Gulch & Twin Peaks
 	[GetSpellInfo(301089)] = true,
 	[GetSpellInfo(301091)] = true,
 	--[GetSpellInfo(23161)] = true,
@@ -6895,7 +6912,7 @@ function BattlegroundTargets:BattlefieldScoreUpdate()
 	if DATA.Friend.MainData[1] then
 		BattlegroundTargets:MainDataUpdate("Friend")
 	end
-
+	--print("up 1", flagflag, isFlagBG)
 	if not flagflag and isFlagBG > 0 then
 		if DATA.Enemy.MainData[1] or DATA.Friend.MainData[1] then
 			if BattlegroundTargets_Options.Friend.ButtonFlagToggle[currentSize] or BattlegroundTargets_Options.Enemy.ButtonFlagToggle[currentSize] then
@@ -6937,22 +6954,6 @@ function BattlegroundTargets:IsBattleground()
 		for i = 1, GetMaxBattlefieldID() do -- GetMaxBattlefieldID() = 1
 			local queueStatus, queueMapName = GetBattlefieldStatus(i) -- TODO leming
 			--print(i, queueStatus, queueMapName, "#", GetBattlefieldStatus(i))
-
-			local AV, WG, AB
-			if GetLocale() == "enUS" then
-				AV = "Alterac Valley"
-				WG = "Warsong Gulch"
-				AB = "Arathi Basin"
-			elseif GetLocale() == "koKR" then
-				AV = "알터랙 계곡"
-				WG = "전쟁노래 협곡"
-				AB = "아라시 분지"
-			else
-				AV = "Alterac Valley"
-				WG = "Warsong Gulch"
-				AB = "Arathi Basin"
-			end
-
 			if queueMapName == AV then
 				size = 40
 				fb = 0
@@ -6966,7 +6967,6 @@ function BattlegroundTargets:IsBattleground()
 				size = 10
 				fb = 0
 			end
-
 			if queueStatus == "active" then
 				bgName = queueMapName
 				break
@@ -7004,7 +7004,6 @@ function BattlegroundTargets:IsBattleground()
 
 	if currentBGMap then
 		reSizeCheck = 10
-
 		--currentSize = bgMaps[ currentBGMap ].bgSize
 		currentSize = size -- TODO leming
 		--isFlagBG = bgMaps[ currentBGMap ].flagBG
@@ -8186,10 +8185,8 @@ function BattlegroundTargets:CheckFlagCarrierCHECK(unitID, unitName) -- FLAGSPY
 	if isFlagBG >= 1 and isFlagBG <= 4 then--if isFlagBG == 1 or isFlagBG == 2 or isFlagBG == 3 or isFlagBG == 4 then
 		-- enemy buff & debuff check
 		for i = 1, 40 do
-			--local _, _, _, _, _, _, _, _, _, _, spellId = UnitBuff(unitID, i)
-			--local spellId, _, _, _, _, _, _, _, _, id = UnitBuff(unitID, i)
-			local spellId, _, _, _, _, _, _, _, _, id = UnitAura(unitID, i, "HELPFUL")
-			print(spellId)
+			local id, _, _, _, _, _, _, _, _, spellId, arg11 = UnitBuff(unitID, i) -- id arg10
+			--print(unitID, spellId, id, arg11)
 			if not spellId then break end
 			if flagIDs[spellId] then
 				DATA.Enemy.hasFlag = unitName
@@ -8280,10 +8277,7 @@ function BattlegroundTargets:CheckFlagCarrierSTART() -- FLAGSPY
 			for num = 1, GetNumGroupMembers() do
 				local unitID = "raid"..num
 				for i = 1, 40 do
-					--local _, _, _, _, _, _, _, _, _, _, spellId = UnitBuff(unitID, i)
-					--local spellId, _, _, _, _, _, _, _, _, id = UnitBuff(unitID, i)
-					local spellId, _, _, _, _, _, _, _, _, id = UnitAura(unitID, i, "HELPFUL")
-					print(spellId)
+					local _, _, _, _, _, _, _, _, _, spellId = UnitBuff(unitID, i)
 					if not spellId then break end
 					if flagIDs[spellId] then
 						flagDebuff = 0

@@ -66,8 +66,8 @@ local defaults = {
 		display_shopping_list_at_merchant = true,
 		use_blizzard_for_followers = false,				-- not in Classic
 		hide_blizzard_frame = true,						-- primarily for debugging
-		support_crafting = true,						-- just in case
-		search_includes_reagents = true,				-- just in case
+		support_crafting = true,
+		search_includes_reagents = true,
 		confirm_queue_clear = false,
 		queue_only_view = true,
 		transparency = 1.0,
@@ -242,6 +242,7 @@ function Skillet:OnInitialize()
 --
 -- Initialize global data
 --
+	self.db.global.locale = GetLocale()
 	if not self.db.global.recipeDB then
 		self.db.global.recipeDB = {}
 	end
@@ -786,7 +787,12 @@ function Skillet:CRAFT_SHOW()
 		Skillet:ConfigureRecipeControls()
 --		Skillet.ignoreClose = false
 	end
-	SkilletEnchantButton:Show()				-- Show our button
+	if Skillet.db.profile.support_crafting then
+		SkilletEnchantButton:Hide()
+	else
+		SkilletEnchantButton:Disable()		-- because DoCraft is restricted
+		SkilletEnchantButton:Show()
+	end
 	if not Skillet.changingTrade then		-- wait for UNIT_SPELLCAST_SUCCEEDED
 		Skillet:SkilletShow()
 	end
@@ -862,9 +868,6 @@ function Skillet:SkilletShow()
 		self.dataScanned = false
 		self:ScheduleTimer("SkilletShowWindow", 0.5)
 		if self.isCraft then
-			if Skillet.db.profile.support_crafting then
-				self:StealEnchantButton()
-			end
 			if Skillet.db.profile.hide_blizzard_frame then
 				--DA.DEBUG(0,"HideUIPanel(CraftFrame)")
 				Skillet.hideCraftFrame = true
@@ -920,6 +923,11 @@ function Skillet:SkilletShowWindow()
 		end
 		return
 	end
+	if self.isCraft then
+		if Skillet.db.profile.support_crafting then
+			self:StealEnchantButton()
+		end
+	end
 	self.currentGroup = nil
 	self.currentGroupLabel = self:GetTradeSkillOption("grouping")
 	self:RecipeGroupDropdown_OnShow()
@@ -938,7 +946,7 @@ function Skillet:SkilletShowWindow()
 end
 
 function Skillet:SkilletClose()
-	DA.DEBUG(0,"SKILLET CLOSE")
+	DA.DEBUG(0,"SkilletClose")
 	self.lastCraft = self.isCraft
 	if self.isCraft then
 		self:RestoreEnchantButton(false)
@@ -1220,8 +1228,6 @@ function Skillet:HideAllWindows()
 	end
 	self.currentTrade = nil
 	self.selectedSkill = nil
---	self.changingTrade = nil
---	self.processingSkill = nil
 	return closed
 end
 

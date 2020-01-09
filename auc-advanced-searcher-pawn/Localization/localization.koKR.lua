@@ -63,6 +63,7 @@ Localization.RegisterAddonStrings("koKR", "Auc-Searcher-Pawn",
     SHOW_TRINKET      = "장신구";
     SHOW_WEAPON       = "무기";
     SHOW_OFFHAND      = "보조장비";
+    SHOW_RANGED       = "원거리 장비";
 
     --Armor Preference
     ARMORPREF_SELECT_TIP = "갑옷을 검색하면 검색 결과에서 선택한 갑옷 유형을 보여줍니다. 다른 모든 갑옷 유형을 필터링 할 수 있습니다.";

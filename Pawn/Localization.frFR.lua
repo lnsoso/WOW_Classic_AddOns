@@ -1,6 +1,6 @@
 ﻿-- Pawn by Vger-Azjol-Nerub
 -- www.vgermods.com
--- © 2006-2019 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
+-- © 2006-2020 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
 -- See Readme.htm for more information.
 
 -- 
@@ -99,6 +99,7 @@ Armure, quel que soit le type d'item. Pas de distinction entre l'armure de base 
 		["BlockValueInfo"] = "Shield block value.  Increases the damage that a shield absorbs when it successfully blocks.",
 		["Cloth"] = "Tissu",
 		["ClothInfo"] = "Points a etre assigné si l'item est en tissu",
+		["CorruptionInfo"] = "Corruption of N'Zoth.  A negative value for Corruption will remove points from an item's score based on the level of corruption.",
 		["Crit"] = "Crit",
 		["CritInfo"] = "Coup critique. affecte les attaques de mélée, les attaques a distance et les sorts",
 		--[[Translation missing --]]
@@ -298,6 +299,7 @@ Armure, quel que soit le type d'item. Pas de distinction entre l'armure de base 
 		["Charges"] = "^.+ Charges?$",
 		["Cloth"] = "^Tissu$",
 		["CooldownRemaining"] = "^Temps de recharge restant:",
+		["Corruption"] = "^%+?# Corruption$",
 		["Crit"] = "^%+?# Score de crit%.?$",
 		["Crit2"] = "^%+?# au score de critique$",
 		["CritPercent"] = "^Equipé : Augmente vos chances d'infliger un coup critique de #%%%.$",
@@ -402,6 +404,7 @@ Armure, quel que soit le type d'item. Pas de distinction entre l'armure de base 
 		["Sword"] = "^Epée$",
 		["TemporaryBuffMinutes"] = "^.+%(%d+ min%)$",
 		["TemporaryBuffSeconds"] = "^.+%(%d+ sec%)$",
+		["Thrown"] = "^Thrown$",
 		["Thunderforged"] = "^Foudroyant$",
 		["Timeless"] = "^du Temps figé$",
 		["Titanforged"] = "^forgées par les titans$",
@@ -646,6 +649,7 @@ Cette commande ne peut etre défaite!]=],
 		["ValuesFollowSpecialization"] = "Affiche seulement les améliorations pour mon meilleur type d'armure après le niveau 50",
 		["ValuesFollowSpecializationTooltip"] = "Cette option permet de cacher les améliorations d'armure dans laquelle votre classe n est pas spécialisé après le niveau 50. Par exemple, au niveau 50 les Paladin Sacré apprennent la spécialisation plaque, ce qui augmente leur intelligence de 5% quand ils portent seulement de la plaque. Quand cette option est choisie, Pawn ne tiendra jamais compte du tissu, cuir, ou maille comme des améliorations pour des paladins sacré au dessus du niveau 50",
 		["ValuesHeader"] = "Valeur d'echelle pour %s",
+		["ValuesIgnoreItemType"] = "Les items avec ceci sont inutilisables",
 		["ValuesIgnoreStat"] = "Les items avec ceci sont inutilisables",
 		["ValuesIgnoreStatTooltip"] = "Cette option fait que chaque items avec cette stat n'aura pas de valeurs pour cette échelle. Par exemple, les shamans ne peuvent pas porter de la plaque, donc une échelle (formule) conçue pour un shaman peut marquer la plaque comme inutilisable ainsi les armures de plaques ne recevront aucune valeur",
 		["ValuesNormalize"] = "Normalise les valeurs (comme Wowhead)",
@@ -684,6 +688,11 @@ if VgerCore.IsClassic then
 	for Key, NewString in pairs(TooltipParsing_Classic) do
 		PawnLocal.TooltipParsing[Key] = NewString
 	end
+end
+
+-- *** In WoW 8.3, the thousands separator for French is changed AGAIN.
+if select(4, GetBuildInfo()) >= 80300 then
+	PawnLocal.ThousandsSeparator = ""
 end
 
 end

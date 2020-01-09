@@ -159,7 +159,8 @@ function Skillet:StealEnchantButton()
 			--DA.DEBUG(1,"point= "..DA.DUMP1(point))
 			Skillet.EnchantOldPoints = point
 			CraftCreateButton:ClearAllPoints()		-- Clear all positions
-			CraftCreateButton:SetAllPoints(SkilletEnchantButton) -- Copy positions from our button
+--			CraftCreateButton:SetPoint("TOPLEFT", SkilletQueueParentBase, "TOPLEFT",0, 0)	-- doesn't overlap other buttons
+			CraftCreateButton:SetPoint("TOPLEFT", SkilletEnchantButton, "TOPLEFT",0, 0)
 		end
 	end
 end
@@ -185,8 +186,8 @@ function Skillet:RestoreEnchantButton(show)
 		if CraftCreateButton then
 			CraftCreateButton:Show()
 		end
-		SkilletEnchantButton:Disable()			-- Disable our button because DoCraft is restricted
 		if show then
+			SkilletEnchantButton:Disable()			-- Disable our button because DoCraft is restricted
 			SkilletEnchantButton:Show()				-- Show our button
 		else
 			SkilletEnchantButton:Hide()				-- Hide our button
@@ -531,9 +532,11 @@ function Skillet:ConfigureRecipeControls()
 		SkilletAdd10Button:Hide()
 		SkilletClearNumButton:Hide()
 		SkilletQueueOnlyButton:Hide()
-		SkilletEnchantButton:Show()
-		if not Skillet.db.profile.support_crafting then
+		if Skillet.db.profile.support_crafting then
+			SkilletEnchantButton:Hide()
+		else
 			SkilletEnchantButton:Disable()		-- because DoCraft is restricted
+			SkilletEnchantButton:Show()
 		end
 	else
 		SkilletQueueAllButton:Show()
@@ -1654,16 +1657,6 @@ function Skillet:UpdateDetailsWindow(skillIndex)
 				end
 			end
 		end
-		SkilletDescriptionText:SetText("")
-		local description = nil
---		description = GetTradeSkillDescription(skillIndex)		-- Not implemented in Classic
-		--DA.DEBUG(0,"description="..tostring(description))
-		if description then
-			description = description:gsub("\r","")	-- Skillet frame has less space than Blizzard frame, so
-			description = description:gsub("\n","")	-- remove any extra blank lines, but
-			SkilletDescriptionText:SetMaxLines(4)	-- don't let the text get too big.
-			SkilletDescriptionText:SetText(description)
-		end
 --
 -- Whether or not it is on cooldown.
 --
@@ -1690,25 +1683,23 @@ function Skillet:UpdateDetailsWindow(skillIndex)
 --
 -- Are special tools needed for this skill?
 --
-	if recipe.tools then
-		local toolList = {}
-		for i=1,#recipe.tools do
-			--DA.DEBUG(0,"tool: "..(recipe.tools[i] or "nil"))
-			toolList[i*2-1] = recipe.tools[i]
-			if skill.tools then
-			--DA.DEBUG(0,"arg: "..(skill.tools[i] or "nil"))
-				toolList[i*2] = skill.tools[i]
-			else
-				toolList[i*2] = 1
-			end
-		end
-		SkilletRequirementText:SetText(BuildColoredListString(unpack(toolList)))
+	local tools
+	if Skillet.isCraft then
+		tools = BuildColoredListString(GetCraftSpellFocus(skillIndex))
+	else
+		tools = BuildColoredListString(GetTradeSkillTools(skillIndex))
+	end
+	if tools then
+		SkilletRequirementText:SetText(tools)
 		SkilletRequirementText:Show()
 		SkilletRequirementLabel:Show()
 	else
 		SkilletRequirementText:Hide()
 		SkilletRequirementLabel:Hide()
 	end
+--
+-- Get the icon
+--
 	if Skillet.isCraft then
 		texture = GetCraftIcon(skillIndex)
 	else
@@ -1716,7 +1707,10 @@ function Skillet:UpdateDetailsWindow(skillIndex)
 	end
 	SkilletSkillIcon:SetNormalTexture(texture)
 	SkilletSkillIcon:Show()
-	if AuctionFrame and AuctionatorLoaded and self.ATRPlugin and self.db.profile.plugins.ATR.enabled and self.auctionOpen then
+--
+-- Check for Auction House
+--
+	if AuctionFrame and self.auctionOpen and AuctionatorLoaded and self.ATRPlugin and self.db.profile.plugins.ATR.enabled then
 		SkilletAuctionatorButton:Show()
 	else
 		SkilletAuctionatorButton:Hide()
@@ -1772,7 +1766,7 @@ function Skillet:UpdateDetailsWindow(skillIndex)
 				end
 			else
 --
--- ungrey it
+-- Ungrey it
 --
 				count:SetText(count_text)
 				text:SetText(reagentName)
@@ -1786,7 +1780,7 @@ function Skillet:UpdateDetailsWindow(skillIndex)
 			lastReagentButton = button
 		else
 --
--- out of necessary reagents, don't need to show the button,
+-- Out of necessary reagents, don't need to show the button,
 -- or any of the text.
 --
 			button:Hide()
@@ -3091,6 +3085,7 @@ function Skillet:CreateStandaloneQueueFrame()
 end
 
 function Skillet:UpdateStandaloneQueueWindow()
+	--DA.DEBUG(0,"UpdateStandaloneQueueWindow()")
 	if not self.skilletStandaloneQueue or not self.skilletStandaloneQueue:IsVisible() then
 		return
 	end
@@ -3098,6 +3093,13 @@ function Skillet:UpdateStandaloneQueueWindow()
 	SkilletStandaloneQueue:SetScale(self.db.profile.scale)
 end
 
+--
+-- Adds a button to the tradeskill window. The button will be
+-- reparented and placed appropriately in the window.
+--
+-- The frame representing the main tradeskill window will be
+-- returned in case you need to pop up a frame attached to it.
+--
 function Skillet:AddButtonToTradeskillWindow(button)
 	if not SkilletFrame.added_buttons then
 		SkilletFrame.added_buttons = {}
@@ -3115,4 +3117,5 @@ function Skillet:AddButtonToTradeskillWindow(button)
 	if SkilletPluginButton then
 		SkilletPluginButton:Show()
 	end
+	return SkilletFrame
 end

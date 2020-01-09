@@ -166,7 +166,24 @@ function getTableLen(tab)
   end
   return count
 end
+--判断table中是否有value
+function is_include(value, tbl)
+  for k,v in ipairs(tbl) do
+    if v == value then
+        return true
+    end
+  end
+  return false
+end
 
+function isMagicItem(itemID)
+  --从这里抓的： https://cn.classic.wowhead.com/consumable-items?filter=9;1;0
+  local magicIDList = {1113,1114,1199,1487,2136,2288,3772,5223,5227,5229,5232,5349,5350,5406,5509,5510,5511,5512,5513,8007,8008,8075,8076,8077,8078,8079,9421,14894,16892,16893,16895,16896,19004,19005,19006,19007,19008,19009,19010,19011,19012,19013,19696,21236,22895}
+  if is_include(itemID,magicIDList) then
+    return true
+  end
+  return false
+end
 
 -- 获取当前包裹的物品清单
 function getMyBagsItems()
@@ -210,8 +227,10 @@ function save(name)
       for bagSlot = 1, GetContainerNumSlots(bag), 1 do
         local item = GetContainerItemLink(bag, bagSlot)
         local unusedTexture, itemCount = GetContainerItemInfo(bag, bagSlot)
+        local itemID = GetContainerItemID(bag, bagSlot)
 
-        if (not (item == nil)) then 
+        --魔法物品不用存
+        if ((not (item == nil)) and (not isMagicItem(itemID))) then 
           local itemName, itemLink, itemRarity,
           itemLevel, itemMinLevel, itemType, itemSubType, itemStackCount,
           itemEquipLoc, itemTexture, vendorPrice = GetItemInfo(item)
@@ -296,28 +315,31 @@ function load(key, needMoveToBank)
       for bagSlot = 1, GetContainerNumSlots(bag), 1 do
         local item = GetContainerItemLink(bag, bagSlot)
         local unusedTexture, itemCount = GetContainerItemInfo(bag, bagSlot)
+        local itemID = GetContainerItemID(bag, bagSlot)
 
-        if (not (item == nil)) then 
-          local itemName, itemLink, itemRarity,
-          itemLevel, itemMinLevel, itemType, itemSubType, itemStackCount,
-          itemEquipLoc, itemTexture, vendorPrice = GetItemInfo(item)
+        if not isMagicItem(itemID) then  --魔法物品不用处理
+          if (not (item == nil)) then 
+            local itemName, itemLink, itemRarity,
+            itemLevel, itemMinLevel, itemType, itemSubType, itemStackCount,
+            itemEquipLoc, itemTexture, vendorPrice = GetItemInfo(item)
 
-          local curStoreItem = storeItems[itemName]
-          if(curStoreItem and curStoreItem.itemCount>0) then
-            --如果store里有该物品，则保留背包里该物品，并减掉store里的数量
-            local count = storeItems[itemName].itemCount - itemCount
-            storeItems[itemName].itemCount = count
-            if (count<=0) then
-              storeDone = storeDone+1
-              storeItems[itemName] = nil
+            local curStoreItem = storeItems[itemName]
+            if(curStoreItem and curStoreItem.itemCount>0) then
+              --如果store里有该物品，则保留背包里该物品，并减掉store里的数量
+              local count = storeItems[itemName].itemCount - itemCount
+              storeItems[itemName].itemCount = count
+              if (count<=0) then
+                storeDone = storeDone+1
+                storeItems[itemName] = nil
+              end
+            else
+              --store里没有该物品，存到银行
+              table.insert(needPickToBanksItems,{bag, bagSlot})
             end
-          else
-            --store里没有该物品，存到银行
-            table.insert(needPickToBanksItems,{bag, bagSlot})
+          else --空背包先存着，后面取物品需要
+            local emptySlot = {bag,bagSlot}
+            table.insert(bagEmptySlot,emptySlot)
           end
-        else --空背包先存着，后面取物品需要
-          local emptySlot = {bag,bagSlot}
-          table.insert(bagEmptySlot,emptySlot)
         end
       end
     end
@@ -342,7 +364,9 @@ function load(key, needMoveToBank)
             local storeItem = storeItems[itemName]
             if (storeItem and storeItem.itemCount>0) then --需要放到背包
               -- 放到背包
-              PickupContainerItem(bankBag, bankBagSlot)
+              --PickupContainerItem(bankBag, bankBagSlot)
+              local pickCount = math.min(itemCount,storeItem.itemCount)
+              SplitContainerItem(bankBag, bankBagSlot,pickCount)
               local emptySlot = bagEmptySlot[1]
               PickupContainerItem(emptySlot[1], emptySlot[2])
               table.remove(bagEmptySlot,1)
@@ -350,7 +374,7 @@ function load(key, needMoveToBank)
               local slot = {bankBag, bankBagSlot}
               --table.insert(bankEmptySlot,slot) -- 标记为空的slot--这种空的还不能标记，东西放不进去
 
-              local count = storeItem.itemCount - itemCount
+              local count = storeItem.itemCount - pickCount
               storeItem.itemCount = count
               if (count<=0) then --如果这个物品都拿完了，就记个数，后面校验是否有缺的物品
                 storeItems[itemName] = nil
@@ -554,7 +578,6 @@ function initButton(needRefresh)
         GameTooltip:SetText('背包配置: '..self:GetName(), 1, 1, 1)
         GameTooltip:AddLine('鼠标左键点击 : 加载并清理背包', 0, 1, 0)
         GameTooltip:AddLine('鼠标右键点击 : 加载配置', 0, 1, 0)
-        GameTooltip:AddLine('ctrl+鼠标左键点击 : 删除配置', 0, 1, 0)
         GameTooltip:AddLine('ctrl+鼠标左键点击 : 删除配置', 0, 1, 0)
         GameTooltip:Show()
       end)

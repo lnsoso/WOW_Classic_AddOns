@@ -64,6 +64,7 @@ Localization.RegisterAddonStrings("deDE", "Auc-Searcher-Pawn",
     SHOW_TRINKET      = "Schmuck";
     SHOW_WEAPON       = "Waffe";
     SHOW_OFFHAND      = "Schildhand";
+    SHOW_RANGED       = "Distanz";
 
     --Armor Preference
     ARMORPREF_SELECT_TIP = "Bei der Suche nach Rüstung, zeigen nur die ausgewählten Panzerung in den Suchergebnissen. Filtern Sie alle anderen Rüstungen.";

@@ -2,8 +2,10 @@ local _, S = ...
 
 local L = {
 	enUS = {
-		UNTRACK_USAGE = "|cff71D5FFShift-Click|r to untrack a quest",
-		MOVE_USAGE = "|cff71D5FFAlt-Click|r to move the quest tracker",
+		SHIFT_CLICK = "Shift-Click",
+		ALT_CLICK = "Alt-Click",
+		UNTRACK_USAGE = "Untrack a quest",
+		MOVE_USAGE = "Move the quest tracker",
 		RESET = "Settings have been reset",
 	},
 	deDE = {
@@ -22,7 +24,10 @@ local L = {
 	},
 	ptBR = {
 	},
-	ruRU = {
+	ruRU = { -- https://github.com/Hubbotu/ModernQuestWatch/blob/patch-1/Locales.lua#L25
+		UNTRACK_USAGE = "отследить квест",
+		MOVE_USAGE = "переместить квест трекер",
+		RESET = "Настройки были сброшены",
 	},
 	--zhCN = {},
 	zhTW = {

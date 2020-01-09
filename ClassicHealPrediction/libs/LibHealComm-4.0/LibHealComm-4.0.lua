@@ -1,7 +1,7 @@
 if WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then return end
 
 local major = "LibHealComm-4.0"
-local minor = 86
+local minor = 87
 assert(LibStub, format("%s requires LibStub.", major))
 
 local HealComm = LibStub:NewLibrary(major, minor)
@@ -1341,7 +1341,7 @@ function HealComm:UNIT_AURA(unit)
 	-- Scan buffs
 	local id = 1
 	while( true ) do
-		local name, _, _, stack, _, _, _, _, _, _, spellID = UnitAura(unit, id, "HELPFUL")
+		local name, _, stack, _, _, _, _, _, _, spellID = UnitAura(unit, id, "HELPFUL")
 		if( not name ) then break end
 		-- Prevent buffs like Tree of Life that have the same name for the shapeshift/healing increase from being calculated twice
 		if( not alreadyAdded[name] ) then
@@ -1360,7 +1360,7 @@ function HealComm:UNIT_AURA(unit)
 	-- Scan debuffs
 	id = 1
 	while( true ) do
-		local name, _, _, stack, _, _, _, _, _, _, spellID = UnitAura(unit, id, "HARMFUL")
+		local name, _, stack, _, _, _, _, _, _, spellID = UnitAura(unit, id, "HARMFUL")
 		if( not name ) then break end
 
 		if( healingModifiers[spellID] ) then

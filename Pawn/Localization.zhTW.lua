@@ -1,6 +1,6 @@
 ﻿-- Pawn by Vger-Azjol-Nerub
 -- www.vgermods.com
--- © 2006-2019 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
+-- © 2006-2020 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
 -- See Readme.htm for more information.
 
 -- 
@@ -96,6 +96,7 @@ PawnLocal =
 		["BlockValueInfo"] = "Shield block value.  Increases the damage that a shield absorbs when it successfully blocks.",
 		["Cloth"] = "布甲",
 		["ClothInfo"] = "此物若為布甲，則增計多少分數。",
+		["CorruptionInfo"] = "Corruption of N'Zoth.  A negative value for Corruption will remove points from an item's score based on the level of corruption.",
 		["Crit"] = "致命一擊",
 		["CritInfo"] = "致命一擊: 影響近戰攻擊，遠程攻擊，法術。",
 		--[[Translation missing --]]
@@ -290,6 +291,7 @@ PawnLocal =
 		["Charges"] = "^.+次?$",
 		["Cloth"] = "^布甲$",
 		["CooldownRemaining"] = "^冷卻時間:",
+		["Corruption"] = "^%+?#腐化$",
 		["Crit"] = "^%+?#致命一擊$",
 		["Crit2"] = "^裝備: 提高#點致命一擊。$",
 		["CritPercent"] = "^裝備： 使你造成致命一擊的機率提高#%%。$",
@@ -396,6 +398,7 @@ PawnLocal =
 		["Sword"] = "^劍$",
 		["TemporaryBuffMinutes"] = "^.+%(%d+ 分%)$",
 		["TemporaryBuffSeconds"] = "^.+%(%d+ 秒%)$",
+		["Thrown"] = "^Thrown$",
 		["Thunderforged"] = "^雷霆鎔鑄$",
 		["Timeless"] = "^永恆之島$",
 		["Titanforged"] = "^泰坦鎔鑄$",
@@ -653,6 +656,7 @@ WoW中所有的物件都有個ID，通常只有寫插件的人才需要這些資
 		["ValuesFollowSpecialization"] = "50等以後只顯示最佳護甲類型",
 		["ValuesFollowSpecializationTooltip"] = "啟用該選項來隱藏50等以後非職業專精的護甲類型。比如，神聖聖騎在50等學到了鎧甲專精, 當只裝備鎧甲時增加智力5%。當此選項選擇時Pawn將不會考慮布、皮及鎖甲對50等以上神聖聖騎士的提升",
 		["ValuesHeader"] = "調整 %s 權重",
+		["ValuesIgnoreItemType"] = "帶此屬性的物品沒有用處。",
 		["ValuesIgnoreStat"] = "帶此屬性的物品沒有用處。",
 		["ValuesIgnoreStatTooltip"] = "啟用這個選項讓此物品不計分數。例如，薩滿不能裝備鎧甲，所以為薩滿設計的權重可以標記鎧甲為不可用的，鎧甲即不計分。",
 		["ValuesNormalize"] = "數值標準化 (像 Wowhead)",

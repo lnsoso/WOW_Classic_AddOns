@@ -58,6 +58,7 @@ Localization.RegisterAddonStrings("zhTW", "Auc-Searcher-Pawn",
 	SHOW_LEGS = "腿部";
 	SHOW_NECK = "頸部";
 	SHOW_OFFHAND = "副手";
+	SHOW_RANGED = "遠程";
 	SHOW_SHOULDER = "肩部";
 	SHOW_TRINKET = "飾品";
 	SHOW_WAIST = "腰部";

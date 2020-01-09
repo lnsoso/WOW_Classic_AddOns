@@ -1,6 +1,6 @@
 ﻿-- Pawn by Vger-Azjol-Nerub
 -- www.vgermods.com
--- © 2006-2019 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
+-- © 2006-2020 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
 -- See Readme.htm for more information.
 
 -- 
@@ -96,6 +96,7 @@ Pawn 사용자 설정의 더 자세한 정보는, 애드온에 포함된 help �
 		["BlockValueInfo"] = "Shield block value.  Increases the damage that a shield absorbs when it successfully blocks.",
 		["Cloth"] = "천",
 		["ClothInfo"] = "천 아이템일 경우 할당합니다.",
+		["CorruptionInfo"] = "Corruption of N'Zoth.  A negative value for Corruption will remove points from an item's score based on the level of corruption.",
 		["Crit"] = "치명타 및 극대화",
 		["CritInfo"] = "치명타 및 극대화. 공격이나 치유 주문이 증가한 효과로 적중될 확률을 증가시킵니다.",
 		--[[Translation missing --]]
@@ -289,6 +290,7 @@ Pawn 사용자 설정의 더 자세한 정보는, 애드온에 포함된 help �
 		["Charges"] = "^.+회 사용 가능$",
 		["Cloth"] = "^천$",
 		["CooldownRemaining"] = "^재사용 대기시간:",
+		["Corruption"] = "^타락 %+?#$",
 		["Crit"] = "^치명타 및 극대화 %+?#$",
 		["Crit2"] = "^UNUSED$",
 		["CritPercent"] = "^착용 효과: 치명타를 적중시킬 확률이 #%%만큼 증가합니다%.$",
@@ -395,6 +397,7 @@ Pawn 사용자 설정의 더 자세한 정보는, 애드온에 포함된 help �
 		["Sword"] = "^도검$",
 		["TemporaryBuffMinutes"] = "^.+%(%d+분%)$",
 		["TemporaryBuffSeconds"] = "^.+%(%d+초%)$",
+		["Thrown"] = "^Thrown$",
 		["Thunderforged"] = "^천둥벼림$",
 		["Timeless"] = "^영원의 장비$",
 		["Titanforged"] = "^티탄벼림$",
@@ -404,21 +407,21 @@ Pawn 사용자 설정의 더 자세한 정보는, 애드온에 포함된 help �
 		["Wand"] = "^마법봉$",
 		["Warforged"] = "^전쟁벼림$",
 		["Warglaives"] = "^전투검$",
-		["WeaponDamage"] = "^공격력 # [-~] #$",
-		["WeaponDamageArcane"] = "^비전 피해 #[-~]#$",
+		["WeaponDamage"] = "^공격력 # ?[-~] ?#$",
+		["WeaponDamageArcane"] = "^비전 피해 # ?[-~] ?#$",
 		["WeaponDamageArcaneExact"] = "^비전 피해 %+?#$",
 		["WeaponDamageEnchantment"] = "^무기 공격력 %+?#$",
 		["WeaponDamageEquip"] = "^착용 효과: 무기 공격력 %+?#%.$",
 		["WeaponDamageExact"] = "^공격력 %+?#$",
-		["WeaponDamageFire"] = "^화염 피해 #[-~]#$",
+		["WeaponDamageFire"] = "^화염 피해 # ?[-~] ?#$",
 		["WeaponDamageFireExact"] = "^화염 피해 %+?#$",
-		["WeaponDamageFrost"] = "^냉기 피해 #[-~]#$",
+		["WeaponDamageFrost"] = "^냉기 피해 # ?[-~] ?#$",
 		["WeaponDamageFrostExact"] = "^냉기 피해 %+?#$",
-		["WeaponDamageHoly"] = "^신성 피해 #[-~]#$",
+		["WeaponDamageHoly"] = "^신성 피해 # ?[-~] ?#$",
 		["WeaponDamageHolyExact"] = "^신성 피해 %+?#$",
-		["WeaponDamageNature"] = "^자연 피해 #[-~]#$",
+		["WeaponDamageNature"] = "^자연 피해 # ?[-~] ?#$",
 		["WeaponDamageNatureExact"] = "^자연 피해 %+?#$",
-		["WeaponDamageShadow"] = "^암흑 피해 #[-~]#$",
+		["WeaponDamageShadow"] = "^암흑 피해 # ?[-~] ?#$",
 		["WeaponDamageShadowExact"] = "^암흑 피해 %+?#$",
 	},
 	["UI"] = {
@@ -638,6 +641,7 @@ Pawn이 상점에 판매했거나, 파괴했거나, 다른 방법으로 더이�
 		["ValuesFollowSpecialization"] = "레벨 50 이후의 최상의 방어구 종류의 업그레이드만 표시하기",
 		["ValuesFollowSpecializationTooltip"] = "이 옵션을 켜면 레벨 50 이후 직업 별 전문화되지 않는 방어구에 대한 향상 정보를 숨깁니다. 예를 들어, 신성 성기사는 레벨 50에 판금 전문화를 배웁니다, 이것은 판금 방어구를 착용했을 때만 지능을 5% 증가시킵니다. 이 옵션을 선택하면 Pawn은 레벨 50+ 신성 성기사에게 천, 가죽, 또는 사슬 아이템을 향상 아이템으로 고려하지 않습니다.",
 		["ValuesHeader"] = "%s의 능력치 중요도",
+		["ValuesIgnoreItemType"] = "포함된 아이템 사용불가",
 		["ValuesIgnoreStat"] = "포함된 아이템 사용불가",
 		["ValuesIgnoreStatTooltip"] = "이 옵션을 켜면 능력치 비율에 따른 능력치 값을 가져오지 않습니다. 예를 들어, 주술사는 판금을 착용할 수 없으며, 판금이 사용 불가능 하게 디자인된 주술사의 능력치 비율은 판금 방어구로부터 값을 가져오지 않습니다.",
 		["ValuesNormalize"] = "값 일반화 (Wowhead 처럼)",
@@ -650,6 +654,33 @@ Pawn이 상점에 판매했거나, 파괴했거나, 다른 방법으로 더이�
 		["ValuesWelcomeReadOnly"] = "선택된 능력치 비율은 변경할 수 없습니다. 이 중요도를 변경하고 싶다면, 능력치 비율 탭으로 가서 수동 모드를 활성화하고 이 능력치 비율을 복사하세요.",
 	}
 }
+
+-- Special case: wands actually use different text on live versus classic.
+-- So, patch things up here.
+if VgerCore.IsClassic then
+
+	local TooltipParsing_Classic =
+	{
+		["WeaponDamageArcane"] = "^비전계 공격력 # ?[-~] ?#$",
+		["WeaponDamageArcaneExact"] = "^비전계 공격력 #$",
+		["WeaponDamageFire"] = "^화염계 공격력 # ?[-~] ?#$",
+		["WeaponDamageFireExact"] = "^화염계 공격력 #$",
+		["WeaponDamageFrost"] = "^냉기계 공격력 # ?[-~] ?#$",
+		["WeaponDamageFrostExact"] = "^냉기계 공격력 #$",
+		["WeaponDamageHoly"] = "^신성계 공격력 # ?[-~] ?#$",
+		["WeaponDamageHolyExact"] = "^신성계 공격력 #$",
+		["WeaponDamageNature"] = "^자연계 공격력 # ?[-~] ?#$",
+		["WeaponDamageNatureExact"] = "^자연계 공격력 #$",
+		["WeaponDamageShadow"] = "^암흑계 공격력 # ?[-~] ?#$",
+		["WeaponDamageShadowExact"] = "^암흑계 공격력 #$",
+	}
+
+	local Key, NewString
+	for Key, NewString in pairs(TooltipParsing_Classic) do
+		PawnLocal.TooltipParsing[Key] = NewString
+	end
+end
+
 end
 
 if GetLocale() == "koKR" then

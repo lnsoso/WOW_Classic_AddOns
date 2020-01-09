@@ -63,6 +63,7 @@ Localization.RegisterAddonStrings("esES", "Auc-Searcher-Pawn",
     SHOW_TRINKET      = "Abalorio";
     SHOW_WEAPON       = "Arma";
     SHOW_OFFHAND      = "Mano Izquierda";
+    SHOW_RANGED       = "Rango";
 
     --Armor Preference
     ARMORPREF_SELECT_TIP = "Durante la búsqueda de armas, sólo muestran el tipo de armadura seleccionada en los resultados de búsqueda. Filtrar todos los tipos de armadura otros.";

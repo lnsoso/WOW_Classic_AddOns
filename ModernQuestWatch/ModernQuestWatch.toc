@@ -1,5 +1,5 @@
 ## Interface: 11302
-## Version: 1.0.8
+## Version: 1.0.9
 ## Title: Modern QuestWatch
 ## Notes: Improves the Quest Tracker
 ## Author: Ketho @ EU-Boulderfist

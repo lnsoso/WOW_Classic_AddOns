@@ -1,3 +1,6 @@
+v1.1.1
+Fix spell rank for Bestial Wrath
+
 v1.1.0
 Added support for spell ranks
 

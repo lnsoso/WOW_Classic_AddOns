@@ -1,10 +1,12 @@
-lightweight tag 76044d6e77c57265c8c484623ffa55351fe2f9db v1.6.0
-Author:	nawglan <nawglan@gmail.com>
-Date:	Thu Oct 10 23:56:33 2019 -0400
+lightweight tag 19287ab3c41a06f7d3068615224aa5cb355beade v1.6.2-classic
+Author:	GitHub <noreply@github.com>
+Date:	Wed Dec 11 17:32:12 2019 -0500
 
-commit 76044d6e77c57265c8c484623ffa55351fe2f9db
-Author: nawglan <nawglan@gmail.com>
-Date:   Thu Oct 10 23:56:33 2019 -0400
+commit 19287ab3c41a06f7d3068615224aa5cb355beade
+Author: Desmond Daignault <nawglan@users.noreply.github.com>
+Date:   Wed Dec 11 17:32:12 2019 -0500
 
-    bumped TOC
+    Update auc-advanced-searcher-pawn.toc
+    
+    bumped toc version
 

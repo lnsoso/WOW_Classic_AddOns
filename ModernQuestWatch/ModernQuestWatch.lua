@@ -8,7 +8,8 @@ local ClickFrames = {}
 local db
 
 local defaults = {
-	db_version = 2,
+	db_version = 3,
+	userplaced = false,
 	point = {"TOPRIGHT", "MinimapCluster", "BOTTOMRIGHT", 0, 0},
 }
 
@@ -112,16 +113,16 @@ function MQW:Initialize()
 	QuestWatchFrame:SetScript("OnDragStop", function(frame)
 		frame:StopMovingOrSizing()
 		frame:SetUserPlaced(false) -- we dont want it to be a character-specific UIParent managed frame
-		local effectiveScale = UIParent:GetEffectiveScale()
-		local right = frame:GetRight() * effectiveScale
-		local top = frame:GetTop() * effectiveScale
-		db.point = {"TOPRIGHT", "UIParent", "BOTTOMLEFT", right, top}
+		local point, x, y = self:GetDynamicAnchor(frame, UIParent:GetEffectiveScale())
+		db.userplaced = true
+		db.point = {point, "UIParent", "BOTTOMLEFT", x, y}
+		self:SetPosition(unpack(db.point))
 	end)
 
-	-- block FramePositionDelegate.UIParentManageFramePositions from moving this on every OnAttributeChanged
 	local oldSetPoint = QuestWatchFrame.SetPoint
 	QuestWatchFrame.SetPoint = function(frame, point, relativeTo, relativePoint, x, y, override)
-		if override then
+		-- block FramePositionDelegate.UIParentManageFramePositions from moving this on every OnAttributeChanged
+		if not db.userplaced or override then
 			oldSetPoint(frame, point, relativeTo, relativePoint, x, y)
 		end
 	end
@@ -134,7 +135,9 @@ function MQW:ADDON_LOADED(addon)
 		end
 		db = ModernQuestWatchDB
 		self:Initialize()
-		self:SetPosition(unpack(db.point))
+		if db.userplaced then
+			self:SetPosition(unpack(db.point))
+		end
 		self:UnregisterEvent("ADDON_LOADED")
 	end
 end
@@ -144,7 +147,9 @@ end
 function MQW:QUEST_ACCEPTED(questIndex)
 	-- tracking otherwise untrackable quests (without any objectives) would still count against the watch limit
 	-- calling AddQuestWatch() while on the max watch limit silently fails
-	if GetCVarBool("autoQuestWatch") and GetNumQuestLeaderBoards(questIndex) ~= 0 and GetNumQuestWatches() < MAX_WATCHABLE_QUESTS then
+	local hasObjectives = GetNumQuestLeaderBoards(questIndex) ~= 0
+	local watchLimit = GetNumQuestWatches() >= MAX_WATCHABLE_QUESTS
+	if GetCVarBool("autoQuestWatch") and hasObjectives and not watchLimit then
 		AutoQuestWatch_Insert(questIndex, QUEST_WATCH_NO_EXPIRE)
 	end
 end
@@ -170,12 +175,37 @@ function MQW:MODIFIER_STATE_CHANGED()
 	end
 end
 
--- use a separate anchor frame to make it expand down/leftwards only
+MQW.GetDynamicCoords = {
+	TOPLEFT = function(frame, scale)
+		return frame:GetLeft() * scale, frame:GetTop() * scale
+	end,
+	TOPRIGHT = function(frame, scale)
+		return frame:GetRight() * scale, frame:GetTop() * scale
+	end,
+	BOTTOMLEFT = function(frame, scale)
+		return frame:GetLeft() * scale, frame:GetBottom() * scale
+	end,
+	BOTTOMRIGHT = function(frame, scale)
+		return frame:GetRight() * scale, frame:GetBottom() * scale
+	end,
+}
+
+function MQW:GetDynamicAnchor(frame, scale)
+	local x, y = frame:GetCenter()
+	local screenX = GetScreenWidth() / 2
+	local screenY = GetScreenHeight() / 2
+	local pointX = x < screenX and "LEFT" or "RIGHT"
+	local pointY = y < screenY and "BOTTOM" or "TOP"
+	local point = pointY..pointX
+	return point, self.GetDynamicCoords[point](frame, scale)
+end
+
+-- use a separate anchor frame to make it dynamically expand depending on the position
 function MQW:SetPosition(point, relativeTo, relativePoint, x, y)
 	AnchorFrame:ClearAllPoints()
 	AnchorFrame:SetPoint(point, relativeTo, relativePoint, x, y)
 	QuestWatchFrame:ClearAllPoints()
-	QuestWatchFrame:SetPoint("TOPRIGHT", AnchorFrame, "TOPRIGHT", 0, 0, true)
+	QuestWatchFrame:SetPoint(point, AnchorFrame, point, 0, 0, true)
 end
 
 function MQW:PrintMessage(msg, r, g, b)
@@ -202,8 +232,8 @@ function SlashCmdList.MODERNQUESTWATCH(msg)
 		MQW:SetPosition(unpack(db.point))
 		MQW:PrintMessage(L.RESET, 1, 1, 0)
 	else
-		MQW:PrintMessage(L.UNTRACK_USAGE)
-		MQW:PrintMessage(L.MOVE_USAGE)
+		MQW:PrintMessage(format("|cff71D5FF%s|r - %s", L.SHIFT_CLICK, L.UNTRACK_USAGE))
+		MQW:PrintMessage(format("|cff71D5FF%s|r - %s", L.ALT_CLICK, L.MOVE_USAGE))
 		MQW:PrintMessage("|cffFFFF00/mqw reset|r - "..RESET_TO_DEFAULT)
 	end
 end

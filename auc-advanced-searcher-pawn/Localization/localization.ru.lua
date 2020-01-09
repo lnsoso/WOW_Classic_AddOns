@@ -63,6 +63,7 @@ Localization.RegisterAddonStrings("ruRU", "Auc-Searcher-Pawn",
     SHOW_TRINKET      = "Аксессуары";
     SHOW_WEAPON       = "Правая рука";
     SHOW_OFFHAND      = "Левая рука";
+    SHOW_RANGED       = "Дальний бой";
 
     --Armor Preference
     ARMORPREF_SELECT_TIP = "При поиске брони, показывать только выбранный тип брони в результатах поиска. Отфильтровать все другие типы брони.";

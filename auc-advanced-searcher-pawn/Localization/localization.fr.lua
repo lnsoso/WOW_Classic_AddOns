@@ -60,6 +60,7 @@ Localization.RegisterAddonStrings("frFR", "Auc-Searcher-Pawn",
     SHOW_TRINKET      = "Bijou";
     SHOW_WEAPON       = "Arme";
     SHOW_OFFHAND      = "Main gauche";
+    SHOW_RANGED       = "À distance";
 
     --Armor Preference
     ARMORPREF_SELECT_TIP = "Lors de la recherche d'armure, ne montrent que le type d'armure sélectionnée dans les résultats de recherche. Filtrer tous les autres types d'armures.";

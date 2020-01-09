@@ -1,6 +1,6 @@
 ﻿-- Pawn by Vger-Azjol-Nerub
 -- www.vgermods.com
--- © 2006-2019 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
+-- © 2006-2020 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
 -- See Readme.htm for more information.
 
 -- 
@@ -91,6 +91,7 @@ For more information on customizing Pawn, please see the help file (Readme.htm) 
 		["BlockValueInfo"] = "Показатель блокирования.  Увеличивает поглащаемый урон щитом при успешной блокировке.",
 		["Cloth"] = "Ткань",
 		["ClothInfo"] = "Значения для вещей из ткани",
+		["CorruptionInfo"] = "Corruption of N'Zoth.  A negative value for Corruption will remove points from an item's score based on the level of corruption.",
 		["Crit"] = "Критический удар",
 		["CritInfo"] = "Критический удар. Увеличивает шанс что ваши атакующие и исцеляющие заклинания ударят с увеличенной силой.",
 		["DefenseInfo"] = "Навык защиты.  Уменьшение вероятности того, что по вам попадёт атака боссов.",
@@ -265,6 +266,7 @@ For more information on customizing Pawn, please see the help file (Readme.htm) 
 		["Charges"] = "^.+ зарядов?$",
 		["Cloth"] = "^Ткань$",
 		["CooldownRemaining"] = "^Времени до восстановления:",
+		["Corruption"] = "^%+?# к порче$",
 		["Crit"] = "^%+?# к критическому удару$",
 		["Crit2"] = "^%+?# к показателю критического удара$",
 		["CritPercent"] = "^Если на персонаже: Увеличение вероятности нанесения критического урона на #%%%.$",
@@ -371,6 +373,7 @@ For more information on customizing Pawn, please see the help file (Readme.htm) 
 		["Sword"] = "^Меч$",
 		["TemporaryBuffMinutes"] = "^.+%(%d+ мин%)$",
 		["TemporaryBuffSeconds"] = "^.+%(%d+ сек%)$",
+		["Thrown"] = "^Thrown$",
 		["Thunderforged"] = "^Создано в Кузне Грома$",
 		["Timeless"] = "^Вневременной предмет$",
 		["Titanforged"] = "^Кованый титанами$",
@@ -617,6 +620,7 @@ Shortcut: Shift+click a scale]=],
 		["ValuesFollowSpecialization"] = "Отображать улучшения для специализации по броне после 50 уровня",
 		["ValuesFollowSpecializationTooltip"] = "Enable this option to hide upgrades for armor that your class does not specialize in after level 50.  For example, at level 50 holy paladins learn Plate Specialization, which increases their intellect by 5% when wearing only plate armor.  When this option is chosen Pawn will never consider cloth, leather, or mail to be upgrades for level 50+ holy paladins.",
 		["ValuesHeader"] = "Значения шкалы для %s",
+		["ValuesIgnoreItemType"] = "Не используемое",
 		["ValuesIgnoreStat"] = "Не используемое",
 		["ValuesIgnoreStatTooltip"] = "Enable this option to cause any item with this stat to not get a value for this scale.  For example, shamans can't wear plate, so a scale designed for a shaman can mark plate as unusable so that plate armor doesn't get a value for that scale.",
 		["ValuesNormalize"] = "Нормализовать значения (как Wowhead)",
