@@ -1,6 +1,6 @@
 
 	----------------------------------------------------------------------
-	-- 	Leatrix Maps 1.13.43 (8th January 2020)
+	-- 	Leatrix Maps 1.13.46 (29th January 2020)
 	----------------------------------------------------------------------
 
 	-- 10:Func, 20:Comm, 30:Evnt, 40:Panl
@@ -12,7 +12,7 @@
 	local LeaMapsLC, LeaMapsCB, LeaConfigList = {}, {}, {}
 
 	-- Version
-	LeaMapsLC["AddonVer"] = "1.13.43"
+	LeaMapsLC["AddonVer"] = "1.13.46"
 	LeaMapsLC["RestartReq"] = nil
 
 	-- Get locale table
@@ -964,12 +964,12 @@
 					{"Dungeon", 24.3, 39.8, L["Gnomeregan"], L["Dungeon"], dnTex, 29, 38},
 				},
 				--[[Searing Gorge]] [1427] = {
-					{"Dunraid", 34.8, 85.3, L["Blackrock Mountain"], L["Blackrock Depths"] .. ", " .. L["Lower Blackrock Spire"] .. ", " .. L["Upper Blackrock Spire"] .. ", " .. L["Molten Core"] --[[.. ", " .. L["Blackwing Lair"] ]], dnTex, 52, 60},
+					{"Dunraid", 34.8, 85.3, L["Blackrock Mountain"], L["Blackrock Depths"] .. ", " .. L["Lower Blackrock Spire"] .. ", " .. L["Upper Blackrock Spire"] .. ", |n" .. L["Molten Core"] .. ", " .. L["Blackwing Lair"], dnTex, 52, 60},
 					{"FlightA", 37.9, 30.8, L["Thorium Point"] .. ", " .. L["Searing Gorge"], nil, tATex, nil, nil},
 					{"FlightH", 34.8, 30.9, L["Thorium Point"] .. ", " .. L["Searing Gorge"], nil, tHTex, nil, nil},
 				},
 				--[[Burning Steppes]] [1428] = {
-					{"Dunraid", 29.4, 38.3, L["Blackrock Mountain"], L["Blackrock Depths"] .. ", " .. L["Lower Blackrock Spire"] .. ", " .. L["Upper Blackrock Spire"] .. ", " .. L["Molten Core"] --[[.. ", " .. L["Blackwing Lair"] ]], dnTex, 52, 60},
+					{"Dunraid", 29.4, 38.3, L["Blackrock Mountain"], L["Blackrock Depths"] .. ", " .. L["Lower Blackrock Spire"] .. ", " .. L["Upper Blackrock Spire"] .. ", |n" .. L["Molten Core"] .. ", " .. L["Blackwing Lair"], dnTex, 52, 60},
 					{"FlightA", 84.3, 68.3, L["Morgan's Vigil"] .. ", " .. L["Burning Steppes"], nil, tATex, nil, nil},
 					{"FlightH", 65.7, 24.2, L["Flame Crest"] .. ", " .. L["Burning Steppes"], nil, tHTex, nil, nil},
 				},
@@ -2233,7 +2233,7 @@
 
 	-- Slash command function
 	local function SlashFunc(str)
-		local str = string.lower(str)
+		local str, arg1, arg2, arg3 = strsplit(" ", string.lower(str:gsub("%s+", " ")))
 		if str and str ~= "" then
 			-- Traverse parameters
 			if str == "reset" then
@@ -2246,6 +2246,24 @@
 				wipe(LeaMapsDB)
 				LeaMapsLC["NoSaveSettings"] = true
 				ReloadUI()
+			elseif str == "setmap" then
+				-- Set map to map ID
+				arg1 = tonumber(arg1)
+				if arg1 and arg1 > 0 and arg1 < 99999 and C_Map.GetMapArtLayers(arg1) then
+					WorldMapFrame:SetMapID(arg1)
+				else
+					LeaMapsLC:Print("Invalid map ID.")
+				end
+				return
+			elseif str == "hadmin" then
+				-- List all commands
+				LeaMapsLC:Print("reset - Reset panel position")
+				LeaMapsLC:Print("wipe - Wipe addon settings")
+				LeaMapsLC:Print("setmap <id> - Set map to map ID <id>")
+				LeaMapsLC:Print("admin - Load admin settings")
+				LeaMapsLC:Print("hadmin - Show admin help")
+				LeaMapsLC:Print("help - Show help")
+				return
 			elseif str == "admin" then
 				-- Preset profile (reload required)
 				LeaMapsLC["NoSaveSettings"] = true

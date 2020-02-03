@@ -21,6 +21,7 @@ MyChatAlert.defaults = {
         authorColor = {r = 1, g = 1, b = 0}, -- defaults to yellow #FFFFFF00
         messageColor = {r = 1, g = 1, b = 0}, -- defaults to yellow #FFFFFF00
         printClassColor = false,
+        suspendAlerts = false, -- not option for the user, toggles as filter for disabledInInstance
         triggers = {},
         filterWords = {},
         ignoredAuthors = {},
@@ -63,10 +64,8 @@ MyChatAlert.options = {
                     type = "toggle", order = 1, width = "half",
                     get = function(info) return MyChatAlert.db.profile.enabled end,
                     set = function(info, val)
-                        MyChatAlert.db.profile.enabled = val
-
-                        if val then MyChatAlert:OnEnable()
-                        else MyChatAlert:OnDisable()
+                        if MyChatAlert.db.profile.enabled then MyChatAlert:OnDisable()
+                        else MyChatAlert:OnEnable()
                         end
                     end,
                 },
@@ -75,18 +74,7 @@ MyChatAlert.options = {
                     desc = L["Disable alerts while in an instance"],
                     type = "toggle", order = 2, width = 0.85,
                     get = function(info) return MyChatAlert.db.profile.disableInInstance end,
-                    set = function(info, val)
-                        MyChatAlert.db.profile.disableInInstance = val
-                        if val then
-                            MyChatAlert:UnregisterEvent("ZONE_CHANGED")
-                            MyChatAlert:UnregisterEvent("ZONE_CHANGED_INDOORS")
-                            MyChatAlert:UnregisterEvent("ZONE_CHANGED_NEW_AREA")
-                        else
-                            MyChatAlert:RegisterEvent("ZONE_CHANGED")
-                            MyChatAlert:RegisterEvent("ZONE_CHANGED_INDOORS")
-                            MyChatAlert:RegisterEvent("ZONE_CHANGED_NEW_AREA")
-                        end
-                    end,
+                    set = function(info, val) MyChatAlert.db.profile.disableInInstance = val end,
                     disabled = function() return not MyChatAlert.db.profile.enabled end,
                 },
                 minimap = {

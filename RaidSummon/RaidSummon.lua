@@ -58,13 +58,20 @@ local options = {
 					func = "ExecuteClear",
 					order = 23,
 				},
+				addall = {
+					type = "execute",
+					name = L["OptionAddAllName"],
+					desc = L["OptionAddAllDesc"],
+					func = "ExecuteAddAll",
+					order = 24,
+				},
 				add = {
 					type = "input",
 					name = L["OptionAddName"],
 					desc = L["OptionAddDesc"],
 					set = "SetOptionAdd",
 					multiline = false,
-					order = 24,
+					order = 25,
 				},
 				remove = {
 					type = "input",
@@ -72,7 +79,62 @@ local options = {
 					desc = L["OptionRemoveDesc"],
 					set = "SetOptionRemove",
 					multiline = false,
-					order = 25,
+					guiHidden = true,
+					order = 26,
+				},
+				removesel = {
+					type = "select",
+					name = L["OptionRemoveName"],
+					desc = L["OptionRemoveDesc"],
+					set = "SetOptionRemove",
+					values = "ValuesRemoveSel",
+					style = "dropdown",
+					order = 27,
+				},
+			},
+		},
+		keywords = {
+			type = "group",
+			name = L["OptionGroupKeywordsName"],
+			order = 30,
+			inline = true,
+			args = {
+				kwdescription = {
+					type = "description",
+					name = L["OptionKWDescription"],
+					order = 31,
+				},
+				kwlist = {
+					type = "execute",
+					name = L["OptionKWListName"],
+					desc = L["OptionKWListDesc"],
+					func = "ExecuteKWList",
+					order = 32,
+				},
+				kwadd = {
+					type = "input",
+					name = L["OptionKWAddName"],
+					desc = L["OptionKWAddDesc"],
+					set = "SetKWAdd",
+					multiline = false,
+					order = 33,
+				},
+				kwremove = {
+					type = "input",
+					name = L["OptionKWRemoveName"],
+					desc = L["OptionKWRemoveDesc"],
+					set = "SetKWRemove",
+					order = 34,
+					guiHidden = true,
+				},
+				kwremovesel = {
+					type = "select",
+					name = L["OptionKWRemoveName"],
+					desc = L["OptionKWRemoveDesc"],
+					values = "ValuesKWRemoveSel",
+					style = "dropdown",
+					set = "SetKWRemoveSel",
+					order = 35,
 				},
 			},
 		},
@@ -90,11 +152,6 @@ local options = {
 			func = "ExecuteConfig",
 			guiHidden = true,
 		},
-		headerprofile = {
-			type = "header",
-			name = L["OptionHeaderProfileName"],
-			order = -1,
-		},
 	},
 }
 
@@ -103,6 +160,7 @@ local defaults = {
 	profile = {
 		whisper = true,
 		zone = true,
+		keywordsinit = false
 	}
 }
 
@@ -112,13 +170,17 @@ function RaidSummon:OnEnable()
 	self:RegisterEvent("GROUP_LEFT", "GroupEvent")
 	self:RegisterEvent("GROUP_ROSTER_UPDATE")
 	self:RegisterEvent("CHAT_MSG_RAID", "msgParser")
+	self:RegisterEvent("CHAT_MSG_PARTY", "msgParser")
 	self:RegisterEvent("CHAT_MSG_RAID_LEADER", "msgParser")
 	self:RegisterEvent("CHAT_MSG_SAY", "msgParser")
 	self:RegisterEvent("CHAT_MSG_YELL", "msgParser")
 	self:RegisterEvent("CHAT_MSG_WHISPER", "msgParser")
 	
 	--Right Click Hook
-	self:SecureHook("UnitPopup_ShowMenu")
+	local className, classFilename, classID = UnitClass("player")
+	if classFilename == "WARLOCK" then
+		self:SecureHook("UnitPopup_ShowMenu")
+	end
 
 end
 
@@ -130,11 +192,24 @@ end
 function RaidSummon:OnInitialize()
 
 	self.db = LibStub("AceDB-3.0"):New("RaidSummonOptionsDB", defaults, true)
+	self.db.RegisterCallback(self, "OnNewProfile", "RefreshConfig")
+	self.db.RegisterCallback(self, "OnProfileChanged", "RefreshConfig")
+	self.db.RegisterCallback(self, "OnProfileCopied", "RefreshConfig")
+	self.db.RegisterCallback(self, "OnProfileReset", "RefreshConfig")
+	
+	--frame needed to open it via /rs config
+	LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable(L["RaidSummon"], options)
+	self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions(L["RaidSummon"], L["RaidSummon"])
 
-	LibStub("AceConfig-3.0"):RegisterOptionsTable("RaidSummon", options)
-	options.args.profile = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
-	--self:RegisterModuleOptions("Profiles", LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db), "Profiles")
-	self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("RaidSummon", "RaidSummon")
+	--Commands
+	--LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("RaidSummonCommands", options.args.commands)
+	--LibStub("AceConfigDialog-3.0"):AddToBlizOptions("RaidSummonCommands", options.args.commands.name, "RaidSummon")
+	
+	--Profile
+	local optionsProfile = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
+	LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable(L["RaidSummon"] .. "-Profiles", optionsProfile)
+	LibStub("AceConfigDialog-3.0"):AddToBlizOptions(L["RaidSummon"]  .."-Profiles", "Profiles", "RaidSummon")
+
 	self:RegisterChatCommand("rs", "ChatCommand")
 	self:RegisterChatCommand("raidsummon", "ChatCommand")
 
@@ -152,20 +227,31 @@ function RaidSummon:OnInitialize()
 	COMM_PREFIX_ADD_MANUAL = "RSADDM"
 	COMM_PREFIX_REMOVE = "RSRM"
 	COMM_PREFIX_REMOVE_MANUAL = "RSRMM"
+	COMM_PREFIX_ADD_ALL = "RSADDALL"
 	
 	--Ace3 Comm Registers
 	self:RegisterComm(COMM_PREFIX_ADD) --add via 123 etc
 	self:RegisterComm(COMM_PREFIX_ADD_MANUAL) --add via /rs add
 	self:RegisterComm(COMM_PREFIX_REMOVE) --remove via summoning / right click
 	self:RegisterComm(COMM_PREFIX_REMOVE_MANUAL) --remove via ctrl + click
+	self:RegisterComm(COMM_PREFIX_ADD_ALL) --via AddAll function
+	
+	--check if keywords have been initialized
+	if (not self.db.profile.keywordsinit) then
+		self.db.profile.keywords = { "^123$", "^sum", "^port" }
+		self.db.profile.keywordsinit = true
+	end
 end
 
 --Handle CHAT_MSG Events here
 function RaidSummon:msgParser(eventName,...)
-	if eventName == "CHAT_MSG_SAY" or eventName == "CHAT_MSG_RAID" or eventName == "CHAT_MSG_RAID_LEADER" or eventName == "CHAT_MSG_YELL" or eventName == "CHAT_MSG_WHISPER" then
+	if eventName == "CHAT_MSG_SAY" or eventName == "CHAT_MSG_RAID" or eventName == "CHAT_MSG_PARTY" or eventName == "CHAT_MSG_RAID_LEADER" or eventName == "CHAT_MSG_YELL" or eventName == "CHAT_MSG_WHISPER" then
 		local text, playerName, languageName, channelName, playerName2   = ...
-		if string.find(text, "^123") or string.find(text, "^summon") or string.find(text, "^sum") or string.find(text, "^port") then
-			RaidSummon:SendCommMessage(COMM_PREFIX_ADD, playerName2, "RAID")
+		
+		for i, v in ipairs(self.db.profile.keywords) do
+			if string.find(text, v) then
+				RaidSummon:SendCommMessage(COMM_PREFIX_ADD, playerName2, "RAID")
+			end		
 		end
 	end
 end
@@ -189,7 +275,7 @@ function RaidSummon:GROUP_ROSTER_UPDATE(eventName,...)
 	RaidSummon:UpdateList()
 end
 
---ACE3 Comm
+--Ace3 Comm
 function RaidSummon:OnCommReceived(prefix, message, distribution, sender)
 	if (prefix) then
 		if prefix == COMM_PREFIX_ADD then
@@ -242,6 +328,40 @@ function RaidSummon:OnCommReceived(prefix, message, distribution, sender)
 						print(L["MemberRemoved"](message,sender))
 						RaidSummon:UpdateList()
 					end
+				end
+			end
+		elseif prefix == COMM_PREFIX_ADD_ALL then
+			--print("COMM_PREFIX_ADD_ALL "..message)
+			if IsInRaid() then
+				local members = GetNumGroupMembers()
+				if (members > 0) then
+				
+				if GetZoneText() == "" then
+					zonetext = nil
+				else
+					zonetext = GetZoneText()
+				end
+
+					for i = 1, members do
+						local rName, rRank, rSubgroup, rLevel, rClass, rfileName, rZone = GetRaidRosterInfo(i)
+						
+						--only add the player if not in the current zone
+						if rName and zonetext ~= rZone then
+							if not RaidSummon:hasValue(RaidSummonSyncDB, rName) then
+								--check if player is in the raid
+								RaidSummon:getRaidMembers()
+								if RaidSummonRaidMembersDB then
+									for RaidMembersDBindex, RaidMembersDBvalue in ipairs (RaidSummonRaidMembersDB) do
+										if rName == RaidMembersDBvalue.rName then
+											table.insert(RaidSummonSyncDB, rName)
+										end
+									end
+								end
+							end
+						end
+					end
+					RaidSummon:UpdateList()
+					print(L["AddAllMessage"])
 				end
 			end
 		end
@@ -459,6 +579,16 @@ function RaidSummon:hasValue (tab, val)
 	return false
 end
 
+--checks for a key in a table with key names and values
+function RaidSummon:hasKey (tab, val)
+	for k, v in pairs (tab) do
+		if k == val then
+			return true
+		end
+	end
+	return false
+end
+
 --checks for a vlaue in a table with subtables
 function RaidSummon:hasValueSub (tab, val)
 	for i, v in ipairs (tab) do
@@ -467,6 +597,16 @@ function RaidSummon:hasValueSub (tab, val)
 		end
 	end
 	return false
+end
+
+--finds the index of a value
+function RaidSummon:getIndexbyValue (tab, val)
+	for i,v in ipairs(tab) do
+		if v == val then
+			return i
+		end
+	end
+	return nil
 end
 
 --checks for combat every 10 seconds and calls RaidSummon:UpdateList
@@ -488,7 +628,7 @@ function RaidSummon:ChatCommand(input)
 	end
 end
 
---Get Option Functions
+--Option Functions
 function RaidSummon:GetOptionWhisper(info)
 	return self.db.profile.whisper
 end
@@ -497,7 +637,6 @@ function RaidSummon:GetOptionZone(info)
 	return self.db.profile.zone
 end
 
---Set Option Functions
 function RaidSummon:SetOptionWhisper(info, value)
 	self.db.profile.whisper = value
 	if value == true then
@@ -516,7 +655,6 @@ function RaidSummon:SetOptionZone(info, value)
 	end
 end
 
---Execute Option Functions
 function RaidSummon:ExecuteHelp()
 	print(L["OptionHelpPrint"])
 end
@@ -557,6 +695,7 @@ function RaidSummon:ExecuteToggle()
 	end
 end
 
+--Add / Remove Options Functions
 function RaidSummon:SetOptionAdd(info, input)
 	if (input) then
 		RaidSummon:SendCommMessage(COMM_PREFIX_ADD_MANUAL, input, "RAID")
@@ -568,6 +707,86 @@ function RaidSummon:SetOptionRemove(info, input)
 		RaidSummon:SendCommMessage(COMM_PREFIX_REMOVE_MANUAL, input, "RAID")
 	end
 end
+
+function RaidSummon:ValuesRemoveSel(info)
+	local playerlist = {}
+	if RaidSummonSyncDB then
+		if next(RaidSummonSyncDB) == nil then
+			return playerlist
+		else
+			for i, v in ipairs(RaidSummonSyncDB) do
+				playerlist[v] = v
+			end
+			return playerlist
+		end
+	end
+end
+
+function RaidSummon:ExecuteAddAll()
+	RaidSummon:SendCommMessage(COMM_PREFIX_ADD_ALL, COMM_PREFIX_ADD_ALL, "RAID")
+end
+
+--Keyword Options Functions
+function RaidSummon:ExecuteKWList()
+	if next(self.db.profile.keywords) == nil then
+		print(L["OptionListEmpty"])
+	else
+		print(L["OptionKWList"])
+		for i, v in ipairs(self.db.profile.keywords) do
+			print(v)
+		end
+	end
+end
+
+function RaidSummon:SetKWAdd(info, input)
+	if (input) then
+		if (RaidSummon:hasValue(self.db.profile.keywords, input)) then
+			print(L["OptionKWAddDuplicate"](input))
+		else
+			print(L["OptionKWAddAdded"](input))
+			table.insert(self.db.profile.keywords,input)
+		end
+	end
+end
+
+function RaidSummon:SetKWRemove(info, input)
+	if (input) then
+		if (RaidSummon:hasValue(self.db.profile.keywords, input)) then
+			print(L["OptionKWRemoveRemoved"](input))
+			local index = RaidSummon:getIndexbyValue(self.db.profile.keywords, input)
+			table.remove(self.db.profile.keywords, index)
+		else
+			print(L["OptionKWRemoveNF"](input))
+		end
+	end	
+end
+
+function RaidSummon:ValuesKWRemoveSel(info)
+	local kwlist = {}
+	if self.db.profile.keywords then
+		if next(self.db.profile.keywords) == nil then
+			return kwlist
+		else
+			for i, v in ipairs(self.db.profile.keywords) do
+				table.insert(kwlist,v)
+			end
+			return kwlist
+		end
+	end
+end
+
+function RaidSummon:SetKWRemoveSel(info, input)
+	--input is the index of a the profile keywords table
+	if (input) then
+		if not self.db.profile.keywords then
+			return
+		else
+			print(L["OptionKWRemoveRemoved"](self.db.profile.keywords[input]))
+			table.remove(self.db.profile.keywords, input)
+		end
+	end	
+end
+
 
 --fill the frame with dummy data for testing
 --/script RaidSummon:DummyFill()
@@ -684,5 +903,12 @@ function RaidSummon:RightClick()
 		if (dropdownMenu.name ~= "") then
 			RaidSummon:SetOptionRemove(_, dropdownMenu.name)
 		end
+	end
+end
+
+function RaidSummon:RefreshConfig()
+	if (not self.db.profile.keywordsinit) then
+		self.db.profile.keywords = { "^123$", "^sum", "^port" }
+		self.db.profile.keywordsinit = true
 	end
 end

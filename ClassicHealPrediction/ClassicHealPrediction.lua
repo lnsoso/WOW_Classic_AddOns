@@ -22,28 +22,13 @@ local unpack = unpack
 local next = next
 
 local GetTime = GetTime
-local C_Timer = C_Timer
-local C_NamePlate = C_NamePlate
 
 local UnitGUID = UnitGUID
-local UnitExists = UnitExists
-local UnitHealth = UnitHealth
-local UnitHealthMax = UnitHealthMax
 local UnitCanAssist = UnitCanAssist
-local UnitIsConnected = UnitIsConnected
-local UnitIsGhost = UnitIsGhost
-local UnitIsFeignDeath = UnitIsFeignDeath
 local CastingInfo = CastingInfo
 local GetSpellPowerCost = GetSpellPowerCost
 local GetSpellInfo = GetSpellInfo
-
-local CompactUnitFrameUtil_UpdateFillBar = CompactUnitFrameUtil_UpdateFillBar
-local UnitFrameUtil_UpdateFillBar = UnitFrameUtil_UpdateFillBar
-local UnitFrameUtil_UpdateManaFillBar = UnitFrameUtil_UpdateManaFillBar
-local UnitFrameManaBar_Update = UnitFrameManaBar_Update
-
-local MAX_PARTY_MEMBERS = MAX_PARTY_MEMBERS
-local MAX_RAID_MEMBERS = MAX_RAID_MEMBERS
+local InCombatLockdown = InCombatLockdown
 
 local PlayerFrame = PlayerFrame
 local PetFrame = PetFrame
@@ -55,29 +40,6 @@ local PartyMemberFramePetFrame = {}
 for i = 1, MAX_PARTY_MEMBERS do
     PartyMemberFrame[i] = _G["PartyMemberFrame" .. i]
     PartyMemberFramePetFrame[i] = _G["PartyMemberFrame" .. i .. "PetFrame"]
-end
-
-local PARTY = {}
-local PARTYPET = {}
-
-for i = 1, MAX_PARTY_MEMBERS do
-    tinsert(PARTY, "party" .. i)
-    tinsert(PARTYPET, "partypet" .. i)
-end
-
-PARTY[0] = "player"
-PARTYPET[0] = "pet"
-
-local RAID = {}
-local RAIDPET = {}
-local RAIDTARGET = {}
-local RAIDTARGETTARGET = {}
-
-for i = 1, MAX_RAID_MEMBERS do
-    tinsert(RAID, "raid" .. i)
-    tinsert(RAIDPET, "raidpet" .. i)
-    tinsert(RAIDTARGET, "raid" .. i .. "target")
-    tinsert(RAIDTARGETTARGET, "raid" .. i .. "targettarget")
 end
 
 local function toggleValue(value, bool)
@@ -155,11 +117,13 @@ local function hslToRgb(h, s, l, a)
         end
 
         local q
+
         if l < 0.5 then
             q = l * (1 + s)
         else
             q = l + s - l * s
         end
+
         local p = 2 * l - q
 
         r = f(p, q, h + 1 / 3)
@@ -217,6 +181,7 @@ local ClassicHealPredictionDefaultSettings = {
     myDelta = toggleValue(3, false),
     otherDelta = toggleValue(3, false),
     overhealThreshold = toggleValue(0.2, false),
+    overlaying = false,
     colors = {
         {gradient(0.043, 0.533, 0.412, 1.0)},
         {gradient(0.043, 0.533, 0.412, 0.5)},
@@ -238,11 +203,7 @@ local ClassicHealPredictionDefaultSettings = {
     },
     showManaCostPrediction = true,
     raidFramesMaxOverflow = toggleValue(0.05, true),
-    unitFramesMaxOverflow = toggleValue(0.0, true),
-    showGhostStatusText = true,
-    showFeignDeathStatusText = true,
-    showAnimatedLossBar = false,
-    showFlaggedMembersRightSide = false
+    unitFramesMaxOverflow = toggleValue(0.0, true)
 }
 local ClassicHealPredictionSettings = ClassicHealPredictionDefaultSettings
 
@@ -324,8 +285,6 @@ local loadedFrame = false
 local checkBoxes
 local checkBox2
 local checkBox3
-local checkBox4
-local checkBox5
 local slider
 local slider2
 local slider3
@@ -361,22 +320,6 @@ local function updateHealPrediction(frame, unit, cutoff, gradient, colorPalette,
 
     local _, maxHealth = frame._CHP_healthBar:GetMinMaxValues()
     local health = frame._CHP_healthBar:GetValue()
-
-    if maxHealth <= 0 then
-        frame._CHP_myHealPrediction:Hide()
-        frame._CHP_myHealPrediction2:Hide()
-        frame._CHP_otherHealPrediction:Hide()
-        frame._CHP_otherHealPrediction2:Hide()
-        frame._CHP_totalAbsorb:Hide()
-        frame._CHP_totalAbsorbOverlay:Hide()
-        frame._CHP_healAbsorb:Hide()
-        frame._CHP_healAbsorbLeftShadow:Hide()
-        frame._CHP_healAbsorbRightShadow:Hide()
-        frame._CHP_overAbsorbGlow:Hide()
-        frame._CHP_overHealAbsorbGlow:Hide()
-        return
-    end
-
     local myIncomingHeal1, myIncomingHeal2, otherIncomingHeal1, otherIncomingHeal2 = getIncomingHeals(unit)
     local totalAbsorb = 0
     local currentHealAbsorb = 0
@@ -481,21 +424,29 @@ local function updateHealPrediction(frame, unit, cutoff, gradient, colorPalette,
         end
     end
 
-    local myIncomingHeal = myIncomingHeal1 + myIncomingHeal2
-    local otherIncomingHeal = otherIncomingHeal1 + otherIncomingHeal2
-    local allIncomingHeal = myIncomingHeal + otherIncomingHeal
+    local incomingHeal1
+    local incomingHeal2
+
+    if ClassicHealPredictionSettings.overlaying then
+        incomingHeal1 = max(myIncomingHeal1, otherIncomingHeal1)
+        incomingHeal2 = max(myIncomingHeal2, otherIncomingHeal2)
+    else
+        incomingHeal1 = myIncomingHeal1 + otherIncomingHeal1
+        incomingHeal2 = myIncomingHeal2 + otherIncomingHeal2
+    end
+
+    local allIncomingHeal = incomingHeal1 + incomingHeal2
 
     if cutoff then
         allIncomingHeal = min(allIncomingHeal, maxHealth * cutoff - health + currentHealAbsorb)
     end
 
-    local incomingHeal1 = myIncomingHeal1 + otherIncomingHeal1
-    local incomingHeal2
-
     incomingHeal1 = min(incomingHeal1, allIncomingHeal)
     incomingHeal2 = allIncomingHeal - incomingHeal1
+
     myIncomingHeal1 = min(myIncomingHeal1, incomingHeal1)
     myIncomingHeal2 = min(myIncomingHeal2, incomingHeal2)
+
     otherIncomingHeal1 = incomingHeal1 - myIncomingHeal1
     otherIncomingHeal2 = incomingHeal2 - myIncomingHeal2
 
@@ -611,7 +562,7 @@ local function defer_UnitFrameHealPredictionBars_Update(frame)
     end
 end
 
-local function UnitFrameManaCostPredictionBars_Update(frame, isStarting, startTime, endTime, spellID)
+local function unitFrameManaCostPredictionBars_Update(frame, isStarting, startTime, endTime, spellID)
     if frame.unit ~= "player" or not frame.manabar or not frame.myManaCostPredictionBar then
         return
     end
@@ -653,8 +604,6 @@ local function UnitFrameManaCostPredictionBars_Update(frame, isStarting, startTi
     UnitFrameUtil_UpdateManaFillBar(frame, manaBarTexture, frame.myManaCostPredictionBar, cost)
 end
 
-_G.UnitFrameManaCostPredictionBars_Update = UnitFrameManaCostPredictionBars_Update
-
 local function UnitFrameHealPredictionBars_UpdateSize(self)
     if not self._CHP_myHealPrediction or not self._CHP_otherHealPrediction then
         return
@@ -689,134 +638,37 @@ hooksecurefunc(
     end
 )
 
-hooksecurefunc(
-    "CompactUnitFrame_UpdateAll",
-    function(frame)
-        local unit = frame.displayedUnit
+local function compactUnitFrame_UpdateAll(frame)
+    local unit = frame.displayedUnit
 
-        do
-            local unitGUID = frame._CHP_unitGUID
-            local newUnitGUID = unit and UnitGUID(unit)
+    do
+        local unitGUID = frame._CHP_unitGUID
+        local newUnitGUID = unit and UnitGUID(unit)
 
-            if newUnitGUID ~= unitGUID then
-                if unitGUID then
-                    guidToCompactUnitFrame[unitGUID][frame] = nil
+        if newUnitGUID ~= unitGUID then
+            if unitGUID then
+                guidToCompactUnitFrame[unitGUID][frame] = nil
 
-                    if next(guidToCompactUnitFrame[unitGUID]) == nil then
-                        guidToCompactUnitFrame[unitGUID] = nil
-                    end
+                if next(guidToCompactUnitFrame[unitGUID]) == nil then
+                    guidToCompactUnitFrame[unitGUID] = nil
                 end
-
-                if newUnitGUID then
-                    guidToCompactUnitFrame[newUnitGUID] = guidToCompactUnitFrame[newUnitGUID] or {}
-                    guidToCompactUnitFrame[newUnitGUID][frame] = true
-                end
-
-                frame._CHP_unitGUID = newUnitGUID
             end
-        end
 
-        if UnitExists(unit) then
-            defer_CompactUnitFrame_UpdateHealPrediction(frame)
+            if newUnitGUID then
+                guidToCompactUnitFrame[newUnitGUID] = guidToCompactUnitFrame[newUnitGUID] or {}
+                guidToCompactUnitFrame[newUnitGUID][frame] = true
+            end
+
+            frame._CHP_unitGUID = newUnitGUID
         end
     end
-)
 
-hooksecurefunc("CompactUnitFrame_UpdateMaxHealth", defer_CompactUnitFrame_UpdateHealPrediction)
-
-do
-    local GHOST =
-        ({
-        deDE = "Geist",
-        enUS = "Ghost",
-        esES = "Fantasma",
-        esMX = "Fantasma",
-        frFR = "Fantôme",
-        itIT = "Fantasma",
-        koKR = "유령",
-        ptBR = "Fantasma",
-        ruRU = "Призрак",
-        zhCN = "鬼魂",
-        zhTW = "鬼魂"
-    })[GetLocale()]
-
-    local FEIGN =
-        ({
-        deDE = "Totstellen",
-        enUS = "Feign",
-        esES = "Fingir",
-        esMX = "Fingir",
-        frFR = "Feindre",
-        itIT = "Fingere",
-        koKR = "죽은척하기",
-        ptBR = "Fingir",
-        ruRU = "Притвориться",
-        zhCN = "假死",
-        zhTW = "假死"
-    })[GetLocale()]
-
-    hooksecurefunc(
-        "CompactUnitFrame_UpdateStatusText",
-        function(frame)
-            if not frame.optionTable.displayStatusText or not UnitIsConnected(frame.unit) then
-                return
-            end
-
-            local unit = frame.displayedUnit
-
-            if UnitIsGhost(unit) then
-                if ClassicHealPredictionSettings.showGhostStatusText then
-                    frame.statusText:SetText(GHOST)
-                    frame.statusText:Show()
-                end
-            elseif UnitIsFeignDeath(unit) then
-                if ClassicHealPredictionSettings.showFeignDeathStatusText then
-                    frame.statusText:SetText(FEIGN)
-                    frame.statusText:Show()
-                end
-            end
-        end
-    )
+    defer_CompactUnitFrame_UpdateHealPrediction(frame)
 end
 
-hooksecurefunc(
-    "CompactRaidFrameContainer_LayoutFrames",
-    function(self)
-        if not ClassicHealPredictionSettings.showFlaggedMembersRightSide then
-            return
-        end
+hooksecurefunc("CompactUnitFrame_UpdateAll", compactUnitFrame_UpdateAll)
 
-        for i = 1, #self.flowFrames do
-            if type(self.flowFrames[i]) == "table" and self.flowFrames[i].unusedFunc then
-                self.flowFrames[i]:unusedFunc()
-            end
-        end
-
-        FlowContainer_RemoveAllObjects(self)
-        FlowContainer_PauseUpdates(self)
-
-        if self.groupMode == "discrete" then
-            CompactRaidFrameContainer_AddGroups(self)
-        elseif self.groupMode == "flush" then
-            CompactRaidFrameContainer_AddPlayers(self)
-        else
-            error("Unknown group mode")
-        end
-
-        if self.displayPets then
-            CompactRaidFrameContainer_AddPets(self)
-        end
-
-        if self.displayFlaggedMembers then
-            FlowContainer_AddLineBreak(self)
-            CompactRaidFrameContainer_AddFlaggedUnits(self)
-        end
-
-        FlowContainer_ResumeUpdates(self)
-        CompactRaidFrameContainer_UpdateBorder(self)
-        CompactRaidFrameContainer_ReleaseAllReservedFrames(self)
-    end
-)
+hooksecurefunc("CompactUnitFrame_UpdateMaxHealth", defer_CompactUnitFrame_UpdateHealPrediction)
 
 local function unitFrame_Update(self)
     do
@@ -843,16 +695,14 @@ local function unitFrame_Update(self)
     end
 
     defer_UnitFrameHealPredictionBars_Update(self)
-    UnitFrameManaCostPredictionBars_Update(self)
+    unitFrameManaCostPredictionBars_Update(self)
 end
 
 hooksecurefunc(
     "UnitFrame_SetUnit",
     function(self, unit, healthbar, manabar)
-        if self.unit ~= unit then
-            if not healthbar:GetScript("OnUpdate") then
-                healthbar:RegisterUnitEvent("UNIT_HEALTH", unit)
-            end
+        if not healthbar:GetScript("OnUpdate") then
+            healthbar:RegisterUnitEvent("UNIT_HEALTH", unit)
         end
 
         unitFrame_Update(self)
@@ -868,7 +718,7 @@ local function unitFrame_OnEvent(self, event, unit)
         elseif event == "UNIT_SPELLCAST_START" or event == "UNIT_SPELLCAST_STOP" or event == "UNIT_SPELLCAST_FAILED" or event == "UNIT_SPELLCAST_SUCCEEDED" then
             assert(unit == "player")
             local name, text, texture, startTime, endTime, isTradeSkill, castID, notInterruptible, spellID = CastingInfo()
-            UnitFrameManaCostPredictionBars_Update(self, event == "UNIT_SPELLCAST_START", startTime, endTime, spellID)
+            unitFrameManaCostPredictionBars_Update(self, event == "UNIT_SPELLCAST_START", startTime, endTime, spellID)
         end
     end
 end
@@ -879,13 +729,8 @@ hooksecurefunc(
     "UnitFrameHealthBar_OnUpdate",
     function(self)
         if not self.disconnected and not self.lockValues then
-            local currValue = UnitHealth(self.unit)
-
-            if currValue ~= self._CHP_currValue then
-                if not self.ignoreNoUnit or UnitGUID(self.unit) then
-                    self._CHP_currValue = currValue
-                    defer_UnitFrameHealPredictionBars_Update(self:GetParent())
-                end
+            if not self.ignoreNoUnit or UnitGUID(self.unit) then
+                defer_UnitFrameHealPredictionBars_Update(self:GetParent())
             end
         end
     end
@@ -898,33 +743,7 @@ hooksecurefunc(
             return
         end
 
-        if unit == statusbar.unit then
-            local maxValue = UnitHealthMax(unit)
-
-            if statusbar.disconnected then
-                statusbar._CHP_currValue = maxValue
-            else
-                local currValue = UnitHealth(unit)
-                statusbar._CHP_currValue = currValue
-            end
-        end
-
         defer_UnitFrameHealPredictionBars_Update(statusbar:GetParent())
-    end
-)
-
-hooksecurefunc(
-    "UnitFrameHealthBar_OnEvent",
-    function(self, event)
-        if event == "VARIABLES_LOADED" then
-            if ClassicHealPredictionSettings.showAnimatedLossBar and self.frequentUpdates and self.AnimatedLossBar then
-                self:SetScript("OnUpdate", UnitFrameHealthBar_OnUpdate)
-                self:UnregisterEvent("UNIT_HEALTH")
-            else
-                self:RegisterUnitEvent("UNIT_HEALTH", self.unit)
-                self:SetScript("OnUpdate", nil)
-            end
-        end
     end
 )
 
@@ -962,35 +781,94 @@ local function UpdateHealPrediction(...)
     end
 end
 
-local function ClassicHealPrediction_OnEvent(event, arg1)
-    local namePlateUnitToken = arg1
+local function updateAllFrames()
+    do
+        local allUnitFrames = {}
 
-    if not UnitCanAssist("player", namePlateUnitToken) then
-        return
+        for _, unitFrames in pairs(guidToUnitFrame) do
+            if unitFrames then
+                for unitFrame in pairs(unitFrames) do
+                    allUnitFrames[unitFrame] = true
+                end
+            end
+        end
+
+        for unitFrame in pairs(allUnitFrames) do
+            local isParty = unitFrame:GetID() ~= 0
+            unitFrame_Update(unitFrame, isParty)
+        end
     end
 
-    local unitGUID = UnitGUID(namePlateUnitToken)
+    do
+        local allCompactUnitFrames = {}
 
-    if event == "NAME_PLATE_UNIT_ADDED" then
-        local namePlate = C_NamePlate.GetNamePlateForUnit(namePlateUnitToken)
-        local namePlateFrame = namePlate and namePlate.UnitFrame
-        guidToNameplateFrame[unitGUID] = namePlateFrame
-
-        if namePlateFrame then
-            defer_CompactUnitFrame_UpdateHealPrediction(namePlateFrame)
+        for _, compactUnitFrames in pairs(guidToCompactUnitFrame) do
+            if compactUnitFrames then
+                for compactUnitFrame in pairs(compactUnitFrames) do
+                    allCompactUnitFrames[compactUnitFrame] = true
+                end
+            end
         end
-    elseif event == "NAME_PLATE_UNIT_REMOVED" then
-        guidToNameplateFrame[unitGUID] = nil
+
+        for compactUnitFrame in pairs(allCompactUnitFrames) do
+            compactUnitFrame_UpdateAll(compactUnitFrame)
+        end
+    end
+
+    do
+        local allNameplateFrames = {}
+
+        for _, namePlateFrame in pairs(guidToNameplateFrame) do
+            allNameplateFrames[namePlateFrame] = namePlateFrame
+        end
+
+        for namePlateFrame in pairs(allNameplateFrames) do
+            compactUnitFrame_UpdateAll(namePlateFrame)
+        end
+    end
+end
+
+local function ClassicHealPrediction_OnEvent(event, arg1)
+    if event == "GROUP_ROSTER_UPDATE" then
+        if InCombatLockdown() then
+            for _, compactUnitFrames in pairs(guidToCompactUnitFrame) do
+                if compactUnitFrames then
+                    for compactUnitFrame in pairs(compactUnitFrames) do
+                        defer_CompactUnitFrame_UpdateHealPrediction(compactUnitFrame)
+                    end
+                end
+            end
+        end
+    else
+        local namePlateUnitToken = arg1
+
+        if not UnitCanAssist("player", namePlateUnitToken) then
+            return
+        end
+
+        local unitGUID = UnitGUID(namePlateUnitToken)
+
+        if event == "NAME_PLATE_UNIT_ADDED" then
+            local namePlate = C_NamePlate.GetNamePlateForUnit(namePlateUnitToken)
+            local namePlateFrame = namePlate and namePlate.UnitFrame
+            guidToNameplateFrame[unitGUID] = namePlateFrame
+
+            if namePlateFrame then
+                defer_CompactUnitFrame_UpdateHealPrediction(namePlateFrame)
+            end
+        elseif event == "NAME_PLATE_UNIT_REMOVED" then
+            guidToNameplateFrame[unitGUID] = nil
+        end
     end
 end
 
 local function ClassicHealPrediction_OnUpdate()
-    for frame in pairs(deferredUnitFrames) do
-        UnitFrameHealPredictionBars_Update(frame)
+    for unitFrame in pairs(deferredUnitFrames) do
+        UnitFrameHealPredictionBars_Update(unitFrame)
     end
 
-    for frame in pairs(deferredCompactUnitFrames) do
-        CompactUnitFrame_UpdateHealPrediction(frame)
+    for compactUnitFrame in pairs(deferredCompactUnitFrames) do
+        CompactUnitFrame_UpdateHealPrediction(compactUnitFrame)
     end
 
     wipe(deferredUnitFrames)
@@ -1091,7 +969,6 @@ do
         function(self, unit, frameType)
             if not compactRaidFrameReservation_GetFrame then
                 local info = frameCreationSpecifiers[frameType]
-
                 local mapping
 
                 if info.mapping then
@@ -1101,7 +978,6 @@ do
                 end
 
                 local frame = self.frameReservations[frameType].reservations[mapping]
-
                 info.setUpFunc(frame)
             end
         end
@@ -1191,8 +1067,6 @@ do
             local depth, name, layer, subLayer = unpack(args)
             textures[name] = createTexture(getChild(frame, unpack(depth)), name, layer, subLayer)
         end
-
-        frame.healthbar:SetScript("OnEvent", UnitFrameHealthBar_OnEvent)
 
         frame._CHP_healthBar = frame.healthbar
 
@@ -1309,35 +1183,6 @@ do
         }
     )
 
-    if not PlayerFrame.PlayerFrameHealthBarAnimatedLoss then
-        PlayerFrame.PlayerFrameHealthBarAnimatedLoss = Mixin(CreateFrame("StatusBar", nil, PlayerFrame), AnimatedHealthLossMixin)
-        PlayerFrame.PlayerFrameHealthBarAnimatedLoss:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-        PlayerFrame.PlayerFrameHealthBarAnimatedLoss:SetFrameLevel(PlayerFrame.healthbar:GetFrameLevel() - 1)
-        PlayerFrame.PlayerFrameHealthBarAnimatedLoss:OnLoad()
-        PlayerFrame.PlayerFrameHealthBarAnimatedLoss:SetUnitHealthBar(PlayerFrame.unit, PlayerFrame.healthbar)
-        PlayerFrame.PlayerFrameHealthBarAnimatedLoss:Hide()
-
-        function PlayerFrame.PlayerFrameHealthBarAnimatedLoss:UpdateLossAnimation(currentHealth)
-            local totalAbsorb = 0
-
-            if totalAbsorb > 0 then
-                self:CancelAnimation()
-            end
-
-            if self.animationStartTime then
-                local animationValue, animationCompletePercent = self:GetHealthLossAnimationData(currentHealth, self.animationStartValue)
-
-                self.animationCompletePercent = animationCompletePercent
-
-                if animationCompletePercent >= 1 then
-                    self:CancelAnimation()
-                else
-                    self:SetValue(animationValue)
-                end
-            end
-        end
-    end
-
     initUnitFrame(
         PetFrame,
         {
@@ -1423,29 +1268,6 @@ do
                 {{1, 1}, "$parentOverHealAbsorbGlow", "ARTWORK"}
             }
         )
-    end
-end
-
-local function updateAllFrames()
-    for _, unitFrames in pairs(guidToUnitFrame) do
-        if unitFrames then
-            for unitFrame in pairs(unitFrames) do
-                local isParty = unitFrame:GetID() ~= 0
-                UnitFrame_Update(unitFrame, isParty)
-            end
-        end
-    end
-
-    for _, compactUnitFrames in pairs(guidToCompactUnitFrame) do
-        if compactUnitFrames then
-            for compactUnitFrame in pairs(compactUnitFrames) do
-                CompactUnitFrame_UpdateAll(compactUnitFrame)
-            end
-        end
-    end
-
-    for _, namePlateFrame in pairs(guidToNameplateFrame) do
-        CompactUnitFrame_UpdateAll(namePlateFrame)
     end
 end
 
@@ -1536,18 +1358,14 @@ local function ClassicHealPredictionFrame_Refresh()
         slider4.High:SetTextColor(0.5, 0.5, 0.5)
     end
 
+    checkBox3:SetChecked(ClassicHealPredictionSettings.overlaying)
+
     checkBox2:SetChecked(ClassicHealPredictionSettings.showManaCostPrediction)
 
     for _, colorSwatch in ipairs(colorSwatches) do
         local r, g, b, a = unpack(ClassicHealPredictionSettings.colors[colorSwatch.index])
         colorSwatch:GetNormalTexture():SetVertexColor(r, g, b, a)
     end
-
-    checkBox3:SetChecked(ClassicHealPredictionSettings.showGhostStatusText)
-
-    checkBox4:SetChecked(ClassicHealPredictionSettings.showFeignDeathStatusText)
-
-    checkBox5:SetChecked(ClassicHealPredictionSettings.showFlaggedMembersRightSide)
 end
 
 local function ClassicHealPredictionFrame_OnEvent(self, event, arg1)
@@ -1571,10 +1389,6 @@ local function ClassicHealPredictionFrame_OnEvent(self, event, arg1)
         loadedSettings = true
 
         self:UnregisterEvent("ADDON_LOADED")
-    elseif event == "VARIABLES_LOADED" then
-        SetCVar("predictedHealth", 0)
-
-        self:UnregisterEvent("VARIABLES_LOADED")
     elseif event == "PLAYER_ENTERING_WORLD" then
         updateAllFrames()
 
@@ -1628,13 +1442,10 @@ _G.ClassicHealPredictionFrame_Cancel = ClassicHealPredictionFrame_Cancel
 local function ClassicHealPredictionFrame_OnLoad(self)
     self:RegisterEvent("ADDON_LOADED")
 
-    SetCVar("predictedHealth", 0)
-
-    self:RegisterEvent("VARIABLES_LOADED")
-
     local frame = CreateFrame("Frame")
     frame:RegisterEvent("NAME_PLATE_UNIT_ADDED")
     frame:RegisterEvent("NAME_PLATE_UNIT_REMOVED")
+    frame:RegisterEvent("GROUP_ROSTER_UPDATE")
 
     frame:SetScript(
         "OnEvent",
@@ -1964,9 +1775,25 @@ local function ClassicHealPredictionFrame_OnLoad(self)
         end
     )
 
+    local checkBoxName3 = format("ClassicHealPredictionCheckbox%d", #checkBoxes + 2)
+    checkBox3 = CreateFrame("CheckButton", checkBoxName3, self, "OptionsCheckButtonTemplate")
+    checkBox3:SetPoint("TOPLEFT", sliderCheckBox4, "BOTTOMLEFT", 0, -50)
+    checkBox3.Text = _G[checkBoxName3 .. "Text"]
+    checkBox3.Text:SetText("Overlay the healing of others with my healing")
+    checkBox3.Text:SetTextColor(1, 1, 1)
+
+    checkBox3:SetScript(
+        "OnClick",
+        function(self)
+            ClassicHealPredictionSettings.overlaying = self:GetChecked()
+
+            updateAllFrames()
+        end
+    )
+
     local checkBoxName2 = format("ClassicHealPredictionCheckbox%d", #checkBoxes + 1)
     checkBox2 = CreateFrame("CheckButton", checkBoxName2, self, "OptionsCheckButtonTemplate")
-    checkBox2:SetPoint("TOPLEFT", sliderCheckBox4, "BOTTOMLEFT", 0, -50)
+    checkBox2:SetPoint("TOPLEFT", checkBox3, "BOTTOMLEFT", 0, 0)
     checkBox2.Text = _G[checkBoxName2 .. "Text"]
     checkBox2.Text:SetText("Show my mana cost prediction in the player unit frame")
     checkBox2.Text:SetTextColor(1, 1, 1)
@@ -2059,56 +1886,6 @@ local function ClassicHealPredictionFrame_OnLoad(self)
             tappend(colorSwatches, x)
         end
     end
-
-    local checkBoxName3 = format("ClassicHealPredictionCheckbox%d", #checkBoxes + 2)
-    checkBox3 = CreateFrame("CheckButton", checkBoxName3, self, "OptionsCheckButtonTemplate")
-    checkBox3:SetPoint("TOPLEFT", checkBox2, "BOTTOMLEFT", 0, 0)
-    checkBox3.Text = _G[checkBoxName3 .. "Text"]
-    checkBox3.Text:SetText('Show "Ghost" instead of "Dead" in raid frames if the spirit was released')
-    checkBox3.Text:SetTextColor(1, 1, 1)
-
-    checkBox3:SetScript(
-        "OnClick",
-        function(self)
-            ClassicHealPredictionSettings.showGhostStatusText = self:GetChecked()
-
-            updateAllFrames()
-        end
-    )
-
-    local checkBoxName4 = format("ClassicHealPredictionCheckbox%d", #checkBoxes + 3)
-    checkBox4 = CreateFrame("CheckButton", checkBoxName4, self, "OptionsCheckButtonTemplate")
-    checkBox4:SetPoint("TOPLEFT", checkBox3, "BOTTOMLEFT", 0, 0)
-    checkBox4.Text = _G[checkBoxName4 .. "Text"]
-    checkBox4.Text:SetText('Show "Feign" instead of "Dead" in raid frames if someone is feigning death')
-    checkBox4.Text:SetTextColor(1, 1, 1)
-
-    checkBox4:SetScript(
-        "OnClick",
-        function(self)
-            ClassicHealPredictionSettings.showFeignDeathStatusText = self:GetChecked()
-
-            updateAllFrames()
-        end
-    )
-
-    local checkBoxName5 = format("ClassicHealPredictionCheckbox%d", #checkBoxes + 4)
-    checkBox5 = CreateFrame("CheckButton", checkBoxName5, self, "OptionsCheckButtonTemplate")
-    checkBox5:SetPoint("TOPLEFT", checkBox4, "BOTTOMLEFT", 0, 0)
-    checkBox5.Text = _G[checkBoxName5 .. "Text"]
-    checkBox5.Text:SetText("Show main tanks and main assists on the right side in raid frames")
-    checkBox5.Text:SetTextColor(1, 1, 1)
-
-    checkBox5:SetScript(
-        "OnClick",
-        function(self)
-            ClassicHealPredictionSettings.showFlaggedMembersRightSide = self:GetChecked()
-
-            CompactRaidFrameContainer_TryUpdate(CompactRaidFrameContainer)
-
-            updateAllFrames()
-        end
-    )
 
     self.name = ADDON_NAME
     self.default = ClassicHealPredictionFrame_Default

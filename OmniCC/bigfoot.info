@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <AddOnList version="1.0" url="http://wowui.178.com/" purl="http://wowui.178.com/">
-    <AddOn displayName="[怀旧专用] OmniCC：冷却计时闪光" img="/data/wow/1242/ui_logo.jpg" info="ui/1242" name="[怀旧专用] OmniCC：冷却计时闪光" package="down/1242/14686/8.3_.1-classic_.zip" update="2019-12-31" version="8.3.1-classic" />
+    <AddOn displayName="[怀旧专用] OmniCC：冷却计时闪光" img="/data/wow/1242/ui_logo.jpg" info="ui/1242" name="[怀旧专用] OmniCC：冷却计时闪光" package="down/1242/14965/OmniCC+8.3_.5-classic_.zip" update="2020-01-28" version="8.3.5-classic" />
 </AddOnList>

@@ -24,11 +24,8 @@ MTSL_LOGIC_ITEM_OBJECT = {
             end
         end
 
-        -- Sort the objects by name in the table
-        table.sort(objects, function(a,b) return a["name"][MTSLUI_CURRENT_LANGUAGE] < b["name"][MTSLUI_CURRENT_LANGUAGE] end)
-
-        -- Return the found objects
-        return objects
+        -- Return the found objects sorted by localised name
+        return MTSL_TOOLS:SortArrayByLocalisedProperty(objects, "name")
     end,
 
     -----------------------------------------------------------------------------------------------
@@ -64,11 +61,8 @@ MTSL_LOGIC_ITEM_OBJECT = {
             end
         end
 
-        -- Sort the items by name in the table
-        table.sort(items, function(a,b) return a["name"][MTSLUI_CURRENT_LANGUAGE] < b["name"][MTSLUI_CURRENT_LANGUAGE] end)
-
-        -- Return the found items
-        return items
+        -- Return the found items sorted by localised name
+        return MTSL_TOOLS:SortArrayByLocalisedProperty(items, "name")
     end,
 
     -----------------------------------------------------------------------------------------------

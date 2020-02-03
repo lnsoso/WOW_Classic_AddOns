@@ -32,7 +32,8 @@ end
 ----------------------------------------------------------------------------------------------------------
 function MTSLUI_MISSING_TRADESKILLS_FRAME:Initialise()
     self.ui_frame = MTSLUI_TOOLS:CreateBaseFrame("Frame", "MTSLUI_MissingTradeSkillsFrame", MTSLUI_TOGGLE_BUTTON.ui_frame, nil, self.FRAME_WIDTH_VERTICAL_SPLIT, self.FRAME_HEIGHT_VERTICAL_SPLIT, true)
-    self.ui_frame:SetBackdropColor(0,0,0,1)
+    self.ui_frame:SetFrameLevel(10)
+    self.ui_frame:SetToplevel(true)
     -- Set Position relative to MTSL button
     self.ui_frame:SetPoint("TOPLEFT", MTSLUI_TOGGLE_BUTTON.ui_frame, "TOPRIGHT", -2, 0)
     -- Dummy operation to do nothing, discarding the zooming in/out
@@ -44,6 +45,9 @@ function MTSLUI_MISSING_TRADESKILLS_FRAME:Initialise()
     self:LinkFrames()
 end
 
+----------------------------------------------------------------------------------------------------------
+-- Create and place the componentframes for the parent frame
+----------------------------------------------------------------------------------------------------------
 function MTSLUI_MISSING_TRADESKILLS_FRAME:CreateCompontentFrames()
     -- initialise the components of the frame
     self.title_frame = MTSL_TOOLS:CopyObject(MTSLUI_TITLE_FRAME)
@@ -65,12 +69,14 @@ function MTSLUI_MISSING_TRADESKILLS_FRAME:CreateCompontentFrames()
     self.skill_detail_frame.ui_frame:SetPoint("BOTTOMLEFT", self.skill_list_frame.ui_frame, "BOTTOMRIGHT", 0, 0)
     -- Copy & init the pgoress bar
     self.progressbar = MTSL_TOOLS:CopyObject(MTSLUI_PROGRESSBAR)
-    self.progressbar:Initialise(self.ui_frame, "MTSLUI_MTSLF_PROGRESS_BAR", MTSLUI_LOCALES_LABELS["missing skills"][MTSLUI_CURRENT_LANGUAGE])
+    self.progressbar:Initialise(self.ui_frame, "MTSLUI_MTSLF_PROGRESS_BAR", MTSLUI_TOOLS:GetLocalisedLabel("missing skills"))
     -- Bottom of the frame
     self.progressbar.ui_frame:SetPoint("BOTTOMLEFT", self.ui_frame, "BOTTOMLEFT", 4, 2)
 end
 
+----------------------------------------------------------------------------------------------------------
 -- link the frames to correct event frames
+----------------------------------------------------------------------------------------------------------
 function MTSLUI_MISSING_TRADESKILLS_FRAME:LinkFrames()
     self.skill_list_filter_frame:SetListFrame(self.skill_list_frame)
     self.skill_list_frame:SetDetailSelectedItemFrame(self.skill_detail_frame)
@@ -113,17 +119,18 @@ end
 ----------------------------------------------------------------------------------------------------------
 -- Refresh the ui of the MTSLUI_MISSING_TRADESKILLS_FRAME
 ----------------------------------------------------------------------------------------------------------
-function MTSLUI_MISSING_TRADESKILLS_FRAME:RefreshUI ()
+function MTSLUI_MISSING_TRADESKILLS_FRAME:RefreshUI (force)
     -- only refresh if this window is visible
-    if self:IsShown() then
+    if self:IsShown() or force == 1 then
         -- Get the list of skills which are found by the filters
         local list_skills = MTSL_LOGIC_PLAYER_NPC:GetMissingSkillsForProfessionCurrentPlayer(self.current_profession_name)
         -- Refresh the UI frame showing the list of skill
         self.skill_list_frame:UpdateList(list_skills)
         -- Update the progressbar on bottom
-        local skills_max_amount = MTSL_LOGIC_PROFESSION:GetTotalNumberOfAvailableSkillsForProfession(self.current_profession_name)
+        local skills_max_amount = MTSL_LOGIC_PROFESSION:GetTotalNumberOfAvailableSkillsForProfession(self.current_profession_name, MTSL_DATA.MAX_PATCH_LEVEL)
+        local skills_phase_max_amount = MTSL_LOGIC_PROFESSION:GetTotalNumberOfAvailableSkillsForProfession(self.current_profession_name, MTSL_DATA.CURRENT_PATCH_LEVEL)
         local amount_missing = MTSL_TOOLS:CountItemsInArray(list_skills)
-        self.progressbar:UpdateStatusbar(0, skills_max_amount, amount_missing)
+        self.progressbar:UpdateStatusbar(0, skills_phase_max_amount, skills_max_amount, amount_missing)
         self:NoSkillSelected()
 
         -- if we miss skills, auto select first one (only do if we dont have one selected)
@@ -143,6 +150,7 @@ function MTSLUI_MISSING_TRADESKILLS_FRAME:SetCurrentProfessionDetails(profession
     self.current_profession_name = profession_name
     self.current_skill_level = skill_level
     self.current_xp_level = xp_level
+    self.skill_list_filter_frame:ChangeProfession(profession_name)
     self.skill_list_frame:UpdatePlayerLevels(xp_level, skill_level)
     local list_skills = MTSL_LOGIC_PLAYER_NPC:GetMissingSkillsForProfessionCurrentPlayer(self.current_profession_name)
     self.skill_list_frame:ChangeProfession(profession_name, list_skills)

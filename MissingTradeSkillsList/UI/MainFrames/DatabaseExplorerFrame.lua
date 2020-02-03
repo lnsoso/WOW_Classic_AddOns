@@ -4,12 +4,11 @@
 ---------------------------------------------------------
 MTSLUI_DATABASE_EXPLORER_FRAME = MTSL_TOOLS:CopyObject(MTSLUI_BASE_FRAME)
 
--- Custom properties
-MTSLUI_DATABASE_EXPLORER_FRAME.FRAME_WIDTH_VERTICAL_SPLIT = 1253
-MTSLUI_DATABASE_EXPLORER_FRAME.FRAME_HEIGHT_VERTICAL_SPLIT = 470
+MTSLUI_DATABASE_EXPLORER_FRAME.FRAME_WIDTH_VERTICAL_SPLIT = 1274
+MTSLUI_DATABASE_EXPLORER_FRAME.FRAME_HEIGHT_VERTICAL_SPLIT = 471
 
-MTSLUI_DATABASE_EXPLORER_FRAME.FRAME_WIDTH_HORIZONTAL_SPLIT = 868
-MTSLUI_DATABASE_EXPLORER_FRAME.FRAME_HEIGHT_HORIZONTAL_SPLIT = 740
+MTSLUI_DATABASE_EXPLORER_FRAME.FRAME_WIDTH_HORIZONTAL_SPLIT = 889
+MTSLUI_DATABASE_EXPLORER_FRAME.FRAME_HEIGHT_HORIZONTAL_SPLIT = 744
 
     ---------------------------------------------------------------------------------------
     -- Shows the frame
@@ -17,10 +16,11 @@ MTSLUI_DATABASE_EXPLORER_FRAME.FRAME_HEIGHT_HORIZONTAL_SPLIT = 740
 function MTSLUI_DATABASE_EXPLORER_FRAME:Show()
     -- only show if not options menu open
     if MTSLUI_OPTIONS_MENU_FRAME:IsShown() then
-        print(MTSLUI_FONTS.COLORS.TEXT.ERROR .. "MTSL: Please close options menu first!")
+        print(MTSLUI_FONTS.COLORS.TEXT.ERROR .. "MTSL: " .. MTSLUI_TOOLS:GetLocalisedLabel("close options menu"))
     else
-        -- hide account viewer
+        -- hide other explorerframes
         MTSLUI_ACCOUNT_EXPLORER_FRAME:Hide()
+        MTSLUI_NPC_EXPLORER_FRAME:Hide()
         self.ui_frame:Show()
         -- update the UI of the screen
         self:RefreshUI()
@@ -33,29 +33,17 @@ end
 -- @parent_frame		Frame		The parent frame
 ----------------------------------------------------------------------------------------------------------
 function MTSLUI_DATABASE_EXPLORER_FRAME:Initialise()
-    self.ui_frame = MTSLUI_TOOLS:CreateBaseFrame("Frame", "MTSLDBUI_DatabaseFrame", nil, nil, self.FRAME_WIDTH_VERTICAL_SPLIT, self.FRAME_HEIGHT_VERTICAL_SPLIT, true)
-    -- debug
-    self.ui_frame:SetScale(0.7)
-    self.ui_frame:SetBackdropColor(0,0,0,1)
-    -- Set Position to center of screen
-    self.ui_frame:SetPoint("CENTER", nil, "CENTER", 0, 0)
-    -- hide on creation
-    self.ui_frame:Hide()
-    -- Dummy operation to do nothing, discarding the zooming in/out
-    self.ui_frame:SetScript("OnMouseWheel", function() end)
-    -- Make the screen dragable/movable
-    MTSLUI_TOOLS:AddDragToFrame(self.ui_frame)
-    -- close/hide window on esc
-    tinsert(UISpecialFrames, "MTSLDBUI_DatabaseFrame")
-
-    -- add the close button
-    self.ui_frame.close_button = MTSLUI_TOOLS:CreateBaseFrame("Button", "", self.ui_frame, "UIPanelButtonTemplate", 24, 24)
-    self.ui_frame.close_button:SetText("X")
-    -- Set Position to top right of databaseframe
-    self.ui_frame.close_button:SetPoint("TOPRIGHT", self.ui_frame, "TOPRIGHT", -2, -2)
-    self.ui_frame.close_button:SetScript("OnClick", function()
-        MTSLUI_DATABASE_EXPLORER_FRAME:Hide()
-    end)
+    local swap_frames = {
+        {
+            button_text = "NPC",
+            frame_name = "MTSLUI_NPC_EXPLORER_FRAME",
+        },
+        {
+            button_text = "ACC",
+            frame_name = "MTSLUI_ACCOUNT_EXPLORER_FRAME",
+        },
+    }
+    self.ui_frame = MTSLUI_TOOLS:CreateMainFrame("MTSLUI_DATABASE_EXPLORER_FRAME", "MTSLUI_DatabaseFrame", self.FRAME_WIDTH_VERTICAL_SPLIT, self.FRAME_HEIGHT_VERTICAL_SPLIT, swap_frames)
 
     -- Create the frames inside this frame
     self:CreateCompontentFrames()
@@ -70,19 +58,19 @@ end
 function MTSLUI_DATABASE_EXPLORER_FRAME:CreateCompontentFrames()
     -- Copy & init the title frame
     self.title_frame = MTSL_TOOLS:CopyObject(MTSLUI_TITLE_FRAME)
-    self.title_frame:Initialise(self.ui_frame, "Database Explorer", 1165, 810)
+    self.title_frame:Initialise(self.ui_frame, "Database Explorer", self.FRAME_WIDTH_VERTICAL_SPLIT - 5, self.FRAME_WIDTH_HORIZONTAL_SPLIT - 5)
     -- position in left top corner of main frame
     self.title_frame.ui_frame:SetPoint("TOPLEFT", self.ui_frame, "TOPLEFT", 0, 0)
     -- Copy & init the profession list frame
     self.profession_list_frame = MTSL_TOOLS:CopyObject(MTSLUI_PROFESSION_LIST_FRAME)
     self.profession_list_frame:Initialise(self.title_frame.ui_frame, "MTSLDBUI_PROFESSION_LIST_FRAME")
     -- position left under titleframe
-    self.profession_list_frame.ui_frame:SetPoint("TOPLEFT", self.title_frame.ui_frame, "BOTTOMLEFT", 3, -5)
+    self.profession_list_frame.ui_frame:SetPoint("TOPLEFT", self.title_frame.ui_frame, "TOPLEFT", 4, -6)
     -- Copy & init the filter frame
     self.skill_list_filter_frame = MTSL_TOOLS:CopyObject(MTSLUI_FILTER_FRAME)
     self.skill_list_filter_frame:Initialise(self.profession_list_frame.ui_frame, "MTSLDBUI_SKILL_LIST_FILTER_FRAME")
     -- position under TitleFrame and right of ProfessionListFrame
-    self.skill_list_filter_frame.ui_frame:SetPoint("TOPLEFT", self.profession_list_frame.ui_frame, "TOPRIGHT", 0, 0)
+    self.skill_list_filter_frame.ui_frame:SetPoint("TOPLEFT", self.profession_list_frame.ui_frame, "TOPRIGHT", 0, -33)
     -- Copy & init the list frame
     self.skill_list_frame = MTSL_TOOLS:CopyObject(MTSLUI_LIST_FRAME)
     self.skill_list_frame:Initialise(self.skill_list_filter_frame.ui_frame, "MTSLDBUI_SKILL_LIST_FRAME")
@@ -101,7 +89,7 @@ function MTSLUI_DATABASE_EXPLORER_FRAME:CreateCompontentFrames()
     self.player_list_frame = MTSL_TOOLS:CopyObject(MTSLUI_PLAYER_LIST_FRAME)
     self.player_list_frame:Initialise(self.player_filter_frame.ui_frame, "MTSLDBUI_PLAYER_LIST_FRAME")
     -- position under the filter frame
-    self.player_list_frame.ui_frame:SetPoint("TOPLEFT", self.player_filter_frame.ui_frame, "BOTTOMLEFT", 0, -7)
+    self.player_list_frame.ui_frame:SetPoint("TOPLEFT", self.player_filter_frame.ui_frame, "BOTTOMLEFT", 0, -8)
 end
 
 function MTSLUI_DATABASE_EXPLORER_FRAME:LinkFrames()

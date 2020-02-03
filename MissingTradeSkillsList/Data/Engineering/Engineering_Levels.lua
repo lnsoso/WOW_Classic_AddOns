@@ -6,23 +6,23 @@ MTSL_DATA["Engineering"]["levels"] = {
         ["trainers"] = {
             ["price"] = 10,
             ["sources"] = {
-                1702, -- [1]
-                2857, -- [2]
-                3290, -- [3]
-                3412, -- [4]
-                3494, -- [5]
-                4586, -- [6]
-                5174, -- [7]
-                5518, -- [8]
-                8736, -- [9]
-                10993, -- [10]
-                11017, -- [11]
-                11025, -- [12]
-                11026, -- [13]
-                11028, -- [14]
-                11029, -- [15]
-                11031, -- [16]
-                11037, -- [17]
+                1702,
+                2857,
+                3290,
+                3412,
+                3494,
+                4586,
+                5174,
+                5518,
+                8736,
+                10993,
+                11017,
+                11025,
+                11026,
+                11028,
+                11029,
+                11031,
+                11037,
             },
         },
         ["name"] = {
@@ -34,24 +34,25 @@ MTSL_DATA["Engineering"]["levels"] = {
             ["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Engineering"],
             ["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Engineering"],
             ["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Engineering"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Engineering"],
         },
         ["min_skill"] = 0,
         ["id"] = 4036,
         ["max_skill"] = 75,
         ["min_xp_level"] = 5,
         ["rank"] = 1,
-    }, -- [1]
+    },
     {
         ["trainers"] = {
             ["price"] = 500,
             ["sources"] = {
-                3412, -- [1]
-                5174, -- [2]
-                5518, -- [3]
-                8736, -- [4]
-                11017, -- [5]
-                11029, -- [6]
-                11031, -- [7]
+                3412,
+                5174,
+                5518,
+                8736,
+                11017,
+                11029,
+                11031,
             },
         },
         ["name"] = {
@@ -63,19 +64,21 @@ MTSL_DATA["Engineering"]["levels"] = {
             ["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Engineering"],
             ["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Engineering"],
             ["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Engineering"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Engineering"],
         },
         ["min_skill"] = 50,
         ["id"] = 4037,
         ["max_skill"] = 150,
         ["rank"] = 2,
-    }, -- [2]
+        ["min_xp_level"] = 10,
+    },
     {
         ["trainers"] = {
             ["price"] = 5000,
             ["sources"] = {
-                5174, -- [1]
-                8736, -- [2]
-                11017, -- [3]
+                5174,
+                8736,
+                11017,
             },
         },
         ["name"] = {
@@ -87,18 +90,20 @@ MTSL_DATA["Engineering"]["levels"] = {
             ["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Engineering"],
             ["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Engineering"],
             ["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Engineering"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Engineering"],
         },
         ["min_skill"] = 125,
         ["id"] = 4038,
         ["max_skill"] = 225,
         ["rank"] = 3,
-    }, -- [3]
+        ["min_xp_level"] = 20,
+    },
     {
         ["min_xp_level"] = 35,
         ["trainers"] = {
             ["price"] = 50000,
             ["sources"] = {
-                8736, -- [1]
+                8736,
             },
         },
         ["name"] = {
@@ -110,10 +115,12 @@ MTSL_DATA["Engineering"]["levels"] = {
             ["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Engineering"],
             ["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Engineering"],
             ["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Engineering"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Engineering"],
         },
         ["min_skill"] = 200,
         ["id"] = 12656,
         ["max_skill"] = 300,
         ["rank"] = 4,
-    }, -- [4]
+        ["min_xp_level"] = 35,
+    },
 }

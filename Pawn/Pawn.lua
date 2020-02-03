@@ -7,7 +7,7 @@
 -- Main non-UI code
 ------------------------------------------------------------
 
-PawnVersion = 2.0315
+PawnVersion = 2.0320
 
 -- Pawn requires this version of VgerCore:
 local PawnVgerCoreVersionRequired = 1.11
@@ -205,8 +205,9 @@ function PawnInitialize()
 		end)
 	
 	-- Main game tooltip
-	if GameTooltip.SetAuctionItem then
-		-- SetAuctionItem was removed in 8.3.0.
+	if VgerCore.IsClassic then
+		-- SetAuctionItem was removed in 8.3.0 but is still there on Classic.  The (incorrect) way that BankItems hooks this function
+		-- causes the detection to fail, so just directly check the version.
 		hooksecurefunc(GameTooltip, "SetAuctionItem", function(self, ...) PawnUpdateTooltip("GameTooltip", "SetAuctionItem", ...) end)
 		hooksecurefunc(GameTooltip, "SetAuctionSellItem", function(self, ...) PawnUpdateTooltip("GameTooltip", "SetAuctionSellItem", ...) end)
 	end
@@ -633,7 +634,8 @@ function PawnInitializeOptions()
 			PawnCommon.ShowItemLevelUpgrades = true
 		end
 	end
-	if PawnCommon.LastVersion < PawnMrRobotLastUpdatedVersion then
+	if ((not VgerCore.IsClassic) and PawnCommon.LastVersion < PawnMrRobotLastUpdatedVersion) or
+		(VgerCore.IsClassic and PawnCommon.LastVersion < PawnClassicLastUpdatedVersion) then
 		-- If the Ask Mr. Robot scales have been updated since the last time they used Pawn, re-scan gear.
 		PawnInvalidateBestItems()
 	end
@@ -1546,7 +1548,7 @@ function PawnAddValuesToTooltip(Tooltip, ItemValues, UpgradeInfo, BestItemFor, S
 
 			-- Override the localized name if the scale was designed for only the current class, and it's not a user scale.
 			if Scale.ClassID == ClassID and Scale.SpecID and Scale.Provider then
-				local _, LocalizedSpecName = GetSpecializationInfoForClassID(ClassID, Scale.SpecID)
+				local _, LocalizedSpecName = PawnGetSpecializationInfoForClassID(ClassID, Scale.SpecID)
 				LocalizedName = LocalizedSpecName
 			end
 			-- Add the spec icon if present, and if that feature isn't disabled.
@@ -2507,16 +2509,16 @@ end
 -- (But if EvenIfNotEnchanted is true, the item link will be processed even if the item wasn't enchanted.)
 function PawnUnenchantItemLink(ItemLink, EvenIfNotEnchanted)
 	local TrimmedItemLink = PawnStripLeftOfItemLink(ItemLink)
-	local Pos, _, ItemID, EnchantID, GemID1, GemID2, GemID3, GemID4, SuffixID, MoreInfo, ViewAtLevel, SpecializationID, UpgradeLevel1, Difficulty, NumBonusIDs, BonusID1, BonusID2, BonusID3, BonusID4, BonusID5, BonusID6, BonusID7, BonusID8 = strfind(TrimmedItemLink, "^item:(%-?%d+):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%-?%d*):?(%-?%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*)")
+	local Pos, _, ItemID, EnchantID, GemID1, GemID2, GemID3, GemID4, SuffixID, MoreInfo, ViewAtLevel, SpecializationID, UpgradeLevel1, Difficulty, NumBonusIDs, BonusID1, BonusID2, BonusID3, BonusID4, BonusID5, BonusID6, BonusID7, BonusID8, BonusID9, BonusID10, BonusID11, BonusID12 = strfind(TrimmedItemLink, "^item:(%-?%d+):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%-?%d*):?(%-?%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*):?(%d*)")
 	-- Note: After the specified number of bonus IDs would be UpgradeLevel2, which could be the level at which the item was acquired for timewarped items, or
 	-- the Valor upgrade level.
+	-- Note: This code is gross and you should be ashamed.
 
 	if Pos then
-	
 		-- If this is a valor-upgradeable item that isn't fully upgraded, for purposes of calculation we always assume a fully-upgraded item is the "base."
 		-- The upgrade value will always come after the list of bonus IDs, as UpgradeLevel2.
 		NumBonusIDs = tonumber(NumBonusIDs) or 0
-		VgerCore.Assert(NumBonusIDs <= 8, "Didn't expect to find " .. tostring(NumBonusIDs) .. " bonus IDs on an item. Item stats may not be correct.")
+		VgerCore.Assert(NumBonusIDs <= 12, "Pawn didn't expect to find " .. tostring(NumBonusIDs) .. " bonus IDs on that complicated-ass item. Item stats may not be correct.")
 		local WasUpgraded = false -- This feature was removed in Pawn 2.1.4.
 
 		if
@@ -2543,7 +2545,11 @@ function PawnUnenchantItemLink(ItemLink, EvenIfNotEnchanted)
 			if BonusID6 == nil or BonusID6 == "" then BonusID6 = "0" end
 			if BonusID7 == nil or BonusID7 == "" then BonusID7 = "0" end
 			if BonusID8 == nil or BonusID8 == "" then BonusID8 = "0" end
-			return "item:" .. ItemID .. ":0:0:0:0:0:" .. SuffixID .. ":" .. MoreInfo .. ":" .. 0 .. ":" .. SpecializationID .. ":" .. UpgradeLevel1 .. ":" .. Difficulty .. ":" .. NumBonusIDs .. ":" .. BonusID1 .. ":" .. BonusID2 .. ":" .. BonusID3 .. ":" .. BonusID4 .. ":" .. BonusID5 .. ":" .. BonusID6 .. ":" .. BonusID7 .. ":" .. BonusID8, WasUpgraded
+			if BonusID9 == nil or BonusID9 == "" then BonusID9 = "0" end
+			if BonusID10 == nil or BonusID10 == "" then BonusID10 = "0" end
+			if BonusID11 == nil or BonusID11 == "" then BonusID11 = "0" end
+			if BonusID12 == nil or BonusID12 == "" then BonusID12 = "0" end
+			return "item:" .. ItemID .. ":0:0:0:0:0:" .. SuffixID .. ":" .. MoreInfo .. ":" .. 0 .. ":" .. SpecializationID .. ":" .. UpgradeLevel1 .. ":" .. Difficulty .. ":" .. NumBonusIDs .. ":" .. BonusID1 .. ":" .. BonusID2 .. ":" .. BonusID3 .. ":" .. BonusID4 .. ":" .. BonusID5 .. ":" .. BonusID6 .. ":" .. BonusID7 .. ":" .. BonusID8 .. ":" .. BonusID9 .. ":" .. BonusID10 .. ":" .. BonusID11 .. ":" .. BonusID12, WasUpgraded
 		else
 			-- This item is not enchanted.  Return nil.
 			return nil
@@ -4108,8 +4114,6 @@ function PawnAddItemToLevelTracker(Item)
 		PutNewItemInSlot = Slot2
 	end
 
-	-- TODO: *** Rings and trinkets with the same ID should only be able to upgrade weaker versions of the same item
-
 	if PutNewItemInSlot then
 		if PawnCommon.ShowSlotDebugInfo then
 			VgerCore.Message(Item.Link .. " is now your best item in slot " .. PutNewItemInSlot .. ".")
@@ -4150,8 +4154,6 @@ function PawnIsItemAnItemLevelUpgrade(Item)
 		-- If the item is already one of your best, it can't be an upgrade.
 		return
 	end
-
-	-- TODO: *** Rings and trinkets with the same ID should only be able to upgrade weaker versions of the same item
 
 	local Difference
 	if Slot1 and PawnOptions.ItemLevels[Slot1] and Item.Level > PawnOptions.ItemLevels[Slot1].Level then
@@ -4672,7 +4674,7 @@ function PawnImportScale(ScaleTag, Overwrite)
 	elseif SpecID and VgerCore.IsClassic then
 		SpecID = nil
 	end
-	if SpecID then _, _, _, IconTexturePath, Role = GetSpecializationInfoForClassID(ClassID, SpecID) end
+	if SpecID then _, _, _, IconTexturePath, Role = PawnGetSpecializationInfoForClassID(ClassID, SpecID) end
 		
 	local AlreadyExists = PawnCommon.Scales[ScaleName] ~= nil
 	if AlreadyExists and (PawnScaleIsReadOnly(ScaleName) or not Overwrite) then
@@ -5107,7 +5109,7 @@ function PawnAddPluginScaleFromTemplate(ProviderInternalName, ClassID, SpecID, S
 	local LocalizedClassName, UnlocalizedClassName = PawnGetClassInfo(ClassID)
 	local _, LocalizedSpecName, IconTexturePath, Role
 	if SpecID then
-		_, LocalizedSpecName, _, IconTexturePath, Role = GetSpecializationInfoForClassID(ClassID, SpecID)
+		_, LocalizedSpecName, _, IconTexturePath, Role = PawnGetSpecializationInfoForClassID(ClassID, SpecID)
 	end
 
 	local Template = PawnFindScaleTemplate(ClassID, SpecID)
@@ -5147,6 +5149,8 @@ function PawnAddPluginScaleFromTemplate(ProviderInternalName, ClassID, SpecID, S
 	NewScale.SpecID = SpecID
 	NewScale.IconTexturePath = IconTexturePath
 	NewScale.Role = Role
+
+	return NewScale
 end
 
 -- Wraps the GetClassInfo function so that it can be called on WoW Classic.
@@ -5179,6 +5183,42 @@ function PawnGetClassInfo(ClassID)
 
 	return LOCALIZED_CLASS_NAMES_MALE[UnlocalizedClassName], UnlocalizedClassName
 end
+
+if VgerCore.IsClassic then
+	-- Classic doesn't have a Guardian spec for druids, so rename.
+	PawnLocal.Specs[11][3].Name = PawnLocal.Specs[11][2].Name .. " (" .. TANK .. ")"
+	PawnLocal.Specs[11][2].Name = PawnLocal.Specs[11][2].Name .. " (" .. DAMAGER .. ")"
+	-- And, back then, Outlaw was called Combat.
+	PawnLocal.Specs[4][2].Name = COMBAT
+end
+
+-- Wraps the GetSpecializationInfoForClassID function so that it can be called on WoW Classic.
+-- On WoW Classic, this only returns: _, LocalizedSpecName, _, IconID, Role
+function PawnGetSpecializationInfoForClassID(ClassID, SpecID)
+	if GetSpecializationInfoForClassID then return GetSpecializationInfoForClassID(ClassID, SpecID) end
+
+	local SpecInfo = PawnLocal.Specs[ClassID][SpecID]
+	return nil, SpecInfo.Name, nil, SpecInfo.Texture, SpecInfo.Role
+end
+
+-- To generate PawnLocal.Specs to place into Localization.lua:
+-- /script PawnGenerateLocalizedSpecsTable()
+-- function PawnGenerateLocalizedSpecsTable()
+-- 	local String = "PawnLocal.Specs =\r\n{\r\n"
+
+-- 	local ClassID, SpecID
+-- 	for ClassID = 1, GetNumClasses() do
+-- 		String = String .. "    [" .. ClassID .. "] = {\r\n"
+-- 		for SpecID = 1, GetNumSpecializationsForClassID(ClassID) do
+-- 			local _, LocalizedSpecName, _, IconID, Role = GetSpecializationInfoForClassID(ClassID, SpecID)
+-- 			String = String .. "        { Name=\"" .. LocalizedSpecName .. "\", Icon=" .. IconID .. ", Role=\"" .. Role .. "\" },\r\n"
+-- 		end
+-- 		String = String .. "    },\r\n"
+-- 	end
+
+-- 	String = String .. "}"
+-- 	PawnUIShowCopyableString("PawnLocal.Specs", String, nil, true)
+-- end
 
 -- Returns the unenchanted item link of the best item that a user has for a particular scale and inventory type.
 -- Parameters:

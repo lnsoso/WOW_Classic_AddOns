@@ -44,6 +44,15 @@ Tool.Classes=CLASS_SORT_ORDER
 Tool.ClassName=LOCALIZED_CLASS_NAMES_MALE
 Tool.ClassColor=RAID_CLASS_COLORS
 
+Tool.NameToClass={}
+for eng,name in pairs(LOCALIZED_CLASS_NAMES_MALE) do
+	Tool.NameToClass[name]=eng
+	Tool.NameToClass[eng]=eng
+end
+for eng,name in pairs(LOCALIZED_CLASS_NAMES_FEMALE) do
+	Tool.NameToClass[name]=eng
+end
+
 local _tableAccents = {
     ["À"] = "A", ["Á"] = "A", ["Â"] = "A", ["Ã"] = "A", ["Ä"] = "Ae", ["Å"] = "A",
 	["Æ"] = "AE", ["Ç"] = "C", ["È"] = "E", ["É"] = "E", ["Ê"] = "E", ["Ë"] = "E", 
@@ -145,6 +154,26 @@ function Tool.EnableMoving(frame,callback)
 end
 
 -- misc tools
+
+function Tool.GuildNameToIndex(name, searchOffline)
+	name = string.lower(name)
+	for i = 1,GetNumGuildMembers(searchOffline) do
+		if string.lower( string.match((GetGuildRosterInfo(i)),"(.-)-")) == name then
+			return i
+		end
+	end
+end
+
+function Tool.RunSlashCmd(cmd)
+    if Tool._EditBox==nil then 
+		Tool._EditBox = CreateFrame("EditBox", "GPILIB_myEditBox_"..TOCNAME, UIParent)
+		Tool._EditBox.chatFrame = Tool._EditBox:GetParent();
+		ChatEdit_OnLoad(Tool._EditBox);
+		Tool._EditBox:Hide()
+	end
+	Tool._EditBox:SetText(cmd) 
+	ChatEdit_SendText(Tool._EditBox)  
+end 
 
 function Tool.RGBtoEscape(r, g, b,a)
 	if type(r)=="table" then

@@ -63,7 +63,7 @@ MTSLUI_HORIZONTAL_SLIDER = {
         self.ui_frame.slider:SetScript("OnValueChanged", function(event_frame, value)
             if value ~= nil then
                 -- round to an integer
-                value = math.ceil(value-0.5)
+                value = ceil(value-0.5)
                 slider:SetSliderValue(value)
             end
         end)

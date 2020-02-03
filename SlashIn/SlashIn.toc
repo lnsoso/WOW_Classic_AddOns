@@ -1,5 +1,5 @@
-## Interface: 11302
-## Version: v1-classic
+## Interface: 11303
+## Version: v2-classic
 ## Author: Funkydude
 ## Title: SlashIn
 ## Notes: Provides the /in command for delayed execution.

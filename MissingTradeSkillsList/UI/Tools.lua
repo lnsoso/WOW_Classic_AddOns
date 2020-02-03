@@ -9,12 +9,12 @@ MTSLUI_TOOLS = {
 	---------------------------------------------------------------------------------------
 	-- Create a generic MTSLUI_FRAME
 	--
-	-- @type:			string		Type of the frame ("Frame", "Button", "Slider")
-	-- @name:			string		The name of the frame
-	-- @parent:			ojbect		The parentframe (can be nil)
-	-- @template:		string		The name of the template to follow (can be nil)
-	-- @width:			number		The width of the frame
-	-- @height:			number		The height of the frame
+	-- @type			string		Type of the frame ("Frame", "Button", "Slider")
+	-- @name			string		The name of the frame
+	-- @parent			ojbect		The parentframe (can be nil)
+	-- @template		string		The name of the template to follow (can be nil)
+	-- @width			number		The width of the frame
+	-- @height			number		The height of the frame
 	-- @has_backdrop	boolean		Frame has backgroound or not (can be nil)
 	--
 	-- returns			Frame		Returns the created frame
@@ -46,6 +46,62 @@ MTSLUI_TOOLS = {
 		return generic_frame
 	end,
 
+	---------------------------------------------------------------------------------------
+	-- Create a generic MainFrame
+	--
+	-- @name_parent_class	string		The name of the parent class which will use this mainframe
+	-- @name				string		The name of the frame
+	-- @width				number		The width of the frame
+	-- @height				number		The height of the frame
+	-- @swap_frames			Array		List of frames this mainframe can swap too
+	--
+	-- returns				Frame		Returns the created frame
+	----------------------------------------------------------------------------------------
+	CreateMainFrame = function(self, name_parent_class, name, width, height, swap_frames)
+		local main_frame = self:CreateBaseFrame("Frame", name, nil, nil, width, height, true)
+		-- make sure it is shown above other frames
+		main_frame:SetFrameLevel(10)
+		main_frame:SetToplevel(true)
+		-- Set Position to center of screen
+		main_frame:SetPoint("CENTER", nil, "CENTER", 0, 0)
+		-- hide on creation
+		main_frame:Hide()
+		-- Dummy operation to do nothing, discarding the zooming in/out
+		main_frame:SetScript("OnMouseWheel", function() end)
+		-- Make the screen dragable/movable
+		self:AddDragToFrame(main_frame)
+		-- close/hide window on esc
+		tinsert(UISpecialFrames, name)
+
+		-- add the close button
+		main_frame.close_button = self:CreateBaseFrame("Button", "", main_frame, "UIPanelButtonTemplate", 24, 24)
+		main_frame.close_button:SetText("X")
+		-- Set Position to top right of databaseframe
+		main_frame.close_button:SetPoint("TOPRIGHT", main_frame, "TOPRIGHT", -2, -2)
+		main_frame.close_button:SetScript("OnClick", function()
+			_G[name_parent_class]:Hide()
+		end)
+
+		if swap_frames ~= nil and swap_frames ~= {} then
+			local last_swap_button = main_frame.close_button
+
+			-- Add buttons for each explorer frame taht is provided to be able to swap too
+			for _, v in pairs(swap_frames) do
+				-- add the close button
+				local swap_button = self:CreateBaseFrame("Button", "", main_frame, "UIPanelButtonTemplate", 60, 24)
+				swap_button:SetText(v.button_text)
+				-- Set Position to top right of databaseframe
+				swap_button:SetPoint("TOPRIGHT", last_swap_button, "TOPLEFT", 0, 0)
+				swap_button:SetScript("OnClick", function()
+					_G[v.frame_name]:Show()
+				end)
+				last_swap_button = swap_button
+			end
+		end
+
+		return main_frame
+	end,
+
 	----------------------------------------------------------------------------------------
 	-- Creates a label for the given frame
 	--
@@ -65,6 +121,64 @@ MTSLUI_TOOLS = {
 			new_label:SetText(MTSLUI_FONTS.COLORS.TEXT.TITLE .. text)
 		end
 		return new_label
+	end,
+
+	---------------------------------------------------------------------------------------
+	-- Create a button with icon and text
+	--
+	-- @event_class		Frame		The frame for which to create the label
+	-- @name			String		The name of the button
+	-- @nr_in_list		Number		The number of the button in a list of buttons
+	-- @btn_width		Number		The width of the button
+	-- @btn_height		Number		The height of the button
+	--
+	-- returns		Object		The created button
+	----------------------------------------------------------------------------------------------------------
+	CreateIconTextButton = function(self, event_class, name, nr_in_list, btn_width, btn_height)
+		local TEXTURES_BUTTON = {
+			SELECTED = "Interface\\Buttons\\UI-Listbox-Highlight",
+			HIGHLIGHTED = "Interface\\Tooltips\\UI-Tooltip-Background",
+			NOT_SELECTED = "",
+		}
+
+		local b = CreateFrame("Button", name, event_class.ui_frame)
+		-- assume no scrollbar
+		b:SetSize(btn_width, btn_height)
+		-- Custom textures for the button
+		b:SetPushedTexture(TEXTURES_BUTTON.SELECTED)
+		b:SetHighlightTexture(TEXTURES_BUTTON.HIGHLIGHTED)
+		b:SetNormalTexture(TEXTURES_BUTTON.NOT_SELECTED)
+
+		-- Add the icon to left with some margin
+		local t = b:CreateTexture("btn_icon", "OVERLAY")
+		t:SetTexture("Interface\\Icons\\trade_engraving")
+		t:SetWidth(16)
+		t:SetHeight(16)
+		t:SetPoint("LEFT", 3, 0)
+		b.texture = t
+
+		b:SetScript("OnClick", function (btn)
+			event_class:HandleSelectedListItem(nr_in_list)
+		end)
+
+		b.Select = function(btn)
+			btn.is_selected = 1
+			btn:SetNormalTexture(TEXTURES_BUTTON.SELECTED)
+		end
+
+		b.Deselect = function(btn)
+			btn.is_selected = 0
+			btn:SetNormalTexture(TEXTURES_BUTTON.NOT_SELECTED)
+		end
+
+		b.IsSelected = function(btn)
+			return btn.is_selected == 1
+		end
+
+		-- Add text to button, left of the icon with some margin
+		b.text = self:CreateLabel(b, "-", 20, 1, "LABEL", "LEFT")
+
+		return b
 	end,
 
 	-----------------------------------------------------------------------------------------
@@ -109,8 +223,8 @@ MTSLUI_TOOLS = {
 	----------------------------------------------------------------------------------------
 	PrintAboutMessage = function (self)
 		print(MTSLUI_FONTS.COLORS.TEXT.TITLE .. MTSLUI_ADDON.NAME)
-		print(MTSLUI_FONTS.COLORS.TEXT.TITLE .. MTSLUI_FONTS.TAB .. "Author: " .. MTSLUI_FONTS.COLORS.TEXT.NORMAL .. MTSLUI_ADDON.AUTHOR)
-		print(MTSLUI_FONTS.COLORS.TEXT.TITLE .. MTSLUI_FONTS.TAB .. "Version: " .. MTSLUI_FONTS.COLORS.TEXT.NORMAL .. MTSLUI_ADDON.VERSION)
+		print(MTSLUI_FONTS.COLORS.TEXT.TITLE .. MTSLUI_FONTS.TAB .. MTSLUI_TOOLS:GetLocalisedLabel("author") .. MTSLUI_FONTS.COLORS.TEXT.NORMAL .. MTSLUI_ADDON.AUTHOR)
+		print(MTSLUI_FONTS.COLORS.TEXT.TITLE .. MTSLUI_FONTS.TAB .. MTSLUI_TOOLS:GetLocalisedLabel("version") .. MTSLUI_FONTS.COLORS.TEXT.NORMAL .. MTSLUI_ADDON.VERSION)
 	end,
 
 	----------------------------------------------------------------------------------------
@@ -118,15 +232,17 @@ MTSLUI_TOOLS = {
 	----------------------------------------------------------------------------------------
 	PrintHelpMessage = function (self)
 		self:PrintAboutMessage()
-		print("/mtsl"  .. MTSLUI_FONTS.TAB .. MTSLUI_FONTS.TAB .. MTSLUI_FONTS.TAB .."Opens the configuration/options menu")
-		print("/mtsl config")
-		print("/mtsl options")
-		print("/mstl about" .. MTSLUI_FONTS.TAB .. "Print information about this addon")
-		print("/mstl help" .. MTSLUI_FONTS.TAB .. "Print how to use this addon")
-        print("/mstl acc " .. MTSLUI_FONTS.TAB  .. "Opens the account wide frame")
-        print("/mstl account")
-		print("/mstl db" .. MTSLUI_FONTS.TAB .. "Opens the database explorer window")
-        print("/mstl database")
+		local slashtext = "/mtsl"
+		print(slashtext  .. "                     Opens the configuration/options menu")
+		print(slashtext .. " config")
+		print(slashtext .. " options")
+		print(slashtext .. " about          Print information about this addon")
+		print(slashtext .. " help            Print how to use this addon")
+		print(slashtext .. " acc              Opens the account explorer frame")
+		print(slashtext .. " account")
+		print(slashtext .. " db               Opens the database explorer window")
+		print(slashtext .. " database")
+		print(slashtext .. " npc             Opens the NPC explorer window")
 	end,
 
 	------------------------------------------------------------------------------------------------
@@ -174,20 +290,23 @@ MTSLUI_TOOLS = {
 	------------------------------------------------------------------------------------------------
 	CreateWayPoint = function(self, label_text, item_name)
 		-- parse the text: build up as <name npc/oject> - <name zone> (coord x, coord y)
-		local name_npc, label_text = strsplit("-", label_text, 2)
+		local _, label_text = strsplit("\\	] ", label_text, 2)
 		if label_text ~= nil and label_text ~= "" then
-			local zone, label_text = strsplit("(", label_text, 2)
+			local name_npc, label_text = strsplit("-", label_text, 2)
 			if label_text ~= nil and label_text ~= "" then
-				local x_coord, label_text = strsplit(",", label_text, 2)
+				local zone, label_text = strsplit("(", label_text, 2)
 				if label_text ~= nil and label_text ~= "" then
-					local y_coord, label_text = strsplit(")", label_text, 2)
-					if y_coord ~= nil and y_coord ~= "" then
-						-- only add waypoint is tom tom is installed
-						if IsAddOnLoaded("TomTom") and SlashCmdList["TOMTOM_WAY"] ~= nil then
-							SlashCmdList["TOMTOM_WAY"](zone .. x_coord .. y_coord .. " " .. name_npc .. " (" .. item_name .. ")")
-						elseif not self.tomtom_warned then
-							print(MTSLUI_FONTS.COLORS.TEXT.WARNING .. "MTSL: You need to install TomTom to add waypoints!")
-							self.tomtom_warned = true
+					local x_coord, label_text = strsplit(",", label_text, 2)
+					if label_text ~= nil and label_text ~= "" then
+						local y_coord, label_text = strsplit(")", label_text, 2)
+						if y_coord ~= nil and y_coord ~= "" then
+							-- only add waypoint is tom tom is installed
+							if IsAddOnLoaded("TomTom") and SlashCmdList["TOMTOM_WAY"] ~= nil then
+								SlashCmdList["TOMTOM_WAY"](zone .. x_coord .. y_coord .. " " .. name_npc .. " (" .. item_name .. ")")
+							elseif not self.tomtom_warned then
+								print(MTSLUI_FONTS.COLORS.TEXT.WARNING .. "MTSL: " .. MTSLUI_TOOLS:GetLocalisedLabel("tomtom needed"))
+								self.tomtom_warned = true
+							end
 						end
 					end
 				end
@@ -195,16 +314,16 @@ MTSLUI_TOOLS = {
 		end
 	end,
 
-    ------------------------------------------------------------------------------------------------
-    -- Fill A drop down list
-    --
-    -- @values              Array           List containing values to add
-    -- @change_handler      Function        Function that handles the change of value in the DDL
+	------------------------------------------------------------------------------------------------
+	-- Fill A drop down list
+	--
+	-- @values              Array           List containing values to add
+	-- @change_handler      Function        Function that handles the change of value in the DDL
 	-- @change_frame_name	String			The name of the frame to handle the change event
-    ------------------------------------------------------------------------------------------------
-    FillDropDown = function(self, values, change_handler, change_frame_name)
-        local info = UIDropDownMenu_CreateInfo()
-        -- add all values
+	------------------------------------------------------------------------------------------------
+	FillDropDown = function(self, values, change_handler, change_frame_name)
+		local info = UIDropDownMenu_CreateInfo()
+		-- add all values
 		for _, v in pairs(values) do
 			-- already localised in array so no need to index
 			info.text = v.name
@@ -222,12 +341,29 @@ MTSLUI_TOOLS = {
 			info.hasArrow = false;
 			UIDropDownMenu_AddButton(info)
 		end
-    end,
+	end,
 
+	------------------------------------------------------------------------------------------------
+	-- Adds a generic drag to a frame
+	------------------------------------------------------------------------------------------------
 	AddDragToFrame = function(self, frame_to_drag)
 		frame_to_drag:SetMovable(true)
 		frame_to_drag:RegisterForDrag("LeftButton")
 		frame_to_drag:SetScript("OnDragStart", function(frame) frame:StartMoving() end)
 		frame_to_drag:SetScript("OnDragStop", function(frame) frame:StopMovingOrSizing() end)
+	end,
+
+	------------------------------------------------------------------------------------------------
+	-- Returns the text for a label in the current locale/language
+------------------------------------------------------------------------------------------------
+	GetLocalisedLabel = function(self, label)
+		return MTSLUI_LOCALES_LABELS[label][MTSLUI_CURRENT_LANGUAGE]
+	end,
+
+	------------------------------------------------------------------------------------------------
+	-- Returns the name of a data object in the current locale/language
+	------------------------------------------------------------------------------------------------
+	GetLocalisedData = function(self, data)
+		return data["name"][MTSLUI_CURRENT_LANGUAGE]
 	end,
 }

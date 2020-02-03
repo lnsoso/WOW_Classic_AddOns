@@ -1,8 +1,9 @@
 ## Interface: 11303
 ## Title: Item Autocomplete
 ## Author: Darfink
-## Version: 1.0.4
+## Version: 1.0.6
 ## SavedVariables: ItemAutocompleteDB
+## X-ItemDatabaseVersion: 1
 
 # Libraries
 Libs\Libs.xml

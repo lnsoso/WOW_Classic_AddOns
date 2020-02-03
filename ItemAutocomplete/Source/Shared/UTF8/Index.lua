@@ -50,7 +50,7 @@ local function CodePoint(string, offset)
     offset = offset + 1
     char = string:byte(offset)
 
-    if char < 128 or char > 191 then
+    if char <= maxAscii or char > 191 then
       error('Following bytes must have values between 0x80 and 0xBF')
     end
 
@@ -82,41 +82,47 @@ end
 export.maxAscii = maxAscii
 
 -- Returns an iterator of an UTF-8 string's codepoints
+--
+-- This is intentionally a stateless iterator to improve performance and avoid
+-- allocations whilst iterating a string's code points. Profiling showed that
+-- this halves the execution time of the fuzzy search algorithm. The downside is
+-- that the index value returned by the iterator may not be what is expected;
+-- it's the byte index of the *next* code point (not the current one).
 function export.CodePoints(string)
   return CodePoint, string, 1
 end
 
 -- Returns whether the character is a letter or not
 function export.IsLetter(input)
-  return not not charsets.Default[0x61][GetCharacterCodePoint(input)]
+  return not not charsets.Letters[GetCharacterCodePoint(input)]
 end
 
 -- Returns whether the character is an upper case letter or not
 function export.IsUpperCaseLetter(input)
-  return not not charsets.Default[0x75][GetCharacterCodePoint(input)]
+  return not not charsets.UpperCaseLetters[GetCharacterCodePoint(input)]
 end
 
 -- Returns whether the character is a lower case letter or not
 function export.IsLowerCaseLetter(input)
-  return not not charsets.Default[0x6C][GetCharacterCodePoint(input)]
+  return not not charsets.LowerCaseLetters[GetCharacterCodePoint(input)]
 end
 
 -- Returns whether the character is a digit or not
 function export.IsDigit(input)
-  return not not charsets.Default[0x64][GetCharacterCodePoint(input)]
+  return not not charsets.Digits[GetCharacterCodePoint(input)]
 end
 
--- Converts a string or character to lower case
+-- Converts a character to lower case
 function export.ToLower(input)
-  if type(input) == 'number' then
-    if input >= 65 and input <= 90 then
-      return input + 32
-    elseif input > maxAscii then
-      return casing.UpperToLowerByCodePoint[input] or input
-    end
-
-    return input
-  else
-    return input:gsub('([^\128-\191][\128-\191]*)', casing.UpperToLowerByString)
+  if type(input) ~= 'number' then
+    error('not implemented')
   end
+
+  if input >= 65 and input <= 90 then
+    return input + 32
+  elseif input > maxAscii then
+    return casing.UpperToLowerByCodePoint[input] or input
+  end
+
+  return input
 end

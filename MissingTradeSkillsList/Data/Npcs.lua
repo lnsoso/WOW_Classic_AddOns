@@ -15,6 +15,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Таринн Боуден",
 			["Chinese"] = "萨瑞恩·博丁",
 			["Spanish"] = "Tharynn Bouden",
+			["Mexican"] = "Tharynn Bouden",
 			["French"] = "Tharynn Bouden",
 			["English"] = "Tharynn Bouden",
 			["Korean"] = "타린 바우던",
@@ -26,7 +27,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "10",
 			["is_elite"] = 0,
 		},
-	}, -- [1]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -40,6 +41,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дэн Голтас",
 			["Chinese"] = "丹·戈萨斯",
 			["Spanish"] = "Dan Golthas",
+			["Mexican"] = "Dan Golthas",
 			["French"] = "Dan Golthas",
 			["English"] = "Dan Golthas",
 			["Korean"] = "단 골다스",
@@ -51,7 +53,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "23",
 			["is_elite"] = 0,
 		},
-	}, -- [2]
+	},
 	{
 		["zone_id"] = 40,
 		["phase"] = 1,
@@ -65,6 +67,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Сальма Сальден",
 			["Chinese"] = "萨尔玛·萨丁",
 			["Spanish"] = "Salma Saldean",
+			["Mexican"] = "Salma Saldean",
 			["French"] = "Salma Saldean",
 			["English"] = "Salma Saldean",
 			["Korean"] = "살마 살딘",
@@ -76,7 +79,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "20",
 			["is_elite"] = 0,
 		},
-	}, -- [3]
+	},
 	{
 		["zone_id"] = 10,
 		["phase"] = 1,
@@ -90,6 +93,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Шеф-повар Груаль",
 			["Chinese"] = "厨师格鲁奥",
 			["Spanish"] = "Chef Grual",
+			["Mexican"] = "Chef Grual",
 			["French"] = "Chef Grual",
 			["English"] = "Chef Grual",
 			["Korean"] = "주방장 그루얼",
@@ -101,7 +105,33 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [4]
+	},
+	{
+		["zone_id"] = 1519,
+		["phase"] = 1,
+		["id"] = 332,
+		["location"] = {
+			["y"] = "75.80",
+			["x"] = "59.80",
+		},
+		["name"] = {
+			["Portuguese"] = "Mestre Mathias Shaw",
+			["Russian"] = "Мастер Матиас Шоу",
+			["Chinese"] = "马迪亚斯·肖尔",
+			["Spanish"] = "Maestro Mathias Shaw",
+			["Mexican"] = "Maestro Mathias Shaw",
+			["French"] = "Maître Mathias Shaw",
+			["English"] = "Master Mathias Shaw",
+			["Korean"] = "단장 마티아스 쇼",
+			["German"] = "Meister Mathias Shaw",
+		},
+		["reacts"] = "Alliance",
+		["xp_level"] = {
+			["max"] = "62",
+			["min"] = "62",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -115,6 +145,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кендор Кабонка",
 			["Chinese"] = "肯多尔·卡邦卡",
 			["Spanish"] = "Kendor Kabonka",
+			["Mexican"] = "Kendor Kabonka",
 			["French"] = "Kendor Kabonka",
 			["English"] = "Kendor Kabonka",
 			["Korean"] = "켄로드 카본카",
@@ -126,7 +157,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [5]
+	},
 	{
 		["zone_id"] = 44,
 		["phase"] = 1,
@@ -140,6 +171,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Шеф-повар Брианна",
 			["Chinese"] = "厨师布雷纳",
 			["Spanish"] = "Chef Breanna",
+			["Mexican"] = "Chef Breanna",
 			["French"] = "Chef Breanna",
 			["English"] = "Chef Breanna",
 			["Korean"] = "주방장 브리나",
@@ -151,7 +183,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "19",
 			["is_elite"] = 0,
 		},
-	}, -- [6]
+	},
 	{
 		["zone_id"] = 44,
 		["phase"] = 1,
@@ -165,6 +197,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Портовый начальник Барен",
 			["Chinese"] = "码头管理员巴伦",
 			["Spanish"] = "Maestro de embarcadero Baren",
+			["Mexican"] = "Maestro de embarcadero Baren",
 			["French"] = "Chef des docks Baren",
 			["English"] = "Dockmaster Baren",
 			["Korean"] = "항구주임 바렌",
@@ -176,7 +209,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "20",
 			["is_elite"] = 0,
 		},
-	}, -- [7]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -190,6 +223,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Охотник Скверны",
 			["Chinese"] = "地狱猎犬",
 			["Spanish"] = "Manáfago",
+			["Mexican"] = "Manáfago",
 			["French"] = "Chasseur corrompu",
 			["English"] = "Felhunter",
 			["Korean"] = "지옥사냥개",
@@ -201,7 +235,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 0,
 		},
-	}, -- [8]
+	},
 	{
 		["zone_id"] = 44,
 		["phase"] = 1,
@@ -215,6 +249,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Вожак стаи Красногорья",
 			["Chinese"] = "赤脊山突击队员",
 			["Spanish"] = "Alfa de Crestagrana",
+			["Mexican"] = "Alfa de Crestagrana",
 			["French"] = "Alpha des Carmines",
 			["English"] = "Redridge Alpha",
 			["Korean"] = "붉은마루일족 부대장",
@@ -226,7 +261,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "21",
 			["is_elite"] = 0,
 		},
-	}, -- [9]
+	},
 	{
 		["zone_id"] = 1581,
 		["phase"] = 1,
@@ -240,6 +275,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Маг-отступник из Братства Справедливости",
 			["Chinese"] = "迪菲亚叛节法师",
 			["Spanish"] = "Mago renegado Defias",
+			["Mexican"] = "Mago renegado Defias",
 			["French"] = "Mage renégat défias",
 			["English"] = "Defias Renegade Mage",
 			["Korean"] = "데피아즈단 변절마법사",
@@ -251,7 +287,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "18",
 			["is_elite"] = 0,
 		},
-	}, -- [10]
+	},
 	{
 		["zone_id"] = 12,
 		["phase"] = 1,
@@ -265,6 +301,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кузнец Аргус",
 			["Chinese"] = "铁匠阿古斯",
 			["Spanish"] = "Herrero Argus",
+			["Mexican"] = "Herrero Argus",
 			["French"] = "Argus le forgeron",
 			["English"] = "Smith Argus",
 			["Korean"] = "대장장이 아거스",
@@ -276,7 +313,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [11]
+	},
 	{
 		["zone_id"] = 40,
 		["phase"] = 1,
@@ -290,6 +327,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мошенник из Братства Справедливости",
 			["Chinese"] = "迪菲亚强夺者",
 			["Spanish"] = "Despojador Defias",
+			["Mexican"] = "Despojador Defias",
 			["French"] = "Pillard défias",
 			["English"] = "Defias Looter",
 			["Korean"] = "데피아즈단 약탈자",
@@ -301,7 +339,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "13",
 			["is_elite"] = 0,
 		},
-	}, -- [12]
+	},
 	{
 		["zone_id"] = 1581,
 		["phase"] = 1,
@@ -311,6 +349,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Пират из Братства Справедливости",
 			["Chinese"] = "迪菲亚海盗",
 			["Spanish"] = "Pirata Defias",
+			["Mexican"] = "Pirata Defias",
 			["French"] = "Pirate défias",
 			["English"] = "Defias Pirate",
 			["Korean"] = "데피아즈단 해적",
@@ -322,7 +361,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "18",
 			["is_elite"] = 1,
 		},
-	}, -- [13]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -336,6 +375,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Горнорабочий Торговой компании",
 			["Chinese"] = "风险投资公司露天矿工",
 			["Spanish"] = "Cantero de Ventura y Cía.",
+			["Mexican"] = "Cantero de Ventura y Cía.",
 			["French"] = "Carrier de la KapitalRisk",
 			["English"] = "Venture Co. Strip Miner",
 			["Korean"] = "투자개발회사 갱부",
@@ -347,7 +387,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [14]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -361,6 +401,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Капрал Блуф",
 			["Chinese"] = "布鲁斯下士",
 			["Spanish"] = "Cabo Bluth",
+			["Mexican"] = "Cabo Bluth",
 			["French"] = "Caporal Bluth",
 			["English"] = "Corporal Bluth",
 			["Korean"] = "하사관 블루스",
@@ -372,7 +413,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [15]
+	},
 	{
 		["zone_id"] = 8,
 		["phase"] = 1,
@@ -386,6 +427,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тиноброд",
 			["Chinese"] = "沼泽漫步者",
 			["Spanish"] = "Caminalodo",
+			["Mexican"] = "Caminalodo",
 			["French"] = "Maraistreur",
 			["English"] = "Swampwalker",
 			["Korean"] = "늪괴물",
@@ -397,7 +439,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "38",
 			["is_elite"] = 0,
 		},
-	}, -- [16]
+	},
 	{
 		["zone_id"] = 8,
 		["phase"] = 1,
@@ -411,6 +453,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Старый тиноброд",
 			["Chinese"] = "沼泽漫步者长老",
 			["Spanish"] = "Viejo caminalodo",
+			["Mexican"] = "Viejo caminalodo",
 			["French"] = "Ancien Maraistreur",
 			["English"] = "Swampwalker Elder",
 			["Korean"] = "덩치큰 늪괴물",
@@ -422,7 +465,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "39",
 			["is_elite"] = 0,
 		},
-	}, -- [17]
+	},
 	{
 		["zone_id"] = 8,
 		["phase"] = 1,
@@ -436,6 +479,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Перевитый ужас",
 			["Chinese"] = "纠缠恐兽",
 			["Spanish"] = "Horror enredado",
+			["Mexican"] = "Horror enredado",
 			["French"] = "Horreur enchevêtrée",
 			["English"] = "Tangled Horror",
 			["Korean"] = "덩굴늪괴물",
@@ -447,7 +491,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [18]
+	},
 	{
 		["zone_id"] = 44,
 		["phase"] = 1,
@@ -461,6 +505,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ами Девенпорт",
 			["Chinese"] = "艾米·达文波特",
 			["Spanish"] = "Amy Davenport",
+			["Mexican"] = "Amy Davenport",
 			["French"] = "Amy Davenport",
 			["English"] = "Amy Davenport",
 			["Korean"] = "에이미 데이븐포트",
@@ -472,7 +517,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "20",
 			["is_elite"] = 0,
 		},
-	}, -- [19]
+	},
 	{
 		["zone_id"] = 40,
 		["phase"] = 1,
@@ -486,6 +531,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джина Макгрегор",
 			["Chinese"] = "吉娜·马克葛瑞格",
 			["Spanish"] = "Gina MacGregor",
+			["Mexican"] = "Gina MacGregor",
 			["French"] = "Gina MacGregor",
 			["English"] = "Gina MacGregor",
 			["Korean"] = "지나 맥그레거",
@@ -497,7 +543,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "15",
 			["is_elite"] = 0,
 		},
-	}, -- [20]
+	},
 	{
 		["zone_id"] = 10,
 		["phase"] = 1,
@@ -511,6 +557,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Зачаровыватель из Братства Справедливости",
 			["Chinese"] = "迪菲亚附魔师",
 			["Spanish"] = "Encantador Defias",
+			["Mexican"] = "Encantador Defias",
 			["French"] = "Enchanteur défias",
 			["English"] = "Defias Enchanter",
 			["Korean"] = "데피아즈단 마법부여사",
@@ -522,7 +569,58 @@ MTSL_DATA["npcs"] = {
 			["min"] = "26",
 			["is_elite"] = 1,
 		},
-	}, -- [21]
+	},	{
+		["zone_id"] = 12,
+		["phase"] = 1,
+		["id"] = 917,
+		["location"] = {
+			["y"] = "43.80",
+			["x"] = "65.80",
+		},
+		["name"] = {
+			["German"] = "Keryn Sylvius",
+			["English"] = "Keryn Sylvius",
+			["Spanish"] = "Keryn Sylvius",
+			["Mexican"] = "Keryn Sylvius",
+			["French"] = "Keryn Sylvius",
+			["Portuguese"] = "Anabela Cabreira",
+			["Russian"] = "Керин Сильвиус",
+			["Korean"] = "케린 실비우스",
+			["Chinese"] = "科瑞恩·塞尔留斯",
+		},
+		["reacts"] = "Alliance",
+		["xp_level"] = {
+			["max"] = "11",
+			["min"] = "11",
+			["is_elite"] = 0,
+		},
+	},
+	{
+		["zone_id"] = 1519,
+		["phase"] = 1,
+		["id"] = 918,
+		["location"] = {
+			["y"] = "74.60",
+			["x"] = "52.80",
+		},
+		["name"] = {
+			["German"] = "Osborne der Nachtmensch",
+			["English"] = "Osborne the Night Man",
+			["Spanish"] = "Osborne",
+			["Mexican"] = "Osborne",
+			["French"] = "Osborne l'homme de la nuit",
+			["Portuguese"] = "Osborne, o Homem da Madrugada",
+			["Russian"] = "Осборн Дитя Ночи",
+			["Korean"] = "밤의 사나이 오스본",
+			["Chinese"] = "夜行者奥斯伯",
+		},
+		["reacts"] = "Alliance",
+		["xp_level"] = {
+			["max"] = "60",
+			["min"] = "60",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -536,6 +634,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Коммандо Курцена",
 			["Chinese"] = "库尔森特种兵",
 			["Spanish"] = "Comando Kurzen",
+			["Mexican"] = "Comando Kurzen",
 			["French"] = "Commando de Kurzen",
 			["English"] = "Kurzen Commando",
 			["Korean"] = "쿠르젠 특전사",
@@ -547,7 +646,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "33",
 			["is_elite"] = 0,
 		},
-	}, -- [22]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -561,6 +660,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дейн Линдгрен",
 			["Chinese"] = "丹恩·林德雷",
 			["Spanish"] = "Dane Lindgren",
+			["Mexican"] = "Dane Lindgren",
 			["French"] = "Dane Lindgren",
 			["English"] = "Dane Lindgren",
 			["Korean"] = "데인 린드그렌",
@@ -572,7 +672,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [23]
+	},
 	{
 		["zone_id"] = 8,
 		["phase"] = 1,
@@ -586,6 +686,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Баналаш",
 			["Chinese"] = "巴纳拉什",
 			["Spanish"] = "Banalash",
+			["Mexican"] = "Banalash",
 			["French"] = "Banalash",
 			["English"] = "Banalash",
 			["Korean"] = "바나래쉬",
@@ -597,7 +698,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [24]
+	},
 	{
 		["zone_id"] = 11,
 		["phase"] = 1,
@@ -611,6 +712,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дворф из клана Черного Железа",
 			["Chinese"] = "黑铁矮人",
 			["Spanish"] = "Enano Hierro Negro",
+			["Mexican"] = "Enano Hierro Negro",
 			["French"] = "Nain Sombrefer",
 			["English"] = "Dark Iron Dwarf",
 			["Korean"] = "검은무쇠단 드워프",
@@ -622,7 +724,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "27",
 			["is_elite"] = 1,
 		},
-	}, -- [25]
+	},
 	{
 		["zone_id"] = 11,
 		["phase"] = 1,
@@ -636,6 +738,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Саботажник из клана Черного Железа",
 			["Chinese"] = "黑铁破坏者",
 			["Spanish"] = "Saboteador Hierro Negro",
+			["Mexican"] = "Saboteador Hierro Negro",
 			["French"] = "Saboteur Sombrefer",
 			["English"] = "Dark Iron Saboteur",
 			["Korean"] = "검은무쇠단 투사",
@@ -647,7 +750,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "28",
 			["is_elite"] = 1,
 		},
-	}, -- [26]
+	},
 	{
 		["zone_id"] = 11,
 		["phase"] = 1,
@@ -661,6 +764,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Проходчик из клана Черного Железа",
 			["Chinese"] = "黑铁隧道工",
 			["Spanish"] = "Tunelador Hierro Negro",
+			["Mexican"] = "Tunelador Hierro Negro",
 			["French"] = "Tunnelier Sombrefer",
 			["English"] = "Dark Iron Tunneler",
 			["Korean"] = "검은무쇠단 채굴꾼",
@@ -672,7 +776,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "29",
 			["is_elite"] = 1,
 		},
-	}, -- [27]
+	},
 	{
 		["zone_id"] = 11,
 		["phase"] = 1,
@@ -686,6 +790,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Подрывник из клана Черного Железа",
 			["Chinese"] = "黑铁爆破手",
 			["Spanish"] = "Demoledor Hierro Negro",
+			["Mexican"] = "Demoledor Hierro Negro",
 			["French"] = "Démolisseur Sombrefer",
 			["English"] = "Dark Iron Demolitionist",
 			["Korean"] = "검은무쇠단 폭파병",
@@ -697,7 +802,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 1,
 		},
-	}, -- [28]
+	},
 	{
 		["zone_id"] = 11,
 		["phase"] = 1,
@@ -711,6 +816,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ормер Сталеплет",
 			["Chinese"] = "奥莫尔·铁衣",
 			["Spanish"] = "Ormer Trenzaferro",
+			["Mexican"] = "Ormer Trenzaferro",
 			["French"] = "Ormer Ironbraid",
 			["English"] = "Ormer Ironbraid",
 			["Korean"] = "오머 아이언브레이드",
@@ -722,7 +828,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [29]
+	},
 	{
 		["zone_id"] = 8,
 		["phase"] = 1,
@@ -736,6 +842,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Хозяин болота",
 			["Chinese"] = "泥沼之王",
 			["Spanish"] = "Señor del Lodo",
+			["Mexican"] = "Señor del Lodo",
 			["French"] = "Seigneur du bourbier",
 			["English"] = "Mire Lord",
 			["Korean"] = "우두머리 늪괴물",
@@ -747,7 +854,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "42",
 			["is_elite"] = 0,
 		},
-	}, -- [30]
+	},
 	{
 		["zone_id"] = 12,
 		["phase"] = 1,
@@ -761,6 +868,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Элдрин",
 			["Chinese"] = "艾尔丁",
 			["Spanish"] = "Eldrin",
+			["Mexican"] = "Eldrin",
 			["French"] = "Eldrin",
 			["English"] = "Eldrin",
 			["Korean"] = "엘드린",
@@ -772,7 +880,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "22",
 			["is_elite"] = 0,
 		},
-	}, -- [31]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -786,6 +894,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Вхарр",
 			["Chinese"] = "维哈尔",
 			["Spanish"] = "Vharr",
+			["Mexican"] = "Vharr",
 			["French"] = "Vharr",
 			["English"] = "Vharr",
 			["Korean"] = "바르",
@@ -797,7 +906,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [32]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -811,6 +920,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Неррист",
 			["Chinese"] = "耐里斯特",
 			["Spanish"] = "Nerrist",
+			["Mexican"] = "Nerrist",
 			["French"] = "Nerrist",
 			["English"] = "Nerrist",
 			["Korean"] = "네리스트",
@@ -822,7 +932,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [33]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -836,6 +946,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Утхок",
 			["Chinese"] = "尤索克",
 			["Spanish"] = "Uthok",
+			["Mexican"] = "Uthok",
 			["French"] = "Uthok",
 			["English"] = "Uthok",
 			["Korean"] = "우톡",
@@ -847,7 +958,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [34]
+	},
 	{
 		["zone_id"] = 38,
 		["phase"] = 1,
@@ -861,6 +972,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Марек Железносерд",
 			["Chinese"] = "马雷克·铁心",
 			["Spanish"] = "Marek Coracero",
+			["Mexican"] = "Marek Coracero",
 			["French"] = "Marek Ironheart",
 			["English"] = "Marek Ironheart",
 			["Korean"] = "마렉 아이언하트",
@@ -872,7 +984,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "15",
 			["is_elite"] = 0,
 		},
-	}, -- [35]
+	},
 	{
 		["zone_id"] = 12,
 		["phase"] = 1,
@@ -886,6 +998,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Алхимик Маллори",
 			["Chinese"] = "炼金师玛洛瑞",
 			["Spanish"] = "Alquimista Mallory",
+			["Mexican"] = "Alquimista Mallory",
 			["French"] = "Alchimiste Mallory",
 			["English"] = "Alchemist Mallory",
 			["Korean"] = "연금술사 말로리",
@@ -897,7 +1010,33 @@ MTSL_DATA["npcs"] = {
 			["min"] = "26",
 			["is_elite"] = 0,
 		},
-	}, -- [36]
+	},
+	{
+		["zone_id"] = 1,
+		["phase"] = 1,
+		["id"] = 1234,
+		["location"] = {
+			["y"] = "42.60",
+			["x"] = "57.60",
+		},
+		["name"] = {
+			["German"] = "Hogral Bakkan",
+			["English"] = "Hogral Bakkan",
+			["Spanish"] = "Hogral Bakkan",
+			["Mexican"] = "Hogral Bakkan",
+			["French"] = "Hogral Bakkan",
+			["Portuguese"] = "Hogral Bakkan",
+			["Russian"] = "Хограл Баккан",
+			["Korean"] = "호그럴 바칸",
+			["Chinese"] = "霍格拉尔·巴坎",
+		},
+		["reacts"] = "Alliance",
+		["xp_level"] = {
+			["max"] = "12",
+			["min"] = "12",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 1,
 		["phase"] = 1,
@@ -911,6 +1050,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тогнус Огниво",
 			["Chinese"] = "托格努斯·燧火",
 			["Spanish"] = "Tognus Fuegosílex",
+			["Mexican"] = "Tognus Fuegosílex",
 			["French"] = "Tognus Flintfire",
 			["English"] = "Tognus Flintfire",
 			["Korean"] = "토그너스 플린트파이어",
@@ -922,7 +1062,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [37]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -936,6 +1076,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Восур Брактел",
 			["Chinese"] = "沃萨·布拉克塞尔",
 			["Spanish"] = "Vosur Brakthel",
+			["Mexican"] = "Vosur Brakthel",
 			["French"] = "Vosur Brakthel",
 			["English"] = "Vosur Brakthel",
 			["Korean"] = "보수르 브락셀",
@@ -947,7 +1088,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [38]
+	},
 	{
 		["zone_id"] = 12,
 		["phase"] = 1,
@@ -961,6 +1102,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дрейк Линдгрен",
 			["Chinese"] = "德拉克·林格雷",
 			["Spanish"] = "Draco Lindgren",
+			["Mexican"] = "Draco Lindgren",
 			["French"] = "Drake Lindgren",
 			["English"] = "Drake Lindgren",
 			["Korean"] = "드레이크 린드그렌",
@@ -972,7 +1114,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "10",
 			["is_elite"] = 0,
 		},
-	}, -- [39]
+	},
 	{
 		["zone_id"] = 1,
 		["phase"] = 1,
@@ -986,6 +1128,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Рагнар Громовар",
 			["Chinese"] = "拉格纳·雷酒",
 			["Spanish"] = "Ragnar Cebatruenos",
+			["Mexican"] = "Ragnar Cebatruenos",
 			["French"] = "Ragnar Thunderbrew",
 			["English"] = "Ragnar Thunderbrew",
 			["Korean"] = "라그나르 썬더브루",
@@ -997,7 +1140,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [40]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -1011,6 +1154,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Лоуренс Шнайдер",
 			["Chinese"] = "劳伦斯·瑟尼德",
 			["Spanish"] = "Lawrence Schneider",
+			["Mexican"] = "Lawrence Schneider",
 			["French"] = "Lawrence Schneider",
 			["English"] = "Lawrence Schneider",
 			["Korean"] = "로렌스 슈나이더",
@@ -1022,7 +1166,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [41]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -1036,6 +1180,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дариан Сингх",
 			["Chinese"] = "达利安·辛格",
 			["Spanish"] = "Darian Singh",
+			["Mexican"] = "Darian Singh",
 			["French"] = "Darian Singh",
 			["English"] = "Darian Singh",
 			["Korean"] = "다리안 싱그",
@@ -1047,7 +1192,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [42]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -1061,6 +1206,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мария Лумере",
 			["Chinese"] = "玛丽亚·卢米尔",
 			["Spanish"] = "Maria Lumere",
+			["Mexican"] = "Maria Lumere",
 			["French"] = "Maria Lumere",
 			["English"] = "Maria Lumere",
 			["Korean"] = "마리아 루메르",
@@ -1072,7 +1218,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [43]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -1086,6 +1232,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Лукан Корделл",
 			["Chinese"] = "鲁坎·考迪尔",
 			["Spanish"] = "Lucan Cordell",
+			["Mexican"] = "Lucan Cordell",
 			["French"] = "Lucan Cordell",
 			["English"] = "Lucan Cordell",
 			["Korean"] = "루칸 코르델",
@@ -1097,7 +1244,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [44]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -1111,6 +1258,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джессара Корделл",
 			["Chinese"] = "杰萨拉·考迪尔",
 			["Spanish"] = "Jessara Cordell",
+			["Mexican"] = "Jessara Cordell",
 			["French"] = "Jessara Cordell",
 			["English"] = "Jessara Cordell",
 			["Korean"] = "예사라 코르델",
@@ -1122,7 +1270,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [45]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -1136,6 +1284,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джорджио Болеро",
 			["Chinese"] = "乔吉奥·波利罗",
 			["Spanish"] = "Georgio Bolero",
+			["Mexican"] = "Georgio Bolero",
 			["French"] = "Georgio Bolero",
 			["English"] = "Georgio Bolero",
 			["Korean"] = "조르지오 볼레로",
@@ -1147,7 +1296,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "46",
 			["is_elite"] = 0,
 		},
-	}, -- [46]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -1161,6 +1310,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Александра Болеро",
 			["Chinese"] = "亚历山德拉·波利罗",
 			["Spanish"] = "Alexandra Bolero",
+			["Mexican"] = "Alexandra Bolero",
 			["French"] = "Alexandra Bolero",
 			["English"] = "Alexandra Bolero",
 			["Korean"] = "알렉산드라 볼레로",
@@ -1172,7 +1322,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [47]
+	},
 	{
 		["zone_id"] = 1,
 		["phase"] = 1,
@@ -1186,6 +1336,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Повар Гильм",
 			["Chinese"] = "厨师格瑞姆",
 			["Spanish"] = "Cocinero Ghilm",
+			["Mexican"] = "Cocinero Ghilm",
 			["French"] = "Cuisinier Ghilm",
 			["English"] = "Cook Ghilm",
 			["Korean"] = "요리사 길름",
@@ -1197,7 +1348,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "9",
 			["is_elite"] = 0,
 		},
-	}, -- [48]
+	},
 	{
 		["zone_id"] = 11,
 		["phase"] = 1,
@@ -1211,6 +1362,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Балгорас Нечистый",
 			["Chinese"] = "邪恶的巴尔加拉斯",
 			["Spanish"] = "Balgaras el Hediondo",
+			["Mexican"] = "Balgaras el Hediondo",
 			["French"] = "Balgaras le Crasseux",
 			["English"] = "Balgaras the Foul",
 			["Korean"] = "불한당 발가라스",
@@ -1222,7 +1374,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "34",
 			["is_elite"] = 1,
 		},
-	}, -- [49]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -1236,6 +1388,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Маддьюк",
 			["Chinese"] = "玛杜克",
 			["Spanish"] = "Mudduk",
+			["Mexican"] = "Mudduk",
 			["French"] = "Mudduk",
 			["English"] = "Mudduk",
 			["Korean"] = "머덕",
@@ -1247,7 +1400,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [50]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -1261,6 +1414,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Рык",
 			["Chinese"] = "斯纳尔",
 			["Spanish"] = "Gruños",
+			["Mexican"] = "Gruños",
 			["French"] = "Snarl",
 			["English"] = "Snarl",
 			["Korean"] = "스나알",
@@ -1272,7 +1426,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "31",
 			["is_elite"] = 0,
 		},
-	}, -- [51]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -1286,6 +1440,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Браун",
 			["Chinese"] = "布劳恩",
 			["Spanish"] = "Mole",
+			["Mexican"] = "Mole",
 			["French"] = "Brawn",
 			["English"] = "Brawn",
 			["Korean"] = "브로운",
@@ -1297,7 +1452,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [52]
+	},
 	{
 		["zone_id"] = 8,
 		["phase"] = 1,
@@ -1311,6 +1466,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Рогвар",
 			["Chinese"] = "罗格瓦尔",
 			["Spanish"] = "Rogvar",
+			["Mexican"] = "Rogvar",
 			["French"] = "Rogvar",
 			["English"] = "Rogvar",
 			["Korean"] = "로그바",
@@ -1322,7 +1478,33 @@ MTSL_DATA["npcs"] = {
 			["min"] = "53",
 			["is_elite"] = 0,
 		},
-	}, -- [53]
+	},
+	{
+		["zone_id"] = 33,
+		["phase"] = 1,
+		["id"] = 1411,
+		["location"] = {
+			["y"] = "26.80",
+			["x"] = "77.20",
+		},
+		["name"] = {
+			["German"] = "Ian Strom",
+			["English"] = "Ian Strom",
+			["Spanish"] = "Ian Strom",
+			["Mexican"] = "Ian Strom",
+			["French"] = "Ian Strom",
+			["Portuguese"] = "Ian Strom",
+			["Russian"] = "Ян Шторм",
+			["Korean"] = "이안 스트롬",
+			["Chinese"] = "伊安·斯托姆",
+		},
+		["reacts"] = "Neutral",
+		["xp_level"] = {
+			["max"] = "47",
+			["min"] = "47",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 12,
 		["phase"] = 1,
@@ -1336,6 +1518,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Томас",
 			["Chinese"] = "厨师托马斯",
 			["Spanish"] = "Tomas",
+			["Mexican"] = "Tomas",
 			["French"] = "Tomas",
 			["English"] = "Tomas",
 			["Korean"] = "토마스",
@@ -1347,7 +1530,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "10",
 			["is_elite"] = 0,
 		},
-	}, -- [54]
+	},
 	{
 		["zone_id"] = 11,
 		["phase"] = 1,
@@ -1361,6 +1544,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дженнабик Мелкостёжка",
 			["Chinese"] = "吉娜比克·铁线",
 			["Spanish"] = "Jennabink Powerseam",
+			["Mexican"] = "Jennabink Powerseam",
 			["French"] = "Jennabink Powerseam",
 			["English"] = "Jennabink Powerseam",
 			["Korean"] = "제나빙크 파워심",
@@ -1372,7 +1556,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [55]
+	},
 	{
 		["zone_id"] = 38,
 		["phase"] = 1,
@@ -1386,6 +1570,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Драк Грубиян",
 			["Chinese"] = "德拉克·卷刃",
 			["Spanish"] = "Drac Corteseco",
+			["Mexican"] = "Drac Corteseco",
 			["French"] = "Drac Roughcut",
 			["English"] = "Drac Roughcut",
 			["Korean"] = "드락 러프컷",
@@ -1397,7 +1582,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "15",
 			["is_elite"] = 0,
 		},
-	}, -- [56]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -1411,6 +1596,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гретта Остроигл",
 			["Chinese"] = "格雷塔",
 			["Spanish"] = "Gretta Bueneje",
+			["Mexican"] = "Gretta Bueneje",
 			["French"] = "Gretta Finespindle",
 			["English"] = "Gretta Finespindle",
 			["Korean"] = "그레타 파인스핀들",
@@ -1422,7 +1608,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [57]
+	},
 	{
 		["zone_id"] = 38,
 		["phase"] = 1,
@@ -1436,6 +1622,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гхак Целитель",
 			["Chinese"] = "加克",
 			["Spanish"] = "Ghak Sanadón",
+			["Mexican"] = "Ghak Sanadón",
 			["French"] = "Ghak Healtouch",
 			["English"] = "Ghak Healtouch",
 			["Korean"] = "가크 힐터치",
@@ -1447,7 +1634,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [58]
+	},
 	{
 		["zone_id"] = 45,
 		["phase"] = 1,
@@ -1461,6 +1648,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джаннос Неуступ",
 			["Chinese"] = "加诺斯·铁心",
 			["Spanish"] = "Jannos Dolocerado",
+			["Mexican"] = "Jannos Dolocerado",
 			["French"] = "Jannos Ironwill",
 			["English"] = "Jannos Ironwill",
 			["Korean"] = "야노스 아이언윌",
@@ -1472,7 +1660,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "46",
 			["is_elite"] = 0,
 		},
-	}, -- [59]
+	},
 	{
 		["zone_id"] = 38,
 		["phase"] = 1,
@@ -1486,6 +1674,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ранн Пламепряд",
 			["Chinese"] = "拉恩·火翼",
 			["Spanish"] = "Rann Flamejes",
+			["Mexican"] = "Rann Flamejes",
 			["French"] = "Rann Flamespinner",
 			["English"] = "Rann Flamespinner",
 			["Korean"] = "랜 플레임스피너",
@@ -1497,7 +1686,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "15",
 			["is_elite"] = 0,
 		},
-	}, -- [60]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -1513,6 +1702,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Налетчик из шайки Кровавого Паруса",
 			["Chinese"] = "血帆袭击者",
 			["Spanish"] = "Asaltante Velasangre",
+			["Mexican"] = "Asaltante Velasangre",
 			["French"] = "Ecumeur de la Voile sanglante",
 			["English"] = "Bloodsail Raider",
 			["Korean"] = "붉은해적단 약탈자",
@@ -1523,7 +1713,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "39",
 			["is_elite"] = 0,
 		},
-	}, -- [61]
+	},
 	{
 		["zone_id"] = 12,
 		["phase"] = 1,
@@ -1537,6 +1727,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Адель Филдер",
 			["Chinese"] = "艾德勒·费欧德",
 			["Spanish"] = "Adele Fielder",
+			["Mexican"] = "Adele Fielder",
 			["French"] = "Adele Fielder",
 			["English"] = "Adele Fielder",
 			["Korean"] = "아델레 필더",
@@ -1548,7 +1739,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "22",
 			["is_elite"] = 0,
 		},
-	}, -- [62]
+	},
 	{
 		["zone_id"] = 40,
 		["phase"] = 1,
@@ -1562,6 +1753,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Спекулянт из Братства Справедливости",
 			["Chinese"] = "迪菲亚奸商",
 			["Spanish"] = "Especulador Defias",
+			["Mexican"] = "Especulador Defias",
 			["French"] = "Profiteur défias",
 			["English"] = "Defias Profiteer",
 			["Korean"] = "데피아즈단 악덕업자",
@@ -1573,7 +1765,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "20",
 			["is_elite"] = 0,
 		},
-	}, -- [63]
+	},
 	{
 		["zone_id"] = 10,
 		["phase"] = 1,
@@ -1587,6 +1779,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Финбус Шестерлязг",
 			["Chinese"] = "芬布斯",
 			["Spanish"] = "Finbus Rompegranajes",
+			["Mexican"] = "Finbus Rompegranajes",
 			["French"] = "Finbus Geargrind",
 			["English"] = "Finbus Geargrind",
 			["Korean"] = "핀버스 기어그린드",
@@ -1598,7 +1791,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "31",
 			["is_elite"] = 0,
 		},
-	}, -- [64]
+	},
 	{
 		["zone_id"] = 38,
 		["phase"] = 1,
@@ -1612,6 +1805,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Брок Камнекоп",
 			["Chinese"] = "布洛克·寻石者",
 			["Spanish"] = "Brock Buscapiedras",
+			["Mexican"] = "Brock Buscapiedras",
 			["French"] = "Brock Stoneseeker",
 			["English"] = "Brock Stoneseeker",
 			["Korean"] = "브록 스톤시커",
@@ -1623,7 +1817,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "15",
 			["is_elite"] = 0,
 		},
-	}, -- [65]
+	},
 	{
 		["zone_id"] = 38,
 		["phase"] = 1,
@@ -1637,6 +1831,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Хара Рыбовод",
 			["Chinese"] = "卡拉·深水",
 			["Spanish"] = "Khara Aguahonda",
+			["Mexican"] = "Khara Aguahonda",
 			["French"] = "Khara Deepwater",
 			["English"] = "Khara Deepwater",
 			["Korean"] = "카라 딥워터",
@@ -1648,7 +1843,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "15",
 			["is_elite"] = 0,
 		},
-	}, -- [66]
+	},
 	{
 		["zone_id"] = 38,
 		["phase"] = 1,
@@ -1662,6 +1857,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ксаварик",
 			["Chinese"] = "山达·细须",
 			["Spanish"] = "Xandar Bonbarba",
+			["Mexican"] = "Xandar Bonbarba",
 			["French"] = "Xandar Goodbeard",
 			["English"] = "Xandar Goodbeard",
 			["Korean"] = "샨다르 굿비어드",
@@ -1673,7 +1869,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "15",
 			["is_elite"] = 0,
 		},
-	}, -- [67]
+	},
 	{
 		["zone_id"] = 1,
 		["phase"] = 1,
@@ -1687,6 +1883,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гремлок Пилзнор",
 			["Chinese"] = "格雷姆罗克·匹斯诺尔",
 			["Spanish"] = "Gremlock Pilsnor",
+			["Mexican"] = "Gremlock Pilsnor",
 			["French"] = "Gremlock Pilsnor",
 			["English"] = "Gremlock Pilsnor",
 			["Korean"] = "그렘록 필스노르",
@@ -1698,7 +1895,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "10",
 			["is_elite"] = 0,
 		},
-	}, -- [68]
+	},
 	{
 		["zone_id"] = 1,
 		["phase"] = 1,
@@ -1712,6 +1909,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Данк Дождерез",
 			["Chinese"] = "丹克·利刃",
 			["Spanish"] = "Dank Cortefiel",
+			["Mexican"] = "Dank Cortefiel",
 			["French"] = "Dank Drizzlecut",
 			["English"] = "Dank Drizzlecut",
 			["Korean"] = "당크 드리즐컷",
@@ -1723,7 +1921,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "10",
 			["is_elite"] = 0,
 		},
-	}, -- [69]
+	},
 	{
 		["zone_id"] = 1,
 		["phase"] = 1,
@@ -1737,6 +1935,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Бронк Пропойца",
 			["Chinese"] = "布隆克",
 			["Spanish"] = "Bronk Comengranaje",
+			["Mexican"] = "Bronk Comengranaje",
 			["French"] = "Bronk Guzzlegear",
 			["English"] = "Bronk Guzzlegear",
 			["Korean"] = "브롱크 거즐기어",
@@ -1748,7 +1947,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [70]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -1762,6 +1961,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Утрар Трекс",
 			["Chinese"] = "阿斯拉·瑞克斯",
 			["Spanish"] = "Uthrar Threx",
+			["Mexican"] = "Uthrar Threx",
 			["French"] = "Uthrar Threx",
 			["English"] = "Uthrar Threx",
 			["Korean"] = "우슬라 스렉스",
@@ -1773,7 +1973,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [71]
+	},
 	{
 		["zone_id"] = 1581,
 		["phase"] = 1,
@@ -1783,6 +1983,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ветроплет из Братства Справедливости",
 			["Chinese"] = "迪菲亚塑风师",
 			["Spanish"] = "Formarrasca Defias",
+			["Mexican"] = "Formarrasca Defias",
 			["French"] = "Forme-grain défias",
 			["English"] = "Defias Squallshaper",
 			["Korean"] = "데피아즈단 얼음마법사",
@@ -1794,7 +1995,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "19",
 			["is_elite"] = 1,
 		},
-	}, -- [72]
+	},
 	{
 		["zone_id"] = 28,
 		["phase"] = 1,
@@ -1808,6 +2009,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Скелет-живодер",
 			["Chinese"] = "骷髅剥皮者",
 			["Spanish"] = "Despellejador esquelético",
+			["Mexican"] = "Despellejador esquelético",
 			["French"] = "Ecorcheur Squelette",
 			["English"] = "Skeletal Flayer",
 			["Korean"] = "해골 타작꾼",
@@ -1819,7 +2021,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [73]
+	},
 	{
 		["zone_id"] = 28,
 		["phase"] = 1,
@@ -1833,6 +2035,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Слюнявый вурдалак",
 			["Chinese"] = "被奴役的食尸鬼",
 			["Spanish"] = "Necrófago esclavizante",
+			["Mexican"] = "Necrófago esclavizante",
 			["French"] = "Goule écumante",
 			["English"] = "Slavering Ghoul",
 			["Korean"] = "걸신들린 구울",
@@ -1844,7 +2047,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [74]
+	},
 	{
 		["zone_id"] = 28,
 		["phase"] = 1,
@@ -1858,6 +2061,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гниющее чудище",
 			["Chinese"] = "腐烂的巨兽",
 			["Spanish"] = "Behemoth en podredumbre",
+			["Mexican"] = "Behemoth en podredumbre",
 			["French"] = "Béhémoth pourrissant",
 			["English"] = "Rotting Behemoth",
 			["Korean"] = "썩어가는 늪괴물",
@@ -1869,7 +2073,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [75]
+	},
 	{
 		["zone_id"] = 28,
 		["phase"] = 1,
@@ -1883,6 +2087,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гниющий ужас",
 			["Chinese"] = "枯萎的恐兽",
 			["Spanish"] = "Horror putrefacto",
+			["Mexican"] = "Horror putrefacto",
 			["French"] = "Horreur décomposée",
 			["English"] = "Decaying Horror",
 			["Korean"] = "부패한 늪괴물",
@@ -1894,7 +2099,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "56",
 			["is_elite"] = 0,
 		},
-	}, -- [76]
+	},
 	{
 		["zone_id"] = 28,
 		["phase"] = 1,
@@ -1908,6 +2113,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кавалерист из Алого ордена",
 			["Chinese"] = "血色骑兵",
 			["Spanish"] = "Hidalgo Escarlata",
+			["Mexican"] = "Hidalgo Escarlata",
 			["French"] = "Cavalier écarlate",
 			["English"] = "Scarlet Cavalier",
 			["Korean"] = "붉은십자군 근위병",
@@ -1919,7 +2125,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "56",
 			["is_elite"] = 1,
 		},
-	}, -- [77]
+	},
 	{
 		["zone_id"] = 28,
 		["phase"] = 1,
@@ -1933,6 +2139,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Штейгер Маркрид",
 			["Chinese"] = "工头玛希瑞德",
 			["Spanish"] = "Supervisor Marcrid",
+			["Mexican"] = "Supervisor Marcrid",
 			["French"] = "Contremaître Marcrid",
 			["English"] = "Foreman Marcrid",
 			["Korean"] = "현장감독 마크리드",
@@ -1944,7 +2151,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "58",
 			["is_elite"] = 1,
 		},
-	}, -- [78]
+	},
 	{
 		["zone_id"] = 2057,
 		["phase"] = 1,
@@ -1958,6 +2165,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Темный магистр Гандлинг",
 			["Chinese"] = "黑暗院长加丁",
 			["Spanish"] = "Maestro oscuro Gandling",
+			["Mexican"] = "Maestro oscuro Gandling",
 			["French"] = "Sombre Maître Gandling",
 			["English"] = "Darkmaster Gandling",
 			["Korean"] = "암흑스승 간들링",
@@ -1969,7 +2177,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 1,
 		},
-	}, -- [79]
+	},
 	{
 		["zone_id"] = 28,
 		["phase"] = 1,
@@ -1983,6 +2191,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кузнец из Алого ордена",
 			["Chinese"] = "血色铁匠",
 			["Spanish"] = "Herrero Escarlata",
+			["Mexican"] = "Herrero Escarlata",
 			["French"] = "Forgeron écarlate",
 			["English"] = "Scarlet Smith",
 			["Korean"] = "붉은십자군 대장장이",
@@ -1994,7 +2203,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 1,
 		},
-	}, -- [80]
+	},
 	{
 		["zone_id"] = 130,
 		["phase"] = 1,
@@ -2008,6 +2217,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ран Йорик",
 			["Chinese"] = "兰妮·尤瑞克",
 			["Spanish"] = "Rane Yorick",
+			["Mexican"] = "Rane Yorick",
 			["French"] = "Rane Yorick",
 			["English"] = "Rane Yorick",
 			["Korean"] = "레인 요릭",
@@ -2019,7 +2229,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "15",
 			["is_elite"] = 0,
 		},
-	}, -- [81]
+	},
 	{
 		["zone_id"] = 38,
 		["phase"] = 1,
@@ -2033,6 +2243,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Видра Жаркий Очаг",
 			["Chinese"] = "维德拉·壁炉",
 			["Spanish"] = "Vidra Hogartufa",
+			["Mexican"] = "Vidra Hogartufa",
 			["French"] = "Vidra Hearthstove",
 			["English"] = "Vidra Hearthstove",
 			["Korean"] = "비드라 하트스토브",
@@ -2044,7 +2255,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "10",
 			["is_elite"] = 0,
 		},
-	}, -- [82]
+	},
 	{
 		["zone_id"] = 11,
 		["phase"] = 1,
@@ -2058,6 +2269,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джеймс Халлоран",
 			["Chinese"] = "詹姆斯·哈洛兰",
 			["Spanish"] = "James Halloran",
+			["Mexican"] = "James Halloran",
 			["French"] = "James Halloran",
 			["English"] = "James Halloran",
 			["Korean"] = "제임스 할로란",
@@ -2069,7 +2281,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [83]
+	},
 	{
 		["zone_id"] = 85,
 		["phase"] = 1,
@@ -2083,6 +2295,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Эбигейл Шиль",
 			["Chinese"] = "阿比盖尔·沙伊尔",
 			["Spanish"] = "Abigail Shiel",
+			["Mexican"] = "Abigail Shiel",
 			["French"] = "Abigail Shiel",
 			["English"] = "Abigail Shiel",
 			["Korean"] = "애비게일 시엘",
@@ -2094,7 +2307,33 @@ MTSL_DATA["npcs"] = {
 			["min"] = "9",
 			["is_elite"] = 0,
 		},
-	}, -- [84]
+	},
+	{
+		["zone_id"] = 85,
+		["phase"] = 1,
+		["id"] = 2130,
+		["location"] = {
+			["y"] = "61.60",
+			["x"] = "52.00",
+		},
+		["name"] = {
+			["German"] = "Marion Call",
+			["English"] = "Marion Call",
+			["Spanish"] = "Marion Call",
+			["Mexican"] = "Marion Call",
+			["French"] = "Marion Call",
+			["Portuguese"] = "Marion Calder",
+			["Russian"] = "Марион Зов",
+			["Korean"] = "마리언 콜",
+			["Chinese"] = "马里恩·考尔",
+		},
+		["reacts"] = "Horde",
+		["xp_level"] = {
+			["max"] = "13",
+			["min"] = "13",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 85,
 		["phase"] = 1,
@@ -2108,6 +2347,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Каролай Аниса",
 			["Chinese"] = "卡罗莱·安尼斯",
 			["Spanish"] = "Carolai Anís",
+			["Mexican"] = "Carolai Anís",
 			["French"] = "Carolai Anise",
 			["English"] = "Carolai Anise",
 			["Korean"] = "캐롤라이 아니즈",
@@ -2119,7 +2359,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [85]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -2133,6 +2373,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Аптекарь Лидон",
 			["Chinese"] = "药剂师林度恩",
 			["Spanish"] = "Boticario Lydon",
+			["Mexican"] = "Boticario Lydon",
 			["French"] = "Apothicaire Lydon",
 			["English"] = "Apothecary Lydon",
 			["Korean"] = "연금술사 라이던",
@@ -2144,7 +2385,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [86]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -2158,6 +2399,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Круск",
 			["Chinese"] = "克鲁斯克",
 			["Spanish"] = "Krusk",
+			["Mexican"] = "Krusk",
 			["French"] = "Krusk",
 			["English"] = "Krusk",
 			["Korean"] = "크루스크",
@@ -2169,7 +2411,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [87]
+	},
 	{
 		["zone_id"] = 36,
 		["phase"] = 1,
@@ -2185,6 +2427,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Шпион Синдиката",
 			["Chinese"] = "辛迪加间谍",
 			["Spanish"] = "Espía de la Hermandad",
+			["Mexican"] = "Espía de la Hermandad",
 			["French"] = "Espion du Syndicat",
 			["English"] = "Syndicate Spy",
 			["Korean"] = "비밀결사대 염탐꾼",
@@ -2195,7 +2438,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [88]
+	},
 	{
 		["zone_id"] = 36,
 		["phase"] = 1,
@@ -2211,6 +2454,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Убийца из Синдиката",
 			["Chinese"] = "辛迪加刺客",
 			["Spanish"] = "Asesino de la Hermandad",
+			["Mexican"] = "Asesino de la Hermandad",
 			["French"] = "Assassin du Syndicat",
 			["English"] = "Syndicate Assassin",
 			["Korean"] = "비밀결사대 암살자",
@@ -2221,7 +2465,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "38",
 			["is_elite"] = 0,
 		},
-	}, -- [89]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -2235,6 +2479,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Хилсбрадский портной",
 			["Chinese"] = "希尔斯布莱德裁缝",
 			["Spanish"] = "Sastre de Trabalomas",
+			["Mexican"] = "Sastre de Trabalomas",
 			["French"] = "Tailleur d'Hillsbrad",
 			["English"] = "Hillsbrad Tailor",
 			["Korean"] = "힐스브래드 재봉사",
@@ -2246,7 +2491,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [90]
+	},
 	{
 		["zone_id"] = 1,
 		["phase"] = 1,
@@ -2260,6 +2505,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тамнер Пол",
 			["Chinese"] = "萨姆诺·普尔",
 			["Spanish"] = "Thamner Pol",
+			["Mexican"] = "Thamner Pol",
 			["French"] = "Thamner Pol",
 			["English"] = "Thamner Pol",
 			["Korean"] = "탐네르 폴",
@@ -2271,7 +2517,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "8",
 			["is_elite"] = 0,
 		},
-	}, -- [91]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -2285,6 +2531,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Шайна Корпия",
 			["Chinese"] = "珊娜·弗勒",
 			["Spanish"] = "Shaina Fuller",
+			["Mexican"] = "Shaina Fuller",
 			["French"] = "Shaina Fuller",
 			["English"] = "Shaina Fuller",
 			["Korean"] = "샤이나 풀러",
@@ -2296,7 +2543,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [92]
+	},
 	{
 		["zone_id"] = 12,
 		["phase"] = 1,
@@ -2310,6 +2557,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мишель Белль",
 			["Chinese"] = "米歇尔·贝利",
 			["Spanish"] = "Michelle Belle",
+			["Mexican"] = "Michelle Belle",
 			["French"] = "Michelle Belle",
 			["English"] = "Michelle Belle",
 			["Korean"] = "미셸 벨르",
@@ -2321,7 +2569,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "11",
 			["is_elite"] = 0,
 		},
-	}, -- [93]
+	},
 	{
 		["zone_id"] = 148,
 		["phase"] = 1,
@@ -2335,6 +2583,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Призыватель Бездны из клана Темной Нити",
 			["Chinese"] = "暗滩唤魔师",
 			["Spanish"] = "Llamacío de la Facción Oscura",
+			["Mexican"] = "Llamacío de la Facción Oscura",
 			["French"] = "Anéantisseur de la Rive noire",
 			["English"] = "Dark Strand Voidcaller",
 			["Korean"] = "암흑이교도 소환사",
@@ -2346,7 +2595,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "28",
 			["is_elite"] = 0,
 		},
-	}, -- [94]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -2360,6 +2609,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Грязекоп из племени Рваного Плавника",
 			["Chinese"] = "碎鳍泥浆鱼人",
 			["Spanish"] = "Habitabosta Rompeanca",
+			["Mexican"] = "Habitabosta Rompeanca",
 			["French"] = "Marche-boue Aileron déchiré",
 			["English"] = "Torn Fin Muckdweller",
 			["Korean"] = "너덜지느러미멀록 땅꾼",
@@ -2371,7 +2621,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "28",
 			["is_elite"] = 0,
 		},
-	}, -- [95]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -2385,6 +2635,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Береговик из племени Рваного Плавника",
 			["Chinese"] = "碎鳍滩行鱼人",
 			["Spanish"] = "Correcostas Rompeanca",
+			["Mexican"] = "Correcostas Rompeanca",
 			["French"] = "Cours-la-côte Aileron déchiré",
 			["English"] = "Torn Fin Coastrunner",
 			["Korean"] = "너덜지느러미멀록 길잡이",
@@ -2396,7 +2647,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "29",
 			["is_elite"] = 0,
 		},
-	}, -- [96]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -2410,6 +2661,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Оракул из племени Рваного Плавника",
 			["Chinese"] = "碎鳍智者",
 			["Spanish"] = "Oráculo Rompeanca",
+			["Mexican"] = "Oráculo Rompeanca",
 			["French"] = "Oracle Aileron déchiré",
 			["English"] = "Torn Fin Oracle",
 			["Korean"] = "너덜지느러미멀록 점쟁이",
@@ -2421,7 +2673,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [97]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -2435,6 +2687,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Волнолов из племени Порванного Плавника",
 			["Chinese"] = "碎鳍潮行鱼人",
 			["Spanish"] = "Cazamareas Rompeanca",
+			["Mexican"] = "Cazamareas Rompeanca",
 			["French"] = "Chasse-marée Aileron déchiré",
 			["English"] = "Torn Fin Tidehunter",
 			["Korean"] = "너덜지느러미멀록 바다사냥꾼",
@@ -2446,7 +2699,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "31",
 			["is_elite"] = 0,
 		},
-	}, -- [98]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -2460,6 +2713,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Нандар Брансон",
 			["Chinese"] = "南达·布拉森",
 			["Spanish"] = "Nandar Branson",
+			["Mexican"] = "Nandar Branson",
 			["French"] = "Nandar Branson",
 			["English"] = "Nandar Branson",
 			["Korean"] = "난다르 브랜슨",
@@ -2471,7 +2725,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "34",
 			["is_elite"] = 0,
 		},
-	}, -- [99]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -2485,6 +2739,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мика Янс",
 			["Chinese"] = "米莎·杨斯",
 			["Spanish"] = "Micha Yance",
+			["Mexican"] = "Micha Yance",
 			["French"] = "Micha Yance",
 			["English"] = "Micha Yance",
 			["Korean"] = "미카 얀스",
@@ -2496,7 +2751,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [100]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -2510,6 +2765,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Даррен Малвей",
 			["Chinese"] = "达伦·玛尔维",
 			["Spanish"] = "Darren Malavista",
+			["Mexican"] = "Darren Malavista",
 			["French"] = "Darren Malvew",
 			["English"] = "Darren Malvew",
 			["Korean"] = "다렌 말뷰",
@@ -2521,7 +2777,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [101]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -2535,6 +2791,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Линди Рабонн",
 			["Chinese"] = "林迪·拉波尼",
 			["Spanish"] = "Lindea Rabonne",
+			["Mexican"] = "Lindea Rabonne",
 			["French"] = "Lindea Rabonne",
 			["English"] = "Lindea Rabonne",
 			["Korean"] = "린디아 라본느",
@@ -2546,7 +2803,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "29",
 			["is_elite"] = 0,
 		},
-	}, -- [102]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -2560,6 +2817,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Серж Хинотт",
 			["Chinese"] = "瑟尔格·希诺特",
 			["Spanish"] = "Serge Hinott",
+			["Mexican"] = "Serge Hinott",
 			["French"] = "Serge Hinott",
 			["English"] = "Serge Hinott",
 			["Korean"] = "서지 히노트",
@@ -2571,7 +2829,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "32",
 			["is_elite"] = 0,
 		},
-	}, -- [103]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -2585,6 +2843,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кристоф Френч",
 			["Chinese"] = "克里斯托弗·杰弗寇特",
 			["Spanish"] = "Christoph Jeffcoat",
+			["Mexican"] = "Christoph Jeffcoat",
 			["French"] = "Christoph Jeffcoat",
 			["English"] = "Christoph Jeffcoat",
 			["Korean"] = "크리스토프 제프코트",
@@ -2596,7 +2855,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "32",
 			["is_elite"] = 0,
 		},
-	}, -- [104]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -2610,6 +2869,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Маллен Свейн",
 			["Chinese"] = "玛林·斯万",
 			["Spanish"] = "Mallen Swain",
+			["Mexican"] = "Mallen Swain",
 			["French"] = "Mallen Swain",
 			["English"] = "Mallen Swain",
 			["Korean"] = "말렌 스웨인",
@@ -2621,7 +2881,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "32",
 			["is_elite"] = 0,
 		},
-	}, -- [105]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -2635,6 +2895,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дерек Сумерек",
 			["Chinese"] = "德拉克·奈特弗",
 			["Spanish"] = "Derak Ocaso",
+			["Mexican"] = "Derak Ocaso",
 			["French"] = "Derak Nightfall",
 			["English"] = "Derak Nightfall",
 			["Korean"] = "데락 나이트폴",
@@ -2646,7 +2907,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "32",
 			["is_elite"] = 0,
 		},
-	}, -- [106]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -2660,6 +2921,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дарил Стак",
 			["Chinese"] = "达瑞尔·斯塔克",
 			["Spanish"] = "Daryl Stack",
+			["Mexican"] = "Daryl Stack",
 			["French"] = "Daryl Stack",
 			["English"] = "Daryl Stack",
 			["Korean"] = "다릴 스택",
@@ -2671,7 +2933,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "56",
 			["is_elite"] = 0,
 		},
-	}, -- [107]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -2685,6 +2947,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Шеф-повар Джессен",
 			["Chinese"] = "厨师杰森",
 			["Spanish"] = "Chef Jessen",
+			["Mexican"] = "Chef Jessen",
 			["French"] = "Chef Jessen",
 			["English"] = "Chef Jessen",
 			["Korean"] = "주방장 예센",
@@ -2696,7 +2959,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [108]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -2710,6 +2973,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мрачный убийца",
 			["Chinese"] = "暗影刺客",
 			["Spanish"] = "Asesino enigmático",
+			["Mexican"] = "Asesino enigmático",
 			["French"] = "Assassin des ténèbres",
 			["English"] = "Shadowy Assassin",
 			["Korean"] = "어둠의 암살자",
@@ -2721,7 +2985,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "37",
 			["is_elite"] = 0,
 		},
-	}, -- [109]
+	},
 	{
 		["zone_id"] = 36,
 		["phase"] = 1,
@@ -2735,6 +2999,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Бро'кин",
 			["Chinese"] = "布洛金",
 			["Spanish"] = "Bro'kin",
+			["Mexican"] = "Bro'kin",
 			["French"] = "Bro'kin",
 			["English"] = "Bro'kin",
 			["Korean"] = "브로킨",
@@ -2746,7 +3011,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "49",
 			["is_elite"] = 0,
 		},
-	}, -- [110]
+	},
 	{
 		["zone_id"] = 10,
 		["phase"] = 1,
@@ -2760,6 +3025,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Близтик",
 			["Chinese"] = "布里兹提克",
 			["Spanish"] = "Bliztik",
+			["Mexican"] = "Bliztik",
 			["French"] = "Bliztik",
 			["English"] = "Bliztik",
 			["Korean"] = "블리즈틱",
@@ -2771,7 +3037,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "36",
 			["is_elite"] = 0,
 		},
-	}, -- [111]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -2785,6 +3051,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Зарена Кромвинд",
 			["Chinese"] = "萨瑞娜·克罗姆温德",
 			["Spanish"] = "Zarena Cromvento",
+			["Mexican"] = "Zarena Cromvento",
 			["French"] = "Zarena Cromwind",
 			["English"] = "Zarena Cromwind",
 			["Korean"] = "자레나 크롬윈드",
@@ -2796,7 +3063,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "43",
 			["is_elite"] = 0,
 		},
-	}, -- [112]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -2810,6 +3077,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Жаклина Драмет",
 			["Chinese"] = "加奎琳娜·德拉米特",
 			["Spanish"] = "Jaquilina Dramet",
+			["Mexican"] = "Jaquilina Dramet",
 			["French"] = "Jaquilina Dramet",
 			["English"] = "Jaquilina Dramet",
 			["Korean"] = "자킬리나 드라메트",
@@ -2821,7 +3089,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "39",
 			["is_elite"] = 0,
 		},
-	}, -- [113]
+	},
 	{
 		["zone_id"] = 45,
 		["phase"] = 1,
@@ -2835,6 +3103,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Охотник за головами из племени Сухокожих",
 			["Chinese"] = "枯木猎头者",
 			["Spanish"] = "Rebanacabezas Secacorteza",
+			["Mexican"] = "Rebanacabezas Secacorteza",
 			["French"] = "Chasseur de têtes Witherbark",
 			["English"] = "Witherbark Headhunter",
 			["Korean"] = "마른나무껍질부족 인간사냥꾼",
@@ -2846,7 +3115,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "34",
 			["is_elite"] = 0,
 		},
-	}, -- [114]
+	},
 	{
 		["zone_id"] = 45,
 		["phase"] = 1,
@@ -2860,6 +3129,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Темный охотник из племени Сухокожих",
 			["Chinese"] = "枯木暗影猎手",
 			["Spanish"] = "Cazador de las Sombras Secacorteza",
+			["Mexican"] = "Cazador de las Sombras Secacorteza",
 			["French"] = "Chasseur des ombres Witherbark",
 			["English"] = "Witherbark Shadow Hunter",
 			["Korean"] = "마른나무껍질부족 어둠사냥꾼",
@@ -2871,7 +3141,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [115]
+	},
 	{
 		["zone_id"] = 45,
 		["phase"] = 1,
@@ -2885,6 +3155,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Берсерк из племени Сухокожих",
 			["Chinese"] = "枯木狂战士",
 			["Spanish"] = "Rabioso Secacorteza",
+			["Mexican"] = "Rabioso Secacorteza",
 			["French"] = "Berserker Witherbark",
 			["English"] = "Witherbark Berserker",
 			["Korean"] = "마른나무껍질부족 광전사",
@@ -2896,7 +3167,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "36",
 			["is_elite"] = 1,
 		},
-	}, -- [116]
+	},
 	{
 		["zone_id"] = 45,
 		["phase"] = 1,
@@ -2906,6 +3177,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Любой тролль в лагере вокруг озера",
 			["Chinese"] = "湖周围的任何巨魔营地",
 			["Spanish"] = "Cualquier campamento de trolls alrededor del lago",
+			["Mexican"] = "Cualquier campamento de trolls alrededor del lago",
 			["French"] = "Tout camp de trolls autour du lac",
 			["Korean"] = "호수 주변의 트롤 캠프",
 			["German"] = "Jedes Trollcamp rund um den See",
@@ -2920,6 +3192,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Нимар Душегуб",
 			["Chinese"] = "屠戮者尼玛尔",
 			["Spanish"] = "Nimar el Destripador",
+			["Mexican"] = "Nimar el Destripador",
 			["French"] = "Nimar le Pourfendeur",
 			["English"] = "Nimar the Slayer",
 			["Korean"] = "학살자 니마르",
@@ -2931,7 +3204,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "37",
 			["is_elite"] = 1,
 		},
-	}, -- [117]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -2945,6 +3218,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Грарник Ладноскрой",
 			["Chinese"] = "格拉尼克·古斯提",
 			["Spanish"] = "Grarnik Cortefino",
+			["Mexican"] = "Grarnik Cortefino",
 			["French"] = "Grarnik Goodstitch",
 			["English"] = "Grarnik Goodstitch",
 			["Korean"] = "그라닉 굿스티치",
@@ -2956,7 +3230,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "34",
 			["is_elite"] = 0,
 		},
-	}, -- [118]
+	},
 	{
 		["zone_id"] = 45,
 		["phase"] = 1,
@@ -2970,6 +3244,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Подручный пиратов Черноводья",
 			["Chinese"] = "黑水船工",
 			["Spanish"] = "Marinero de cubierta Aguasnegras",
+			["Mexican"] = "Marinero de cubierta Aguasnegras",
 			["French"] = "Matelot des Flots noirs",
 			["English"] = "Blackwater Deckhand",
 			["Korean"] = "검은바다 해적단의 갑판원",
@@ -2981,7 +3256,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "38",
 			["is_elite"] = 0,
 		},
-	}, -- [119]
+	},
 	{
 		["zone_id"] = 47,
 		["phase"] = 1,
@@ -2995,6 +3270,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Темный чародей из племени Порочной Ветви",
 			["Chinese"] = "邪枝暗影法师",
 			["Spanish"] = "Taumaturgo umbrío Vilrama",
+			["Mexican"] = "Taumaturgo umbrío Vilrama",
 			["French"] = "Exhalombre Vilebranch",
 			["English"] = "Vilebranch Shadowcaster",
 			["Korean"] = "썩은가지부족 흑마술사",
@@ -3006,7 +3282,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "47",
 			["is_elite"] = 1,
 		},
-	}, -- [120]
+	},
 	{
 		["zone_id"] = 47,
 		["phase"] = 1,
@@ -3020,6 +3296,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Шкуродер из племени Порочной Ветви",
 			["Chinese"] = "邪枝剥皮者",
 			["Spanish"] = "Desollador Vilrama",
+			["Mexican"] = "Desollador Vilrama",
 			["French"] = "Ecorcheur Vilebranch",
 			["English"] = "Vilebranch Hideskinner",
 			["Korean"] = "썩은가지부족 암살자",
@@ -3031,7 +3308,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "48",
 			["is_elite"] = 1,
 		},
-	}, -- [121]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -3045,6 +3322,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Наркк",
 			["Chinese"] = "纳尔克",
 			["Spanish"] = "Narkk",
+			["Mexican"] = "Narkk",
 			["French"] = "Narkk",
 			["English"] = "Narkk",
 			["Korean"] = "나르크",
@@ -3056,7 +3334,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "42",
 			["is_elite"] = 0,
 		},
-	}, -- [122]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -3070,6 +3348,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Келси Янс",
 			["Chinese"] = "凯尔希·杨斯",
 			["Spanish"] = "Kelsey Yance",
+			["Mexican"] = "Kelsey Yance",
 			["French"] = "Kelsey Yance",
 			["English"] = "Kelsey Yance",
 			["Korean"] = "켈시 얀스",
@@ -3081,7 +3360,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "43",
 			["is_elite"] = 0,
 		},
-	}, -- [123]
+	},
 	{
 		["zone_id"] = 10,
 		["phase"] = 1,
@@ -3095,6 +3374,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Даниэлла Рваношов",
 			["Chinese"] = "丹尼勒·希普斯迪",
 			["Spanish"] = "Danielle Puntillas",
+			["Mexican"] = "Danielle Puntillas",
 			["French"] = "Danielle Zipstitch",
 			["English"] = "Danielle Zipstitch",
 			["Korean"] = "다니엘 집스티치",
@@ -3106,7 +3386,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "27",
 			["is_elite"] = 0,
 		},
-	}, -- [124]
+	},
 	{
 		["zone_id"] = 10,
 		["phase"] = 1,
@@ -3120,6 +3400,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Шери Рваношов",
 			["Chinese"] = "舍瑞·希普斯迪",
 			["Spanish"] = "Sheri Puntagueta",
+			["Mexican"] = "Sheri Puntagueta",
 			["French"] = "Sheri Zipstitch",
 			["English"] = "Sheri Zipstitch",
 			["Korean"] = "셰리 집스티치",
@@ -3131,7 +3412,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "31",
 			["is_elite"] = 0,
 		},
-	}, -- [125]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -3145,6 +3426,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Зиск Ладноскрой",
 			["Chinese"] = "希兹克·古斯提",
 			["Spanish"] = "Xizk Cortefino",
+			["Mexican"] = "Xizk Cortefino",
 			["French"] = "Xizk Goodstitch",
 			["English"] = "Xizk Goodstitch",
 			["Korean"] = "시즈크 굿스티치",
@@ -3156,7 +3438,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "43",
 			["is_elite"] = 0,
 		},
-	}, -- [126]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -3170,6 +3452,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Трусишка Кросби",
 			["Chinese"] = "怯懦的克罗斯比",
 			["Spanish"] = "Blandengue Crosby",
+			["Mexican"] = "Blandengue Crosby",
 			["French"] = "Crosby la Trouille",
 			["English"] = "Cowardly Crosby",
 			["Korean"] = "겁쟁이 크로스비",
@@ -3181,7 +3464,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [127]
+	},
 	{
 		["zone_id"] = 11,
 		["phase"] = 1,
@@ -3195,6 +3478,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Венна Шелкобород",
 			["Chinese"] = "温纳·银须",
 			["Spanish"] = "Wenna Barbasedosa",
+			["Mexican"] = "Wenna Barbasedosa",
 			["French"] = "Wenna Silkbeard",
 			["English"] = "Wenna Silkbeard",
 			["Korean"] = "웨나 실크비어드",
@@ -3206,7 +3490,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "28",
 			["is_elite"] = 0,
 		},
-	}, -- [128]
+	},
 	{
 		["zone_id"] = 11,
 		["phase"] = 1,
@@ -3220,6 +3504,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Фрадд Бынструмент",
 			["Chinese"] = "弗拉德",
 			["Spanish"] = "Fradd Cambioveloz",
+			["Mexican"] = "Fradd Cambioveloz",
 			["French"] = "Fradd Swiftgear",
 			["English"] = "Fradd Swiftgear",
 			["Korean"] = "프래드 스위프트기어",
@@ -3231,7 +3516,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [129]
+	},
 	{
 		["zone_id"] = 36,
 		["phase"] = 1,
@@ -3245,6 +3530,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ризз Болтень",
 			["Chinese"] = "里兹·飞矢",
 			["Spanish"] = "Rizz Tornillosuelto",
+			["Mexican"] = "Rizz Tornillosuelto",
 			["French"] = "Rizz Loosebolt",
 			["English"] = "Rizz Loosebolt",
 			["Korean"] = "리즈 루즈볼트",
@@ -3256,7 +3542,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "31",
 			["is_elite"] = 0,
 		},
-	}, -- [130]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -3270,6 +3556,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мазк Карабинс",
 			["Chinese"] = "玛兹克·斯奈普沙特",
 			["Spanish"] = "Mazk Tirocertero",
+			["Mexican"] = "Mazk Tirocertero",
 			["French"] = "Tireur d’élite Mazk",
 			["English"] = "Mazk Snipeshot",
 			["Korean"] = "마즈크 스나이프샷",
@@ -3281,7 +3568,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "36",
 			["is_elite"] = 0,
 		},
-	}, -- [131]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -3295,6 +3582,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гназ Огнепых",
 			["Chinese"] = "格纳兹·枪焰",
 			["Spanish"] = "Gnaz Flamerrada",
+			["Mexican"] = "Gnaz Flamerrada",
 			["French"] = "Gnaz Blunderflame",
 			["English"] = "Gnaz Blunderflame",
 			["Korean"] = "그나즈 블런더플레임",
@@ -3306,7 +3594,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "42",
 			["is_elite"] = 0,
 		},
-	}, -- [132]
+	},
 	{
 		["zone_id"] = 47,
 		["phase"] = 1,
@@ -3320,6 +3608,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Руппо Свистопулькин",
 			["Chinese"] = "鲁普·火油",
 			["Spanish"] = "Rupo Retramuelle",
+			["Mexican"] = "Rupo Retramuelle",
 			["French"] = "Ruppo Zipcoil",
 			["English"] = "Ruppo Zipcoil",
 			["Korean"] = "루포 집코일",
@@ -3331,7 +3620,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "52",
 			["is_elite"] = 0,
 		},
-	}, -- [133]
+	},
 	{
 		["zone_id"] = 44,
 		["phase"] = 1,
@@ -3345,6 +3634,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Клайд Рантал",
 			["Chinese"] = "克莱德·兰萨尔",
 			["Spanish"] = "Clyde Ranthal",
+			["Mexican"] = "Clyde Ranthal",
 			["French"] = "Clyde Ranthal",
 			["English"] = "Clyde Ranthal",
 			["Korean"] = "클라이드 랜덜",
@@ -3356,7 +3646,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "31",
 			["is_elite"] = 0,
 		},
-	}, -- [134]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -3370,6 +3660,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джорлж Кандарте",
 			["Chinese"] = "乔治·坎达特",
 			["Spanish"] = "George Candarte",
+			["Mexican"] = "George Candarte",
 			["French"] = "George Candarte",
 			["English"] = "George Candarte",
 			["Korean"] = "조지 칸다테",
@@ -3381,7 +3672,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "31",
 			["is_elite"] = 0,
 		},
-	}, -- [135]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -3395,6 +3686,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Риккиз",
 			["Chinese"] = "雷克奇兹",
 			["Spanish"] = "Rikqiz",
+			["Mexican"] = "Rikqiz",
 			["French"] = "Rikqiz",
 			["English"] = "Rikqiz",
 			["Korean"] = "릭키즈",
@@ -3406,7 +3698,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "43",
 			["is_elite"] = 0,
 		},
-	}, -- [136]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -3420,6 +3712,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Панд Камневяз",
 			["Chinese"] = "潘德·缚石",
 			["Spanish"] = "Pand Amarrapiedra",
+			["Mexican"] = "Pand Amarrapiedra",
 			["French"] = "Pand Stonebinder",
 			["English"] = "Pand Stonebinder",
 			["Korean"] = "판드 스톤바인더",
@@ -3431,7 +3724,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [137]
+	},
 	{
 		["zone_id"] = 361,
 		["phase"] = 1,
@@ -3445,6 +3738,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Малиген",
 			["Chinese"] = "玛里甘",
 			["Spanish"] = "Malygen",
+			["Mexican"] = "Malygen",
 			["French"] = "Malygen",
 			["English"] = "Malygen",
 			["Korean"] = "말리젠",
@@ -3456,7 +3750,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [138]
+	},
 	{
 		["zone_id"] = 45,
 		["phase"] = 1,
@@ -3470,6 +3764,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Денеб Уокер",
 			["Chinese"] = "德尼布·沃克",
 			["Spanish"] = "Deneb Camino",
+			["Mexican"] = "Deneb Camino",
 			["French"] = "Deneb Walker",
 			["English"] = "Deneb Walker",
 			["Korean"] = "데네브 워커",
@@ -3481,7 +3776,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "45",
 			["is_elite"] = 0,
 		},
-	}, -- [139]
+	},
 	{
 		["zone_id"] = 361,
 		["phase"] = 1,
@@ -3495,6 +3790,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тюкн",
 			["Chinese"] = "拜尔",
 			["Spanish"] = "Fardo",
+			["Mexican"] = "Fardo",
 			["French"] = "Bale",
 			["English"] = "Bale",
 			["Korean"] = "베일",
@@ -3506,7 +3802,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [140]
+	},
 	{
 		["zone_id"] = 45,
 		["phase"] = 1,
@@ -3520,6 +3816,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Хаммон Карун",
 			["Chinese"] = "哈蒙·卡文",
 			["Spanish"] = "Hammon Karwn",
+			["Mexican"] = "Hammon Karwn",
 			["French"] = "Hammon Karwn",
 			["English"] = "Hammon Karwn",
 			["Korean"] = "하몬 카른",
@@ -3531,7 +3828,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [141]
+	},
 	{
 		["zone_id"] = 45,
 		["phase"] = 1,
@@ -3545,6 +3842,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дровнар Густовар",
 			["Chinese"] = "德鲁纳·烈酒",
 			["Spanish"] = "Drovanar Brevaforte",
+			["Mexican"] = "Drovanar Brevaforte",
 			["French"] = "Drovnar Strongbrew",
 			["English"] = "Drovnar Strongbrew",
 			["Korean"] = "드로브나르 스트롱브루",
@@ -3556,7 +3854,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [142]
+	},
 	{
 		["zone_id"] = 45,
 		["phase"] = 1,
@@ -3570,6 +3868,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Нардж Ломтерез",
 			["Chinese"] = "纳尔基·长刀",
 			["Spanish"] = "Narj Tajofondo",
+			["Mexican"] = "Narj Tajofondo",
 			["French"] = "Narj Deepslice",
 			["English"] = "Narj Deepslice",
 			["Korean"] = "나르 딥슬라이스",
@@ -3581,7 +3880,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "39",
 			["is_elite"] = 0,
 		},
-	}, -- [143]
+	},
 	{
 		["zone_id"] = 45,
 		["phase"] = 1,
@@ -3595,6 +3894,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Андрод Фадран",
 			["Chinese"] = "安多德·法德兰",
 			["Spanish"] = "Androd Fadran",
+			["Mexican"] = "Androd Fadran",
 			["French"] = "Androd Fadran",
 			["English"] = "Androd Fadran",
 			["Korean"] = "안드로드 패드랜",
@@ -3606,7 +3906,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "37",
 			["is_elite"] = 0,
 		},
-	}, -- [144]
+	},
 	{
 		["zone_id"] = 3,
 		["phase"] = 1,
@@ -3620,6 +3920,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ригглфазз",
 			["Chinese"] = "里格弗兹",
 			["Spanish"] = "Aparejez",
+			["Mexican"] = "Aparejez",
 			["French"] = "Rigglefuzz",
 			["English"] = "Rigglefuzz",
 			["Korean"] = "리글퍼즈",
@@ -3631,7 +3932,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "37",
 			["is_elite"] = 0,
 		},
-	}, -- [145]
+	},
 	{
 		["zone_id"] = 45,
 		["phase"] = 1,
@@ -3645,6 +3946,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тункк",
 			["Chinese"] = "吞克",
 			["Spanish"] = "Tunkk",
+			["Mexican"] = "Tunkk",
 			["French"] = "Tunkk",
 			["English"] = "Tunkk",
 			["Korean"] = "텅크",
@@ -3656,7 +3958,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "34",
 			["is_elite"] = 0,
 		},
-	}, -- [146]
+	},
 	{
 		["zone_id"] = 45,
 		["phase"] = 1,
@@ -3670,6 +3972,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кеена",
 			["Chinese"] = "基纳",
 			["Spanish"] = "Keena",
+			["Mexican"] = "Keena",
 			["French"] = "Keena",
 			["English"] = "Keena",
 			["Korean"] = "키나",
@@ -3681,7 +3984,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "33",
 			["is_elite"] = 0,
 		},
-	}, -- [147]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -3695,6 +3998,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Брикк Мастерец",
 			["Chinese"] = "布里克·基克拉夫",
 			["Spanish"] = "Brikk Finoficio",
+			["Mexican"] = "Brikk Finoficio",
 			["French"] = "Brikk Keencraft",
 			["English"] = "Brikk Keencraft",
 			["Korean"] = "브리크 킨크래프트",
@@ -3706,7 +4010,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "54",
 			["is_elite"] = 0,
 		},
-	}, -- [148]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -3720,6 +4024,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джаксин Чонг",
 			["Chinese"] = "加克森",
 			["Spanish"] = "Jaxin Chong",
+			["Mexican"] = "Jaxin Chong",
 			["French"] = "Jaxin Chong",
 			["English"] = "Jaxin Chong",
 			["Korean"] = "야신 총",
@@ -3731,7 +4036,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "46",
 			["is_elite"] = 0,
 		},
-	}, -- [149]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -3745,6 +4050,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кразк Искрец",
 			["Chinese"] = "克拉赛·斯巴克斯",
 			["Spanish"] = "Craz Chispaz",
+			["Mexican"] = "Craz Chispaz",
 			["French"] = "Crazk Sparks",
 			["English"] = "Crazk Sparks",
 			["Korean"] = "크라즈크 스팍스",
@@ -3756,7 +4062,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "46",
 			["is_elite"] = 0,
 		},
-	}, -- [150]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -3770,6 +4076,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ютак",
 			["Chinese"] = "祖塔克",
 			["Spanish"] = "Jutak",
+			["Mexican"] = "Jutak",
 			["French"] = "Jutak",
 			["English"] = "Jutak",
 			["Korean"] = "주타크",
@@ -3781,7 +4088,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "43",
 			["is_elite"] = 0,
 		},
-	}, -- [151]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -3795,6 +4102,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Бликрез Ладноскрой",
 			["Chinese"] = "布里克雷兹·古斯提",
 			["Spanish"] = "Blixrez Cortefino",
+			["Mexican"] = "Blixrez Cortefino",
 			["French"] = "Blixrez Goodstitch",
 			["English"] = "Blixrez Goodstitch",
 			["Korean"] = "블릭스레즈 굿스티치",
@@ -3806,7 +4114,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "43",
 			["is_elite"] = 0,
 		},
-	}, -- [152]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -3820,6 +4128,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гликс Пивоправ",
 			["Chinese"] = "格里克斯·布鲁维特",
 			["Spanish"] = "Glyx Buenamezcla",
+			["Mexican"] = "Glyx Buenamezcla",
 			["French"] = "Glyx Brewright",
 			["English"] = "Glyx Brewright",
 			["Korean"] = "글릭스 브루라이트",
@@ -3831,7 +4140,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "45",
 			["is_elite"] = 0,
 		},
-	}, -- [153]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -3845,6 +4154,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Снанг",
 			["Chinese"] = "斯诺恩",
 			["Spanish"] = "Snang",
+			["Mexican"] = "Snang",
 			["French"] = "Snang",
 			["English"] = "Snang",
 			["Korean"] = "스낭",
@@ -3856,7 +4166,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [154]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -3870,6 +4180,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тунд",
 			["Chinese"] = "桑德",
 			["Spanish"] = "Thund",
+			["Mexican"] = "Thund",
 			["French"] = "Thund",
 			["English"] = "Thund",
 			["Korean"] = "선드",
@@ -3881,7 +4192,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "23",
 			["is_elite"] = 0,
 		},
-	}, -- [155]
+	},
 	{
 		["zone_id"] = 3,
 		["phase"] = 1,
@@ -3895,6 +4206,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Люсьен Подай-Ключ",
 			["Chinese"] = "卢希恩·枪穗",
 			["Spanish"] = "Lucien Borlallave",
+			["Mexican"] = "Lucien Borlallave",
 			["French"] = "Lucien Tosselwrench",
 			["English"] = "Lucien Tosselwrench",
 			["Korean"] = "루시앙 토셀렌치",
@@ -3906,7 +4218,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "31",
 			["is_elite"] = 0,
 		},
-	}, -- [156]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -3920,6 +4232,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Карн Каменное Копыто",
 			["Chinese"] = "卡恩·石蹄",
 			["Spanish"] = "Karn Pezuñapétrea",
+			["Mexican"] = "Karn Pezuñapétrea",
 			["French"] = "Karn Stonehoof",
 			["English"] = "Karn Stonehoof",
 			["Korean"] = "카른 스톤후프",
@@ -3931,7 +4244,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [157]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -3945,6 +4258,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Брек Каменное Копыто",
 			["Chinese"] = "布瑞克·石蹄",
 			["Spanish"] = "Brek Pezuñapétrea",
+			["Mexican"] = "Brek Pezuñapétrea",
 			["French"] = "Brek Stonehoof",
 			["English"] = "Brek Stonehoof",
 			["Korean"] = "브렉 스톤후프",
@@ -3956,7 +4270,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [158]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -3970,6 +4284,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тепа",
 			["Chinese"] = "坦帕",
 			["Spanish"] = "Tepa",
+			["Mexican"] = "Tepa",
 			["French"] = "Tepa",
 			["English"] = "Tepa",
 			["Korean"] = "테파",
@@ -3981,7 +4296,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [159]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -3995,6 +4310,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Маху",
 			["Chinese"] = "曼胡",
 			["Spanish"] = "Mahu",
+			["Mexican"] = "Mahu",
 			["French"] = "Mahu",
 			["English"] = "Mahu",
 			["Korean"] = "마후",
@@ -4006,7 +4322,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [160]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -4020,6 +4336,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Уна",
 			["Chinese"] = "犹纳",
 			["Spanish"] = "Una",
+			["Mexican"] = "Una",
 			["French"] = "Una",
 			["English"] = "Una",
 			["Korean"] = "우나",
@@ -4031,7 +4348,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "46",
 			["is_elite"] = 0,
 		},
-	}, -- [161]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -4045,6 +4362,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мак",
 			["Chinese"] = "马克",
 			["Spanish"] = "Mak",
+			["Mexican"] = "Mak",
 			["French"] = "Mak",
 			["English"] = "Mak",
 			["Korean"] = "마크",
@@ -4056,7 +4374,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [162]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -4070,6 +4388,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Бена Заиндевевшее Копыто",
 			["Chinese"] = "本娜·冰蹄",
 			["Spanish"] = "Bena Pezuña Invernal",
+			["Mexican"] = "Bena Pezuña Invernal",
 			["French"] = "Bena Winterhoof",
 			["English"] = "Bena Winterhoof",
 			["Korean"] = "베나 윈터후프",
@@ -4081,7 +4400,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [163]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -4095,6 +4414,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тег Рассветный Странник",
 			["Chinese"] = "泰戈·黎明行者",
 			["Spanish"] = "Teg Caminalba",
+			["Mexican"] = "Teg Caminalba",
 			["French"] = "Teg Dawnstrider",
 			["English"] = "Teg Dawnstrider",
 			["Korean"] = "테그 던스트라이더",
@@ -4106,7 +4426,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [164]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -4120,6 +4440,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ната Рассветная Странница",
 			["Chinese"] = "纳塔·黎明行者",
 			["Spanish"] = "Nata Caminalba",
+			["Mexican"] = "Nata Caminalba",
 			["French"] = "Nata Dawnstrider",
 			["English"] = "Nata Dawnstrider",
 			["Korean"] = "나타 던스트라이더",
@@ -4131,7 +4452,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [165]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -4145,6 +4466,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Аска Вестница Туманов",
 			["Chinese"] = "阿丝卡·迷雾行者",
 			["Spanish"] = "Aska Correbruma",
+			["Mexican"] = "Aska Correbruma",
 			["French"] = "Aska Mistrunner",
 			["English"] = "Aska Mistrunner",
 			["Korean"] = "아스카 미스트러너",
@@ -4156,7 +4478,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "45",
 			["is_elite"] = 0,
 		},
-	}, -- [166]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -4170,6 +4492,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Наал Вестник Туманов",
 			["Chinese"] = "纳尔·迷雾行者",
 			["Spanish"] = "Naal Correbruma",
+			["Mexican"] = "Naal Correbruma",
 			["French"] = "Naal Mistrunner",
 			["English"] = "Naal Mistrunner",
 			["Korean"] = "나알 미스트러너",
@@ -4181,7 +4504,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [167]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -4195,6 +4518,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Сива Вестница Туманов",
 			["Chinese"] = "苏瓦·迷雾行者",
 			["Spanish"] = "Seua Correbruma",
+			["Mexican"] = "Seua Correbruma",
 			["French"] = "Sewa Mistrunner",
 			["English"] = "Sewa Mistrunner",
 			["Korean"] = "세와 미스트러너",
@@ -4206,7 +4530,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [168]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -4220,6 +4544,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Верен Долгоног",
 			["Chinese"] = "维尔伦·陆行者",
 			["Spanish"] = "Veren Zancaalta",
+			["Mexican"] = "Veren Zancaalta",
 			["French"] = "Veren Tallstrider",
 			["English"] = "Veren Tallstrider",
 			["Korean"] = "베렌 톨스트라이더",
@@ -4231,7 +4556,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "21",
 			["is_elite"] = 0,
 		},
-	}, -- [169]
+	},
 	{
 		["zone_id"] = 215,
 		["phase"] = 1,
@@ -4245,6 +4570,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Пиалл Тихая Поступь",
 			["Chinese"] = "派尔·沉默行者",
 			["Spanish"] = "Pyall Trancosilencio",
+			["Mexican"] = "Pyall Trancosilencio",
 			["French"] = "Pyall Silentstride",
 			["English"] = "Pyall Silentstride",
 			["Korean"] = "피알 사일런트스트라이드",
@@ -4256,7 +4582,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "12",
 			["is_elite"] = 0,
 		},
-	}, -- [170]
+	},
 	{
 		["zone_id"] = 215,
 		["phase"] = 1,
@@ -4270,6 +4596,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Чоу Толстая Шкура",
 			["Chinese"] = "查尔·硬皮",
 			["Spanish"] = "Chaw Pellejofuerte",
+			["Mexican"] = "Chaw Pellejofuerte",
 			["French"] = "Chaw Stronghide",
 			["English"] = "Chaw Stronghide",
 			["Korean"] = "초우 스트롱하이드",
@@ -4281,7 +4608,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "23",
 			["is_elite"] = 0,
 		},
-	}, -- [171]
+	},
 	{
 		["zone_id"] = 215,
 		["phase"] = 1,
@@ -4295,6 +4622,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Вунна Темная Грива",
 			["Chinese"] = "温纳·黑鬃",
 			["Spanish"] = "Wunna Crinoscura",
+			["Mexican"] = "Wunna Crinoscura",
 			["French"] = "Wunna Darkmane",
 			["English"] = "Wunna Darkmane",
 			["Korean"] = "우나 다크메인",
@@ -4306,7 +4634,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "10",
 			["is_elite"] = 0,
 		},
-	}, -- [172]
+	},
 	{
 		["zone_id"] = 44,
 		["phase"] = 1,
@@ -4320,6 +4648,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Глория Даммель",
 			["Chinese"] = "格劳瑞亚·菲米尔",
 			["Spanish"] = "Gloria Femmel",
+			["Mexican"] = "Gloria Femmel",
 			["French"] = "Gloria Femmel",
 			["English"] = "Gloria Femmel",
 			["Korean"] = "글로리아 펌멜",
@@ -4331,7 +4660,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "20",
 			["is_elite"] = 0,
 		},
-	}, -- [173]
+	},
 	{
 		["zone_id"] = 44,
 		["phase"] = 1,
@@ -4345,6 +4674,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кристал Боумен",
 			["Chinese"] = "克里斯托·鲍曼",
 			["Spanish"] = "Ramacho de cristal",
+			["Mexican"] = "Ramacho de cristal",
 			["French"] = "Crystal Boughman",
 			["English"] = "Crystal Boughman",
 			["Korean"] = "크리스탈 바우맨",
@@ -4356,7 +4686,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "22",
 			["is_elite"] = 0,
 		},
-	}, -- [174]
+	},
 	{
 		["zone_id"] = 10,
 		["phase"] = 1,
@@ -4370,6 +4700,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кзикс",
 			["Chinese"] = "卡兹克斯",
 			["Spanish"] = "Kzixx",
+			["Mexican"] = "Kzixx",
 			["French"] = "Kzixx",
 			["English"] = "Kzixx",
 			["Korean"] = "크직스",
@@ -4381,7 +4712,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [175]
+	},
 	{
 		["zone_id"] = 10,
 		["phase"] = 1,
@@ -4395,6 +4726,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Клариса Гнутодрев",
 			["Chinese"] = "克拉莉斯·纳尔特里",
 			["Spanish"] = "Clarise Nudárbol",
+			["Mexican"] = "Clarise Nudárbol",
 			["French"] = "Clarise Gnarltree",
 			["English"] = "Clarise Gnarltree",
 			["Korean"] = "클라리즈 나알트리",
@@ -4406,7 +4738,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "31",
 			["is_elite"] = 0,
 		},
-	}, -- [176]
+	},
 	{
 		["zone_id"] = 10,
 		["phase"] = 1,
@@ -4420,6 +4752,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мэтт Джонсон",
 			["Chinese"] = "玛特·约翰森",
 			["Spanish"] = "Matt Johnson",
+			["Mexican"] = "Matt Johnson",
 			["French"] = "Matt Johnson",
 			["English"] = "Matt Johnson",
 			["Korean"] = "매트 존슨",
@@ -4431,7 +4764,33 @@ MTSL_DATA["npcs"] = {
 			["min"] = "20",
 			["is_elite"] = 0,
 		},
-	}, -- [177]
+	},
+	{
+		["zone_id"] = 14,
+		["phase"] = 1,
+		["id"] = 3170,
+		["location"] = {
+			["y"] = "52.00",
+			["x"] = "43.60",
+		},
+		["name"] = {
+			["German"] = "Kaplak",
+			["English"] = "Kaplak",
+			["Spanish"] = "Kaplak",
+			["Mexican"] = "Kaplak",
+			["French"] = "Kaplak",
+			["Portuguese"] = "Kaplak",
+			["Russian"] = "Каплак",
+			["Korean"] = "카플라크",
+			["Chinese"] = "卡普拉克",
+		},
+		["reacts"] = "Horde",
+		["xp_level"] = {
+			["max"] = "14",
+			["min"] = "14",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 14,
 		["phase"] = 1,
@@ -4445,6 +4804,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Двукк",
 			["Chinese"] = "杜克",
 			["Spanish"] = "Dwukk",
+			["Mexican"] = "Dwukk",
 			["French"] = "Dwukk",
 			["English"] = "Dwukk",
 			["Korean"] = "드우크",
@@ -4456,7 +4816,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "27",
 			["is_elite"] = 0,
 		},
-	}, -- [178]
+	},
 	{
 		["zone_id"] = 14,
 		["phase"] = 1,
@@ -4470,6 +4830,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Крунн",
 			["Chinese"] = "克鲁恩",
 			["Spanish"] = "Krunn",
+			["Mexican"] = "Krunn",
 			["French"] = "Krunn",
 			["English"] = "Krunn",
 			["Korean"] = "크룬",
@@ -4481,7 +4842,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "16",
 			["is_elite"] = 0,
 		},
-	}, -- [179]
+	},
 	{
 		["zone_id"] = 11,
 		["phase"] = 1,
@@ -4495,6 +4856,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Стюарт Флеминг",
 			["Chinese"] = "斯图亚特·弗雷明",
 			["Spanish"] = "Stuart Fleming",
+			["Mexican"] = "Stuart Fleming",
 			["French"] = "Stuart Fleming",
 			["English"] = "Stuart Fleming",
 			["Korean"] = "스튜어트 플레밍",
@@ -4506,7 +4868,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [180]
+	},
 	{
 		["zone_id"] = 11,
 		["phase"] = 1,
@@ -4520,6 +4882,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Фремаль Ерундец",
 			["Chinese"] = "弗雷玛尔",
 			["Spanish"] = "Fremal Tornichup",
+			["Mexican"] = "Fremal Tornichup",
 			["French"] = "Fremal Doohickey",
 			["English"] = "Fremal Doohickey",
 			["Korean"] = "프레말 두히키",
@@ -4531,7 +4894,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [181]
+	},
 	{
 		["zone_id"] = 14,
 		["phase"] = 1,
@@ -4545,6 +4908,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мяо'зан",
 			["Chinese"] = "米奥赞",
 			["Spanish"] = "Miao'zan",
+			["Mexican"] = "Miao'zan",
 			["French"] = "Miao'zan",
 			["English"] = "Miao'zan",
 			["Korean"] = "미아오잔",
@@ -4556,7 +4920,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [182]
+	},
 	{
 		["zone_id"] = 38,
 		["phase"] = 1,
@@ -4570,6 +4934,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Сыщ Жужело",
 			["Chinese"] = "迪克",
 			["Spanish"] = "Deek Malnegocio",
+			["Mexican"] = "Deek Malnegocio",
 			["French"] = "Deek Fizzlebizz",
 			["English"] = "Deek Fizzlebizz",
 			["Korean"] = "디크 피즐비즈",
@@ -4581,7 +4946,59 @@ MTSL_DATA["npcs"] = {
 			["min"] = "27",
 			["is_elite"] = 0,
 		},
-	}, -- [183]
+	},
+	{
+		["zone_id"] = 1637,
+		["phase"] = 1,
+		["id"] = 3327,
+		["location"] = {
+			["y"] = "42.80",
+			["x"] = "51.60",
+		},
+		["name"] = {
+			["German"] = "Gest",
+			["English"] = "Gest",
+			["Spanish"] = "Gest",
+			["Mexican"] = "Gest",
+			["French"] = "Gest",
+			["Portuguese"] = "Gest",
+			["Russian"] = "Гест",
+			["Korean"] = "게스트",
+			["Chinese"] = "盖斯特",
+		},
+		["reacts"] = "Horde",
+		["xp_level"] = {
+			["max"] = "40",
+			["min"] = "40",
+			["is_elite"] = 0,
+		},
+	},
+	{
+		["zone_id"] = 1637,
+		["phase"] = 1,
+		["id"] = 3328,
+		["location"] = {
+			["y"] = "44.00",
+			["x"] = "54.60",
+		},
+		["name"] = {
+			["German"] = "Ormok",
+			["English"] = "Ormok",
+			["Spanish"] = "Ormok",
+			["Mexican"] = "Ormok",
+			["French"] = "Ormok",
+			["Portuguese"] = "Ormok",
+			["Russian"] = "Ормок",
+			["Korean"] = "오르묵",
+			["Chinese"] = "奥莫克",
+		},
+		["reacts"] = "Horde",
+		["xp_level"] = {
+			["max"] = "50",
+			["min"] = "50",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -4595,6 +5012,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Шанкис",
 			["Chinese"] = "山吉斯",
 			["Spanish"] = "Shankys",
+			["Mexican"] = "Shankys",
 			["French"] = "Shankys",
 			["English"] = "Shankys",
 			["Korean"] = "샨키스",
@@ -4606,7 +5024,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [184]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -4620,6 +5038,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Хагрус",
 			["Chinese"] = "哈格鲁斯",
 			["Spanish"] = "Hagrus",
+			["Mexican"] = "Hagrus",
 			["French"] = "Hagrus",
 			["English"] = "Hagrus",
 			["Korean"] = "하그루스",
@@ -4631,7 +5050,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [185]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -4645,6 +5064,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Годан",
 			["Chinese"] = "古丹",
 			["Spanish"] = "Godan",
+			["Mexican"] = "Godan",
 			["French"] = "Godan",
 			["English"] = "Godan",
 			["Korean"] = "고단",
@@ -4656,7 +5076,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [186]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -4670,6 +5090,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Китхас",
 			["Chinese"] = "基萨斯",
 			["Spanish"] = "Kithas",
+			["Mexican"] = "Kithas",
 			["French"] = "Kithas",
 			["English"] = "Kithas",
 			["Korean"] = "키타스",
@@ -4681,7 +5102,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [187]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -4695,6 +5116,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Йелмак",
 			["Chinese"] = "耶尔玛克",
 			["Spanish"] = "Yelmak",
+			["Mexican"] = "Yelmak",
 			["French"] = "Yelmak",
 			["English"] = "Yelmak",
 			["Korean"] = "옐마크",
@@ -4706,7 +5128,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [188]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -4720,6 +5142,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кор'гельд",
 			["Chinese"] = "考吉尔德",
 			["Spanish"] = "Kor'geld",
+			["Mexican"] = "Kor'geld",
 			["French"] = "Kor'geld",
 			["English"] = "Kor'geld",
 			["Korean"] = "코르겔드",
@@ -4731,7 +5154,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [189]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -4745,6 +5168,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Сару Холодная Ярость",
 			["Chinese"] = "萨鲁·钢怒",
 			["Spanish"] = "Saru Furiacerada",
+			["Mexican"] = "Saru Furiacerada",
 			["French"] = "Saru Steelfury",
 			["English"] = "Saru Steelfury",
 			["Korean"] = "사루 스틸퓨리",
@@ -4756,7 +5180,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "45",
 			["is_elite"] = 0,
 		},
-	}, -- [190]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -4770,6 +5194,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Суми",
 			["Chinese"] = "苏米",
 			["Spanish"] = "Sumi",
+			["Mexican"] = "Sumi",
 			["French"] = "Sumi",
 			["English"] = "Sumi",
 			["Korean"] = "수미",
@@ -4781,7 +5206,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [191]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -4795,6 +5220,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Макару",
 			["Chinese"] = "马卡鲁",
 			["Spanish"] = "Makaru",
+			["Mexican"] = "Makaru",
 			["French"] = "Makaru",
 			["English"] = "Makaru",
 			["Korean"] = "마카루",
@@ -4806,7 +5232,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [192]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -4820,6 +5246,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Магар",
 			["Chinese"] = "玛加尔",
 			["Spanish"] = "Magar",
+			["Mexican"] = "Magar",
 			["French"] = "Magar",
 			["English"] = "Magar",
 			["Korean"] = "마가르",
@@ -4831,7 +5258,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [193]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -4845,6 +5272,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Боря",
 			["Chinese"] = "博亚",
 			["Spanish"] = "Borya",
+			["Mexican"] = "Borya",
 			["French"] = "Borya",
 			["English"] = "Borya",
 			["Korean"] = "보르야",
@@ -4856,7 +5284,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [194]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -4870,6 +5298,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Каролек",
 			["Chinese"] = "卡洛雷克",
 			["Spanish"] = "Karolek",
+			["Mexican"] = "Karolek",
 			["French"] = "Karolek",
 			["English"] = "Karolek",
 			["Korean"] = "카롤렉",
@@ -4881,7 +5310,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [195]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -4895,6 +5324,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тамар",
 			["Chinese"] = "达玛尔",
 			["Spanish"] = "Tamar",
+			["Mexican"] = "Tamar",
 			["French"] = "Tamar",
 			["English"] = "Tamar",
 			["Korean"] = "타마르",
@@ -4906,7 +5336,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [196]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -4920,6 +5350,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Арнок",
 			["Chinese"] = "阿诺克",
 			["Spanish"] = "Arnok",
+			["Mexican"] = "Arnok",
 			["French"] = "Arnok",
 			["English"] = "Arnok",
 			["Korean"] = "아르녹",
@@ -4931,7 +5362,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [197]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -4945,6 +5376,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тераморский страж бухты",
 			["Chinese"] = "塞拉摩水兵",
 			["Spanish"] = "Marino de Theramore",
+			["Mexican"] = "Marino de Theramore",
 			["French"] = "Soldat de marine de Theramore",
 			["English"] = "Theramore Marine",
 			["Korean"] = "테라모어 해병",
@@ -4956,7 +5388,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "15",
 			["is_elite"] = 0,
 		},
-	}, -- [198]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -4970,6 +5402,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тераморская оберегательница",
 			["Chinese"] = "塞拉摩医师",
 			["Spanish"] = "Presertor de Theramonte",
+			["Mexican"] = "Presertor de Theramonte",
 			["French"] = "Protectrice de Theramore",
 			["English"] = "Theramore Preserver",
 			["Korean"] = "테라모어 치료사",
@@ -4981,7 +5414,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "16",
 			["is_elite"] = 0,
 		},
-	}, -- [199]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -4995,6 +5428,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Замджа",
 			["Chinese"] = "扎姆沙",
 			["Spanish"] = "Zamja",
+			["Mexican"] = "Zamja",
 			["French"] = "Zamja",
 			["English"] = "Zamja",
 			["Korean"] = "잠자",
@@ -5006,7 +5440,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [200]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -5020,6 +5454,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ксен'то",
 			["Chinese"] = "克森图",
 			["Spanish"] = "Xen'to",
+			["Mexican"] = "Xen'to",
 			["French"] = "Xen'to",
 			["English"] = "Xen'to",
 			["Korean"] = "센토",
@@ -5031,7 +5466,33 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [201]
+	},
+	{
+		["zone_id"] = 1637,
+		["phase"] = 1,
+		["id"] = 3401,
+		["location"] = {
+			["y"] = "43.00",
+			["x"] = "53.60",
+		},
+		["name"] = {
+			["Portuguese"] = "Shenthul",
+			["Russian"] = "Шентул",
+			["Chinese"] = "申苏尔",
+			["Spanish"] = "Shenthul",
+			["Mexican"] = "Shenthul",
+			["French"] = "Shenthul",
+			["English"] = "Shenthul",
+			["Korean"] = "셴툴",
+			["German"] = "Shenthul",
+		},
+		["reacts"] = "Horde",
+		["xp_level"] = {
+			["max"] = "60",
+			["min"] = "60",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -5045,6 +5506,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ногг",
 			["Chinese"] = "诺格",
 			["Spanish"] = "Nogg",
+			["Mexican"] = "Nogg",
 			["French"] = "Nogg",
 			["English"] = "Nogg",
 			["Korean"] = "노그",
@@ -5056,7 +5518,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [202]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -5070,6 +5532,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Совик",
 			["Chinese"] = "索维克",
 			["Spanish"] = "Sovik",
+			["Mexican"] = "Sovik",
 			["French"] = "Sovik'",
 			["English"] = "Sovik",
 			["Korean"] = "소빅",
@@ -5095,6 +5558,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Грязнуля",
 			["Chinese"] = "格拉布",
 			["Spanish"] = "Larva",
+			["Mexican"] = "Larva",
 			["French"] = "Boustiff'",
 			["English"] = "Grub",
 			["Korean"] = "그럽",
@@ -5120,6 +5584,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Трауг",
 			["Chinese"] = "特劳弗",
 			["Spanish"] = "Traugh",
+			["Mexican"] = "Traugh",
 			["French"] = "Traugh",
 			["English"] = "Traugh",
 			["Korean"] = "트라우그",
@@ -5131,7 +5596,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "31",
 			["is_elite"] = 0,
 		},
-	}, -- [204]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -5145,6 +5610,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тарик'ка",
 			["Chinese"] = "塔里查",
 			["Spanish"] = "Tari'qa",
+			["Mexican"] = "Tari'qa",
 			["French"] = "Tari'qa",
 			["English"] = "Tari'qa",
 			["Korean"] = "타리카",
@@ -5156,7 +5622,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "14",
 			["is_elite"] = 0,
 		},
-	}, -- [205]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -5170,6 +5636,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кил'хала",
 			["Chinese"] = "基尔哈拉",
 			["Spanish"] = "Kil'hala",
+			["Mexican"] = "Kil'hala",
 			["French"] = "Kil'hala",
 			["English"] = "Kil'hala",
 			["Korean"] = "킬할라",
@@ -5181,7 +5648,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [206]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -5195,6 +5662,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ракх",
 			["Chinese"] = "瓦尔克",
 			["Spanish"] = "Wrahk",
+			["Mexican"] = "Wrahk",
 			["French"] = "Wrahk",
 			["English"] = "Wrahk",
 			["Korean"] = "레이크",
@@ -5206,7 +5674,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "18",
 			["is_elite"] = 0,
 		},
-	}, -- [207]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -5220,6 +5688,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Заргх",
 			["Chinese"] = "扎尔夫",
 			["Spanish"] = "Zargh",
+			["Mexican"] = "Zargh",
 			["French"] = "Zargh",
 			["English"] = "Zargh",
 			["Korean"] = "자르그",
@@ -5231,7 +5700,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "16",
 			["is_elite"] = 0,
 		},
-	}, -- [208]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -5245,6 +5714,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Хула'махи",
 			["Chinese"] = "哈拉玛",
 			["Spanish"] = "Hula'mahi",
+			["Mexican"] = "Hula'mahi",
 			["French"] = "Hula'mahi",
 			["English"] = "Hula'mahi",
 			["Korean"] = "훌라마히",
@@ -5256,7 +5726,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [209]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -5270,6 +5740,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Оловень",
 			["Chinese"] = "廷克维斯",
 			["Spanish"] = "Manitas de Oro",
+			["Mexican"] = "Manitas de Oro",
 			["French"] = "Tinkerwiz",
 			["English"] = "Tinkerwiz",
 			["Korean"] = "팅커위즈",
@@ -5281,7 +5752,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [210]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -5295,6 +5766,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Заглушестер",
 			["Chinese"] = "加格斯普吉特",
 			["Spanish"] = "Dentolio",
+			["Mexican"] = "Dentolio",
 			["French"] = "Gagsprocket",
 			["English"] = "Gagsprocket",
 			["Korean"] = "객스프로켓",
@@ -5306,7 +5778,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "20",
 			["is_elite"] = 0,
 		},
-	}, -- [211]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -5320,6 +5792,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кликс",
 			["Chinese"] = "基尔克斯",
 			["Spanish"] = "Kilxx",
+			["Mexican"] = "Kilxx",
 			["French"] = "Kilxx",
 			["English"] = "Kilxx",
 			["Korean"] = "킬륵스",
@@ -5331,7 +5804,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [212]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -5345,6 +5818,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Раник",
 			["Chinese"] = "拉尼克",
 			["Spanish"] = "Ranik",
+			["Mexican"] = "Ranik",
 			["French"] = "Ranik",
 			["English"] = "Ranik",
 			["Korean"] = "래니크",
@@ -5356,7 +5830,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "22",
 			["is_elite"] = 0,
 		},
-	}, -- [213]
+	},
 	{
 		["zone_id"] = 85,
 		["phase"] = 1,
@@ -5370,6 +5844,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Констанция Брибуа",
 			["Chinese"] = "康斯坦茨·布里斯博埃斯",
 			["Spanish"] = "Constanza Brisboise",
+			["Mexican"] = "Constanza Brisboise",
 			["French"] = "Constance Brisboise",
 			["English"] = "Constance Brisboise",
 			["Korean"] = "콘스턴스 브리스부아즈",
@@ -5381,7 +5856,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "10",
 			["is_elite"] = 0,
 		},
-	}, -- [214]
+	},
 	{
 		["zone_id"] = 85,
 		["phase"] = 1,
@@ -5395,6 +5870,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Боуэн Брисбойс",
 			["Chinese"] = "博文·布里斯博埃斯",
 			["Spanish"] = "Bowen Bribuesa",
+			["Mexican"] = "Bowen Bribuesa",
 			["French"] = "Bowen Brisboise",
 			["English"] = "Bowen Brisboise",
 			["Korean"] = "보웬 브리스부아즈",
@@ -5406,7 +5882,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [215]
+	},
 	{
 		["zone_id"] = 130,
 		["phase"] = 1,
@@ -5420,6 +5896,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Портной деревни Погребальных Костров",
 			["Chinese"] = "焚木村裁缝",
 			["Spanish"] = "Sastre Piroleño",
+			["Mexican"] = "Sastre Piroleño",
 			["French"] = "Tailleur de Bois-du-Bûcher",
 			["English"] = "Pyrewood Tailor",
 			["Korean"] = "장작나무 마을 재봉사",
@@ -5431,7 +5908,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "12",
 			["is_elite"] = 1,
 		},
-	}, -- [216]
+	},
 	{
 		["zone_id"] = 130,
 		["phase"] = 1,
@@ -5445,6 +5922,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Портной Лунной Ярости",
 			["Chinese"] = "月怒裁缝",
 			["Spanish"] = "Sastre Furia Lunar",
+			["Mexican"] = "Sastre Furia Lunar",
 			["French"] = "Tailleur Ragelune",
 			["English"] = "Moonrage Tailor",
 			["Korean"] = "달의분노일족 재봉사",
@@ -5456,7 +5934,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "14",
 			["is_elite"] = 1,
 		},
-	}, -- [217]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -5470,6 +5948,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Зиксель",
 			["Chinese"] = "吉克希尔",
 			["Spanish"] = "Zixil",
+			["Mexican"] = "Zixil",
 			["French"] = "Zixil",
 			["English"] = "Zixil",
 			["Korean"] = "직실",
@@ -5481,7 +5960,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "32",
 			["is_elite"] = 0,
 		},
-	}, -- [218]
+	},
 	{
 		["zone_id"] = 85,
 		["phase"] = 1,
@@ -5495,6 +5974,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Шелена Робарт",
 			["Chinese"] = "舍伦尼·洛巴尔特",
 			["Spanish"] = "Shelene Rhobart",
+			["Mexican"] = "Shelene Rhobart",
 			["French"] = "Shelene Rhobart",
 			["English"] = "Shelene Rhobart",
 			["Korean"] = "셸렌 로버트",
@@ -5506,7 +5986,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [219]
+	},
 	{
 		["zone_id"] = 85,
 		["phase"] = 1,
@@ -5520,6 +6000,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мартин Трамбле",
 			["Chinese"] = "马丁·塔布雷",
 			["Spanish"] = "Martine Tramblay",
+			["Mexican"] = "Martine Tramblay",
 			["French"] = "Martine Tramblay",
 			["English"] = "Martine Tramblay",
 			["Korean"] = "마틴 트램블레이",
@@ -5531,7 +6012,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "15",
 			["is_elite"] = 0,
 		},
-	}, -- [220]
+	},
 	{
 		["zone_id"] = 130,
 		["phase"] = 1,
@@ -5545,6 +6026,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Йохан Фогт",
 			["Chinese"] = "乔汉·弗彻",
 			["Spanish"] = "Johan Focht",
+			["Mexican"] = "Johan Focht",
 			["French"] = "Johan Focht",
 			["English"] = "Johan Focht",
 			["Korean"] = "요한 폭히트",
@@ -5556,7 +6038,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "19",
 			["is_elite"] = 0,
 		},
-	}, -- [221]
+	},
 	{
 		["zone_id"] = 130,
 		["phase"] = 1,
@@ -5570,6 +6052,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Эндрю Гилберт",
 			["Chinese"] = "安德鲁·希尔伯特",
 			["Spanish"] = "Andrew Hilbert",
+			["Mexican"] = "Andrew Hilbert",
 			["French"] = "Andrew Hilbert",
 			["English"] = "Andrew Hilbert",
 			["Korean"] = "앤드류 힐버트",
@@ -5581,7 +6064,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "18",
 			["is_elite"] = 0,
 		},
-	}, -- [222]
+	},
 	{
 		["zone_id"] = 130,
 		["phase"] = 1,
@@ -5595,6 +6078,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гийом Сорю",
 			["Chinese"] = "古拉摩·索洛伊",
 			["Spanish"] = "Guillaume Sorouy",
+			["Mexican"] = "Guillaume Sorouy",
 			["French"] = "Guillemette Sorouy",
 			["English"] = "Guillaume Sorouy",
 			["Korean"] = "기욤 소로이",
@@ -5606,7 +6090,33 @@ MTSL_DATA["npcs"] = {
 			["min"] = "28",
 			["is_elite"] = 0,
 		},
-	}, -- [223]
+	},
+	{
+		["zone_id"] = 141,
+		["phase"] = 1,
+		["id"] = 3599,
+		["location"] = {
+			["y"] = "56.20",
+			["x"] = "60.00",
+		},
+		["name"] = {
+			["German"] = "Jannok Breezesong",
+			["English"] = "Jannok Breezesong",
+			["Spanish"] = "Jannok Brisón",
+			["Mexican"] = "Jannok Brisón",
+			["French"] = "Jannok Breezesong",
+			["Portuguese"] = "Jannok Brisacanto",
+			["Russian"] = "Джаннок Поющий Ветерок",
+			["Korean"] = "잔노크 브리즈송",
+			["Chinese"] = "詹诺克·柔歌",
+		},
+		["reacts"] = "Alliance",
+		["xp_level"] = {
+			["max"] = "20",
+			["min"] = "20",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 141,
 		["phase"] = 1,
@@ -5620,6 +6130,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Циндра Ласковый Шепот",
 			["Chinese"] = "塞恩德拉·细语者",
 			["Spanish"] = "Cyndra Suavesurro",
+			["Mexican"] = "Cyndra Suavesurro",
 			["French"] = "Cyndra Kindwhisper",
 			["English"] = "Cyndra Kindwhisper",
 			["Korean"] = "킨드라 카인드위스퍼",
@@ -5631,7 +6142,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "28",
 			["is_elite"] = 0,
 		},
-	}, -- [224]
+	},
 	{
 		["zone_id"] = 141,
 		["phase"] = 1,
@@ -5645,6 +6156,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Надайя Гривопряд",
 			["Chinese"] = "纳迪娅·织发",
 			["Spanish"] = "Nadyia Tejecrín",
+			["Mexican"] = "Nadyia Tejecrín",
 			["French"] = "Nadyia Maneweaver",
 			["English"] = "Nadyia Maneweaver",
 			["Korean"] = "나디야 메인위버",
@@ -5656,7 +6168,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [225]
+	},
 	{
 		["zone_id"] = 141,
 		["phase"] = 1,
@@ -5670,6 +6182,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Аланна Око Ворона",
 			["Chinese"] = "奥兰纳·鸦眼",
 			["Spanish"] = "Alanna Cuervojo",
+			["Mexican"] = "Alanna Cuervojo",
 			["French"] = "Alanna Raveneye",
 			["English"] = "Alanna Raveneye",
 			["Korean"] = "알란나 레이븐아이",
@@ -5681,7 +6194,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "29",
 			["is_elite"] = 0,
 		},
-	}, -- [226]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -5695,6 +6208,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Пниподзад",
 			["Chinese"] = "吉克尼库",
 			["Spanish"] = "Kiknikle",
+			["Mexican"] = "Kiknikle",
 			["French"] = "Kiknikle",
 			["English"] = "Kiknikle",
 			["Korean"] = "킥니클",
@@ -5706,7 +6220,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "32",
 			["is_elite"] = 0,
 		},
-	}, -- [227]
+	},
 	{
 		["zone_id"] = 148,
 		["phase"] = 1,
@@ -5720,6 +6234,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Аландариан Песня Ночи",
 			["Chinese"] = "奥兰达利亚·夜歌",
 			["Spanish"] = "Alanndarian Arrullanoche",
+			["Mexican"] = "Alanndarian Arrullanoche",
 			["French"] = "Alanndarian Nightsong",
 			["English"] = "Alanndarian Nightsong",
 			["Korean"] = "알란다리안 나이트송",
@@ -5731,7 +6246,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "19",
 			["is_elite"] = 0,
 		},
-	}, -- [228]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -5745,6 +6260,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Крульмоо Полная Луна",
 			["Chinese"] = "克鲁姆·满月",
 			["Spanish"] = "Krulmoo Lunallena",
+			["Mexican"] = "Krulmoo Lunallena",
 			["French"] = "Krulmoo Fullmoon",
 			["English"] = "Krulmoo Fullmoon",
 			["Korean"] = "크룰무 풀문",
@@ -5756,7 +6272,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "42",
 			["is_elite"] = 0,
 		},
-	}, -- [229]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -5770,6 +6286,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Махани",
 			["Chinese"] = "马哈尼",
 			["Spanish"] = "Mahani",
+			["Mexican"] = "Mahani",
 			["French"] = "Mahani",
 			["English"] = "Mahani",
 			["Korean"] = "마하니",
@@ -5781,7 +6298,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "31",
 			["is_elite"] = 0,
 		},
-	}, -- [230]
+	},
 	{
 		["zone_id"] = 331,
 		["phase"] = 1,
@@ -5795,6 +6312,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Безумный древняк",
 			["Chinese"] = "疯狂的古树",
 			["Spanish"] = "Anciano enloquecido",
+			["Mexican"] = "Anciano enloquecido",
 			["French"] = "Ancien fou",
 			["English"] = "Crazed Ancient",
 			["Korean"] = "광기어린 고대정령",
@@ -5806,7 +6324,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "27",
 			["is_elite"] = 0,
 		},
-	}, -- [231]
+	},
 	{
 		["zone_id"] = 14,
 		["phase"] = 1,
@@ -5820,6 +6338,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гримтак",
 			["Chinese"] = "格瑞姆塔克",
 			["Spanish"] = "Grimtak",
+			["Mexican"] = "Grimtak",
 			["French"] = "Grimtak",
 			["English"] = "Grimtak",
 			["Korean"] = "그림탁",
@@ -5831,7 +6350,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "14",
 			["is_elite"] = 0,
 		},
-	}, -- [232]
+	},
 	{
 		["zone_id"] = 361,
 		["phase"] = 1,
@@ -5845,6 +6364,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Высохший древняк",
 			["Chinese"] = "干枯的古树",
 			["Spanish"] = "Anciano marchito",
+			["Mexican"] = "Anciano marchito",
 			["French"] = "Ancien flétri",
 			["English"] = "Withered Ancient",
 			["Korean"] = "부패한 고대정령",
@@ -5856,7 +6376,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "26",
 			["is_elite"] = 0,
 		},
-	}, -- [233]
+	},
 	{
 		["zone_id"] = 331,
 		["phase"] = 1,
@@ -5870,6 +6390,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дальрия",
 			["Chinese"] = "达利亚",
 			["Spanish"] = "Dalria",
+			["Mexican"] = "Dalria",
 			["French"] = "Dalria",
 			["English"] = "Dalria",
 			["Korean"] = "달리아",
@@ -5881,7 +6402,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [234]
+	},
 	{
 		["zone_id"] = 331,
 		["phase"] = 1,
@@ -5895,6 +6416,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Шандрина",
 			["Chinese"] = "珊蒂瑞亚",
 			["Spanish"] = "Shandrina",
+			["Mexican"] = "Shandrina",
 			["French"] = "Shandrina",
 			["English"] = "Shandrina",
 			["Korean"] = "샨드리나",
@@ -5906,7 +6428,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [235]
+	},
 	{
 		["zone_id"] = 331,
 		["phase"] = 1,
@@ -5920,6 +6442,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Харклан Лунная Роща",
 			["Chinese"] = "哈克兰·月林",
 			["Spanish"] = "Harklan Arboluna",
+			["Mexican"] = "Harklan Arboluna",
 			["French"] = "Harklan Moongrove",
 			["English"] = "Harklan Moongrove",
 			["Korean"] = "하클란 문그로브",
@@ -5931,7 +6454,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [236]
+	},
 	{
 		["zone_id"] = 331,
 		["phase"] = 1,
@@ -5945,6 +6468,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Лардан",
 			["Chinese"] = "拉尔丹",
 			["Spanish"] = "Lardan",
+			["Mexican"] = "Lardan",
 			["French"] = "Lardan",
 			["English"] = "Lardan",
 			["Korean"] = "라드란",
@@ -5956,7 +6480,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [237]
+	},
 	{
 		["zone_id"] = 331,
 		["phase"] = 1,
@@ -5970,6 +6494,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ультаан",
 			["Chinese"] = "尤萨恩",
 			["Spanish"] = "Ulthaan",
+			["Mexican"] = "Ulthaan",
 			["French"] = "Ulthaan",
 			["English"] = "Ulthaan",
 			["Korean"] = "울샨",
@@ -5981,7 +6506,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "26",
 			["is_elite"] = 0,
 		},
-	}, -- [238]
+	},
 	{
 		["zone_id"] = 331,
 		["phase"] = 1,
@@ -5995,6 +6520,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кайланна",
 			["Chinese"] = "凯兰娜",
 			["Spanish"] = "Kylanna",
+			["Mexican"] = "Kylanna",
 			["French"] = "Kylanna",
 			["English"] = "Kylanna",
 			["Korean"] = "킬란나",
@@ -6006,7 +6532,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "31",
 			["is_elite"] = 0,
 		},
-	}, -- [239]
+	},
 	{
 		["zone_id"] = 331,
 		["phase"] = 1,
@@ -6020,6 +6546,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Айндия Душистый Ветер",
 			["Chinese"] = "艾蒂安·花丛之风",
 			["Spanish"] = "Aayndia Vientofloral",
+			["Mexican"] = "Aayndia Vientofloral",
 			["French"] = "Aayndia Floralwind",
 			["English"] = "Aayndia Floralwind",
 			["Korean"] = "아얀디아 플로럴윈드",
@@ -6031,7 +6558,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "37",
 			["is_elite"] = 0,
 		},
-	}, -- [240]
+	},
 	{
 		["zone_id"] = 406,
 		["phase"] = 1,
@@ -6045,6 +6572,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Обугленный древняк",
 			["Chinese"] = "烧焦的树人",
 			["Spanish"] = "Anciano carbonizado",
+			["Mexican"] = "Anciano carbonizado",
 			["French"] = "Ancien calciné",
 			["English"] = "Charred Ancient",
 			["Korean"] = "악에물든 고대정령",
@@ -6056,7 +6584,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [241]
+	},
 	{
 		["zone_id"] = 406,
 		["phase"] = 1,
@@ -6070,6 +6598,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Почерневший древняк",
 			["Chinese"] = "黑色古树",
 			["Spanish"] = "Anciano ennegrecido",
+			["Mexican"] = "Anciano ennegrecido",
 			["French"] = "Ancien noirci",
 			["English"] = "Blackened Ancient",
 			["Korean"] = "타락한 고대정령",
@@ -6081,7 +6610,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "27",
 			["is_elite"] = 0,
 		},
-	}, -- [242]
+	},
 	{
 		["zone_id"] = 406,
 		["phase"] = 1,
@@ -6095,6 +6624,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мстительный древняк",
 			["Chinese"] = "狂怒的树人",
 			["Spanish"] = "Anciano vengativo",
+			["Mexican"] = "Anciano vengativo",
 			["French"] = "Ancien vengeur",
 			["English"] = "Vengeful Ancient",
 			["Korean"] = "복수심에 불타는 고대정령",
@@ -6106,7 +6636,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 1,
 		},
-	}, -- [243]
+	},
 	{
 		["zone_id"] = 406,
 		["phase"] = 1,
@@ -6120,6 +6650,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джиида",
 			["Chinese"] = "基达",
 			["Spanish"] = "Jeeda",
+			["Mexican"] = "Jeeda",
 			["French"] = "Jeeda",
 			["English"] = "Jeeda",
 			["Korean"] = "지다",
@@ -6131,7 +6662,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [244]
+	},
 	{
 		["zone_id"] = 406,
 		["phase"] = 1,
@@ -6145,6 +6676,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Виеникс",
 			["Chinese"] = "维尼克斯",
 			["Spanish"] = "Veenix",
+			["Mexican"] = "Veenix",
 			["French"] = "Veenix",
 			["English"] = "Veenix",
 			["Korean"] = "비닉스",
@@ -6156,7 +6688,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [245]
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -6170,6 +6702,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ме'линн",
 			["Chinese"] = "迈里恩",
 			["Spanish"] = "Me'lynn",
+			["Mexican"] = "Me'lynn",
 			["French"] = "Me'lynn",
 			["English"] = "Me'lynn",
 			["Korean"] = "메린",
@@ -6181,7 +6714,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [246]
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -6195,6 +6728,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Айнетиль",
 			["Chinese"] = "安尼希尔",
 			["Spanish"] = "Ainethil",
+			["Mexican"] = "Ainethil",
 			["French"] = "Ainethil",
 			["English"] = "Ainethil",
 			["Korean"] = "에이네실",
@@ -6206,7 +6740,33 @@ MTSL_DATA["npcs"] = {
 			["min"] = "46",
 			["is_elite"] = 0,
 		},
-	}, -- [247]
+	},
+	{
+		["zone_id"] = 1657,
+		["phase"] = 1,
+		["id"] = 4163,
+		["location"] = {
+			["y"] = "36.80",
+			["x"] = "21.80",
+		},
+		["name"] = {
+			["German"] = "Syurna",
+			["English"] = "Syurna",
+			["Spanish"] = "Syurna",
+			["Mexican"] = "Syurna",
+			["French"] = "Syurna",
+			["Portuguese"] = "Syurna",
+			["Russian"] = "Сиарна",
+			["Korean"] = "시우르나",
+			["Chinese"] = "塞尤娜",
+		},
+		["reacts"] = "Alliance",
+		["xp_level"] = {
+			["max"] = "40",
+			["min"] = "40",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -6220,6 +6780,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Элинна",
 			["Chinese"] = "艾琳娜",
 			["Spanish"] = "Elynna",
+			["Mexican"] = "Elynna",
 			["French"] = "Elynna",
 			["English"] = "Elynna",
 			["Korean"] = "엘리나",
@@ -6231,7 +6792,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [248]
+	},
 	{
 		["zone_id"] = 148,
 		["phase"] = 1,
@@ -6245,6 +6806,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мавралинн",
 			["Chinese"] = "马弗拉林",
 			["Spanish"] = "Mavralyn",
+			["Mexican"] = "Mavralyn",
 			["French"] = "Mavralyn",
 			["English"] = "Mavralyn",
 			["Korean"] = "마브라린",
@@ -6256,7 +6818,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "18",
 			["is_elite"] = 0,
 		},
-	}, -- [249]
+	},
 	{
 		["zone_id"] = 148,
 		["phase"] = 1,
@@ -6270,6 +6832,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Вальдарон",
 			["Chinese"] = "瓦尔达隆",
 			["Spanish"] = "Valdaron",
+			["Mexican"] = "Valdaron",
 			["French"] = "Valdaron",
 			["English"] = "Valdaron",
 			["Korean"] = "발다론",
@@ -6281,7 +6844,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "14",
 			["is_elite"] = 0,
 		},
-	}, -- [250]
+	},
 	{
 		["zone_id"] = 148,
 		["phase"] = 1,
@@ -6295,6 +6858,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Грондаль Лунный Бриз",
 			["Chinese"] = "格隆达尔·月风",
 			["Spanish"] = "Grondal Brisaluna",
+			["Mexican"] = "Grondal Brisaluna",
 			["French"] = "Grondal Moonbreeze",
 			["English"] = "Grondal Moonbreeze",
 			["Korean"] = "그론달 문브리즈",
@@ -6306,7 +6870,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "29",
 			["is_elite"] = 0,
 		},
-	}, -- [251]
+	},
 	{
 		["zone_id"] = 148,
 		["phase"] = 1,
@@ -6320,6 +6884,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Лайрд",
 			["Chinese"] = "莱尔德",
 			["Spanish"] = "Laird",
+			["Mexican"] = "Laird",
 			["French"] = "Laird",
 			["English"] = "Laird",
 			["Korean"] = "레어드",
@@ -6331,7 +6896,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "14",
 			["is_elite"] = 0,
 		},
-	}, -- [252]
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -6345,6 +6910,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Элегорн",
 			["Chinese"] = "阿雷贡",
 			["Spanish"] = "Alegorn",
+			["Mexican"] = "Alegorn",
 			["French"] = "Alegorn",
 			["English"] = "Alegorn",
 			["Korean"] = "알레고른",
@@ -6356,7 +6922,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [253]
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -6370,6 +6936,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Даннелор",
 			["Chinese"] = "丹纳罗尔",
 			["Spanish"] = "Dannelor",
+			["Mexican"] = "Dannelor",
 			["French"] = "Dannelor",
 			["English"] = "Dannelor",
 			["Korean"] = "단넬로르",
@@ -6381,7 +6948,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [254]
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -6395,6 +6962,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Телонис",
 			["Chinese"] = "泰龙尼斯",
 			["Spanish"] = "Telonis",
+			["Mexican"] = "Telonis",
 			["French"] = "Telonis",
 			["English"] = "Telonis",
 			["Korean"] = "텔로니스",
@@ -6406,7 +6974,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "46",
 			["is_elite"] = 0,
 		},
-	}, -- [255]
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -6420,6 +6988,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Таладан",
 			["Chinese"] = "塔兰丹",
 			["Spanish"] = "Taladan",
+			["Mexican"] = "Taladan",
 			["French"] = "Taladan",
 			["English"] = "Taladan",
 			["Korean"] = "탈라단",
@@ -6431,7 +7000,59 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [256]
+	},
+	{
+		["zone_id"] = 1657,
+		["phase"] = 1,
+		["id"] = 4214,
+		["location"] = {
+			["y"] = "35.20",
+			["x"] = "25.20",
+		},
+		["name"] = {
+			["German"] = "Erion Shadewhisper",
+			["English"] = "Erion Shadewhisper",
+			["Spanish"] = "Erion Sombrusurro",
+			["Mexican"] = "Erion Sombrusurro",
+			["French"] = "Erion Shadewhisper",
+			["Portuguese"] = "Erion Umbrurmúrio",
+			["Russian"] = "Эрион Шепот Тени",
+			["Korean"] = "에리온 셰이드위스퍼",
+			["Chinese"] = "艾瑞安·影语",
+		},
+		["reacts"] = "Alliance",
+		["xp_level"] = {
+			["max"] = "60",
+			["min"] = "60",
+			["is_elite"] = 0,
+		},
+	},
+	{
+		["zone_id"] = 1657,
+		["phase"] = 1,
+		["id"] = 4215,
+		["location"] = {
+			["y"] = "",
+			["x"] = "",
+		},
+		["name"] = {
+			["German"] = "Anishar",
+			["English"] = "Anishar",
+			["Spanish"] = "Anishar",
+			["Mexican"] = "Anishar",
+			["French"] = "Anishar",
+			["Portuguese"] = "Anishar",
+			["Russian"] = "Анишар",
+			["Korean"] = "아니샤르",
+			["Chinese"] = "安尼沙尔",
+		},
+		["reacts"] = "Alliance",
+		["xp_level"] = {
+			["max"] = "50",
+			["min"] = "50",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -6445,6 +7066,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Филдан",
 			["Chinese"] = "菲尔丹",
 			["Spanish"] = "Fyldan",
+			["Mexican"] = "Fyldan",
 			["French"] = "Fyldan",
 			["English"] = "Fyldan",
 			["Korean"] = "필단",
@@ -6456,7 +7078,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [257]
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -6470,6 +7092,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Санарион",
 			["Chinese"] = "塞诺里奥",
 			["Spanish"] = "Saenorion",
+			["Mexican"] = "Saenorion",
 			["French"] = "Saenorion",
 			["English"] = "Saenorion",
 			["Korean"] = "새노리온",
@@ -6481,7 +7104,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [258]
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -6495,6 +7118,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ультир",
 			["Chinese"] = "尤希尔",
 			["Spanish"] = "Ulthir",
+			["Mexican"] = "Ulthir",
 			["French"] = "Ulthir",
 			["English"] = "Ulthir",
 			["Korean"] = "울시르",
@@ -6506,7 +7130,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [259]
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -6520,6 +7144,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ваеан",
 			["Chinese"] = "维安",
 			["Spanish"] = "Vaean",
+			["Mexican"] = "Vaean",
 			["French"] = "Vaean",
 			["English"] = "Vaean",
 			["Korean"] = "바이안",
@@ -6531,7 +7156,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [260]
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -6545,6 +7170,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Митрин'дир",
 			["Chinese"] = "迈斯林迪尔",
 			["Spanish"] = "Mythrin'dir",
+			["Mexican"] = "Mythrin'dir",
 			["French"] = "Mythrin'dir",
 			["English"] = "Mythrin'dir",
 			["Korean"] = "미스린디르",
@@ -6556,7 +7182,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [261]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -6570,6 +7196,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Геофрам Твердопал",
 			["Chinese"] = "吉尔弗拉姆·石趾",
 			["Spanish"] = "Geofram Dedorroca",
+			["Mexican"] = "Geofram Dedorroca",
 			["French"] = "Geofram Bouldertoe",
 			["English"] = "Geofram Bouldertoe",
 			["Korean"] = "지오프람 보울더토",
@@ -6581,7 +7208,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [262]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -6595,6 +7222,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Бенгус Подземная Кузня",
 			["Chinese"] = "本古斯·深炉",
 			["Spanish"] = "Bengus Forjahonda",
+			["Mexican"] = "Bengus Forjahonda",
 			["French"] = "Bengus Deepforge",
 			["English"] = "Bengus Deepforge",
 			["Korean"] = "벤구스 딥포지",
@@ -6606,7 +7234,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "45",
 			["is_elite"] = 0,
 		},
-	}, -- [263]
+	},
 	{
 		["zone_id"] = 141,
 		["phase"] = 1,
@@ -6620,6 +7248,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ньома",
 			["Chinese"] = "奈欧玛",
 			["Spanish"] = "Nyoma",
+			["Mexican"] = "Nyoma",
 			["French"] = "Nyoma",
 			["English"] = "Nyoma",
 			["Korean"] = "니오마",
@@ -6631,7 +7260,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "20",
 			["is_elite"] = 0,
 		},
-	}, -- [264]
+	},
 	{
 		["zone_id"] = 40,
 		["phase"] = 1,
@@ -6645,6 +7274,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Криггон Талсон",
 			["Chinese"] = "克雷贡·塔尔松",
 			["Spanish"] = "Kriggon Talsone",
+			["Mexican"] = "Kriggon Talsone",
 			["French"] = "Kriggon Talsone",
 			["English"] = "Kriggon Talsone",
 			["Korean"] = "크리곤 탈손",
@@ -6656,7 +7286,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [265]
+	},
 	{
 		["zone_id"] = 148,
 		["phase"] = 1,
@@ -6670,6 +7300,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Хельдан Рокот Прибоя",
 			["Chinese"] = "海尔丹·风歌",
 			["Spanish"] = "Heldan Vendasón",
+			["Mexican"] = "Heldan Vendasón",
 			["French"] = "Heldan Galesong",
 			["English"] = "Heldan Galesong",
 			["Korean"] = "헬단 게일송",
@@ -6681,7 +7312,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [266]
+	},
 	{
 		["zone_id"] = 15,
 		["phase"] = 1,
@@ -6695,6 +7326,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Воин из клана Страшаз",
 			["Chinese"] = "斯塔莎兹战士",
 			["Spanish"] = "Guerrero Strashaz",
+			["Mexican"] = "Guerrero Strashaz",
 			["French"] = "Guerrier Strashaz",
 			["English"] = "Strashaz Warrior",
 			["Korean"] = "스트라샤즈 전사",
@@ -6706,7 +7338,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "59",
 			["is_elite"] = 1,
 		},
-	}, -- [267]
+	},
 	{
 		["zone_id"] = 15,
 		["phase"] = 1,
@@ -6720,6 +7352,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Змеестраж из клана Страшаз",
 			["Chinese"] = "斯塔莎兹毒蛇守卫",
 			["Spanish"] = "Guardia serpiente Strashaz",
+			["Mexican"] = "Guardia serpiente Strashaz",
 			["French"] = "Garde-serpent Strashaz",
 			["English"] = "Strashaz Serpent Guard",
 			["Korean"] = "스트라샤즈 수호병",
@@ -6731,7 +7364,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "59",
 			["is_elite"] = 1,
 		},
-	}, -- [268]
+	},
 	{
 		["zone_id"] = 15,
 		["phase"] = 1,
@@ -6745,6 +7378,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мирмидон из клана Страшаз",
 			["Chinese"] = "斯塔莎兹侍从",
 			["Spanish"] = "Mirmidón Strashaz",
+			["Mexican"] = "Mirmidón Strashaz",
 			["French"] = "Myrmidon Strashaz",
 			["English"] = "Strashaz Myrmidon",
 			["Korean"] = "스트라샤즈 미르미돈",
@@ -6756,7 +7390,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 1,
 		},
-	}, -- [269]
+	},
 	{
 		["zone_id"] = 28,
 		["phase"] = 1,
@@ -6770,6 +7404,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Чароплет из Алого ордена",
 			["Chinese"] = "血色缚法者",
 			["Spanish"] = "Vinculahechizos escarlata",
+			["Mexican"] = "Vinculahechizos escarlata",
 			["French"] = "Lieur de sort écarlate",
 			["English"] = "Scarlet Spellbinder",
 			["Korean"] = "붉은십자군 역술사",
@@ -6781,7 +7416,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "57",
 			["is_elite"] = 0,
 		},
-	}, -- [270]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -6795,6 +7430,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Эвника Барч",
 			["Chinese"] = "尤奈斯·伯奇",
 			["Spanish"] = "Eunice Burch",
+			["Mexican"] = "Eunice Burch",
 			["French"] = "Eunice Burch",
 			["English"] = "Eunice Burch",
 			["Korean"] = "유니스 버치",
@@ -6806,7 +7442,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [271]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -6820,6 +7456,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Рональд Берч",
 			["Chinese"] = "罗纳德·伯奇",
 			["Spanish"] = "Ronald Burch",
+			["Mexican"] = "Ronald Burch",
 			["French"] = "Ronald Burch",
 			["English"] = "Ronald Burch",
 			["Korean"] = "로널드 버치",
@@ -6831,7 +7468,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [272]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -6845,6 +7482,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Даниэль Бартлетт",
 			["Chinese"] = "丹尼尔·巴特莱特",
 			["Spanish"] = "Daniel Bartlett",
+			["Mexican"] = "Daniel Bartlett",
 			["French"] = "Daniel Bartlett",
 			["English"] = "Daniel Bartlett",
 			["Korean"] = "다니엘 바틀렛",
@@ -6856,7 +7494,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [273]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -6870,6 +7508,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Лизбет Кромвель",
 			["Chinese"] = "莉兹白·克伦威尔",
 			["Spanish"] = "Lizbeth Cromwell",
+			["Mexican"] = "Lizbeth Cromwell",
 			["French"] = "Lizbeth Cromwell",
 			["English"] = "Lizbeth Cromwell",
 			["Korean"] = "리즈베스 크롬웰",
@@ -6881,7 +7520,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [274]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -6895,6 +7534,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джозеф Грегориан",
 			["Chinese"] = "乔瑟夫·格里高利",
 			["Spanish"] = "Josef Gregorian",
+			["Mexican"] = "Josef Gregorian",
 			["French"] = "Josef Gregorian",
 			["English"] = "Josef Gregorian",
 			["Korean"] = "조셉 그레고리안",
@@ -6906,7 +7546,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "45",
 			["is_elite"] = 0,
 		},
-	}, -- [275]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -6920,6 +7560,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Милли Грегориан",
 			["Chinese"] = "米利尔·格里高利",
 			["Spanish"] = "Millie Gregorian",
+			["Mexican"] = "Millie Gregorian",
 			["French"] = "Millie Gregorian",
 			["English"] = "Millie Gregorian",
 			["Korean"] = "밀리 그레고리안",
@@ -6931,7 +7572,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [276]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -6945,6 +7586,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джозефина Листер",
 			["Chinese"] = "约瑟芬·李斯特",
 			["Spanish"] = "Josephine Lister",
+			["Mexican"] = "Josephine Lister",
 			["French"] = "Josephine Lister",
 			["English"] = "Josephine Lister",
 			["Korean"] = "조세핀 리스터",
@@ -6956,7 +7598,85 @@ MTSL_DATA["npcs"] = {
 			["min"] = "45",
 			["is_elite"] = 0,
 		},
-	}, -- [277]
+	},
+	{
+		["zone_id"] = 1497,
+		["phase"] = 1,
+		["id"] = 4582,
+		["location"] = {
+			["y"] = "83.80",
+			["x"] = "71.60",
+		},
+		["name"] = {
+			["German"] = "Carolyn Ward",
+			["English"] = "Carolyn Ward",
+			["Spanish"] = "Carolyn Salar",
+			["Mexican"] = "Carolyn Salar",
+			["French"] = "Carolyn Ward",
+			["Portuguese"] = "Capitolina Casmurro",
+			["Russian"] = "Каролин Уорд",
+			["Korean"] = "케럴린 워드",
+			["Chinese"] = "卡罗琳·瓦德",
+		},
+		["reacts"] = "Horde",
+		["xp_level"] = {
+			["max"] = "40",
+			["min"] = "40",
+			["is_elite"] = 0,
+		},
+	},
+	{
+		["zone_id"] = 1497,
+		["phase"] = 1,
+		["id"] = 4583,
+		["location"] = {
+			["y"] = "85.00",
+			["x"] = "71.20",
+		},
+		["name"] = {
+			["German"] = "Miles Dexter",
+			["English"] = "Miles Dexter",
+			["Spanish"] = "Miles Dexter",
+			["Mexican"] = "Miles Dexter",
+			["French"] = "Miles Dexter",
+			["Portuguese"] = "Ezequiel Escobar",
+			["Russian"] = "Майлз Декстер",
+			["Korean"] = "마일즈 덱스터",
+			["Chinese"] = "迈尔斯·迪克斯特",
+		},
+		["reacts"] = "Horde",
+		["xp_level"] = {
+			["max"] = "50",
+			["min"] = "50",
+			["is_elite"] = 0,
+		},
+	},
+	{
+		["zone_id"] = 1497,
+		["phase"] = 1,
+		["id"] = 4585,
+		["location"] = {
+			["y"] = "75.60",
+			["x"] = "51.60",
+		},
+		["name"] = {
+			["German"] = "Ezekiel Graves",
+			["English"] = "Ezekiel Graves",
+			["Spanish"] = "Ezekiel Tumbas",
+			["Mexican"] = "Ezekiel Tumbas",
+			["French"] = "Ezekiel Graves",
+			["Portuguese"] = "Ezequiel Potio",
+			["Russian"] = "Иезекииль Могиллан",
+			["Korean"] = "에제키엘 그레이브",
+			["Chinese"] = "艾泽基尔·格瑞乌斯",
+		},
+		["reacts"] = "Horde",
+		["xp_level"] = {
+			["max"] = "30",
+			["min"] = "30",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -6970,6 +7690,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Грэхем ван Тален",
 			["Chinese"] = "格拉哈姆·范·塔伦",
 			["Spanish"] = "Graham Van Talen",
+			["Mexican"] = "Graham Van Talen",
 			["French"] = "Graham Van Talen",
 			["English"] = "Graham Van Talen",
 			["Korean"] = "그레이엄 반 탈렌",
@@ -6981,7 +7702,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [278]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -6995,6 +7716,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Артур Мур",
 			["Chinese"] = "亚瑟·摩尔",
 			["Spanish"] = "Arthur Moore",
+			["Mexican"] = "Arthur Moore",
 			["French"] = "Arthur Moore",
 			["English"] = "Arthur Moore",
 			["Korean"] = "아서 무어",
@@ -7006,7 +7728,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [279]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -7020,6 +7742,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джозеф Мур",
 			["Chinese"] = "约瑟夫·摩尔",
 			["Spanish"] = "Joseph Moore",
+			["Mexican"] = "Joseph Moore",
 			["French"] = "Joseph Moore",
 			["English"] = "Joseph Moore",
 			["Korean"] = "조셉 무어",
@@ -7031,7 +7754,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [280]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -7045,6 +7768,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мэри Эдрас",
 			["Chinese"] = "玛丽·艾塔斯",
 			["Spanish"] = "Mary Edras",
+			["Mexican"] = "Mary Edras",
 			["French"] = "Mary Edras",
 			["English"] = "Mary Edras",
 			["Korean"] = "메리 에드라스",
@@ -7056,7 +7780,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [281]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -7070,6 +7794,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джеймс ван Брюнт",
 			["Chinese"] = "詹姆斯·范·布朗特",
 			["Spanish"] = "James Van Brunt",
+			["Mexican"] = "James Van Brunt",
 			["French"] = "James Van Brunt",
 			["English"] = "James Van Brunt",
 			["Korean"] = "제임스 반 브런트",
@@ -7081,7 +7806,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [282]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -7095,6 +7820,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Бром Килиан",
 			["Chinese"] = "布罗姆·基里安",
 			["Spanish"] = "Brom Killian",
+			["Mexican"] = "Brom Killian",
 			["French"] = "Brom Killian",
 			["English"] = "Brom Killian",
 			["Korean"] = "브롬 킬리안",
@@ -7106,7 +7832,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [283]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -7120,6 +7846,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Базиль Фрай",
 			["Chinese"] = "巴兹尔·弗莱伊",
 			["Spanish"] = "Basil Frye",
+			["Mexican"] = "Basil Frye",
 			["French"] = "Basil Frye",
 			["English"] = "Basil Frye",
 			["Korean"] = "바실 프라이",
@@ -7131,7 +7858,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "26",
 			["is_elite"] = 0,
 		},
-	}, -- [284]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -7145,6 +7872,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Доктор Марш",
 			["Chinese"] = "马尔什医生",
 			["Spanish"] = "Doctor Marsh",
+			["Mexican"] = "Doctor Marsh",
 			["French"] = "Docteur Marsh",
 			["English"] = "Doctor Marsh",
 			["Korean"] = "학자 마쉬",
@@ -7156,7 +7884,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [285]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -7170,6 +7898,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Алжернон",
 			["Chinese"] = "奥格诺恩",
 			["Spanish"] = "Algernon",
+			["Mexican"] = "Algernon",
 			["French"] = "Algernon",
 			["English"] = "Algernon",
 			["Korean"] = "알게르논",
@@ -7181,7 +7910,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [286]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -7195,6 +7924,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Доктор Герберт Галси",
 			["Chinese"] = "赫伯特·哈尔希医生",
 			["Spanish"] = "Doctor Herbert Halsey",
+			["Mexican"] = "Doctor Herbert Halsey",
 			["French"] = "Docteur Herbert Halsey",
 			["English"] = "Doctor Herbert Halsey",
 			["Korean"] = "학자 허버트 핼시",
@@ -7206,7 +7936,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [287]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -7220,6 +7950,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Лавиния Кроу",
 			["Chinese"] = "拉文尼亚·克洛文",
 			["Spanish"] = "Lavinia Crowe",
+			["Mexican"] = "Lavinia Crowe",
 			["French"] = "Lavinia Crowe",
 			["English"] = "Lavinia Crowe",
 			["Korean"] = "라비니아 크로위",
@@ -7231,7 +7962,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [288]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -7245,6 +7976,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Таддеус Уэбб",
 			["Chinese"] = "萨德乌斯·韦伯",
 			["Spanish"] = "Thaddeus Webb",
+			["Mexican"] = "Thaddeus Webb",
 			["French"] = "Thaddeus Webb",
 			["English"] = "Thaddeus Webb",
 			["Korean"] = "타데우스 웨브",
@@ -7256,7 +7988,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [289]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -7270,6 +8002,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Трук Косматая Борода",
 			["Chinese"] = "特鲁克·蛮鬃",
 			["Spanish"] = "Truk Barbaje",
+			["Mexican"] = "Truk Barbaje",
 			["French"] = "Truk Wildbeard",
 			["English"] = "Truk Wildbeard",
 			["Korean"] = "트루크 와일드비어드",
@@ -7281,7 +8014,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [290]
+	},
 	{
 		["zone_id"] = 15,
 		["phase"] = 1,
@@ -7295,6 +8028,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тераморский секретный агент",
 			["Chinese"] = "塞拉摩间谍",
 			["Spanish"] = "Infiltrador de Theramore",
+			["Mexican"] = "Infiltrador de Theramore",
 			["French"] = "Infiltrateur de Theramore",
 			["English"] = "Theramore Infiltrator",
 			["Korean"] = "테라모어 첩보원",
@@ -7306,7 +8040,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [291]
+	},
 	{
 		["zone_id"] = 400,
 		["phase"] = 1,
@@ -7320,6 +8054,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джандия",
 			["Chinese"] = "詹迪亚",
 			["Spanish"] = "Jandia",
+			["Mexican"] = "Jandia",
 			["French"] = "Jandia",
 			["English"] = "Jandia",
 			["Korean"] = "잔디아",
@@ -7331,7 +8066,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "37",
 			["is_elite"] = 0,
 		},
-	}, -- [292]
+	},
 	{
 		["zone_id"] = 400,
 		["phase"] = 1,
@@ -7345,6 +8080,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Монтарр",
 			["Chinese"] = "莫塔尔",
 			["Spanish"] = "Montarr",
+			["Mexican"] = "Montarr",
 			["French"] = "Montarr",
 			["English"] = "Montarr",
 			["Korean"] = "몬타르",
@@ -7356,7 +8092,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "36",
 			["is_elite"] = 0,
 		},
-	}, -- [293]
+	},
 	{
 		["zone_id"] = 15,
 		["phase"] = 1,
@@ -7370,6 +8106,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Огг'марр",
 			["Chinese"] = "奥克玛尔",
 			["Spanish"] = "Ogg'marr",
+			["Mexican"] = "Ogg'marr",
 			["French"] = "Ogg'marr",
 			["English"] = "Ogg'marr",
 			["Korean"] = "오그마르",
@@ -7381,7 +8118,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [294]
+	},
 	{
 		["zone_id"] = 15,
 		["phase"] = 1,
@@ -7395,6 +8132,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Еления Ольден",
 			["Chinese"] = "海伦妮亚·奥德恩",
 			["Spanish"] = "Helenia Olden",
+			["Mexican"] = "Helenia Olden",
 			["French"] = "Helenia Olden",
 			["English"] = "Helenia Olden",
 			["Korean"] = "헬레니아 올든",
@@ -7406,7 +8144,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "34",
 			["is_elite"] = 0,
 		},
-	}, -- [295]
+	},
 	{
 		["zone_id"] = 15,
 		["phase"] = 1,
@@ -7420,6 +8158,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Алхимик Наретт",
 			["Chinese"] = "炼金师纳瑞特",
 			["Spanish"] = "Alquimista Narett",
+			["Mexican"] = "Alquimista Narett",
 			["French"] = "Alchimiste Narett",
 			["English"] = "Alchemist Narett",
 			["Korean"] = "연금술사 나레트",
@@ -7431,7 +8170,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "37",
 			["is_elite"] = 0,
 		},
-	}, -- [296]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -7445,6 +8184,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Фимбл Остроигл",
 			["Chinese"] = "费布·钢轴",
 			["Spanish"] = "Fimble Bueneje",
+			["Mexican"] = "Fimble Bueneje",
 			["French"] = "Fimble Finespindle",
 			["English"] = "Fimble Finespindle",
 			["Korean"] = "핌블 파인스핀들",
@@ -7456,7 +8196,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [297]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -7470,6 +8210,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Бомбус Остроигл",
 			["Chinese"] = "伯布斯·钢轴",
 			["Spanish"] = "Bombus Bueneje",
+			["Mexican"] = "Bombus Bueneje",
 			["French"] = "Bombus Finespindle",
 			["English"] = "Bombus Finespindle",
 			["Korean"] = "봄부스 파인스핀들",
@@ -7481,7 +8222,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [298]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -7495,6 +8236,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Нисса Огневик",
 			["Chinese"] = "尼莎·火石",
 			["Spanish"] = "Nissa Pirorroca",
+			["Mexican"] = "Nissa Pirorroca",
 			["French"] = "Nissa Firestone",
 			["English"] = "Nissa Firestone",
 			["Korean"] = "니사 파이어스톤",
@@ -7506,7 +8248,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [299]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -7520,6 +8262,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джормунд Камнелоб",
 			["Chinese"] = "约莫德·石眉",
 			["Spanish"] = "Jormund Petrocejas",
+			["Mexican"] = "Jormund Petrocejas",
 			["French"] = "Jormund Stonebrow",
 			["English"] = "Jormund Stonebrow",
 			["Korean"] = "요르문트 스톤브로우",
@@ -7531,7 +8274,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [300]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -7545,6 +8288,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гимбл Чертополуш",
 			["Chinese"] = "吉布·草须",
 			["Spanish"] = "Gimble Cardopelusa",
+			["Mexican"] = "Gimble Cardopelusa",
 			["French"] = "Gimble Thistlefuzz",
 			["English"] = "Gimble Thistlefuzz",
 			["Korean"] = "김블 시슬퍼즈",
@@ -7556,7 +8300,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 1,
 		},
-	}, -- [301]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -7570,6 +8314,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тилли Чертополуш",
 			["Chinese"] = "提尔利·草须",
 			["Spanish"] = "Tilli Cardopelusa",
+			["Mexican"] = "Tilli Cardopelusa",
 			["French"] = "Tilli Thistlefuzz",
 			["English"] = "Tilli Thistlefuzz",
 			["Korean"] = "틸리 시슬퍼즈",
@@ -7581,7 +8326,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [302]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -7595,6 +8340,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дарил Рикнуссун",
 			["Chinese"] = "达瑞尔·瑞克努索",
 			["Spanish"] = "Daryl Riknussun",
+			["Mexican"] = "Daryl Riknussun",
 			["French"] = "Daryl Riknussun",
 			["English"] = "Daryl Riknussun",
 			["Korean"] = "다릴 리크너선",
@@ -7606,7 +8352,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [303]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -7620,6 +8366,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Эмруль Рикнуссен",
 			["Chinese"] = "埃姆鲁尔·里克努斯",
 			["Spanish"] = "Emrul Riknussun",
+			["Mexican"] = "Emrul Riknussun",
 			["French"] = "Emrul Riknussun",
 			["English"] = "Emrul Riknussun",
 			["Korean"] = "엠룰 리크너선",
@@ -7631,7 +8378,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [304]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -7645,6 +8392,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Танси Грязебульк",
 			["Chinese"] = "坦斯·泥泡",
 			["Spanish"] = "Tansy Burbajea",
+			["Mexican"] = "Tansy Burbajea",
 			["French"] = "Tansy Puddlefizz",
 			["English"] = "Tansy Puddlefizz",
 			["Korean"] = "탄지 퍼들피즈",
@@ -7656,7 +8404,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [305]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -7670,6 +8418,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Грумнус Сталевар",
 			["Chinese"] = "格鲁努斯·削钢",
 			["Spanish"] = "Grumnus Forjacero",
+			["Mexican"] = "Grumnus Forjacero",
 			["French"] = "Grumnus Steelshaper",
 			["English"] = "Grumnus Steelshaper",
 			["Korean"] = "그룸누스 스틸셰이퍼",
@@ -7681,7 +8430,85 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 0,
 		},
-	}, -- [306]
+	},
+	{
+		["zone_id"] = 1537,
+		["phase"] = 1,
+		["id"] = 5165,
+		["location"] = {
+			["y"] = "51.60",
+			["x"] = "14.60",
+		},
+		["name"] = {
+			["German"] = "Hulfdan Blackbeard",
+			["English"] = "Hulfdan Blackbeard",
+			["Spanish"] = "Hulfdan Barbanegra",
+			["Mexican"] = "Hulfdan Barbanegra",
+			["French"] = "Hulfdan Blackbeard",
+			["Portuguese"] = "Hulfdan Barbanegra",
+			["Russian"] = "Хальфдан Чернобород",
+			["Korean"] = "훌프단 블랙비어드",
+			["Chinese"] = "霍夫丹·黑须",
+		},
+		["reacts"] = "Alliance",
+		["xp_level"] = {
+			["max"] = "60",
+			["min"] = "60",
+			["is_elite"] = 0,
+		},
+	},
+	{
+		["zone_id"] = 1537,
+		["phase"] = 1,
+		["id"] = 5166,
+		["location"] = {
+			["y"] = "52.60",
+			["x"] = "14.80",
+		},
+		["name"] = {
+			["German"] = "Ormyr Flinteye",
+			["English"] = "Ormyr Flinteye",
+			["Spanish"] = "Ormyr Ojílex",
+			["Mexican"] = "Ormyr Ojílex",
+			["French"] = "Ormyr Flinteye",
+			["Portuguese"] = "Ormyr Pedernolho",
+			["Russian"] = "Ормир Кремнеглаз",
+			["Korean"] = "오미르 플린트아이",
+			["Chinese"] = "奥米尔·火眼",
+		},
+		["reacts"] = "Alliance",
+		["xp_level"] = {
+			["max"] = "50",
+			["min"] = "50",
+			["is_elite"] = 0,
+		},
+	},
+	{
+		["zone_id"] = 1537,
+		["phase"] = 1,
+		["id"] = 5167,
+		["location"] = {
+			["y"] = "51.60",
+			["x"] = "15.00",
+		},
+		["name"] = {
+			["German"] = "Fenthwick",
+			["English"] = "Fenthwick",
+			["Spanish"] = "Fenthwick",
+			["Mexican"] = "Fenthwick",
+			["French"] = "Fenthwick",
+			["Portuguese"] = "Degrauzinho",
+			["Russian"] = "Иззаспинс",
+			["Korean"] = "펜스윅",
+			["Chinese"] = "芬斯维克",
+		},
+		["reacts"] = "Alliance",
+		["xp_level"] = {
+			["max"] = "40",
+			["min"] = "40",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -7695,6 +8522,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Пружиннер Шумотор",
 			["Chinese"] = "宾斯匹德",
 			["Spanish"] = "Muello Saltarín",
+			["Mexican"] = "Muello Saltarín",
 			["French"] = "Springspindle Fizzlegear",
 			["English"] = "Springspindle Fizzlegear",
 			["Korean"] = "스프링스핀들 피즐기어",
@@ -7706,7 +8534,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "45",
 			["is_elite"] = 0,
 		},
-	}, -- [307]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -7720,6 +8548,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Зуборез Шестеренок",
 			["Chinese"] = "考格斯宾",
 			["Spanish"] = "Cortallave Volopiñón",
+			["Mexican"] = "Cortallave Volopiñón",
 			["French"] = "Gearcutter Cogspinner",
 			["English"] = "Gearcutter Cogspinner",
 			["Korean"] = "기어커터 코그스피너",
@@ -7731,7 +8560,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [308]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -7745,6 +8574,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Талли Гонобобельзз",
 			["Chinese"] = "塔雷·浆泡",
 			["Spanish"] = "Tally Burbubaya",
+			["Mexican"] = "Tally Burbubaya",
 			["French"] = "Tally Berryfizz",
 			["English"] = "Tally Berryfizz",
 			["Korean"] = "탈리 베리피즈",
@@ -7756,7 +8586,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [309]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -7770,6 +8600,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Сули Гонобобельзз",
 			["Chinese"] = "苏雷·浆泡",
 			["Spanish"] = "Soolie Burbubaya",
+			["Mexican"] = "Soolie Burbubaya",
 			["French"] = "Soolie Berryfizz",
 			["English"] = "Soolie Berryfizz",
 			["Korean"] = "술리 베리피즈",
@@ -7781,7 +8612,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [310]
+	},
 	{
 		["zone_id"] = 1417,
 		["phase"] = 1,
@@ -7795,6 +8626,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мракочервь",
 			["Chinese"] = "黑暗虫",
 			["Spanish"] = "Gusano de la oscuridad",
+			["Mexican"] = "Gusano de la oscuridad",
 			["French"] = "Ver des boues",
 			["English"] = "Murk Worm",
 			["Korean"] = "진흙미늘벌레",
@@ -7806,7 +8638,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "47",
 			["is_elite"] = 1,
 		},
-	}, -- [311]
+	},
 	{
 		["zone_id"] = 1417,
 		["phase"] = 1,
@@ -7820,6 +8652,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Знахарь из племени Атал'ай",
 			["Chinese"] = "阿塔莱巫医",
 			["Spanish"] = "Médico brujo Atal'ai",
+			["Mexican"] = "Médico brujo Atal'ai",
 			["French"] = "Sorcier-docteur atal'ai",
 			["English"] = "Atal'ai Witch Doctor",
 			["Korean"] = "아탈라이부족 의술사",
@@ -7831,7 +8664,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "48",
 			["is_elite"] = 1,
 		},
-	}, -- [312]
+	},
 	{
 		["zone_id"] = 1,
 		["phase"] = 1,
@@ -7845,6 +8678,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ярр Камнедроб",
 			["Chinese"] = "亚尔·锤石",
 			["Spanish"] = "Yarr Martillal",
+			["Mexican"] = "Yarr Martillal",
 			["French"] = "Yarr Hammerstone",
 			["English"] = "Yarr Hammerstone",
 			["Korean"] = "얄 해머스톤",
@@ -7856,7 +8690,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "10",
 			["is_elite"] = 0,
 		},
-	}, -- [313]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -7870,6 +8704,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кринкель Сталлер",
 			["Chinese"] = "克林科·古德斯迪尔",
 			["Spanish"] = "Krinkle Buenacero",
+			["Mexican"] = "Krinkle Buenacero",
 			["French"] = "Krinkle Goodsteel",
 			["English"] = "Krinkle Goodsteel",
 			["Korean"] = "크린클 굿스틸",
@@ -7881,7 +8716,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [314]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -7895,6 +8730,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Стивен Райбек",
 			["Chinese"] = "斯蒂芬·雷百克",
 			["Spanish"] = "Stephen Lomocenteno",
+			["Mexican"] = "Stephen Lomocenteno",
 			["French"] = "Stephen Ryback",
 			["English"] = "Stephen Ryback",
 			["Korean"] = "스테판 라이백",
@@ -7906,7 +8742,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [315]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -7920,6 +8756,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Эрика Тейт",
 			["Chinese"] = "艾瑞卡·塔特",
 			["Spanish"] = "Erika Tate",
+			["Mexican"] = "Erika Tate",
 			["French"] = "Erika Tate",
 			["English"] = "Erika Tate",
 			["Korean"] = "에리카 테이트",
@@ -7931,7 +8768,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [316]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -7945,6 +8782,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Катрин Лиланд",
 			["Chinese"] = "凯瑟琳·利兰",
 			["Spanish"] = "Catherine Leland",
+			["Mexican"] = "Catherine Leland",
 			["French"] = "Catherine Leland",
 			["English"] = "Catherine Leland",
 			["Korean"] = "캐서린 리랜드",
@@ -7956,7 +8794,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [317]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -7970,6 +8808,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Лилиссия Ночной Бриз",
 			["Chinese"] = "莉琳希亚·夜风",
 			["Spanish"] = "Lilyssia Brisa Nocturna",
+			["Mexican"] = "Lilyssia Brisa Nocturna",
 			["French"] = "Lilyssia Nightbreeze",
 			["English"] = "Lilyssia Nightbreeze",
 			["Korean"] = "릴리시아 나이트브리즈",
@@ -7981,7 +8820,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [318]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -7995,6 +8834,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тель'Атир",
 			["Chinese"] = "泰兰希尔",
 			["Spanish"] = "Tel'Athir",
+			["Mexican"] = "Tel'Athir",
 			["French"] = "Tel'Athir",
 			["English"] = "Tel'Athir",
 			["Korean"] = "텔아실",
@@ -8006,7 +8846,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "31",
 			["is_elite"] = 0,
 		},
-	}, -- [319]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -8020,6 +8860,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Терум Подземная Кузня",
 			["Chinese"] = "瑟鲁姆·深炉",
 			["Spanish"] = "Therum Forjahonda",
+			["Mexican"] = "Therum Forjahonda",
 			["French"] = "Therum Deepforge",
 			["English"] = "Therum Deepforge",
 			["Korean"] = "테룸 딥포지",
@@ -8031,7 +8872,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "33",
 			["is_elite"] = 0,
 		},
-	}, -- [320]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -8045,6 +8886,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кайта Подземная Кузня",
 			["Chinese"] = "凯塔·深炉",
 			["Spanish"] = "Kaita Forjahonda",
+			["Mexican"] = "Kaita Forjahonda",
 			["French"] = "Kaita Deepforge",
 			["English"] = "Kaita Deepforge",
 			["Korean"] = "카이타 딥포지",
@@ -8056,7 +8898,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [321]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -8070,6 +8912,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гельман Камнерук",
 			["Chinese"] = "吉尔曼·石手",
 			["Spanish"] = "Gelman Petramano",
+			["Mexican"] = "Gelman Petramano",
 			["French"] = "Gelman Stonehand",
 			["English"] = "Gelman Stonehand",
 			["Korean"] = "겔만 스톤핸드",
@@ -8081,7 +8924,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [322]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -8095,6 +8938,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Лилиам Шпиндель",
 			["Chinese"] = "利廉姆·火轴",
 			["Spanish"] = "Lilliam Chispeje",
+			["Mexican"] = "Lilliam Chispeje",
 			["French"] = "Lilliam Sparkspindle",
 			["English"] = "Lilliam Sparkspindle",
 			["Korean"] = "릴리암 스파크스핀들",
@@ -8106,7 +8950,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [323]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -8120,6 +8964,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Саймон Дубильщик",
 			["Chinese"] = "西蒙·坦纳尔",
 			["Spanish"] = "Simon Peletero",
+			["Mexican"] = "Simon Peletero",
 			["French"] = "Simon Tanner",
 			["English"] = "Simon Tanner",
 			["Korean"] = "시몬 터너",
@@ -8131,7 +8976,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [324]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -8145,6 +8990,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Селландус",
 			["Chinese"] = "塞拉多斯",
 			["Spanish"] = "Sellandus",
+			["Mexican"] = "Sellandus",
 			["French"] = "Sellandus",
 			["English"] = "Sellandus",
 			["Korean"] = "셀란두스",
@@ -8156,7 +9002,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "31",
 			["is_elite"] = 0,
 		},
-	}, -- [325]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -8170,6 +9016,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Алхимик Пестычинс",
 			["Chinese"] = "炼金师匹斯特苏格",
 			["Spanish"] = "Alquimista Morterozugg",
+			["Mexican"] = "Alquimista Morterozugg",
 			["French"] = "Alchimiste Pestlezugg",
 			["English"] = "Alchemist Pestlezugg",
 			["Korean"] = "연금술사 페슬저그",
@@ -8181,7 +9028,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "45",
 			["is_elite"] = 0,
 		},
-	}, -- [326]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -8195,6 +9042,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Разбойник из шайки Скитальцев Пустыни",
 			["Chinese"] = "废土游荡者",
 			["Spanish"] = "Pícaro Vagayermo",
+			["Mexican"] = "Pícaro Vagayermo",
 			["French"] = "Voleur Bat-le-désert",
 			["English"] = "Wastewander Rogue",
 			["Korean"] = "사막유랑단 도적",
@@ -8206,7 +9054,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "43",
 			["is_elite"] = 0,
 		},
-	}, -- [327]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -8220,6 +9068,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Вор из шайки Скитальцев Пустыни",
 			["Chinese"] = "废土窃贼",
 			["Spanish"] = "Ladrón Deambulador",
+			["Mexican"] = "Ladrón Deambulador",
 			["French"] = "Larron Bat-le-désert",
 			["English"] = "Wastewander Thief",
 			["Korean"] = "사막유랑단 좀도둑",
@@ -8231,7 +9080,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [328]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -8245,6 +9094,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Темный маг из шайки Скитальцев Пустыни",
 			["Chinese"] = "废土暗法师",
 			["Spanish"] = "Mago oscuro Vagayermo",
+			["Mexican"] = "Mago oscuro Vagayermo",
 			["French"] = "Mage de l'ombre Bat-le-désert",
 			["English"] = "Wastewander Shadow Mage",
 			["Korean"] = "사막유랑단 어둠마법사",
@@ -8256,7 +9106,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "41",
 			["is_elite"] = 0,
 		},
-	}, -- [329]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -8270,6 +9120,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Бандит из шайки Скитальцев Пустыни",
 			["Chinese"] = "废土强盗",
 			["Spanish"] = "Bandido Deambulador",
+			["Mexican"] = "Bandido Deambulador",
 			["French"] = "Bandit Bat-le-désert",
 			["English"] = "Wastewander Bandit",
 			["Korean"] = "사막유랑단 약탈자",
@@ -8281,7 +9132,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "41",
 			["is_elite"] = 0,
 		},
-	}, -- [330]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -8295,6 +9146,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Убийца из шайки Скитальцев Пустыни",
 			["Chinese"] = "废土刺客",
 			["Spanish"] = "Asesino Vagayermo",
+			["Mexican"] = "Asesino Vagayermo",
 			["French"] = "Assassin Bat-le-désert",
 			["English"] = "Wastewander Assassin",
 			["Korean"] = "사막유랑단 암살자",
@@ -8306,7 +9158,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "44",
 			["is_elite"] = 0,
 		},
-	}, -- [331]
+	},
 	{
 		["zone_id"] = 85,
 		["phase"] = 1,
@@ -8320,6 +9172,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ванс Мрачнейший",
 			["Chinese"] = "范斯·安德格鲁姆",
 			["Spanish"] = "Vance Bajopenumbra",
+			["Mexican"] = "Vance Bajopenumbra",
 			["French"] = "Vance Undergloom",
 			["English"] = "Vance Undergloom",
 			["Korean"] = "밴스 언더글룸",
@@ -8331,7 +9184,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "31",
 			["is_elite"] = 0,
 		},
-	}, -- [332]
+	},
 	{
 		["zone_id"] = 130,
 		["phase"] = 1,
@@ -8345,6 +9198,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Киллиан Саната",
 			["Chinese"] = "基利恩·萨纳森",
 			["Spanish"] = "Killian Sanatha",
+			["Mexican"] = "Killian Sanatha",
 			["French"] = "Killian Sanatha",
 			["English"] = "Killian Sanatha",
 			["Korean"] = "킬리안 사나타",
@@ -8356,7 +9210,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "18",
 			["is_elite"] = 0,
 		},
-	}, -- [333]
+	},
 	{
 		["zone_id"] = 130,
 		["phase"] = 1,
@@ -8370,6 +9224,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Лилли",
 			["Chinese"] = "莉蕾",
 			["Spanish"] = "Lilly",
+			["Mexican"] = "Lilly",
 			["French"] = "Lilly",
 			["English"] = "Lilly",
 			["Korean"] = "릴리",
@@ -8381,7 +9236,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "19",
 			["is_elite"] = 0,
 		},
-	}, -- [334]
+	},
 	{
 		["zone_id"] = 130,
 		["phase"] = 1,
@@ -8395,6 +9250,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Лео Сарн",
 			["Chinese"] = "雷欧·萨恩",
 			["Spanish"] = "Leo Sarn",
+			["Mexican"] = "Leo Sarn",
 			["French"] = "Leo Sarn",
 			["English"] = "Leo Sarn",
 			["Korean"] = "레오 사른",
@@ -8406,7 +9262,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "18",
 			["is_elite"] = 0,
 		},
-	}, -- [335]
+	},
 	{
 		["zone_id"] = 85,
 		["phase"] = 1,
@@ -8420,6 +9276,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Сиделка Нила",
 			["Chinese"] = "妮拉",
 			["Spanish"] = "Enfermera Neela",
+			["Mexican"] = "Enfermera Neela",
 			["French"] = "Infirmière Neela",
 			["English"] = "Nurse Neela",
 			["Korean"] = "간호사 닐라",
@@ -8431,7 +9288,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "10",
 			["is_elite"] = 0,
 		},
-	}, -- [336]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -8445,6 +9302,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Эбру",
 			["Chinese"] = "厄布鲁",
 			["Spanish"] = "Ebru",
+			["Mexican"] = "Ebru",
 			["French"] = "Ebru",
 			["English"] = "Ebru",
 			["Korean"] = "에브루",
@@ -8456,7 +9314,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "14",
 			["is_elite"] = 0,
 		},
-	}, -- [337]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -8470,6 +9328,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Калидан Лунный Серп",
 			["Chinese"] = "卡尔丹·暗月",
 			["Spanish"] = "Kalldan Lunavil",
+			["Mexican"] = "Kalldan Lunavil",
 			["French"] = "Kalldan Felmoon",
 			["English"] = "Kalldan Felmoon",
 			["Korean"] = "칼단 펠문",
@@ -8481,7 +9340,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "27",
 			["is_elite"] = 0,
 		},
-	}, -- [338]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -8495,6 +9354,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Валдор",
 			["Chinese"] = "瓦多尔",
 			["Spanish"] = "Waldor",
+			["Mexican"] = "Waldor",
 			["French"] = "Waldor",
 			["English"] = "Waldor",
 			["Korean"] = "왈도르",
@@ -8506,7 +9366,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "28",
 			["is_elite"] = 0,
 		},
-	}, -- [339]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -8520,6 +9380,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Камари",
 			["Chinese"] = "卡玛瑞",
 			["Spanish"] = "Kamari",
+			["Mexican"] = "Kamari",
 			["French"] = "Kamari",
 			["English"] = "Kamari",
 			["Korean"] = "카마리",
@@ -8531,7 +9392,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "26",
 			["is_elite"] = 0,
 		},
-	}, -- [340]
+	},
 	{
 		["zone_id"] = 51,
 		["phase"] = 1,
@@ -8545,6 +9406,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Поработитель из клана Черного Железа",
 			["Chinese"] = "黑铁奴隶贩子",
 			["Spanish"] = "Esclavista Hierro Negro",
+			["Mexican"] = "Esclavista Hierro Negro",
 			["French"] = "Esclavagiste Sombrefer",
 			["English"] = "Dark Iron Slaver",
 			["Korean"] = "검은무쇠단 노예상인",
@@ -8556,7 +9418,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "45",
 			["is_elite"] = 0,
 		},
-	}, -- [341]
+	},
 	{
 		["zone_id"] = 51,
 		["phase"] = 1,
@@ -8570,6 +9432,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Надсмотрщик из клана Черного Железа",
 			["Chinese"] = "黑铁工头",
 			["Spanish"] = "Capataz Hierro Negro",
+			["Mexican"] = "Capataz Hierro Negro",
 			["French"] = "Sous-chef Sombrefer",
 			["English"] = "Dark Iron Taskmaster",
 			["Korean"] = "검은무쇠단 감독관",
@@ -8581,7 +9444,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "47",
 			["is_elite"] = 0,
 		},
-	}, -- [342]
+	},
 	{
 		["zone_id"] = 51,
 		["phase"] = 1,
@@ -8595,6 +9458,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Страж огня из культа Сумеречного Молота",
 			["Chinese"] = "暮光火焰卫士",
 			["Spanish"] = "Guardia de Fuego Crepuscular",
+			["Mexican"] = "Guardia de Fuego Crepuscular",
 			["French"] = "Gardefeu du crépuscule",
 			["English"] = "Twilight Fire Guard",
 			["Korean"] = "황혼의망치단 화염경비병",
@@ -8606,7 +9470,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "48",
 			["is_elite"] = 1,
 		},
-	}, -- [343]
+	},
 	{
 		["zone_id"] = 215,
 		["phase"] = 1,
@@ -8620,6 +9484,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Вира Нежное Копыто",
 			["Chinese"] = "维尔拉·幼蹄",
 			["Spanish"] = "Vira Jovenpezuña",
+			["Mexican"] = "Vira Jovenpezuña",
 			["French"] = "Vira Younghoof",
 			["English"] = "Vira Younghoof",
 			["Korean"] = "비라 영후프",
@@ -8631,7 +9496,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "13",
 			["is_elite"] = 0,
 		},
-	}, -- [344]
+	},
 	{
 		["zone_id"] = 215,
 		["phase"] = 1,
@@ -8645,6 +9510,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Харн Далекий Заброс",
 			["Chinese"] = "哈恩·长线",
 			["Spanish"] = "Harn Tiralejo",
+			["Mexican"] = "Harn Tiralejo",
 			["French"] = "Harn Longcast",
 			["English"] = "Harn Longcast",
 			["Korean"] = "한 롱캐스트",
@@ -8656,7 +9522,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "9",
 			["is_elite"] = 0,
 		},
-	}, -- [345]
+	},
 	{
 		["zone_id"] = 14,
 		["phase"] = 1,
@@ -8670,6 +9536,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Зансоа",
 			["Chinese"] = "詹苏尔",
 			["Spanish"] = "Zansoa",
+			["Mexican"] = "Zansoa",
 			["French"] = "Zansoa",
 			["English"] = "Zansoa",
 			["Korean"] = "잔소아",
@@ -8681,7 +9548,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "14",
 			["is_elite"] = 0,
 		},
-	}, -- [346]
+	},
 	{
 		["zone_id"] = 14,
 		["phase"] = 1,
@@ -8695,6 +9562,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Роурк",
 			["Chinese"] = "拉乌克",
 			["Spanish"] = "Rawrk",
+			["Mexican"] = "Rawrk",
 			["French"] = "Rawrk",
 			["English"] = "Rawrk",
 			["Korean"] = "로울크",
@@ -8706,7 +9574,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "15",
 			["is_elite"] = 0,
 		},
-	}, -- [347]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -8720,6 +9588,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Йонада",
 			["Chinese"] = "犹纳达",
 			["Spanish"] = "Yonada",
+			["Mexican"] = "Yonada",
 			["French"] = "Yonada",
 			["English"] = "Yonada",
 			["Korean"] = "요나다",
@@ -8731,7 +9600,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [348]
+	},
 	{
 		["zone_id"] = 4,
 		["phase"] = 1,
@@ -8745,6 +9614,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Искатель портала",
 			["Chinese"] = "传送门搜寻者",
 			["Spanish"] = "Buscador de portales",
+			["Mexican"] = "Buscador de portales",
 			["French"] = "Chercheur du portail",
 			["English"] = "Portal Seeker",
 			["Korean"] = "차원의 문 수색꾼",
@@ -8756,7 +9626,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "51",
 			["is_elite"] = 0,
 		},
-	}, -- [349]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -8770,6 +9640,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тормус Подземная Кузня",
 			["Chinese"] = "托姆斯·深炉",
 			["Spanish"] = "Tormus Forjahonda",
+			["Mexican"] = "Tormus Forjahonda",
 			["French"] = "Tormus Deepforge",
 			["English"] = "Tormus Deepforge",
 			["Korean"] = "토르무스 딥포지",
@@ -8781,7 +9652,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [350]
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -8795,6 +9666,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Лотериас",
 			["Chinese"] = "洛瑟里亚斯",
 			["Spanish"] = "Lotherias",
+			["Mexican"] = "Lotherias",
 			["French"] = "Lotherias",
 			["English"] = "Lotherias",
 			["Korean"] = "로서리아스",
@@ -8806,7 +9678,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [351]
+	},
 	{
 		["zone_id"] = 141,
 		["phase"] = 1,
@@ -8820,6 +9692,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Бьянси",
 			["Chinese"] = "拜恩希",
 			["Spanish"] = "Byancie",
+			["Mexican"] = "Byancie",
 			["French"] = "Byancie",
 			["English"] = "Byancie",
 			["Korean"] = "비얀시",
@@ -8831,7 +9704,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "22",
 			["is_elite"] = 0,
 		},
-	}, -- [352]
+	},
 	{
 		["zone_id"] = 16,
 		["phase"] = 1,
@@ -8845,6 +9718,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Аркоранский оракул",
 			["Chinese"] = "亚考兰智者",
 			["Spanish"] = "Oráculo Arkkoran",
+			["Mexican"] = "Oráculo Arkkoran",
 			["French"] = "Oracle Arkkoran",
 			["English"] = "Arkkoran Oracle",
 			["Korean"] = "아크코란멀록 점쟁이",
@@ -8856,7 +9730,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "54",
 			["is_elite"] = 0,
 		},
-	}, -- [353]
+	},
 	{
 		["zone_id"] = 16,
 		["phase"] = 1,
@@ -8870,6 +9744,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Сын Арккороса",
 			["Chinese"] = "亚考罗克之子",
 			["Spanish"] = "Hijo de Arkkoroc",
+			["Mexican"] = "Hijo de Arkkoroc",
 			["French"] = "Fils d’Arkkoroc",
 			["English"] = "Son of Arkkoroc",
 			["Korean"] = "아크코로크의 후예",
@@ -8881,7 +9756,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "54",
 			["is_elite"] = 1,
 		},
-	}, -- [354]
+	},
 	{
 		["zone_id"] = 16,
 		["phase"] = 1,
@@ -8895,6 +9770,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Скальный разрушитель",
 			["Chinese"] = "峭壁击碎者",
 			["Spanish"] = "Rompedor del risco",
+			["Mexican"] = "Rompedor del risco",
 			["French"] = "Brise-falaises",
 			["English"] = "Cliff Breaker",
 			["Korean"] = "우레절벽거인",
@@ -8906,7 +9782,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "54",
 			["is_elite"] = 1,
 		},
-	}, -- [355]
+	},
 	{
 		["zone_id"] = 16,
 		["phase"] = 1,
@@ -8920,6 +9796,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Сирена из клана Бича Злобы",
 			["Chinese"] = "恶鞭海妖",
 			["Spanish"] = "Sirena Látigo de Ira",
+			["Mexican"] = "Sirena Látigo de Ira",
 			["French"] = "Sirène Fouette-bile",
 			["English"] = "Spitelash Siren",
 			["Korean"] = "원한의꼬리일족 세이렌",
@@ -8931,7 +9808,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [356]
+	},
 	{
 		["zone_id"] = 16,
 		["phase"] = 1,
@@ -8945,6 +9822,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Разбойник из племени Легаши",
 			["Chinese"] = "雷加斯潜行者",
 			["Spanish"] = "Pícaro Legashi",
+			["Mexican"] = "Pícaro Legashi",
 			["French"] = "Voleur Legashi",
 			["English"] = "Legashi Rogue",
 			["Korean"] = "레가쉬 도적",
@@ -8956,7 +9834,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "51",
 			["is_elite"] = 0,
 		},
-	}, -- [357]
+	},
 	{
 		["zone_id"] = 141,
 		["phase"] = 1,
@@ -8970,6 +9848,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Заррин",
 			["Chinese"] = "扎瑞恩",
 			["Spanish"] = "Zarrin",
+			["Mexican"] = "Zarrin",
 			["French"] = "Zarrin",
 			["English"] = "Zarrin",
 			["Korean"] = "자린",
@@ -8981,7 +9860,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "13",
 			["is_elite"] = 0,
 		},
-	}, -- [358]
+	},
 	{
 		["zone_id"] = 148,
 		["phase"] = 1,
@@ -8995,6 +9874,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Курдрам Камнемолот",
 			["Chinese"] = "库德拉姆·石锤",
 			["Spanish"] = "Kurdram Rocamartillo",
+			["Mexican"] = "Kurdram Rocamartillo",
 			["French"] = "Kurdram Stonehammer",
 			["English"] = "Kurdram Stonehammer",
 			["Korean"] = "쿠르트람 스톤해머",
@@ -9006,7 +9886,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [359]
+	},
 	{
 		["zone_id"] = 148,
 		["phase"] = 1,
@@ -9020,6 +9900,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дельфрум Кремнебород",
 			["Chinese"] = "迪尔弗拉姆·火须",
 			["Spanish"] = "Delfrum Flintbeard",
+			["Mexican"] = "Delfrum Flintbeard",
 			["French"] = "Delfrum Flintbeard",
 			["English"] = "Delfrum Flintbeard",
 			["Korean"] = "델프룸 플린트비어드",
@@ -9031,7 +9912,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [360]
+	},
 	{
 		["zone_id"] = 490,
 		["phase"] = 1,
@@ -9045,6 +9926,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Скользкий слизнюк",
 			["Chinese"] = "胶质软泥怪",
 			["Spanish"] = "Moco muculento",
+			["Mexican"] = "Moco muculento",
 			["French"] = "Limon de mucus",
 			["English"] = "Muculent Ooze",
 			["Korean"] = "눅눅한 수액괴물",
@@ -9056,7 +9938,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "48",
 			["is_elite"] = 0,
 		},
-	}, -- [361]
+	},
 	{
 		["zone_id"] = 490,
 		["phase"] = 1,
@@ -9070,6 +9952,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Первобытный слизнюк",
 			["Chinese"] = "原生软泥怪",
 			["Spanish"] = "Moco primigenio",
+			["Mexican"] = "Moco primigenio",
 			["French"] = "Limon primitif",
 			["English"] = "Primal Ooze",
 			["Korean"] = "원시 수액괴물",
@@ -9081,7 +9964,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [362]
+	},
 	{
 		["zone_id"] = 490,
 		["phase"] = 1,
@@ -9095,6 +9978,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Липкий слизнюк",
 			["Chinese"] = "粘稠的软泥怪",
 			["Spanish"] = "Moco glutinoso",
+			["Mexican"] = "Moco glutinoso",
 			["French"] = "Limon gluant",
 			["English"] = "Glutinous Ooze",
 			["Korean"] = "끈적끈적한 수액괴물",
@@ -9106,7 +9990,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "52",
 			["is_elite"] = 0,
 		},
-	}, -- [363]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -9120,6 +10004,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гхок'ка",
 			["Chinese"] = "格鲁克卡恩",
 			["Spanish"] = "Ghok'kah",
+			["Mexican"] = "Ghok'kah",
 			["French"] = "Ghok'kah",
 			["English"] = "Ghok'kah",
 			["Korean"] = "그호카",
@@ -9131,7 +10016,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "43",
 			["is_elite"] = 0,
 		},
-	}, -- [364]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -9145,6 +10030,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Визглик",
 			["Chinese"] = "维兹格里克",
 			["Spanish"] = "Vizzklick",
+			["Mexican"] = "Vizzklick",
 			["French"] = "Vizzklick",
 			["English"] = "Vizzklick",
 			["Korean"] = "비즈클릭",
@@ -9156,7 +10042,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [365]
+	},
 	{
 		["zone_id"] = 45,
 		["phase"] = 1,
@@ -9170,6 +10056,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джун'ха",
 			["Chinese"] = "祖恩哈",
 			["Spanish"] = "Jun'ha",
+			["Mexican"] = "Jun'ha",
 			["French"] = "Jun'ha",
 			["English"] = "Jun'ha",
 			["Korean"] = "준하",
@@ -9181,7 +10068,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "31",
 			["is_elite"] = 0,
 		},
-	}, -- [366]
+	},
 	{
 		["zone_id"] = 400,
 		["phase"] = 1,
@@ -9195,6 +10082,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Бриенна Мерцание Звезд",
 			["Chinese"] = "布琳娜·星光",
 			["Spanish"] = "Brienna Brillastrella",
+			["Mexican"] = "Brienna Brillastrella",
 			["French"] = "Brienna Starglow",
 			["English"] = "Brienna Starglow",
 			["Korean"] = "브리에나 스타글로",
@@ -9206,7 +10094,33 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [367]
+	},
+	{
+		["zone_id"] = 36,
+		["phase"] = 1,
+		["id"] = 6707,
+		["location"] = {
+			["y"] = "84.60",
+			["x"] = "80.20",
+		},
+		["name"] = {
+			["German"] = "Fahrad",
+			["English"] = "Fahrad",
+			["Spanish"] = "Fahrad",
+			["Mexican"] = "Fahrad",
+			["French"] = "Fahrad",
+			["Portuguese"] = "Fahrad",
+			["Russian"] = "Фахрад",
+			["Korean"] = "파라드",
+			["Chinese"] = "法拉德",
+		},
+		["reacts"] = "Neutral",
+		["xp_level"] = {
+			["max"] = "60",
+			["min"] = "60",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 400,
 		["phase"] = 1,
@@ -9220,6 +10134,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джинки Дзыньбламбум",
 			["Chinese"] = "金克·铁钩",
 			["Spanish"] = "Jinky Arreglatodo",
+			["Mexican"] = "Jinky Arreglatodo",
 			["French"] = "Jinky Twizzlefixxit",
 			["English"] = "Jinky Twizzlefixxit",
 			["Korean"] = "진키 트위즐픽시트",
@@ -9231,7 +10146,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [368]
+	},
 	{
 		["zone_id"] = 406,
 		["phase"] = 1,
@@ -9245,6 +10160,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Харлон Темный Узор",
 			["Chinese"] = "哈鲁恩·暗纹",
 			["Spanish"] = "Harlown Tejeoscuro",
+			["Mexican"] = "Harlown Tejeoscuro",
 			["French"] = "Harlown Darkweave",
 			["English"] = "Harlown Darkweave",
 			["Korean"] = "하론 다크위브",
@@ -9256,7 +10172,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "27",
 			["is_elite"] = 0,
 		},
-	}, -- [369]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -9270,6 +10186,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Зан Кругореззик",
 			["Chinese"] = "萨恩·刀链",
 			["Spanish"] = "Zan Chafadento",
+			["Mexican"] = "Zan Chafadento",
 			["French"] = "Zan Shivsproket",
 			["English"] = "Zan Shivsproket",
 			["Korean"] = "잰 쉬브스프로켓",
@@ -9281,7 +10198,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 0,
 		},
-	}, -- [370]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -9295,6 +10212,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Клякс Громодрев",
 			["Chinese"] = "斯穆德·雷木",
 			["Spanish"] = "Borrón Truenedera",
+			["Mexican"] = "Borrón Truenedera",
 			["French"] = "Smudge Thunderwood",
 			["English"] = "Smudge Thunderwood",
 			["Korean"] = "스머지 썬더우드",
@@ -9306,7 +10224,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "45",
 			["is_elite"] = 0,
 		},
-	}, -- [371]
+	},
 	{
 		["zone_id"] = 51,
 		["phase"] = 1,
@@ -9320,6 +10238,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джаркал Замшелый Клык",
 			["Chinese"] = "加卡尔",
 			["Spanish"] = "Jarkal Musgofusión",
+			["Mexican"] = "Jarkal Musgofusión",
 			["French"] = "Jarkal Mossmeld",
 			["English"] = "Jarkal Mossmeld",
 			["Korean"] = "자칼 모스멜드",
@@ -9331,7 +10250,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [372]
+	},
 	{
 		["zone_id"] = 40,
 		["phase"] = 1,
@@ -9345,6 +10264,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Посланница Кеарнен",
 			["Chinese"] = "密探吉尔妮",
 			["Spanish"] = "Agente Kearnen",
+			["Mexican"] = "Agente Kearnen",
 			["French"] = "Agent Kearnen",
 			["English"] = "Agent Kearnen",
 			["Korean"] = "첩보원 켈넌",
@@ -9356,7 +10276,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "22",
 			["is_elite"] = 0,
 		},
-	}, -- [373]
+	},
 	{
 		["zone_id"] = 46,
 		["phase"] = 1,
@@ -9370,6 +10290,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Солдат из клана Черной Горы",
 			["Chinese"] = "黑石士兵",
 			["Spanish"] = "Soldado Roca Negra",
+			["Mexican"] = "Soldado Roca Negra",
 			["French"] = "Soldat Blackrock",
 			["English"] = "Blackrock Soldier",
 			["Korean"] = "검은바위부족 병사",
@@ -9381,7 +10302,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [374]
+	},
 	{
 		["zone_id"] = 46,
 		["phase"] = 1,
@@ -9395,6 +10316,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Душегуб из клана Черной Горы",
 			["Chinese"] = "黑石杀戮者",
 			["Spanish"] = "Destripador Roca Negra",
+			["Mexican"] = "Destripador Roca Negra",
 			["French"] = "Pourfendeur Blackrock",
 			["English"] = "Blackrock Slayer",
 			["Korean"] = "검은바위부족 학살자",
@@ -9406,7 +10328,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "56",
 			["is_elite"] = 0,
 		},
-	}, -- [375]
+	},
 	{
 		["zone_id"] = 46,
 		["phase"] = 1,
@@ -9420,6 +10342,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Полководец из клана Черной Горы",
 			["Chinese"] = "黑石军官",
 			["Spanish"] = "Maestro de batalla Roca Negra",
+			["Mexican"] = "Maestro de batalla Roca Negra",
 			["French"] = "Maître de guerre Blackrock",
 			["English"] = "Blackrock Battlemaster",
 			["Korean"] = "검은바위부족 지휘관",
@@ -9431,7 +10354,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "57",
 			["is_elite"] = 0,
 		},
-	}, -- [376]
+	},
 	{
 		["zone_id"] = 46,
 		["phase"] = 1,
@@ -9445,6 +10368,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Громила из клана Огненного Чрева",
 			["Chinese"] = "火腹蛮兵",
 			["Spanish"] = "Tosco Pirontraña",
+			["Mexican"] = "Tosco Pirontraña",
 			["French"] = "Brute Brûlentrailles",
 			["English"] = "Firegut Brute",
 			["Korean"] = "불자루일족 투사",
@@ -9456,7 +10380,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "52",
 			["is_elite"] = 0,
 		},
-	}, -- [377]
+	},
 	{
 		["zone_id"] = 46,
 		["phase"] = 1,
@@ -9470,6 +10394,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Огнеход Тауриссана",
 			["Chinese"] = "索瑞森驭火者",
 			["Spanish"] = "Caminafuego Thaurissan",
+			["Mexican"] = "Caminafuego Thaurissan",
 			["French"] = "Marchefeu de Thaurissan",
 			["English"] = "Thaurissan Firewalker",
 			["Korean"] = "타우릿산 조사단원",
@@ -9481,7 +10406,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "53",
 			["is_elite"] = 0,
 		},
-	}, -- [378]
+	},
 	{
 		["zone_id"] = 361,
 		["phase"] = 1,
@@ -9495,6 +10420,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Разбойник из племени Нефритового Пламени",
 			["Chinese"] = "碧火潜行者",
 			["Spanish"] = "Pícaro Fuego de Jade",
+			["Mexican"] = "Pícaro Fuego de Jade",
 			["French"] = "Voleur Jadefeu",
 			["English"] = "Jadefire Rogue",
 			["Korean"] = "비취불꽃의 도적",
@@ -9506,7 +10432,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [379]
+	},
 	{
 		["zone_id"] = 361,
 		["phase"] = 1,
@@ -9520,6 +10446,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Плут из племени Нефритового Огня",
 			["Chinese"] = "碧火欺诈者",
 			["Spanish"] = "Tramposo Fuego de Jade",
+			["Mexican"] = "Tramposo Fuego de Jade",
 			["French"] = "Entourloupeur Jadefeu",
 			["English"] = "Jadefire Trickster",
 			["Korean"] = "비취불꽃의 요술사",
@@ -9531,7 +10458,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "52",
 			["is_elite"] = 0,
 		},
-	}, -- [380]
+	},
 	{
 		["zone_id"] = 361,
 		["phase"] = 1,
@@ -9545,6 +10472,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джеденаский сектант",
 			["Chinese"] = "加德纳尔祭司",
 			["Spanish"] = "Fiel Jaedenar",
+			["Mexican"] = "Fiel Jaedenar",
 			["French"] = "Sectateur de Jaedenar",
 			["English"] = "Jaedenar Cultist",
 			["Korean"] = "자에데나르 이교도",
@@ -9556,7 +10484,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "51",
 			["is_elite"] = 0,
 		},
-	}, -- [381]
+	},
 	{
 		["zone_id"] = 361,
 		["phase"] = 1,
@@ -9570,6 +10498,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дозорный из племени Мертвого Леса",
 			["Chinese"] = "死木守卫",
 			["Spanish"] = "Vigilante del cubil Muertobosque",
+			["Mexican"] = "Vigilante del cubil Muertobosque",
 			["French"] = "Protecteur Mort-bois",
 			["English"] = "Deadwood Den Watcher",
 			["Korean"] = "마른가지일족 보초",
@@ -9581,7 +10510,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "53",
 			["is_elite"] = 0,
 		},
-	}, -- [382]
+	},
 	{
 		["zone_id"] = 361,
 		["phase"] = 1,
@@ -9595,6 +10524,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Шаман из племени Мертвого Леса",
 			["Chinese"] = "死木萨满祭司",
 			["Spanish"] = "Chamán Muertobosque",
+			["Mexican"] = "Chamán Muertobosque",
 			["French"] = "Chaman Mort-bois",
 			["English"] = "Deadwood Shaman",
 			["Korean"] = "마른가지일족 주술사",
@@ -9606,7 +10536,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "53",
 			["is_elite"] = 0,
 		},
-	}, -- [383]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -9620,6 +10550,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Шайс Холодная Ярость",
 			["Chinese"] = "莎伊斯·钢怒",
 			["Spanish"] = "Shayis Furiacerada",
+			["Mexican"] = "Shayis Furiacerada",
 			["French"] = "Shayis Steelfury",
 			["English"] = "Shayis Steelfury",
 			["Korean"] = "샤이스 스틸퓨리",
@@ -9631,7 +10562,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 0,
 		},
-	}, -- [384]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -9645,6 +10576,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Келгрук Кровавый Топор",
 			["Chinese"] = "克尔格鲁克·血斧",
 			["Spanish"] = "Kelgruk Hacha de Sangre",
+			["Mexican"] = "Kelgruk Hacha de Sangre",
 			["French"] = "Kelgruk Bloodaxe",
 			["English"] = "Kelgruk Bloodaxe",
 			["Korean"] = "켈그룩 블러드액스",
@@ -9656,7 +10588,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 0,
 		},
-	}, -- [385]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -9670,6 +10602,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Боргус Сталерук",
 			["Chinese"] = "博古斯·钢拳",
 			["Spanish"] = "Borgus Mano de Acero",
+			["Mexican"] = "Borgus Mano de Acero",
 			["French"] = "Borgus Steelhand",
 			["English"] = "Borgus Steelhand",
 			["Korean"] = "보르구스 스틸핸드",
@@ -9681,7 +10614,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 0,
 		},
-	}, -- [386]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -9695,6 +10628,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Надсмотрщик Физзул",
 			["Chinese"] = "工头费苏勒",
 			["Spanish"] = "Capataz Burbujita",
+			["Mexican"] = "Capataz Burbujita",
 			["French"] = "Sous-chef Fizzule",
 			["English"] = "Taskmaster Fizzule",
 			["Korean"] = "감독관 피줄",
@@ -9706,7 +10640,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 1,
 		},
-	}, -- [387]
+	},
 	{
 		["zone_id"] = 41,
 		["phase"] = 1,
@@ -9720,6 +10654,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Чернокнижник с перевала Мертвого Ветра",
 			["Chinese"] = "逆风术士",
 			["Spanish"] = "Brujo Vientomuerto",
+			["Mexican"] = "Brujo Vientomuerto",
 			["French"] = "Démoniste de Deuillevent",
 			["English"] = "Deadwind Warlock",
 			["Korean"] = "죽음의고개 흑마법사",
@@ -9731,7 +10666,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "57",
 			["is_elite"] = 0,
 		},
-	}, -- [388]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -9745,6 +10680,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Карлс Пропеллерз",
 			["Chinese"] = "奥格索普·奥布诺提斯",
 			["Spanish"] = "Oglethorpe Obnoticus",
+			["Mexican"] = "Oglethorpe Obnoticus",
 			["French"] = "Oglethorpe Obnoticus",
 			["English"] = "Oglethorpe Obnoticus",
 			["Korean"] = "오글소프 오브노티쿠스",
@@ -9756,7 +10692,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [389]
+	},
 	{
 		["zone_id"] = 618,
 		["phase"] = 1,
@@ -9770,6 +10706,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Великан ледяного молота",
 			["Chinese"] = "霜槌巨人",
 			["Spanish"] = "Gigante Machacahielo",
+			["Mexican"] = "Gigante Machacahielo",
 			["French"] = "Géant Cognegivre",
 			["English"] = "Frostmaul Giant",
 			["Korean"] = "서리망치거인",
@@ -9781,7 +10718,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "58",
 			["is_elite"] = 1,
 		},
-	}, -- [390]
+	},
 	{
 		["zone_id"] = 618,
 		["phase"] = 1,
@@ -9795,6 +10732,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кобальтовая чаровязка",
 			["Chinese"] = "深蓝龙人法师",
 			["Spanish"] = "Tejemagia de cobalto",
+			["Mexican"] = "Tejemagia de cobalto",
 			["French"] = "Tisse-magie cobalt",
 			["English"] = "Cobalt Mageweaver",
 			["Korean"] = "푸른비늘혈족 마술사",
@@ -9806,7 +10744,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "57",
 			["is_elite"] = 1,
 		},
-	}, -- [391]
+	},
 	{
 		["zone_id"] = 618,
 		["phase"] = 1,
@@ -9820,6 +10758,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ведмедь из племени Зимней Спячки",
 			["Chinese"] = "冬泉巨熊怪",
 			["Spanish"] = "Ursa Nevada",
+			["Mexican"] = "Ursa Nevada",
 			["French"] = "Ursa Tombe-hiver",
 			["English"] = "Winterfall Ursa",
 			["Korean"] = "눈사태일족 펄볼그",
@@ -9831,7 +10770,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "57",
 			["is_elite"] = 0,
 		},
-	}, -- [392]
+	},
 	{
 		["zone_id"] = 618,
 		["phase"] = 1,
@@ -9845,6 +10784,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дозорный из племени Зимней Спячки",
 			["Chinese"] = "冬泉巢穴守卫",
 			["Spanish"] = "Vigía del cubil Nevada",
+			["Mexican"] = "Vigía del cubil Nevada",
 			["French"] = "Protecteur Tombe-hiver",
 			["English"] = "Winterfall Den Watcher",
 			["Korean"] = "눈사태일족 보초",
@@ -9856,7 +10796,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [393]
+	},
 	{
 		["zone_id"] = 618,
 		["phase"] = 1,
@@ -9870,6 +10810,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тотемист из племени Зимней Спячки",
 			["Chinese"] = "冬泉图腾师",
 			["Spanish"] = "Totémico Nevada",
+			["Mexican"] = "Totémico Nevada",
 			["French"] = "Totémique Tombe-hiver",
 			["English"] = "Winterfall Totemic",
 			["Korean"] = "눈사태일족 토템술사",
@@ -9881,7 +10822,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "54",
 			["is_elite"] = 0,
 		},
-	}, -- [394]
+	},
 	{
 		["zone_id"] = 618,
 		["phase"] = 1,
@@ -9895,6 +10836,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тоскующая высокорожденная",
 			["Chinese"] = "痛苦的上层精灵",
 			["Spanish"] = "Altonato angustiada",
+			["Mexican"] = "Altonato angustiada",
 			["French"] = "Bien-née angoissée",
 			["English"] = "Anguished Highborne",
 			["Korean"] = "고통받는 명가의 원혼",
@@ -9906,7 +10848,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [395]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -9920,6 +10862,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Хозяин таверны Ворчунелло",
 			["Chinese"] = "旅店老板菲兹格瑞博",
 			["Spanish"] = "Tabernero Fizzgrimble",
+			["Mexican"] = "Tabernero Fizzgrimble",
 			["French"] = "Aubergiste Fizzgrimble",
 			["English"] = "Innkeeper Fizzgrimble",
 			["Korean"] = "여관주인 피즈그림블",
@@ -9931,7 +10874,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [396]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -9945,6 +10888,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Орокк Омош",
 			["Chinese"] = "奥罗克·沃姆什",
 			["Spanish"] = "Orokk Omosh",
+			["Mexican"] = "Orokk Omosh",
 			["French"] = "Orokk Omosh",
 			["English"] = "Orokk Omosh",
 			["Korean"] = "오로크 오모쉬",
@@ -9956,7 +10900,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "45",
 			["is_elite"] = 0,
 		},
-	}, -- [397]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -9970,6 +10914,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Атурк Наковальня",
 			["Chinese"] = "铁砧阿图尔克",
 			["Spanish"] = "Aturk el Yunque",
+			["Mexican"] = "Aturk el Yunque",
 			["French"] = "Aturk l'Enclume",
 			["English"] = "Aturk the Anvil",
 			["Korean"] = "무쇠모루 아투르크",
@@ -9981,7 +10926,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [398]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -9995,6 +10940,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ханк Молот",
 			["Chinese"] = "巨锤汉克",
 			["Spanish"] = "Hank el Martillo",
+			["Mexican"] = "Hank el Martillo",
 			["French"] = "Hank le Marteau",
 			["English"] = "Hank the Hammer",
 			["Korean"] = "쇠망치 행크",
@@ -10006,7 +10952,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [399]
+	},
 	{
 		["zone_id"] = 721,
 		["phase"] = 1,
@@ -10020,6 +10966,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мекжинер Термоштепсель",
 			["Chinese"] = "麦克尼尔·瑟玛普拉格",
 			["Spanish"] = "Mekigeniero Termochufe",
+			["Mexican"] = "Mekigeniero Termochufe",
 			["French"] = "Mekgénieur Thermaplugg",
 			["English"] = "Mekgineer Thermaplugg",
 			["Korean"] = "멕기니어 텔마플러그",
@@ -10031,7 +10978,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "34",
 			["is_elite"] = 1,
 		},
-	}, -- [400]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -10045,6 +10992,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гальван Древний",
 			["Chinese"] = "加尔文",
 			["Spanish"] = "Galvan el Antiguo",
+			["Mexican"] = "Galvan el Antiguo",
 			["French"] = "Galvan l'Ancien",
 			["English"] = "Galvan the Ancient",
 			["Korean"] = "전설의 대장장이 갈반",
@@ -10056,7 +11004,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 0,
 		},
-	}, -- [401]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -10070,6 +11018,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Трентон Молот Света",
 			["Chinese"] = "特伦顿·轻锤",
 			["Spanish"] = "Trenton Mazaligera",
+			["Mexican"] = "Trenton Mazaligera",
 			["French"] = "Trenton Lighthammer",
 			["English"] = "Trenton Lighthammer",
 			["Korean"] = "트렌튼 라이트해머",
@@ -10081,16 +11030,17 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [402]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
-		["special_action"] = {
+			["special_action"] = {
 			["English"] = "Spawns during quest to escort robot chicken",
 			["Portuguese"] = "Nasce durante a missão de escoltar frango robô",
 			["Russian"] = "Появляется во время квеста на сопровождение робота-курицы",
 			["Chinese"] = "在寻找护卫机器人鸡的过程中产生",
 			["Spanish"] = "Aparece durante la búsqueda para escoltar a un pollo robot",
+			["Mexican"] = "Aparece durante la búsqueda para escoltar a un pollo robot",
 			["French"] = "Apparaît pendant la quête pour escorter un poulet robot",
 			["Korean"] = "로봇 치킨을 호위하기 위해 퀘스트 중 생성",
 			["German"] = "Erscheint während der Suche nach einem Roboterhuhn",
@@ -10105,6 +11055,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Беззаконник из шайки Скитальцев Пустыни",
 			["Chinese"] = "废土暴徒",
 			["Spanish"] = "Revuelvebasura Deambulador",
+			["Mexican"] = "Revuelvebasura Deambulador",
 			["French"] = "Hors-la-loi Bat-le-désert",
 			["English"] = "Wastewander Scofflaw",
 			["Korean"] = "사막유랑단 무법자",
@@ -10116,7 +11067,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "45",
 			["is_elite"] = 0,
 		},
-	}, -- [403]
+	},
 	{
 		["zone_id"] = 357,
 		["phase"] = 1,
@@ -10130,6 +11081,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Пратт Макгруббен",
 			["Chinese"] = "普拉特·马克格鲁比",
 			["Spanish"] = "Pratt McGrubben",
+			["Mexican"] = "Pratt McGrubben",
 			["French"] = "Pratt McGrubben",
 			["English"] = "Pratt McGrubben",
 			["Korean"] = "프랫 맥그루벤",
@@ -10141,7 +11093,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [404]
+	},
 	{
 		["zone_id"] = 357,
 		["phase"] = 1,
@@ -10155,6 +11107,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джангор Быстрый Странник",
 			["Chinese"] = "杉多尔·迅蹄",
 			["Spanish"] = "Jangdor Zanco Veloz",
+			["Mexican"] = "Jangdor Zanco Veloz",
 			["French"] = "Jangdor Swiftstrider",
 			["English"] = "Jangdor Swiftstrider",
 			["Korean"] = "장도르 스위프트스트라이더",
@@ -10166,7 +11119,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "49",
 			["is_elite"] = 0,
 		},
-	}, -- [405]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -10180,6 +11133,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Флибустьер Южных морей",
 			["Chinese"] = "南海劫掠者",
 			["Spanish"] = "Filibustero del Mar del Sur",
+			["Mexican"] = "Filibustero del Mar del Sur",
 			["French"] = "Flibustier des Mers du sud",
 			["English"] = "Southsea Freebooter",
 			["Korean"] = "남쪽바다해적단 약탈자",
@@ -10191,7 +11145,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "44",
 			["is_elite"] = 0,
 		},
-	}, -- [406]
+	},
 	{
 		["zone_id"] = 16,
 		["phase"] = 1,
@@ -10205,6 +11159,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Неупокоенный высокорожденный",
 			["Chinese"] = "徘徊的上层精灵",
 			["Spanish"] = "Altonato persistente",
+			["Mexican"] = "Altonato persistente",
 			["French"] = "Bien-né survivant",
 			["English"] = "Lingering Highborne",
 			["Korean"] = "명가의 악령",
@@ -10216,7 +11171,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "48",
 			["is_elite"] = 0,
 		},
-	}, -- [407]
+	},
 	{
 		["zone_id"] = 16,
 		["phase"] = 1,
@@ -10230,6 +11185,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Питер Гален",
 			["Chinese"] = "彼得·加林",
 			["Spanish"] = "Peter Galen",
+			["Mexican"] = "Peter Galen",
 			["French"] = "Peter Galen",
 			["English"] = "Peter Galen",
 			["Korean"] = "피터 갈렌",
@@ -10241,7 +11197,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [408]
+	},
 	{
 		["zone_id"] = 3,
 		["phase"] = 1,
@@ -10255,6 +11211,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Торкаф Око Дракона",
 			["Chinese"] = "索卡夫·龙眼",
 			["Spanish"] = "Thorkaf Dragonojo",
+			["Mexican"] = "Thorkaf Dragonojo",
 			["French"] = "Thorkaf Dragoneye",
 			["English"] = "Thorkaf Dragoneye",
 			["Korean"] = "토르카프 드래곤아이",
@@ -10266,7 +11223,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [409]
+	},
 	{
 		["zone_id"] = 51,
 		["phase"] = 1,
@@ -10280,6 +11237,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Сара Дубильщица",
 			["Chinese"] = "萨拉·坦尼",
 			["Spanish"] = "Sarah Peletero",
+			["Mexican"] = "Sarah Peletero",
 			["French"] = "Sarah Tanner",
 			["English"] = "Sarah Tanner",
 			["Korean"] = "사라 터너",
@@ -10291,7 +11249,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [410]
+	},
 	{
 		["zone_id"] = 45,
 		["phase"] = 1,
@@ -10305,6 +11263,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Брумн Заиндевевшее Копыто",
 			["Chinese"] = "布鲁姆·白蹄",
 			["Spanish"] = "Brumm Pezuña Invernal",
+			["Mexican"] = "Brumm Pezuña Invernal",
 			["French"] = "Brumn Winterhoof",
 			["English"] = "Brumn Winterhoof",
 			["Korean"] = "부룸 윈터후프",
@@ -10316,7 +11275,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [411]
+	},
 	{
 		["zone_id"] = 400,
 		["phase"] = 1,
@@ -10330,6 +11289,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кариссия Лунная Охотница",
 			["Chinese"] = "凯雷希亚·猎月",
 			["Spanish"] = "Caryssia Cazaluna",
+			["Mexican"] = "Caryssia Cazaluna",
 			["French"] = "Caryssia Moonhunter",
 			["English"] = "Caryssia Moonhunter",
 			["Korean"] = "카리시아 문헌터",
@@ -10341,7 +11301,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [412]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -10355,6 +11315,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Сех'Джиб",
 			["Chinese"] = "瑟伊布",
 			["Spanish"] = "Se'Jib",
+			["Mexican"] = "Se'Jib",
 			["French"] = "Se'Jib",
 			["English"] = "Se'Jib",
 			["Korean"] = "세지브",
@@ -10366,7 +11327,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [413]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -10380,6 +11341,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Андре Огнебородый",
 			["Chinese"] = "安德雷·费尔比德",
 			["Spanish"] = "Andre Barbafuego",
+			["Mexican"] = "Andre Barbafuego",
 			["French"] = "Andre Barbe-en-feu",
 			["English"] = "Andre Firebeard",
 			["Korean"] = "앙드레 파이어비어드",
@@ -10391,7 +11353,33 @@ MTSL_DATA["npcs"] = {
 			["min"] = "45",
 			["is_elite"] = 0,
 		},
-	}, -- [414]
+	},
+	{
+		["zone_id"] = 493,
+		["phase"] = 1,
+		["id"] = 7940,
+		["location"] = {
+			["y"] = "50.33",
+			["x"] = "69.55",
+		},
+		["name"] = {
+			["German"] = "Darnall",
+			["English"] = "Darnall",
+			["Spanish"] = "Darnall",
+			["Mexican"] = "Darnall",
+			["French"] = "Darnall",
+			["Portuguese"] = "Darnall",
+			["Russian"] = "Дарналл",
+			["Korean"] = "다르날",
+			["Chinese"] = "旅店老板达纳尔",
+		},
+		["reacts"] = "Neutral",
+		["xp_level"] = {
+			["max"] = "53",
+			["min"] = "53",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -10405,6 +11393,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мехмастер Замыкалец",
 			["Chinese"] = "工匠大师欧沃斯巴克",
 			["Spanish"] = "Maestro manitas Sobrechispa",
+			["Mexican"] = "Maestro manitas Sobrechispa",
 			["French"] = "Maître-artisan Overspark",
 			["English"] = "Tinkmaster Overspark",
 			["Korean"] = "수석땜장이 오버스파크",
@@ -10416,7 +11405,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "57",
 			["is_elite"] = 0,
 		},
-	}, -- [415]
+	},
 	{
 		["zone_id"] = 357,
 		["phase"] = 1,
@@ -10430,6 +11419,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Вивианна",
 			["Chinese"] = "薇薇安娜",
 			["Spanish"] = "Vivianna",
+			["Mexican"] = "Vivianna",
 			["French"] = "Vivianna",
 			["English"] = "Vivianna",
 			["Korean"] = "비비안나",
@@ -10441,7 +11431,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "52",
 			["is_elite"] = 0,
 		},
-	}, -- [416]
+	},
 	{
 		["zone_id"] = 357,
 		["phase"] = 1,
@@ -10455,6 +11445,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кайланна Шепот Ветра",
 			["Chinese"] = "凯兰娜·风语",
 			["Spanish"] = "Kylanna Vientosusurro",
+			["Mexican"] = "Kylanna Vientosusurro",
 			["French"] = "Kylanna Windwhisper",
 			["English"] = "Kylanna Windwhisper",
 			["Korean"] = "킬란나 윈드위스퍼",
@@ -10466,7 +11457,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "52",
 			["is_elite"] = 0,
 		},
-	}, -- [417]
+	},
 	{
 		["zone_id"] = 357,
 		["phase"] = 1,
@@ -10480,6 +11471,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ксилинния Звездное Сияние",
 			["Chinese"] = "辛琳妮亚·星光",
 			["Spanish"] = "Xylinnia Brillestelar",
+			["Mexican"] = "Xylinnia Brillestelar",
 			["French"] = "Xylinnia Starshine",
 			["English"] = "Xylinnia Starshine",
 			["Korean"] = "실린니아 스타샤인",
@@ -10491,7 +11483,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "51",
 			["is_elite"] = 0,
 		},
-	}, -- [418]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -10505,6 +11497,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Могиль Быстроруб",
 			["Chinese"] = "迪尔格·奎克里弗",
 			["Spanish"] = "Dirge Hojágil",
+			["Mexican"] = "Dirge Hojágil",
 			["French"] = "Dirge Quikcleave",
 			["English"] = "Dirge Quikcleave",
 			["Korean"] = "더지 퀵클레이브",
@@ -10516,7 +11509,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "43",
 			["is_elite"] = 0,
 		},
-	}, -- [419]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -10530,6 +11523,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Никс Шепружин",
 			["Chinese"] = "尼克斯·斯普克斯宾",
 			["Spanish"] = "Nixx Muellepiñón",
+			["Mexican"] = "Nixx Muellepiñón",
 			["French"] = "Nixx Sprocketspring",
 			["English"] = "Nixx Sprocketspring",
 			["Korean"] = "닉스 스프로켓스프링",
@@ -10541,7 +11535,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [420]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -10555,6 +11549,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Киркор",
 			["Chinese"] = "皮库尔",
 			["Spanish"] = "Pikkle",
+			["Mexican"] = "Pikkle",
 			["French"] = "Pikkle",
 			["English"] = "Pikkle",
 			["Korean"] = "피클",
@@ -10566,7 +11561,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [421]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -10580,6 +11575,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Близрик Шрапнельс",
 			["Chinese"] = "布雷兹里克·巴克舒特",
 			["Spanish"] = "Blizrik Machobala",
+			["Mexican"] = "Blizrik Machobala",
 			["French"] = "Blizrik Buckshot",
 			["English"] = "Blizrik Buckshot",
 			["Korean"] = "브리즈릭 벅샷",
@@ -10591,7 +11587,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "43",
 			["is_elite"] = 0,
 		},
-	}, -- [422]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -10605,6 +11601,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гиккикс",
 			["Chinese"] = "吉科希斯",
 			["Spanish"] = "Gikkix",
+			["Mexican"] = "Gikkix",
 			["French"] = "Gikkix",
 			["English"] = "Gikkix",
 			["Korean"] = "긱킥스",
@@ -10616,7 +11613,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [423]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -10630,6 +11627,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джабби",
 			["Chinese"] = "加贝",
 			["Spanish"] = "Jabbey",
+			["Mexican"] = "Jabbey",
 			["French"] = "Jabbey",
 			["English"] = "Jabbey",
 			["Korean"] = "재비",
@@ -10641,7 +11639,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [424]
+	},
 	{
 		["zone_id"] = 357,
 		["phase"] = 1,
@@ -10655,6 +11653,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Шиендра Высокая Трава",
 			["Chinese"] = "希恩德拉·深草",
 			["Spanish"] = "Sheendra Pastoalto",
+			["Mexican"] = "Sheendra Pastoalto",
 			["French"] = "Sheendra Tallgrass",
 			["English"] = "Sheendra Tallgrass",
 			["Korean"] = "신드라 톨그래스",
@@ -10666,7 +11665,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [425]
+	},
 	{
 		["zone_id"] = 406,
 		["phase"] = 1,
@@ -10680,6 +11679,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джанет Хоммерс",
 			["Chinese"] = "詹奈特·霍莫斯",
 			["Spanish"] = "Janet Hommers",
+			["Mexican"] = "Janet Hommers",
 			["French"] = "Janet Hommers",
 			["English"] = "Janet Hommers",
 			["Korean"] = "자넷 호머스",
@@ -10691,7 +11691,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [426]
+	},
 	{
 		["zone_id"] = 405,
 		["phase"] = 1,
@@ -10705,6 +11705,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Нарв Кожемяка",
 			["Chinese"] = "纳夫",
 			["Spanish"] = "Narv Curtepieles",
+			["Mexican"] = "Narv Curtepieles",
 			["French"] = "Narv Hidecrafter",
 			["English"] = "Narv Hidecrafter",
 			["Korean"] = "나르브 하이드크래프터",
@@ -10716,7 +11717,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "42",
 			["is_elite"] = 0,
 		},
-	}, -- [427]
+	},
 	{
 		["zone_id"] = 357,
 		["phase"] = 1,
@@ -10730,6 +11731,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Логаннас",
 			["Chinese"] = "洛加纳斯",
 			["Spanish"] = "Logannas",
+			["Mexican"] = "Logannas",
 			["French"] = "Logannas",
 			["English"] = "Logannas",
 			["Korean"] = "로간나스",
@@ -10741,7 +11743,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "52",
 			["is_elite"] = 0,
 		},
-	}, -- [428]
+	},
 	{
 		["zone_id"] = 357,
 		["phase"] = 1,
@@ -10755,6 +11757,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Бронк",
 			["Chinese"] = "布隆克",
 			["Spanish"] = "Bronk",
+			["Mexican"] = "Bronk",
 			["French"] = "Bronk",
 			["English"] = "Bronk",
 			["Korean"] = "브론크",
@@ -10766,7 +11769,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "49",
 			["is_elite"] = 0,
 		},
-	}, -- [429]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -10780,6 +11783,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ниома",
 			["Chinese"] = "尼奥玛",
 			["Spanish"] = "Nioma",
+			["Mexican"] = "Nioma",
 			["French"] = "Nioma",
 			["English"] = "Nioma",
 			["Korean"] = "니오마",
@@ -10791,7 +11795,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [430]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -10805,6 +11809,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Харгган",
 			["Chinese"] = "哈尔甘",
 			["Spanish"] = "Harggan",
+			["Mexican"] = "Harggan",
 			["French"] = "Harggan",
 			["English"] = "Harggan",
 			["Korean"] = "하르간",
@@ -10816,7 +11821,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "49",
 			["is_elite"] = 0,
 		},
-	}, -- [431]
+	},
 	{
 		["zone_id"] = 8,
 		["phase"] = 1,
@@ -10830,6 +11835,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гхарраш",
 			["Chinese"] = "卡尔拉什",
 			["Spanish"] = "Gharash",
+			["Mexican"] = "Gharash",
 			["French"] = "Gharash",
 			["English"] = "Gharash",
 			["Korean"] = "가라쉬",
@@ -10841,7 +11847,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "45",
 			["is_elite"] = 0,
 		},
-	}, -- [432]
+	},
 	{
 		["zone_id"] = 8,
 		["phase"] = 1,
@@ -10855,6 +11861,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Рартар",
 			["Chinese"] = "拉尔塔",
 			["Spanish"] = "Rartar",
+			["Mexican"] = "Rartar",
 			["French"] = "Rartar",
 			["English"] = "Rartar",
 			["Korean"] = "라르타르",
@@ -10866,7 +11873,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "45",
 			["is_elite"] = 0,
 		},
-	}, -- [433]
+	},
 	{
 		["zone_id"] = 4,
 		["phase"] = 1,
@@ -10880,6 +11887,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ниней Легковар",
 			["Chinese"] = "妮娜·莱特布鲁",
 			["Spanish"] = "Nina Burbuluz",
+			["Mexican"] = "Nina Burbuluz",
 			["French"] = "Nina Lightbrew",
 			["English"] = "Nina Lightbrew",
 			["Korean"] = "니나 라이트브루",
@@ -10891,7 +11899,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "49",
 			["is_elite"] = 0,
 		},
-	}, -- [434]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -10905,6 +11913,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дунх",
 			["Chinese"] = "杜恩格",
 			["Spanish"] = "Duhng",
+			["Mexican"] = "Duhng",
 			["French"] = "Duhng",
 			["English"] = "Duhng",
 			["Korean"] = "둔그",
@@ -10916,7 +11925,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "18",
 			["is_elite"] = 0,
 		},
-	}, -- [435]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -10930,6 +11939,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тарбан Домашний Очаг",
 			["Chinese"] = "塔班·熟麦",
 			["Spanish"] = "Tarban Granogar",
+			["Mexican"] = "Tarban Granogar",
 			["French"] = "Tarban Hearthgrain",
 			["English"] = "Tarban Hearthgrain",
 			["Korean"] = "타반 하트그레인",
@@ -10941,7 +11951,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "22",
 			["is_elite"] = 0,
 		},
-	}, -- [436]
+	},
 	{
 		["zone_id"] = 51,
 		["phase"] = 1,
@@ -10955,6 +11965,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Нилита Локрав",
 			["Chinese"] = "尼莉丝·洛克拉夫",
 			["Spanish"] = "Nilith Lokrav",
+			["Mexican"] = "Nilith Lokrav",
 			["French"] = "Nilith Lokrav",
 			["English"] = "Nilith Lokrav",
 			["Korean"] = "닐리스 로크라브",
@@ -10966,7 +11977,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "48",
 			["is_elite"] = 0,
 		},
-	}, -- [437]
+	},
 	{
 		["zone_id"] = 1,
 		["phase"] = 1,
@@ -10980,6 +11991,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гретта Гантер",
 			["Chinese"] = "格雷塔·甘特",
 			["Spanish"] = "Gretta Ganter",
+			["Mexican"] = "Gretta Ganter",
 			["French"] = "Gretta Ganter",
 			["English"] = "Gretta Ganter",
 			["Korean"] = "그레타 간터",
@@ -10991,7 +12003,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "10",
 			["is_elite"] = 0,
 		},
-	}, -- [438]
+	},
 	{
 		["zone_id"] = 139,
 		["phase"] = 1,
@@ -11005,6 +12017,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Темный заклинатель",
 			["Chinese"] = "黑暗法师",
 			["Spanish"] = "Taumaturgo oscuro",
+			["Mexican"] = "Taumaturgo oscuro",
 			["French"] = "Magicien noir",
 			["English"] = "Dark Caster",
 			["Korean"] = "암흑의 마술사",
@@ -11016,7 +12029,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "56",
 			["is_elite"] = 0,
 		},
-	}, -- [439]
+	},
 	{
 		["zone_id"] = 139,
 		["phase"] = 1,
@@ -11030,6 +12043,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Незримый слуга",
 			["Chinese"] = "无影仆从",
 			["Spanish"] = "Sirviente oculto",
+			["Mexican"] = "Sirviente oculto",
 			["French"] = "Serviteur invisible",
 			["English"] = "Unseen Servant",
 			["Korean"] = "보이지 않는 하수인",
@@ -11041,7 +12055,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [440]
+	},
 	{
 		["zone_id"] = 139,
 		["phase"] = 1,
@@ -11055,6 +12069,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Адепт Тьмы",
 			["Chinese"] = "黑暗教徒",
 			["Spanish"] = "Adepto oscuro",
+			["Mexican"] = "Adepto oscuro",
 			["French"] = "Adepte noir",
 			["English"] = "Dark Adept",
 			["Korean"] = "암흑의 수행사제",
@@ -11066,7 +12081,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "59",
 			["is_elite"] = 0,
 		},
-	}, -- [441]
+	},
 	{
 		["zone_id"] = 139,
 		["phase"] = 1,
@@ -11080,6 +12095,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Темный маг",
 			["Chinese"] = "暗影法师",
 			["Spanish"] = "Mago oscuro",
+			["Mexican"] = "Mago oscuro",
 			["French"] = "Ombremage",
 			["English"] = "Shadowmage",
 			["Korean"] = "어둠마법사",
@@ -11091,7 +12107,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "59",
 			["is_elite"] = 0,
 		},
-	}, -- [442]
+	},
 	{
 		["zone_id"] = 139,
 		["phase"] = 1,
@@ -11105,6 +12121,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Призыватель Тьмы",
 			["Chinese"] = "黑暗召唤师",
 			["Spanish"] = "Invocador oscuro",
+			["Mexican"] = "Invocador oscuro",
 			["French"] = "Invocateur des ténèbres",
 			["English"] = "Dark Summoner",
 			["Korean"] = "암흑의 소환사",
@@ -11116,7 +12133,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [443]
+	},
 	{
 		["zone_id"] = 139,
 		["phase"] = 1,
@@ -11130,6 +12147,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Темный охотник из племени Моходеров",
 			["Chinese"] = "烂苔暗影猎手",
 			["Spanish"] = "Cazasombras Fustamusgo",
+			["Mexican"] = "Cazasombras Fustamusgo",
 			["French"] = "Chasseur des ténèbres Mossflayer",
 			["English"] = "Mossflayer Shadowhunter",
 			["Korean"] = "이끼껍질부족 어둠사냥꾼",
@@ -11141,7 +12159,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "58",
 			["is_elite"] = 0,
 		},
-	}, -- [444]
+	},
 	{
 		["zone_id"] = 139,
 		["phase"] = 1,
@@ -11155,6 +12173,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Бесноватый чумной пес",
 			["Chinese"] = "狂怒的瘟疫犬",
 			["Spanish"] = "Can de peste demenciado",
+			["Mexican"] = "Can de peste demenciado",
 			["French"] = "Chien pestiféré frénétique",
 			["English"] = "Frenzied Plaguehound",
 			["Korean"] = "광포한 역병사냥개",
@@ -11166,7 +12185,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "57",
 			["is_elite"] = 0,
 		},
-	}, -- [445]
+	},
 	{
 		["zone_id"] = 51,
 		["phase"] = 1,
@@ -11180,6 +12199,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Сторож из клана Черного Железа",
 			["Chinese"] = "黑铁巡逻兵",
 			["Spanish"] = "Vigilante Hierro Negro",
+			["Mexican"] = "Vigilante Hierro Negro",
 			["French"] = "Garde Sombrefer",
 			["English"] = "Dark Iron Watchman",
 			["Korean"] = "검은무쇠단 보초",
@@ -11191,7 +12211,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "44",
 			["is_elite"] = 0,
 		},
-	}, -- [446]
+	},
 	{
 		["zone_id"] = 16,
 		["phase"] = 1,
@@ -11205,6 +12225,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джуби Прибамбас",
 			["Chinese"] = "朱比",
 			["Spanish"] = "Jubie Cacharretio",
+			["Mexican"] = "Jubie Cacharretio",
 			["French"] = "Jubie Gadgetspring",
 			["English"] = "Jubie Gadgetspring",
 			["Korean"] = "주비 가젯스프링",
@@ -11216,7 +12237,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [447]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -11230,6 +12251,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Наз Огнепых",
 			["Chinese"] = "克纳兹·枪焰",
 			["Spanish"] = "Knaz Flamerrada",
+			["Mexican"] = "Knaz Flamerrada",
 			["French"] = "Knaz Blunderflame",
 			["English"] = "Knaz Blunderflame",
 			["Korean"] = "크나즈 블런더플레임",
@@ -11241,7 +12263,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "42",
 			["is_elite"] = 0,
 		},
-	}, -- [448]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -11255,6 +12277,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Галантерейщик Эрик",
 			["Chinese"] = "埃瑞克",
 			["Spanish"] = "Confecciones Eric",
+			["Mexican"] = "Confecciones Eric",
 			["French"] = "Eric le tailleur",
 			["English"] = "Outfitter Eric",
 			["Korean"] = "재단사 에릭",
@@ -11266,7 +12289,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "35",
 			["is_elite"] = 0,
 		},
-	}, -- [449]
+	},
 	{
 		["zone_id"] = 722,
 		["phase"] = 1,
@@ -11280,6 +12303,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Генри Штерн",
 			["Chinese"] = "亨利·斯特恩",
 			["Spanish"] = "Henry Stern",
+			["Mexican"] = "Henry Stern",
 			["French"] = "Henry Stern",
 			["English"] = "Henry Stern",
 			["Korean"] = "헨리 스턴",
@@ -11291,7 +12315,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "36",
 			["is_elite"] = 0,
 		},
-	}, -- [450]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -11305,6 +12329,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Жужжер Скрепокрыл",
 			["Chinese"] = "巴兹克·布拉斯温",
 			["Spanish"] = "Buzzek Giracorchete",
+			["Mexican"] = "Buzzek Giracorchete",
 			["French"] = "Buzzek Bracketswing",
 			["English"] = "Buzzek Bracketswing",
 			["Korean"] = "부젝 브라켓스윙",
@@ -11316,7 +12341,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "53",
 			["is_elite"] = 0,
 		},
-	}, -- [451]
+	},
 	{
 		["zone_id"] = 17,
 		["phase"] = 1,
@@ -11330,6 +12355,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Вазарио Цепесмаз",
 			["Chinese"] = "瓦萨里奥·林克格雷斯",
 			["Spanish"] = "Vazario Grasenlace",
+			["Mexican"] = "Vazario Grasenlace",
 			["French"] = "Vazario Linkgrease",
 			["English"] = "Vazario Linkgrease",
 			["Korean"] = "바자리오 링크그리즈",
@@ -11341,7 +12367,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [452]
+	},
 	{
 		["zone_id"] = 405,
 		["phase"] = 1,
@@ -11355,6 +12381,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мууран",
 			["Chinese"] = "穆尔兰",
 			["Spanish"] = "Muuran",
+			["Mexican"] = "Muuran",
 			["French"] = "Muuran",
 			["English"] = "Muuran",
 			["Korean"] = "무란",
@@ -11366,7 +12393,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [453]
+	},
 	{
 		["zone_id"] = 1584,
 		["phase"] = 1,
@@ -11376,6 +12403,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ремесленник из клана Кузни Рока",
 			["Chinese"] = "厄炉工匠",
 			["Spanish"] = "Artesano de la Forja Maldita",
+			["Mexican"] = "Artesano de la Forja Maldita",
 			["French"] = "Artisan Forge-ruine",
 			["English"] = "Doomforge Craftsman",
 			["Korean"] = "파멸괴철로단 땜장이",
@@ -11387,7 +12415,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "52",
 			["is_elite"] = 0,
 		},
-	}, -- [454]
+	},
 	{
 		["zone_id"] = 1584,
 		["phase"] = 1,
@@ -11397,6 +12425,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Маршал из клана Ярости Горна",
 			["Chinese"] = "铁怒队长",
 			["Spanish"] = "Alguacil Yunque Colérico",
+			["Mexican"] = "Alguacil Yunque Colérico",
 			["French"] = "Maréchal Ragenclume",
 			["English"] = "Anvilrage Marshal",
 			["Korean"] = "성난모루단 치안대장",
@@ -11408,7 +12437,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "54",
 			["is_elite"] = 1,
 		},
-	}, -- [455]
+	},
 	{
 		["zone_id"] = 1584,
 		["phase"] = 1,
@@ -11418,6 +12447,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кузнец-волшебник из клана Кузни Рока",
 			["Chinese"] = "厄炉魔匠",
 			["Spanish"] = "Herrero arcano de la Forja Maldita",
+			["Mexican"] = "Herrero arcano de la Forja Maldita",
 			["French"] = "Forgeron des arcanes Forge-ruine",
 			["English"] = "Doomforge Arcanasmith",
 			["Korean"] = "파멸괴철로단 신비의대장장이",
@@ -11429,7 +12459,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "54",
 			["is_elite"] = 0,
 		},
-	}, -- [456]
+	},
 	{
 		["zone_id"] = 1584,
 		["phase"] = 1,
@@ -11439,6 +12469,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Капитан из клана Ярости Горна",
 			["Chinese"] = "铁怒上尉",
 			["Spanish"] = "Capitán Yunque Colérico",
+			["Mexican"] = "Capitán Yunque Colérico",
 			["French"] = "Capitaine Ragenclume",
 			["English"] = "Anvilrage Captain",
 			["Korean"] = "성난모루단 대장",
@@ -11450,7 +12481,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "54",
 			["is_elite"] = 1,
 		},
-	}, -- [457]
+	},
 	{
 		["zone_id"] = 1584,
 		["phase"] = 1,
@@ -11460,6 +12491,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Оружейный техник",
 			["Chinese"] = "武器技师",
 			["Spanish"] = "Técnico de armas",
+			["Mexican"] = "Técnico de armas",
 			["French"] = "Ingénieur de siège",
 			["English"] = "Weapon Technician",
 			["Korean"] = "병기전문 기술병",
@@ -11471,7 +12503,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [458]
+	},
 	{
 		["zone_id"] = 1584,
 		["phase"] = 1,
@@ -11481,6 +12513,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Пироман Зерно Мудрости",
 			["Chinese"] = "控火师罗格雷恩",
 			["Spanish"] = "Piromántico Cultugrano",
+			["Mexican"] = "Piromántico Cultugrano",
 			["French"] = "Pyromancien Loregrain",
 			["English"] = "Pyromancer Loregrain",
 			["Korean"] = "화염술사 로어그레인",
@@ -11492,7 +12525,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "52",
 			["is_elite"] = 1,
 		},
-	}, -- [459]
+	},
 	{
 		["zone_id"] = 1584,
 		["phase"] = 1,
@@ -11502,6 +12535,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Лорд Роккор",
 			["Chinese"] = "洛考尔",
 			["Spanish"] = "Lord Roccor",
+			["Mexican"] = "Lord Roccor",
 			["French"] = "Seigneur Roccor",
 			["English"] = "Lord Roccor",
 			["Korean"] = "불의군주 록코르",
@@ -11513,7 +12547,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "51",
 			["is_elite"] = 1,
 		},
-	}, -- [460]
+	},
 	{
 		["zone_id"] = 51,
 		["phase"] = 1,
@@ -11527,6 +12561,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Подчинитель Пирон",
 			["Chinese"] = "征服者派隆",
 			["Spanish"] = "Maestro Supremo Pyron",
+			["Mexican"] = "Maestro Supremo Pyron",
 			["French"] = "Grand seigneur Pyron",
 			["English"] = "Overmaster Pyron",
 			["Korean"] = "멸망의 파이론",
@@ -11538,7 +12573,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "52",
 			["is_elite"] = 1,
 		},
-	}, -- [461]
+	},
 	{
 		["zone_id"] = 1584,
 		["phase"] = 1,
@@ -11546,6 +12581,7 @@ MTSL_DATA["npcs"] = {
 			["English"] = "Boss in arena event",
 			["Chinese"] = "舞台上的老板事件",
 			["Spanish"] = "Jefe en evento de arena",
+			["Mexican"] = "Jefe en evento de arena",
 			["Portuguese"] = "Chefe no evento de arena",
 			["Russian"] = "Босс на арене",
 			["French"] = "Boss dans l'arène",
@@ -11562,6 +12598,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гриззл",
 			["Chinese"] = "格里兹尔",
 			["Spanish"] = "Grisez",
+			["Mexican"] = "Grisez",
 			["French"] = "Grison",
 			["English"] = "Grizzle",
 			["Korean"] = "그리즐",
@@ -11573,7 +12610,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "54",
 			["is_elite"] = 1,
 		},
-	}, -- [462]
+	},
 	{
 		["zone_id"] = 3,
 		["phase"] = 1,
@@ -11587,6 +12624,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джаззрик",
 			["Chinese"] = "加兹里克",
 			["Spanish"] = "Jazzrik",
+			["Mexican"] = "Jazzrik",
 			["French"] = "Jazzrik",
 			["English"] = "Jazzrik",
 			["Korean"] = "자즈릭",
@@ -11598,7 +12636,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "38",
 			["is_elite"] = 0,
 		},
-	}, -- [463]
+	},
 	{
 		["zone_id"] = 1583,
 		["phase"] = 1,
@@ -11612,6 +12650,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мистик из клана Черной Вершины",
 			["Chinese"] = "尖石秘法师",
 			["Spanish"] = "Místico Cumbrerroca",
+			["Mexican"] = "Místico Cumbrerroca",
 			["French"] = "Mystique Pierre-du-pic",
 			["English"] = "Spirestone Mystic",
 			["Korean"] = "뾰족바위일족 비술사",
@@ -11623,7 +12662,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "58",
 			["is_elite"] = 1,
 		},
-	}, -- [464]
+	},
 	{
 		["zone_id"] = 1583,
 		["phase"] = 1,
@@ -11637,6 +12676,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Полководец из клана Черной Вершины",
 			["Chinese"] = "尖石军阀",
 			["Spanish"] = "Señor de la guerra Cumbrerroca",
+			["Mexican"] = "Señor de la guerra Cumbrerroca",
 			["French"] = "Chef de guerre Pierre-du-pic",
 			["English"] = "Spirestone Warlord",
 			["Korean"] = "뾰족바위일족 투사",
@@ -11648,7 +12688,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "57",
 			["is_elite"] = 1,
 		},
-	}, -- [465]
+	},
 	{
 		["zone_id"] = 1583,
 		["phase"] = 1,
@@ -11662,6 +12702,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Рубака из легиона Огненного Клейма",
 			["Chinese"] = "火印步兵",
 			["Spanish"] = "Bruto Pirotigma",
+			["Mexican"] = "Bruto Pirotigma",
 			["French"] = "Grunt de Brandefeu",
 			["English"] = "Firebrand Grunt",
 			["Korean"] = "횃불부대 그런트",
@@ -11673,7 +12714,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "56",
 			["is_elite"] = 1,
 		},
-	}, -- [466]
+	},
 	{
 		["zone_id"] = 1583,
 		["phase"] = 1,
@@ -11687,6 +12728,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Легионер из легиона Огненного Клейма",
 			["Chinese"] = "火印军团战士",
 			["Spanish"] = "Legionario Pirotigma",
+			["Mexican"] = "Legionario Pirotigma",
 			["French"] = "Légionnaire de Brandefeu",
 			["English"] = "Firebrand Legionnaire",
 			["Korean"] = "횃불부대 부대원",
@@ -11698,7 +12740,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "57",
 			["is_elite"] = 1,
 		},
-	}, -- [467]
+	},
 	{
 		["zone_id"] = 1583,
 		["phase"] = 1,
@@ -11712,6 +12754,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Призыватель духов из легиона Огненного Клейма",
 			["Chinese"] = "火印祈求者",
 			["Spanish"] = "Convocador Pirotigma",
+			["Mexican"] = "Convocador Pirotigma",
 			["French"] = "Invocateur de Brandefeu",
 			["English"] = "Firebrand Invoker",
 			["Korean"] = "횃불부대 기원사",
@@ -11723,7 +12766,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "56",
 			["is_elite"] = 1,
 		},
-	}, -- [468]
+	},
 	{
 		["zone_id"] = 1583,
 		["phase"] = 1,
@@ -11737,6 +12780,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Пиромант из легиона Огненного Клейма",
 			["Chinese"] = "火印炎术师",
 			["Spanish"] = "Piromántico Pirotigma",
+			["Mexican"] = "Piromántico Pirotigma",
 			["French"] = "Pyromancien de Brandefeu",
 			["English"] = "Firebrand Pyromancer",
 			["Korean"] = "횃불부대 화염술사",
@@ -11748,7 +12792,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "57",
 			["is_elite"] = 1,
 		},
-	}, -- [469]
+	},
 	{
 		["zone_id"] = 490,
 		["phase"] = 1,
@@ -11762,6 +12806,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Даданга",
 			["Chinese"] = "达丹加",
 			["Spanish"] = "Dadanga",
+			["Mexican"] = "Dadanga",
 			["French"] = "Dadanga",
 			["English"] = "Dadanga",
 			["Korean"] = "다단가",
@@ -11773,7 +12818,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "45",
 			["is_elite"] = 0,
 		},
-	}, -- [470]
+	},
 	{
 		["zone_id"] = 139,
 		["phase"] = 1,
@@ -11787,6 +12832,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тюремщик из Алого ордена",
 			["Chinese"] = "血色典狱官",
 			["Spanish"] = "Depositario Escarlata",
+			["Mexican"] = "Depositario Escarlata",
 			["French"] = "Gardien écarlate",
 			["English"] = "Scarlet Warder",
 			["Korean"] = "붉은십자군 문지기",
@@ -11798,7 +12844,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "53",
 			["is_elite"] = 1,
 		},
-	}, -- [471]
+	},
 	{
 		["zone_id"] = 139,
 		["phase"] = 1,
@@ -11812,6 +12858,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Священник из Алого ордена",
 			["Chinese"] = "血色宣教士",
 			["Spanish"] = "Clérigo Escarlata",
+			["Mexican"] = "Clérigo Escarlata",
 			["French"] = "Clerc écarlate",
 			["English"] = "Scarlet Cleric",
 			["Korean"] = "붉은십자군 성직자",
@@ -11823,7 +12870,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "54",
 			["is_elite"] = 1,
 		},
-	}, -- [472]
+	},
 	{
 		["zone_id"] = 139,
 		["phase"] = 1,
@@ -11837,6 +12884,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Викарий из Алого ордена",
 			["Chinese"] = "血色助理牧师",
 			["Spanish"] = "Coadjutor Escarlata",
+			["Mexican"] = "Coadjutor Escarlata",
 			["French"] = "Vicaire écarlate",
 			["English"] = "Scarlet Curate",
 			["Korean"] = "붉은십자군 목사",
@@ -11848,7 +12896,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 1,
 		},
-	}, -- [473]
+	},
 	{
 		["zone_id"] = 139,
 		["phase"] = 1,
@@ -11862,6 +12910,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Верховный маг из Алого ордена",
 			["Chinese"] = "血色大法师",
 			["Spanish"] = "Archimago Escarlata",
+			["Mexican"] = "Archimago Escarlata",
 			["French"] = "Archimage écarlate",
 			["English"] = "Scarlet Archmage",
 			["Korean"] = "붉은십자군 대마법사",
@@ -11873,7 +12922,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 1,
 		},
-	}, -- [474]
+	},
 	{
 		["zone_id"] = 139,
 		["phase"] = 1,
@@ -11887,6 +12936,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Зачаровыватель из Алого ордена",
 			["Chinese"] = "血色巫术师",
 			["Spanish"] = "Encantador Escarlata",
+			["Mexican"] = "Encantador Escarlata",
 			["French"] = "Enchanteur écarlate",
 			["English"] = "Scarlet Enchanter",
 			["Korean"] = "붉은십자군 마법부여사",
@@ -11898,7 +12948,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "53",
 			["is_elite"] = 1,
 		},
-	}, -- [475]
+	},
 	{
 		["zone_id"] = 490,
 		["phase"] = 1,
@@ -11912,6 +12962,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Отделившийся слизнюк",
 			["Chinese"] = "克隆软泥怪",
 			["Spanish"] = "Moco clonado",
+			["Mexican"] = "Moco clonado",
 			["French"] = "Limon cloné",
 			["English"] = "Cloned Ooze",
 			["Korean"] = "분열된 수액괴물",
@@ -11923,7 +12974,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [476]
+	},
 	{
 		["zone_id"] = 1584,
 		["phase"] = 1,
@@ -11933,6 +12984,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Штоппор Наливалс",
 			["Chinese"] = "普拉格",
 			["Spanish"] = "Plugger Aropatoso",
+			["Mexican"] = "Plugger Aropatoso",
 			["French"] = "Plugger Spazzring",
 			["English"] = "Plugger Spazzring",
 			["Korean"] = "플러거 스파즈링",
@@ -11944,7 +12996,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 1,
 		},
-	}, -- [477]
+	},
 	{
 		["zone_id"] = 1584,
 		["phase"] = 1,
@@ -11954,6 +13006,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Риббли Крутипроб",
 			["Chinese"] = "雷布里·斯库比格特",
 			["Spanish"] = "Ribbly Llavenrosca",
+			["Mexican"] = "Ribbly Llavenrosca",
 			["French"] = "Ribbly Screwspigot",
 			["English"] = "Ribbly Screwspigot",
 			["Korean"] = "리블리 스크류스피곳",
@@ -11965,7 +13018,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "52",
 			["is_elite"] = 1,
 		},
-	}, -- [478]
+	},
 	{
 		["zone_id"] = 46,
 		["phase"] = 1,
@@ -11979,6 +13032,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Юка Крутипроб",
 			["Chinese"] = "尤卡·斯库比格特",
 			["Spanish"] = "Yuka Llavenrosca",
+			["Mexican"] = "Yuka Llavenrosca",
 			["French"] = "Yuka Screwspigot",
 			["English"] = "Yuka Screwspigot",
 			["Korean"] = "유카 스크류스피곳",
@@ -11990,7 +13044,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "51",
 			["is_elite"] = 0,
 		},
-	}, -- [479]
+	},
 	{
 		["zone_id"] = 1584,
 		["phase"] = 1,
@@ -12000,6 +13054,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Пьяный завсегдатай",
 			["Chinese"] = "持铁锤的顾客",
 			["Spanish"] = "Parroquiano beodo",
+			["Mexican"] = "Parroquiano beodo",
 			["French"] = "Client fin saoûl",
 			["English"] = "Hammered Patron",
 			["Korean"] = "소란스러운 손님",
@@ -12011,7 +13066,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "48",
 			["is_elite"] = 1,
 		},
-	}, -- [480]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -12025,6 +13080,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джелейна Айроль",
 			["Chinese"] = "嘉莱恩·艾罗",
 			["Spanish"] = "Jalane Ayrole",
+			["Mexican"] = "Jalane Ayrole",
 			["French"] = "Jalane Ayrole",
 			["English"] = "Jalane Ayrole",
 			["Korean"] = "잘레인 에이롤",
@@ -12036,7 +13092,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "45",
 			["is_elite"] = 0,
 		},
-	}, -- [481]
+	},
 	{
 		["zone_id"] = 1583,
 		["phase"] = 1,
@@ -12050,6 +13106,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Баннок Люторез",
 			["Chinese"] = "班诺克·巨斧",
 			["Spanish"] = "Bannok Hacha Macabra",
+			["Mexican"] = "Bannok Hacha Macabra",
 			["French"] = "Bannok Grimaxe",
 			["English"] = "Bannok Grimaxe",
 			["Korean"] = "반노크 그림액스",
@@ -12061,7 +13118,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "59",
 			["is_elite"] = 1,
 		},
-	}, -- [482]
+	},
 	{
 		["zone_id"] = 405,
 		["phase"] = 1,
@@ -12075,6 +13132,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Киреена",
 			["Chinese"] = "基瑞娜",
 			["Spanish"] = "Kireena",
+			["Mexican"] = "Kireena",
 			["French"] = "Kireena",
 			["English"] = "Kireena",
 			["Korean"] = "키리나",
@@ -12086,7 +13144,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "41",
 			["is_elite"] = 0,
 		},
-	}, -- [483]
+	},
 	{
 		["zone_id"] = 1583,
 		["phase"] = 1,
@@ -12100,6 +13158,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Интендант Зигрис",
 			["Chinese"] = "军需官兹格雷斯",
 			["Spanish"] = "Intendente Zigris",
+			["Mexican"] = "Intendente Zigris",
 			["French"] = "Intendant Zigris",
 			["English"] = "Quartermaster Zigris",
 			["Korean"] = "병참장교 지그리스",
@@ -12111,7 +13170,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "59",
 			["is_elite"] = 1,
 		},
-	}, -- [484]
+	},
 	{
 		["zone_id"] = 1584,
 		["phase"] = 1,
@@ -12121,6 +13180,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Друг Риббли",
 			["Chinese"] = "雷布里的亲信",
 			["Spanish"] = "Compinche de Ribbly",
+			["Mexican"] = "Compinche de Ribbly",
 			["French"] = "Compère de Ribbly",
 			["English"] = "Ribbly's Crony",
 			["Korean"] = "리블리의 친구",
@@ -12132,7 +13192,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "47",
 			["is_elite"] = 1,
 		},
-	}, -- [485]
+	},
 	{
 		["zone_id"] = 141,
 		["phase"] = 1,
@@ -12146,6 +13206,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Несса Песня Теней",
 			["Chinese"] = "尼莎·影歌",
 			["Spanish"] = "Nessa Cantosombrío",
+			["Mexican"] = "Nessa Cantosombrío",
 			["French"] = "Nessa Shadowsong",
 			["English"] = "Nessa Shadowsong",
 			["Korean"] = "네사 섀도송",
@@ -12157,7 +13218,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [486]
+	},
 	{
 		["zone_id"] = 46,
 		["phase"] = 1,
@@ -12171,6 +13232,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Волхан",
 			["Chinese"] = "沃尔查",
 			["Spanish"] = "Volchan",
+			["Mexican"] = "Volchan",
 			["French"] = "Volchan",
 			["English"] = "Volchan",
 			["Korean"] = "볼찬",
@@ -12182,7 +13244,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "59",
 			["is_elite"] = 1,
 		},
-	}, -- [487]
+	},
 	{
 		["zone_id"] = 1583,
 		["phase"] = 1,
@@ -12192,6 +13254,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Появляется во время пламени отца",
 			["Chinese"] = "父亲火焰事件期间产生",
 			["Spanish"] = "Engendra durante el evento de la llama del padre",
+			["Mexican"] = "Engendra durante el evento de la llama del padre",
 			["French"] = "Fraye pendant la flamme du père",
 			["Korean"] = "아버지 불꽃 이벤트 중 산란",
 			["German"] = "Erscheint während des Vaterflammenereignisses",
@@ -12206,6 +13269,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Солакарский огнечервь",
 			["Chinese"] = "索拉卡·火冠",
 			["Spanish"] = "Solakar Corona de Fuego",
+			["Mexican"] = "Solakar Corona de Fuego",
 			["French"] = "Solakar Voluteflamme",
 			["English"] = "Solakar Flamewreath",
 			["Korean"] = "화염고리 솔라카르",
@@ -12217,7 +13281,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 1,
 		},
-	}, -- [488]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -12231,6 +13295,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Уг'ток",
 			["Chinese"] = "乌格索克",
 			["Spanish"] = "Ug'thok",
+			["Mexican"] = "Ug'thok",
 			["French"] = "Ug'thok",
 			["English"] = "Ug'thok",
 			["Korean"] = "오그톡",
@@ -12242,7 +13307,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [489]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -12256,6 +13321,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ротгат Камнебород",
 			["Chinese"] = "洛特加斯·石须",
 			["Spanish"] = "Rotgath Barbapétrea",
+			["Mexican"] = "Rotgath Barbapétrea",
 			["French"] = "Rotgath Stonebeard",
 			["English"] = "Rotgath Stonebeard",
 			["Korean"] = "로트가스 스톤비어드",
@@ -12267,7 +13333,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "31",
 			["is_elite"] = 0,
 		},
-	}, -- [490]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -12281,6 +13347,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гроум Камнебород",
 			["Chinese"] = "格鲁姆·石须",
 			["Spanish"] = "Groum Barbapétrea",
+			["Mexican"] = "Groum Barbapétrea",
 			["French"] = "Groum Stonebeard",
 			["English"] = "Groum Stonebeard",
 			["Korean"] = "그로움 스톤비어드",
@@ -12292,7 +13359,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [491]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -12306,6 +13373,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Траг Каменное Копыто",
 			["Chinese"] = "瑟拉格·石蹄",
 			["Spanish"] = "Thrag Pezuñapétrea",
+			["Mexican"] = "Thrag Pezuñapétrea",
 			["French"] = "Thrag Stonehoof",
 			["English"] = "Thrag Stonehoof",
 			["Korean"] = "트라그 스톤후프",
@@ -12317,7 +13385,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [492]
+	},
 	{
 		["zone_id"] = 618,
 		["phase"] = 1,
@@ -12331,6 +13399,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Юми Румпельшникер",
 			["Chinese"] = "乌米",
 			["Spanish"] = "Umi Risitas",
+			["Mexican"] = "Umi Risitas",
 			["French"] = "Umi Rumplesnicker",
 			["English"] = "Umi Rumplesnicker",
 			["Korean"] = "우미 럼플스니커",
@@ -12342,7 +13411,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "57",
 			["is_elite"] = 0,
 		},
-	}, -- [493]
+	},
 	{
 		["zone_id"] = 1583,
 		["phase"] = 1,
@@ -12356,6 +13425,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Элитный боец легиона Чернорука",
 			["Chinese"] = "黑手精英",
 			["Spanish"] = "Élite Puño Negro",
+			["Mexican"] = "Élite Puño Negro",
 			["French"] = "Elite Blackhand",
 			["English"] = "Blackhand Elite",
 			["Korean"] = "검은손부대 정예병",
@@ -12367,7 +13437,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 1,
 		},
-	}, -- [494]
+	},
 	{
 		["zone_id"] = 1583,
 		["phase"] = 1,
@@ -12381,6 +13451,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гит",
 			["Chinese"] = "盖斯",
 			["Spanish"] = "Gyth",
+			["Mexican"] = "Gyth",
 			["French"] = "Gyth",
 			["English"] = "Gyth",
 			["Korean"] = "기스",
@@ -12392,7 +13463,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "??",
 			["is_elite"] = 0,
 		},
-	}, -- [495]
+	},
 	{
 		["zone_id"] = 1583,
 		["phase"] = 1,
@@ -12406,6 +13477,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Генерал Драккисат",
 			["Chinese"] = "达基萨斯将军",
 			["Spanish"] = "General Drakkisath",
+			["Mexican"] = "General Drakkisath",
 			["French"] = "Général Drakkisath",
 			["English"] = "General Drakkisath",
 			["Korean"] = "사령관 드라키사스",
@@ -12417,7 +13489,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "??",
 			["is_elite"] = 0,
 		},
-	}, -- [496]
+	},
 	{
 		["zone_id"] = 2017,
 		["phase"] = 1,
@@ -12431,6 +13503,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Призрачный горожанин",
 			["Chinese"] = "鬼魂市民",
 			["Spanish"] = "Ciudadano espectral",
+			["Mexican"] = "Ciudadano espectral",
 			["French"] = "Citoyen spectral",
 			["English"] = "Spectral Citizen",
 			["Korean"] = "시민의 유령",
@@ -12442,7 +13515,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 1,
 		},
-	}, -- [497]
+	},
 	{
 		["zone_id"] = 2017,
 		["phase"] = 1,
@@ -12456,6 +13529,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Темный чародей из секты Тузадин",
 			["Chinese"] = "图萨丁暗影法师",
 			["Spanish"] = "Nigromante Thuzadin",
+			["Mexican"] = "Nigromante Thuzadin",
 			["French"] = "Exhalombre Thuzadin",
 			["English"] = "Thuzadin Shadowcaster",
 			["Korean"] = "투자딘 흑마술사",
@@ -12467,7 +13541,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "58",
 			["is_elite"] = 1,
 		},
-	}, -- [498]
+	},
 	{
 		["zone_id"] = 2017,
 		["phase"] = 1,
@@ -12481,6 +13555,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Вурдалак-стервятник",
 			["Chinese"] = "食尸抢夺者",
 			["Spanish"] = "Cuervoso necrófago",
+			["Mexican"] = "Cuervoso necrófago",
 			["French"] = "Goule vorace",
 			["English"] = "Ghoul Ravener",
 			["Korean"] = "게걸스러운 구울",
@@ -12492,7 +13567,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "58",
 			["is_elite"] = 1,
 		},
-	}, -- [499]
+	},
 	{
 		["zone_id"] = 2017,
 		["phase"] = 1,
@@ -12506,6 +13581,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Багровый колдун",
 			["Chinese"] = "红衣法术师",
 			["Spanish"] = "Hechicero Carmesí",
+			["Mexican"] = "Hechicero Carmesí",
 			["French"] = "Ensorceleur cramoisi",
 			["English"] = "Crimson Sorcerer",
 			["Korean"] = "진홍십자군 사술사",
@@ -12517,7 +13593,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "58",
 			["is_elite"] = 1,
 		},
-	}, -- [500]
+	},
 	{
 		["zone_id"] = 2017,
 		["phase"] = 1,
@@ -12531,6 +13607,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Боевой маг из Багрового Легиона",
 			["Chinese"] = "红衣战斗法师",
 			["Spanish"] = "Mago de batalla Carmesí",
+			["Mexican"] = "Mago de batalla Carmesí",
 			["French"] = "Mage de bataille cramoisi",
 			["English"] = "Crimson Battle Mage",
 			["Korean"] = "진홍십자군 전투마법사",
@@ -12542,7 +13619,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "59",
 			["is_elite"] = 1,
 		},
-	}, -- [501]
+	},
 	{
 		["zone_id"] = 2017,
 		["phase"] = 1,
@@ -12556,6 +13633,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Инквизитор из Багрового Легиона",
 			["Chinese"] = "红衣审查者",
 			["Spanish"] = "Inquisidor Carmesí",
+			["Mexican"] = "Inquisidor Carmesí",
 			["French"] = "Inquisiteur cramoisi",
 			["English"] = "Crimson Inquisitor",
 			["Korean"] = "진홍십자군 종교재판관",
@@ -12567,7 +13645,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "59",
 			["is_elite"] = 1,
 		},
-	}, -- [502]
+	},
 	{
 		["zone_id"] = 2017,
 		["phase"] = 1,
@@ -12581,6 +13659,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Малекай Бледный",
 			["Chinese"] = "苍白的玛勒基",
 			["Spanish"] = "Maleki el Pálido",
+			["Mexican"] = "Maleki el Pálido",
 			["French"] = "Maleki le Blafard",
 			["English"] = "Maleki the Pallid",
 			["Korean"] = "냉혈한 말레키",
@@ -12592,7 +13671,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "61",
 			["is_elite"] = 1,
 		},
-	}, -- [503]
+	},
 	{
 		["zone_id"] = 2057,
 		["phase"] = 1,
@@ -12606,6 +13685,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Адепт Некроситета",
 			["Chinese"] = "通灵学院专家",
 			["Spanish"] = "Adepto de Scholomance",
+			["Mexican"] = "Adepto de Scholomance",
 			["French"] = "Adepte Scholomance",
 			["English"] = "Scholomance Adept",
 			["Korean"] = "스칼로맨스 숙련사제",
@@ -12617,7 +13697,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "58",
 			["is_elite"] = 1,
 		},
-	}, -- [504]
+	},
 	{
 		["zone_id"] = 2057,
 		["phase"] = 1,
@@ -12631,6 +13711,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Призрачный ученый",
 			["Chinese"] = "鬼灵研究员",
 			["Spanish"] = "Investigador espectral",
+			["Mexican"] = "Investigador espectral",
 			["French"] = "Chercheur spectral",
 			["English"] = "Spectral Researcher",
 			["Korean"] = "연구원 유령",
@@ -12642,7 +13723,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "58",
 			["is_elite"] = 1,
 		},
-	}, -- [505]
+	},
 	{
 		["zone_id"] = 2057,
 		["phase"] = 1,
@@ -12656,6 +13737,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Рас Снегошепот",
 			["Chinese"] = "莱斯·霜语",
 			["Spanish"] = "Ras Murmuhielo",
+			["Mexican"] = "Ras Murmuhielo",
 			["French"] = "Ras Murmegivre",
 			["English"] = "Ras Frostwhisper",
 			["Korean"] = "라스 프로스트위스퍼",
@@ -12667,7 +13749,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "61",
 			["is_elite"] = 1,
 		},
-	}, -- [506]
+	},
 	{
 		["zone_id"] = 618,
 		["phase"] = 1,
@@ -12681,6 +13763,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Малифой Черномолот",
 			["Chinese"] = "玛雷弗斯·暗锤",
 			["Spanish"] = "Malyfous Martilloscuro",
+			["Mexican"] = "Malyfous Martilloscuro",
 			["French"] = "Malyfous Darkhammer",
 			["English"] = "Malyfous Darkhammer",
 			["Korean"] = "말리퍼스 다크해머",
@@ -12692,7 +13775,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "59",
 			["is_elite"] = 0,
 		},
-	}, -- [507]
+	},
 	{
 		["zone_id"] = 2017,
 		["phase"] = 1,
@@ -12706,6 +13789,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Балназзар",
 			["Chinese"] = "巴纳扎尔",
 			["Spanish"] = "Balnazzar",
+			["Mexican"] = "Balnazzar",
 			["French"] = "Balnazzar",
 			["English"] = "Balnazzar",
 			["Korean"] = "발나자르",
@@ -12717,7 +13801,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "61",
 			["is_elite"] = 1,
 		},
-	}, -- [508]
+	},
 	{
 		["zone_id"] = 85,
 		["phase"] = 1,
@@ -12731,6 +13815,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Интендант Хасна из ордена Серебряного Рассвета",
 			["Chinese"] = "银色黎明军需官哈萨娜",
 			["Spanish"] = "Intendente Argenta Hasana",
+			["Mexican"] = "Intendente Argenta Hasana",
 			["French"] = "Intendante de l'Aube d'argent Hasana",
 			["English"] = "Argent Quartermaster Hasana",
 			["Korean"] = "은빛병참장교 하사나",
@@ -12742,7 +13827,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "58",
 			["is_elite"] = 0,
 		},
-	}, -- [509]
+	},
 	{
 		["zone_id"] = 28,
 		["phase"] = 1,
@@ -12756,6 +13841,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Интендант Искромет из ордена Серебряного Рассвета",
 			["Chinese"] = "银色黎明军需官莱斯巴克",
 			["Spanish"] = "Intendente Argenta Destelllo de Luz",
+			["Mexican"] = "Intendente Argenta Destelllo de Luz",
 			["French"] = "Intendant de l'Aube d'argent Lightspark",
 			["English"] = "Argent Quartermaster Lightspark",
 			["Korean"] = "은빛병참장교 라이트스파크",
@@ -12767,7 +13853,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "58",
 			["is_elite"] = 0,
 		},
-	}, -- [510]
+	},
 	{
 		["zone_id"] = 1583,
 		["phase"] = 1,
@@ -12781,6 +13867,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Горалук Треснувшая Наковальня",
 			["Chinese"] = "古拉鲁克",
 			["Spanish"] = "Goraluk Yunquegrieta",
+			["Mexican"] = "Goraluk Yunquegrieta",
 			["French"] = "Goraluk Anvilcrack",
 			["English"] = "Goraluk Anvilcrack",
 			["Korean"] = "고랄루크 앤빌크랙",
@@ -12792,7 +13879,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "61",
 			["is_elite"] = 1,
 		},
-	}, -- [511]
+	},
 	{
 		["zone_id"] = 618,
 		["phase"] = 1,
@@ -12806,6 +13893,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Лоракс",
 			["Chinese"] = "罗拉克斯",
 			["Spanish"] = "Lorax",
+			["Mexican"] = "Lorax",
 			["French"] = "Lorax",
 			["English"] = "Lorax",
 			["Korean"] = "로락스",
@@ -12817,7 +13905,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "61",
 			["is_elite"] = 0,
 		},
-	}, -- [512]
+	},
 	{
 		["zone_id"] = 215,
 		["phase"] = 1,
@@ -12831,6 +13919,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Твизвик Пружинаждак",
 			["Chinese"] = "图兹维克·斯普格林",
 			["Spanish"] = "Tuizgüik Muelodentado",
+			["Mexican"] = "Tuizgüik Muelodentado",
 			["French"] = "Twizwick Sprocketgrind",
 			["English"] = "Twizwick Sprocketgrind",
 			["Korean"] = "트위직 스프로켓그라인드",
@@ -12842,7 +13931,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [513]
+	},
 	{
 		["zone_id"] = 2017,
 		["phase"] = 1,
@@ -12856,6 +13945,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мастер-канонир Вилли",
 			["Chinese"] = "炮手威利",
 			["Spanish"] = "Cañonero Jefe Willey",
+			["Mexican"] = "Cañonero Jefe Willey",
 			["French"] = "Maître canonnier Willey",
 			["English"] = "Cannon Master Willey",
 			["Korean"] = "포병대장 윌리",
@@ -12867,7 +13957,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "59",
 			["is_elite"] = 1,
 		},
-	}, -- [514]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -12881,6 +13971,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Роксик",
 			["Chinese"] = "罗克希克",
 			["Spanish"] = "Roxxik",
+			["Mexican"] = "Roxxik",
 			["French"] = "Roxxik",
 			["English"] = "Roxxik",
 			["Korean"] = "록시크",
@@ -12892,7 +13983,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "46",
 			["is_elite"] = 0,
 		},
-	}, -- [515]
+	},
 	{
 		["zone_id"] = 14,
 		["phase"] = 1,
@@ -12906,6 +13997,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мукдрак",
 			["Chinese"] = "穆德拉克",
 			["Spanish"] = "Mukdrak",
+			["Mexican"] = "Mukdrak",
 			["French"] = "Mukdrak",
 			["English"] = "Mukdrak",
 			["Korean"] = "머크드락",
@@ -12917,7 +14009,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "26",
 			["is_elite"] = 0,
 		},
-	}, -- [516]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -12931,6 +14023,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Спрайт Прыгозубчик",
 			["Chinese"] = "斯普莱特",
 			["Spanish"] = "Duendy Ruedadentada",
+			["Mexican"] = "Duendy Ruedadentada",
 			["French"] = "Sprite Jumpsprocket",
 			["English"] = "Sprite Jumpsprocket",
 			["Korean"] = "스프라이트 점프스프로켓",
@@ -12942,7 +14035,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [517]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -12956,6 +14049,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джема Быстросмен",
 			["Chinese"] = "耶玛",
 			["Spanish"] = "Jemma Cambioveloz",
+			["Mexican"] = "Jemma Cambioveloz",
 			["French"] = "Jemma Quikswitch",
 			["English"] = "Jemma Quikswitch",
 			["Korean"] = "젬마 퀵스위치",
@@ -12967,7 +14061,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [518]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -12981,6 +14075,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Трикси Быстросмен",
 			["Chinese"] = "特里克希",
 			["Spanish"] = "Trixie Cambioyá",
+			["Mexican"] = "Trixie Cambioyá",
 			["French"] = "Trixie Quikswitch",
 			["English"] = "Trixie Quikswitch",
 			["Korean"] = "트리시 퀵스위치",
@@ -12992,7 +14087,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "31",
 			["is_elite"] = 0,
 		},
-	}, -- [519]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -13006,6 +14101,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Франклин Ллойд",
 			["Chinese"] = "弗兰克林·洛伊德",
 			["Spanish"] = "Franklin Lloyd",
+			["Mexican"] = "Franklin Lloyd",
 			["French"] = "Franklin Lloyd",
 			["English"] = "Franklin Lloyd",
 			["Korean"] = "프랭클린 로이드",
@@ -13017,7 +14113,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "33",
 			["is_elite"] = 0,
 		},
-	}, -- [520]
+	},
 	{
 		["zone_id"] = 148,
 		["phase"] = 1,
@@ -13031,6 +14127,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дженна Лемкенилли",
 			["Chinese"] = "洁娜·雷姆尼利",
 			["Spanish"] = "Jenna Lemkenilli",
+			["Mexican"] = "Jenna Lemkenilli",
 			["French"] = "Jenna Lemkenilli",
 			["English"] = "Jenna Lemkenilli",
 			["Korean"] = "지나 렘케닐리",
@@ -13042,7 +14139,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "26",
 			["is_elite"] = 0,
 		},
-	}, -- [521]
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -13056,6 +14153,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Милла Фаранкора",
 			["Chinese"] = "米拉·法拉科纳",
 			["Spanish"] = "Milla Fairancora",
+			["Mexican"] = "Milla Fairancora",
 			["French"] = "Milla Fairancora",
 			["English"] = "Milla Fairancora",
 			["Korean"] = "밀라 페어랜코라",
@@ -13067,7 +14165,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [522]
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -13081,6 +14179,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Сильванна Лесная Луна",
 			["Chinese"] = "希尔瓦娜·林月",
 			["Spanish"] = "Sylvanna Bosqueluna",
+			["Mexican"] = "Sylvanna Bosqueluna",
 			["French"] = "Sylvanna Forestmoon",
 			["English"] = "Sylvanna Forestmoon",
 			["Korean"] = "실반나 포레스트문",
@@ -13092,7 +14191,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "32",
 			["is_elite"] = 0,
 		},
-	}, -- [523]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -13106,6 +14205,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Доктор Мартин Фелбен",
 			["Chinese"] = "马丁·费尔本",
 			["Spanish"] = "Doctor Martin Felben",
+			["Mexican"] = "Doctor Martin Felben",
 			["French"] = "Docteur Martin Felben",
 			["English"] = "Doctor Martin Felben",
 			["Korean"] = "박사 마틴 펠벤",
@@ -13117,7 +14217,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [524]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -13131,6 +14231,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Вуут",
 			["Chinese"] = "伍特",
 			["Spanish"] = "Whuut",
+			["Mexican"] = "Whuut",
 			["French"] = "Whuut",
 			["English"] = "Whuut",
 			["Korean"] = "우트",
@@ -13142,7 +14243,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "23",
 			["is_elite"] = 0,
 		},
-	}, -- [525]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -13156,6 +14257,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Крей",
 			["Chinese"] = "克瑞",
 			["Spanish"] = "Kray",
+			["Mexican"] = "Kray",
 			["French"] = "Kray",
 			["English"] = "Kray",
 			["Korean"] = "크레이",
@@ -13167,7 +14269,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [526]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -13181,6 +14283,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Виктор Уорд",
 			["Chinese"] = "维克多·瓦德",
 			["Spanish"] = "Víctor Tutor",
+			["Mexican"] = "Víctor Tutor",
 			["French"] = "Victor Ward",
 			["English"] = "Victor Ward",
 			["Korean"] = "빅터 워드",
@@ -13192,7 +14295,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [527]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -13206,6 +14309,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Рианнон Дэвис",
 			["Chinese"] = "雷安诺·戴维斯",
 			["Spanish"] = "Rhiannon Davis",
+			["Mexican"] = "Rhiannon Davis",
 			["French"] = "Rhiannon Davis",
 			["English"] = "Rhiannon Davis",
 			["Korean"] = "리안논 다비스",
@@ -13217,7 +14321,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "32",
 			["is_elite"] = 0,
 		},
-	}, -- [528]
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -13231,6 +14335,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Трианна",
 			["Chinese"] = "蒂安娜",
 			["Spanish"] = "Trianna",
+			["Mexican"] = "Trianna",
 			["French"] = "Trianna",
 			["English"] = "Trianna",
 			["Korean"] = "트리안나",
@@ -13242,7 +14347,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [529]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -13256,6 +14361,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Вхан",
 			["Chinese"] = "范恩",
 			["Spanish"] = "Vhan",
+			["Mexican"] = "Vhan",
 			["French"] = "Vhan",
 			["English"] = "Vhan",
 			["Korean"] = "반",
@@ -13267,7 +14373,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "26",
 			["is_elite"] = 0,
 		},
-	}, -- [530]
+	},
 	{
 		["zone_id"] = 15,
 		["phase"] = 1,
@@ -13281,6 +14387,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тимоти Уортингтон",
 			["Chinese"] = "提莫斯·沃森特",
 			["Spanish"] = "Timoteo Valión",
+			["Mexican"] = "Timoteo Valión",
 			["French"] = "Timothy Worthington",
 			["English"] = "Timothy Worthington",
 			["Korean"] = "티모시 워싱턴",
@@ -13292,7 +14399,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "51",
 			["is_elite"] = 0,
 		},
-	}, -- [531]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -13306,6 +14413,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тонис Пилон",
 			["Chinese"] = "索恩斯·火石",
 			["Spanish"] = "Thonys Piedrapilar",
+			["Mexican"] = "Thonys Piedrapilar",
 			["French"] = "Thonys Pillarstone",
 			["English"] = "Thonys Pillarstone",
 			["Korean"] = "토니스 필라스톤",
@@ -13317,7 +14425,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [532]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -13331,6 +14439,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джаг",
 			["Chinese"] = "夏格",
 			["Spanish"] = "Jhag",
+			["Mexican"] = "Jhag",
 			["French"] = "Jhag",
 			["English"] = "Jhag",
 			["Korean"] = "자그",
@@ -13342,7 +14451,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "26",
 			["is_elite"] = 0,
 		},
-	}, -- [533]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -13356,6 +14465,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Малькомб Уинн",
 			["Chinese"] = "玛考布·维恩",
 			["Spanish"] = "Malcomb Wynn",
+			["Mexican"] = "Malcomb Wynn",
 			["French"] = "Malcomb Wynn",
 			["English"] = "Malcomb Wynn",
 			["Korean"] = "말콤 린",
@@ -13367,7 +14477,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "23",
 			["is_elite"] = 0,
 		},
-	}, -- [534]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -13381,6 +14491,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Бетти Квин",
 			["Chinese"] = "贝蒂·奎恩",
 			["Spanish"] = "Betty Quin",
+			["Mexican"] = "Betty Quin",
 			["French"] = "Betty Quin",
 			["English"] = "Betty Quin",
 			["Korean"] = "베티 퀸",
@@ -13392,7 +14503,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "25",
 			["is_elite"] = 0,
 		},
-	}, -- [535]
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -13406,6 +14517,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Лалина Летняя Луна",
 			["Chinese"] = "拉琳娜·夏月",
 			["Spanish"] = "Lalina Luna de Verano",
+			["Mexican"] = "Lalina Luna de Verano",
 			["French"] = "Lalina Summermoon",
 			["English"] = "Lalina Summermoon",
 			["Korean"] = "랄리나 서머문",
@@ -13417,7 +14529,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "27",
 			["is_elite"] = 0,
 		},
-	}, -- [536]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -13431,6 +14543,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мот Рассветный Странник",
 			["Chinese"] = "莫特·晨行者",
 			["Spanish"] = "Mot Caminalba",
+			["Mexican"] = "Mot Caminalba",
 			["French"] = "Mot Dawnstrider",
 			["English"] = "Mot Dawnstrider",
 			["Korean"] = "모트 던스트라이더",
@@ -13442,7 +14555,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "21",
 			["is_elite"] = 0,
 		},
-	}, -- [537]
+	},
 	{
 		["zone_id"] = 12,
 		["phase"] = 1,
@@ -13456,6 +14569,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Китта Огневетер",
 			["Chinese"] = "基塔·费温德",
 			["Spanish"] = "Kitta Vientofuego",
+			["Mexican"] = "Kitta Vientofuego",
 			["French"] = "Kitta Firewind",
 			["English"] = "Kitta Firewind",
 			["Korean"] = "키타 파이어윈드",
@@ -13467,7 +14581,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "44",
 			["is_elite"] = 0,
 		},
-	}, -- [538]
+	},
 	{
 		["zone_id"] = 1337,
 		["phase"] = 1,
@@ -13481,6 +14595,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Аннора",
 			["Chinese"] = "安诺拉",
 			["Spanish"] = "Annora",
+			["Mexican"] = "Annora",
 			["French"] = "Annora",
 			["English"] = "Annora",
 			["Korean"] = "안노라",
@@ -13492,7 +14607,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "54",
 			["is_elite"] = 0,
 		},
-	}, -- [539]
+	},
 	{
 		["zone_id"] = 406,
 		["phase"] = 1,
@@ -13506,6 +14621,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Хгарт",
 			["Chinese"] = "赫加斯",
 			["Spanish"] = "Hgarth",
+			["Mexican"] = "Hgarth",
 			["French"] = "Hgarth",
 			["English"] = "Hgarth",
 			["Korean"] = "하가스",
@@ -13517,7 +14633,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "46",
 			["is_elite"] = 0,
 		},
-	}, -- [540]
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -13531,6 +14647,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Фальдрон",
 			["Chinese"] = "法多恩",
 			["Spanish"] = "Faldron",
+			["Mexican"] = "Faldron",
 			["French"] = "Faldron",
 			["English"] = "Faldron",
 			["Korean"] = "팔드론",
@@ -13542,7 +14659,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "32",
 			["is_elite"] = 0,
 		},
-	}, -- [541]
+	},
 	{
 		["zone_id"] = 1657,
 		["phase"] = 1,
@@ -13556,6 +14673,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дарианна",
 			["Chinese"] = "达丽亚娜",
 			["Spanish"] = "Darianna",
+			["Mexican"] = "Darianna",
 			["French"] = "Darianna",
 			["English"] = "Darianna",
 			["Korean"] = "다리안나",
@@ -13567,7 +14685,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [542]
+	},
 	{
 		["zone_id"] = 1638,
 		["phase"] = 1,
@@ -13581,6 +14699,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Тарн",
 			["Chinese"] = "塔恩",
 			["Spanish"] = "Tarn",
+			["Mexican"] = "Tarn",
 			["French"] = "Tarn",
 			["English"] = "Tarn",
 			["Korean"] = "타른",
@@ -13592,7 +14711,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "36",
 			["is_elite"] = 0,
 		},
-	}, -- [543]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -13606,6 +14725,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Рандал Ворт",
 			["Chinese"] = "兰达尔·沃斯",
 			["Spanish"] = "Randal Valor",
+			["Mexican"] = "Randal Valor",
 			["French"] = "Randal Worth",
 			["English"] = "Randal Worth",
 			["Korean"] = "랜달 워스",
@@ -13617,7 +14737,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "24",
 			["is_elite"] = 0,
 		},
-	}, -- [544]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -13631,6 +14751,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дракк Крепкорук",
 			["Chinese"] = "德拉克·石拳",
 			["Spanish"] = "Drakk Petramano",
+			["Mexican"] = "Drakk Petramano",
 			["French"] = "Drakk Stonehand",
 			["English"] = "Drakk Stonehand",
 			["Korean"] = "드라크 스톤핸드",
@@ -13642,7 +14763,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [545]
+	},
 	{
 		["zone_id"] = 357,
 		["phase"] = 1,
@@ -13656,6 +14777,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Нарана Железная Шкура",
 			["Chinese"] = "哈拉纳·铁皮",
 			["Spanish"] = "Hahrana Pielférrea",
+			["Mexican"] = "Hahrana Pielférrea",
 			["French"] = "Hahrana Ironhide",
 			["English"] = "Hahrana Ironhide",
 			["Korean"] = "하라나 아이언하이드",
@@ -13667,7 +14789,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [546]
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -13681,6 +14803,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Железнус Хладосталь",
 			["Chinese"] = "埃隆努斯·冷钢",
 			["Spanish"] = "Ironus Acero Frío",
+			["Mexican"] = "Ironus Acero Frío",
 			["French"] = "Ironus Coldsteel",
 			["English"] = "Ironus Coldsteel",
 			["Korean"] = "이로누스 콜드스틸",
@@ -13692,7 +14815,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "54",
 			["is_elite"] = 0,
 		},
-	}, -- [547]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -13706,6 +14829,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Окофус Жарбулат",
 			["Chinese"] = "奥克索斯·铁怒",
 			["Spanish"] = "Okothos Ferrofurecedor",
+			["Mexican"] = "Okothos Ferrofurecedor",
 			["French"] = "Okothos Ironrager",
 			["English"] = "Okothos Ironrager",
 			["Korean"] = "오코토스 아이언레이저",
@@ -13717,7 +14841,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "52",
 			["is_elite"] = 0,
 		},
-	}, -- [548]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -13731,6 +14855,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Боргош Сгибатель",
 			["Chinese"] = "伯古什",
 			["Spanish"] = "Borgosh Ramagma",
+			["Mexican"] = "Borgosh Ramagma",
 			["French"] = "Borgosh Corebender",
 			["English"] = "Borgosh Corebender",
 			["Korean"] = "보르고쉬 코어벤더",
@@ -13742,7 +14867,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "51",
 			["is_elite"] = 0,
 		},
-	}, -- [549]
+	},
 	{
 		["zone_id"] = 618,
 		["phase"] = 1,
@@ -13756,6 +14881,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ксиззер Шумоболт",
 			["Chinese"] = "希兹尔·菲兹波特",
 			["Spanish"] = "Xizzer Raybuja",
+			["Mexican"] = "Xizzer Raybuja",
 			["French"] = "Xizzer Fizzbolt",
 			["English"] = "Xizzer Fizzbolt",
 			["Korean"] = "시저 피즈볼트",
@@ -13767,7 +14893,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "57",
 			["is_elite"] = 0,
 		},
-	}, -- [550]
+	},
 	{
 		["zone_id"] = 618,
 		["phase"] = 1,
@@ -13781,6 +14907,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Химмик",
 			["Chinese"] = "西米克",
 			["Spanish"] = "Himmik",
+			["Mexican"] = "Himmik",
 			["French"] = "Himmik",
 			["English"] = "Himmik",
 			["Korean"] = "힘믹",
@@ -13792,7 +14919,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 0,
 		},
-	}, -- [551]
+	},
 	{
 		["zone_id"] = 618,
 		["phase"] = 1,
@@ -13806,6 +14933,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Иви Бурноварка",
 			["Chinese"] = "埃文·维布鲁",
 			["Spanish"] = "Evie Brebegira",
+			["Mexican"] = "Evie Brebegira",
 			["French"] = "Evie Whirlbrew",
 			["English"] = "Evie Whirlbrew",
 			["Korean"] = "에비 휠브루",
@@ -13831,6 +14959,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кийя",
 			["Chinese"] = "琦亚",
 			["Spanish"] = "Qia",
+			["Mexican"] = "Qia",
 			["French"] = "Qia",
 			["English"] = "Qia",
 			["Korean"] = "퀴아",
@@ -13842,7 +14971,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "51",
 			["is_elite"] = 0,
 		},
-	}, -- [552]
+	},
 	{
 		["zone_id"] = 618,
 		["phase"] = 1,
@@ -13856,6 +14985,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Лилит Гибкая",
 			["Chinese"] = "轻盈的莉莉丝",
 			["Spanish"] = "Lilith la Ágil",
+			["Mexican"] = "Lilith la Ágil",
 			["French"] = "Lilith l'Agile",
 			["English"] = "Lilith the Lithe",
 			["Korean"] = "호리호리한 릴리스",
@@ -13867,7 +14997,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [553]
+	},
 	{
 		["zone_id"] = 618,
 		["phase"] = 1,
@@ -13881,6 +15011,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Килрам",
 			["Chinese"] = "基尔拉姆",
 			["Spanish"] = "Kilram",
+			["Mexican"] = "Kilram",
 			["French"] = "Kilram",
 			["English"] = "Kilram",
 			["Korean"] = "킬램",
@@ -13892,7 +15023,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "58",
 			["is_elite"] = 0,
 		},
-	}, -- [554]
+	},
 	{
 		["zone_id"] = 618,
 		["phase"] = 1,
@@ -13906,6 +15037,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Сирил Плетебой",
 			["Chinese"] = "亡灵杀手瑟里尔",
 			["Spanish"] = "Seril Finiquiplaga",
+			["Mexican"] = "Seril Finiquiplaga",
 			["French"] = "Seril Scourgebane",
 			["English"] = "Seril Scourgebane",
 			["Korean"] = "세릴 스컬지베인",
@@ -13917,7 +15049,44 @@ MTSL_DATA["npcs"] = {
 			["min"] = "57",
 			["is_elite"] = 0,
 		},
-	}, -- [555]
+	},
+	{
+		["zone_id"] = 618,
+		["phase"] = 1,
+		["id"] = 11278,
+		["location"] = {
+			["y"] = "68.00",
+			["x"] = "77.60",
+		},
+		["name"] = {
+			["German"] = "Magnus Frostwake",
+			["English"] = "Magnus Frostwake",
+			["Spanish"] = "Magnus Vespescarcha",
+			["Mexican"] = "Magnus Vespescarcha",
+			["French"] = "Magnus Frostwake",
+			["Portuguese"] = "Magnus Rastrogélido",
+			["Russian"] = "Магнус Хладоступ",
+			["Korean"] = "마그누스 프로스트웨이크",
+			["Chinese"] = "玛格努斯·霜鸣",
+		},
+		["reacts"] = "Neutral",
+		["xp_level"] = {
+			["max"] = "50",
+			["min"] = "50",
+			["is_elite"] = 0,
+		},
+		["special_action"] = {
+			["English"] = "Equip 'Spectral Essence' to see him",
+			["Portuguese"] = "Equipe a 'Essência Espectral' para vê-lo",
+			["Russian"] = "Наденьте «Призрачную сущность», чтобы увидеть его",
+			["Chinese"] = "装备“光谱精华”看他",
+			["Spanish"] = "Equipa 'Esencia espectral' para verlo",
+			["Mexican"] = "Equipa 'Esencia espectral' para verlo",
+			["French"] = "Equipez 'Essence spectrale' pour le voir",
+			["Korean"] = "그를 만나기 위해 '스펙트럼 에센스'착용",
+			["German"] = "Rüste 'Spektrale Essenz' aus, um ihn zu sehen",
+		},
+	},
 	{
 		["zone_id"] = 2557,
 		["phase"] = 1,
@@ -13931,6 +15100,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Чернокнижник из клана Гордок",
 			["Chinese"] = "戈多克术士",
 			["Spanish"] = "Brujo Gordok",
+			["Mexican"] = "Brujo Gordok",
 			["French"] = "Démoniste Gordok",
 			["English"] = "Gordok Warlock",
 			["Korean"] = "고르독일족 흑마법사",
@@ -13942,7 +15112,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "59",
 			["is_elite"] = 1,
 		},
-	}, -- [556]
+	},
 	{
 		["zone_id"] = 2557,
 		["phase"] = 1,
@@ -13956,6 +15126,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Разоритель из клана Гордок",
 			["Chinese"] = "戈多克掠夺者",
 			["Spanish"] = "Atracador Gordok",
+			["Mexican"] = "Atracador Gordok",
 			["French"] = "Ravageur Gordok",
 			["English"] = "Gordok Reaver",
 			["Korean"] = "고르독일족 약탈자",
@@ -13967,7 +15138,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "58",
 			["is_elite"] = 1,
 		},
-	}, -- [557]
+	},
 	{
 		["zone_id"] = 2557,
 		["phase"] = 1,
@@ -13981,6 +15152,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Магистр Календрис",
 			["Chinese"] = "卡雷迪斯镇长",
 			["Spanish"] = "Magister Kalendris",
+			["Mexican"] = "Magister Kalendris",
 			["French"] = "Magistère Kalendris",
 			["English"] = "Magister Kalendris",
 			["Korean"] = "마술사 칼렌드리스",
@@ -13992,7 +15164,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "59",
 			["is_elite"] = 1,
 		},
-	}, -- [558]
+	},
 	{
 		["zone_id"] = 139,
 		["phase"] = 1,
@@ -14006,6 +15178,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Интендант Миранда Бричлок",
 			["Chinese"] = "军需官米兰达·布利洛克",
 			["Spanish"] = "Intendente Miranda Cerrobrecha",
+			["Mexican"] = "Intendente Miranda Cerrobrecha",
 			["French"] = "Intendante Miranda Breechlock",
 			["English"] = "Quartermaster Miranda Breechlock",
 			["Korean"] = "병참장교 미란다 브리치락",
@@ -14017,7 +15190,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "58",
 			["is_elite"] = 0,
 		},
-	}, -- [559]
+	},
 	{
 		["zone_id"] = 361,
 		["phase"] = 1,
@@ -14027,12 +15200,13 @@ MTSL_DATA["npcs"] = {
 			["y"] = " 2.81",
 			["x"] = "65.69",
 		},
-		["reacts"] = "Hostile",
+		["reacts"] = "Neutral",
 		["name"] = {
 			["Portuguese"] = "Meilosh",
 			["Russian"] = "Мелиош",
 			["Chinese"] = "梅罗什",
 			["Spanish"] = "Meilosh",
+			["Mexican"] = "Meilosh",
 			["French"] = "Meilosh",
 			["English"] = "Meilosh",
 			["Korean"] = "메일로쉬",
@@ -14043,7 +15217,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [560]
+	},
 	{
 		["zone_id"] = 2057,
 		["phase"] = 1,
@@ -14057,6 +15231,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Призыватель Тьмы Некроситета",
 			["Chinese"] = "通灵学院黑暗召唤师",
 			["Spanish"] = "Invocador Oscuro de Scholomance",
+			["Mexican"] = "Invocador Oscuro de Scholomance",
 			["French"] = "Invocateur des ténèbres de Scholomance",
 			["English"] = "Scholomance Dark Summoner",
 			["Korean"] = "스칼로맨스 암흑소환사",
@@ -14068,7 +15243,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "58",
 			["is_elite"] = 1,
 		},
-	}, -- [561]
+	},
 	{
 		["zone_id"] = 1583,
 		["phase"] = 1,
@@ -14082,6 +15257,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Поджигатель-целитель",
 			["Chinese"] = "烈焰行者医师",
 			["Spanish"] = "Sanador despiertallamas",
+			["Mexican"] = "Sanador despiertallamas",
 			["French"] = "Soigneur Attise-flammes",
 			["English"] = "Flamewaker Healer",
 			["Korean"] = "불꽃꼬리일족 치유사",
@@ -14093,7 +15269,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 1,
 		},
-	}, -- [562]
+	},
 	{
 		["zone_id"] = 8,
 		["phase"] = 1,
@@ -14107,6 +15283,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Масат Т'андр",
 			["Chinese"] = "马萨特·坦德",
 			["Spanish"] = "Masat T'andr",
+			["Mexican"] = "Masat T'andr",
 			["French"] = "Masat T'andr",
 			["English"] = "Masat T'andr",
 			["Korean"] = "마사트 탄드르",
@@ -14118,7 +15295,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "52",
 			["is_elite"] = 0,
 		},
-	}, -- [563]
+	},
 	{
 		["zone_id"] = 1377,
 		["phase"] = 1,
@@ -14132,6 +15309,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Геолорд из культа Сумеречного Молота",
 			["Chinese"] = "暮光地王",
 			["Spanish"] = "Geoseñor Crepuscular",
+			["Mexican"] = "Geoseñor Crepuscular",
 			["French"] = "Géoseigneur du crépuscule",
 			["English"] = "Twilight Geolord",
 			["Korean"] = "황혼의 대지술사",
@@ -14143,7 +15321,59 @@ MTSL_DATA["npcs"] = {
 			["min"] = "58",
 			["is_elite"] = 0,
 		},
-	}, -- [564]
+	},
+	{
+		["zone_id"] = 2717,
+		["phase"] = 1,
+		["id"] = 11982,
+		["location"] = {
+			["y"] = "-",
+			["x"] = "-",
+		},
+		["name"] = {
+			["Portuguese"] = "Magmadar",
+			["Russian"] = "Магмадар",
+			["Chinese"] = "玛格曼达",
+			["Spanish"] = "Magmadar",
+			["Mexican"] = "Magmadar",
+			["French"] = "Magmadar",
+			["English"] = "Magmadar",
+			["Korean"] = "마그마다르",
+			["German"] = "Magmadar",
+		},
+		["reacts"] = "Hostile",
+		["xp_level"] = {
+			["max"] = "??",
+			["min"] = "??",
+			["is_elite"] = 1,
+		},
+	},
+	{
+		["zone_id"] = 2717,
+		["phase"] = 1,
+		["id"] = 11988,
+		["location"] = {
+			["y"] = "-",
+			["x"] = "-",
+		},
+		["name"] = {
+			["Portuguese"] = "Golemagg, o Incinerador",
+			["Russian"] = "Маг-лорд из клана Гордок",
+			["Chinese"] = "焚化者古雷曼格",
+			["Spanish"] = "Golemagg el Incinerador",
+			["Mexican"] = "Golemagg el Incinerador",
+			["French"] = "Golemagg l'Incinérateur",
+			["English"] = "Golemagg the Incinerator",
+			["Korean"] = "초열의 골레마그",
+			["German"] = "Golemagg der Verbrenner",
+		},
+		["reacts"] = "Hostile",
+		["xp_level"] = {
+			["max"] = "??",
+			["min"] = "??",
+			["is_elite"] = 1,
+		},
+	},
 	{
 		["zone_id"] = 493,
 		["phase"] = 1,
@@ -14157,6 +15387,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Лорелея Песнь Зимы",
 			["Chinese"] = "罗莱尔·冬歌",
 			["Spanish"] = "Lorelae Cantinvernal",
+			["Mexican"] = "Lorelae Cantinvernal",
 			["French"] = "Lorelae Wintersong",
 			["English"] = "Lorelae Wintersong",
 			["Korean"] = "로렐라이 윈터송",
@@ -14168,7 +15399,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "51",
 			["is_elite"] = 0,
 		},
-	}, -- [565]
+	},
 	{
 		["zone_id"] = 405,
 		["phase"] = 1,
@@ -14182,6 +15413,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Вулан",
 			["Chinese"] = "乌兰",
 			["Spanish"] = "Wulan",
+			["Mexican"] = "Wulan",
 			["French"] = "Wulan",
 			["English"] = "Wulan",
 			["Korean"] = "울란",
@@ -14193,7 +15425,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [566]
+	},
 	{
 		["zone_id"] = 406,
 		["phase"] = 1,
@@ -14207,6 +15439,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кульвия",
 			["Chinese"] = "库尔维亚",
 			["Spanish"] = "Kulwia",
+			["Mexican"] = "Kulwia",
 			["French"] = "Kulwia",
 			["English"] = "Kulwia",
 			["Korean"] = "쿨위아",
@@ -14218,7 +15451,85 @@ MTSL_DATA["npcs"] = {
 			["min"] = "32",
 			["is_elite"] = 0,
 		},
-	}, -- [567]
+	},
+	{
+		["zone_id"] = 2717,
+		["phase"] = 1,
+		["id"] = 12056,
+		["location"] = {
+			["y"] = "-",
+			["x"] = "-",
+		},
+		["name"] = {
+			["Portuguese"] = "Barão Geddon",
+			["Russian"] = "Барон Геддон",
+			["Chinese"] = "迦顿男爵",
+			["Spanish"] = "Barón Geddon",
+			["Mexican"] = "Barón Geddon",
+			["French"] = "Baron Geddon",
+			["English"] = "Baron Geddon",
+			["Korean"] = "남작 게돈",
+			["German"] = "Baron Geddon",
+		},
+		["reacts"] = "Hostile",
+		["xp_level"] = {
+			["max"] = "??",
+			["min"] = "??",
+			["is_elite"] = 1,
+		},
+	},
+	{
+		["zone_id"] = 2717,
+		["phase"] = 1,
+		["id"] = 12057,
+		["location"] = {
+			["y"] = "-",
+			["x"] = "-",
+		},
+		["name"] = {
+			["Portuguese"] = "Garr",
+			["Russian"] = "Гарр",
+			["Chinese"] = "加尔",
+			["Spanish"] = "Garr",
+			["Mexican"] = "Garr",
+			["French"] = "Garr",
+			["English"] = "Garr",
+			["Korean"] = "가르",
+			["German"] = "Garr",
+		},
+		["reacts"] = "Hostile",
+		["xp_level"] = {
+			["max"] = "??",
+			["min"] = "??",
+			["is_elite"] = 1,
+		},
+	},
+	{
+		["zone_id"] = 2717,
+		["phase"] = 1,
+		["id"] = 12118,
+		["location"] = {
+			["y"] = "-",
+			["x"] = "-",
+		},
+		["name"] = {
+			["Portuguese"] = "Lúcifron",
+			["Russian"] = "Люцифрон",
+			["Chinese"] = "鲁西弗隆",
+			["Spanish"] = "Lucifron",
+			["Mexican"] = "Lucifron",
+			["French"] = "Lucifron",
+			["English"] = "Lucifron",
+			["Korean"] = "루시프론",
+			["German"] = "Lucifron",
+		},
+		["reacts"] = "Hostile",
+		["xp_level"] = {
+			["max"] = "??",
+			["min"] = "??",
+			["is_elite"] = 1,
+		},
+	},
 	{
 		["zone_id"] = 405,
 		["phase"] = 1,
@@ -14232,6 +15543,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Торготрон 1000",
 			["Chinese"] = "贸易机器人1000型",
 			["Spanish"] = "Vende-Tron 1000",
+			["Mexican"] = "Vende-Tron 1000",
 			["French"] = "Vendeur-Tron 1000",
 			["English"] = "Vendor-Tron 1000",
 			["Korean"] = "자동 판매기 1000",
@@ -14243,7 +15555,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "38",
 			["is_elite"] = 0,
 		},
-	}, -- [568]
+	},
 	{
 		["zone_id"] = 405,
 		["phase"] = 1,
@@ -14257,6 +15569,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Робо-торговец 680",
 			["Chinese"] = "超级商人680型",
 			["Spanish"] = "Supervendedor 680",
+			["Mexican"] = "Supervendedor 680",
 			["French"] = "Super-Vendeur 680",
 			["English"] = "Super-Seller 680",
 			["Korean"] = "슈퍼 판매기 680",
@@ -14268,7 +15581,59 @@ MTSL_DATA["npcs"] = {
 			["min"] = "36",
 			["is_elite"] = 0,
 		},
-	}, -- [569]
+	},
+	{
+		["zone_id"] = 2717,
+		["phase"] = 1,
+		["id"] = 12259,
+		["location"] = {
+			["y"] = "-",
+			["x"] = "-",
+		},
+		["name"] = {
+			["Portuguese"] = "Geena",
+			["Russian"] = "Гееннас",
+			["Chinese"] = "基赫纳斯",
+			["Spanish"] = "Gehennas",
+			["Mexican"] = "Gehennas",
+			["French"] = "Gehennas",
+			["English"] = "Gehennas",
+			["Korean"] = "게헨나스",
+			["German"] = "Gehennas",
+		},
+		["reacts"] = "Hostile",
+		["xp_level"] = {
+			["max"] = "??",
+			["min"] = "??",
+			["is_elite"] = 1,
+		},
+	},
+	{
+		["zone_id"] = 2717,
+		["phase"] = 1,
+		["id"] = 12264,
+		["location"] = {
+			["y"] = "-",
+			["x"] = "-",
+		},
+		["name"] = {
+			["Portuguese"] = "Shazzrah",
+			["Russian"] = "Шаззрах",
+			["Chinese"] = "沙斯拉尔",
+			["Spanish"] = "Shazzrah",
+			["Mexican"] = "Shazzrah",
+			["French"] = "Shazzrah",
+			["English"] = "Shazzrah",
+			["Korean"] = "샤즈라",
+			["German"] = "Shazzrah",
+		},
+		["reacts"] = "Hostile",
+		["xp_level"] = {
+			["max"] = "??",
+			["min"] = "??",
+			["is_elite"] = 1,
+		},
+	},
 	{
 		["zone_id"] = 4,
 		["phase"] = 1,
@@ -14282,6 +15647,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Владыка Каззак",
 			["Chinese"] = "卡扎克",
 			["Spanish"] = "Lord Kazzak",
+			["Mexican"] = "Lord Kazzak",
 			["French"] = "Seigneur Kazzak",
 			["English"] = "Lord Kazzak",
 			["Korean"] = "군주 카자크",
@@ -14293,7 +15659,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "??",
 			["is_elite"] = 0,
 		},
-	}, -- [570]
+	},
 	{
 		["zone_id"] = 45,
 		["phase"] = 1,
@@ -14307,6 +15673,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Доктор Грегори Виктор",
 			["Chinese"] = "格里高利·维克托医生",
 			["Spanish"] = "Doctor Gregory Victor",
+			["Mexican"] = "Doctor Gregory Victor",
 			["French"] = "Docteur Gregory Victor",
 			["English"] = "Doctor Gregory Victor",
 			["Korean"] = "의사 그레고리 빅터",
@@ -14318,7 +15685,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "48",
 			["is_elite"] = 0,
 		},
-	}, -- [571]
+	},
 	{
 		["zone_id"] = 15,
 		["phase"] = 1,
@@ -14332,6 +15699,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Доктор Густав ван Склифф",
 			["Chinese"] = "古斯塔夫·范沃森医生",
 			["Spanish"] = "Doctor Gustaf VanHowzen",
+			["Mexican"] = "Doctor Gustaf VanHowzen",
 			["French"] = "Docteur Gustaf VanHowzen",
 			["English"] = "Doctor Gustaf VanHowzen",
 			["Korean"] = "의사 구스타프 밴하우젠",
@@ -14343,7 +15711,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "48",
 			["is_elite"] = 0,
 		},
-	}, -- [572]
+	},
 	{
 		["zone_id"] = 139,
 		["phase"] = 1,
@@ -14357,6 +15725,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Джез Фарлен",
 			["Chinese"] = "贾斯·法拉恩",
 			["Spanish"] = "Jase Farlane",
+			["Mexican"] = "Jase Farlane",
 			["French"] = "Jase Farlane",
 			["English"] = "Jase Farlane",
 			["Korean"] = "제이스 파레인",
@@ -14368,7 +15737,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "56",
 			["is_elite"] = 0,
 		},
-	}, -- [573]
+	},
 	{
 		["zone_id"] = 28,
 		["phase"] = 1,
@@ -14382,6 +15751,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Леонард Портер",
 			["Chinese"] = "莱纳德·波特",
 			["Spanish"] = "Leonard Porter",
+			["Mexican"] = "Leonard Porter",
 			["French"] = "Leonard Porter",
 			["English"] = "Leonard Porter",
 			["Korean"] = "레오나드 포터",
@@ -14393,7 +15763,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [573]
+	},
 	{
 		["zone_id"] = 85,
 		["phase"] = 1,
@@ -14407,6 +15777,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Верг Крепкий Клинок",
 			["Chinese"] = "维尔格·厚刃",
 			["Spanish"] = "Werg Filo Grueso",
+			["Mexican"] = "Werg Filo Grueso",
 			["French"] = "Werg Thickblade",
 			["English"] = "Werg Thickblade",
 			["Korean"] = "웨르그 틱블레이드",
@@ -14418,7 +15789,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [574]
+	},
 	{
 		["zone_id"] = 1584,
 		["phase"] = 1,
@@ -14428,6 +15799,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Локтос Зловещий Торговец",
 			["Chinese"] = "罗克图斯·暗契",
 			["Spanish"] = "Lokhtos Tratoscuro",
+			["Mexican"] = "Lokhtos Tratoscuro",
 			["French"] = "Lokhtos Darkbargainer",
 			["English"] = "Lokhtos Darkbargainer",
 			["Korean"] = "로크토스 다크바게이너",
@@ -14439,7 +15811,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 0,
 		},
-	}, -- [575]
+	},
 	{
 		["zone_id"] = 1377,
 		["phase"] = 1,
@@ -14453,6 +15825,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Заннок Проткни-Шкуру",
 			["Chinese"] = "扎诺克",
 			["Spanish"] = "Zannok Perforapieles",
+			["Mexican"] = "Zannok Perforapieles",
 			["French"] = "Zannok Hidepiercer",
 			["English"] = "Zannok Hidepiercer",
 			["Korean"] = "잔노크 하이드피어서",
@@ -14464,7 +15837,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "59",
 			["is_elite"] = 0,
 		},
-	}, -- [576]
+	},
 	{
 		["zone_id"] = 16,
 		["phase"] = 1,
@@ -14478,6 +15851,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Блимо Прибамбас",
 			["Chinese"] = "布里莫",
 			["Spanish"] = "Blimo Cacharretio",
+			["Mexican"] = "Blimo Cacharretio",
 			["French"] = "Blimo Gadgetspring",
 			["English"] = "Blimo Gadgetspring",
 			["Korean"] = "블리모 가젯스프링",
@@ -14489,7 +15863,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 0,
 		},
-	}, -- [577]
+	},
 	{
 		["zone_id"] = 47,
 		["phase"] = 1,
@@ -14503,6 +15877,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Гиджет Свистопулька",
 			["Chinese"] = "吉盖特·火油",
 			["Spanish"] = "Gigget Retramuelle",
+			["Mexican"] = "Gigget Retramuelle",
 			["French"] = "Gigget Zipcoil",
 			["English"] = "Gigget Zipcoil",
 			["Korean"] = "기젯 집코일",
@@ -14514,7 +15889,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "52",
 			["is_elite"] = 0,
 		},
-	}, -- [578]
+	},
 	{
 		["zone_id"] = 490,
 		["phase"] = 1,
@@ -14528,6 +15903,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Нергал",
 			["Chinese"] = "奈尔加",
 			["Spanish"] = "Nergal",
+			["Mexican"] = "Nergal",
 			["French"] = "Nergal",
 			["English"] = "Nergal",
 			["Korean"] = "네르갈",
@@ -14539,7 +15915,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "52",
 			["is_elite"] = 0,
 		},
-	}, -- [579]
+	},
 	{
 		["zone_id"] = 331,
 		["phase"] = 1,
@@ -14553,6 +15929,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Вик'Тар",
 			["Chinese"] = "维克塔",
 			["Spanish"] = "Wik'Tar",
+			["Mexican"] = "Wik'Tar",
 			["French"] = "Wik'Tar",
 			["English"] = "Wik'Tar",
 			["Korean"] = "위크타르",
@@ -14564,7 +15941,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [580]
+	},
 	{
 		["zone_id"] = 2557,
 		["phase"] = 1,
@@ -14578,6 +15955,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Криводрев Сокрушитель",
 			["Chinese"] = "扭木摧毁者",
 			["Spanish"] = "Triturador Alabeo",
+			["Mexican"] = "Triturador Alabeo",
 			["French"] = "Cogneur Crochebois",
 			["English"] = "Warpwood Crusher",
 			["Korean"] = "분쇄의 굽이나무정령",
@@ -14589,7 +15967,33 @@ MTSL_DATA["npcs"] = {
 			["min"] = "55",
 			["is_elite"] = 1,
 		},
-	}, -- [581]
+	},
+	{
+		["zone_id"] = 1519,
+		["phase"] = 1,
+		["id"] = 13283,
+		["location"] = {
+			["y"] = "78.20",
+			["x"] = "58.00",
+		},
+		["name"] = {
+			["German"] = "Lord Tony Romano",
+			["English"] = "Lord Tony Romano",
+			["Spanish"] = "Lord Tony Romano",
+			["Mexican"] = "Lord Tony Romano",
+			["French"] = "Seigneur Tony Romano",
+			["Portuguese"] = "Lorde Tony Romano",
+			["Russian"] = "Лорд Тони Романо",
+			["Korean"] = "토니 로마노 경",
+			["Chinese"] = "托尼·罗曼诺",
+		},
+		["reacts"] = "Alliance",
+		["xp_level"] = {
+			["max"] = "60",
+			["min"] = "60",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -14603,6 +16007,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ликоста Меднокноп",
 			["Chinese"] = "本尼·考伯宾奇",
 			["Spanish"] = "Penney Cobrellizco",
+			["Mexican"] = "Penney Cobrellizco",
 			["French"] = "Penney Copperpinch",
 			["English"] = "Penney Copperpinch",
 			["Korean"] = "펜니 코퍼핀치",
@@ -14614,7 +16019,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [582]
+	},
 	{
 		["zone_id"] = 1497,
 		["phase"] = 1,
@@ -14628,6 +16033,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Арман Меднокноп",
 			["Chinese"] = "纳斯塔姆·卡布彬",
 			["Spanish"] = "Nardstrum Cobrellizco",
+			["Mexican"] = "Nardstrum Cobrellizco",
 			["French"] = "Nardstrum Copperpinch",
 			["English"] = "Nardstrum Copperpinch",
 			["Korean"] = "날드스트럼 코퍼핀치",
@@ -14639,7 +16045,33 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [583]
+	},
+	{
+		["zone_id"] = 1497,
+		["phase"] = 1,
+		["id"] = 13432,
+		["location"] = {
+			["y"] = "38.86",
+			["x"] = "68.24",
+		},
+		["name"] = {
+			["Portuguese"] = "Amerijanas Pechisbeque",
+			["Russian"] = "Лигерфа Меднокноп",
+			["Chinese"] = "希尔萨",
+			["Spanish"] = "Seersa Cobrellizco",
+			["Mexican"] = "Seersa Cobrellizco",
+			["French"] = "Seersa Copperpinch",
+			["English"] = "Seersa Copperpinch",
+			["Korean"] = "시르사 코퍼핀치",
+			["German"] = "Seersa Copperpinch",
+		},
+		["reacts"] = "Neutral",
+		["xp_level"] = {
+			["max"] = "30",
+			["min"] = "30",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 1537,
 		["phase"] = 1,
@@ -14653,6 +16085,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Карден Деньгозвон",
 			["Chinese"] = "乌莫尔特",
 			["Spanish"] = "Wulmort Calderilla",
+			["Mexican"] = "Wulmort Calderilla",
 			["French"] = "Wulmort Jinglepocket",
 			["English"] = "Wulmort Jinglepocket",
 			["Korean"] = "훌몰트 징글포켓",
@@ -14664,7 +16097,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [584]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -14678,6 +16111,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Деор Деньгозвон",
 			["Chinese"] = "霍勒",
 			["Spanish"] = "Khole Calderilla",
+			["Mexican"] = "Khole Calderilla",
 			["French"] = "Khole Jinglepocket",
 			["English"] = "Khole Jinglepocket",
 			["Korean"] = "크홀 징글포켓",
@@ -14689,7 +16123,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 0,
 		},
-	}, -- [585]
+	},
 	{
 		["zone_id"] = 15,
 		["phase"] = 1,
@@ -14703,6 +16137,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Бала Лок'Вен",
 			["Chinese"] = "巴莱·洛克维",
 			["Spanish"] = "Balai Lok'Wein",
+			["Mexican"] = "Balai Lok'Wein",
 			["French"] = "Balai Lok'Wein",
 			["English"] = "Balai Lok'Wein",
 			["Korean"] = "발라이 로크웨인",
@@ -14714,7 +16149,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "43",
 			["is_elite"] = 0,
 		},
-	}, -- [586]
+	},
 	{
 		["zone_id"] = 267,
 		["phase"] = 1,
@@ -14728,6 +16163,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Шрамник",
 			["Chinese"] = "斯卡基尔",
 			["Spanish"] = "Rasgabranquia",
+			["Mexican"] = "Rasgabranquia",
 			["French"] = "Scargil",
 			["English"] = "Scargil",
 			["Korean"] = "칼지느러미",
@@ -14739,7 +16175,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "30",
 			["is_elite"] = 1,
 		},
-	}, -- [587]
+	},
 	{
 		["zone_id"] = 2557,
 		["phase"] = 1,
@@ -14753,6 +16189,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Уззл Наперстяк",
 			["Chinese"] = "诺特·希姆加克",
 			["Spanish"] = "Knot Llavededo",
+			["Mexican"] = "Knot Llavededo",
 			["French"] = "Knot Thimblejack",
 			["English"] = "Knot Thimblejack",
 			["Korean"] = "노트 팀블잭",
@@ -14764,7 +16201,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "50",
 			["is_elite"] = 0,
 		},
-	}, -- [588]
+	},
 	{
 		["zone_id"] = 2557,
 		["phase"] = 1,
@@ -14778,6 +16215,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Дубильщик из клана Гордок",
 			["Chinese"] = "高多克·布斯瓦克",
 			["Spanish"] = "Arbusloco Gordok",
+			["Mexican"] = "Arbusloco Gordok",
 			["French"] = "Gordok Guet-apens",
 			["English"] = "Gordok Bushwacker",
 			["Korean"] = "고르독일족 매복병",
@@ -14789,7 +16227,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "58",
 			["is_elite"] = 1,
 		},
-	}, -- [589]
+	},
 	{
 		["zone_id"] = 2557,
 		["phase"] = 1,
@@ -14803,6 +16241,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Пузиллин",
 			["Chinese"] = "普希林",
 			["Spanish"] = "Pusillín",
+			["Mexican"] = "Pusillín",
 			["French"] = "Pusillin",
 			["English"] = "Pusillin",
 			["Korean"] = "푸실린",
@@ -14814,7 +16253,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "57",
 			["is_elite"] = 1,
 		},
-	}, -- [590]
+	},
 	{
 		["zone_id"] = 2557,
 		["phase"] = 1,
@@ -14828,6 +16267,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Шен'драларский поставщик",
 			["Chinese"] = "辛德拉圣职者",
 			["Spanish"] = "Proveedor Shen'dralar",
+			["Mexican"] = "Proveedor Shen'dralar",
 			["French"] = "Approvisionneur Shen'dralar",
 			["English"] = "Shen'dralar Provisioner",
 			["Korean"] = "셴드랄라 배급원",
@@ -14839,7 +16279,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "52",
 			["is_elite"] = 1,
 		},
-	}, -- [591]
+	},
 	{
 		["zone_id"] = 1637,
 		["phase"] = 1,
@@ -14853,6 +16293,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Властитель Рунтак",
 			["Chinese"] = "伦萨克",
 			["Spanish"] = "Señor supremo Runthak",
+			["Mexican"] = "Señor supremo Runthak",
 			["French"] = "Seigneur Runthak",
 			["English"] = "Overlord Runthak",
 			["Korean"] = "대군주 룬탁",
@@ -14864,7 +16305,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 1,
 		},
-	}, -- [592]
+	},
 	{
 		["zone_id"] = 1519,
 		["phase"] = 1,
@@ -14878,6 +16319,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Майор Маттингли",
 			["Chinese"] = "玛丁雷少校",
 			["Spanish"] = "Mayor Mattingly",
+			["Mexican"] = "Mayor Mattingly",
 			["French"] = "Major Mattingly",
 			["English"] = "Major Mattingly",
 			["Korean"] = "상사 매팅글리",
@@ -14889,7 +16331,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 1,
 		},
-	}, -- [593]
+	},
 	{
 		["zone_id"] = 2677,
 		["phase"] = 1,
@@ -14903,6 +16345,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ваятель стихий Криксикс",
 			["Chinese"] = "大元素师克里希克",
 			["Spanish"] = "Maestro de los elementos Formacio Krixix",
+			["Mexican"] = "Maestro de los elementos Formacio Krixix",
 			["French"] = "Maître élémentaire Krixix le Sculpteur",
 			["English"] = "Master Elemental Shaper Krixix",
 			["Korean"] = "수석 원소구현술사 크릭시스",
@@ -14914,7 +16357,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 1,
 		},
-	}, -- [594]
+	},
 	{
 		["zone_id"] = 8,
 		["phase"] = 1,
@@ -14928,6 +16371,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Облезлый Шип",
 			["Chinese"] = "摩塔索恩",
 			["Spanish"] = "Fundespino",
+			["Mexican"] = "Fundespino",
 			["French"] = "Rougeronce",
 			["English"] = "Molt Thorn",
 			["Korean"] = "허물가시",
@@ -14939,7 +16383,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "42",
 			["is_elite"] = 1,
 		},
-	}, -- [595]
+	},
 	{
 		["zone_id"] = 1377,
 		["phase"] = 1,
@@ -14953,6 +16397,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Ветробой",
 			["Chinese"] = "烈风掠夺者",
 			["Spanish"] = "El Atracavientos",
+			["Mexican"] = "El Atracavientos",
 			["French"] = "Le Déchirevent",
 			["English"] = "The Windreaver",
 			["Korean"] = "칼날바람",
@@ -14964,7 +16409,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 1,
 		},
-	}, -- [596]
+	},
 	{
 		["zone_id"] = 618,
 		["phase"] = 1,
@@ -14978,6 +16423,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Принцесса Бурилла",
 			["Chinese"] = "泰比斯蒂亚公主",
 			["Spanish"] = "Princesa Tempestria",
+			["Mexican"] = "Princesa Tempestria",
 			["French"] = "Princesse Tempestria",
 			["English"] = "Princess Tempestria",
 			["Korean"] = "공주 템페스트리아",
@@ -14989,7 +16435,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 1,
 		},
-	}, -- [597]
+	},
 	{
 		["zone_id"] = 440,
 		["phase"] = 1,
@@ -15003,6 +16449,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Деротайн Грязеглот",
 			["Chinese"] = "德罗泰恩",
 			["Spanish"] = "Derotain Sorbelodo",
+			["Mexican"] = "Derotain Sorbelodo",
 			["French"] = "Derotain Mudsipper",
 			["English"] = "Derotain Mudsipper",
 			["Korean"] = "데로타인 머드시퍼",
@@ -15014,7 +16461,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "52",
 			["is_elite"] = 0,
 		},
-	}, -- [598]
+	},
 	{
 		["zone_id"] = 357,
 		["phase"] = 1,
@@ -15028,6 +16475,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Зорбин Дребезгун",
 			["Chinese"] = "索尔宾·范达瑟",
 			["Spanish"] = "Zorbin Hipnoviento",
+			["Mexican"] = "Zorbin Hipnoviento",
 			["French"] = "Zorbin Fandazzle",
 			["English"] = "Zorbin Fandazzle",
 			["Korean"] = "조브린 팬대즐",
@@ -15039,7 +16487,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [599]
+	},
 	{
 		["zone_id"] = 47,
 		["phase"] = 1,
@@ -15053,6 +16501,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Отхо Можи'ко",
 			["Chinese"] = "奥索·莫吉克",
 			["Spanish"] = "Otho Moji'ko",
+			["Mexican"] = "Otho Moji'ko",
 			["French"] = "Otho Moji'ko",
 			["English"] = "Otho Moji'ko",
 			["Korean"] = "오토 모지코",
@@ -15064,7 +16513,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "40",
 			["is_elite"] = 0,
 		},
-	}, -- [600]
+	},
 	{
 		["zone_id"] = 33,
 		["phase"] = 1,
@@ -15078,6 +16527,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Рин'вошо Торговец",
 			["Chinese"] = "商人林沃斯",
 			["Spanish"] = "Rin'wosho el Comerciante",
+			["Mexican"] = "Rin'wosho el Comerciante",
 			["French"] = "Rin'wosho le marchand",
 			["English"] = "Rin'wosho the Trader",
 			["Korean"] = "상인 린워쇼",
@@ -15089,7 +16539,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "63",
 			["is_elite"] = 1,
 		},
-	}, -- [601]
+	},
 	{
 		["zone_id"] = 139,
 		["phase"] = 1,
@@ -15103,6 +16553,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Инквизитор из Алого ордена",
 			["Chinese"] = "血色审查官",
 			["Spanish"] = "Inquisidor Escarlata",
+			["Mexican"] = "Inquisidor Escarlata",
 			["French"] = "Inquisiteur écarlate",
 			["English"] = "Scarlet Inquisitor",
 			["Korean"] = "붉은십자군 심문관",
@@ -15114,7 +16565,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "61",
 			["is_elite"] = 0,
 		},
-	}, -- [602]
+	},
 	{
 		["zone_id"] = 1377,
 		["phase"] = 1,
@@ -15128,6 +16579,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Варгус",
 			["Chinese"] = "瓦古斯",
 			["Spanish"] = "Vargus",
+			["Mexican"] = "Vargus",
 			["French"] = "Vargus",
 			["English"] = "Vargus",
 			["Korean"] = "바르구스",
@@ -15139,7 +16591,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "57",
 			["is_elite"] = 0,
 		},
-	}, -- [603]
+	},
 	{
 		["zone_id"] = 1377,
 		["phase"] = 1,
@@ -15153,6 +16605,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мишта",
 			["Chinese"] = "米什塔",
 			["Spanish"] = "Mishta",
+			["Mexican"] = "Mishta",
 			["French"] = "Mishta",
 			["English"] = "Mishta",
 			["Korean"] = "미쉬타",
@@ -15164,7 +16617,33 @@ MTSL_DATA["npcs"] = {
 			["min"] = "58",
 			["is_elite"] = 0,
 		},
-	}, -- [604]
+	},
+	{
+		["zone_id"] = 1377,
+		["phase"] = 1,
+		["id"] = 15194,
+		["location"] = {
+			["y"] = "67.00",
+			["x"] = "69.60",
+		},
+		["name"] = {
+			["German"] = "Ortell der Einsiedler",
+			["English"] = "Hermit Ortell",
+			["Spanish"] = "Ermitaño Ortell",
+			["Mexican"] = "Ermitaño Ortell",
+			["French"] = "Ortell l'ermite",
+			["Portuguese"] = "Eremita Ortell",
+			["Russian"] = "Отшельник Ортелл",
+			["Korean"] = "은둔자 오르텔",
+			["Chinese"] = "隐士奥泰尔",
+		},
+		["reacts"] = "Neutral",
+		["xp_level"] = {
+			["max"] = "56",
+			["min"] = "58",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 3428,
 		["phase"] = 1,
@@ -15174,6 +16653,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Пророк Скерам",
 			["Chinese"] = "预言者斯克拉姆",
 			["Spanish"] = "El profeta Skeram",
+			["Mexican"] = "El profeta Skeram",
 			["French"] = "Le Prophète Skeram",
 			["English"] = "The Prophet Skeram",
 			["Korean"] = "예언자 스케람",
@@ -15185,7 +16665,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "??",
 			["is_elite"] = 0,
 		},
-	}, -- [605]
+	},
 	{
 		["zone_id"] = 3428,
 		["phase"] = 1,
@@ -15195,6 +16675,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Император Век'нилаш",
 			["Chinese"] = "维克尼拉斯大帝",
 			["Spanish"] = "Emperador Vek'nilash",
+			["Mexican"] = "Emperador Vek'nilash",
 			["French"] = "Empereur Vek'nilash",
 			["English"] = "Emperor Vek'nilash",
 			["Korean"] = "제왕 베크닐라쉬",
@@ -15206,7 +16687,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "??",
 			["is_elite"] = 0,
 		},
-	}, -- [606]
+	},
 	{
 		["zone_id"] = 3428,
 		["phase"] = 1,
@@ -15216,6 +16697,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Император Век'лор",
 			["Chinese"] = "维克洛尔大帝",
 			["Spanish"] = "Emperador Vek'lor",
+			["Mexican"] = "Emperador Vek'lor",
 			["French"] = "Empereur Vek'lor",
 			["English"] = "Emperor Vek'lor",
 			["Korean"] = "제왕 베클로어",
@@ -15227,7 +16709,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "??",
 			["is_elite"] = 0,
 		},
-	}, -- [607]
+	},
 	{
 		["zone_id"] = 1377,
 		["phase"] = 1,
@@ -15241,6 +16723,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Эндель Копье Ветра",
 			["Chinese"] = "安迪尔·风矛",
 			["Spanish"] = "Aendel Lanzavento",
+			["Mexican"] = "Aendel Lanzavento",
 			["French"] = "Aendel Windspear",
 			["English"] = "Aendel Windspear",
 			["Korean"] = "앤델 윈드스피어",
@@ -15252,7 +16735,29 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 0,
 		},
-	}, -- [608]
+	},
+	{
+		["zone_id"] = 3429,
+		["phase"] = 1,
+		["id"] = 15339,
+		["name"] = {
+			["Portuguese"] = "Ossirian, o Intocado",
+			["Russian"] = "Оссириан Неуязвимый",
+			["Chinese"] = "无疤者奥斯里安",
+			["Spanish"] = "Osirio el Sinmarcas",
+			["Mexican"] = "Osirio el Sinmarcas",
+			["French"] = "Ossirian l'Intouché",
+			["English"] = "Ossirian the Unscarred",
+			["Korean"] = "무적의 오시리안",
+			["German"] = "Ossirian der Narbenlose",
+		},
+		["reacts"] = "Hostile",
+		["xp_level"] = {
+			["max"] = "??",
+			["min"] = "??",
+			["is_elite"] = 1,
+		},
+	},
 	{
 		["zone_id"] = 3429,
 		["phase"] = 1,
@@ -15262,6 +16767,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Моам",
 			["Chinese"] = "莫阿姆",
 			["Spanish"] = "Moam",
+			["Mexican"] = "Moam",
 			["French"] = "Moam",
 			["English"] = "Moam",
 			["Korean"] = "모암",
@@ -15269,11 +16775,99 @@ MTSL_DATA["npcs"] = {
 		},
 		["reacts"] = "Hostile",
 		["xp_level"] = {
-			["max"] = "63",
-			["min"] = "63",
+			["max"] = "??",
+			["min"] = "??",
 			["is_elite"] = 1,
 		},
-	}, -- [609]
+	},
+	{
+		["zone_id"] = 3429,
+		["phase"] = 1,
+		["id"] = 15341,
+		["name"] = {
+			["Portuguese"] = "General Rajaxx",
+			["Russian"] = "Генерал Раджакс",
+			["Chinese"] = "拉贾克斯将军",
+			["Spanish"] = "General Rajaxx",
+			["Mexican"] = "General Rajaxx",
+			["French"] = "Général Rajaxx",
+			["English"] = "General Rajaxx",
+			["Korean"] = "장군 라작스",
+			["German"] = "General Rajaxx",
+		},
+		["reacts"] = "Hostile",
+		["xp_level"] = {
+			["max"] = "??",
+			["min"] = "??",
+			["is_elite"] = 1,
+		},
+	},
+	{
+		["zone_id"] = 3429,
+		["phase"] = 1,
+		["id"] = 15348,
+		["name"] = {
+			["Portuguese"] = "Korinnaxx",
+			["Russian"] = "Куриннакс",
+			["Chinese"] = "库林纳克斯",
+			["Spanish"] = "Kurinnaxx",
+			["Mexican"] = "Kurinnaxx",
+			["French"] = "Kurinnaxx",
+			["English"] = "Kurinnaxx",
+			["Korean"] = "쿠린낙스",
+			["German"] = "Kurinnaxx",
+		},
+		["reacts"] = "Hostile",
+		["xp_level"] = {
+			["max"] = "??",
+			["min"] = "??",
+			["is_elite"] = 1,
+		},
+	},
+	{
+		["zone_id"] = 3429,
+		["phase"] = 1,
+		["id"] = 15369,
+		["name"] = {
+			["Portuguese"] = "Ayamiss, o Caçador",
+			["Russian"] = "Аямисса Охотница",
+			["Chinese"] = "狩猎者阿亚米斯",
+			["Spanish"] = "Ayamiss el Cazador",
+			["Mexican"] = "Ayamiss el Cazador",
+			["French"] = "Ayamiss le Chasseur",
+			["English"] = "Ayamiss the Hunter",
+			["Korean"] = "사냥꾼 아야미스",
+			["German"] = "Ayamiss der Jäger",
+		},
+		["reacts"] = "Hostile",
+		["xp_level"] = {
+			["max"] = "??",
+			["min"] = "??",
+			["is_elite"] = 1,
+		},
+	},
+	{
+		["zone_id"] = 3429,
+		["phase"] = 1,
+		["id"] = 15370,
+		["name"] = {
+			["Portuguese"] = "Buru, o Banqueteador",
+			["Russian"] = "Буру Ненасытный",
+			["Chinese"] = "吞咽者布鲁",
+			["Spanish"] = "Buru el Manducador",
+			["Mexican"] = "Buru el Manducador",
+			["French"] = "Buru Grandgosier",
+			["English"] = "Buru the Gorger",
+			["Korean"] = "먹보 부루",
+			["German"] = "Buru der Verschlinger",
+		},
+		["reacts"] = "Hostile",
+		["xp_level"] = {
+			["max"] = "??",
+			["min"] = "??",
+			["is_elite"] = 1,
+		},
+	},
 	{
 		["zone_id"] = 1377,
 		["phase"] = 1,
@@ -15287,6 +16881,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Кания",
 			["Chinese"] = "卡妮亚",
 			["Spanish"] = "Kania",
+			["Mexican"] = "Kania",
 			["French"] = "Kania",
 			["English"] = "Kania",
 			["Korean"] = "케니아",
@@ -15298,7 +16893,59 @@ MTSL_DATA["npcs"] = {
 			["min"] = "54",
 			["is_elite"] = 0,
 		},
-	}, -- [610]
+	},
+	{
+		["zone_id"] = 3428,
+		["phase"] = 1,
+		["id"] = 15471,
+		["location"] = {
+			["y"] = "-",
+			["x"] = "-",
+		},
+		["name"] = {
+			["Portuguese"] = "Tenente-general Andorov",
+			["Russian"] = "Генерал-лейтенант Андоров",
+			["Chinese"] = "安多洛夫中将",
+			["Spanish"] = "Teniente general Andorov",
+			["Mexican"] = "Teniente general Andorov",
+			["French"] = "Général de division Andorov",
+			["English"] = "Lieutenant General Andorov",
+			["Korean"] = "사령관 안도로브",
+			["German"] = "Generallieutenant Andorov",
+		},
+		["reacts"] = "Neutral",
+		["xp_level"] = {
+			["max"] = "60",
+			["min"] = "60",
+			["is_elite"] = 1,
+		},
+	},
+	{
+		["zone_id"] = 493,
+		["phase"] = 1,
+		["id"] = 15909,
+		["location"] = {
+			["y"] = "53.80",
+			["x"] = "35.30",
+		},
+		["name"] = {
+			["Portuguese"] = "Fariel Stelacanto",
+			["Russian"] = "Фариэль Песнь Звезд",
+			["Chinese"] = "法蕾尔·星歌",
+			["Spanish"] = "Fariel Cantoestelar",
+			["Mexican"] = "Fariel Cantoestelar",
+			["French"] = "Fariel Starsong",
+			["English"] = "Fariel Starsong",
+			["Korean"] = "파리엘 스타송",
+			["German"] = "Fariel Starsong",
+		},
+		["reacts"] = "Neutral",
+		["xp_level"] = {
+			["max"] = "60",
+			["min"] = "60",
+			["is_elite"] = 0,
+		},
+	},
 	{
 		["zone_id"] = 15,
 		["phase"] = 1,
@@ -15312,6 +16959,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Повелитель приливов Ррургаз",
 			["Chinese"] = "海潮之王鲁尔加斯",
 			["Spanish"] = "Señor de las Mareas Rrurgaz",
+			["Mexican"] = "Señor de las Mareas Rrurgaz",
 			["French"] = "Seigneur-marées Rrurgaz",
 			["English"] = "Tidelord Rrurgaz",
 			["Korean"] = "바다군주 르룰가즈",
@@ -15323,10 +16971,10 @@ MTSL_DATA["npcs"] = {
 			["min"] = "62",
 			["is_elite"] = 0,
 		},
-	}, -- [611]
+	},
 	{
 		["zone_id"] = 3456,
-		["phase"] = 1,
+		["phase"] = 6,
 		["id"] = 16365,
 		["location"] = {
 			["y"] = "-",
@@ -15337,6 +16985,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Мастер-ремесленник Омарион",
 			["Chinese"] = "大工匠奥玛里恩",
 			["Spanish"] = "Maestro artesano Omarion",
+			["Mexican"] = "Maestro artesano Omarion",
 			["French"] = "Maître-artisan Omarion",
 			["English"] = "Master Craftsman Omarion",
 			["Korean"] = "거장 오마리온",
@@ -15348,7 +16997,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 0,
 		},
-	}, -- [612]
+	},
 	{
 		["zone_id"] = 3456,
 		["phase"] = 1,
@@ -15362,6 +17011,7 @@ MTSL_DATA["npcs"] = {
 			["Russian"] = "Pемесленник Вильгельм",
 			["Chinese"] = "工匠威尔海姆",
 			["Spanish"] = "Artesano Wilhelm",
+			["Mexican"] = "Artesano Wilhelm",
 			["French"] = "Artisan Wilhelm",
 			["English"] = "Craftsman Wilhelm",
 			["Korean"] = "기능공 빌헬름",
@@ -15373,7 +17023,7 @@ MTSL_DATA["npcs"] = {
 			["min"] = "60",
 			["is_elite"] = 0,
 		},
-	}, -- [612]
+	},
 	-- special NPCs to mrk Darkmoon Faire (one for Alliance in Elwynn forest, one in for Horde)
 	{
 		["zone_id"] = 12,
@@ -15392,8 +17042,14 @@ MTSL_DATA["npcs"] = {
 			["Chinese"] = "暗月马戏团",
 			["German"] = "Dunkelmond-Jahrmarkt",
 			["Spanish"] = "Feria de la Luna Negra",
+			["Mexican"] = "Feria de la Luna Negra",
 		},
 		["reacts"] = "Alliance",
+		["xp_level"] = {
+			["max"] = "60",
+			["min"] = "60",
+			["is_elite"] = 0,
+		},
 	},	-- [613]
 	{
 		["zone_id"] = 215,
@@ -15412,7 +17068,13 @@ MTSL_DATA["npcs"] = {
 			["Chinese"] = "暗月马戏团",
 			["German"] = "Dunkelmond-Jahrmarkt",
 			["Spanish"] = "Feria de la Luna Negra",
+			["Mexican"] = "Feria de la Luna Negra",
 		},
 		["reacts"] = "Horde",
-	}, -- [614]
+		["xp_level"] = {
+			["max"] = "60",
+			["min"] = "60",
+			["is_elite"] = 0,
+		},
+	},
 }

@@ -6,23 +6,26 @@ MTSL_DATA["Blacksmithing"]["levels"] = {
 		["trainers"] = {
 			["price"] = 10,
 			["sources"] = {
-				514, -- [1]
-				957, -- [2]
-				1241, -- [3]
-				1383, -- [4]
-				2836, -- [5]
-				2998, -- [6]
-				3174, -- [7]
-				3355, -- [8]
-				3557, -- [9]
-				4258, -- [10]
-				4605, -- [11]
-				5511, -- [12]
-				6299, -- [13]
-				10266, -- [14]
-				10276, -- [15]
-				10277, -- [16]
-				10278, -- [17]
+				514,
+				957,
+				1241,
+				1383,
+				2836,
+				2998,
+				3136,
+				3174,
+				3355,
+				3478,
+				3557,
+				4258,
+				4596,
+				4605,
+				5511,
+				6299,
+				10266,
+				10276,
+				10277,
+				10278,
 			},
 		},
 		["name"] = {
@@ -34,27 +37,28 @@ MTSL_DATA["Blacksmithing"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Blacksmithing"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Blacksmithing"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Blacksmithing"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Blacksmithing"],
 		},
 		["min_skill"] = 0,
 		["id"] = 2018,
 		["max_skill"] = 75,
 		["rank"] = 1,
 		["min_xp_level"] = 5,
-	}, -- [1]
+	},
 	{
 		["trainers"] = {
 			["price"] = 500,
 			["sources"] = {
-				1383, -- [1]
-				2836, -- [2]
-				2998, -- [3]
-				3136, -- [4]
-				3355, -- [5]
-				3478, -- [6]
-				4258, -- [7]
-				4596, -- [8]
-				5511, -- [9]
-				10276, -- [10]
+				1383,
+				2836,
+				2998,
+				3136,
+				3355,
+				3478,
+				4258,
+				4596,
+				5511,
+				10276,
 			},
 		},
 		["name"] = {
@@ -66,19 +70,21 @@ MTSL_DATA["Blacksmithing"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Blacksmithing"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Blacksmithing"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Blacksmithing"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Blacksmithing"],
 		},
 		["min_skill"] = 50,
 		["id"] = 3100,
 		["max_skill"] = 150,
 		["rank"] = 2,
-	}, -- [2]
+		["min_xp_level"] = 10,
+	},
 	{
 		["trainers"] = {
 			["price"] = 5000,
 			["sources"] = {
-				2836, -- [1]
-				3355, -- [2]
-				4258, -- [3]
+				2836,
+				3355,
+				4258,
 			},
 		},
 		["name"] = {
@@ -90,18 +96,20 @@ MTSL_DATA["Blacksmithing"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Blacksmithing"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Blacksmithing"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Blacksmithing"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Blacksmithing"],
 		},
 		["min_skill"] = 125,
 		["id"] = 3538,
 		["max_skill"] = 225,
 		["rank"] = 3,
-	}, -- [3]
+		["min_xp_level"] = 20,
+	},
 	{
 		["min_xp_level"] = 35,
 		["trainers"] = {
 			["price"] = 50000,
 			["sources"] = {
-				2836, -- [1]
+				2836,
 			},
 		},
 		["name"] = {
@@ -113,10 +121,12 @@ MTSL_DATA["Blacksmithing"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Blacksmithing"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Blacksmithing"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Blacksmithing"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Blacksmithing"],
 		},
 		["min_skill"] = 200,
 		["id"] = 9785,
 		["max_skill"] = 300,
 		["rank"] = 4,
-	}, -- [4]
+		["min_xp_level"] = 35,
+	},
 }

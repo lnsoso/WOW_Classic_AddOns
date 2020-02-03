@@ -9,8 +9,7 @@ MTSL_LOGIC_WORLD = {
     -- returns 		Array		The contintents
     ------------------------------------------------------------------------------------------------
     GetContinents = function(self)
-        table.sort(MTSL_DATA["continents"], function (a, b) return a["name"][MTSLUI_CURRENT_LANGUAGE] < b["name"][MTSLUI_CURRENT_LANGUAGE] end)
-        return MTSL_DATA["continents"]
+        return MTSL_TOOLS:SortArrayByLocalisedProperty(MTSL_DATA["continents"], "name")
     end,
 
     ------------------------------------------------------------------------------------------------
@@ -41,8 +40,7 @@ MTSL_LOGIC_WORLD = {
     -- returns 		Array		The zones
     ------------------------------------------------------------------------------------------------
     GetZones = function(self)
-        table.sort(MTSL_DATA["zones"], function (a, b) return a["name"][MTSLUI_CURRENT_LANGUAGE] < b["name"][MTSLUI_CURRENT_LANGUAGE] end)
-        return MTSL_DATA["zones"]
+        return MTSL_TOOLS:SortArrayByLocalisedProperty(MTSL_DATA["zones"], "name")
     end,
 
     ------------------------------------------------------------------------------------------------
@@ -66,7 +64,7 @@ MTSL_LOGIC_WORLD = {
     GetZoneNameById = function(self, id)
         local zone = MTSL_TOOLS:GetItemFromArrayByKeyValue(MTSL_DATA["zones"], "id", id)
         if zone then
-            return zone["name"][MTSLUI_CURRENT_LANGUAGE]
+            return MTSLUI_TOOLS:GetLocalisedData(zone)
         end
         return ""
     end,
@@ -81,10 +79,9 @@ MTSL_LOGIC_WORLD = {
     GetZonesInContinentByName = function(self, continent_name)
         local cont_id = self:GetContintent(continent_name)["id"]
         local zones_continent = MTSL_TOOLS:GetAllItemsFromArrayByKeyValue(MTSL_DATA["zones"], "cont_id", cont_id)
-        table.sort(zones_continent, function (a, b) return a["name"][MTSLUI_CURRENT_LANGUAGE] < b["name"][MTSLUI_CURRENT_LANGUAGE] end)
-
-        return zones_continent
+        return MTSL_TOOLS:SortArrayByLocalisedProperty(zones_continent, "name")
     end,
+
     ------------------------------------------------------------------------------------------------
     -- Returns a list of Zones for a contintent by id
     --
@@ -94,8 +91,6 @@ MTSL_LOGIC_WORLD = {
     ------------------------------------------------------------------------------------------------
     GetZonesInContinentById = function(self, continent_id)
         local zones_continent = MTSL_TOOLS:GetAllItemsFromArrayByKeyValue(MTSL_DATA["zones"], "cont_id", continent_id)
-        table.sort(zones_continent, function (a, b) return a["name"][MTSLUI_CURRENT_LANGUAGE] < b["name"][MTSLUI_CURRENT_LANGUAGE] end)
-
-        return zones_continent
+        return MTSL_TOOLS:SortArrayByLocalisedProperty(zones_continent, "name")
     end,
 }

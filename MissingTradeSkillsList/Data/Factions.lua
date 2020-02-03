@@ -10,6 +10,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "暗月马戏团",
             ["German"] = "Dunkelmond-Jahrmarkt",
             ["Spanish"] = "Feria de la Luna Negra",
+			["Mexican"] = "Feria de la Luna Negra",
         },
     },
     {
@@ -23,6 +24,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "赞达拉部族",
             ["German"] = "Stamm der Zandalar",
             ["Spanish"] = "Tribu Zandalar",
+			["Mexican"] = "Tribu Zandalar",
         },
     },
     {
@@ -36,6 +38,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "诺兹多姆的子嗣",
             ["German"] = "Brut Nozdormus",
             ["Spanish"] = "Linaje de Nozdormu",
+			["Mexican"] = "Linaje de Nozdormu",
         },
     },
     {
@@ -49,6 +52,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "银色黎明",
             ["German"] = "Argentumdämmerung",
             ["Spanish"] = "Alba Argenta",
+			["Mexican"] = "Alba Argenta",
         },
     },
     {
@@ -62,6 +66,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "暗矛巨魔",
             ["German"] = "Darkspear",
             ["Spanish"] = "Trols de Lanza Negra",
+			["Mexican"] = "Trols de Lanza Negra",
         },
     },
     {
@@ -75,6 +80,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "藏宝海湾",
             ["German"] = "Booty Bay",
             ["Spanish"] = "Bahía del Botín",
+			["Mexican"] = "Bahía del Botín",
         },
     },
     {
@@ -88,6 +94,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "莫洛加",
             ["German"] = "Moro'gai",
             ["Spanish"] = "Moro'gai",
+			["Mexican"] = "Moro'gai",
         },
     },
     {
@@ -101,6 +108,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "黑水海盗",
             ["German"] = "Schmiedekunst - Waffenschmiedekunst",
             ["Spanish"] = "Herrería: armas",
+			["Mexican"] = "Herrería: armas",
         },
     },
     {
@@ -114,6 +122,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "怪物 - Tribal",
             ["German"] = "Lederverarbeitung - Stamm",
             ["Spanish"] = "Peletería: tribal",
+			["Mexican"] = "Peletería: tribal",
         },
     },
     {
@@ -127,6 +136,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "Engineering - Goblin",
             ["German"] = "Ingenieurskunst - Goblin",
             ["Spanish"] = "Ingeniería: goblin",
+			["Mexican"] = "Ingeniería: goblin",
         },
     },
     {
@@ -140,6 +150,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "Engineering - Gnome",
             ["German"] = "Ingenieurskunst - Gnom",
             ["Spanish"] = "Ingeniería: gnoma",
+			["Mexican"] = "Ingeniería: gnoma",
         },
     },
     {
@@ -153,6 +164,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "热砂港",
             ["German"] = "Steamwheedle-Kartell",
             ["Spanish"] = "Cártel Bonvapor",
+			["Mexican"] = "Cártel Bonvapor",
         },
     },
     {
@@ -166,6 +178,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "辛德拉",
             ["German"] = "Shen'dralar",
             ["Spanish"] = "Shen'dralar",
+			["Mexican"] = "Shen'dralar",
         },
     },
     {
@@ -179,6 +192,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "斯通纳德兽人",
             ["German"] = "Schmiedekunst - Rüstungsschmiedekunst",
             ["Spanish"] = "Herrería: armaduras",
+			["Mexican"] = "Herrería: armaduras",
         },
     },
     {
@@ -192,6 +206,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "铁炉堡",
             ["German"] = "Ironforge",
             ["Spanish"] = "Forjaz",
+			["Mexican"] = "Forjaz",
         },
     },
     {
@@ -205,6 +220,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "诺莫瑞根流亡者",
             ["German"] = "Gnomeregangnome",
             ["Spanish"] = "Exiliado de Gnomeregan",
+			["Mexican"] = "Exiliado de Gnomeregan",
         },
     },
     {
@@ -218,6 +234,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "Blacksmithing - Hammersmithing",
             ["German"] = "Schmiedekunst - Hammerschmiedekunst",
             ["Spanish"] = "Herrería: martillos",
+			["Mexican"] = "Herrería: martillos",
         },
     },
     {
@@ -231,6 +248,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "Blacksmithing - Axesmithing",
             ["German"] = "Schmiedekunst - Axtschmiedekunst",
             ["Spanish"] = "Herrería: hachas",
+			["Mexican"] = "Herrería: hachas",
         },
     },
     {
@@ -244,6 +262,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "瑟银兄弟会",
             ["German"] = "Thoriumbruderschaft",
             ["Spanish"] = "Hermandad del torio",
+			["Mexican"] = "Hermandad del torio",
         },
     },
     {
@@ -257,6 +276,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "Blacksmithing - Swordsmithing",
             ["German"] = "Schmiedekunst - Schwertschmiedekunst",
             ["Spanish"] = "Herrería: espadas",
+			["Mexican"] = "Herrería: espadas",
         },
     },
     {
@@ -270,6 +290,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "凯尔达隆",
             ["German"] = "Caer Darrow",
             ["Spanish"] = "Castel Darrow",
+			["Mexican"] = "Castel Darrow",
         },
     },
     {
@@ -283,6 +304,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "木喉要塞",
             ["German"] = "Holzschlundfeste",
             ["Spanish"] = "Bastión de los Fauces de Madera",
+			["Mexican"] = "Bastión de los Fauces de Madera",
         },
     },
     {
@@ -296,6 +318,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "永望镇",
             ["German"] = "Everlook",
             ["Spanish"] = "Vista Eterna",
+			["Mexican"] = "Vista Eterna",
         },
     },
     {
@@ -309,6 +332,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "部落",
             ["German"] = "Horde",
             ["Spanish"] = "Horda",
+			["Mexican"] = "Horda",
         },
     },
     {
@@ -322,6 +346,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "幽暗城",
             ["German"] = "Undercity",
             ["Spanish"] = "Entrañas",
+			["Mexican"] = "Entrañas",
         },
     },
     {
@@ -335,6 +360,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "达纳苏斯",
             ["German"] = "Darnassus",
             ["Spanish"] = "Darnassus",
+			["Mexican"] = "Darnassus",
         },
     },
     {
@@ -348,6 +374,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "Battleground Neutral",
             ["German"] = "Schlachtfeld, neutral",
             ["Spanish"] = "Neutral en campo de batalla",
+			["Mexican"] = "Neutral en campo de batalla",
         },
     },
     {
@@ -361,6 +388,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "辛迪加",
             ["German"] = "Syndikat",
             ["Spanish"] = "Sindicato",
+			["Mexican"] = "Sindicato",
         },
     },
     {
@@ -374,6 +402,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "暴风城",
             ["German"] = "Stormwind",
             ["Spanish"] = "Ventormenta",
+			["Mexican"] = "Ventormenta",
         },
     },
     {
@@ -387,6 +416,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "奥格瑞玛",
             ["German"] = "Orgrimmar",
             ["Spanish"] = "Orgrimmar",
+			["Mexican"] = "Orgrimmar",
         },
     },
     {
@@ -400,6 +430,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "冬刃豹训练师",
             ["German"] = "Wintersäblerausbilder",
             ["Spanish"] = "Entrenadores de Sableinvernales",
+			["Mexican"] = "Entrenadores de Sableinvernales",
         },
     },
     {
@@ -413,6 +444,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "雷霆崖",
             ["German"] = "Thunder Bluff",
             ["Spanish"] = "Cima del Trueno",
+			["Mexican"] = "Cima del Trueno",
         },
     },
     {
@@ -426,6 +458,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "怪物 - 无组织",
             ["German"] = "Lederverarbeitung - Elementar",
             ["Spanish"] = "Peletería: elemental",
+			["Mexican"] = "Peletería: elemental",
         },
     },
     {
@@ -439,6 +472,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "联盟",
             ["German"] = "Allianz",
             ["Spanish"] = "Alianza",
+			["Mexican"] = "Alianza",
         },
     },
     {
@@ -452,6 +486,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "棘齿城",
             ["German"] = "Ratchet",
             ["Spanish"] = "Trinquete",
+			["Mexican"] = "Trinquete",
         },
     },
     {
@@ -465,6 +500,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "怪物 - 有组织",
             ["German"] = "Lederverarbeitung - Drachen",
             ["Spanish"] = "Peletería: dragontina",
+			["Mexican"] = "Peletería: dragontina",
         },
     },
     {
@@ -478,6 +514,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "血帆海盗",
             ["German"] = "Blutsegelbukaniere",
             ["Spanish"] = "Bucaneros Velasangre",
+			["Mexican"] = "Bucaneros Velasangre",
         },
     },
     {
@@ -491,6 +528,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "蛮锤部族",
             ["German"] = "Wildhammerklan",
             ["Spanish"] = "Clan Martillo Salvaje",
+			["Mexican"] = "Clan Martillo Salvaje",
         },
     },
     {
@@ -504,6 +542,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "霜狼氏族",
             ["German"] = "Frostwolfklan",
             ["Spanish"] = "Clan Lobo Gélido",
+			["Mexican"] = "Clan Lobo Gélido",
         },
     },
     {
@@ -517,6 +556,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "雷矛卫队",
             ["German"] = "Stormpikegarde",
             ["Spanish"] = "Guardia de Pico Tormenta",
+			["Mexican"] = "Guardia de Pico Tormenta",
         },
     },
     {
@@ -530,6 +570,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "吉尔吉斯半人马",
             ["German"] = "Gelkisklan",
             ["Spanish"] = "Centauro del clan Gelkis",
+			["Mexican"] = "Centauro del clan Gelkis",
         },
     },
     {
@@ -543,6 +584,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "拉文霍德",
             ["German"] = "Ravenholdt",
             ["Spanish"] = "Ravenholdt",
+			["Mexican"] = "Ravenholdt",
         },
     },
     {
@@ -556,6 +598,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "玛格拉姆半人马",
             ["German"] = "Magramklan",
             ["Spanish"] = "Centauro del clan Magram",
+			["Mexican"] = "Centauro del clan Magram",
         },
     },
     {
@@ -569,6 +612,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "塞纳里奥议会",
             ["German"] = "Zirkel des Cenarius",
             ["Spanish"] = "Círculo Cenarion",
+			["Mexican"] = "Círculo Cenarion",
         },
     },
     {
@@ -582,6 +626,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "海达希亚水元素",
             ["German"] = "Hydraxianer",
             ["Spanish"] = "Señores del Agua de Hydraxis",
+			["Mexican"] = "Señores del Agua de Hydraxis",
         },
     },
     {
@@ -595,6 +640,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "加基森",
             ["German"] = "Gadgetzan",
             ["Spanish"] = "Gadgetzan",
+			["Mexican"] = "Gadgetzan",
         },
     },
     {
@@ -608,6 +654,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "断矛巨魔",
             ["German"] = "Shatterspear",
             ["Spanish"] = "Trols Rompelanzas",
+			["Mexican"] = "Trols Rompelanzas",
         },
     },
     {
@@ -621,6 +668,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "暴掠龙训练师",
             ["German"] = "Ravasaurusausbilder",
             ["Spanish"] = "Entrenadores de Ravasaurios",
+			["Mexican"] = "Entrenadores de Ravasaurios",
         },
     },
     {
@@ -634,6 +682,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "战歌氏族",
             ["German"] = "Warsongvorhut",
             ["Spanish"] = "Escolta Grito de Guerra",
+			["Mexican"] = "Escolta Grito de Guerra",
         },
     },
     {
@@ -647,6 +696,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "银翼要塞",
             ["German"] = "Schildwachen der Silverwing",
             ["Spanish"] = "Centinelas Ala de Plata",
+			["Mexican"] = "Centinelas Ala de Plata",
         },
     },
     {
@@ -660,6 +710,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "联盟部队",
             ["German"] = "Streitkräfte der Allianz",
             ["Spanish"] = "Fuerzas de la Alianza",
+			["Mexican"] = "Fuerzas de la Alianza",
         },
     },
     {
@@ -673,6 +724,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "部落军队",
             ["German"] = "Streitkräfte der Horde",
             ["Spanish"] = "Fuerzas de la Horda",
+			["Mexican"] = "Fuerzas de la Horda",
         },
     },
     {
@@ -686,6 +738,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "阿拉索联军",
             ["German"] = "Der Bund von Arathor",
             ["Spanish"] = "Liga de Arathor",
+			["Mexican"] = "Liga de Arathor",
         },
     },
     {
@@ -699,6 +752,7 @@ MTSL_DATA["factions"] = {
             ["Chinese"] = "污染者",
             ["German"] = "Die Entweihten",
             ["Spanish"] = "Los Rapiñadores",
+			["Mexican"] = "Los Rapiñadores",
         },
     },
 }

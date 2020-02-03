@@ -3,341 +3,345 @@
 --------------------------------------
 MTSL_DATA["Tailoring"]["items"] = {
 	{
-		["phase"] = 1,
-		["id"] = 2598,
+		["name"] = {
+			["German"] = "Muster: Rote Leinenrobe",
+			["Spanish"] = "Patrón: toga de lino rojo",
+			["Chinese"] = "图样：红色亚麻长袍",
+			["Korean"] = "도안: 붉은색 리넨 로브",
+			["French"] = "Patron : Robe rouge en lin",
+			["Portuguese"] = "Molde: Veste de Linho Vermelha",
+			["Mexican"] = "Patrón: toga de lino rojo",
+			["Russian"] = "Выкройка: красное льняное одеяние",
+			["English"] = "Pattern: Red Linen Robe",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 1,
 				["max_xp_level"] = 45,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: красное льняное одеяние",
-			["Portuguese"] = "Molde: Veste de Linho Vermelha",
-			["Chinese"] = "图样：红色亚麻长袍",
-			["Spanish"] = "Patrón: toga de lino rojo",
-			["French"] = "Patron : Robe rouge en lin",
-			["German"] = "Muster: Rote Leinenrobe",
-			["Korean"] = "도안: 붉은색 리넨 로브",
-			["English"] = "Pattern: Red Linen Robe",
-		},
+		["id"] = 2598,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [1]
 	{
-		["phase"] = 1,
-		["id"] = 2601,
+		["name"] = {
+			["German"] = "Muster: Graue Wollrobe",
+			["Spanish"] = "Patrón: toga de lana gris",
+			["Chinese"] = "图样：灰色毛纺长袍",
+			["Korean"] = "도안: 회색 양모 로브",
+			["French"] = "Patron : Robe grise en laine",
+			["Portuguese"] = "Molde: Veste de Lã Cinza",
+			["Mexican"] = "Patrón: toga de lana gris",
+			["Russian"] = "Выкройка: серое шерстяное одеяние",
+			["English"] = "Pattern: Gray Woolen Robe",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 37,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: серое шерстяное одеяние",
-			["Portuguese"] = "Molde: Veste de Lã Cinza",
-			["Chinese"] = "图样：灰色毛纺长袍",
-			["Spanish"] = "Patrón: toga de lana gris",
-			["French"] = "Patron : Robe grise en laine",
-			["German"] = "Muster: Graue Wollrobe",
-			["Korean"] = "도안: 회색 양모 로브",
-			["English"] = "Pattern: Gray Woolen Robe",
-		},
+		["id"] = 2601,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [2]
 	{
-		["phase"] = 1,
-		["id"] = 4292,
+		["name"] = {
+			["German"] = "Muster: Grüne Wolltasche",
+			["Spanish"] = "Patrón: bolsa de lana verde",
+			["Chinese"] = "图样：绿色毛纺包",
+			["Korean"] = "도안: 녹색 양모 가방",
+			["French"] = "Patron : Sac vert en laine",
+			["Portuguese"] = "Molde: Bolsa de Lã Verde",
+			["Mexican"] = "Patrón: bolsa de lana verde",
+			["Russian"] = "Выкройка: зеленая шерстяная сумка",
+			["English"] = "Pattern: Green Woolen Bag",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 37,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: зеленая шерстяная сумка",
-			["Portuguese"] = "Molde: Bolsa de Lã Verde",
-			["Chinese"] = "图样：绿色毛纺包",
-			["Spanish"] = "Patrón: bolsa de lana verde",
-			["French"] = "Patron : Sac vert en laine",
-			["German"] = "Muster: Grüne Wolltasche",
-			["Korean"] = "도안: 녹색 양모 가방",
-			["English"] = "Pattern: Green Woolen Bag",
-		},
+		["id"] = 4292,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [3]
 	{
-		["phase"] = 1,
-		["id"] = 4345,
+		["name"] = {
+			["German"] = "Muster: Rote Wollstiefel",
+			["Spanish"] = "Patrón: botas de lana roja",
+			["Chinese"] = "图样：红色毛纺靴",
+			["Korean"] = "도안: 붉은색 양모 장화",
+			["French"] = "Patron : Bottes rouges en laine",
+			["Portuguese"] = "Molde: Botas de Lã Vermelhas",
+			["Mexican"] = "Patrón: botas de lana roja",
+			["Russian"] = "Выкройка: красные шерстяные сапоги",
+			["English"] = "Pattern: Red Woolen Boots",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 9,
 				["max_xp_level"] = 37,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: красные шерстяные сапоги",
-			["Portuguese"] = "Molde: Botas de Lã Vermelhas",
-			["Chinese"] = "图样：红色毛纺靴",
-			["Spanish"] = "Patrón: botas de lana roja",
-			["French"] = "Patron : Bottes rouges en laine",
-			["German"] = "Muster: Rote Wollstiefel",
-			["Korean"] = "도안: 붉은색 양모 장화",
-			["English"] = "Pattern: Red Woolen Boots",
-		},
+		["id"] = 4345,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [4]
 	{
-		["phase"] = 1,
-		["id"] = 4346,
+		["name"] = {
+			["German"] = "Muster: Schwerer Wollumhang",
+			["Spanish"] = "Patrón: capa de lana pesada",
+			["Chinese"] = "图样：高级毛纺披风",
+			["Korean"] = "도안: 두꺼운 양모 망토",
+			["French"] = "Patron : Cape en laine épaisse",
+			["Portuguese"] = "Molde: Manto Pesado de Lã",
+			["Mexican"] = "Patrón: capa de lana gruesa",
+			["Russian"] = "Выкройка: тяжелый шерстяной плащ",
+			["English"] = "Pattern: Heavy Woolen Cloak",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 37,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: тяжелый шерстяной плащ",
-			["Portuguese"] = "Molde: Manto Pesado de Lã",
-			["Chinese"] = "图样：高级毛纺披风",
-			["Spanish"] = "Patrón: capa de lana pesada",
-			["French"] = "Patron : Cape en laine épaisse",
-			["German"] = "Muster: Schwerer Wollumhang",
-			["Korean"] = "도안: 두꺼운 양모 망토",
-			["English"] = "Pattern: Heavy Woolen Cloak",
-		},
+		["id"] = 4346,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [5]
 	{
-		["phase"] = 1,
-		["id"] = 4347,
+		["name"] = {
+			["German"] = "Muster: Verstärkte Wollschultern",
+			["Spanish"] = "Patrón: hombreras de lana reforzada",
+			["Chinese"] = "图样：强化毛纺护肩",
+			["Korean"] = "도안: 질긴 양모 어깨보호구",
+			["French"] = "Patron : Epaulières renforcées en laine",
+			["Portuguese"] = "Molde: Omoplatas Reforçadas de Linho",
+			["Mexican"] = "Patrón: sobrehombros de lana reforzada",
+			["Russian"] = "Выкройка: усиленные шерстяные наплечники",
+			["English"] = "Pattern: Reinforced Woolen Shoulders",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 37,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: усиленные шерстяные наплечники",
-			["Portuguese"] = "Molde: Omoplatas Reforçadas de Linho",
-			["Chinese"] = "图样：强化毛纺护肩",
-			["Spanish"] = "Patrón: hombreras de lana reforzada",
-			["French"] = "Patron : Epaulières renforcées en laine",
-			["German"] = "Muster: Verstärkte Wollschultern",
-			["Korean"] = "도안: 질긴 양모 어깨보호구",
-			["English"] = "Pattern: Reinforced Woolen Shoulders",
-		},
+		["id"] = 4347,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [6]
 	{
-		["phase"] = 1,
-		["id"] = 4348,
+		["name"] = {
+			["German"] = "Muster: Phönixhandschuhe",
+			["Spanish"] = "Patrón: guantes Fénix",
+			["Chinese"] = "图样：凤凰手套",
+			["Korean"] = "도안: 불사조 장갑",
+			["French"] = "Patron : Gants du phénix",
+			["Portuguese"] = "Molde: Luvas da Fênix",
+			["Mexican"] = "Patrón: guantes Fénix",
+			["Russian"] = "Выкройка: перчатки Феникса",
+			["English"] = "Pattern: Phoenix Gloves",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 9,
 				["max_xp_level"] = 37,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: перчатки Феникса",
-			["Portuguese"] = "Molde: Luvas da Fênix",
-			["Chinese"] = "图样：凤凰手套",
-			["Spanish"] = "Patrón: guantes Fénix",
-			["French"] = "Patron : Gants du phénix",
-			["German"] = "Muster: Phönixhandschuhe",
-			["Korean"] = "도안: 불사조 장갑",
-			["English"] = "Pattern: Phoenix Gloves",
-		},
+		["id"] = 4348,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [7]
 	{
-		["phase"] = 1,
-		["id"] = 4349,
+		["name"] = {
+			["German"] = "Muster: Phönixhose",
+			["Spanish"] = "Patrón: pantalones Fénix",
+			["Chinese"] = "图样：凤凰短裤",
+			["Korean"] = "도안: 불사조 바지",
+			["French"] = "Patron : Pantalon du phénix",
+			["Portuguese"] = "Molde: Calças da Fênix",
+			["Mexican"] = "Patrón: pantalones Fénix",
+			["Russian"] = "Выкройка: штаны Феникса",
+			["English"] = "Pattern: Phoenix Pants",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 37,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: штаны Феникса",
-			["Portuguese"] = "Molde: Calças da Fênix",
-			["Chinese"] = "图样：凤凰短裤",
-			["Spanish"] = "Patrón: pantalones Fénix",
-			["French"] = "Patron : Pantalon du phénix",
-			["German"] = "Muster: Phönixhose",
-			["Korean"] = "도안: 불사조 바지",
-			["English"] = "Pattern: Phoenix Pants",
-		},
+		["id"] = 4349,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [8]
 	{
-		["phase"] = 1,
-		["id"] = 4350,
+		["name"] = {
+			["German"] = "Muster: Spinnenseidenslipper",
+			["Spanish"] = "Patrón: zapatillas de seda de araña",
+			["Chinese"] = "图样：蛛丝便鞋",
+			["Korean"] = "도안: 거미줄 슬리퍼",
+			["French"] = "Patron : Mules en soie d'araignée",
+			["Portuguese"] = "Molde: Sapatilhas de Seda de Aranha",
+			["Mexican"] = "Patrón: zapatillas de seda de araña",
+			["Russian"] = "Выкройка: туфли из паутины",
+			["English"] = "Pattern: Spider Silk Slippers",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 60,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: туфли из паутины",
-			["Portuguese"] = "Molde: Sapatilhas de Seda de Aranha",
-			["Chinese"] = "图样：蛛丝便鞋",
-			["Spanish"] = "Patrón: zapatillas de seda de araña",
-			["French"] = "Patron : Mules en soie d'araignée",
-			["German"] = "Muster: Spinnenseidenslipper",
-			["Korean"] = "도안: 거미줄 슬리퍼",
-			["English"] = "Pattern: Spider Silk Slippers",
-		},
+		["id"] = 4350,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [9]
 	{
-		["phase"] = 1,
-		["id"] = 4351,
+		["name"] = {
+			["German"] = "Muster: Schattenkapuze",
+			["Spanish"] = "Patrón: caperuza de las Sombras",
+			["Chinese"] = "图样：暗影头巾",
+			["Korean"] = "도안: 그림자 두건",
+			["French"] = "Patron : Chaperon des ombres",
+			["Portuguese"] = "Molde: Capuz das Sombras",
+			["Mexican"] = "Patrón: caperuza de las Sombras",
+			["Russian"] = "Выкройка: теневой капюшон",
+			["English"] = "Pattern: Shadow Hood",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 40,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: теневой капюшон",
-			["Portuguese"] = "Molde: Capuz das Sombras",
-			["Chinese"] = "图样：暗影头巾",
-			["Spanish"] = "Patrón: caperuza de las Sombras",
-			["French"] = "Patron : Chaperon des ombres",
-			["German"] = "Muster: Schattenkapuze",
-			["Korean"] = "도안: 그림자 두건",
-			["English"] = "Pattern: Shadow Hood",
-		},
+		["id"] = 4351,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [10]
 	{
-		["phase"] = 1,
-		["id"] = 4352,
+		["name"] = {
+			["German"] = "Muster: Stiefel des Verzauberers",
+			["Spanish"] = "Patrón: botas del Encantador",
+			["Chinese"] = "图样：附魔师长靴",
+			["Korean"] = "도안: 마술사의 장화",
+			["French"] = "Patron : Bottes de l'enchanteur",
+			["Portuguese"] = "Molde: Botas do Encantador",
+			["Mexican"] = "Patrón: botas del encantador",
+			["Russian"] = "Выкройка: сапоги Заклинателя",
+			["English"] = "Pattern: Boots of the Enchanter",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 60,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: сапоги Заклинателя",
-			["Portuguese"] = "Molde: Botas do Encantador",
-			["Chinese"] = "图样：附魔师长靴",
-			["Spanish"] = "Patrón: botas del Encantador",
-			["French"] = "Patron : Bottes de l'enchanteur",
-			["German"] = "Muster: Stiefel des Verzauberers",
-			["Korean"] = "도안: 마술사의 장화",
-			["English"] = "Pattern: Boots of the Enchanter",
-		},
+		["id"] = 4352,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [11]
 	{
-		["phase"] = 1,
-		["id"] = 4353,
+		["name"] = {
+			["German"] = "Muster: Spinnengürtel",
+			["Spanish"] = "Patrón: cinturón de araña",
+			["Chinese"] = "图样：蜘蛛腰带",
+			["Korean"] = "도안: 거미줄 허리띠",
+			["French"] = "Patron : Ceinture de l'araignée",
+			["Portuguese"] = "Molde: Cinto da Aranha",
+			["Mexican"] = "Patrón: cinturón de araña",
+			["Russian"] = "Выкройка: паучий пояс",
+			["English"] = "Pattern: Spider Belt",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 47,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: паучий пояс",
-			["Portuguese"] = "Molde: Cinto da Aranha",
-			["Chinese"] = "图样：蜘蛛腰带",
-			["Spanish"] = "Patrón: cinturón de araña",
-			["French"] = "Patron : Ceinture de l'araignée",
-			["German"] = "Muster: Spinnengürtel",
-			["Korean"] = "도안: 거미줄 허리띠",
-			["English"] = "Pattern: Spider Belt",
-		},
+		["id"] = 4353,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [12]
 	{
-		["phase"] = 1,
-		["id"] = 4354,
+		["name"] = {
+			["German"] = "Muster: Dunkellilanes Seidenhemd",
+			["Spanish"] = "Patrón: camisa de seda morada viva",
+			["Chinese"] = "图样：紫色丝质衬衣",
+			["Korean"] = "도안: 진보라색 비단 셔츠",
+			["French"] = "Patron : Riche chemise violette en soie",
+			["Portuguese"] = "Molde: Camisa Luxuosa de Seda Roxa",
+			["Mexican"] = "Patrón: camisa de seda morada viva",
+			["Russian"] = "Выкройка: роскошная лиловая шелковая рубашка",
+			["English"] = "Pattern: Rich Purple Silk Shirt",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 31,
 				["max_xp_level"] = 45,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: роскошная лиловая шелковая рубашка",
-			["Portuguese"] = "Molde: Camisa Luxuosa de Seda Roxa",
-			["Chinese"] = "图样：紫色丝质衬衣",
-			["Spanish"] = "Patrón: camisa de seda morada viva",
-			["French"] = "Patron : Riche chemise violette en soie",
-			["German"] = "Muster: Dunkellilanes Seidenhemd",
-			["Korean"] = "도안: 진보라색 비단 셔츠",
-			["English"] = "Pattern: Rich Purple Silk Shirt",
-		},
+		["id"] = 4354,
+		["phase"] = 1,
 		["quality"] = "rare",
 	}, -- [13]
 	{
 		["vendors"] = {
+			["price"] = 1500,
 			["sources"] = {
 				2381, -- [1]
 				6567, -- [2]
 			},
-			["price"] = 1500,
 		},
-		["id"] = 4355,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: ледяной плащ",
-			["Portuguese"] = "Molde: Manto Gelado",
-			["Chinese"] = "图样：冰覆披风",
-			["Spanish"] = "Patrón: capa helada",
-			["French"] = "Patron : Cape glaciale",
 			["German"] = "Muster: Eisiger Umhang",
+			["Spanish"] = "Patrón: capa helada",
+			["Chinese"] = "图样：冰覆披风",
 			["Korean"] = "도안: 얼음 망토",
+			["French"] = "Patron : Cape glaciale",
+			["Portuguese"] = "Molde: Manto Gelado",
+			["Mexican"] = "Patrón: capa helada",
+			["Russian"] = "Выкройка: ледяной плащ",
 			["English"] = "Pattern: Icy Cloak",
 		},
+		["id"] = 4355,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [14]
 	{
-		["phase"] = 1,
-		["id"] = 4356,
+		["name"] = {
+			["German"] = "Muster: Sternengürtel",
+			["Spanish"] = "Patrón: cinturón de estrella",
+			["Chinese"] = "图样：星辰腰带",
+			["Korean"] = "도안: 별장식 허리띠",
+			["French"] = "Patron : Ceinture de l'étoile",
+			["Portuguese"] = "Molde: Cinto das Estrelas",
+			["Mexican"] = "Patrón: cinturón de estrella",
+			["Russian"] = "Выкройка: звездный пояс",
+			["English"] = "Pattern: Star Belt",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 33,
 				["max_xp_level"] = 45,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: звездный пояс",
-			["Portuguese"] = "Molde: Cinto das Estrelas",
-			["Chinese"] = "图样：星辰腰带",
-			["Spanish"] = "Patrón: cinturón de estrella",
-			["French"] = "Patron : Ceinture de l'étoile",
-			["German"] = "Muster: Sternengürtel",
-			["Korean"] = "도안: 별장식 허리띠",
-			["English"] = "Pattern: Star Belt",
-		},
+		["id"] = 4356,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [15]
 	{
 		["vendors"] = {
+			["price"] = 200,
 			["sources"] = {
 				843, -- [1]
 				3005, -- [2]
 				3556, -- [3]
 				4189, -- [4]
 			},
-			["price"] = 200,
-		},
-		["id"] = 5771,
-		["name"] = {
-			["Russian"] = "Выкройка: красная льняная сумка",
-			["Portuguese"] = "Molde: Bolsa de Linho Vermelha",
-			["Chinese"] = "图样：红色亚麻包",
-			["Spanish"] = "Patrón: bolsa de lino rojo",
-			["French"] = "Patron : Sac rouge en lin",
-			["German"] = "Muster: Rote Leinentasche",
-			["Korean"] = "도안: 빨간 리넨 가방",
-			["English"] = "Pattern: Red Linen Bag",
 		},
 		["drops"] = {
 			["mobs"] = {
@@ -346,11 +350,24 @@ MTSL_DATA["Tailoring"]["items"] = {
 				3531, -- [3]
 			},
 		},
-		["quality"] = "common",
 		["phase"] = 1,
+		["id"] = 5771,
+		["name"] = {
+			["German"] = "Muster: Rote Leinentasche",
+			["Spanish"] = "Patrón: bolsa de lino rojo",
+			["Chinese"] = "图样：红色亚麻包",
+			["Korean"] = "도안: 빨간 리넨 가방",
+			["French"] = "Patron : Sac rouge en lin",
+			["Portuguese"] = "Molde: Bolsa de Linho Vermelha",
+			["Mexican"] = "Patrón: bolsa de lino roja",
+			["Russian"] = "Выкройка: красная льняная сумка",
+			["English"] = "Pattern: Red Linen Bag",
+		},
+		["quality"] = "common",
 	}, -- [16]
 	{
 		["vendors"] = {
+			["price"] = 500,
 			["sources"] = {
 				777, -- [1]
 				1454, -- [2]
@@ -364,18 +381,6 @@ MTSL_DATA["Tailoring"]["items"] = {
 				4577, -- [10]
 				5944, -- [11]
 			},
-			["price"] = 500,
-		},
-		["id"] = 5772,
-		["name"] = {
-			["Russian"] = "Выкройка: красная шерстяная сумка",
-			["Portuguese"] = "Molde: Bolsa de Lã Vermelha",
-			["Chinese"] = "图样：红色毛纺包",
-			["Spanish"] = "Patrón: bolsa de lana roja",
-			["French"] = "Patron : Sac rouge en laine",
-			["German"] = "Muster: Rote Wolltasche",
-			["Korean"] = "도안: 붉은색 양모 자루",
-			["English"] = "Pattern: Red Woolen Bag",
 		},
 		["drops"] = {
 			["mobs"] = {
@@ -383,54 +388,77 @@ MTSL_DATA["Tailoring"]["items"] = {
 				2264, -- [2]
 			},
 		},
-		["quality"] = "common",
 		["phase"] = 1,
+		["id"] = 5772,
+		["name"] = {
+			["German"] = "Muster: Rote Wolltasche",
+			["Spanish"] = "Patrón: bolsa de lana roja",
+			["Chinese"] = "图样：红色毛纺包",
+			["Korean"] = "도안: 붉은색 양모 자루",
+			["French"] = "Patron : Sac rouge en laine",
+			["Portuguese"] = "Molde: Bolsa de Lã Vermelha",
+			["Mexican"] = "Patrón: bolsa de lana roja",
+			["Russian"] = "Выкройка: красная шерстяная сумка",
+			["English"] = "Pattern: Red Woolen Bag",
+		},
+		["quality"] = "common",
 	}, -- [17]
 	{
-		["phase"] = 1,
-		["id"] = 5773,
+		["name"] = {
+			["German"] = "Muster: Roben von Arcana",
+			["Spanish"] = "Patrón: togas de Arcana",
+			["Chinese"] = "图样：奥法之袍",
+			["Korean"] = "도안: 아카나의 로브",
+			["French"] = "Patron : Robe d'Arcana",
+			["Portuguese"] = "Molde: Vestes de Arcana",
+			["Mexican"] = "Patrón: togas de Arcana",
+			["Russian"] = "Выкройка: одеяния Тайны",
+			["English"] = "Pattern: Robes of Arcana",
+		},
 		["drops"] = {
 			["mobs"] = {
 				910, -- [1]
 				2337, -- [2]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: одеяния Тайны",
-			["Portuguese"] = "Molde: Vestes de Arcana",
-			["Chinese"] = "图样：奥法之袍",
-			["Spanish"] = "Patrón: togas de Arcana",
-			["French"] = "Patron : Robe d'Arcana",
-			["German"] = "Muster: Roben von Arcana",
-			["Korean"] = "도안: 아카나의 로브",
-			["English"] = "Pattern: Robes of Arcana",
-		},
+		["id"] = 5773,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [18]
 	{
-		["phase"] = 1,
-		["id"] = 5774,
+		["name"] = {
+			["German"] = "Muster: Grünes Seidenpack",
+			["Spanish"] = "Patrón: talega de seda verde",
+			["Chinese"] = "图样：绿色丝质包",
+			["Korean"] = "도안: 녹색 비단 배낭",
+			["French"] = "Patron : Sac vert en soie",
+			["Portuguese"] = "Molde: Mochila de Seda Verde",
+			["Mexican"] = "Patrón: talega de seda verde",
+			["Russian"] = "Выкройка: зеленая шелковая сума",
+			["English"] = "Pattern: Green Silk Pack",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 59,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: зеленая шелковая сума",
-			["Portuguese"] = "Molde: Mochila de Seda Verde",
-			["Chinese"] = "图样：绿色丝质包",
-			["Spanish"] = "Patrón: talega de seda verde",
-			["French"] = "Patron : Sac vert en soie",
-			["German"] = "Muster: Grünes Seidenpack",
-			["Korean"] = "도안: 녹색 비단 배낭",
-			["English"] = "Pattern: Green Silk Pack",
-		},
+		["id"] = 5774,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [19]
 	{
-		["phase"] = 1,
-		["id"] = 5775,
+		["name"] = {
+			["German"] = "Muster: Schwarzes Seidenpack",
+			["Spanish"] = "Patrón: talega de seda negra",
+			["Chinese"] = "图样：黑色丝质背包",
+			["Korean"] = "도안: 검은색 비단 배낭",
+			["French"] = "Patron : Sac noir en soie",
+			["Portuguese"] = "Molde: Mochila de Seda Preta",
+			["Mexican"] = "Patrón: talega de seda negra",
+			["Russian"] = "Выкройка: черная шелковая сума",
+			["English"] = "Pattern: Black Silk Pack",
+		},
 		["drops"] = {
 			["mobs"] = {
 				2242, -- [1]
@@ -438,65 +466,60 @@ MTSL_DATA["Tailoring"]["items"] = {
 				4834, -- [3]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: черная шелковая сума",
-			["Portuguese"] = "Molde: Mochila de Seda Preta",
-			["Chinese"] = "图样：黑色丝质背包",
-			["Spanish"] = "Patrón: talega de seda negra",
-			["French"] = "Patron : Sac noir en soie",
-			["German"] = "Muster: Schwarzes Seidenpack",
-			["Korean"] = "도안: 검은색 비단 배낭",
-			["English"] = "Pattern: Black Silk Pack",
-		},
+		["id"] = 5775,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [20]
 	{
 		["vendors"] = {
+			["price"] = 200,
 			["sources"] = {
 				66, -- [1]
 				3364, -- [2]
 				3522, -- [3]
 				4189, -- [4]
 			},
-			["price"] = 200,
 		},
-		["id"] = 6270,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: синий льняной жилет",
-			["Portuguese"] = "Molde: Colete de Linho Azul",
-			["Chinese"] = "图样：蓝色亚麻外衣",
-			["Spanish"] = "Patrón: jubón de lino azul",
-			["French"] = "Patron : Gilet bleu en lin",
 			["German"] = "Muster: Blaue Leinenweste",
+			["Spanish"] = "Patrón: jubón de lino azul",
+			["Chinese"] = "图样：蓝色亚麻外衣",
 			["Korean"] = "도안: 파란색 리넨 조끼",
+			["French"] = "Patron : Gilet bleu en lin",
+			["Portuguese"] = "Molde: Colete de Linho Azul",
+			["Mexican"] = "Patrón: jubón de lino azul",
+			["Russian"] = "Выкройка: синий льняной жилет",
 			["English"] = "Pattern: Blue Linen Vest",
 		},
+		["id"] = 6270,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [21]
 	{
-		["phase"] = 1,
-		["id"] = 6271,
+		["name"] = {
+			["German"] = "Muster: Rote Leinenweste",
+			["Spanish"] = "Patrón: jubón de lino rojo",
+			["Chinese"] = "图样：红色亚麻外衣",
+			["Korean"] = "도안: 붉은색 리넨 조끼",
+			["French"] = "Patron : Gilet rouge en lin",
+			["Portuguese"] = "Molde: Colete de Linho Vermelho",
+			["Mexican"] = "Patrón: jubón de lino rojo",
+			["Russian"] = "Выкройка: красный льняной жилет",
+			["English"] = "Pattern: Red Linen Vest",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 1,
 				["max_xp_level"] = 22,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: красный льняной жилет",
-			["Portuguese"] = "Molde: Colete de Linho Vermelho",
-			["Chinese"] = "图样：红色亚麻外衣",
-			["Spanish"] = "Patrón: jubón de lino rojo",
-			["French"] = "Patron : Gilet rouge en lin",
-			["German"] = "Muster: Rote Leinenweste",
-			["Korean"] = "도안: 붉은색 리넨 조끼",
-			["English"] = "Pattern: Red Linen Vest",
-		},
+		["id"] = 6271,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [22]
 	{
 		["vendors"] = {
+			["price"] = 300,
 			["sources"] = {
 				1250, -- [1]
 				3485, -- [2]
@@ -504,48 +527,50 @@ MTSL_DATA["Tailoring"]["items"] = {
 				3556, -- [4]
 				4168, -- [5]
 			},
-			["price"] = 300,
 		},
-		["id"] = 6272,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: синее льняное одеяние",
-			["Portuguese"] = "Molde: Veste de Linho Azul",
-			["Chinese"] = "图样：蓝色亚麻长袍",
-			["Spanish"] = "Patrón: toga de lino azul",
-			["French"] = "Patron : Robe bleue en lin",
 			["German"] = "Muster: Blaue Leinenrobe",
+			["Spanish"] = "Patrón: toga de lino azul",
+			["Chinese"] = "图样：蓝色亚麻长袍",
 			["Korean"] = "도안: 파란색 리넨 로브",
+			["French"] = "Patron : Robe bleue en lin",
+			["Portuguese"] = "Molde: Veste de Linho Azul",
+			["Mexican"] = "Patrón: toga de lino azul",
+			["Russian"] = "Выкройка: синее льняное одеяние",
 			["English"] = "Pattern: Blue Linen Robe",
 		},
+		["id"] = 6272,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [23]
 	{
 		["vendors"] = {
+			["price"] = 400,
 			["sources"] = {
 				843, -- [1]
 				1347, -- [2]
 				2394, -- [3]
 				3364, -- [4]
 			},
-			["price"] = 400,
 		},
-		["id"] = 6274,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: синий комбинезон",
-			["Portuguese"] = "Molde: Jardineira Azul",
-			["Chinese"] = "图样：蓝色罩衫",
-			["Spanish"] = "Patrón: mono azul",
-			["French"] = "Patron : Salopette bleue",
 			["German"] = "Muster: Blauer Overall",
+			["Spanish"] = "Patrón: mono azul",
+			["Chinese"] = "图样：蓝色罩衫",
 			["Korean"] = "도안: 파란색 작업복",
+			["French"] = "Patron : Salopette bleue",
+			["Portuguese"] = "Molde: Jardineira Azul",
+			["Mexican"] = "Patrón: mono azul",
+			["Russian"] = "Выкройка: синий комбинезон",
 			["English"] = "Pattern: Blue Overalls",
 		},
+		["id"] = 6274,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [24]
 	{
 		["vendors"] = {
+			["price"] = 800,
 			["sources"] = {
 				1454, -- [1]
 				1474, -- [2]
@@ -553,1712 +578,1831 @@ MTSL_DATA["Tailoring"]["items"] = {
 				4168, -- [4]
 				4577, -- [5]
 			},
-			["price"] = 800,
 		},
-		["id"] = 6275,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: большее одеяние Адепта",
-			["Portuguese"] = "Molde: Veste do Grandioso Adepto",
-			["Chinese"] = "图样：大师长袍",
-			["Spanish"] = "Patrón: toga de fiel superior",
-			["French"] = "Patron : Robe d'adepte supérieur",
 			["German"] = "Muster: Große Adeptenrobe",
+			["Spanish"] = "Patrón: toga de fiel superior",
+			["Chinese"] = "图样：大师长袍",
 			["Korean"] = "도안: 상급사제용 로브",
+			["French"] = "Patron : Robe d'adepte supérieur",
+			["Portuguese"] = "Molde: Veste do Grandioso Adepto",
+			["Mexican"] = "Patrón: toga de adepto superior",
+			["Russian"] = "Выкройка: большее одеяние Адепта",
 			["English"] = "Pattern: Greater Adept's Robe",
 		},
+		["id"] = 6275,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [25]
 	{
-		["phase"] = 1,
-		["id"] = 6390,
+		["name"] = {
+			["German"] = "Muster: Modisches blaues Hemd",
+			["Spanish"] = "Patrón: camisa azul con estilo",
+			["Chinese"] = "图样：漂亮的蓝衬衣",
+			["Korean"] = "도안: 세련된 파란색 셔츠",
+			["French"] = "Patron : Chemise bleue d'apparat",
+			["Portuguese"] = "Molde: Camisa Azul Estilosa",
+			["Mexican"] = "Patrón: camisa azul con estilo",
+			["Russian"] = "Выкройка: стильная синяя рубашка",
+			["English"] = "Pattern: Stylish Blue Shirt",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 37,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: стильная синяя рубашка",
-			["Portuguese"] = "Molde: Camisa Azul Estilosa",
-			["Chinese"] = "图样：漂亮的蓝衬衣",
-			["Spanish"] = "Patrón: camisa azul con estilo",
-			["French"] = "Patron : Chemise bleue d'apparat",
-			["German"] = "Muster: Modisches blaues Hemd",
-			["Korean"] = "도안: 세련된 파란색 셔츠",
-			["English"] = "Pattern: Stylish Blue Shirt",
-		},
+		["id"] = 6390,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [26]
 	{
-		["phase"] = 1,
-		["id"] = 6391,
+		["name"] = {
+			["German"] = "Muster: Modisches grünes Hemd",
+			["Spanish"] = "Patrón: camisa verde con estilo",
+			["Chinese"] = "图样：漂亮的绿衬衣",
+			["Korean"] = "도안: 세련된 녹색 셔츠",
+			["French"] = "Patron : Chemise verte d'apparat",
+			["Portuguese"] = "Molde: Camisa Verde Estilosa",
+			["Mexican"] = "Patrón: camisa verde con estilo",
+			["Russian"] = "Выкройка: стильная зеленая рубашка",
+			["English"] = "Pattern: Stylish Green Shirt",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 37,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: стильная зеленая рубашка",
-			["Portuguese"] = "Molde: Camisa Verde Estilosa",
-			["Chinese"] = "图样：漂亮的绿衬衣",
-			["Spanish"] = "Patrón: camisa verde con estilo",
-			["French"] = "Patron : Chemise verte d'apparat",
-			["German"] = "Muster: Modisches grünes Hemd",
-			["Korean"] = "도안: 세련된 녹색 셔츠",
-			["English"] = "Pattern: Stylish Green Shirt",
-		},
+		["id"] = 6391,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [27]
 	{
 		["vendors"] = {
+			["price"] = 1100,
 			["sources"] = {
 				2394, -- [1]
 				2669, -- [2]
 				12246, -- [3]
 			},
-			["price"] = 1100,
 		},
-		["id"] = 6401,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: темная шелковая рубашка",
-			["Portuguese"] = "Molde: Camisa de Seda Preta",
-			["Chinese"] = "图样：黑丝衬衣",
-			["Spanish"] = "Patrón: camisa de seda oscura",
-			["French"] = "Patron : Chemise noire en soie",
 			["German"] = "Muster: Dunkles Seidenhemd",
+			["Spanish"] = "Patrón: camisa de seda oscura",
+			["Chinese"] = "图样：黑丝衬衣",
 			["Korean"] = "도안: 암색 비단 셔츠",
+			["French"] = "Patron : Chemise noire en soie",
+			["Portuguese"] = "Molde: Camisa de Seda Preta",
+			["Mexican"] = "Patrón: camisa de seda oscura",
+			["Russian"] = "Выкройка: темная шелковая рубашка",
 			["English"] = "Pattern: Dark Silk Shirt",
 		},
+		["id"] = 6401,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [28]
 	{
-		["phase"] = 1,
-		["id"] = 7084,
+		["name"] = {
+			["German"] = "Muster: Purpurrote Seidenschultern",
+			["Spanish"] = "Patrón: hombreras de seda carmesí",
+			["Chinese"] = "图样：深红丝质护肩",
+			["Korean"] = "도안: 심홍색 비단 어깨보호구",
+			["French"] = "Patron : Epaulières cramoisies en soie",
+			["Portuguese"] = "Molde: Omoplatas de Seda Carmesim",
+			["Mexican"] = "Patrón: sobrehombros de seda carmesíes",
+			["Russian"] = "Выкройка: багровые шелковые наплечники",
+			["English"] = "Pattern: Crimson Silk Shoulders",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 59,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: багровые шелковые наплечники",
-			["Portuguese"] = "Molde: Omoplatas de Seda Carmesim",
-			["Chinese"] = "图样：深红丝质护肩",
-			["Spanish"] = "Patrón: hombreras de seda carmesí",
-			["French"] = "Patron : Epaulières cramoisies en soie",
-			["German"] = "Muster: Purpurrote Seidenschultern",
-			["Korean"] = "도안: 심홍색 비단 어깨보호구",
-			["English"] = "Pattern: Crimson Silk Shoulders",
-		},
+		["id"] = 7084,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [29]
 	{
-		["phase"] = 1,
-		["id"] = 7085,
+		["name"] = {
+			["German"] = "Muster: Azurblaue Schultern",
+			["Spanish"] = "Patrón: hombreras azur",
+			["Chinese"] = "图样：碧蓝护肩",
+			["Korean"] = "도안: 감청색 어깨보호구",
+			["French"] = "Patron : Epaulières d'azur",
+			["Portuguese"] = "Molde: Omoplatas Lazúli",
+			["Mexican"] = "Patrón: sobrehombros azur",
+			["Russian"] = "Выкройка: лазурные наплечники",
+			["English"] = "Pattern: Azure Shoulders",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 47,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: лазурные наплечники",
-			["Portuguese"] = "Molde: Omoplatas Lazúli",
-			["Chinese"] = "图样：碧蓝护肩",
-			["Spanish"] = "Patrón: hombreras azur",
-			["French"] = "Patron : Epaulières d'azur",
-			["German"] = "Muster: Azurblaue Schultern",
-			["Korean"] = "도안: 감청색 어깨보호구",
-			["English"] = "Pattern: Azure Shoulders",
-		},
+		["id"] = 7085,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [30]
 	{
-		["phase"] = 1,
-		["id"] = 7086,
+		["name"] = {
+			["German"] = "Muster: Irdener Seidengürtel",
+			["Spanish"] = "Patrón: cinturón de seda terránea",
+			["Chinese"] = "图样：土灵丝质腰带",
+			["Korean"] = "도안: 대지의 비단 허리띠",
+			["French"] = "Patron : Ceinture terrestre en soie",
+			["Portuguese"] = "Molde: Cinto de Seda Terrano",
+			["Mexican"] = "Patrón: cinturón de seda terránea",
+			["Russian"] = "Выкройка: шелковый пояс Земли",
+			["English"] = "Pattern: Earthen Silk Belt",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 47,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: шелковый пояс Земли",
-			["Portuguese"] = "Molde: Cinto de Seda Terrano",
-			["Chinese"] = "图样：土灵丝质腰带",
-			["Spanish"] = "Patrón: cinturón de seda terránea",
-			["French"] = "Patron : Ceinture terrestre en soie",
-			["German"] = "Muster: Irdener Seidengürtel",
-			["Korean"] = "도안: 대지의 비단 허리띠",
-			["English"] = "Pattern: Earthen Silk Belt",
-		},
+		["id"] = 7086,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [31]
 	{
 		["vendors"] = {
+			["price"] = 1200,
 			["sources"] = {
 				2670, -- [1]
 				12246, -- [2]
 			},
-			["price"] = 1200,
 		},
-		["id"] = 7087,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: багровый шелковый плащ",
-			["Portuguese"] = "Molde: Manto de Seda Carmesim",
-			["Chinese"] = "图样：深红丝质披风",
-			["Spanish"] = "Patrón: capa de seda carmesí",
-			["French"] = "Patron : Cape cramoisie en soie",
 			["German"] = "Muster: Purpurroter Seidenumhang",
+			["Spanish"] = "Patrón: capa de seda carmesí",
+			["Chinese"] = "图样：深红丝质披风",
 			["Korean"] = "도안: 심홍색 비단 망토",
+			["French"] = "Patron : Cape cramoisie en soie",
+			["Portuguese"] = "Molde: Manto de Seda Carmesim",
+			["Mexican"] = "Patrón: capa de seda carmesí",
+			["Russian"] = "Выкройка: багровый шелковый плащ",
 			["English"] = "Pattern: Crimson Silk Cloak",
 		},
+		["id"] = 7087,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [32]
 	{
 		["vendors"] = {
+			["price"] = 5000,
 			["sources"] = {
 				6568, -- [1]
 			},
-			["price"] = 5000,
 		},
-		["id"] = 7088,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: багровое шелковое одеяние",
-			["Portuguese"] = "Molde: Veste de Seda Carmesim",
-			["Chinese"] = "图样：深红丝质长袍",
-			["Spanish"] = "Patrón: toga de seda carmesí",
-			["French"] = "Patron : Robe cramoisie en soie",
 			["German"] = "Muster: Purpurrote Seidenrobe",
+			["Spanish"] = "Patrón: toga de seda carmesí",
+			["Chinese"] = "图样：深红丝质长袍",
 			["Korean"] = "도안: 심홍색 비단 로브",
+			["French"] = "Patron : Robe cramoisie en soie",
+			["Portuguese"] = "Molde: Veste de Seda Carmesim",
+			["Mexican"] = "Patrón: toga de seda carmesí",
+			["Russian"] = "Выкройка: багровое шелковое одеяние",
 			["English"] = "Pattern: Crimson Silk Robe",
 		},
+		["id"] = 7088,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [33]
 	{
 		["vendors"] = {
+			["price"] = 1500,
 			["sources"] = {
 				6574, -- [1]
 				6576, -- [2]
 			},
-			["price"] = 1500,
 		},
-		["id"] = 7089,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: лазурный шелковый плащ",
-			["Portuguese"] = "Molde: Manto de Seda Lazúli",
-			["Chinese"] = "图样：碧蓝丝质披风",
-			["Spanish"] = "Patrón: capa de seda azur",
-			["French"] = "Patron : Cape azur en soie",
 			["German"] = "Muster: Azurblauer Seidenumhang",
+			["Spanish"] = "Patrón: capa de seda azur",
+			["Chinese"] = "图样：碧蓝丝质披风",
 			["Korean"] = "도안: 감청색 비단 망토",
+			["French"] = "Patron : Cape azur en soie",
+			["Portuguese"] = "Molde: Manto de Seda Lazúli",
+			["Mexican"] = "Patrón: capa de seda azur",
+			["Russian"] = "Выкройка: лазурный шелковый плащ",
 			["English"] = "Pattern: Azure Silk Cloak",
 		},
+		["id"] = 7089,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [34]
 	{
-		["phase"] = 1,
-		["id"] = 7090,
+		["name"] = {
+			["German"] = "Muster: Grüne Seidenrüstung",
+			["Spanish"] = "Patrón: armadura de seda verde",
+			["Chinese"] = "图样：绿色丝甲",
+			["Korean"] = "도안: 녹색 비단 갑옷",
+			["French"] = "Patron : Armure verte en soie",
+			["Portuguese"] = "Molde: Armadura de Seda Verde",
+			["Mexican"] = "Patrón: armadura de seda verde",
+			["Russian"] = "Выкройка: зеленая шелковая броня",
+			["English"] = "Pattern: Green Silk Armor",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 41,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: зеленая шелковая броня",
-			["Portuguese"] = "Molde: Armadura de Seda Verde",
-			["Chinese"] = "图样：绿色丝甲",
-			["Spanish"] = "Patrón: armadura de seda verde",
-			["French"] = "Patron : Armure verte en soie",
-			["German"] = "Muster: Grüne Seidenrüstung",
-			["Korean"] = "도안: 녹색 비단 갑옷",
-			["English"] = "Pattern: Green Silk Armor",
-		},
+		["id"] = 7090,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [35]
 	{
-		["phase"] = 1,
-		["id"] = 7091,
+		["name"] = {
+			["German"] = "Muster: Handschuhe des wahren Glaubens",
+			["Spanish"] = "Patrón: guantes de fe verdadera",
+			["Chinese"] = "图样：信念手套",
+			["Korean"] = "도안: 신앙의 장갑",
+			["French"] = "Patron : Gants de vraie foi",
+			["Portuguese"] = "Molde: Luvas da Fé Verdadeira",
+			["Mexican"] = "Patrón: guantes de fe verdadera",
+			["Russian"] = "Выкройка: перчатки истинной веры",
+			["English"] = "Pattern: Truefaith Gloves",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 37,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: перчатки истинной веры",
-			["Portuguese"] = "Molde: Luvas da Fé Verdadeira",
-			["Chinese"] = "图样：信念手套",
-			["Spanish"] = "Patrón: guantes de fe verdadera",
-			["French"] = "Patron : Gants de vraie foi",
-			["German"] = "Muster: Handschuhe des wahren Glaubens",
-			["Korean"] = "도안: 신앙의 장갑",
-			["English"] = "Pattern: Truefaith Gloves",
-		},
+		["id"] = 7091,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [36]
 	{
-		["phase"] = 1,
-		["id"] = 7092,
+		["name"] = {
+			["German"] = "Muster: Hände der Dunkelheit",
+			["Spanish"] = "Patrón: manos de Oscuridad",
+			["Chinese"] = "图样：黑暗之手",
+			["Korean"] = "도안: 암흑의 장갑",
+			["French"] = "Patron : Mains des ténèbres",
+			["Portuguese"] = "Molde: Mãos das Trevas",
+			["Mexican"] = "Patrón: manos de oscuridad",
+			["Russian"] = "Выкройка: краги Тьмы",
+			["English"] = "Pattern: Hands of Darkness",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 37,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: краги Тьмы",
-			["Portuguese"] = "Molde: Mãos das Trevas",
-			["Chinese"] = "图样：黑暗之手",
-			["Spanish"] = "Patrón: manos de Oscuridad",
-			["French"] = "Patron : Mains des ténèbres",
-			["German"] = "Muster: Hände der Dunkelheit",
-			["Korean"] = "도안: 암흑의 장갑",
-			["English"] = "Pattern: Hands of Darkness",
-		},
+		["id"] = 7092,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [37]
 	{
 		["vendors"] = {
+			["price"] = 1000,
 			["sources"] = {
 				2679, -- [1]
 				9636, -- [2]
 			},
-			["price"] = 1000,
 		},
-		["id"] = 7114,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: лазурные шелковые перчатки",
-			["Portuguese"] = "Molde: Luvas de Seda Lazúli",
-			["Chinese"] = "图样：碧蓝丝质手套",
-			["Spanish"] = "Patrón: guantes de seda azur",
-			["French"] = "Patron : Gants azur en soie",
 			["German"] = "Muster: Azurblaue Seidenhandschuhe",
+			["Spanish"] = "Patrón: guantes de seda azur",
+			["Chinese"] = "图样：碧蓝丝质手套",
 			["Korean"] = "도안: 감청색 비단 장갑",
+			["French"] = "Patron : Gants azur en soie",
+			["Portuguese"] = "Molde: Luvas de Seda Lazúli",
+			["Mexican"] = "Patrón: guantes de seda azur",
+			["Russian"] = "Выкройка: лазурные шелковые перчатки",
 			["English"] = "Pattern: Azure Silk Gloves",
 		},
+		["id"] = 7114,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [38]
 	{
-		["phase"] = 1,
-		["id"] = 10300,
+		["name"] = {
+			["German"] = "Muster: Rote Magiestoffweste",
+			["Spanish"] = "Patrón: jubón de paño mágico rojo",
+			["Chinese"] = "图样：红色魔纹外衣",
+			["Korean"] = "도안: 붉은 마법매듭 조끼",
+			["French"] = "Patron : Gilet rouge en tisse-mage",
+			["Portuguese"] = "Molde: Colete de Magitrama Vermelho",
+			["Mexican"] = "Patrón: jubón de tejido mágico rojo",
+			["Russian"] = "Выкройка: красный жилет из магической ткани",
+			["English"] = "Pattern: Red Mageweave Vest",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 53,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: красный жилет из магической ткани",
-			["Portuguese"] = "Molde: Colete de Magitrama Vermelho",
-			["Chinese"] = "图样：红色魔纹外衣",
-			["Spanish"] = "Patrón: jubón de paño mágico rojo",
-			["French"] = "Patron : Gilet rouge en tisse-mage",
-			["German"] = "Muster: Rote Magiestoffweste",
-			["Korean"] = "도안: 붉은 마법매듭 조끼",
-			["English"] = "Pattern: Red Mageweave Vest",
-		},
+		["id"] = 10300,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [39]
 	{
-		["phase"] = 1,
-		["id"] = 10301,
+		["name"] = {
+			["German"] = "Muster: Weiße Banditenmaske",
+			["Spanish"] = "Patrón: máscara de bandido blanca",
+			["Chinese"] = "图样：白色强盗面罩",
+			["Korean"] = "도안: 하얀 산적 복면",
+			["French"] = "Patron : Masque blanc de bandit",
+			["Portuguese"] = "Molde: Máscara Branca do Bandido",
+			["Mexican"] = "Patrón: máscara de bandido blanca",
+			["Russian"] = "Выкройка: белая бандитская маска",
+			["English"] = "Pattern: White Bandit Mask",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 55,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: белая бандитская маска",
-			["Portuguese"] = "Molde: Máscara Branca do Bandido",
-			["Chinese"] = "图样：白色强盗面罩",
-			["Spanish"] = "Patrón: máscara de bandido blanca",
-			["French"] = "Patron : Masque blanc de bandit",
-			["German"] = "Muster: Weiße Banditenmaske",
-			["Korean"] = "도안: 하얀 산적 복면",
-			["English"] = "Pattern: White Bandit Mask",
-		},
+		["id"] = 10301,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [40]
 	{
-		["phase"] = 1,
-		["id"] = 10302,
+		["name"] = {
+			["German"] = "Muster: Rote Magiestoffhose",
+			["Spanish"] = "Patrón: pantalones de paño mágico rojo",
+			["Chinese"] = "图样：红色魔纹短裤",
+			["Korean"] = "도안: 붉은 마법매듭 바지",
+			["French"] = "Patron : Pantalon rouge en tisse-mage",
+			["Portuguese"] = "Molde: Calças de Magitrama Vermelhas",
+			["Mexican"] = "Patrón: pantalones de tejido mágico rojos",
+			["Russian"] = "Выкройка: красные штаны из магической ткани",
+			["English"] = "Pattern: Red Mageweave Pants",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 54,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: красные штаны из магической ткани",
-			["Portuguese"] = "Molde: Calças de Magitrama Vermelhas",
-			["Chinese"] = "图样：红色魔纹短裤",
-			["Spanish"] = "Patrón: pantalones de paño mágico rojo",
-			["French"] = "Patron : Pantalon rouge en tisse-mage",
-			["German"] = "Muster: Rote Magiestoffhose",
-			["Korean"] = "도안: 붉은 마법매듭 바지",
-			["English"] = "Pattern: Red Mageweave Pants",
-		},
+		["id"] = 10302,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [41]
 	{
 		["vendors"] = {
+			["price"] = 3000,
 			["sources"] = {
 				3005, -- [1]
 				4168, -- [2]
 			},
-			["price"] = 3000,
 		},
-		["id"] = 10311,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: оранжевая воинская рубашка",
-			["Portuguese"] = "Molde: Camisa Marcial Laranja",
-			["Chinese"] = "图样：橙色军用衬衣",
-			["Spanish"] = "Patrón: camisa marcial naranja",
-			["French"] = "Patron : Chemise orange martiale",
 			["German"] = "Muster: Oranges Kampfhemd",
+			["Spanish"] = "Patrón: camisa marcial naranja",
+			["Chinese"] = "图样：橙色军用衬衣",
 			["Korean"] = "도안: 주황색 무도복",
+			["French"] = "Patron : Chemise orange martiale",
+			["Portuguese"] = "Molde: Camisa Marcial Laranja",
+			["Mexican"] = "Patrón: camisa marcial naranja",
+			["Russian"] = "Выкройка: оранжевая воинская рубашка",
 			["English"] = "Pattern: Orange Martial Shirt",
 		},
+		["id"] = 10311,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [42]
 	{
-		["phase"] = 1,
-		["id"] = 10312,
+		["name"] = {
+			["German"] = "Muster: Rote Magiestoffhandschuhe",
+			["Spanish"] = "Patrón: guantes de paño mágico rojo",
+			["Chinese"] = "图样：红色魔纹手套",
+			["Korean"] = "도안: 붉은 마법매듭 장갑",
+			["French"] = "Patron : Gants rouges en tisse-mage",
+			["Portuguese"] = "Molde: Luvas de Magitrama Vermelhas",
+			["Mexican"] = "Patrón: guantes de tejido mágico rojos",
+			["Russian"] = "Выкройка: красные перчатки из магической ткани",
+			["English"] = "Pattern: Red Mageweave Gloves",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 52,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: красные перчатки из магической ткани",
-			["Portuguese"] = "Molde: Luvas de Magitrama Vermelhas",
-			["Chinese"] = "图样：红色魔纹手套",
-			["Spanish"] = "Patrón: guantes de paño mágico rojo",
-			["French"] = "Patron : Gants rouges en tisse-mage",
-			["German"] = "Muster: Rote Magiestoffhandschuhe",
-			["Korean"] = "도안: 붉은 마법매듭 장갑",
-			["English"] = "Pattern: Red Mageweave Gloves",
-		},
+		["id"] = 10312,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [43]
 	{
 		["vendors"] = {
+			["price"] = 4000,
 			["sources"] = {
 				3364, -- [1]
 				8681, -- [2]
 			},
-			["price"] = 4000,
 		},
-		["id"] = 10314,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: лиловая рубашка из магической ткани",
-			["Portuguese"] = "Molde: Camisa de Magitrama Lavanda",
-			["Chinese"] = "图样：紫色魔纹衬衣",
-			["Spanish"] = "Patrón: camisa de paño mágico lavanda",
-			["French"] = "Patron : Chemise lavande en tisse-mage",
 			["German"] = "Muster: Lavendelfarbenes Magiestoffhemd",
+			["Spanish"] = "Patrón: camisa de paño mágico lavanda",
+			["Chinese"] = "图样：紫色魔纹衬衣",
 			["Korean"] = "도안: 연보라색 마법매듭 셔츠",
+			["French"] = "Patron : Chemise lavande en tisse-mage",
+			["Portuguese"] = "Molde: Camisa de Magitrama Lavanda",
+			["Mexican"] = "Patrón: camisa de tejido mágico lavanda",
+			["Russian"] = "Выкройка: лиловая рубашка из магической ткани",
 			["English"] = "Pattern: Lavender Mageweave Shirt",
 		},
+		["id"] = 10314,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [44]
 	{
-		["phase"] = 1,
-		["id"] = 10315,
+		["name"] = {
+			["German"] = "Muster: Rote Magiestoffschultern",
+			["Spanish"] = "Patrón: hombreras de paño mágico rojo",
+			["Chinese"] = "图样：红色魔纹护肩",
+			["Korean"] = "도안: 붉은 마법매듭 어깨보호구",
+			["French"] = "Patron : Epaulières rouges en tisse-mage",
+			["Portuguese"] = "Molde: Omoplatas de Magitrama Vermelhas",
+			["Mexican"] = "Patrón: sobrehombros de tejido mágico rojos",
+			["Russian"] = "Выкройка: красные наплечники из магической ткани",
+			["English"] = "Pattern: Red Mageweave Shoulders",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 58,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: красные наплечники из магической ткани",
-			["Portuguese"] = "Molde: Omoplatas de Magitrama Vermelhas",
-			["Chinese"] = "图样：红色魔纹护肩",
-			["Spanish"] = "Patrón: hombreras de paño mágico rojo",
-			["French"] = "Patron : Epaulières rouges en tisse-mage",
-			["German"] = "Muster: Rote Magiestoffschultern",
-			["Korean"] = "도안: 붉은 마법매듭 어깨보호구",
-			["English"] = "Pattern: Red Mageweave Shoulders",
-		},
+		["id"] = 10315,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [45]
 	{
-		["phase"] = 1,
-		["id"] = 10316,
+		["name"] = {
+			["German"] = "Muster: Bunter Kilt",
+			["Spanish"] = "Patrón: falda escocesa colorida",
+			["Chinese"] = "图样：多彩褶裙",
+			["Korean"] = "도안: 붉은색 킬트",
+			["French"] = "Patron : Kilt coloré",
+			["Portuguese"] = "Molde: Kilt Colorido",
+			["Mexican"] = "Patrón: falda de colores",
+			["Russian"] = "Выкройка: многоцветный килт",
+			["English"] = "Pattern: Colorful Kilt",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 37,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: многоцветный килт",
-			["Portuguese"] = "Molde: Kilt Colorido",
-			["Chinese"] = "图样：多彩褶裙",
-			["Spanish"] = "Patrón: falda escocesa colorida",
-			["French"] = "Patron : Kilt coloré",
-			["German"] = "Muster: Bunter Kilt",
-			["Korean"] = "도안: 붉은색 킬트",
-			["English"] = "Pattern: Colorful Kilt",
-		},
+		["id"] = 10316,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [46]
 	{
 		["vendors"] = {
+			["price"] = 4000,
 			["sources"] = {
 				3364, -- [1]
 				8681, -- [2]
 			},
-			["price"] = 4000,
 		},
-		["id"] = 10317,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: розовая рубашка из магической ткани",
-			["Portuguese"] = "Molde: Camisa de Magitrama Rosa",
-			["Chinese"] = "图样：粉色魔纹衬衣",
-			["Spanish"] = "Patrón: camisa de paño mágico rosa",
-			["French"] = "Patron : Chemise rose en tisse-mage",
 			["German"] = "Muster: Rosa Magiestoffhemd",
+			["Spanish"] = "Patrón: camisa de paño mágico rosa",
+			["Chinese"] = "图样：粉色魔纹衬衣",
 			["Korean"] = "도안: 분홍색 마법매듭 셔츠",
+			["French"] = "Patron : Chemise rose en tisse-mage",
+			["Portuguese"] = "Molde: Camisa de Magitrama Rosa",
+			["Mexican"] = "Patrón: camisa de tejido mágico rosa",
+			["Russian"] = "Выкройка: розовая рубашка из магической ткани",
 			["English"] = "Pattern: Pink Mageweave Shirt",
 		},
+		["id"] = 10317,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [47]
 	{
 		["vendors"] = {
+			["price"] = 7000,
 			["sources"] = {
 				2672, -- [1]
 			},
-			["price"] = 7000,
 		},
-		["id"] = 10318,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: адмиральская шляпа",
-			["Portuguese"] = "Molde: Chapéu do Almirante",
-			["Chinese"] = "图样：将军之帽",
-			["Spanish"] = "Patrón: sombrero de almirante",
-			["French"] = "Patron : Bicorne d'amiral",
 			["German"] = "Muster: Admiralshut",
+			["Spanish"] = "Patrón: sombrero de almirante",
+			["Chinese"] = "图样：将军之帽",
 			["Korean"] = "도안: 함장 모자",
+			["French"] = "Patron : Bicorne d'amiral",
+			["Portuguese"] = "Molde: Chapéu do Almirante",
+			["Mexican"] = "Patrón: sombrero de almirante",
+			["Russian"] = "Выкройка: адмиральская шляпа",
 			["English"] = "Pattern: Admiral's Hat",
 		},
+		["id"] = 10318,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [48]
 	{
-		["phase"] = 1,
-		["id"] = 10320,
+		["name"] = {
+			["German"] = "Muster: Rotes Magiestoffstirnband",
+			["Spanish"] = "Patrón: cinta de paño mágico rojo",
+			["Chinese"] = "图样：红色魔纹头带",
+			["Korean"] = "도안: 붉은 마법매듭 머리띠",
+			["French"] = "Patron : Bandeau rouge en tisse-mage",
+			["Portuguese"] = "Molde: Bandana de Magitrama Vermelha",
+			["Mexican"] = "Patrón: cinta de tejido mágico roja",
+			["Russian"] = "Выкройка: красная головная повязка из магической ткани",
+			["English"] = "Pattern: Red Mageweave Headband",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 58,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: красная головная повязка из магической ткани",
-			["Portuguese"] = "Molde: Bandana de Magitrama Vermelha",
-			["Chinese"] = "图样：红色魔纹头带",
-			["Spanish"] = "Patrón: cinta de paño mágico rojo",
-			["French"] = "Patron : Bandeau rouge en tisse-mage",
-			["German"] = "Muster: Rotes Magiestoffstirnband",
-			["Korean"] = "도안: 붉은 마법매듭 머리띠",
-			["English"] = "Pattern: Red Mageweave Headband",
-		},
+		["id"] = 10320,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [49]
 	{
 		["vendors"] = {
+			["price"] = 4500,
 			["sources"] = {
 				4577, -- [1]
 				8681, -- [2]
 			},
-			["price"] = 4500,
 		},
-		["id"] = 10321,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: рубашка под смокинг",
-			["Portuguese"] = "Molde: Camisa de Smoking",
-			["Chinese"] = "图样：礼服衬衣",
-			["Spanish"] = "Patrón: camisa de esmoquin",
-			["French"] = "Patron : Chemise de smoking",
 			["German"] = "Muster: Smokinghemd",
+			["Spanish"] = "Patrón: camisa de esmoquin",
+			["Chinese"] = "图样：礼服衬衣",
 			["Korean"] = "도안: 턱시도 셔츠",
+			["French"] = "Patron : Chemise de smoking",
+			["Portuguese"] = "Molde: Camisa de Smoking",
+			["Mexican"] = "Patrón: camisa de esmoquin",
+			["Russian"] = "Выкройка: рубашка под смокинг",
 			["English"] = "Pattern: Tuxedo Shirt",
 		},
+		["id"] = 10321,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [50]
 	{
 		["vendors"] = {
+			["price"] = 4500,
 			["sources"] = {
 				4577, -- [1]
 				8681, -- [2]
 			},
-			["price"] = 4500,
 		},
-		["id"] = 10323,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: брюки под смокинг",
-			["Portuguese"] = "Molde: Calças de Smoking",
-			["Chinese"] = "图样：礼服短裤",
-			["Spanish"] = "Patrón: pantalones de esmoquin",
-			["French"] = "Patron : Pantalon de smoking",
 			["German"] = "Muster: Smokinghose",
+			["Spanish"] = "Patrón: pantalones de esmoquin",
+			["Chinese"] = "图样：礼服短裤",
 			["Korean"] = "도안: 턱시도 바지",
+			["French"] = "Patron : Pantalon de smoking",
+			["Portuguese"] = "Molde: Calças de Smoking",
+			["Mexican"] = "Patrón: pantalones de esmoquin",
+			["Russian"] = "Выкройка: брюки под смокинг",
 			["English"] = "Pattern: Tuxedo Pants",
 		},
+		["id"] = 10323,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [51]
 	{
 		["vendors"] = {
+			["price"] = 10000,
 			["sources"] = {
 				1347, -- [1]
 				3005, -- [2]
 			},
-			["price"] = 10000,
 		},
-		["id"] = 10325,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: белое свадебное платье",
-			["Portuguese"] = "Molde: Vestido de Noiva Branco",
-			["Chinese"] = "图样：白色婚纱",
-			["Spanish"] = "Patrón: vestido de boda blanco",
-			["French"] = "Patron : Robe blanche de mariée",
 			["German"] = "Muster: Weißes Hochzeitskleid",
+			["Spanish"] = "Patrón: vestido de boda blanco",
+			["Chinese"] = "图样：白色婚纱",
 			["Korean"] = "도안: 하얀 웨딩드레스",
+			["French"] = "Patron : Robe blanche de mariée",
+			["Portuguese"] = "Molde: Vestido de Noiva Branco",
+			["Mexican"] = "Patrón: vestido de boda blanco",
+			["Russian"] = "Выкройка: белое свадебное платье",
 			["English"] = "Pattern: White Wedding Dress",
 		},
+		["id"] = 10325,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [52]
 	{
 		["vendors"] = {
+			["price"] = 5000,
 			["sources"] = {
 				4577, -- [1]
 				8681, -- [2]
 			},
-			["price"] = 5000,
 		},
-		["id"] = 10326,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: куртка-смокинг",
-			["Portuguese"] = "Molde: Paletó de Smoking",
-			["Chinese"] = "图样：礼服夹克",
-			["Spanish"] = "Patrón: chaqueta de esmoquin",
-			["French"] = "Patron : Veste de smoking",
 			["German"] = "Muster: Smokingjacke",
+			["Spanish"] = "Patrón: chaqueta de esmoquin",
+			["Chinese"] = "图样：礼服夹克",
 			["Korean"] = "도안: 턱시도 재킷",
+			["French"] = "Patron : Veste de smoking",
+			["Portuguese"] = "Molde: Paletó de Smoking",
+			["Mexican"] = "Patrón: chaqueta de esmoquin",
+			["Russian"] = "Выкройка: куртка-смокинг",
 			["English"] = "Pattern: Tuxedo Jacket",
 		},
+		["id"] = 10326,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [53]
 	{
+		["name"] = {
+			["German"] = "Muster: Schattenzwirnmaske",
+			["Spanish"] = "Patrón: máscara de tejido de sombras",
+			["Chinese"] = "图样：暗纹面罩",
+			["Korean"] = "도안: 그림자매듭 복면",
+			["French"] = "Patron : Masque en tisse-ombre",
+			["Portuguese"] = "Molde: Máscara de Umbratrama",
+			["Mexican"] = "Patrón: máscara de tejido de sombra",
+			["Russian"] = "Выкройка: тенетканая маска",
+			["English"] = "Pattern: Shadoweave Mask",
+		},
+		["id"] = 10463,
+		["phase"] = 1,
 		["quests"] = {
 			3402, -- [1]
 		},
-		["phase"] = 1,
-		["id"] = 10463,
 		["quality"] = "uncommon",
-		["name"] = {
-			["Russian"] = "Выкройка: тенетканая маска",
-			["Portuguese"] = "Molde: Máscara de Umbratrama",
-			["Chinese"] = "图样：暗纹面罩",
-			["Spanish"] = "Patrón: máscara de tejido de sombras",
-			["French"] = "Patron : Masque en tisse-ombre",
-			["German"] = "Muster: Schattenzwirnmaske",
-			["Korean"] = "도안: 그림자매듭 복면",
-			["English"] = "Pattern: Shadoweave Mask",
-		},
 	}, -- [54]
 	{
 		["vendors"] = {
+			["price"] = 1500,
 			["sources"] = {
 				2663, -- [1]
 			},
-			["price"] = 1500,
 		},
-		["id"] = 10728,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: черная рубашка Щитолома",
-			["Portuguese"] = "Molde: Camisa Preta do Espadachim",
-			["Chinese"] = "图样：黑色冒险者衬衣",
-			["Spanish"] = "Patrón: camisa negra de aventurero",
-			["French"] = "Patron : Chemise noire de bretteur",
 			["German"] = "Muster: Schwarzes Schwadroneurshemd",
+			["Spanish"] = "Patrón: camisa negra de aventurero",
+			["Chinese"] = "图样：黑色冒险者衬衣",
 			["Korean"] = "도안: 검은색 모험가 셔츠",
+			["French"] = "Patron : Chemise noire de bretteur",
+			["Portuguese"] = "Molde: Camisa Preta do Espadachim",
+			["Mexican"] = "Patrón: camisa de espadachín negra",
+			["Russian"] = "Выкройка: черная рубашка Щитолома",
 			["English"] = "Pattern: Black Swashbuckler's Shirt",
 		},
+		["id"] = 10728,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [55]
 	{
-		["phase"] = 1,
-		["id"] = 14466,
+		["name"] = {
+			["German"] = "Muster: Winterzwirntunika",
+			["Spanish"] = "Patrón: túnica Tejescarcha",
+			["Chinese"] = "图样：霜纹外套",
+			["Korean"] = "도안: 서리매듭 튜닉",
+			["French"] = "Patron : Tunique tisse-givre",
+			["Portuguese"] = "Molde: Túnica de Friotrama",
+			["Mexican"] = "Patrón: guerrera de tejido de Escarcha",
+			["Russian"] = "Выкройка: мундир из ледяной ткани",
+			["English"] = "Pattern: Frostweave Tunic",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: мундир из ледяной ткани",
-			["Portuguese"] = "Molde: Túnica de Friotrama",
-			["Chinese"] = "图样：霜纹外套",
-			["Spanish"] = "Patrón: túnica Tejescarcha",
-			["French"] = "Patron : Tunique tisse-givre",
-			["German"] = "Muster: Winterzwirntunika",
-			["Korean"] = "도안: 서리매듭 튜닉",
-			["English"] = "Pattern: Frostweave Tunic",
-		},
+		["id"] = 14466,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [56]
 	{
-		["phase"] = 1,
-		["id"] = 14467,
+		["name"] = {
+			["German"] = "Muster: Winterzwirnrobe",
+			["Spanish"] = "Patrón: toga Tejescarcha",
+			["Chinese"] = "图样：霜纹长袍",
+			["Korean"] = "도안: 서리매듭 로브",
+			["French"] = "Patron : Robe tisse-givre",
+			["Portuguese"] = "Molde: Veste de Friotrama",
+			["Mexican"] = "Patrón: toga de tejido de Escarcha",
+			["Russian"] = "Выкройка: одеяние из ледяной ткани",
+			["English"] = "Pattern: Frostweave Robe",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: одеяние из ледяной ткани",
-			["Portuguese"] = "Molde: Veste de Friotrama",
-			["Chinese"] = "图样：霜纹长袍",
-			["Spanish"] = "Patrón: toga Tejescarcha",
-			["French"] = "Patron : Robe tisse-givre",
-			["German"] = "Muster: Winterzwirnrobe",
-			["Korean"] = "도안: 서리매듭 로브",
-			["English"] = "Pattern: Frostweave Robe",
-		},
+		["id"] = 14467,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [57]
 	{
 		["vendors"] = {
+			["price"] = 10000,
 			["sources"] = {
 				11189, -- [1]
 			},
-			["price"] = 10000,
 		},
-		["id"] = 14468,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: сумка из рунной ткани",
-			["Portuguese"] = "Molde: Bolsa de Runatrama",
-			["Chinese"] = "图样：符文布包",
-			["Spanish"] = "Patrón: bolsa de paño rúnico",
-			["French"] = "Patron : Sac en étoffe runique",
 			["German"] = "Muster: Runenstofftasche",
+			["Spanish"] = "Patrón: bolsa de paño rúnico",
+			["Chinese"] = "图样：符文布包",
 			["Korean"] = "도안: 룬매듭 가방",
+			["French"] = "Patron : Sac en étoffe runique",
+			["Portuguese"] = "Molde: Bolsa de Runatrama",
+			["Mexican"] = "Patrón: bolsa de paño rúnico",
+			["Russian"] = "Выкройка: сумка из рунной ткани",
 			["English"] = "Pattern: Runecloth Bag",
 		},
+		["id"] = 14468,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [58]
 	{
+		["vendors"] = {
+			["price"] = 12000,
+			["sources"] = {
+				7940, -- [1]
+			},
+		},
+		["id"] = 14469,
 		["name"] = {
-			["Russian"] = "Выкройка: одеяние из рунной ткани",
-			["Portuguese"] = "Molde: Veste de Runatrama",
-			["Chinese"] = "图样：符文布袍",
-			["Spanish"] = "Patrón: toga de paño rúnico",
-			["French"] = "Patron : Robe en étoffe runique",
 			["German"] = "Muster: Runenstoffrobe",
+			["Spanish"] = "Patrón: toga de paño rúnico",
+			["Chinese"] = "图样：符文布袍",
 			["Korean"] = "도안: 룬매듭 로브",
+			["French"] = "Patron : Robe en étoffe runique",
+			["Portuguese"] = "Molde: Veste de Runatrama",
+			["Mexican"] = "Patrón: toga de paño rúnico",
+			["Russian"] = "Выкройка: одеяние из рунной ткани",
 			["English"] = "Pattern: Runecloth Robe",
 		},
 		["phase"] = 1,
 		["quality"] = "common",
-		["id"] = 14469,
 	}, -- [59]
 	{
-		["phase"] = 1,
-		["id"] = 14470,
+		["name"] = {
+			["German"] = "Muster: Runenstofftunika",
+			["Spanish"] = "Patrón: túnica de paño rúnico",
+			["Chinese"] = "图样：符文布外套",
+			["Korean"] = "도안: 룬매듭 튜닉",
+			["French"] = "Patron : Tunique en étoffe runique",
+			["Portuguese"] = "Molde: Túnica de Runatrama",
+			["Mexican"] = "Patrón: guerrera de paño rúnico",
+			["Russian"] = "Выкройка: мундир из рунной ткани",
+			["English"] = "Pattern: Runecloth Tunic",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: мундир из рунной ткани",
-			["Portuguese"] = "Molde: Túnica de Runatrama",
-			["Chinese"] = "图样：符文布外套",
-			["Spanish"] = "Patrón: túnica de paño rúnico",
-			["French"] = "Patron : Tunique en étoffe runique",
-			["German"] = "Muster: Runenstofftunika",
-			["Korean"] = "도안: 룬매듭 튜닉",
-			["English"] = "Pattern: Runecloth Tunic",
-		},
+		["id"] = 14470,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [60]
 	{
-		["phase"] = 1,
-		["id"] = 14471,
+		["name"] = {
+			["German"] = "Muster: Aschenstoffweste",
+			["Spanish"] = "Patrón: jubón de paño ceniza",
+			["Chinese"] = "图样：灰布外衣",
+			["Korean"] = "도안: 불매듭 조끼",
+			["French"] = "Patron : Gilet en étoffe cendrée",
+			["Portuguese"] = "Molde: Colete de Brasatrama",
+			["Mexican"] = "Patrón: jubón de paño cenizo",
+			["Russian"] = "Выкройка: жилет из пепельной ткани",
+			["English"] = "Pattern: Cindercloth Vest",
+		},
 		["drops"] = {
 			["mobs"] = {
 				5861, -- [1]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: жилет из пепельной ткани",
-			["Portuguese"] = "Molde: Colete de Brasatrama",
-			["Chinese"] = "图样：灰布外衣",
-			["Spanish"] = "Patrón: jubón de paño ceniza",
-			["French"] = "Patron : Gilet en étoffe cendrée",
-			["German"] = "Muster: Aschenstoffweste",
-			["Korean"] = "도안: 불매듭 조끼",
-			["English"] = "Pattern: Cindercloth Vest",
-		},
+		["id"] = 14471,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [61]
 	{
+		["vendors"] = {
+			["price"] = 12000,
+			["sources"] = {
+				7940, -- [1]
+			},
+		},
+		["id"] = 14472,
 		["name"] = {
-			["Russian"] = "Выкройка: плащ из рунной ткани",
-			["Portuguese"] = "Molde: Manto de Runatrama",
-			["Chinese"] = "图样：符文布披风",
-			["Spanish"] = "Patrón: capa de paño rúnico",
-			["French"] = "Patron : Cape en étoffe runique",
 			["German"] = "Muster: Runenstoffumhang",
+			["Spanish"] = "Patrón: capa de paño rúnico",
+			["Chinese"] = "图样：符文布披风",
 			["Korean"] = "도안: 룬매듭 망토",
+			["French"] = "Patron : Cape en étoffe runique",
+			["Portuguese"] = "Molde: Manto de Runatrama",
+			["Mexican"] = "Patrón: capa de paño rúnico",
+			["Russian"] = "Выкройка: плащ из рунной ткани",
 			["English"] = "Pattern: Runecloth Cloak",
 		},
 		["phase"] = 1,
 		["quality"] = "common",
-		["id"] = 14472,
 	}, -- [62]
 	{
-		["phase"] = 1,
-		["id"] = 14473,
+		["name"] = {
+			["German"] = "Muster: Geisterzwirngürtel",
+			["Spanish"] = "Patrón: cinturón Telafantasma",
+			["Chinese"] = "图样：鬼纹腰带",
+			["Korean"] = "도안: 유령매듭 허리띠",
+			["French"] = "Patron : Ceinture en tisse-fantôme",
+			["Portuguese"] = "Molde: Cinto de Espectrama",
+			["Mexican"] = "Patrón: cinturón de tejido fantasmal",
+			["Russian"] = "Выкройка: пояс из призрачной ткани",
+			["English"] = "Pattern: Ghostweave Belt",
+		},
 		["drops"] = {
 			["mobs"] = {
 				7864, -- [1]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: пояс из призрачной ткани",
-			["Portuguese"] = "Molde: Cinto de Espectrama",
-			["Chinese"] = "图样：鬼纹腰带",
-			["Spanish"] = "Patrón: cinturón Telafantasma",
-			["French"] = "Patron : Ceinture en tisse-fantôme",
-			["German"] = "Muster: Geisterzwirngürtel",
-			["Korean"] = "도안: 유령매듭 허리띠",
-			["English"] = "Pattern: Ghostweave Belt",
-		},
+		["id"] = 14473,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [63]
 	{
-		["phase"] = 1,
-		["id"] = 14474,
+		["name"] = {
+			["German"] = "Muster: Winterzwirnhandschuhe",
+			["Spanish"] = "Patrón: guantes Tejescarcha",
+			["Chinese"] = "图样：霜纹手套",
+			["Korean"] = "도안: 서리매듭 장갑",
+			["French"] = "Patron : Gants tisse-givre",
+			["Portuguese"] = "Molde: Luvas de Friotrama",
+			["Mexican"] = "Patrón: guantes de tejido de Escarcha",
+			["Russian"] = "Выкройка: перчатки из ледяной ткани",
+			["English"] = "Pattern: Frostweave Gloves",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: перчатки из ледяной ткани",
-			["Portuguese"] = "Molde: Luvas de Friotrama",
-			["Chinese"] = "图样：霜纹手套",
-			["Spanish"] = "Patrón: guantes Tejescarcha",
-			["French"] = "Patron : Gants tisse-givre",
-			["German"] = "Muster: Winterzwirnhandschuhe",
-			["Korean"] = "도안: 서리매듭 장갑",
-			["English"] = "Pattern: Frostweave Gloves",
-		},
+		["id"] = 14474,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [64]
 	{
-		["phase"] = 1,
-		["id"] = 14476,
+		["name"] = {
+			["German"] = "Muster: Aschenstoffhandschuhe",
+			["Spanish"] = "Patrón: guantes de paño ceniza",
+			["Chinese"] = "图样：灰布手套",
+			["Korean"] = "도안: 불매듭 장갑",
+			["French"] = "Patron : Gants en étoffe cendrée",
+			["Portuguese"] = "Molde: Luvas de Brasatrama",
+			["Mexican"] = "Patrón: guantes de paño cenizo",
+			["Russian"] = "Выкройка: перчатки из пепельной ткани",
+			["English"] = "Pattern: Cindercloth Gloves",
+		},
 		["drops"] = {
 			["mobs"] = {
 				5861, -- [1]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: перчатки из пепельной ткани",
-			["Portuguese"] = "Molde: Luvas de Brasatrama",
-			["Chinese"] = "图样：灰布手套",
-			["Spanish"] = "Patrón: guantes de paño ceniza",
-			["French"] = "Patron : Gants en étoffe cendrée",
-			["German"] = "Muster: Aschenstoffhandschuhe",
-			["Korean"] = "도안: 불매듭 장갑",
-			["English"] = "Pattern: Cindercloth Gloves",
-		},
+		["id"] = 14476,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [65]
 	{
-		["phase"] = 1,
-		["id"] = 14477,
+		["name"] = {
+			["German"] = "Muster: Geisterzwirnhandschuhe",
+			["Spanish"] = "Patrón: guantes Telafantasma",
+			["Chinese"] = "图样：鬼纹手套",
+			["Korean"] = "도안: 유령매듭 장갑",
+			["French"] = "Patron : Gants en tisse-fantôme",
+			["Portuguese"] = "Molde: Luvas de Espectrama",
+			["Mexican"] = "Patrón: guantes de tejido fantasmal",
+			["Russian"] = "Выкройка: перчатки из призрачной ткани",
+			["English"] = "Pattern: Ghostweave Gloves",
+		},
 		["drops"] = {
 			["mobs"] = {
 				7864, -- [1]
 				8538, -- [2]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: перчатки из призрачной ткани",
-			["Portuguese"] = "Molde: Luvas de Espectrama",
-			["Chinese"] = "图样：鬼纹手套",
-			["Spanish"] = "Patrón: guantes Telafantasma",
-			["French"] = "Patron : Gants en tisse-fantôme",
-			["German"] = "Muster: Geisterzwirnhandschuhe",
-			["Korean"] = "도안: 유령매듭 장갑",
-			["English"] = "Pattern: Ghostweave Gloves",
-		},
+		["id"] = 14477,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [66]
 	{
-		["phase"] = 1,
-		["id"] = 14478,
+		["name"] = {
+			["German"] = "Muster: Hellstoffrobe",
+			["Spanish"] = "Patrón: toga de paño brillante",
+			["Chinese"] = "图样：亮布长袍",
+			["Korean"] = "도안: 빛매듭 로브",
+			["French"] = "Patron : Robe en étoffe lumineuse",
+			["Portuguese"] = "Molde: Veste de Lumetrama",
+			["Mexican"] = "Patrón: toga de paño brillante",
+			["Russian"] = "Выкройка: одеяние из яркой ткани",
+			["English"] = "Pattern: Brightcloth Robe",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: одеяние из яркой ткани",
-			["Portuguese"] = "Molde: Veste de Lumetrama",
-			["Chinese"] = "图样：亮布长袍",
-			["Spanish"] = "Patrón: toga de paño brillante",
-			["French"] = "Patron : Robe en étoffe lumineuse",
-			["German"] = "Muster: Hellstoffrobe",
-			["Korean"] = "도안: 빛매듭 로브",
-			["English"] = "Pattern: Brightcloth Robe",
-		},
+		["id"] = 14478,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [67]
 	{
-		["phase"] = 1,
-		["id"] = 14479,
+		["name"] = {
+			["German"] = "Muster: Hellstoffhandschuhe",
+			["Spanish"] = "Patrón: guantes de paño brillante",
+			["Chinese"] = "图样：亮布手套",
+			["Korean"] = "도안: 빛매듭 장갑",
+			["French"] = "Patron : Gants en étoffe lumineuse",
+			["Portuguese"] = "Molde: Luvas de Lumetrama",
+			["Mexican"] = "Patrón: guantes de paño brillante",
+			["Russian"] = "Выкройка: перчатки из яркой ткани",
+			["English"] = "Pattern: Brightcloth Gloves",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: перчатки из яркой ткани",
-			["Portuguese"] = "Molde: Luvas de Lumetrama",
-			["Chinese"] = "图样：亮布手套",
-			["Spanish"] = "Patrón: guantes de paño brillante",
-			["French"] = "Patron : Gants en étoffe lumineuse",
-			["German"] = "Muster: Hellstoffhandschuhe",
-			["Korean"] = "도안: 빛매듭 장갑",
-			["English"] = "Pattern: Brightcloth Gloves",
-		},
+		["id"] = 14479,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [68]
 	{
-		["phase"] = 1,
-		["id"] = 14480,
+		["name"] = {
+			["German"] = "Muster: Geisterzwirnweste",
+			["Spanish"] = "Patrón: jubón Telafantasma",
+			["Chinese"] = "图样：鬼纹外衣",
+			["Korean"] = "도안: 유령매듭 조끼",
+			["French"] = "Patron : Gilet en tisse-fantôme",
+			["Portuguese"] = "Molde: Colete de Espectrama",
+			["Mexican"] = "Patrón: jubón de tejido fantasmal",
+			["Russian"] = "Выкройка: жилет из призрачной ткани",
+			["English"] = "Pattern: Ghostweave Vest",
+		},
 		["drops"] = {
 			["mobs"] = {
 				8538, -- [1]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: жилет из призрачной ткани",
-			["Portuguese"] = "Molde: Colete de Espectrama",
-			["Chinese"] = "图样：鬼纹外衣",
-			["Spanish"] = "Patrón: jubón Telafantasma",
-			["French"] = "Patron : Gilet en tisse-fantôme",
-			["German"] = "Muster: Geisterzwirnweste",
-			["Korean"] = "도안: 유령매듭 조끼",
-			["English"] = "Pattern: Ghostweave Vest",
-		},
+		["id"] = 14480,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [69]
 	{
+		["vendors"] = {
+			["price"] = 16000,
+			["sources"] = {
+				11189, -- [1]
+			},
+		},
+		["id"] = 14481,
 		["name"] = {
-			["Russian"] = "Выкройка: перчатки из рунной ткани",
-			["Portuguese"] = "Molde: Luvas de Runatrama",
-			["Chinese"] = "图样：符文布手套",
-			["Spanish"] = "Patrón: guantes de paño rúnico",
-			["French"] = "Patron : Gants en étoffe runique",
 			["German"] = "Muster: Runenstoffhandschuhe",
+			["Spanish"] = "Patrón: guantes de paño rúnico",
+			["Chinese"] = "图样：符文布手套",
 			["Korean"] = "도안: 룬매듭 장갑",
+			["French"] = "Patron : Gants en étoffe runique",
+			["Portuguese"] = "Molde: Luvas de Runatrama",
+			["Mexican"] = "Patrón: guantes de paño rúnico",
+			["Russian"] = "Выкройка: перчатки из рунной ткани",
 			["English"] = "Pattern: Runecloth Gloves",
 		},
 		["phase"] = 1,
 		["quality"] = "common",
-		["id"] = 14481,
 	}, -- [70]
 	{
-		["phase"] = 1,
-		["id"] = 14482,
+		["name"] = {
+			["German"] = "Muster: Aschenstoffumhang",
+			["Spanish"] = "Patrón: capa de paño ceniza",
+			["Chinese"] = "图样：灰布披风",
+			["Korean"] = "도안: 불매듭 망토",
+			["French"] = "Patron : Cape en étoffe cendrée",
+			["Portuguese"] = "Molde: Manto de Brasatrama",
+			["Mexican"] = "Patrón: capa de paño cenizo",
+			["Russian"] = "Выкройка: плащ из пепельной ткани",
+			["English"] = "Pattern: Cindercloth Cloak",
+		},
 		["drops"] = {
 			["mobs"] = {
 				7037, -- [1]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: плащ из пепельной ткани",
-			["Portuguese"] = "Molde: Manto de Brasatrama",
-			["Chinese"] = "图样：灰布披风",
-			["Spanish"] = "Patrón: capa de paño ceniza",
-			["French"] = "Patron : Cape en étoffe cendrée",
-			["German"] = "Muster: Aschenstoffumhang",
-			["Korean"] = "도안: 불매듭 망토",
-			["English"] = "Pattern: Cindercloth Cloak",
-		},
+		["id"] = 14482,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [71]
 	{
 		["vendors"] = {
+			["price"] = 10000,
 			["sources"] = {
 				12022, -- [1]
 			},
-			["price"] = 10000,
 		},
-		["id"] = 14483,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: штаны из ткани Скверны",
-			["Portuguese"] = "Molde: Calças de Tecido Vil",
-			["Chinese"] = "图样：恶魔布短裤",
-			["Spanish"] = "Patrón: pantalones de tela de inferi",
-			["French"] = "Patron : Pantalon en gangrétoffe",
 			["German"] = "Muster: Teufelsstoffhose",
+			["Spanish"] = "Patrón: pantalones de tela de inferi",
+			["Chinese"] = "图样：恶魔布短裤",
 			["Korean"] = "도안: 지옥매듭 바지",
+			["French"] = "Patron : Pantalon en gangrétoffe",
+			["Portuguese"] = "Molde: Calças de Tecido Vil",
+			["Mexican"] = "Patrón: pantalones de tela vil",
+			["Russian"] = "Выкройка: штаны из ткани Скверны",
 			["English"] = "Pattern: Felcloth Pants",
 		},
+		["id"] = 14483,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [72]
 	{
-		["phase"] = 1,
-		["id"] = 14484,
+		["name"] = {
+			["German"] = "Muster: Hellstoffumhang",
+			["Spanish"] = "Patrón: capa de paño brillante",
+			["Chinese"] = "图样：亮布披风",
+			["Korean"] = "도안: 빛매듭 망토",
+			["French"] = "Patron : Cape en étoffe lumineuse",
+			["Portuguese"] = "Molde: Manto de Lumetrama",
+			["Mexican"] = "Patrón: capa de paño brillante",
+			["Russian"] = "Выкройка: плащ из яркой ткани",
+			["English"] = "Pattern: Brightcloth Cloak",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: плащ из яркой ткани",
-			["Portuguese"] = "Molde: Manto de Lumetrama",
-			["Chinese"] = "图样：亮布披风",
-			["Spanish"] = "Patrón: capa de paño brillante",
-			["French"] = "Patron : Cape en étoffe lumineuse",
-			["German"] = "Muster: Hellstoffumhang",
-			["Korean"] = "도안: 빛매듭 망토",
-			["English"] = "Pattern: Brightcloth Cloak",
-		},
+		["id"] = 14484,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [73]
 	{
-		["phase"] = 1,
-		["id"] = 14485,
+		["name"] = {
+			["German"] = "Muster: Hexerzwirngamaschen",
+			["Spanish"] = "Patrón: leotardos de tejido zahorí",
+			["Chinese"] = "图样：巫纹护腿",
+			["Korean"] = "도안: 마술매듭 다리보호구",
+			["French"] = "Patron : Jambières en tisse-sorcier",
+			["Portuguese"] = "Molde: Perneiras de Bruxatrama",
+			["Mexican"] = "Patrón: leotardos de tejido zahorí",
+			["Russian"] = "Выкройка: поножи из чародейской ткани",
+			["English"] = "Pattern: Wizardweave Leggings",
+		},
 		["drops"] = {
 			["mobs"] = {
 				8551, -- [1]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: поножи из чародейской ткани",
-			["Portuguese"] = "Molde: Perneiras de Bruxatrama",
-			["Chinese"] = "图样：巫纹护腿",
-			["Spanish"] = "Patrón: leotardos de tejido zahorí",
-			["French"] = "Patron : Jambières en tisse-sorcier",
-			["German"] = "Muster: Hexerzwirngamaschen",
-			["Korean"] = "도안: 마술매듭 다리보호구",
-			["English"] = "Pattern: Wizardweave Leggings",
-		},
+		["id"] = 14485,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [74]
 	{
-		["phase"] = 1,
-		["id"] = 14486,
+		["name"] = {
+			["German"] = "Muster: Umhang des Feuers",
+			["Spanish"] = "Patrón: capa de Fuego",
+			["Chinese"] = "图样：火焰披风",
+			["Korean"] = "도안: 불의 망토",
+			["French"] = "Patron : Cape de Feu",
+			["Portuguese"] = "Molde: Manto de Fogo",
+			["Mexican"] = "Patrón: capa de Fuego",
+			["Russian"] = "Выкройка: плащ огня",
+			["English"] = "Pattern: Cloak of Fire",
+		},
 		["drops"] = {
 			["mobs"] = {
 				9026, -- [1]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: плащ огня",
-			["Portuguese"] = "Molde: Manto de Fogo",
-			["Chinese"] = "图样：火焰披风",
-			["Spanish"] = "Patrón: capa de Fuego",
-			["French"] = "Patron : Cape de Feu",
-			["German"] = "Muster: Umhang des Feuers",
-			["Korean"] = "도안: 불의 망토",
-			["English"] = "Pattern: Cloak of Fire",
-		},
+		["id"] = 14486,
+		["phase"] = 1,
 		["quality"] = "rare",
 	}, -- [75]
 	{
+		["vendors"] = {
+			["price"] = 12000,
+			["sources"] = {
+				7940, -- [1]
+			},
+		},
+		["id"] = 14488,
 		["name"] = {
-			["Russian"] = "Выкройка: сапоги из рунной ткани",
-			["Portuguese"] = "Molde: Botas de Runatrama",
-			["Chinese"] = "图样：符文布靴",
-			["Spanish"] = "Patrón: botas de paño rúnico",
-			["French"] = "Patron : Bottes en étoffe runique",
 			["German"] = "Muster: Runenstoffstiefel",
+			["Spanish"] = "Patrón: botas de paño rúnico",
+			["Chinese"] = "图样：符文布靴",
 			["Korean"] = "도안: 룬매듭 장화",
+			["French"] = "Patron : Bottes en étoffe runique",
+			["Portuguese"] = "Molde: Botas de Runatrama",
+			["Mexican"] = "Patrón: botas de paño rúnico",
+			["Russian"] = "Выкройка: сапоги из рунной ткани",
 			["English"] = "Pattern: Runecloth Boots",
 		},
 		["phase"] = 1,
 		["quality"] = "common",
-		["id"] = 14488,
 	}, -- [76]
 	{
-		["phase"] = 1,
-		["id"] = 14489,
+		["name"] = {
+			["German"] = "Muster: Winterzwirnhose",
+			["Spanish"] = "Patrón: pantalones Tejescarcha",
+			["Chinese"] = "图样：霜纹短裤",
+			["Korean"] = "도안: 서리매듭 바지",
+			["French"] = "Patron : Pantalon tisse-givre",
+			["Portuguese"] = "Molde: Calças de Friotrama",
+			["Mexican"] = "Patrón: pantalones de tejido de Escarcha",
+			["Russian"] = "Выкройка: штаны из ледяной ткани",
+			["English"] = "Pattern: Frostweave Pants",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: штаны из ледяной ткани",
-			["Portuguese"] = "Molde: Calças de Friotrama",
-			["Chinese"] = "图样：霜纹短裤",
-			["Spanish"] = "Patrón: pantalones Tejescarcha",
-			["French"] = "Patron : Pantalon tisse-givre",
-			["German"] = "Muster: Winterzwirnhose",
-			["Korean"] = "도안: 서리매듭 바지",
-			["English"] = "Pattern: Frostweave Pants",
-		},
+		["id"] = 14489,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [77]
 	{
-		["phase"] = 1,
-		["id"] = 14490,
+		["name"] = {
+			["German"] = "Muster: Aschenstoffhose",
+			["Spanish"] = "Patrón: pantalones de paño ceniza",
+			["Chinese"] = "图样：灰布短裤",
+			["Korean"] = "도안: 불매듭 바지",
+			["French"] = "Patron : Pantalon en étoffe cendrée",
+			["Portuguese"] = "Molde: Calças de Brasatrama",
+			["Mexican"] = "Patrón: pantalones de paño cenizo",
+			["Russian"] = "Выкройка: штаны из пепельной ткани",
+			["English"] = "Pattern: Cindercloth Pants",
+		},
 		["drops"] = {
 			["mobs"] = {
 				7037, -- [1]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: штаны из пепельной ткани",
-			["Portuguese"] = "Molde: Calças de Brasatrama",
-			["Chinese"] = "图样：灰布短裤",
-			["Spanish"] = "Patrón: pantalones de paño ceniza",
-			["French"] = "Patron : Pantalon en étoffe cendrée",
-			["German"] = "Muster: Aschenstoffhose",
-			["Korean"] = "도안: 불매듭 바지",
-			["English"] = "Pattern: Cindercloth Pants",
-		},
+		["id"] = 14490,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [78]
 	{
-		["phase"] = 1,
-		["id"] = 14491,
+		["name"] = {
+			["German"] = "Muster: Runenstoffhose",
+			["Spanish"] = "Patrón: pantalones de paño rúnico",
+			["Chinese"] = "图样：符文布短裤",
+			["Korean"] = "도안: 룬매듭 바지",
+			["French"] = "Patron : Pantalon en étoffe runique",
+			["Portuguese"] = "Molde: Calças de Runatrama",
+			["Mexican"] = "Patrón: pantalones de paño rúnico",
+			["Russian"] = "Выкройка: штаны из рунной ткани",
+			["English"] = "Pattern: Runecloth Pants",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: штаны из рунной ткани",
-			["Portuguese"] = "Molde: Calças de Runatrama",
-			["Chinese"] = "图样：符文布短裤",
-			["Spanish"] = "Patrón: pantalones de paño rúnico",
-			["French"] = "Patron : Pantalon en étoffe runique",
-			["German"] = "Muster: Runenstoffhose",
-			["Korean"] = "도안: 룬매듭 바지",
-			["English"] = "Pattern: Runecloth Pants",
-		},
+		["id"] = 14491,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [79]
 	{
-		["phase"] = 1,
-		["id"] = 14492,
+		["name"] = {
+			["German"] = "Muster: Teufelsstoffstiefel",
+			["Spanish"] = "Patrón: botas de tela de inferi",
+			["Chinese"] = "图样：恶魔布靴",
+			["Korean"] = "도안: 지옥매듭 장화",
+			["French"] = "Patron : Bottes en gangrétoffe",
+			["Portuguese"] = "Molde: Botas de Tecido Vil",
+			["Mexican"] = "Patrón: botas de tela vil",
+			["Russian"] = "Выкройка: сапоги из ткани Скверны",
+			["English"] = "Pattern: Felcloth Boots",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: сапоги из ткани Скверны",
-			["Portuguese"] = "Molde: Botas de Tecido Vil",
-			["Chinese"] = "图样：恶魔布靴",
-			["Spanish"] = "Patrón: botas de tela de inferi",
-			["French"] = "Patron : Bottes en gangrétoffe",
-			["German"] = "Muster: Teufelsstoffstiefel",
-			["Korean"] = "도안: 지옥매듭 장화",
-			["English"] = "Pattern: Felcloth Boots",
-		},
+		["id"] = 14492,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [80]
 	{
-		["phase"] = 1,
-		["id"] = 14493,
+		["name"] = {
+			["German"] = "Muster: Robe der Winternacht",
+			["Spanish"] = "Patrón: toga de Noche invernal",
+			["Chinese"] = "图样：冬夜法袍",
+			["Korean"] = "도안: 겨울밤의 로브",
+			["French"] = "Patron : Robe de la nuit hivernale",
+			["Portuguese"] = "Molde: Veste da Noite de Inverno",
+			["Mexican"] = "Patrón: toga de Noche invernal",
+			["Russian"] = "Выкройка: одеяние зимней ночи",
+			["English"] = "Pattern: Robe of Winter Night",
+		},
 		["drops"] = {
 			["mobs"] = {
 				7437, -- [1]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: одеяние зимней ночи",
-			["Portuguese"] = "Molde: Veste da Noite de Inverno",
-			["Chinese"] = "图样：冬夜法袍",
-			["Spanish"] = "Patrón: toga de Noche invernal",
-			["French"] = "Patron : Robe de la nuit hivernale",
-			["German"] = "Muster: Robe der Winternacht",
-			["Korean"] = "도안: 겨울밤의 로브",
-			["English"] = "Pattern: Robe of Winter Night",
-		},
+		["id"] = 14493,
+		["phase"] = 1,
 		["quality"] = "rare",
 	}, -- [81]
 	{
-		["phase"] = 1,
-		["id"] = 14494,
+		["name"] = {
+			["German"] = "Muster: Hellstoffhose",
+			["Spanish"] = "Patrón: pantalones de paño brillante",
+			["Chinese"] = "图样：亮布短裤",
+			["Korean"] = "도안: 빛매듭 바지",
+			["French"] = "Patron : Pantalon en étoffe lumineuse",
+			["Portuguese"] = "Molde: Calças de Lumetrama",
+			["Mexican"] = "Patrón: pantalones de paño brillante",
+			["Russian"] = "Выкройка: штаны из яркой ткани",
+			["English"] = "Pattern: Brightcloth Pants",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: штаны из яркой ткани",
-			["Portuguese"] = "Molde: Calças de Lumetrama",
-			["Chinese"] = "图样：亮布短裤",
-			["Spanish"] = "Patrón: pantalones de paño brillante",
-			["French"] = "Patron : Pantalon en étoffe lumineuse",
-			["German"] = "Muster: Hellstoffhose",
-			["Korean"] = "도안: 빛매듭 바지",
-			["English"] = "Pattern: Brightcloth Pants",
-		},
+		["id"] = 14494,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [82]
 	{
-		["phase"] = 1,
-		["id"] = 14495,
+		["name"] = {
+			["German"] = "Muster: Geisterzwirnhose",
+			["Spanish"] = "Patrón: pantalones Telafantasma",
+			["Chinese"] = "图样：鬼纹短裤",
+			["Korean"] = "도안: 유령매듭 바지",
+			["French"] = "Patron : Pantalon en tisse-fantôme",
+			["Portuguese"] = "Molde: Calças de Espectrama",
+			["Mexican"] = "Patrón: pantalones de tejido fantasmal",
+			["Russian"] = "Выкройка: штаны из призрачной ткани",
+			["English"] = "Pattern: Ghostweave Pants",
+		},
 		["drops"] = {
 			["mobs"] = {
 				10384, -- [1]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: штаны из призрачной ткани",
-			["Portuguese"] = "Molde: Calças de Espectrama",
-			["Chinese"] = "图样：鬼纹短裤",
-			["Spanish"] = "Patrón: pantalones Telafantasma",
-			["French"] = "Patron : Pantalon en tisse-fantôme",
-			["German"] = "Muster: Geisterzwirnhose",
-			["Korean"] = "도안: 유령매듭 바지",
-			["English"] = "Pattern: Ghostweave Pants",
-		},
+		["id"] = 14495,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [83]
 	{
-		["phase"] = 1,
-		["id"] = 14496,
+		["name"] = {
+			["German"] = "Muster: Teufelsstoffkapuze",
+			["Spanish"] = "Patrón: caperuza de tela de inferi",
+			["Chinese"] = "图样：恶魔布帽",
+			["Korean"] = "도안: 지옥매듭 두건",
+			["French"] = "Patron : Chaperon en gangrétoffe",
+			["Portuguese"] = "Molde: Capuz de Tecido Vil",
+			["Mexican"] = "Patrón: caperuza de tela vil",
+			["Russian"] = "Выкройка: капюшон из ткани Скверны",
+			["English"] = "Pattern: Felcloth Hood",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: капюшон из ткани Скверны",
-			["Portuguese"] = "Molde: Capuz de Tecido Vil",
-			["Chinese"] = "图样：恶魔布帽",
-			["Spanish"] = "Patrón: caperuza de tela de inferi",
-			["French"] = "Patron : Chaperon en gangrétoffe",
-			["German"] = "Muster: Teufelsstoffkapuze",
-			["Korean"] = "도안: 지옥매듭 두건",
-			["English"] = "Pattern: Felcloth Hood",
-		},
+		["id"] = 14496,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [84]
 	{
-		["phase"] = 1,
-		["id"] = 14497,
+		["name"] = {
+			["German"] = "Muster: Mondstoffgamaschen",
+			["Spanish"] = "Patrón: leotardos de tela lunar",
+			["Chinese"] = "图样：月布护腿",
+			["Korean"] = "도안: 달빛매듭 다리보호구",
+			["French"] = "Patron : Jambières en étoffe lunaire",
+			["Portuguese"] = "Molde: Perneiras de Lunatrama",
+			["Mexican"] = "Patrón: leotardos de tela lunar",
+			["Russian"] = "Выкройка: поножи из луноткани",
+			["English"] = "Pattern: Mooncloth Leggings",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: поножи из луноткани",
-			["Portuguese"] = "Molde: Perneiras de Lunatrama",
-			["Chinese"] = "图样：月布护腿",
-			["Spanish"] = "Patrón: leotardos de tela lunar",
-			["French"] = "Patron : Jambières en étoffe lunaire",
-			["German"] = "Muster: Mondstoffgamaschen",
-			["Korean"] = "도안: 달빛매듭 다리보호구",
-			["English"] = "Pattern: Mooncloth Leggings",
-		},
+		["id"] = 14497,
+		["phase"] = 1,
 		["quality"] = "rare",
 	}, -- [85]
 	{
-		["phase"] = 1,
-		["id"] = 14498,
+		["name"] = {
+			["German"] = "Muster: Runenstoffstirnband",
+			["Spanish"] = "Patrón: cinta de paño rúnico",
+			["Chinese"] = "图样：符文布头带",
+			["Korean"] = "도안: 룬매듭 머리띠",
+			["French"] = "Patron : Bandeau en étoffe runique",
+			["Portuguese"] = "Molde: Bandana de Runatrama",
+			["Mexican"] = "Patrón: cinta de paño rúnico",
+			["Russian"] = "Выкройка: головная повязка из рунной ткани",
+			["English"] = "Pattern: Runecloth Headband",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: головная повязка из рунной ткани",
-			["Portuguese"] = "Molde: Bandana de Runatrama",
-			["Chinese"] = "图样：符文布头带",
-			["Spanish"] = "Patrón: cinta de paño rúnico",
-			["French"] = "Patron : Bandeau en étoffe runique",
-			["German"] = "Muster: Runenstoffstirnband",
-			["Korean"] = "도안: 룬매듭 머리띠",
-			["English"] = "Pattern: Runecloth Headband",
-		},
+		["id"] = 14498,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [86]
 	{
-		["phase"] = 1,
-		["id"] = 14499,
+		["name"] = {
+			["German"] = "Muster: Mondstofftasche",
+			["Spanish"] = "Patrón: bolsa de tela lunar",
+			["Chinese"] = "图样：月布包",
+			["Korean"] = "도안: 달빛매듭 가방",
+			["French"] = "Patron : Sac en étoffe lunaire",
+			["Portuguese"] = "Molde: Bolsa de Lunatrama",
+			["Mexican"] = "Patrón: bolsa de tela lunar",
+			["Russian"] = "Выкройка: сумка из луноткани",
+			["English"] = "Pattern: Mooncloth Bag",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: сумка из луноткани",
-			["Portuguese"] = "Molde: Bolsa de Lunatrama",
-			["Chinese"] = "图样：月布包",
-			["Spanish"] = "Patrón: bolsa de tela lunar",
-			["French"] = "Patron : Sac en étoffe lunaire",
-			["German"] = "Muster: Mondstofftasche",
-			["Korean"] = "도안: 달빛매듭 가방",
-			["English"] = "Pattern: Mooncloth Bag",
-		},
+		["id"] = 14499,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [87]
 	{
-		["phase"] = 1,
-		["id"] = 14500,
+		["name"] = {
+			["German"] = "Muster: Hexerzwirnrobe",
+			["Spanish"] = "Patrón: toga de tejido zahorí",
+			["Chinese"] = "图样：巫纹长袍",
+			["Korean"] = "도안: 마술매듭 로브",
+			["French"] = "Patron : Robe en tisse-sorcier",
+			["Portuguese"] = "Molde: Veste de Bruxatrama",
+			["Mexican"] = "Patrón: toga de tejido zahorí",
+			["Russian"] = "Выкройка: одеяние из чародейской ткани",
+			["English"] = "Pattern: Wizardweave Robe",
+		},
 		["drops"] = {
 			["mobs"] = {
 				8526, -- [1]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: одеяние из чародейской ткани",
-			["Portuguese"] = "Molde: Veste de Bruxatrama",
-			["Chinese"] = "图样：巫纹长袍",
-			["Spanish"] = "Patrón: toga de tejido zahorí",
-			["French"] = "Patron : Robe en tisse-sorcier",
-			["German"] = "Muster: Hexerzwirnrobe",
-			["Korean"] = "도안: 마술매듭 로브",
-			["English"] = "Pattern: Wizardweave Robe",
-		},
+		["id"] = 14500,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [88]
 	{
-		["phase"] = 1,
-		["id"] = 14501,
+		["name"] = {
+			["German"] = "Muster: Mondstoffweste",
+			["Spanish"] = "Patrón: jubón de tela lunar",
+			["Chinese"] = "图样：月布外衣",
+			["Korean"] = "도안: 달빛매듭 조끼",
+			["French"] = "Patron : Gilet en étoffe lunaire",
+			["Portuguese"] = "Molde: Colete de Lunatrama",
+			["Mexican"] = "Patrón: jubón de tela lunar",
+			["Russian"] = "Выкройка: жилет из луноткани",
+			["English"] = "Pattern: Mooncloth Vest",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: жилет из луноткани",
-			["Portuguese"] = "Molde: Colete de Lunatrama",
-			["Chinese"] = "图样：月布外衣",
-			["Spanish"] = "Patrón: jubón de tela lunar",
-			["French"] = "Patron : Gilet en étoffe lunaire",
-			["German"] = "Muster: Mondstoffweste",
-			["Korean"] = "도안: 달빛매듭 조끼",
-			["English"] = "Pattern: Mooncloth Vest",
-		},
+		["id"] = 14501,
+		["phase"] = 1,
 		["quality"] = "rare",
 	}, -- [89]
 	{
-		["phase"] = 1,
-		["id"] = 14504,
+		["name"] = {
+			["German"] = "Muster: Runenstoffschultern",
+			["Spanish"] = "Patrón: hombreras de paño rúnico",
+			["Chinese"] = "图样：符文布护肩",
+			["Korean"] = "도안: 룬매듭 어깨보호구",
+			["French"] = "Patron : Epaulières en étoffe runique",
+			["Portuguese"] = "Molde: Omoplatas de Runatrama",
+			["Mexican"] = "Patrón: sobrehombros de paño rúnico",
+			["Russian"] = "Выкройка: наплечники из рунной ткани",
+			["English"] = "Pattern: Runecloth Shoulders",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: наплечники из рунной ткани",
-			["Portuguese"] = "Molde: Omoplatas de Runatrama",
-			["Chinese"] = "图样：符文布护肩",
-			["Spanish"] = "Patrón: hombreras de paño rúnico",
-			["French"] = "Patron : Epaulières en étoffe runique",
-			["German"] = "Muster: Runenstoffschultern",
-			["Korean"] = "도안: 룬매듭 어깨보호구",
-			["English"] = "Pattern: Runecloth Shoulders",
-		},
+		["id"] = 14504,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [90]
 	{
-		["phase"] = 1,
-		["id"] = 14505,
+		["name"] = {
+			["German"] = "Muster: Hexerzwirnturban",
+			["Spanish"] = "Patrón: turbante de tejido zahorí",
+			["Chinese"] = "图样：巫纹头巾",
+			["Korean"] = "도안: 마술매듭 터번",
+			["French"] = "Patron : Turban en tisse-sorcier",
+			["Portuguese"] = "Molde: Turbante de Bruxatrama",
+			["Mexican"] = "Patrón: turbante de tejido zahorí",
+			["Russian"] = "Выкройка: тюрбан из чародейской ткани",
+			["English"] = "Pattern: Wizardweave Turban",
+		},
 		["drops"] = {
 			["mobs"] = {
 				8526, -- [1]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: тюрбан из чародейской ткани",
-			["Portuguese"] = "Molde: Turbante de Bruxatrama",
-			["Chinese"] = "图样：巫纹头巾",
-			["Spanish"] = "Patrón: turbante de tejido zahorí",
-			["French"] = "Patron : Turban en tisse-sorcier",
-			["German"] = "Muster: Hexerzwirnturban",
-			["Korean"] = "도안: 마술매듭 터번",
-			["English"] = "Pattern: Wizardweave Turban",
-		},
+		["id"] = 14505,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [91]
 	{
-		["phase"] = 1,
-		["id"] = 14506,
+		["name"] = {
+			["German"] = "Muster: Teufelsstoffrobe",
+			["Spanish"] = "Patrón: toga de tela de inferi",
+			["Chinese"] = "图样：恶魔布袍",
+			["Korean"] = "도안: 지옥매듭 로브",
+			["French"] = "Patron : Robe en gangrétoffe",
+			["Portuguese"] = "Molde: Veste de Tecido Vil",
+			["Mexican"] = "Patrón: toga de tela vil",
+			["Russian"] = "Выкройка: одеяние из ткани Скверны",
+			["English"] = "Pattern: Felcloth Robe",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: одеяние из ткани Скверны",
-			["Portuguese"] = "Molde: Veste de Tecido Vil",
-			["Chinese"] = "图样：恶魔布袍",
-			["Spanish"] = "Patrón: toga de tela de inferi",
-			["French"] = "Patron : Robe en gangrétoffe",
-			["German"] = "Muster: Teufelsstoffrobe",
-			["Korean"] = "도안: 지옥매듭 로브",
-			["English"] = "Pattern: Felcloth Robe",
-		},
+		["id"] = 14506,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [92]
 	{
-		["phase"] = 1,
-		["id"] = 14507,
+		["name"] = {
+			["German"] = "Muster: Mondstoffschultern",
+			["Spanish"] = "Patrón: hombreras de tela lunar",
+			["Chinese"] = "图样：月布护肩",
+			["Korean"] = "도안: 달빛매듭 어깨보호구",
+			["French"] = "Patron : Epaulières en étoffe lunaire",
+			["Portuguese"] = "Molde: Omoplatas de Lunatrama",
+			["Mexican"] = "Patrón: sobrehombros de tela lunar",
+			["Russian"] = "Выкройка: наплечники из луноткани",
+			["English"] = "Pattern: Mooncloth Shoulders",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: наплечники из луноткани",
-			["Portuguese"] = "Molde: Omoplatas de Lunatrama",
-			["Chinese"] = "图样：月布护肩",
-			["Spanish"] = "Patrón: hombreras de tela lunar",
-			["French"] = "Patron : Epaulières en étoffe lunaire",
-			["German"] = "Muster: Mondstoffschultern",
-			["Korean"] = "도안: 달빛매듭 어깨보호구",
-			["English"] = "Pattern: Mooncloth Shoulders",
-		},
+		["id"] = 14507,
+		["phase"] = 1,
 		["quality"] = "rare",
 	}, -- [93]
 	{
-		["phase"] = 1,
-		["id"] = 14508,
+		["name"] = {
+			["German"] = "Muster: Teufelsstoffschultern",
+			["Spanish"] = "Patrón: hombreras de tela de inferi",
+			["Chinese"] = "图样：恶魔布护肩",
+			["Korean"] = "도안: 지옥매듭 어깨보호구",
+			["French"] = "Patron : Epaulières en gangrétoffe",
+			["Portuguese"] = "Molde: Omoplatas de Tecido Vil",
+			["Mexican"] = "Patrón: sobrehombros de tela vil",
+			["Russian"] = "Выкройка: наплечники из ткани Скверны",
+			["English"] = "Pattern: Felcloth Shoulders",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 10,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: наплечники из ткани Скверны",
-			["Portuguese"] = "Molde: Omoplatas de Tecido Vil",
-			["Chinese"] = "图样：恶魔布护肩",
-			["Spanish"] = "Patrón: hombreras de tela de inferi",
-			["French"] = "Patron : Epaulières en gangrétoffe",
-			["German"] = "Muster: Teufelsstoffschultern",
-			["Korean"] = "도안: 지옥매듭 어깨보호구",
-			["English"] = "Pattern: Felcloth Shoulders",
-		},
+		["id"] = 14508,
+		["phase"] = 1,
 		["quality"] = "uncommon",
 	}, -- [94]
 	{
-		["phase"] = 1,
-		["id"] = 14509,
+		["name"] = {
+			["German"] = "Muster: Mondstoffreif",
+			["Spanish"] = "Patrón: aro de tela lunar",
+			["Chinese"] = "图样：月布头饰",
+			["Korean"] = "도안: 달빛매듭 머리장식",
+			["French"] = "Patron : Diadème en étoffe lunaire",
+			["Portuguese"] = "Molde: Diadema de Lunatrama",
+			["Mexican"] = "Patrón: aro de tela lunar",
+			["Russian"] = "Выкройка: венец из луноткани",
+			["English"] = "Pattern: Mooncloth Circlet",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 59,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: венец из луноткани",
-			["Portuguese"] = "Molde: Diadema de Lunatrama",
-			["Chinese"] = "图样：月布头饰",
-			["Spanish"] = "Patrón: aro de tela lunar",
-			["French"] = "Patron : Diadème en étoffe lunaire",
-			["German"] = "Muster: Mondstoffreif",
-			["Korean"] = "도안: 달빛매듭 머리장식",
-			["English"] = "Pattern: Mooncloth Circlet",
-		},
+		["id"] = 14509,
+		["phase"] = 1,
 		["quality"] = "rare",
 	}, -- [95]
 	{
-		["phase"] = 1,
-		["id"] = 14510,
+		["name"] = {
+			["German"] = "Muster: Bodenlose Tasche",
+			["Spanish"] = "Patrón: bolsa sin fondo",
+			["Chinese"] = "图样：无底包",
+			["Korean"] = "도안: 무한의 가방",
+			["French"] = "Patron : Sac sans fond",
+			["Portuguese"] = "Molde: Bolsa sem Fundo",
+			["Mexican"] = "Patrón: bolsa sin fondo",
+			["Russian"] = "Выкройка: бездонная сумка",
+			["English"] = "Pattern: Bottomless Bag",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 59,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: бездонная сумка",
-			["Portuguese"] = "Molde: Bolsa sem Fundo",
-			["Chinese"] = "图样：无底包",
-			["Spanish"] = "Patrón: bolsa sin fondo",
-			["French"] = "Patron : Sac sans fond",
-			["German"] = "Muster: Bodenlose Tasche",
-			["Korean"] = "도안: 무한의 가방",
-			["English"] = "Pattern: Bottomless Bag",
-		},
+		["id"] = 14510,
+		["phase"] = 1,
 		["quality"] = "rare",
 	}, -- [96]
 	{
-		["phase"] = 1,
-		["id"] = 14511,
+		["name"] = {
+			["German"] = "Muster: Handschuhe der Zauberbeherrschung",
+			["Spanish"] = "Patrón: guantes de maestría de hechizos",
+			["Chinese"] = "图样：法术掌握手套",
+			["Korean"] = "도안: 주문 전문화 장갑",
+			["French"] = "Patron : Gants de maîtrise magique",
+			["Portuguese"] = "Molde: Luvas de Maestria em Feitiçaria",
+			["Mexican"] = "Patrón: guantes de maestría en hechizos",
+			["Russian"] = "Выкройка: перчатки волшебства",
+			["English"] = "Pattern: Gloves of Spell Mastery",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 60,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: перчатки волшебства",
-			["Portuguese"] = "Molde: Luvas de Maestria em Feitiçaria",
-			["Chinese"] = "图样：法术掌握手套",
-			["Spanish"] = "Patrón: guantes de maestría de hechizos",
-			["French"] = "Patron : Gants de maîtrise magique",
-			["German"] = "Muster: Handschuhe der Zauberbeherrschung",
-			["Korean"] = "도안: 주문 전문화 장갑",
-			["English"] = "Pattern: Gloves of Spell Mastery",
-		},
+		["id"] = 14511,
+		["phase"] = 1,
 		["quality"] = "epic",
 	}, -- [97]
 	{
-		["phase"] = 1,
-		["id"] = 14512,
+		["name"] = {
+			["German"] = "Muster: Trachten des wahren Glaubens",
+			["Spanish"] = "Patrón: vestimentas de fe verdadera",
+			["Chinese"] = "图样：信念外衣",
+			["Korean"] = "도안: 신앙의 예복",
+			["French"] = "Patron : Habit de vraie foi",
+			["Portuguese"] = "Molde: Vestimenta da Fé Verdadeira",
+			["Mexican"] = "Patrón: vestimentas de fe verdadera",
+			["Russian"] = "Выкройка: одеяние истинной веры",
+			["English"] = "Pattern: Truefaith Vestments",
+		},
 		["drops"] = {
 			["mobs"] = {
 				10813, -- [1]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: одеяние истинной веры",
-			["Portuguese"] = "Molde: Vestimenta da Fé Verdadeira",
-			["Chinese"] = "图样：信念外衣",
-			["Spanish"] = "Patrón: vestimentas de fe verdadera",
-			["French"] = "Patron : Habit de vraie foi",
-			["German"] = "Muster: Trachten des wahren Glaubens",
-			["Korean"] = "도안: 신앙의 예복",
-			["English"] = "Pattern: Truefaith Vestments",
-		},
+		["id"] = 14512,
+		["phase"] = 1,
 		["quality"] = "epic",
 	}, -- [98]
 	{
-		["phase"] = 1,
-		["id"] = 14513,
+		["name"] = {
+			["German"] = "Muster: Robe des Erzmagiers",
+			["Spanish"] = "Patrón: toga del Archimago",
+			["Chinese"] = "图样：大法师之袍",
+			["Korean"] = "도안: 대마법사의 로브",
+			["French"] = "Patron : Robe de l'archimage",
+			["Portuguese"] = "Molde: Veste do Arquimago",
+			["Mexican"] = "Patrón: toga del archimago",
+			["Russian"] = "Выкройка: одеяние верховного мага",
+			["English"] = "Pattern: Robe of the Archmage",
+		},
 		["drops"] = {
 			["mobs"] = {
 				9264, -- [1]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: одеяние верховного мага",
-			["Portuguese"] = "Molde: Veste do Arquimago",
-			["Chinese"] = "图样：大法师之袍",
-			["Spanish"] = "Patrón: toga del Archimago",
-			["French"] = "Patron : Robe de l'archimage",
-			["German"] = "Muster: Robe des Erzmagiers",
-			["Korean"] = "도안: 대마법사의 로브",
-			["English"] = "Pattern: Robe of the Archmage",
-		},
+		["id"] = 14513,
+		["phase"] = 1,
 		["quality"] = "epic",
 	}, -- [99]
 	{
-		["phase"] = 1,
-		["id"] = 14514,
+		["name"] = {
+			["German"] = "Muster: Robe der Leere",
+			["Spanish"] = "Patrón: toga del Vacío",
+			["Chinese"] = "图样：虚空法袍",
+			["Korean"] = "도안: 공허의 로브",
+			["French"] = "Patron : Robe du Vide",
+			["Portuguese"] = "Molde: Veste do Caos",
+			["Mexican"] = "Patrón: toga del Vacío",
+			["Russian"] = "Выкройка: одеяние Бездны",
+			["English"] = "Pattern: Robe of the Void",
+		},
 		["drops"] = {
 			["mobs"] = {
 				1853, -- [1]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: одеяние Бездны",
-			["Portuguese"] = "Molde: Veste do Caos",
-			["Chinese"] = "图样：虚空法袍",
-			["Spanish"] = "Patrón: toga del Vacío",
-			["French"] = "Patron : Robe du Vide",
-			["German"] = "Muster: Robe der Leere",
-			["Korean"] = "도안: 공허의 로브",
-			["English"] = "Pattern: Robe of the Void",
-		},
+		["id"] = 14514,
+		["phase"] = 1,
 		["quality"] = "epic",
 	}, -- [100]
 	{
 		["vendors"] = {
+			["price"] = 20000,
 			["sources"] = {
 				11189, -- [1]
 			},
-			["price"] = 20000,
 		},
-		["id"] = 14526,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: луноткань",
-			["Portuguese"] = "Molde: Lunatrama",
-			["Chinese"] = "图样：月布",
-			["Spanish"] = "Patrón: tela lunar",
-			["French"] = "Patron : Etoffe lunaire",
 			["German"] = "Muster: Mondstoff",
+			["Spanish"] = "Patrón: tela lunar",
+			["Chinese"] = "图样：月布",
 			["Korean"] = "도안: 달빛 옷감",
+			["French"] = "Patron : Etoffe lunaire",
+			["Portuguese"] = "Molde: Lunatrama",
+			["Mexican"] = "Patrón: tela lunar",
+			["Russian"] = "Выкройка: луноткань",
 			["English"] = "Pattern: Mooncloth",
 		},
+		["id"] = 14526,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [101]
 	{
 		["vendors"] = {
+			["price"] = 800,
 			["sources"] = {
 				2668, -- [1]
 			},
-			["price"] = 800,
 		},
-		["id"] = 14627,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: ярко-желтая рубашка",
-			["Portuguese"] = "Molde: Camisa Amarela Berrante",
-			["Chinese"] = "图样：淡黄色衬衣",
-			["Spanish"] = "Patrón: camisa amarillo brillante",
-			["French"] = "Patron : Chemise jaune vif",
 			["German"] = "Muster: Hellgelbes Hemd",
+			["Spanish"] = "Patrón: camisa amarillo brillante",
+			["Chinese"] = "图样：淡黄色衬衣",
 			["Korean"] = "도안: 밝은 노란색 셔츠",
+			["French"] = "Patron : Chemise jaune vif",
+			["Portuguese"] = "Molde: Camisa Amarela Berrante",
+			["Mexican"] = "Patrón: camisa amarillo brillante",
+			["Russian"] = "Выкройка: ярко-желтая рубашка",
 			["English"] = "Pattern: Bright Yellow Shirt",
 		},
+		["id"] = 14627,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [102]
 	{
 		["vendors"] = {
+			["price"] = 1000,
 			["sources"] = {
 				2670, -- [1]
 				12246, -- [2]
 			},
-			["price"] = 1000,
 		},
-		["id"] = 14630,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: клобук волшебника",
-			["Portuguese"] = "Molde: Capucho do Encantador",
-			["Chinese"] = "图样：巫术师兜帽",
-			["Spanish"] = "Patrón: capucha de encantador",
-			["French"] = "Patron : Capuche d'enchanteur",
 			["German"] = "Muster: Verzaubererkutte",
+			["Spanish"] = "Patrón: capucha de encantador",
+			["Chinese"] = "图样：巫术师兜帽",
 			["Korean"] = "도안: 마술사의 두건",
+			["French"] = "Patron : Capuche d'enchanteur",
+			["Portuguese"] = "Molde: Capucho do Encantador",
+			["Mexican"] = "Patrón: capucha de encantador",
+			["Russian"] = "Выкройка: клобук волшебника",
 			["English"] = "Pattern: Enchanter's Cowl",
 		},
+		["id"] = 14630,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [103]
 	{
 		["vendors"] = {
+			["price"] = 180000,
 			["sources"] = {
 				12944, -- [1]
 			},
-			["price"] = 180000,
 		},
-		["id"] = 17017,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: оплечье с сияющей сердцевиной",
-			["Portuguese"] = "Molde: Dragonas do Núcleo Flamífero",
-			["Chinese"] = "图样：光芒衬肩",
-			["Spanish"] = "Patrón: manto Bengala del Núcleo",
-			["French"] = "Patron : Mantelet Coeur-de-braise",
 			["German"] = "Muster: Flimmerkernmantel",
+			["Spanish"] = "Patrón: manto Bengala del Núcleo",
+			["Chinese"] = "图样：光芒衬肩",
 			["Korean"] = "도안: 화염핵 어깨보호대",
+			["French"] = "Patron : Mantelet Coeur-de-braise",
+			["Portuguese"] = "Molde: Dragonas do Núcleo Flamífero",
+			["Mexican"] = "Patrón: manto Bengala del Núcleo",
+			["Russian"] = "Выкройка: оплечье с сияющей сердцевиной",
 			["English"] = "Pattern: Flarecore Mantle",
 		},
+		["id"] = 17017,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [104]
 	{
 		["vendors"] = {
+			["price"] = 80000,
 			["sources"] = {
 				12944, -- [1]
 			},
-			["price"] = 80000,
 		},
-		["id"] = 17018,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Выкройка: перчатки с сияющей сердцевиной",
-			["Portuguese"] = "Molde: Luvas do Núcleo Flamífero",
-			["Chinese"] = "图样：光芒手套",
-			["Spanish"] = "Patrón: guantes Bengala del Núcleo",
-			["French"] = "Patron : Gants Coeur-de-braise",
 			["German"] = "Muster: Flimmerkernhandschuhe",
+			["Spanish"] = "Patrón: guantes Bengala del Núcleo",
+			["Chinese"] = "图样：光芒手套",
 			["Korean"] = "도안: 화염핵 장갑",
+			["French"] = "Patron : Gants Coeur-de-braise",
+			["Portuguese"] = "Molde: Luvas do Núcleo Flamífero",
+			["Mexican"] = "Patrón: guantes Bengala del Núcleo",
+			["Russian"] = "Выкройка: перчатки с сияющей сердцевиной",
 			["English"] = "Pattern: Flarecore Gloves",
 		},
+		["id"] = 17018,
 		["quality"] = "common",
-		["phase"] = 1,
 	}, -- [105]
 	{
 		["name"] = {
-			["Russian"] = "Выкройка: зеленая выходная рубашка",
-			["Portuguese"] = "Molde: Camisa Verde Festiva",
-			["Chinese"] = "图样：绿色节日衬衣",
-			["Spanish"] = "Patrón: camisa de vacaciones verde",
-			["French"] = "Patron : Chemise verte de fête",
 			["German"] = "Muster: Grünes Festtagshemd",
+			["Spanish"] = "Patrón: camisa de vacaciones verde",
+			["Chinese"] = "图样：绿色节日衬衣",
 			["Korean"] = "도안: 녹색 축제일 셔츠",
+			["French"] = "Patron : Chemise verte de fête",
+			["Portuguese"] = "Molde: Camisa Verde Festiva",
+			["Mexican"] = "Patrón: camisa festiva verde",
+			["Russian"] = "Выкройка: зеленая выходная рубашка",
 			["English"] = "Pattern: Green Holiday Shirt",
 		},
 		["phase"] = 1,
-		["quality"] = "common",
 		["id"] = 17724,
+		["holiday"] = 141,
+		["quests"] = {
+			8769, -- [1]
+		},
+		["quality"] = "common",
 	}, -- [106]
 	{
-		["phase"] = 1,
-		["id"] = 18265,
+		["name"] = {
+			["German"] = "Muster: Flimmerkernwickeltücher",
+			["Spanish"] = "Patrón: brazaletes Bengala del Núcleo",
+			["Chinese"] = "图样：光芒护腕",
+			["Korean"] = "도안: 화염핵 손목띠",
+			["French"] = "Patron : Couvre-bras Coeur-de-braise",
+			["Portuguese"] = "Molde: Braceletes do Núcleo Flamífero",
+			["Mexican"] = "Patrón: brazaletes Bengala del Núcleo",
+			["Russian"] = "Выкройка: напульсники с сияющей сердцевиной",
+			["English"] = "Pattern: Flarecore Wraps",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 61,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: напульсники с сияющей сердцевиной",
-			["Portuguese"] = "Molde: Braceletes do Núcleo Flamífero",
-			["Chinese"] = "图样：光芒护腕",
-			["Spanish"] = "Patrón: brazaletes Bengala del Núcleo",
-			["French"] = "Patron : Couvre-bras Coeur-de-braise",
-			["German"] = "Muster: Flimmerkernwickeltücher",
-			["Korean"] = "도안: 화염핵 손목띠",
-			["English"] = "Pattern: Flarecore Wraps",
-		},
+		["id"] = 18265,
+		["phase"] = 1,
 		["quality"] = "rare",
 	}, -- [107]
 	{
-		["phase"] = 2,
-		["id"] = 18414,
+		["name"] = {
+			["German"] = "Muster: Gürtel des Erzmagiers",
+			["Spanish"] = "Patrón: cinturón del archimago",
+			["Chinese"] = "图样：大法师腰带",
+			["Korean"] = "도안: 대마법사의 허리띠",
+			["French"] = "Patron : Ceinture de l'archimage",
+			["Portuguese"] = "Molde: Cinto do Arquimago",
+			["Mexican"] = "Patrón: cinturón del archimago",
+			["Russian"] = "Выкройка: пояс верховного мага",
+			["English"] = "Pattern: Belt of the Archmage",
+		},
 		["drops"] = {
 			["mobs"] = {
 				417, -- [1]
@@ -2266,41 +2410,43 @@ MTSL_DATA["Tailoring"]["items"] = {
 				11450, -- [3]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: пояс верховного мага",
-			["Portuguese"] = "Molde: Cinto do Arquimago",
-			["Chinese"] = "图样：大法师腰带",
-			["Spanish"] = "Patrón: cinturón del archimago",
-			["French"] = "Patron : Ceinture de l'archimage",
-			["German"] = "Muster: Gürtel des Erzmagiers",
-			["Korean"] = "도안: 대마법사의 허리띠",
-			["English"] = "Pattern: Belt of the Archmage",
-		},
+		["id"] = 18414,
+		["phase"] = 2,
 		["quality"] = "epic",
 	}, -- [108]
 	{
-		["phase"] = 2,
-		["id"] = 18415,
+		["name"] = {
+			["German"] = "Muster: Teufelsstoffhandschuhe",
+			["Spanish"] = "Patrón: guantes de tela de inferi",
+			["Chinese"] = "图样：恶魔布手套",
+			["Korean"] = "도안: 지옥매듭 장갑",
+			["French"] = "Patron : Gants en gangrétoffe",
+			["Portuguese"] = "Molde: Luvas de Tecido Vil",
+			["Mexican"] = "Patrón: guantes de tela vil",
+			["Russian"] = "Выкройка: перчатки из ткани Скверны",
+			["English"] = "Pattern: Felcloth Gloves",
+		},
 		["drops"] = {
 			["mobs"] = {
 				11450, -- [1]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: перчатки из ткани Скверны",
-			["Portuguese"] = "Molde: Luvas de Tecido Vil",
-			["Chinese"] = "图样：恶魔布手套",
-			["Spanish"] = "Patrón: guantes de tela de inferi",
-			["French"] = "Patron : Gants en gangrétoffe",
-			["German"] = "Muster: Teufelsstoffhandschuhe",
-			["Korean"] = "도안: 지옥매듭 장갑",
-			["English"] = "Pattern: Felcloth Gloves",
-		},
+		["id"] = 18415,
+		["phase"] = 2,
 		["quality"] = "rare",
 	}, -- [109]
 	{
-		["phase"] = 2,
-		["id"] = 18416,
+		["name"] = {
+			["German"] = "Muster: Infernohandschuhe",
+			["Spanish"] = "Patrón: guantes inferno",
+			["Chinese"] = "图样：地狱火手套",
+			["Korean"] = "도안: 지옥불 장갑",
+			["French"] = "Patron : gants d'Inferno",
+			["Portuguese"] = "Molde: Luvas Inferno",
+			["Mexican"] = "Patrón: guantes inferno",
+			["Russian"] = "Выкройка: инфернальные перчатки",
+			["English"] = "Pattern: Inferno Gloves",
+		},
 		["drops"] = {
 			["mobs"] = {
 				417, -- [1]
@@ -2308,41 +2454,43 @@ MTSL_DATA["Tailoring"]["items"] = {
 				11450, -- [3]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: инфернальные перчатки",
-			["Portuguese"] = "Molde: Luvas Inferno",
-			["Chinese"] = "图样：地狱火手套",
-			["Spanish"] = "Patrón: guantes inferno",
-			["French"] = "Patron : gants d'Inferno",
-			["German"] = "Muster: Infernohandschuhe",
-			["Korean"] = "도안: 지옥불 장갑",
-			["English"] = "Pattern: Inferno Gloves",
-		},
+		["id"] = 18416,
+		["phase"] = 2,
 		["quality"] = "rare",
 	}, -- [110]
 	{
-		["phase"] = 2,
-		["id"] = 18417,
+		["name"] = {
+			["German"] = "Muster: Mondstoffhandschuhe",
+			["Spanish"] = "Patrón: guantes de tela lunar",
+			["Chinese"] = "图样：月布手套",
+			["Korean"] = "도안: 달빛매듭 장갑",
+			["French"] = "Patron : Gants en étoffe lunaire",
+			["Portuguese"] = "Molde: Luvas de Lunatrama",
+			["Mexican"] = "Patrón: guantes de tela lunar",
+			["Russian"] = "Выкройка: перчатки из луноткани",
+			["English"] = "Pattern: Mooncloth Gloves",
+		},
 		["drops"] = {
 			["mobs"] = {
 				14351, -- [1]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: перчатки из луноткани",
-			["Portuguese"] = "Molde: Luvas de Lunatrama",
-			["Chinese"] = "图样：月布手套",
-			["Spanish"] = "Patrón: guantes de tela lunar",
-			["French"] = "Patron : Gants en étoffe lunaire",
-			["German"] = "Muster: Mondstoffhandschuhe",
-			["Korean"] = "도안: 달빛매듭 장갑",
-			["English"] = "Pattern: Mooncloth Gloves",
-		},
+		["id"] = 18417,
+		["phase"] = 2,
 		["quality"] = "rare",
 	}, -- [111]
 	{
-		["phase"] = 2,
-		["id"] = 18418,
+		["name"] = {
+			["German"] = "Muster: Schutzumhang der Verteidigung",
+			["Spanish"] = "Patrón: capa de Protección",
+			["Chinese"] = "图样：监护披风",
+			["Korean"] = "도안: 수호의 망토",
+			["French"] = "Patron : Cape de sauvegarde",
+			["Portuguese"] = "Molde: Manto de Proteção",
+			["Mexican"] = "Patrón: capa de amparo",
+			["Russian"] = "Выкройка: плащ Стражи",
+			["English"] = "Pattern: Cloak of Warding",
+		},
 		["drops"] = {
 			["mobs"] = {
 				417, -- [1]
@@ -2350,356 +2498,419 @@ MTSL_DATA["Tailoring"]["items"] = {
 				11450, -- [3]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: плащ Стражи",
-			["Portuguese"] = "Molde: Manto de Proteção",
-			["Chinese"] = "图样：监护披风",
-			["Spanish"] = "Patrón: capa de Protección",
-			["French"] = "Patron : Cape de sauvegarde",
-			["German"] = "Muster: Schutzumhang der Verteidigung",
-			["Korean"] = "도안: 수호의 망토",
-			["English"] = "Pattern: Cloak of Warding",
-		},
+		["id"] = 18418,
+		["phase"] = 2,
 		["quality"] = "rare",
 	}, -- [112]
 	{
 		["vendors"] = {
+			["price"] = 40000,
 			["sources"] = {
 				14371, -- [1]
 			},
-			["price"] = 40000,
 		},
-		["id"] = 18487,
+		["phase"] = 2,
 		["name"] = {
-			["Russian"] = "Выкройка: одеяние из луноткани",
-			["Portuguese"] = "Molde: Veste de Lunatrama",
-			["Chinese"] = "图样：月布长袍",
-			["Spanish"] = "Patrón: toga de tela lunar",
-			["French"] = "Patron : Robe en étoffe lunaire",
 			["German"] = "Muster: Mondstoffrobe",
+			["Spanish"] = "Patrón: toga de tela lunar",
+			["Chinese"] = "图样：月布长袍",
 			["Korean"] = "도안: 달빛매듭 로브",
+			["French"] = "Patron : Robe en étoffe lunaire",
+			["Portuguese"] = "Molde: Veste de Lunatrama",
+			["Mexican"] = "Patrón: toga de tela lunar",
+			["Russian"] = "Выкройка: одеяние из луноткани",
 			["English"] = "Pattern: Mooncloth Robe",
 		},
+		["id"] = 18487,
 		["quality"] = "common",
-		["phase"] = 2,
 	}, -- [113]
 	{
 		["vendors"] = {
+			["price"] = 20000,
 			["sources"] = {
 				11557, -- [1]
 			},
-			["price"] = 20000,
 		},
-		["id"] = 19215,
+		["phase"] = 3,
 		["name"] = {
-			["Russian"] = "Выкройка: Мудрость Древобрюхов",
-			["Portuguese"] = "Molde: Sabedoria dos Presamatos",
-			["Chinese"] = "图样：木喉之智",
-			["Spanish"] = "Patrón: sabiduría de los Fauces de Madera",
-			["French"] = "Patron : Sagesse des Grumegueules",
 			["German"] = "Muster: Weisheit der Holzschlundfeste",
+			["Spanish"] = "Patrón: sabiduría de los Fauces de Madera",
+			["Chinese"] = "图样：木喉之智",
 			["Korean"] = "도안: 나무구렁일족의 지혜",
+			["French"] = "Patron : Sagesse des Grumegueules",
+			["Portuguese"] = "Molde: Sabedoria dos Presamatos",
+			["Mexican"] = "Patrón: sabiduría de los Fauces de Madera",
+			["Russian"] = "Выкройка: Мудрость Древобрюхов",
 			["English"] = "Pattern: Wisdom of the Timbermaw",
 		},
+		["id"] = 19215,
 		["quality"] = "common",
-		["phase"] = 3,
 	}, -- [114]
 	{
 		["vendors"] = {
+			["price"] = 20000,
 			["sources"] = {
 				10856, -- [1]
 				10857, -- [2]
 				11536, -- [3]
 			},
-			["price"] = 20000,
 		},
-		["id"] = 19216,
+		["phase"] = 3,
 		["name"] = {
-			["Russian"] = "Выкройка: серебристые сапоги",
-			["Portuguese"] = "Molde: Botas Argênteas",
-			["Chinese"] = "图样：银色长靴",
-			["Spanish"] = "Patrón: botas Argenta",
-			["French"] = "Patron : Bottes de l'Aube d'argent",
 			["German"] = "Muster: Argentumstiefel",
+			["Spanish"] = "Patrón: botas Argenta",
+			["Chinese"] = "图样：银色长靴",
 			["Korean"] = "도안: 은빛 여명회 장화",
+			["French"] = "Patron : Bottes de l'Aube d'argent",
+			["Portuguese"] = "Molde: Botas Argênteas",
+			["Mexican"] = "Patrón: botas Argenta",
+			["Russian"] = "Выкройка: серебристые сапоги",
 			["English"] = "Pattern: Argent Boots",
 		},
+		["id"] = 19216,
 		["quality"] = "common",
-		["phase"] = 3,
 	}, -- [115]
 	{
 		["vendors"] = {
+			["price"] = 40000,
 			["sources"] = {
 				10856, -- [1]
 				10857, -- [2]
 				11536, -- [3]
 			},
-			["price"] = 40000,
 		},
-		["id"] = 19217,
+		["phase"] = 3,
 		["name"] = {
-			["Russian"] = "Выкройка: серебристые наплечники",
-			["Portuguese"] = "Molde: Omoplatas Argênteas",
-			["Chinese"] = "图样：银色护肩",
-			["Spanish"] = "Patrón: hombreras Argenta",
-			["French"] = "Patron : Epaulières de l'Aube d'argent",
 			["German"] = "Muster: Argentumschultern",
+			["Spanish"] = "Patrón: hombreras Argenta",
+			["Chinese"] = "图样：银色护肩",
 			["Korean"] = "도안: 은빛 여명회 어깨보호구",
+			["French"] = "Patron : Epaulières de l'Aube d'argent",
+			["Portuguese"] = "Molde: Omoplatas Argênteas",
+			["Mexican"] = "Patrón: sobrehombros Argenta",
+			["Russian"] = "Выкройка: серебристые наплечники",
 			["English"] = "Pattern: Argent Shoulders",
 		},
+		["id"] = 19217,
 		["quality"] = "common",
-		["phase"] = 3,
 	}, -- [116]
 	{
 		["vendors"] = {
+			["price"] = 40000,
 			["sources"] = {
 				11557, -- [1]
 			},
-			["price"] = 40000,
 		},
-		["id"] = 19218,
+		["phase"] = 3,
 		["name"] = {
-			["Russian"] = "Выкройка: оплечье Древобрюхов",
-			["Portuguese"] = "Molde: Dragonas dos Presamatos",
-			["Chinese"] = "图样：木喉衬肩",
-			["Spanish"] = "Patrón: manto de los Fauces de Madera",
-			["French"] = "Patron : Mantelet des Grumegueules",
 			["German"] = "Muster: Mantel der Holzschlundfeste",
+			["Spanish"] = "Patrón: manto de los Fauces de Madera",
+			["Chinese"] = "图样：木喉衬肩",
 			["Korean"] = "도안: 나무구렁일족 어깨보호대",
+			["French"] = "Patron : Mantelet des Grumegueules",
+			["Portuguese"] = "Molde: Dragonas dos Presamatos",
+			["Mexican"] = "Patrón: manto de los Fauces de Madera",
+			["Russian"] = "Выкройка: оплечье Древобрюхов",
 			["English"] = "Pattern: Mantle of the Timbermaw",
 		},
+		["id"] = 19218,
 		["quality"] = "common",
-		["phase"] = 3,
 	}, -- [117]
 	{
 		["vendors"] = {
+			["price"] = 60000,
 			["sources"] = {
 				12944, -- [1]
 			},
-			["price"] = 60000,
 		},
-		["id"] = 19219,
+		["phase"] = 3,
 		["name"] = {
-			["Russian"] = "Выкройка: одеяние с сияющей сердцевиной",
-			["Portuguese"] = "Molde: Veste do Núcleo Flamífero",
-			["Chinese"] = "图样：光芒长袍",
-			["Spanish"] = "Patrón: toga Bengala del Núcleo",
-			["French"] = "Patron : Robe Coeur-de-braise",
 			["German"] = "Muster: Flimmerkernrobe",
+			["Spanish"] = "Patrón: toga Bengala del Núcleo",
+			["Chinese"] = "图样：光芒长袍",
 			["Korean"] = "도안: 화염핵 로브",
+			["French"] = "Patron : Robe Coeur-de-braise",
+			["Portuguese"] = "Molde: Veste do Núcleo Flamífero",
+			["Mexican"] = "Patrón: toga Bengala del Núcleo",
+			["Russian"] = "Выкройка: одеяние с сияющей сердцевиной",
 			["English"] = "Pattern: Flarecore Robe",
 		},
+		["id"] = 19219,
 		["quality"] = "common",
-		["phase"] = 3,
 	}, -- [118]
 	{
 		["vendors"] = {
+			["price"] = 90000,
 			["sources"] = {
 				12944, -- [1]
 			},
-			["price"] = 90000,
 		},
-		["id"] = 19220,
+		["phase"] = 3,
 		["name"] = {
-			["Russian"] = "Выкройка: поножи с сияющей сердцевиной",
-			["Portuguese"] = "Molde: Perneiras do Núcleo Flamífero",
-			["Chinese"] = "设计图：光芒护腿",
-			["Spanish"] = "Patrón: leotardos Bengala del Núcleo",
-			["French"] = "Patron : Jambières Coeur-de-braise",
 			["German"] = "Muster: Flimmerkerngamaschen",
+			["Spanish"] = "Patrón: leotardos Bengala del Núcleo",
+			["Chinese"] = "设计图：光芒护腿",
 			["Korean"] = "도안: 화염핵 다리보호구",
+			["French"] = "Patron : Jambières Coeur-de-braise",
+			["Portuguese"] = "Molde: Perneiras do Núcleo Flamífero",
+			["Mexican"] = "Patrón: leotardos Bengala del Núcleo",
+			["Russian"] = "Выкройка: поножи с сияющей сердцевиной",
 			["English"] = "Pattern: Flarecore Leggings",
 		},
+		["id"] = 19220,
 		["quality"] = "common",
-		["phase"] = 3,
 	}, -- [119]
 	{
 		["vendors"] = {
+			["price"] = 50000,
 			["sources"] = {
 				14921, -- [1]
 			},
-			["price"] = 50000,
 		},
-		["id"] = 19764,
+		["phase"] = 4,
 		["name"] = {
-			["Russian"] = "Выкройка: жилет Кровавой Лозы",
-			["Portuguese"] = "Molde: Colete Vinassangre",
-			["Chinese"] = "图样：血藤外套",
-			["Spanish"] = "Patrón: jubón Vid de sangre",
-			["French"] = "Patron : Gilet en vignesang",
 			["German"] = "Muster: Blutrebenweste",
+			["Spanish"] = "Patrón: jubón Vid de sangre",
+			["Chinese"] = "图样：血藤外套",
 			["Korean"] = "도안: 붉은덩굴 조끼",
+			["French"] = "Patron : Gilet en vignesang",
+			["Portuguese"] = "Molde: Colete Vinassangre",
+			["Mexican"] = "Patrón: jubón vid de sangre",
+			["Russian"] = "Выкройка: жилет Кровавой Лозы",
 			["English"] = "Pattern: Bloodvine Vest",
 		},
+		["id"] = 19764,
 		["quality"] = "common",
-		["phase"] = 4,
 	}, -- [120]
 	{
 		["vendors"] = {
+			["price"] = 50000,
 			["sources"] = {
 				14921, -- [1]
 			},
-			["price"] = 50000,
 		},
-		["id"] = 19765,
+		["phase"] = 4,
 		["name"] = {
-			["Russian"] = "Выкройка: поножи Кровавой Лозы",
-			["Portuguese"] = "Molde: Perneiras Vinassangre",
-			["Chinese"] = "图样：血藤护腿",
-			["Spanish"] = "Patrón: leotardos Vid de sangre",
-			["French"] = "Patron : Jambières  en vignesang",
 			["German"] = "Muster: Blutrebengamaschen",
+			["Spanish"] = "Patrón: leotardos Vid de sangre",
+			["Chinese"] = "图样：血藤护腿",
 			["Korean"] = "도안: 붉은덩굴 다리보호구",
+			["French"] = "Patron : Jambières  en vignesang",
+			["Portuguese"] = "Molde: Perneiras Vinassangre",
+			["Mexican"] = "Patrón: leotardos vid de sangre",
+			["Russian"] = "Выкройка: поножи Кровавой Лозы",
 			["English"] = "Pattern: Bloodvine Leggings",
 		},
+		["id"] = 19765,
 		["quality"] = "common",
-		["phase"] = 4,
 	}, -- [121]
 	{
 		["vendors"] = {
+			["price"] = 50000,
 			["sources"] = {
 				14921, -- [1]
 			},
-			["price"] = 50000,
 		},
-		["id"] = 19766,
+		["phase"] = 4,
 		["name"] = {
-			["Russian"] = "Выкройка: сапоги Кровавой Лозы",
-			["Portuguese"] = "Molde: Botas Vinassangre",
-			["Chinese"] = "图样：血藤长靴",
-			["Spanish"] = "Patrón: botas Vid de sangre",
-			["French"] = "Patron : Bottes en vignesang",
 			["German"] = "Muster: Blutrebenstiefel",
+			["Spanish"] = "Patrón: botas Vid de sangre",
+			["Chinese"] = "图样：血藤长靴",
 			["Korean"] = "도안: 붉은덩굴 장화",
+			["French"] = "Patron : Bottes en vignesang",
+			["Portuguese"] = "Molde: Botas Vinassangre",
+			["Mexican"] = "Patrón: botas vid de sangre",
+			["Russian"] = "Выкройка: сапоги Кровавой Лозы",
 			["English"] = "Pattern: Bloodvine Boots",
 		},
+		["id"] = 19766,
 		["quality"] = "common",
-		["phase"] = 4,
 	}, -- [122]
 	{
-		["phase"] = 4,
-		["id"] = 20546,
 		["drops"] = {
 			["mobs"] = {
 				11881, -- [1]
 			},
 		},
 		["name"] = {
-			["Russian"] = "Выкройка: рунические стигийские поножи",
-			["Portuguese"] = "Molde: Perneiras Rúnicas Estígias",
-			["Chinese"] = "图样：符文冥河护腿",
-			["Spanish"] = "Patrón: leotardos estigios rúnicos",
-			["French"] = "Patron: Jambières runiques ténébreuses",
 			["German"] = "Muster: Runenverzierte stygische Gamaschen",
+			["Spanish"] = "Patrón: leotardos estigios rúnicos",
+			["Chinese"] = "图样：符文冥河护腿",
 			["Korean"] = "도안: 저승의 룬매듭 다리보호구",
+			["French"] = "Patron: Jambières runiques ténébreuses",
+			["Portuguese"] = "Molde: Perneiras Rúnicas Estígias",
+			["Mexican"] = "Patrón: leotardos rúnicos estigios",
+			["Russian"] = "Выкройка: рунические стигийские поножи",
 			["English"] = "Pattern: Runed Stygian Leggings",
+		},
+		["special_action"] = {
+			["German"] = "Zufällige Belohnung",
+			["Spanish"] = "Recompensa aleatoria",
+			["English"] = "Random reward",
+			["Chinese"] = "随机奖励",
+			["Russian"] = "Случайная награда",
+			["Korean"] = "무작위 보상",
+			["French"] = "Récompense aléatoire",
+			["Portuguese"] = "Recompensa aleatória",
+		},
+		["phase"] = 4,
+		["id"] = 20546,
+		["quests"] = {
+			8323, -- [1]
 		},
 		["quality"] = "rare",
 	}, -- [123]
 	{
 		["name"] = {
-			["Russian"] = "Выкройка: рунические стигийские сапоги",
-			["Portuguese"] = "Molde: Botas Rúnicas Estígias",
-			["Chinese"] = "图样：符文冥河长靴",
-			["Spanish"] = "Patrón: botas estigias rúnicas",
-			["French"] = "Patron: Bottes runiques ténébreuses",
 			["German"] = "Muster: Runenverzierte stygische Stiefel",
+			["Spanish"] = "Patrón: botas estigias rúnicas",
+			["Chinese"] = "图样：符文冥河长靴",
 			["Korean"] = "도안: 저승의 룬매듭 장화",
+			["French"] = "Patron: Bottes runiques ténébreuses",
+			["Portuguese"] = "Molde: Botas Rúnicas Estígias",
+			["Mexican"] = "Patrón: botas rúnicas estigias",
+			["Russian"] = "Выкройка: рунические стигийские сапоги",
 			["English"] = "Pattern: Runed Stygian Boots",
 		},
-		["phase"] = 4,
-		["quality"] = "rare",
+		["special_action"] = {
+			["German"] = "Zufällige Belohnung",
+			["Spanish"] = "Recompensa aleatoria",
+			["English"] = "Random reward",
+			["Chinese"] = "随机奖励",
+			["Russian"] = "Случайная награда",
+			["Korean"] = "무작위 보상",
+			["French"] = "Récompense aléatoire",
+			["Portuguese"] = "Recompensa aleatória",
+		},
 		["id"] = 20547,
+		["phase"] = 4,
+		["quests"] = {
+			8323, -- [1]
+		},
+		["quality"] = "rare",
 	}, -- [124]
 	{
 		["name"] = {
-			["Russian"] = "Выкройка: рунический стигийский пояс",
-			["Portuguese"] = "Molde: Cinto Rúnico Estígio",
-			["Chinese"] = "图样：符文冥河腰带",
-			["Spanish"] = "Patrón: cinturón estigio rúnico",
-			["French"] = "Patron : Ceinture runique ténébreuse",
 			["German"] = "Muster: Runenverzierter stygischer Gürtel",
+			["Spanish"] = "Patrón: cinturón estigio rúnico",
+			["Chinese"] = "图样：符文冥河腰带",
 			["Korean"] = "도안: 저승의 룬매듭 허리띠",
+			["French"] = "Patron : Ceinture runique ténébreuse",
+			["Portuguese"] = "Molde: Cinto Rúnico Estígio",
+			["Mexican"] = "Patrón: cinturón rúnico estigio",
+			["Russian"] = "Выкройка: рунический стигийский пояс",
 			["English"] = "Pattern: Runed Stygian Belt",
 		},
-		["phase"] = 4,
-		["quality"] = "rare",
+		["special_action"] = {
+			["German"] = "Zufällige Belohnung",
+			["Spanish"] = "Recompensa aleatoria",
+			["English"] = "Random reward",
+			["Chinese"] = "随机奖励",
+			["Russian"] = "Случайная награда",
+			["Korean"] = "무작위 보상",
+			["French"] = "Récompense aléatoire",
+			["Portuguese"] = "Recompensa aleatória",
+		},
 		["id"] = 20548,
+		["phase"] = 4,
+		["quests"] = {
+			8323, -- [1]
+		},
+		["quality"] = "rare",
 	}, -- [125]
 	{
 		["vendors"] = {
+			["price"] = 10000,
 			["sources"] = {
 				6568, -- [1]
 			},
-			["price"] = 10000,
 		},
-		["id"] = 21358,
+		["phase"] = 5,
 		["name"] = {
-			["Russian"] = "Выкройка: сума душ",
-			["Portuguese"] = "Molde: Bolsa de Almas",
-			["Chinese"] = "图样：灵魂袋",
-			["Spanish"] = "Patrón: faltriquera de almas",
-			["French"] = "Patron : Bourse d'âme",
 			["German"] = "Muster: Seelenbeutel",
+			["Spanish"] = "Patrón: faltriquera de almas",
+			["Chinese"] = "图样：灵魂袋",
 			["Korean"] = "도안: 영혼의 주머니",
+			["French"] = "Patron : Bourse d'âme",
+			["Portuguese"] = "Molde: Bolsa de Almas",
+			["Mexican"] = "Patrón: faltriquera de almas",
+			["Russian"] = "Выкройка: сума душ",
 			["English"] = "Pattern: Soul Pouch",
 		},
+		["id"] = 21358,
 		["quality"] = "common",
-		["phase"] = 5,
 	}, -- [126]
 	{
-		["phase"] = 5,
-		["id"] = 21371,
+		["name"] = {
+			["German"] = "Muster: Kernteufelsstofftasche",
+			["Spanish"] = "Patrón: bolsa de tela de inferi del Núcleo",
+			["Chinese"] = "图样：熔火恶魔布包",
+			["Korean"] = "도안: 화산핵 지옥매듭 가방",
+			["French"] = "Patron : Sac en gangrétoffe du Magma",
+			["Portuguese"] = "Molde: Bolsa Principal de Tecido Vil",
+			["Mexican"] = "Patrón: bolsa de tela vil del Núcleo",
+			["Russian"] = "Выкройка: сумка из сердцевинной ткани Скверны",
+			["English"] = "Pattern: Core Felcloth Bag",
+		},
 		["drops"] = {
 			["mobs_range"] = {
 				["min_xp_level"] = 61,
 				["max_xp_level"] = 63,
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: сумка из сердцевинной ткани Скверны",
-			["Portuguese"] = "Molde: Bolsa Principal de Tecido Vil",
-			["Chinese"] = "图样：熔火恶魔布包",
-			["Spanish"] = "Patrón: bolsa de tela de inferi del Núcleo",
-			["French"] = "Patron : Sac en gangrétoffe du Magma",
-			["German"] = "Muster: Kernteufelsstofftasche",
-			["Korean"] = "도안: 화산핵 지옥매듭 가방",
-			["English"] = "Pattern: Core Felcloth Bag",
-		},
+		["id"] = 21371,
+		["phase"] = 5,
 		["quality"] = "rare",
 	}, -- [127]
 	{
 		["name"] = {
-			["Russian"] = "Выкройка: праздничное платье",
-			["Portuguese"] = "Molde: Vestido do Festival",
-			["Chinese"] = "图样：节庆长裙",
-			["Spanish"] = "Patrón: vestido de fiesta",
-			["French"] = "Patron : Robe de fête",
 			["German"] = "Muster: Festtagskleid",
+			["Spanish"] = "Patrón: vestido de fiesta",
+			["Chinese"] = "图样：节庆长裙",
 			["Korean"] = "도안: 축제 드레스",
+			["French"] = "Patron : Robe de fête",
+			["Portuguese"] = "Molde: Vestido do Festival",
+			["Mexican"] = "Patrón: vestido de fiesta",
+			["Russian"] = "Выкройка: праздничное платье",
 			["English"] = "Pattern: Festival Dress",
 		},
-		["phase"] = 1,
-		["quality"] = "uncommon",
+		["vendors"] = {
+			["price"] = 0,
+			["sources"] = {
+				15909, -- [1]
+			},
+		},
 		["id"] = 21722,
+		["phase"] = 1,
+		["holiday"] = 327,
+		["quality"] = "uncommon",
 	}, -- [128]
 	{
 		["name"] = {
-			["Russian"] = "Выкройка: праздничный костюм",
-			["Portuguese"] = "Molde: Roupa do Festival",
-			["Chinese"] = "图样：节庆裤装",
-			["Spanish"] = "Patrón: traje de fiesta",
-			["French"] = "Patron : Habit de fête",
 			["German"] = "Muster: Festtagsanzug",
+			["Spanish"] = "Patrón: traje de fiesta",
+			["Chinese"] = "图样：节庆裤装",
 			["Korean"] = "도안: 축제 의상",
+			["French"] = "Patron : Habit de fête",
+			["Portuguese"] = "Molde: Roupa do Festival",
+			["Mexican"] = "Patrón: traje de fiesta",
+			["Russian"] = "Выкройка: праздничный костюм",
 			["English"] = "Pattern: Festival Suit",
 		},
-		["phase"] = 1,
-		["quality"] = "uncommon",
+		["vendors"] = {
+			["price"] = 0,
+			["sources"] = {
+				15909, -- [1]
+			},
+		},
 		["id"] = 21723,
+		["phase"] = 1,
+		["holiday"] = 327,
+		["quality"] = "uncommon",
 	}, -- [129]
 	{
 		["vendors"] = {
+			["price"] = 6000,
 			["sources"] = {
 				1318, -- [1]
 				3012, -- [2]
@@ -2711,262 +2922,285 @@ MTSL_DATA["Tailoring"]["items"] = {
 				5758, -- [8]
 				15419, -- [9]
 			},
-			["price"] = 6000,
 		},
-		["id"] = 22307,
+		["phase"] = 5,
 		["name"] = {
-			["Russian"] = "Выкройка: зачарованный мешочек из магической ткани",
-			["Portuguese"] = "Molde: Saco de Magitrama Encantado",
-			["Chinese"] = "图样：魔化魔纹布包",
-			["Spanish"] = "Patrón: faltriquera de paño mágico encantado",
-			["French"] = "Patron : Bourse enchantée en tisse-mage",
 			["German"] = "Muster: Verzauberter Magiestoffbeutel",
+			["Spanish"] = "Patrón: faltriquera de paño mágico encantado",
+			["Chinese"] = "图样：魔化魔纹布包",
 			["Korean"] = "도안: 마력 깃든 마법매듭 가방",
+			["French"] = "Patron : Bourse enchantée en tisse-mage",
+			["Portuguese"] = "Molde: Saco de Magitrama Encantado",
+			["Mexican"] = "Patrón: faltriquera de tejido mágico encantada",
+			["Russian"] = "Выкройка: зачарованный мешочек из магической ткани",
 			["English"] = "Pattern: Enchanted Mageweave Pouch",
 		},
+		["id"] = 22307,
 		["quality"] = "common",
-		["phase"] = 5,
 	}, -- [130]
 	{
 		["vendors"] = {
+			["price"] = 20000,
 			["sources"] = {
 				15419, -- [1]
 			},
-			["price"] = 20000,
 		},
-		["id"] = 22308,
+		["phase"] = 5,
 		["name"] = {
-			["Russian"] = "Выкройка: зачарованная сумка из рунной ткани",
-			["Portuguese"] = "Molde: Bolsa de Runatrama Encantada",
-			["Chinese"] = "图样：魔化符文布包",
-			["Spanish"] = "Patrón: bolsa de paño rúnico encantado",
-			["French"] = "Patron : Sac enchanté en étoffe runique",
 			["German"] = "Muster: Verzauberte Runenstofftasche",
+			["Spanish"] = "Patrón: bolsa de paño rúnico encantado",
+			["Chinese"] = "图样：魔化符文布包",
 			["Korean"] = "도안: 마력 깃든 룬매듭 가방",
+			["French"] = "Patron : Sac enchanté en étoffe runique",
+			["Portuguese"] = "Molde: Bolsa de Runatrama Encantada",
+			["Mexican"] = "Patrón: bolsa de paño rúnico encantada",
+			["Russian"] = "Выкройка: зачарованная сумка из рунной ткани",
 			["English"] = "Pattern: Enchanted Runecloth Bag",
 		},
+		["id"] = 22308,
 		["quality"] = "common",
-		["phase"] = 5,
 	}, -- [131]
 	{
-		["phase"] = 5,
-		["id"] = 22309,
+		["name"] = {
+			["German"] = "Muster: Große Verzauberertasche",
+			["Spanish"] = "Patrón: bolsa de encantamiento grande",
+			["Chinese"] = "图样：大附魔袋",
+			["Korean"] = "도안: 큰 마법용품 가방",
+			["French"] = "Patron : Grand sac d'enchantement",
+			["Portuguese"] = "Molde: Grande Bolsa de Encantamentos",
+			["Mexican"] = "Patrón: bolsa de encantamiento grande",
+			["Russian"] = "Выкройка: большая сумка зачаровывателя",
+			["English"] = "Pattern: Big Bag of Enchantment",
+		},
 		["drops"] = {
 			["mobs"] = {
 				11487, -- [1]
 			},
 		},
-		["name"] = {
-			["Russian"] = "Выкройка: большая сумка зачаровывателя",
-			["Portuguese"] = "Molde: Grande Bolsa de Encantamentos",
-			["Chinese"] = "图样：大附魔袋",
-			["Spanish"] = "Patrón: bolsa de encantamiento grande",
-			["French"] = "Patron : Grand sac d'enchantement",
-			["German"] = "Muster: Große Verzauberertasche",
-			["Korean"] = "도안: 큰 마법용품 가방",
-			["English"] = "Pattern: Big Bag of Enchantment",
-		},
+		["id"] = 22309,
+		["phase"] = 5,
 		["quality"] = "uncommon",
 	}, -- [132]
 	{
 		["vendors"] = {
+			["price"] = 20000,
 			["sources"] = {
 				15179, -- [1]
 			},
-			["price"] = 20000,
 		},
-		["id"] = 22310,
+		["phase"] = 5,
 		["name"] = {
-			["Russian"] = "Выкройка: Кенарийская сумка для трав",
-			["Portuguese"] = "Molde: Bolsa de Herborismo Cenariana",
-			["Chinese"] = "图样：塞纳里奥草药包",
-			["Spanish"] = "Patrón: bolsa de hierbas Cenarion",
-			["French"] = "Patron : Sac d'herbes cénarien",
 			["German"] = "Muster: Cenarische Kräutertasche",
+			["Spanish"] = "Patrón: bolsa de hierbas Cenarion",
+			["Chinese"] = "图样：塞纳里奥草药包",
 			["Korean"] = "도안: 세나리온 약초 가방",
+			["French"] = "Patron : Sac d'herbes cénarien",
+			["Portuguese"] = "Molde: Bolsa de Herborismo Cenariana",
+			["Mexican"] = "Patrón: bolsa de hierbas Cenarion",
+			["Russian"] = "Выкройка: Кенарийская сумка для трав",
 			["English"] = "Pattern: Cenarion Herb Bag",
 		},
+		["id"] = 22310,
 		["quality"] = "common",
-		["phase"] = 5,
 	}, -- [133]
 	{
 		["vendors"] = {
+			["price"] = 50000,
 			["sources"] = {
 				15179, -- [1]
 			},
-			["price"] = 50000,
 		},
-		["id"] = 22312,
+		["phase"] = 5,
 		["name"] = {
-			["Russian"] = "Выкройка: кенарийская сумка",
-			["Portuguese"] = "Molde: Algibeira de Cenarius",
-			["Chinese"] = "图样：塞纳留斯之袋",
-			["Spanish"] = "Patrón: cartera de Cenario",
-			["French"] = "Patron : Sacoche de Cénarius",
 			["German"] = "Muster: Cenarischer Ranzen",
+			["Spanish"] = "Patrón: cartera de Cenario",
+			["Chinese"] = "图样：塞纳留斯之袋",
 			["Korean"] = "도안: 세나리우스의 주머니",
+			["French"] = "Patron : Sacoche de Cénarius",
+			["Portuguese"] = "Molde: Algibeira de Cenarius",
+			["Mexican"] = "Patrón: cartera de Cenarius",
+			["Russian"] = "Выкройка: кенарийская сумка",
 			["English"] = "Pattern: Satchel of Cenarius",
 		},
+		["id"] = 22312,
 		["quality"] = "common",
-		["phase"] = 5,
 	}, -- [134]
 	{
 		["vendors"] = {
+			["price"] = 90000,
 			["sources"] = {
 				15179, -- [1]
 			},
-			["price"] = 90000,
 		},
-		["id"] = 22683,
+		["phase"] = 5,
 		["name"] = {
-			["Russian"] = "Выкройка: облачение Геи",
-			["Portuguese"] = "Molde: Abraço de Gaia",
-			["Chinese"] = "图样：盖亚的拥抱",
-			["Spanish"] = "Patrón: abrazo de Gaea",
-			["French"] = "Patron : Etreinte de Gaïa",
 			["German"] = "Muster: Gaeas Umarmung",
+			["Spanish"] = "Patrón: abrazo de Gaea",
+			["Chinese"] = "图样：盖亚的拥抱",
 			["Korean"] = "도안: 가이아의 은총",
+			["French"] = "Patron : Etreinte de Gaïa",
+			["Portuguese"] = "Molde: Abraço de Gaia",
+			["Mexican"] = "Patrón: Abrazo de Gaia",
+			["Russian"] = "Выкройка: облачение Геи",
 			["English"] = "Pattern: Gaea's Embrace",
 		},
+		["id"] = 22683,
 		["quality"] = "common",
-		["phase"] = 5,
 	}, -- [135]
 	{
 		["vendors"] = {
+			["price"] = 0,
 			["sources"] = {
 				16365, -- [1]
 			},
-			["price"] = 0,
 		},
-		["id"] = 22684,
 		["reputation"] = {
 			["faction_id"] = 529,
 			["level_id"] = 7,
 		},
+		["id"] = 22684,
 		["name"] = {
-			["Russian"] = "Выкройка: ледовые перчатки",
-			["Portuguese"] = "Molde: Luvas Glaciais",
-			["Chinese"] = "图样：冰川手套",
-			["Spanish"] = "Patrón: guantes glaciales",
-			["French"] = "Patron : Gants glaciaires",
 			["German"] = "Muster: Gletscherhandschuhe",
+			["Spanish"] = "Patrón: guantes glaciales",
+			["Chinese"] = "图样：冰川手套",
 			["Korean"] = "도안: 빙하의 장갑",
+			["French"] = "Patron : Gants glaciaires",
+			["Portuguese"] = "Molde: Luvas Glaciais",
+			["Mexican"] = "Patrón: guantes glaciales",
+			["Russian"] = "Выкройка: ледовые перчатки",
 			["English"] = "Pattern: Glacial Gloves",
 		},
-		["quality"] = "common",
 		["phase"] = 6,
+		["quality"] = "common",
 	}, -- [136]
 	{
 		["vendors"] = {
+			["price"] = 0,
 			["sources"] = {
 				16365, -- [1]
 			},
-			["price"] = 0,
 		},
-		["id"] = 22686,
 		["reputation"] = {
 			["faction_id"] = 529,
 			["level_id"] = 7,
 		},
+		["id"] = 22686,
 		["name"] = {
-			["Russian"] = "Выкройка: ледовый жилет",
-			["Portuguese"] = "Molde: Colete Glacial",
-			["Chinese"] = "图样：冰川外衣",
-			["Spanish"] = "Patrón: jubón glacial",
-			["French"] = "Patron : Gilet glaciaire",
 			["German"] = "Muster: Gletscherweste",
+			["Spanish"] = "Patrón: jubón glacial",
+			["Chinese"] = "图样：冰川外衣",
 			["Korean"] = "도안: 빙하의 조끼",
+			["French"] = "Patron : Gilet glaciaire",
+			["Portuguese"] = "Molde: Colete Glacial",
+			["Mexican"] = "Patrón: jubón glacial",
+			["Russian"] = "Выкройка: ледовый жилет",
 			["English"] = "Pattern: Glacial Vest",
 		},
-		["quality"] = "common",
 		["phase"] = 6,
+		["quality"] = "common",
 	}, -- [137]
 	{
 		["vendors"] = {
+			["price"] = 0,
 			["sources"] = {
 				16365, -- [1]
 			},
-			["price"] = 0,
 		},
-		["id"] = 22687,
 		["reputation"] = {
 			["faction_id"] = 529,
 			["level_id"] = 7,
 		},
+		["id"] = 22687,
 		["name"] = {
-			["Russian"] = "Выкройка: ледовые накулачники",
-			["Portuguese"] = "Molde: Pulsos Glaciais",
-			["Chinese"] = "图样：冰川护腕",
-			["Spanish"] = "Patrón: muñequeras glaciales",
-			["French"] = "Patron : Poignets glaciaires",
 			["German"] = "Muster: Gletscherhandschutz",
+			["Spanish"] = "Patrón: muñequeras glaciales",
+			["Chinese"] = "图样：冰川护腕",
 			["Korean"] = "도안: 빙하의 손목보호대",
+			["French"] = "Patron : Poignets glaciaires",
+			["Portuguese"] = "Molde: Pulsos Glaciais",
+			["Mexican"] = "Patrón: muñequeras glaciales",
+			["Russian"] = "Выкройка: ледовые накулачники",
 			["English"] = "Pattern: Glacial Wrists",
 		},
-		["quality"] = "common",
 		["phase"] = 6,
+		["quality"] = "common",
 	}, -- [138]
 	{
 		["vendors"] = {
+			["price"] = 50000,
 			["sources"] = {
 				15179, -- [1]
 			},
-			["price"] = 50000,
 		},
+		["phase"] = 5,
 		["id"] = 22772,
 		["name"] = {
-			["Russian"] = "Выкройка: лесные наплечники",
-			["Portuguese"] = "Molde: Omoplatas Silvestres",
-			["Chinese"] = "图样：林栖者护肩",
-			["Spanish"] = "Patrón: hombreras nemorosas",
-			["French"] = "Patron : Epaulières sylvestres",
 			["German"] = "Muster: Sylvanschultern",
+			["Spanish"] = "Patrón: hombreras nemorosas",
+			["Chinese"] = "图样：林栖者护肩",
 			["Korean"] = "도안: 숲의 어깨보호구",
+			["French"] = "Patron : Epaulières sylvestres",
+			["Portuguese"] = "Molde: Omoplatas Silvestres",
+			["Mexican"] = "Patrón: sobrehombros nemorosos",
+			["Russian"] = "Выкройка: лесные наплечники",
 			["English"] = "Pattern: Sylvan Shoulders",
 		},
+		["reputation"] = {
+			["faction_id"] = 609,
+			["level_id"] = 5,
+		},
 		["quality"] = "common",
-		["phase"] = 5,
 	}, -- [139]
 	{
 		["vendors"] = {
+			["price"] = 50000,
 			["sources"] = {
 				15179, -- [1]
 			},
-			["price"] = 50000,
 		},
+		["phase"] = 5,
 		["id"] = 22773,
 		["name"] = {
-			["Russian"] = "Выкройка: лесная корона",
-			["Portuguese"] = "Molde: Coroa Silvestre",
-			["Chinese"] = "图样：林栖者头冠",
-			["Spanish"] = "Patrón: corona nemorosa",
-			["French"] = "Patron : Couronne sylvestre",
 			["German"] = "Muster: Sylvankrone",
+			["Spanish"] = "Patrón: corona nemorosa",
+			["Chinese"] = "图样：林栖者头冠",
 			["Korean"] = "도안: 숲의 관",
+			["French"] = "Patron : Couronne sylvestre",
+			["Portuguese"] = "Molde: Coroa Silvestre",
+			["Mexican"] = "Patrón: corona nemorosa",
+			["Russian"] = "Выкройка: лесная корона",
 			["English"] = "Pattern: Sylvan Crown",
 		},
+		["reputation"] = {
+			["faction_id"] = 609,
+			["level_id"] = 6,
+		},
 		["quality"] = "common",
-		["phase"] = 5,
 	}, -- [140]
 	{
 		["vendors"] = {
+			["price"] = 50000,
 			["sources"] = {
 				15179, -- [1]
 			},
-			["price"] = 50000,
 		},
+		["phase"] = 5,
 		["id"] = 22774,
 		["name"] = {
-			["Russian"] = "Выкройка: лесной жилет",
-			["Portuguese"] = "Molde: Colete Silvestre",
-			["Chinese"] = "图样：林栖者外套",
-			["Spanish"] = "Patrón: jubón nemoroso",
-			["French"] = "Patron : Gilet sylvestre",
 			["German"] = "Muster: Sylvanweste",
+			["Spanish"] = "Patrón: jubón nemoroso",
+			["Chinese"] = "图样：林栖者外套",
 			["Korean"] = "도안: 숲의 조끼",
+			["French"] = "Patron : Gilet sylvestre",
+			["Portuguese"] = "Molde: Colete Silvestre",
+			["Mexican"] = "Patrón: jubón nemoroso",
+			["Russian"] = "Выкройка: лесной жилет",
 			["English"] = "Pattern: Sylvan Vest",
 		},
+		["reputation"] = {
+			["faction_id"] = 609,
+			["level_id"] = 7,
+		},
 		["quality"] = "common",
-		["phase"] = 5,
 	}, -- [141]
 }

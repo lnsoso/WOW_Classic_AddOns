@@ -1,7 +1,7 @@
 ----------------------------------------------------------
 -- Name: SkillListFrame									--
 -- Description: Shows all the skills for one profession --
--- Parent Frame: DatabaseFrame							--
+-- Parent Frame: DatabaseFrame, AccountFrame, MTSL		--
 ----------------------------------------------------------
 
 MTSLUI_LIST_FRAME = {
@@ -11,6 +11,7 @@ MTSLUI_LIST_FRAME = {
     MAX_ITEMS_SHOWN_CURRENTLY = 16, -- default mode
     MAX_ITEMS_SHOWN_VERTICAL = 16,
     MAX_ITEMS_SHOWN_HORIZONTAL = 7,
+    MAX_ITEMS_SHOWN,
     ITEM_HEIGHT = 19,
     -- array holding the buttons of this frame
     LIST_BUITTONS,
@@ -45,8 +46,13 @@ MTSLUI_LIST_FRAME = {
         self.LIST_BUITTONS = {}
         local left = 6
         local top = -6
-        -- intialise all buttons
-        for i=1,self.MAX_ITEMS_SHOWN_VERTICAL do
+        -- Determine the number of max items ever shown
+        self.MAX_ITEMS_SHOWN = self.MAX_ITEMS_SHOWN_VERTICAL
+        if self.MAX_ITEMS_SHOWN_HORIZONTAL > self.MAX_ITEMS_SHOWN then
+            self.MAX_ITEMS_SHOWN = self.MAX_ITEMS_SHOWN_HORIZONTAL
+        end
+        -- initialise all buttons
+        for i=1,self.MAX_ITEMS_SHOWN do
             -- Create a new list item (button) by making a copy of MTSLUI_LIST_ITEM
             local skill_button = MTSL_TOOLS:CopyObject(MTSLUI_LIST_ITEM)
             skill_button:Initialise(i, self, self.FRAME_WIDTH_VERTICAL - 7, self.ITEM_HEIGHT, left, top)
@@ -62,13 +68,13 @@ MTSLUI_LIST_FRAME = {
         -- default sort by name
         self.current_sort = 1
         -- default select current phase
-        self.current_phase = MTSL_CURRENT_PHASE
+        self.current_phase = MTSL_DATA.CURRENT_PATCH_LEVEL
         -- Default database wide
         self:UpdatePlayerLevels(0, 0)
         self.profession_skills = {}
         self.shown_skills = {}
         self.amount_shown_skills = 0
-        self.current_specialization = 0
+        self.current_specialisation = 0
         self.search_name_skill = ""
         self.current_source = "any"
         self.player_list_frame = nil
@@ -107,7 +113,7 @@ MTSLUI_LIST_FRAME = {
     UpdateList = function (self, missing_skills)
         self.profession_skills = missing_skills
 
-        self.shown_skills = MTSL_LOGIC_PROFESSION:FilterListOfSkills(self.profession_skills, self.profession_name, self.search_name_skill, self.current_source, self.current_specialization, self.current_phase, self.current_zone)
+        self.shown_skills = MTSL_LOGIC_PROFESSION:FilterListOfSkills(self.profession_skills, self.profession_name, self.search_name_skill, self.current_source, self.current_specialisation, self.current_phase, self.current_zone, self.current_faction_id)
         self.amount_shown_skills = MTSL_TOOLS:CountItemsInArray(self.shown_skills)
 
         -- sort the list
@@ -155,7 +161,7 @@ MTSLUI_LIST_FRAME = {
                             text_for_button =  MTSLUI_FONTS.COLORS.AVAILABLE.NO
                         end
                     end
-                    text_for_button = text_for_button .. "[" .. skill_for_button.min_skill .. "] " .. MTSLUI_FONTS.COLORS.TEXT.NORMAL .. skill_for_button["name"][MTSLUI_CURRENT_LANGUAGE]
+                    text_for_button = text_for_button .. "[" .. skill_for_button.min_skill .. "] " .. MTSLUI_FONTS.COLORS.TEXT.NORMAL .. MTSLUI_TOOLS:GetLocalisedData(skill_for_button)
                     -- update & show the button
                     self.LIST_BUITTONS[i]:Refresh(text_for_button, self.slider_active)
                     self.LIST_BUITTONS[i]:Show()
@@ -168,7 +174,7 @@ MTSLUI_LIST_FRAME = {
             end
         end
         -- hide the remaining buttons not shown when using horizontal split
-        for i=self.MAX_ITEMS_SHOWN_CURRENTLY + 1,self.MAX_ITEMS_SHOWN_VERTICAL do
+        for i=self.MAX_ITEMS_SHOWN_CURRENTLY + 1,self.MAX_ITEMS_SHOWN do
             self.LIST_BUITTONS[i]:Hide()
         end
     end,
@@ -246,7 +252,7 @@ MTSLUI_LIST_FRAME = {
                 -- Select the current button if visible
                 self:SelectCurrentSkillButton()
                 -- scrolled of screen so remove selected id
-                if self.selected_button_index == nil or self.selected_button_index < 1 or self.selected_button_index > self.MAX_ITEMS_SHOWN_VERTICAL then
+                if self.selected_button_index == nil or self.selected_button_index < 1 or self.selected_button_index > self.MAX_ITEMS_SHOWN_CURRENTLY then
                     self.selected_list_item_id = nil
                 end
             end
@@ -261,7 +267,7 @@ MTSLUI_LIST_FRAME = {
     -- The list is empty
     ----------------------------------------------------------------------------------------------------------
     NoSkillsToShow = function(self)
-        -- dselect current skill & button
+        -- deselect current skill & button
         self:DeselectCurrentSkillButton()
         self.selected_list_item_index = nil
         self.selected_list_item_id = nil
@@ -289,7 +295,7 @@ MTSLUI_LIST_FRAME = {
     SelectCurrentSkillButton = function (self)
         if self.selected_button_index ~= nil and
                 self.selected_button_index >= 1 and
-                self.selected_button_index <= self.MAX_ITEMS_SHOWN_VERTICAL then
+                self.selected_button_index <= self.MAX_ITEMS_SHOWN_CURRENTLY then
             self.LIST_BUITTONS[self.selected_button_index]:Select()
         end
     end,
@@ -300,7 +306,7 @@ MTSLUI_LIST_FRAME = {
     DeselectCurrentSkillButton = function (self)
         if self.selected_button_index ~= nil and
                 self.selected_button_index >= 1 and
-                self.selected_button_index <= self.MAX_ITEMS_SHOWN_VERTICAL then
+                self.selected_button_index <= self.MAX_ITEMS_SHOWN_CURRENTLY then
             self.LIST_BUITTONS[self.selected_button_index]:Deselect()
         end
     end,
@@ -336,11 +342,11 @@ MTSLUI_LIST_FRAME = {
                         return false
                     -- equal skill so return alphabetical
                     else
-                        return a.name[MTSLUI_CURRENT_LANGUAGE] < b.name[MTSLUI_CURRENT_LANGUAGE]
+                        return MTSLUI_TOOLS:GetLocalisedData(a) < MTSLUI_TOOLS:GetLocalisedData(b)
                     end
                 end)
             else
-                table.sort(self.shown_skills, function(a, b) return a.name[MTSLUI_CURRENT_LANGUAGE] < b.name[MTSLUI_CURRENT_LANGUAGE] end)
+                MTSL_TOOLS:SortArrayByLocalisedProperty(self.shown_skills, "name")
             end
         end
     end,
@@ -381,10 +387,10 @@ MTSLUI_LIST_FRAME = {
     ----------------------------------------------------------------------------------------------------------
     -- Change the specialisation of contents shown in the list
     ----------------------------------------------------------------------------------------------------------
-    ChangeSpecialization = function(self, new_specialization)
+    ChangeSpecialisation = function(self, new_specialisation)
         -- Only change if new one
-        if self.current_specialization ~= new_specialization then
-            self.current_specialization = new_specialization
+        if self.current_specialisation ~= new_specialisation then
+            self.current_specialisation = new_specialisation
             self:RefreshList()
         end
     end,
@@ -396,6 +402,17 @@ MTSLUI_LIST_FRAME = {
         -- Only change if new one
         if self.current_zone ~= new_zone then
             self.current_zone = new_zone
+            self:RefreshList()
+        end
+    end,
+
+    ----------------------------------------------------------------------------------------------------------
+    -- Change the phase of contents shown in the list
+    ----------------------------------------------------------------------------------------------------------
+    ChangeFaction = function(self, new_faction_id)
+        -- Only change if new one
+        if self.current_faction_id ~= new_faction_id then
+            self.current_faction_id = new_faction_id
             self:RefreshList()
         end
     end,

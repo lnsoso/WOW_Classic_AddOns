@@ -1,4 +1,4 @@
-## Interface: 11302
+## Interface: 11303
 
 ## Title: LittleWigs
 ## Notes: Boss warnings for 5-man dungeons & scenarios.
@@ -22,7 +22,7 @@
 ## X-BigWigs-LoadOn-InstanceId: 33
 ## Dependencies: BigWigs
 ## LoadOnDemand: 1
-## Version: v2-classic
+## Version: v3-classic
 
 warning.lua
 

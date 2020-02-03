@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- 	Leatrix Plus 1.13.44 (8th January 2020)
+-- 	Leatrix Plus 1.13.47 (29th January 2020)
 ----------------------------------------------------------------------
 
 --	01:Functions	20:Live			50:RunOnce		70:Logout			
@@ -20,7 +20,7 @@
 	local void
 
 --	Version
-	LeaPlusLC["AddonVer"] = "1.13.44"
+	LeaPlusLC["AddonVer"] = "1.13.47"
 	LeaPlusLC["RestartReq"] = nil
 
 --	If client restart is required and has not been done, show warning and quit
@@ -1050,6 +1050,15 @@
 							or npcID == "15765" -- Officer Redblade (Orgrimmar Commendations)
 							or npcID == "15767" -- Officer Thunderstrider (Thunder Bluff Commendations)
 							or npcID == "15761" -- Officer Vu'Shalay (Darkspear Commendations)
+							-- Battlemasters
+							or npcID == "15351" -- Alliance Brigadier General (Mark of Honor)
+							or npcID == "15350" -- Horde Warbringer (Mark of Honor)
+							-- Battlegrounds (Alliance)
+							or npcID == "13442" -- Arch Druid Renferal (Storm Crystal, Alterac Valley)
+							-- Battlegrounds (Horde)
+							or npcID == "13236" -- Primalist Thurloga (Stormpike Soldier's Blood, Alterac Valley)
+							-- Scourgestones
+							or npcID == "11039" -- Duke Nicholas Zverenhoff (Eastern Plaguelands)
 							then
 								return true
 							end
@@ -6852,7 +6861,7 @@
 
 		if event == "CONFIRM_SUMMON" then
 			if not UnitAffectingCombat("player") then
-				ConfirmSummon()
+				C_SummonInfo.ConfirmSummon()
 				StaticPopup_Hide("CONFIRM_SUMMON")
 			end
 			return

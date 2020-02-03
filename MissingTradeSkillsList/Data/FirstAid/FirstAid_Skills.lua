@@ -3,9 +3,8 @@
 --------------------------------------
 MTSL_DATA["First Aid"]["skills"] = {
 	{
-		["phase"] = 1,
-		["min_skill"] = 1,
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				2326, -- [1]
 				2327, -- [2]
@@ -21,24 +20,25 @@ MTSL_DATA["First Aid"]["skills"] = {
 				5943, -- [12]
 				6094, -- [13]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Льняные бинты",
-			["Portuguese"] = "Bandagem de Linho",
-			["Chinese"] = "亚麻绷带",
-			["Spanish"] = "Vendaje de lino",
-			["French"] = "Bandage en lin",
 			["German"] = "Leinenverband",
+			["Spanish"] = "Vendaje de lino",
+			["Chinese"] = "亚麻绷带",
 			["Korean"] = "리넨 붕대",
+			["French"] = "Bandage en lin",
+			["Portuguese"] = "Bandagem de Linho",
+			["Mexican"] = "Venda de lino",
+			["Russian"] = "Льняные бинты",
 			["English"] = "Linen Bandage",
 		},
+		["min_skill"] = 1,
+		["phase"] = 1,
 		["id"] = 3275,
 	}, -- [1]
 	{
-		["phase"] = 1,
-		["min_skill"] = 40,
 		["trainers"] = {
+			["price"] = 100,
 			["sources"] = {
 				2326, -- [1]
 				2327, -- [2]
@@ -54,24 +54,25 @@ MTSL_DATA["First Aid"]["skills"] = {
 				5943, -- [12]
 				6094, -- [13]
 			},
-			["price"] = 100,
 		},
 		["name"] = {
-			["Russian"] = "Плотные льняные бинты",
-			["Portuguese"] = "Bandagem Grossa de Linho",
-			["Chinese"] = "厚亚麻绷带",
-			["Spanish"] = "Vendaje pesado de lino",
-			["French"] = "Bandage épais en lin",
 			["German"] = "Schwerer Leinenverband",
+			["Spanish"] = "Vendaje pesado de lino",
+			["Chinese"] = "厚亚麻绷带",
 			["Korean"] = "두꺼운 리넨 붕대",
+			["French"] = "Bandage épais en lin",
+			["Portuguese"] = "Bandagem Grossa de Linho",
+			["Mexican"] = "Venda de lino gruesa",
+			["Russian"] = "Плотные льняные бинты",
 			["English"] = "Heavy Linen Bandage",
 		},
+		["min_skill"] = 40,
+		["phase"] = 1,
 		["id"] = 3276,
 	}, -- [2]
 	{
-		["phase"] = 1,
-		["min_skill"] = 80,
 		["trainers"] = {
+			["price"] = 250,
 			["sources"] = {
 				2326, -- [1]
 				2327, -- [2]
@@ -87,24 +88,25 @@ MTSL_DATA["First Aid"]["skills"] = {
 				5943, -- [12]
 				6094, -- [13]
 			},
-			["price"] = 250,
 		},
 		["name"] = {
-			["Russian"] = "Шерстяные бинты",
-			["Portuguese"] = "Bandagem de Lã",
-			["Chinese"] = "绒线绷带",
-			["Spanish"] = "Vendaje de lana",
-			["French"] = "Bandage en laine",
 			["German"] = "Wollverband",
+			["Spanish"] = "Vendaje de lana",
+			["Chinese"] = "绒线绷带",
 			["Korean"] = "양모 붕대",
+			["French"] = "Bandage en laine",
+			["Portuguese"] = "Bandagem de Lã",
+			["Mexican"] = "Venda de lana",
+			["Russian"] = "Шерстяные бинты",
 			["English"] = "Wool Bandage",
 		},
+		["min_skill"] = 80,
+		["phase"] = 1,
 		["id"] = 3277,
 	}, -- [3]
 	{
-		["phase"] = 1,
-		["min_skill"] = 115,
 		["trainers"] = {
+			["price"] = 1000,
 			["sources"] = {
 				2326, -- [1]
 				2327, -- [2]
@@ -120,24 +122,25 @@ MTSL_DATA["First Aid"]["skills"] = {
 				5943, -- [12]
 				6094, -- [13]
 			},
-			["price"] = 10000,
 		},
 		["name"] = {
-			["Russian"] = "Плотные шерстяные бинты",
-			["Portuguese"] = "Bandagem Grossa de Lã",
-			["Chinese"] = "厚绒线绷带",
-			["Spanish"] = "Vendaje pesado de lana",
-			["French"] = "Bandage épais en laine",
 			["German"] = "Schwerer Wollverband",
+			["Spanish"] = "Vendaje pesado de lana",
+			["Chinese"] = "厚绒线绷带",
 			["Korean"] = "두꺼운 양모 붕대",
+			["French"] = "Bandage épais en laine",
+			["Portuguese"] = "Bandagem Grossa de Lã",
+			["Mexican"] = "Venda de lana gruesa",
+			["Russian"] = "Плотные шерстяные бинты",
 			["English"] = "Heavy Wool Bandage",
 		},
+		["min_skill"] = 115,
+		["phase"] = 1,
 		["id"] = 3278,
 	}, -- [4]
 	{
-		["phase"] = 1,
-		["min_skill"] = 150,
 		["trainers"] = {
+			["price"] = 5000,
 			["sources"] = {
 				2326, -- [1]
 				2327, -- [2]
@@ -153,40 +156,42 @@ MTSL_DATA["First Aid"]["skills"] = {
 				5943, -- [12]
 				6094, -- [13]
 			},
-			["price"] = 5000,
 		},
 		["name"] = {
-			["Russian"] = "Шелковые бинты",
-			["Portuguese"] = "Bandagem de Seda",
-			["Chinese"] = "丝质绷带",
-			["Spanish"] = "Venda de seda",
-			["French"] = "Bandage en soie",
 			["German"] = "Seidenverband",
+			["Spanish"] = "Venda de seda",
+			["Chinese"] = "丝质绷带",
 			["Korean"] = "비단 붕대",
+			["French"] = "Bandage en soie",
+			["Portuguese"] = "Bandagem de Seda",
+			["Mexican"] = "Venda de seda",
+			["Russian"] = "Шелковые бинты",
 			["English"] = "Silk Bandage",
 		},
+		["min_skill"] = 150,
+		["phase"] = 1,
 		["id"] = 7928,
 	}, -- [5]
 	{
-		["phase"] = 1,
-		["min_skill"] = 180,
 		["item"] = 16112,
+		["min_skill"] = 180,
+		["id"] = 7929,
 		["name"] = {
-			["Russian"] = "Плотные шелковые бинты",
-			["Portuguese"] = "Bandagem Grossa de Seda",
-			["Chinese"] = "厚丝质绷带",
-			["Spanish"] = "Vendaje pesado de seda",
-			["French"] = "Bandage épais en soie",
 			["German"] = "Schwerer Seidenverband",
+			["Spanish"] = "Vendaje pesado de seda",
+			["Chinese"] = "厚丝质绷带",
 			["Korean"] = "두꺼운 비단 붕대",
+			["French"] = "Bandage épais en soie",
+			["Portuguese"] = "Bandagem Grossa de Seda",
+			["Mexican"] = "Venda de seda gruesa",
+			["Russian"] = "Плотные шелковые бинты",
 			["English"] = "Heavy Silk Bandage",
 		},
-		["id"] = 7929,
+		["phase"] = 1,
 	}, -- [6]
 	{
-		["phase"] = 1,
-		["min_skill"] = 80,
 		["trainers"] = {
+			["price"] = 250,
 			["sources"] = {
 				2326, -- [1]
 				2327, -- [2]
@@ -202,132 +207,140 @@ MTSL_DATA["First Aid"]["skills"] = {
 				5943, -- [12]
 				6094, -- [13]
 			},
-			["price"] = 250,
 		},
 		["name"] = {
-			["Russian"] = "Противоядие",
-			["Portuguese"] = "Antipeçonha",
-			["Chinese"] = "抗毒药剂",
-			["Spanish"] = "Antídoto",
-			["French"] = "Anti-venin",
 			["German"] = "Gegengift",
+			["Spanish"] = "Antídoto",
+			["Chinese"] = "抗毒药剂",
 			["Korean"] = "해독제",
+			["French"] = "Anti-venin",
+			["Portuguese"] = "Antipeçonha",
+			["Mexican"] = "Contraveneno",
+			["Russian"] = "Противоядие",
 			["English"] = "Anti-Venom",
 		},
+		["min_skill"] = 80,
+		["phase"] = 1,
 		["id"] = 7934,
 	}, -- [7]
 	{
-		["phase"] = 1,
-		["min_skill"] = 130,
 		["item"] = 6454,
+		["min_skill"] = 130,
+		["id"] = 7935,
 		["name"] = {
-			["Russian"] = "Мощное противоядие",
-			["Portuguese"] = "Antipeçonha Forte",
-			["Chinese"] = "强力抗毒药剂",
-			["Spanish"] = "Antídoto fuerte",
-			["French"] = "Sérum anti-venin supérieur",
 			["German"] = "Starkes Gegengift",
+			["Spanish"] = "Antídoto fuerte",
+			["Chinese"] = "强力抗毒药剂",
 			["Korean"] = "강한 해독제",
+			["French"] = "Sérum anti-venin supérieur",
+			["Portuguese"] = "Antipeçonha Forte",
+			["Mexican"] = "Contraveneno fuerte",
+			["Russian"] = "Мощное противоядие",
 			["English"] = "Strong Anti-Venom",
 		},
-		["id"] = 7935,
+		["phase"] = 1,
 	}, -- [8]
 	{
-		["phase"] = 1,
-		["min_skill"] = 210,
 		["item"] = 16113,
+		["min_skill"] = 210,
+		["id"] = 10840,
 		["name"] = {
-			["Russian"] = "Волшебные бинты",
-			["Portuguese"] = "Bandagem de Magitrama",
-			["Chinese"] = "魔纹绷带",
-			["Spanish"] = "Vendaje de tejido mágico",
-			["French"] = "Bandage en tisse-mage",
 			["German"] = "Magiestoffverband",
+			["Spanish"] = "Vendaje de tejido mágico",
+			["Chinese"] = "魔纹绷带",
 			["Korean"] = "마법 붕대",
+			["French"] = "Bandage en tisse-mage",
+			["Portuguese"] = "Bandagem de Magitrama",
+			["Mexican"] = "Venda de tejido mágico",
+			["Russian"] = "Волшебные бинты",
 			["English"] = "Mageweave Bandage",
 		},
-		["id"] = 10840,
+		["phase"] = 1,
 	}, -- [9]
 	{
-		["phase"] = 1,
-		["min_skill"] = 240,
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				12920, -- [1]
 				12939, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Плотные волшебные бинты",
-			["Portuguese"] = "Bandagem Grossa de Magitrama",
-			["Chinese"] = "厚魔纹绷带",
-			["Spanish"] = "Vendajes pesados de paño mágico",
-			["French"] = "Bandage épais en tisse-mage",
 			["German"] = "Schwerer Magiestoffverband",
+			["Spanish"] = "Vendajes pesados de paño mágico",
+			["Chinese"] = "厚魔纹绷带",
 			["Korean"] = "두꺼운 마법 붕대",
+			["French"] = "Bandage épais en tisse-mage",
+			["Portuguese"] = "Bandagem Grossa de Magitrama",
+			["Mexican"] = "Venda de tejido mágico gruesa",
+			["Russian"] = "Плотные волшебные бинты",
 			["English"] = "Heavy Mageweave Bandage",
 		},
+		["min_skill"] = 240,
+		["phase"] = 1,
 		["id"] = 10841,
 	}, -- [10]
 	{
-		["phase"] = 1,
-		["min_skill"] = 260,
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				12920, -- [1]
 				12939, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Бинты из рунной ткани",
-			["Portuguese"] = "Bandagem de Runatrama",
-			["Chinese"] = "符文布绷带",
-			["Spanish"] = "Venda de paño rúnico",
-			["French"] = "Bandage en étoffe runique",
 			["German"] = "Runenstoffverband",
+			["Spanish"] = "Venda de paño rúnico",
+			["Chinese"] = "符文布绷带",
 			["Korean"] = "룬매듭 붕대",
+			["French"] = "Bandage en étoffe runique",
+			["Portuguese"] = "Bandagem de Runatrama",
+			["Mexican"] = "Venda de paño rúnico",
+			["Russian"] = "Бинты из рунной ткани",
 			["English"] = "Runecloth Bandage",
 		},
+		["min_skill"] = 260,
+		["phase"] = 1,
 		["id"] = 18629,
 	}, -- [11]
 	{
-		["phase"] = 1,
-		["min_skill"] = 290,
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				12920, -- [1]
 				12939, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Плотные бинты из рунной ткани",
-			["Portuguese"] = "Bandagem Grossa de Runatrama",
-			["Chinese"] = "厚符文布绷带",
-			["Spanish"] = "Vendaje pesado de paño rúnico",
-			["French"] = "Bandage épais en étoffe runique",
 			["German"] = "Schwerer Runenstoffverband",
+			["Spanish"] = "Vendaje pesado de paño rúnico",
+			["Chinese"] = "厚符文布绷带",
 			["Korean"] = "두꺼운 룬매듭 붕대",
+			["French"] = "Bandage épais en étoffe runique",
+			["Portuguese"] = "Bandagem Grossa de Runatrama",
+			["Mexican"] = "Venda de paño rúnico gruesa",
+			["Russian"] = "Плотные бинты из рунной ткани",
 			["English"] = "Heavy Runecloth Bandage",
 		},
+		["min_skill"] = 290,
+		["phase"] = 1,
 		["id"] = 18630,
 	}, -- [12]
 	{
-		["phase"] = 1,
-		["min_skill"] = 300,
 		["item"] = 19442,
+		["min_skill"] = 300,
+		["id"] = 23787,
 		["name"] = {
-			["Russian"] = "Мощное противоядие",
-			["Portuguese"] = "Antipeçonha Poderoso",
-			["Chinese"] = "特效抗毒药剂",
-			["Spanish"] = "Antídoto potente",
-			["French"] = "Anti-venin puissant",
 			["German"] = "Mächtiges Gegengift",
+			["Spanish"] = "Antídoto potente",
+			["Chinese"] = "特效抗毒药剂",
 			["Korean"] = "강력한 해독제",
+			["French"] = "Anti-venin puissant",
+			["Portuguese"] = "Antipeçonha Poderoso",
+			["Mexican"] = "Contraveneno potente",
+			["Russian"] = "Мощное противоядие",
 			["English"] = "Powerful Anti-Venom",
 		},
-		["id"] = 23787,
+		["phase"] = 1,
 	}, -- [13]
 }

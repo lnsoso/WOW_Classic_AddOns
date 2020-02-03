@@ -11,6 +11,7 @@ MTSLUI_PLAYER_LIST_FRAME = {
     MAX_ITEMS_SHOWN_CURRENTLY = 19, -- default mode
     MAX_ITEMS_SHOWN_VERTICAL = 19,
     MAX_ITEMS_SHOWN_HORIZONTAL = 33,
+    MAX_ITEMS_SHOWN,
     ITEM_HEIGHT = 19,
     -- array holding the buttons of this frame
     LIST_BUITTONS,
@@ -42,8 +43,13 @@ MTSLUI_PLAYER_LIST_FRAME = {
         self.LIST_BUITTONS = {}
         local left = 6
         local top = -6
-        -- intialise all buttons
-        for i=1,self.MAX_ITEMS_SHOWN_HORIZONTAL do
+        -- Determine the number of max items ever shown
+        self.MAX_ITEMS_SHOWN = self.MAX_ITEMS_SHOWN_VERTICAL
+        if self.MAX_ITEMS_SHOWN_HORIZONTAL > self.MAX_ITEMS_SHOWN then
+            self.MAX_ITEMS_SHOWN = self.MAX_ITEMS_SHOWN_HORIZONTAL
+        end
+        -- initialise all buttons
+        for i=1,self.MAX_ITEMS_SHOWN do
             -- Create a new list item (button) by making a copy of MTSLUI_LIST_ITEM
             local player_button = MTSL_TOOLS:CopyObject(MTSLUI_LIST_ITEM)
             player_button:Initialise(i, self, self.FRAME_WIDTH - 12, self.ITEM_HEIGHT, left, top)
@@ -129,49 +135,48 @@ MTSLUI_PLAYER_LIST_FRAME = {
 
     ----------------------------------------------------------------------------------------------------------
     -- Updates the playerbuttons of MissingPlayersListFrame
+    -- TODO CHECK
     ----------------------------------------------------------------------------------------------------------
     UpdateButtons = function (self)
-        local current_player = 1
-        local showed_players = 0
-
-        for k, v in pairs(self.shown_players) do
-            -- player is in the current shown "area" for slider so show him
-            if current_player >= self.slider_offset or current_player < self.slider_offset + self.MAX_ITEMS_SHOWN_CURRENTLY then
-                showed_players = showed_players + 1
-                -- create the text to be shown
-                local text_for_button = ""
-                -- color the skill level of the player compared to needed if enabled
-                if self:IsShowSkillLevelNeededEnabled() then
-                    local skill_level = MTSL_LOGIC_PLAYER_NPC:GetCurrentSkillLevelForProfession(v.NAME, v.REALM, self.profession_name)
-                    if self.current_skill == nil then
-                        text_for_button = MTSLUI_FONTS.COLORS.AVAILABLE.ALL .. "[" .. skill_level.. "] "
-                    -- green if learned
-                    elseif MTSL_LOGIC_PLAYER_NPC:HasLearnedSkillForProfession(v.NAME, v.REALM, self.profession_name, self.current_skill.id) == true then
-                        text_for_button = MTSLUI_FONTS.COLORS.AVAILABLE.YES .. "[" .. skill_level.. "] "
-                    -- orange if not learned but enough skill
-                    elseif self.current_skill.min_skill <= skill_level then
-                        text_for_button = MTSLUI_FONTS.COLORS.AVAILABLE.LEARNABLE .."[" .. skill_level .. "] "
-                    -- red if not learned and not enough skill
-                    else
-                        text_for_button = MTSLUI_FONTS.COLORS.AVAILABLE.NO .. "[" .. skill_level.. "] "
-                    end
-                end
-                -- show player name in faction color
-                if v.FACTION == MTSLUI_LOCALES_HORDE[MTSLUI_CURRENT_LANGUAGE] then
-                    text_for_button = text_for_button .. MTSLUI_FONTS.COLORS.FACTION.HORDE .. v.NAME
+        local amount_to_show = self.amount_shown_players
+        -- have more then we can show so limit
+        if amount_to_show > self.MAX_ITEMS_SHOWN_CURRENTLY then
+            amount_to_show = self.MAX_ITEMS_SHOWN_CURRENTLY
+        end
+        for i=1,amount_to_show do
+            -- minus 1 because offset starts at 1
+            local current_player = self.shown_players[i + self.slider_offset - 1]
+            -- create the text to be shown
+            local text_for_button = ""
+            -- color the skill level of the player compared to needed if enabled
+            if self:IsShowSkillLevelNeededEnabled() then
+                local skill_level = MTSL_LOGIC_PLAYER_NPC:GetCurrentSkillLevelForProfession(current_player.NAME, current_player.REALM, self.profession_name)
+                if self.current_skill == nil then
+                    text_for_button = MTSLUI_FONTS.COLORS.AVAILABLE.ALL .. "[" .. skill_level.. "] "
+                -- green if learned
+                elseif MTSL_LOGIC_PLAYER_NPC:HasLearnedSkillForProfession(current_player.NAME, current_player.REALM, self.profession_name, self.current_skill.id) == true then
+                    text_for_button = MTSLUI_FONTS.COLORS.AVAILABLE.YES .. "[" .. skill_level.. "] "
+                -- orange if not learned but enough skill
+                elseif self.current_skill.min_skill <= skill_level then
+                    text_for_button = MTSLUI_FONTS.COLORS.AVAILABLE.LEARNABLE .."[" .. skill_level .. "] "
+                -- red if not learned and not enough skill
                 else
-                    text_for_button = text_for_button .. MTSLUI_FONTS.COLORS.FACTION.ALLIANCE .. v.NAME
+                    text_for_button = MTSLUI_FONTS.COLORS.AVAILABLE.NO .. "[" .. skill_level.. "] "
                 end
-                text_for_button = text_for_button .. MTSLUI_FONTS.COLORS.TEXT.NORMAL .. " (" .. v.XP_LEVEL .. ", "..  v.REALM .. ")"
-                -- update & show the button
-                self.LIST_BUITTONS[showed_players]:Refresh(text_for_button, self.slider_active)
-                self.LIST_BUITTONS[showed_players]:Show()
             end
-            -- index next player
-            current_player = current_player + 1
+            -- show player name in faction color (Always in English so need to check localised)
+            if current_player.FACTION == "Horde" then
+                text_for_button = text_for_button .. MTSLUI_FONTS.COLORS.FACTION.HORDE .. current_player.NAME
+            else
+                text_for_button = text_for_button .. MTSLUI_FONTS.COLORS.FACTION.ALLIANCE .. current_player.NAME
+            end
+            text_for_button = text_for_button .. MTSLUI_FONTS.COLORS.TEXT.NORMAL .. " (" .. current_player.XP_LEVEL .. ", "..  current_player.REALM .. ")"
+            -- update & show the button
+            self.LIST_BUITTONS[i]:Refresh(text_for_button, self.slider_active)
+            self.LIST_BUITTONS[i]:Show()
         end
         -- hide the remaining buttons not shown when using horizontal split
-        for i=showed_players + 1,self.MAX_ITEMS_SHOWN_HORIZONTAL do
+        for i=amount_to_show + 1,self.MAX_ITEMS_SHOWN do
             self.LIST_BUITTONS[i]:Hide()
         end
     end,
@@ -237,7 +242,7 @@ MTSLUI_PLAYER_LIST_FRAME = {
                 -- Select the current button if visible
                 self:SelectCurrentPlayerButton()
                 -- scrolled of screen so remove selected id
-                if self.selected_button_index == nil or self.selected_button_index < 1 or self.selected_button_index > self.MAX_ITEMS_SHOWN_HORIZONTAL then
+                if self.selected_button_index == nil or self.selected_button_index < 1 or self.selected_button_index > self.MAX_ITEMS_SHOWN_CURRENTLY then
                     self.selected_list_item_id = nil
                 end
             end
@@ -292,7 +297,7 @@ MTSLUI_PLAYER_LIST_FRAME = {
     SelectCurrentPlayerButton = function (self)
         if self.selected_button_index ~= nil and
                 self.selected_button_index >= 1 and
-                self.selected_button_index <= self.MAX_ITEMS_SHOWN_HORIZONTAL then
+                self.selected_button_index <= self.MAX_ITEMS_SHOWN_CURRENTLY then
             self.LIST_BUITTONS[self.selected_button_index]:Select()
         end
     end,
@@ -303,7 +308,7 @@ MTSLUI_PLAYER_LIST_FRAME = {
     DeselectCurrentPlayerButton = function (self)
         if self.selected_button_index ~= nil and
                 self.selected_button_index >= 1 and
-                self.selected_button_index <= self.MAX_ITEMS_SHOWN_HORIZONTAL then
+                self.selected_button_index <= self.MAX_ITEMS_SHOWN_CURRENTLY then
             self.LIST_BUITTONS[self.selected_button_index]:Deselect()
         end
     end,
@@ -319,17 +324,9 @@ MTSLUI_PLAYER_LIST_FRAME = {
     -- Sort players
     ----------------------------------------------------------------------------------------------------------
     SortPlayers = function(self)
-        -- Only sort if list is not empty
-        if self.amount_shown_players > 0 then
-            -- 1 = level, 2 = name, 3 = realm
-            if self.current_sort == 1 then
-                table.sort(self.shown_players, function(a, b) return a.XP_LEVEL < b.XP_LEVEL end)
-            elseif self.current_sort == 2 then
-                table.sort(self.shown_players, function(a, b) return a.NAME < b.NAME end)
-            else
-                table.sort(self.shown_players, function(a, b) return a.REALM < b.REALM end)
-            end
-        end
+        -- 1 = level, 2 = name, 3 = realm
+        local sort_property = { "XP_LEVEL", "NAME", "REALM" }
+        MTSL_TOOLS:SortArrayByProperty(self.shown_players, sort_property[self.current_sort])
     end,
 
     ----------------------------------------------------------------------------------------------------------
@@ -361,11 +358,10 @@ MTSLUI_PLAYER_LIST_FRAME = {
     ----------------------------------------------------------------------------------------------------------
     ChangeProfessionSkill = function(self, profession_name, skill)
         -- Only change if new one
-        if self.profession_name ~= profession_name and self.current_skill ~= nil and self.current_skill.min_skill ~= skill.min_skill then
+        if self.profession_name ~= profession_name or self.current_skill ~= nil and self.current_skill.min_skill ~= skill.min_skill then
             self.profession_name = profession_name
             self.current_skill = skill
             self:UpdateList()
-            -- Auto select first player of the profession
             self:RefreshList()
         else
             self.current_skill = skill

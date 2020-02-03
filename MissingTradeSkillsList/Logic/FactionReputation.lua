@@ -29,8 +29,28 @@ MTSL_LOGIC_FACTION_REPUTATION = {
             print(MTSLUI_FONTS.COLORS.TEXT.ERROR .. "MTSL: No faction found for id " .. faction_id .. "! Please report this bug!")
             return ""
         else
-            return faction["name"][MTSLUI_CURRENT_LANGUAGE]
+            return MTSLUI_TOOLS:GetLocalisedData(faction)
         end
+    end,
+
+    ------------------------------------------------------------------------------------------------
+    -- Returns the id of a faction by (English) name
+    --
+    -- @faction_name	String	    The (English) name of the faction
+    --
+    -- returns 			Number		The id of the faction (-1 if not found, 10000 for neutral)
+    ------------------------------------------------------------------------------------------------
+    GetFactionIdByName = function(self, faction_name)
+        local faction_id = -1
+        if faction_name == "Neutral" then
+            faction_id = 10000
+        elseif faction_name ~= "Hostile" then
+            local faction = MTSL_TOOLS:GetItemFromArrayByKeyValueIgnoringLocalisation(MTSL_DATA["factions"], "name", faction_name)
+            if faction ~= nil then
+                faction_id = faction.id
+            end
+        end
+        return faction_id
     end,
 
     ------------------------------------------------------------------------------------------------
@@ -40,7 +60,7 @@ MTSL_LOGIC_FACTION_REPUTATION = {
     --
     -- returns 			String		The localised name of the reputation level
     ------------------------------------------------------------------------------------------------
-    GetReputationLevelById = function(self, faction_id)
+    GetReputationLevelById = function(self, level_id)
         -- Get the English name corresponding the level
         local rep_level = self:GetReputationLevelNameById(level_id)
         -- Localise  the name

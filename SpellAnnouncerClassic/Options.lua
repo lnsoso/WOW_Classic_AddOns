@@ -97,7 +97,7 @@ function SAC:CreateOptions()
 						order = 3,
 						type = 'toggle',
 						name = "/yell",
-						disabled = true,
+						--disabled = true,
 						set = 'SetChatToggle',
 						get = 'GetChatToggle',
 					},
@@ -105,7 +105,7 @@ function SAC:CreateOptions()
 						order = 4,
 						type = 'toggle',
 						name = "/say",
-						disabled = true,
+						--disabled = true,
 						set = 'SetChatToggle',
 						get = 'GetChatToggle',
 					},
@@ -122,7 +122,7 @@ function SAC:CreateOptions()
 				order = 7,
 				type = 'description',
 				fontSize = "medium",
-				name = "INFO: Because of an change in the Blizzard API in version 1.13.3 of WoW Classic, /say and /yell is not allwed by addons to send messages to. It may come back at a later date, but is disabled as of patch 1.13.3.",
+				name = "INFO: /say and /yell is now available again. Will only work if you are in an instance/battleground.",
 			},
 
 			-- AURAS --
@@ -408,8 +408,8 @@ function SAC:InitializeDefaultSettings()
 		end
 
 		-- Because of changes in Blizzards API Yell and Say is not allowed at the moment. May come back later. Removed in 1.13.3
-		self.db.char.options[p].chatGroups.yell = false
-		self.db.char.options[p].chatGroups.say = false
+		--self.db.char.options[p].chatGroups.yell = false
+		--self.db.char.options[p].chatGroups.say = false
 		
 		-- Auras --
 		if self.db.char.options[p].auraAllEnable == nil then

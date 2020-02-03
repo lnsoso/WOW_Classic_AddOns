@@ -9,6 +9,13 @@ RollTrackerClassic_Addon=RTC
 --[[
 
 	RollTracker Classic 
+	2.20 
+		- release
+		
+	2.11
+		- improved pass detection
+		- "I pass" should work, when the rtc-window is open and the roll-tab is selected
+	
 	2.10
 		- Fix Korean-Detection
 		- Add Playernote to every Player-Tooltip
@@ -365,7 +372,7 @@ function RTC.BtnGreed()
 end
 
 function RTC.BtnPass()
-	RTC.AddChat("pass")
+	RTC.AddChat(L.pass)
 end
 
 function RTC.BtnClearRolls()
@@ -955,6 +962,8 @@ function RTC.Init ()
 	initHyperlink(RollTrackerRollText)
 	initHyperlink(RollTrackerClassicLootFrame_MessageFrame)
 	RTC.OptionsUpdate()
+	
+	print("|cFFFF1C1C Loaded: "..GetAddOnMetadata(TOCNAME, "Title") .." ".. GetAddOnMetadata(TOCNAME, "Version") .." by "..GetAddOnMetadata(TOCNAME, "Author"))
 end
 
 local lastCountDown
@@ -1061,10 +1070,22 @@ local function Event_CHAT_MSG_SYSTEM (arg1)
 end
 
 local function Event_Generic_CHAT_MSG(msg,name)
-	if msg == L["pass"] or msg == "pass" then
+	local dopass=false
+	if RTC.PassTags[msg] then
+		dopass=true		
+	elseif RollTrackerClassicMainWindow:IsVisible() and RTC.Tool.GetSelectedTab(RollTrackerClassicMainWindow)==1 then
+		local parts=RTC.Tool.Split( string.gsub(string.lower(msg), "[%p%s%c]", "+") , "+")
+		for i,txt in ipairs(parts) do
+			if RTC.PassTags[txt] then
+				dopass=true	
+				break
+			end
+		end	
+	end
+	if dopass then
 		name=RTC.Tool.Split(name, "-")[1]
 		RTC.AddRoll(name,"0","1","100")
-	end	
+	end
 	
 	if string.sub(msg,1,string.len(RTC.MSGPREFIX_START))==RTC.MSGPREFIX_START then
 		if RTC.DB.ClearOnStart then 

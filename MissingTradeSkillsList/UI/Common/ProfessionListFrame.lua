@@ -10,9 +10,9 @@ MTSLUI_PROFESSION_LIST_FRAME = {
     -- height of an item to select in the list
     ITEM_HEIGHT = 46,
     -- width of the frame
-    FRAME_WIDTH = 45,
+    FRAME_WIDTH = 66,
     -- height of the frame
-    FRAME_HEIGHT = 415,
+    FRAME_HEIGHT = 465,
     selected_index,
 
 ----------------------------------------------------------------------------------------------------------
@@ -37,19 +37,22 @@ MTSLUI_PROFESSION_LIST_FRAME = {
             -- yellow border & transparant fill
             bg_frame:SetBackdropColor(1, 1, 0, 0.40)
             bg_frame:SetBackdropBorderColor(1, 1, 0, 1)
-            bg_frame:SetPoint("TOPLEFT", self.ui_frame, "TOPLEFT", 1, top + 5)
+            bg_frame:SetPoint("TOPLEFT", self.ui_frame, "TOPLEFT", 0, top + 5)
             -- hide on create
             bg_frame:Hide()
             table.insert(self.PROF_BGS, bg_frame)
             -- Create a new list item (button) by making a copy of MTSLUI_LIST_ITEM
             local skill_button = self:CreateProfessionButton(frame_name .. "_BTN_PROF_"..i, i)
-            skill_button:SetPoint("TOPLEFT", self.ui_frame, "TOPLEFT", left, top)
+            skill_button:SetPoint("CENTER", bg_frame, "CENTER", 0, 6)
             -- adjust top position for next button
             top = top - self.ITEM_HEIGHT
             -- add button to list
             table.insert(self.PROF_BUTTONS, skill_button)
-            -- Show label with amount of skills for this profession
-            local title_text = MTSL_DATA.AMOUNT_SKILLS[self.shown_professions[i]]
+            -- Show label with amount of skills for this profession for current phase and [total in the end]
+            local title_text = MTSL_DATA["AMOUNT_SKILLS_CURRENT_PHASE"][self.shown_professions[i]]
+            if MTSL_DATA["AMOUNT_SKILLS_CURRENT_PHASE"][self.shown_professions[i]] ~= MTSL_DATA["AMOUNT_SKILLS"][self.shown_professions[i]] then
+                title_text = title_text .. " [" .. MTSL_DATA["AMOUNT_SKILLS"][self.shown_professions[i]] .. "]"
+            end
             skill_button.text = MTSLUI_TOOLS:CreateLabel(skill_button, title_text, 0, -12, "LABEL", "BOTTOM")
 
             i = i + 1
@@ -98,6 +101,9 @@ MTSLUI_PROFESSION_LIST_FRAME = {
     ----------------------------------------------------------------------------------------------------------
     ChangePlayer = function(self, player_name, player_realm)
         self.current_player = MTSL_LOGIC_PLAYER_NPC:GetPlayerOnRealm(player_name, player_realm)
+        -- remove current selected profession, to force update later
+        self.selected_index = nil
+        self.list_item_frame.profession_name = nil
 
         local professions_to_show = MTSL_LOGIC_PLAYER_NPC:GetKnownProfessionsForPlayer(player_realm, player_name)
         self:UpdateProfessions(professions_to_show)
@@ -115,15 +121,21 @@ MTSLUI_PROFESSION_LIST_FRAME = {
             local i = 1
             while MTSL_NAME_PROFESSIONS[i] ~= nil do
                 if self.shown_professions[i] ~= nil then
-                    self.PROF_BGS[i]:SetPoint("TOPLEFT", self.ui_frame, "TOPLEFT", 1, top + 5)
+                   -- self.PROF_BGS[i]:SetPoint("TOPLEFT", self.ui_frame, "TOPLEFT", 1, top + 5)
+                    --self.PROF_BUTTONS[i]:SetPoint("TOPLEFT", self.ui_frame, "TOPLEFT", left, top)
+                    self.PROF_BGS[i]:SetPoint("TOPLEFT", self.ui_frame, "TOPLEFT", 0, top + 5)
                     self.PROF_BUTTONS[i].icon:SetTexture(MTSLUI_ICONS_PROFESSION[self.shown_professions[i]])
-                    self.PROF_BUTTONS[i]:SetPoint("TOPLEFT", self.ui_frame, "TOPLEFT", left, top)
+                    self.PROF_BUTTONS[i]:SetPoint("CENTER", self.PROF_BGS[i], "CENTER", 0, 6)
                     -- update date text best on player or overall
                     if self.current_player ~= nil then
                         self.PROF_BUTTONS[i].text:SetText(MTSL_LOGIC_PLAYER_NPC:GetAmountOfLearnedSkillsForProfession(self.current_player.NAME, self.current_player.REALM, self.shown_professions[i]))
                     -- show all overall
                     else
-                        self.PROF_BUTTONS[i].text:SetText(MTSL_DATA.AMOUNT_SKILLS[self.shown_professions[i]])
+                        local title_text = MTSL_DATA["AMOUNT_SKILLS_CURRENT_PHASE"][self.shown_professions[i]]
+                        if MTSL_DATA["AMOUNT_SKILLS_CURRENT_PHASE"][self.shown_professions[i]] ~= MTSL_DATA["AMOUNT_SKILLS"][self.shown_professions[i]] then
+                            title_text = title_text .. " [" .. MTSL_DATA["AMOUNT_SKILLS"][self.shown_professions[i]] .. "]"
+                        end
+                        self.PROF_BUTTONS[i].text:SetText(title_text)
                     end
                     self.PROF_BUTTONS[i]:Show()
                     top = top - self.ITEM_HEIGHT
@@ -136,7 +148,6 @@ MTSLUI_PROFESSION_LIST_FRAME = {
                 end
                 i = i + 1
             end
-        -- no professions to show so hide all
         else
             local i = 1
             while MTSL_NAME_PROFESSIONS[i] ~= nil do
@@ -156,6 +167,7 @@ MTSLUI_PROFESSION_LIST_FRAME = {
             -- disable the effects of filtering
             self.filter_frame:DisableFiltering()
             -- clear the shown contents
+            self.list_item_frame:UpdateList(nil)
             self.list_item_frame:NoSkillsToShow()
         end
     end,

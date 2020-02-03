@@ -1,0 +1,10 @@
+------------------------------------------------------------------------
+r140 | bsmorgan | 2020-01-07 18:19:40 +0000 (Tue, 07 Jan 2020) | 1 line
+Changed paths:
+   M /trunk/Skillet.lua
+   M /trunk/UI/MainFrame.lua
+   M /trunk/UI/RecipeNotes.lua
+
+- Fix Notes
+------------------------------------------------------------------------
+

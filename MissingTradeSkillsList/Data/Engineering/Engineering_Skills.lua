@@ -3,9 +3,8 @@
 --------------------------------------
 MTSL_DATA["Engineering"]["skills"] = {
 	{
-		["phase"] = 1,
-		["min_skill"] = 1,
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				1702, -- [1]
 				2857, -- [2]
@@ -25,24 +24,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11031, -- [16]
 				11037, -- [17]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Грубое взрывчатое вещество",
-			["Portuguese"] = "Pó Explosivo Grosseiro",
-			["Chinese"] = "劣质火药",
-			["Spanish"] = "Polvo aplastante duro",
-			["French"] = "Poudre d'explosion basique",
 			["German"] = "Raues Sprengpulver",
+			["Spanish"] = "Polvo aplastante duro",
+			["Chinese"] = "劣质火药",
 			["Korean"] = "천연 화약",
+			["French"] = "Poudre d'explosion basique",
+			["Portuguese"] = "Pó Explosivo Grosseiro",
+			["Mexican"] = "Pólvora férrea",
+			["Russian"] = "Грубое взрывчатое вещество",
 			["English"] = "Rough Blasting Powder",
 		},
+		["min_skill"] = 1,
+		["phase"] = 1,
 		["id"] = 3918,
 	}, -- [1]
 	{
-		["phase"] = 1,
-		["min_skill"] = 1,
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				1702, -- [1]
 				2857, -- [2]
@@ -62,24 +62,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11031, -- [16]
 				11037, -- [17]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Грубый динамит",
-			["Portuguese"] = "Dinamite Grosseira",
-			["Chinese"] = "劣质炸药",
-			["Spanish"] = "Dinamita dura",
-			["French"] = "Dynamite basique",
 			["German"] = "Raues Dynamit",
+			["Spanish"] = "Dinamita dura",
+			["Chinese"] = "劣质炸药",
 			["Korean"] = "천연 다이너마이트",
+			["French"] = "Dynamite basique",
+			["Portuguese"] = "Dinamite Grosseira",
+			["Mexican"] = "Dinamita férrea",
+			["Russian"] = "Грубый динамит",
 			["English"] = "Rough Dynamite",
 		},
+		["min_skill"] = 1,
+		["phase"] = 1,
 		["id"] = 3919,
 	}, -- [2]
 	{
-		["phase"] = 1,
-		["min_skill"] = 1,
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				1702, -- [1]
 				2857, -- [2]
@@ -99,24 +100,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11031, -- [16]
 				11037, -- [17]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Легкий искусно изготовленный патрон",
-			["Portuguese"] = "Munição Leve Manufaturada",
-			["Chinese"] = "精制轻弹丸",
-			["Spanish"] = "Disparo ligero artesanal",
-			["French"] = "Balle légère fabriquée",
 			["German"] = "Gefertigtes leichtes Geschoss",
+			["Spanish"] = "Disparo ligero artesanal",
+			["Chinese"] = "精制轻弹丸",
 			["Korean"] = "수제 소형 탄환",
+			["French"] = "Balle légère fabriquée",
+			["Portuguese"] = "Munição Leve Manufaturada",
+			["Mexican"] = "Proyectil artesanal ligero",
+			["Russian"] = "Легкий искусно изготовленный патрон",
 			["English"] = "Crafted Light Shot",
 		},
+		["min_skill"] = 1,
+		["phase"] = 1,
 		["id"] = 3920,
 	}, -- [3]
 	{
-		["phase"] = 1,
-		["min_skill"] = 30,
 		["trainers"] = {
+			["price"] = 115,
 			["sources"] = {
 				1702, -- [1]
 				2857, -- [2]
@@ -136,24 +138,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11031, -- [16]
 				11037, -- [17]
 			},
-			["price"] = 115,
 		},
 		["name"] = {
-			["Russian"] = "Горсть медных винтов",
-			["Portuguese"] = "Punhado de Parafusos de Cobre",
-			["Chinese"] = "一把螺栓",
-			["Spanish"] = "Manojo de cuentas de cobre",
-			["French"] = "Poignée de boulons en cuivre",
 			["German"] = "Eine Hand voll Kupferbolzen",
+			["Spanish"] = "Manojo de cuentas de cobre",
+			["Chinese"] = "一把螺栓",
 			["Korean"] = "구리 나사 한줌",
+			["French"] = "Poignée de boulons en cuivre",
+			["Portuguese"] = "Punhado de Parafusos de Cobre",
+			["Mexican"] = "Puñado de tornillos de cobre",
+			["Russian"] = "Горсть медных винтов",
 			["English"] = "Handful of Copper Bolts",
 		},
+		["min_skill"] = 30,
+		["phase"] = 1,
 		["id"] = 3922,
 	}, -- [4]
 	{
-		["phase"] = 1,
-		["min_skill"] = 30,
 		["trainers"] = {
+			["price"] = 130,
 			["sources"] = {
 				1702, -- [1]
 				2857, -- [2]
@@ -173,24 +176,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11031, -- [16]
 				11037, -- [17]
 			},
-			["price"] = 130,
 		},
 		["name"] = {
-			["Russian"] = "Грубая медная бомба",
-			["Portuguese"] = "Bomba Grosseira de Cobre",
-			["Chinese"] = "劣质铜壳炸弹",
-			["Spanish"] = "Bomba dura de cobre",
-			["French"] = "Bombe grossière en cuivre",
 			["German"] = "Raue Kupferbombe",
+			["Spanish"] = "Bomba dura de cobre",
+			["Chinese"] = "劣质铜壳炸弹",
 			["Korean"] = "천연 구리 폭탄",
+			["French"] = "Bombe grossière en cuivre",
+			["Portuguese"] = "Bomba Grosseira de Cobre",
+			["Mexican"] = "Bomba de cobre férrea",
+			["Russian"] = "Грубая медная бомба",
 			["English"] = "Rough Copper Bomb",
 		},
+		["min_skill"] = 30,
+		["phase"] = 1,
 		["id"] = 3923,
 	}, -- [5]
 	{
-		["phase"] = 1,
-		["min_skill"] = 50,
 		["trainers"] = {
+			["price"] = 150,
 			["sources"] = {
 				1702, -- [1]
 				2857, -- [2]
@@ -210,24 +214,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11031, -- [16]
 				11037, -- [17]
 			},
-			["price"] = 150,
 		},
 		["name"] = {
-			["Russian"] = "Медная труба",
-			["Portuguese"] = "Tubo de Cobre",
-			["Chinese"] = "铜管",
-			["Spanish"] = "Tubo de cobre",
-			["French"] = "Tube en cuivre",
 			["German"] = "Kupferrohr",
+			["Spanish"] = "Tubo de cobre",
+			["Chinese"] = "铜管",
 			["Korean"] = "구리관",
+			["French"] = "Tube en cuivre",
+			["Portuguese"] = "Tubo de Cobre",
+			["Mexican"] = "Tubo de cobre",
+			["Russian"] = "Медная труба",
 			["English"] = "Copper Tube",
 		},
+		["min_skill"] = 50,
+		["phase"] = 1,
 		["id"] = 3924,
 	}, -- [6]
 	{
-		["phase"] = 1,
-		["min_skill"] = 50,
 		["trainers"] = {
+			["price"] = 150,
 			["sources"] = {
 				1702, -- [1]
 				2857, -- [2]
@@ -247,24 +252,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11031, -- [16]
 				11037, -- [17]
 			},
-			["price"] = 150,
 		},
 		["name"] = {
-			["Russian"] = "Грубый громобой",
-			["Portuguese"] = "Cano de Atirar Rudimentar",
-			["Chinese"] = "劣质火枪",
-			["Spanish"] = "Escoba dura",
-			["French"] = "Espingole grossière",
 			["German"] = "Raues Schießeisen",
+			["Spanish"] = "Escoba dura",
+			["Chinese"] = "劣质火枪",
 			["Korean"] = "조잡한 붐스틱",
+			["French"] = "Espingole grossière",
+			["Portuguese"] = "Cano de Atirar Rudimentar",
+			["Mexican"] = "Bocarda férrea",
+			["Russian"] = "Грубый громобой",
 			["English"] = "Rough Boomstick",
 		},
+		["min_skill"] = 50,
+		["phase"] = 1,
 		["id"] = 3925,
 	}, -- [7]
 	{
-		["phase"] = 1,
-		["min_skill"] = 65,
 		["trainers"] = {
+			["price"] = 225,
 			["sources"] = {
 				1702, -- [1]
 				2857, -- [2]
@@ -284,40 +290,42 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11031, -- [16]
 				11037, -- [17]
 			},
-			["price"] = 225,
 		},
 		["name"] = {
-			["Russian"] = "Медный регулятор",
-			["Portuguese"] = "Modulador de Cobre",
-			["Chinese"] = "铜质调节器",
-			["Spanish"] = "Modulador de cobre",
-			["French"] = "Modulateur en cuivre",
 			["German"] = "Kupfermodulator",
+			["Spanish"] = "Modulador de cobre",
+			["Chinese"] = "铜质调节器",
 			["Korean"] = "구리 변조기",
+			["French"] = "Modulateur en cuivre",
+			["Portuguese"] = "Modulador de Cobre",
+			["Mexican"] = "Modulador de cobre",
+			["Russian"] = "Медный регулятор",
 			["English"] = "Copper Modulator",
 		},
+		["min_skill"] = 65,
+		["phase"] = 1,
 		["id"] = 3926,
 	}, -- [8]
 	{
-		["phase"] = 1,
-		["min_skill"] = 75,
 		["item"] = 4408,
+		["min_skill"] = 75,
+		["id"] = 3928,
 		["name"] = {
-			["Russian"] = "Механическая белка",
-			["Portuguese"] = "Esquilo Mecânico",
-			["Chinese"] = "机械松鼠",
-			["Spanish"] = "Ardilla mecánica",
-			["French"] = "Ecureuil mécanique",
 			["German"] = "Mechanisches Eichhörnchen",
+			["Spanish"] = "Ardilla mecánica",
+			["Chinese"] = "机械松鼠",
 			["Korean"] = "기계 다람쥐",
+			["French"] = "Ecureuil mécanique",
+			["Portuguese"] = "Esquilo Mecânico",
+			["Mexican"] = "Ardilla mecánica",
+			["Russian"] = "Механическая белка",
 			["English"] = "Mechanical Squirrel",
 		},
-		["id"] = 3928,
+		["phase"] = 1,
 	}, -- [9]
 	{
-		["phase"] = 1,
-		["min_skill"] = 75,
 		["trainers"] = {
+			["price"] = 250,
 			["sources"] = {
 				1702, -- [1]
 				2857, -- [2]
@@ -337,24 +345,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11031, -- [16]
 				11037, -- [17]
 			},
-			["price"] = 250,
 		},
 		["name"] = {
-			["Russian"] = "Низкосортное взрывчатое вещество",
-			["Portuguese"] = "Pó Explosivo Granuloso",
-			["Chinese"] = "粗制火药粉",
-			["Spanish"] = "Pólvora gruesa",
-			["French"] = "Poudre d'explosion grossière",
 			["German"] = "Grobes Sprengpulver",
+			["Spanish"] = "Pólvora gruesa",
+			["Chinese"] = "粗制火药粉",
 			["Korean"] = "굵은 화약",
+			["French"] = "Poudre d'explosion grossière",
+			["Portuguese"] = "Pó Explosivo Granuloso",
+			["Mexican"] = "Pólvora burda",
+			["Russian"] = "Низкосортное взрывчатое вещество",
 			["English"] = "Coarse Blasting Powder",
 		},
+		["min_skill"] = 75,
+		["phase"] = 1,
 		["id"] = 3929,
 	}, -- [10]
 	{
-		["phase"] = 1,
-		["min_skill"] = 75,
 		["trainers"] = {
+			["price"] = 250,
 			["sources"] = {
 				1676, -- [1]
 				1702, -- [2]
@@ -375,24 +384,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11031, -- [17]
 				11037, -- [18]
 			},
-			["price"] = 250,
 		},
 		["name"] = {
-			["Russian"] = "Тяжелый искусно изготовленный патрон",
-			["Portuguese"] = "Munição Pesada Manufaturada",
-			["Chinese"] = "精制重弹丸",
-			["Spanish"] = "Disparo pesado artesanal",
-			["French"] = "Balle lourde fabriquée",
 			["German"] = "Gefertigtes schweres Geschoss",
+			["Spanish"] = "Disparo pesado artesanal",
+			["Chinese"] = "精制重弹丸",
 			["Korean"] = "수제 중형 탄환",
+			["French"] = "Balle lourde fabriquée",
+			["Portuguese"] = "Munição Pesada Manufaturada",
+			["Mexican"] = "Proyectil artesanal pesado",
+			["Russian"] = "Тяжелый искусно изготовленный патрон",
 			["English"] = "Crafted Heavy Shot",
 		},
+		["min_skill"] = 75,
+		["phase"] = 1,
 		["id"] = 3930,
 	}, -- [11]
 	{
-		["phase"] = 1,
-		["min_skill"] = 75,
 		["trainers"] = {
+			["price"] = 250,
 			["sources"] = {
 				1676, -- [1]
 				1702, -- [2]
@@ -413,24 +423,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11031, -- [17]
 				11037, -- [18]
 			},
-			["price"] = 250,
 		},
 		["name"] = {
-			["Russian"] = "Низкосортный динамит",
-			["Portuguese"] = "Dinamite Granulosa",
-			["Chinese"] = "劣质炸药",
-			["Spanish"] = "Dinamita gruesa",
-			["French"] = "Dynamite grossière",
 			["German"] = "Grobes Dynamit",
+			["Spanish"] = "Dinamita gruesa",
+			["Chinese"] = "劣质炸药",
 			["Korean"] = "일반 다이너마이트",
+			["French"] = "Dynamite grossière",
+			["Portuguese"] = "Dinamite Granulosa",
+			["Mexican"] = "Dinamita burda",
+			["Russian"] = "Низкосортный динамит",
 			["English"] = "Coarse Dynamite",
 		},
+		["min_skill"] = 75,
+		["phase"] = 1,
 		["id"] = 3931,
 	}, -- [12]
 	{
-		["phase"] = 1,
-		["min_skill"] = 85,
 		["trainers"] = {
+			["price"] = 270,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -441,40 +452,42 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 270,
 		},
 		["name"] = {
-			["Russian"] = "Манекен-мишень",
-			["Portuguese"] = "Boneco-alvo",
-			["Chinese"] = "活动假人",
-			["Spanish"] = "Muñeco-diana",
-			["French"] = "Leurre",
 			["German"] = "Zielattrappe",
+			["Spanish"] = "Muñeco-diana",
+			["Chinese"] = "活动假人",
 			["Korean"] = "표적 허수아비",
+			["French"] = "Leurre",
+			["Portuguese"] = "Boneco-alvo",
+			["Mexican"] = "Muñeco-diana",
+			["Russian"] = "Манекен-мишень",
 			["English"] = "Target Dummy",
 		},
+		["min_skill"] = 85,
+		["phase"] = 1,
 		["id"] = 3932,
 	}, -- [13]
 	{
-		["phase"] = 1,
-		["min_skill"] = 100,
 		["item"] = 4409,
+		["min_skill"] = 100,
+		["id"] = 3933,
 		["name"] = {
-			["Russian"] = "Небольшой сефориевый заряд",
-			["Portuguese"] = "Carga Pequena de Cequatrum",
-			["Chinese"] = "小型爆盐炸弹",
-			["Spanish"] = "Carga pequeña de seforio",
-			["French"] = "Petite charge d'hydroglycérine",
 			["German"] = "Kleine Zephyriumladung",
+			["Spanish"] = "Carga pequeña de seforio",
+			["Chinese"] = "小型爆盐炸弹",
 			["Korean"] = "소형 시포리움 폭약",
+			["French"] = "Petite charge d'hydroglycérine",
+			["Portuguese"] = "Carga Pequena de Cequatrum",
+			["Mexican"] = "Carga de seforio pequeña",
+			["Russian"] = "Небольшой сефориевый заряд",
 			["English"] = "Small Seaforium Charge",
 		},
-		["id"] = 3933,
+		["phase"] = 1,
 	}, -- [14]
 	{
-		["phase"] = 1,
-		["min_skill"] = 100,
 		["trainers"] = {
+			["price"] = 360,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -485,24 +498,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 360,
 		},
 		["name"] = {
-			["Russian"] = "Очки летающего тигра",
-			["Portuguese"] = "Óculos de Tigre Voador",
-			["Chinese"] = "飞虎护目镜",
-			["Spanish"] = "Gafas de tigre volador",
-			["French"] = "Lunettes de tigre volant",
 			["German"] = "Fliegerbrille",
+			["Spanish"] = "Gafas de tigre volador",
+			["Chinese"] = "飞虎护目镜",
 			["Korean"] = "비호 고글",
+			["French"] = "Lunettes de tigre volant",
+			["Portuguese"] = "Óculos de Tigre Voador",
+			["Mexican"] = "Gafas de tigre volador",
+			["Russian"] = "Очки летающего тигра",
 			["English"] = "Flying Tiger Goggles",
 		},
+		["min_skill"] = 100,
+		["phase"] = 1,
 		["id"] = 3934,
 	}, -- [15]
 	{
-		["phase"] = 1,
-		["min_skill"] = 105,
 		["trainers"] = {
+			["price"] = 378,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -513,24 +527,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 378,
 		},
 		["name"] = {
-			["Russian"] = "Смертоносный мушкетон",
-			["Portuguese"] = "Bacamarte Mortal",
-			["Chinese"] = "致命的短枪",
-			["Spanish"] = "Trabuco mortal",
-			["French"] = "Tromblon mortel",
 			["German"] = "Tödliche Donnerbüchse",
+			["Spanish"] = "Trabuco mortal",
+			["Chinese"] = "致命的短枪",
 			["Korean"] = "정교한 나팔총",
+			["French"] = "Tromblon mortel",
+			["Portuguese"] = "Bacamarte Mortal",
+			["Mexican"] = "Trabuco mortal",
+			["Russian"] = "Смертоносный мушкетон",
 			["English"] = "Deadly Blunderbuss",
 		},
+		["min_skill"] = 105,
+		["phase"] = 1,
 		["id"] = 3936,
 	}, -- [16]
 	{
-		["phase"] = 1,
-		["min_skill"] = 105,
 		["trainers"] = {
+			["price"] = 405,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -541,24 +556,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 405,
 		},
 		["name"] = {
-			["Russian"] = "Большая медная бомба",
-			["Portuguese"] = "Bomba Grande de Cobre",
-			["Chinese"] = "大型铜壳炸弹",
-			["Spanish"] = "Bomba grande de cobre",
-			["French"] = "Grande bombe en cuivre",
 			["German"] = "Große Kupferbombe",
+			["Spanish"] = "Bomba grande de cobre",
+			["Chinese"] = "大型铜壳炸弹",
 			["Korean"] = "대형 구리 폭탄",
+			["French"] = "Grande bombe en cuivre",
+			["Portuguese"] = "Bomba Grande de Cobre",
+			["Mexican"] = "Bomba grande de cobre",
+			["Russian"] = "Большая медная бомба",
 			["English"] = "Large Copper Bomb",
 		},
+		["min_skill"] = 105,
+		["phase"] = 1,
 		["id"] = 3937,
 	}, -- [17]
 	{
-		["phase"] = 1,
-		["min_skill"] = 105,
 		["trainers"] = {
+			["price"] = 405,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -569,56 +585,59 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 405,
 		},
 		["name"] = {
-			["Russian"] = "Бронзовая труба",
-			["Portuguese"] = "Tubo de Bronze",
-			["Chinese"] = "青铜管",
-			["Spanish"] = "Tubo de bronce",
-			["French"] = "Tube de bronze",
 			["German"] = "Bronzeröhre",
+			["Spanish"] = "Tubo de bronce",
+			["Chinese"] = "青铜管",
 			["Korean"] = "청동관",
+			["French"] = "Tube de bronze",
+			["Portuguese"] = "Tubo de Bronze",
+			["Mexican"] = "Tubo de bronce",
+			["Russian"] = "Бронзовая труба",
 			["English"] = "Bronze Tube",
 		},
+		["min_skill"] = 105,
+		["phase"] = 1,
 		["id"] = 3938,
 	}, -- [18]
 	{
-		["phase"] = 1,
-		["min_skill"] = 120,
 		["item"] = 13309,
+		["min_skill"] = 120,
+		["id"] = 3939,
 		["name"] = {
-			["Russian"] = "Искусно сделанный громобой",
-			["Portuguese"] = "Cano de Atirar Feito com Carinho",
-			["Chinese"] = "精致手工火枪",
-			["Spanish"] = "Trabuco hecho con amor",
-			["French"] = "Espingole amoureusement construite",
 			["German"] = "Liebevoll hergestelltes Schießeisen",
+			["Spanish"] = "Trabuco hecho con amor",
+			["Chinese"] = "精致手工火枪",
 			["Korean"] = "정성이 가득 담긴 붐스틱",
+			["French"] = "Espingole amoureusement construite",
+			["Portuguese"] = "Cano de Atirar Feito com Carinho",
+			["Mexican"] = "Bocarda fabricada con amor",
+			["Russian"] = "Искусно сделанный громобой",
 			["English"] = "Lovingly Crafted Boomstick",
 		},
-		["id"] = 3939,
+		["phase"] = 1,
 	}, -- [19]
 	{
-		["phase"] = 1,
-		["min_skill"] = 120,
 		["item"] = 4410,
+		["min_skill"] = 120,
+		["id"] = 3940,
 		["name"] = {
-			["Russian"] = "Теневые очки",
-			["Portuguese"] = "Óculos Sombrios",
-			["Chinese"] = "暗影护目镜",
-			["Spanish"] = "Gafas de las Sombras",
-			["French"] = "Lunettes des ombres",
 			["German"] = "Schattenschutzbrille",
+			["Spanish"] = "Gafas de las Sombras",
+			["Chinese"] = "暗影护目镜",
 			["Korean"] = "그림자 고글",
+			["French"] = "Lunettes des ombres",
+			["Portuguese"] = "Óculos Sombrios",
+			["Mexican"] = "Gafas de las Sombras",
+			["Russian"] = "Теневые очки",
 			["English"] = "Shadow Goggles",
 		},
-		["id"] = 3940,
+		["phase"] = 1,
 	}, -- [20]
 	{
-		["phase"] = 1,
-		["min_skill"] = 120,
 		["trainers"] = {
+			["price"] = 450,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -629,24 +648,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 450,
 		},
 		["name"] = {
-			["Russian"] = "Небольшая бронзовая бомба",
-			["Portuguese"] = "Bomba Pequena de Bronze",
-			["Chinese"] = "小型青铜炸弹",
-			["Spanish"] = "Bomba pequeña de bronce",
-			["French"] = "Petite bombe en bronze",
 			["German"] = "Kleine Bronzebombe",
+			["Spanish"] = "Bomba pequeña de bronce",
+			["Chinese"] = "小型青铜炸弹",
 			["Korean"] = "소형 청동 폭탄",
+			["French"] = "Petite bombe en bronze",
+			["Portuguese"] = "Bomba Pequena de Bronze",
+			["Mexican"] = "Bomba de bronce pequeña",
+			["Russian"] = "Небольшая бронзовая бомба",
 			["English"] = "Small Bronze Bomb",
 		},
+		["min_skill"] = 120,
+		["phase"] = 1,
 		["id"] = 3941,
 	}, -- [21]
 	{
-		["phase"] = 1,
-		["min_skill"] = 125,
 		["trainers"] = {
+			["price"] = 450,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -657,40 +677,42 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 450,
 		},
 		["name"] = {
-			["Russian"] = "Трещащий бронзовый механизм",
-			["Portuguese"] = "Tranqueira Zumbidora de Bronze",
-			["Chinese"] = "高速青铜齿轮",
-			["Spanish"] = "Cacharro zumbón de bronce",
-			["French"] = "Bidule bourdonnant en bronze",
 			["German"] = "Surrendes bronzenes Dingsda",
+			["Spanish"] = "Cacharro zumbón de bronce",
+			["Chinese"] = "高速青铜齿轮",
 			["Korean"] = "청동 회전 장치",
+			["French"] = "Bidule bourdonnant en bronze",
+			["Portuguese"] = "Tranqueira Zumbidora de Bronze",
+			["Mexican"] = "Cacharros zumbones de bronce",
+			["Russian"] = "Трещащий бронзовый механизм",
 			["English"] = "Whirring Bronze Gizmo",
 		},
+		["min_skill"] = 125,
+		["phase"] = 1,
 		["id"] = 3942,
 	}, -- [22]
 	{
-		["phase"] = 1,
-		["min_skill"] = 125,
 		["item"] = 4411,
+		["min_skill"] = 125,
+		["id"] = 3944,
 		["name"] = {
-			["Russian"] = "Отражатель пламени",
-			["Portuguese"] = "Defletor de Chamas",
-			["Chinese"] = "火焰偏斜器",
-			["Spanish"] = "Deflector de llamas",
-			["French"] = "Pare-flammes",
 			["German"] = "Flammendeflektor",
+			["Spanish"] = "Deflector de llamas",
+			["Chinese"] = "火焰偏斜器",
 			["Korean"] = "화염 반사장치",
+			["French"] = "Pare-flammes",
+			["Portuguese"] = "Defletor de Chamas",
+			["Mexican"] = "Deflector de llamas",
+			["Russian"] = "Отражатель пламени",
 			["English"] = "Flame Deflector",
 		},
-		["id"] = 3944,
+		["phase"] = 1,
 	}, -- [23]
 	{
-		["phase"] = 1,
-		["min_skill"] = 125,
 		["trainers"] = {
+			["price"] = 450,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -701,24 +723,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 450,
 		},
 		["name"] = {
-			["Russian"] = "Тяжелое взрывчатое вещество",
-			["Portuguese"] = "Pó Explosivo Pesado",
-			["Chinese"] = "烈性火药",
-			["Spanish"] = "Pólvora pesada",
-			["French"] = "Poudre d'explosion majeure",
 			["German"] = "Schweres Sprengpulver",
+			["Spanish"] = "Pólvora pesada",
+			["Chinese"] = "烈性火药",
 			["Korean"] = "강한 화약",
+			["French"] = "Poudre d'explosion majeure",
+			["Portuguese"] = "Pó Explosivo Pesado",
+			["Mexican"] = "Pólvora potente",
+			["Russian"] = "Тяжелое взрывчатое вещество",
 			["English"] = "Heavy Blasting Powder",
 		},
+		["min_skill"] = 125,
+		["phase"] = 1,
 		["id"] = 3945,
 	}, -- [24]
 	{
-		["phase"] = 1,
-		["min_skill"] = 125,
 		["trainers"] = {
+			["price"] = 450,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -729,24 +752,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 450,
 		},
 		["name"] = {
-			["Russian"] = "Тяжелый динамит",
-			["Portuguese"] = "Dinamite Pesada",
-			["Chinese"] = "烈性炸药",
-			["Spanish"] = "Dinamita pesada",
-			["French"] = "Dynamite puissante",
 			["German"] = "Schweres Dynamit",
+			["Spanish"] = "Dinamita pesada",
+			["Chinese"] = "烈性炸药",
 			["Korean"] = "강한 다이너마이트",
+			["French"] = "Dynamite puissante",
+			["Portuguese"] = "Dinamite Pesada",
+			["Mexican"] = "Dinamita potente",
+			["Russian"] = "Тяжелый динамит",
 			["English"] = "Heavy Dynamite",
 		},
+		["min_skill"] = 125,
+		["phase"] = 1,
 		["id"] = 3946,
 	}, -- [25]
 	{
-		["phase"] = 1,
-		["min_skill"] = 125,
 		["trainers"] = {
+			["price"] = 270,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -757,24 +781,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 270,
 		},
 		["name"] = {
-			["Russian"] = "Твердый искусно изготовленный патрон",
-			["Portuguese"] = "Chumbo Maciço Manufaturado",
-			["Chinese"] = "精制实心弹丸",
-			["Spanish"] = "Disparo sólido artesanal",
-			["French"] = "Balle dure fabriquée",
 			["German"] = "Gefertigtes robustes Geschoss",
+			["Spanish"] = "Disparo sólido artesanal",
+			["Chinese"] = "精制实心弹丸",
 			["Korean"] = "수제 합금 탄환",
+			["French"] = "Balle dure fabriquée",
+			["Portuguese"] = "Chumbo Maciço Manufaturado",
+			["Mexican"] = "Proyectil artesanal sólido",
+			["Russian"] = "Твердый искусно изготовленный патрон",
 			["English"] = "Crafted Solid Shot",
 		},
+		["min_skill"] = 125,
+		["phase"] = 1,
 		["id"] = 3947,
 	}, -- [26]
 	{
-		["phase"] = 1,
-		["min_skill"] = 130,
 		["trainers"] = {
+			["price"] = 495,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -785,24 +810,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 495,
 		},
 		["name"] = {
-			["Russian"] = "Посеребренный дробовик",
-			["Portuguese"] = "Espingarda Folheada a Prata",
-			["Chinese"] = "镀银猎枪",
-			["Spanish"] = "Escopeta de chapa de plata",
-			["French"] = "Fusil plaqué argent",
 			["German"] = "Versilberte Schrotflinte",
+			["Spanish"] = "Escopeta de chapa de plata",
+			["Chinese"] = "镀银猎枪",
 			["Korean"] = "은도금 산탄총",
+			["French"] = "Fusil plaqué argent",
+			["Portuguese"] = "Espingarda Folheada a Prata",
+			["Mexican"] = "Escopeta de chapa de plata",
+			["Russian"] = "Посеребренный дробовик",
 			["English"] = "Silver-plated Shotgun",
 		},
+		["min_skill"] = 130,
+		["phase"] = 1,
 		["id"] = 3949,
 	}, -- [27]
 	{
-		["phase"] = 1,
-		["min_skill"] = 140,
 		["trainers"] = {
+			["price"] = 540,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -813,40 +839,42 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 540,
 		},
 		["name"] = {
-			["Russian"] = "Большая бронзовая бомба",
-			["Portuguese"] = "Bomba Grande de Bronze",
-			["Chinese"] = "重磅青铜炸弹",
-			["Spanish"] = "Bomba grande de bronce",
-			["French"] = "Grande bombe en bronze",
 			["German"] = "Große Bronzebombe",
+			["Spanish"] = "Bomba grande de bronce",
+			["Chinese"] = "重磅青铜炸弹",
 			["Korean"] = "대형 청동 폭탄",
+			["French"] = "Grande bombe en bronze",
+			["Portuguese"] = "Bomba Grande de Bronze",
+			["Mexican"] = "Bomba de bronce grande",
+			["Russian"] = "Большая бронзовая бомба",
 			["English"] = "Big Bronze Bomb",
 		},
+		["min_skill"] = 140,
+		["phase"] = 1,
 		["id"] = 3950,
 	}, -- [28]
 	{
-		["phase"] = 1,
-		["min_skill"] = 140,
 		["item"] = 14639,
+		["min_skill"] = 140,
+		["id"] = 3952,
 		["name"] = {
-			["Russian"] = "Малый атомарный перенаправлятор",
-			["Portuguese"] = "Rebotocador Menor",
-			["Chinese"] = "自动净化装置",
-			["Spanish"] = "Recombobulador menor",
-			["French"] = "Recombobulateur mineur",
 			["German"] = "Schwacher Rekombobulator",
+			["Spanish"] = "Recombobulador menor",
+			["Chinese"] = "自动净化装置",
 			["Korean"] = "하급 유전자 역결합기",
+			["French"] = "Recombobulateur mineur",
+			["Portuguese"] = "Rebotocador Menor",
+			["Mexican"] = "Recombobulador menor",
+			["Russian"] = "Малый атомарный перенаправлятор",
 			["English"] = "Minor Recombobulator",
 		},
-		["id"] = 3952,
+		["phase"] = 1,
 	}, -- [29]
 	{
-		["phase"] = 1,
-		["min_skill"] = 145,
 		["trainers"] = {
+			["price"] = 540,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -857,40 +885,42 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 540,
 		},
 		["name"] = {
-			["Russian"] = "Бронзовый каркас",
-			["Portuguese"] = "Estrutura de Bronze",
-			["Chinese"] = "青铜框架",
-			["Spanish"] = "Armazón de bronce",
-			["French"] = "Structure en bronze",
 			["German"] = "Bronzegerüst",
+			["Spanish"] = "Armazón de bronce",
+			["Chinese"] = "青铜框架",
 			["Korean"] = "청동 골격",
+			["French"] = "Structure en bronze",
+			["Portuguese"] = "Estrutura de Bronze",
+			["Mexican"] = "Marco de bronce",
+			["Russian"] = "Бронзовый каркас",
 			["English"] = "Bronze Framework",
 		},
+		["min_skill"] = 145,
+		["phase"] = 1,
 		["id"] = 3953,
 	}, -- [30]
 	{
-		["phase"] = 1,
-		["min_skill"] = 145,
 		["item"] = 4412,
+		["min_skill"] = 145,
+		["id"] = 3954,
 		["name"] = {
-			["Russian"] = "Лунная винтовка",
-			["Portuguese"] = "Rifle Miraluna",
-			["Chinese"] = "夜视步枪",
-			["Spanish"] = "Rifle vistaluna",
-			["French"] = "Carabine vise-lune",
 			["German"] = "Mondsichtgewehr",
+			["Spanish"] = "Rifle vistaluna",
+			["Chinese"] = "夜视步枪",
 			["Korean"] = "달빛 라이플",
+			["French"] = "Carabine vise-lune",
+			["Portuguese"] = "Rifle Miraluna",
+			["Mexican"] = "Rifle de vista lunar",
+			["Russian"] = "Лунная винтовка",
 			["English"] = "Moonsight Rifle",
 		},
-		["id"] = 3954,
+		["phase"] = 1,
 	}, -- [31]
 	{
-		["phase"] = 1,
-		["min_skill"] = 150,
 		["trainers"] = {
+			["price"] = 675,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -901,24 +931,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 675,
 		},
 		["name"] = {
-			["Russian"] = "Взрывоопасная овца",
-			["Portuguese"] = "Ovelha Explosiva",
-			["Chinese"] = "自爆绵羊",
-			["Spanish"] = "Oveja explosiva",
-			["French"] = "Mouton explosif",
 			["German"] = "Explodierendes Schaf",
+			["Spanish"] = "Oveja explosiva",
+			["Chinese"] = "自爆绵羊",
 			["Korean"] = "양 폭탄",
+			["French"] = "Mouton explosif",
+			["Portuguese"] = "Ovelha Explosiva",
+			["Mexican"] = "Oveja explosiva",
+			["Russian"] = "Взрывоопасная овца",
 			["English"] = "Explosive Sheep",
 		},
+		["min_skill"] = 150,
+		["phase"] = 1,
 		["id"] = 3955,
 	}, -- [32]
 	{
-		["phase"] = 1,
-		["min_skill"] = 150,
 		["trainers"] = {
+			["price"] = 675,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -929,290 +960,305 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 675,
 		},
 		["name"] = {
-			["Russian"] = "Зеленые тонированные очки",
-			["Portuguese"] = "Óculos Tintos de Verde",
-			["Chinese"] = "绿色护目镜",
-			["Spanish"] = "Gafas tintadas en verde",
-			["French"] = "Lunettes teintées vertes",
 			["German"] = "Schutzbrille mit grünen Gläsern",
+			["Spanish"] = "Gafas tintadas en verde",
+			["Chinese"] = "绿色护目镜",
 			["Korean"] = "녹빛 고글",
+			["French"] = "Lunettes teintées vertes",
+			["Portuguese"] = "Óculos Tintos de Verde",
+			["Mexican"] = "Gafas tintadas de verde",
+			["Russian"] = "Зеленые тонированные очки",
 			["English"] = "Green Tinted Goggles",
 		},
+		["min_skill"] = 150,
+		["phase"] = 1,
 		["id"] = 3956,
 	}, -- [33]
 	{
-		["phase"] = 1,
-		["min_skill"] = 155,
 		["item"] = 13308,
+		["min_skill"] = 155,
+		["id"] = 3957,
 		["name"] = {
-			["Russian"] = "Ледяной отражатель",
-			["Portuguese"] = "Defletor de Gelo",
-			["Chinese"] = "寒冰偏斜器",
-			["Spanish"] = "Deflector de hielo",
-			["French"] = "Pare-glace",
 			["German"] = "Eisdeflektor",
+			["Spanish"] = "Deflector de hielo",
+			["Chinese"] = "寒冰偏斜器",
 			["Korean"] = "냉기 반사장치",
+			["French"] = "Pare-glace",
+			["Portuguese"] = "Defletor de Gelo",
+			["Mexican"] = "Deflector de hielo",
+			["Russian"] = "Ледяной отражатель",
 			["English"] = "Ice Deflector",
 		},
-		["id"] = 3957,
+		["phase"] = 1,
 	}, -- [34]
 	{
-		["phase"] = 1,
-		["min_skill"] = 160,
 		["trainers"] = {
+			["price"] = 720,
 			["sources"] = {
 				5174, -- [1]
 				8736, -- [2]
 				11017, -- [3]
 			},
-			["price"] = 720,
 		},
 		["name"] = {
-			["Russian"] = "Железная балка",
-			["Portuguese"] = "Escora de Ferro",
-			["Chinese"] = "铁棒",
-			["Spanish"] = "Puntal de hierro",
-			["French"] = "Contrefiche en fer",
 			["German"] = "Eisenstrebe",
+			["Spanish"] = "Puntal de hierro",
+			["Chinese"] = "铁棒",
 			["Korean"] = "철제 버팀대",
+			["French"] = "Contrefiche en fer",
+			["Portuguese"] = "Escora de Ferro",
+			["Mexican"] = "Tornapunta de hierro",
+			["Russian"] = "Железная балка",
 			["English"] = "Iron Strut",
 		},
+		["min_skill"] = 160,
+		["phase"] = 1,
 		["id"] = 3958,
 	}, -- [35]
 	{
-		["phase"] = 1,
-		["min_skill"] = 160,
 		["item"] = 4413,
+		["min_skill"] = 160,
+		["id"] = 3959,
 		["name"] = {
-			["Russian"] = "Анти-перенаправляющий луч",
-			["Portuguese"] = "Raio Abotocador",
-			["Chinese"] = "退化射线",
-			["Spanish"] = "Rayo discombobulador",
-			["French"] = "Rayon discombobulateur",
 			["German"] = "Diskombobulatorstrahl",
+			["Spanish"] = "Rayo discombobulador",
+			["Chinese"] = "退化射线",
 			["Korean"] = "유전자 역결합 광선",
+			["French"] = "Rayon discombobulateur",
+			["Portuguese"] = "Raio Abotocador",
+			["Mexican"] = "Rayo descombobulador",
+			["Russian"] = "Анти-перенаправляющий луч",
 			["English"] = "Discombobulator Ray",
 		},
-		["id"] = 3959,
+		["phase"] = 1,
 	}, -- [36]
 	{
-		["phase"] = 1,
-		["min_skill"] = 165,
 		["item"] = 4414,
+		["min_skill"] = 165,
+		["id"] = 3960,
 		["name"] = {
-			["Russian"] = "Портативный бронзовый миномет",
-			["Portuguese"] = "Morteiro Portátil de Bronze",
-			["Chinese"] = "便携式青铜迫击炮",
-			["Spanish"] = "Mortero de bronce portátil",
-			["French"] = "Mortier portable en bronze",
 			["German"] = "Tragbarer bronzener Mörser",
+			["Spanish"] = "Mortero de bronce portátil",
+			["Chinese"] = "便携式青铜迫击炮",
 			["Korean"] = "휴대용 청동 박격포",
+			["French"] = "Mortier portable en bronze",
+			["Portuguese"] = "Morteiro Portátil de Bronze",
+			["Mexican"] = "Mortero de bronce portátil",
+			["Russian"] = "Портативный бронзовый миномет",
 			["English"] = "Portable Bronze Mortar",
 		},
-		["id"] = 3960,
+		["phase"] = 1,
 	}, -- [37]
 	{
-		["phase"] = 1,
-		["min_skill"] = 170,
 		["trainers"] = {
+			["price"] = 810,
 			["sources"] = {
 				5174, -- [1]
 				8736, -- [2]
 				11017, -- [3]
 			},
-			["price"] = 810,
 		},
 		["name"] = {
-			["Russian"] = "Гирокронатом",
-			["Portuguese"] = "Giroscronatom",
-			["Chinese"] = "发条式同步协调陀螺仪",
-			["Spanish"] = "Girocronátomo",
-			["French"] = "Gyrochronatome",
 			["German"] = "Gyrochronatom",
+			["Spanish"] = "Girocronátomo",
+			["Chinese"] = "发条式同步协调陀螺仪",
 			["Korean"] = "태엽장치",
+			["French"] = "Gyrochronatome",
+			["Portuguese"] = "Giroscronatom",
+			["Mexican"] = "Girocronátomo",
+			["Russian"] = "Гирокронатом",
 			["English"] = "Gyrochronatom",
 		},
+		["min_skill"] = 170,
+		["phase"] = 1,
 		["id"] = 3961,
 	}, -- [38]
 	{
-		["phase"] = 1,
-		["min_skill"] = 175,
 		["trainers"] = {
+			["price"] = 900,
 			["sources"] = {
 				5174, -- [1]
 				8736, -- [2]
 				11017, -- [3]
 			},
-			["price"] = 900,
 		},
 		["name"] = {
-			["Russian"] = "Железная граната",
-			["Portuguese"] = "Granada de Ferro",
-			["Chinese"] = "铁皮手雷",
-			["Spanish"] = "Granada de hierro",
-			["French"] = "Grenade en fer",
 			["German"] = "Eisengranate",
+			["Spanish"] = "Granada de hierro",
+			["Chinese"] = "铁皮手雷",
 			["Korean"] = "철제 수류탄",
+			["French"] = "Grenade en fer",
+			["Portuguese"] = "Granada de Ferro",
+			["Mexican"] = "Granada de hierro",
+			["Russian"] = "Железная граната",
 			["English"] = "Iron Grenade",
 		},
+		["min_skill"] = 175,
+		["phase"] = 1,
 		["id"] = 3962,
 	}, -- [39]
 	{
-		["phase"] = 1,
-		["min_skill"] = 175,
 		["trainers"] = {
+			["price"] = 900,
 			["sources"] = {
 				5174, -- [1]
 				8736, -- [2]
 				11017, -- [3]
 			},
-			["price"] = 900,
 		},
 		["name"] = {
-			["Russian"] = "Набор для создания компактного уборочного голема",
-			["Portuguese"] = "Kit de Ceifa-colheitas Compacto",
-			["Chinese"] = "联合收割机组件",
-			["Spanish"] = "Equipo de segador de la cosecha compacto",
-			["French"] = "Kit de moissonneur compact",
 			["German"] = "Kompaktes Ernteschnitterset",
+			["Spanish"] = "Equipo de segador de la cosecha compacto",
+			["Chinese"] = "联合收割机组件",
 			["Korean"] = "소형 허수아비골렘 키트",
+			["French"] = "Kit de moissonneur compact",
+			["Portuguese"] = "Kit de Ceifa-colheitas Compacto",
+			["Mexican"] = "Juego de segador de la cosecha compacto",
+			["Russian"] = "Набор для создания компактного уборочного голема",
 			["English"] = "Compact Harvest Reaper Kit",
 		},
+		["min_skill"] = 175,
+		["phase"] = 1,
 		["id"] = 3963,
 	}, -- [40]
 	{
-		["phase"] = 1,
-		["min_skill"] = 185,
 		["trainers"] = {
+			["price"] = 1080,
 			["sources"] = {
 				5174, -- [1]
 				8736, -- [2]
 				11017, -- [3]
 			},
-			["price"] = 1080,
 		},
 		["name"] = {
-			["Russian"] = "Усовершенствованный манекен-мишень",
-			["Portuguese"] = "Boneco-alvo Avançado",
-			["Chinese"] = "高级假人",
-			["Spanish"] = "Muñeco-diana avanzado",
-			["French"] = "Leurre perfectionné",
 			["German"] = "Hochentwickelte Zielattrappe",
+			["Spanish"] = "Muñeco-diana avanzado",
+			["Chinese"] = "高级假人",
 			["Korean"] = "고급 표적 허수아비",
+			["French"] = "Leurre perfectionné",
+			["Portuguese"] = "Boneco-alvo Avançado",
+			["Mexican"] = "Muñeco-diana avanzado",
+			["Russian"] = "Усовершенствованный манекен-мишень",
 			["English"] = "Advanced Target Dummy",
 		},
+		["min_skill"] = 185,
+		["phase"] = 1,
 		["id"] = 3965,
 	}, -- [41]
 	{
-		["phase"] = 1,
-		["min_skill"] = 185,
 		["item"] = 4415,
+		["min_skill"] = 185,
+		["id"] = 3966,
 		["name"] = {
-			["Russian"] = "Монокль ремесленника",
-			["Portuguese"] = "Monóculo do Artífice",
-			["Chinese"] = "工匠眼镜",
-			["Spanish"] = "Monóculo del artesano",
-			["French"] = "Monocle d'artisan",
 			["German"] = "Handwerkermonokel",
+			["Spanish"] = "Monóculo del artesano",
+			["Chinese"] = "工匠眼镜",
 			["Korean"] = "장인의 단안경",
+			["French"] = "Monocle d'artisan",
+			["Portuguese"] = "Monóculo do Artífice",
+			["Mexican"] = "Monóculo de artesano",
+			["Russian"] = "Монокль ремесленника",
 			["English"] = "Craftsman's Monocle",
 		},
-		["id"] = 3966,
+		["phase"] = 1,
 	}, -- [42]
 	{
-		["phase"] = 1,
-		["min_skill"] = 190,
 		["trainers"] = {
+			["price"] = 1260,
 			["sources"] = {
 				5174, -- [1]
 				8736, -- [2]
 				11017, -- [3]
 			},
-			["price"] = 1260,
 		},
 		["name"] = {
-			["Russian"] = "Большая железная бомба",
-			["Portuguese"] = "Bomba Grande de Ferro",
-			["Chinese"] = "重磅铁制炸弹",
-			["Spanish"] = "Bomba grande de hierro",
-			["French"] = "Grande bombe en fer",
 			["German"] = "Große Eisenbombe",
+			["Spanish"] = "Bomba grande de hierro",
+			["Chinese"] = "重磅铁制炸弹",
 			["Korean"] = "대형 철제 폭탄",
+			["French"] = "Grande bombe en fer",
+			["Portuguese"] = "Bomba Grande de Ferro",
+			["Mexican"] = "Bomba de hierro grande",
+			["Russian"] = "Большая железная бомба",
 			["English"] = "Big Iron Bomb",
 		},
+		["min_skill"] = 190,
+		["phase"] = 1,
 		["id"] = 3967,
 	}, -- [43]
 	{
-		["phase"] = 1,
-		["min_skill"] = 195,
 		["item"] = 4416,
+		["min_skill"] = 195,
+		["id"] = 3968,
 		["name"] = {
-			["Russian"] = "Гоблинская фугасная мина",
-			["Portuguese"] = "Mina Terrestre Goblínica",
-			["Chinese"] = "地精暗雷",
-			["Spanish"] = "Mina terrestre goblin",
-			["French"] = "Mine gobeline",
 			["German"] = "Goblin-Landmine",
+			["Spanish"] = "Mina terrestre goblin",
+			["Chinese"] = "地精暗雷",
 			["Korean"] = "고블린 지뢰",
+			["French"] = "Mine gobeline",
+			["Portuguese"] = "Mina Terrestre Goblínica",
+			["Mexican"] = "Mina terrestre goblin",
+			["Russian"] = "Гоблинская фугасная мина",
 			["English"] = "Goblin Land Mine",
 		},
-		["id"] = 3968,
+		["phase"] = 1,
 	}, -- [44]
 	{
-		["phase"] = 1,
-		["min_skill"] = 200,
 		["item"] = 13311,
+		["min_skill"] = 200,
+		["id"] = 3969,
 		["name"] = {
-			["Russian"] = "Механический дракончик",
-			["Portuguese"] = "Dragonete Mecânico",
-			["Chinese"] = "机械幼龙",
-			["Spanish"] = "Dragonizo mecánico",
-			["French"] = "Petit dragon mécanique",
 			["German"] = "Mechanischer Drachling",
+			["Spanish"] = "Dragonizo mecánico",
+			["Chinese"] = "机械幼龙",
 			["Korean"] = "소형 기계용",
+			["French"] = "Petit dragon mécanique",
+			["Portuguese"] = "Dragonete Mecânico",
+			["Mexican"] = "Dragonizo mecánico",
+			["Russian"] = "Механический дракончик",
 			["English"] = "Mechanical Dragonling",
 		},
-		["id"] = 3969,
+		["phase"] = 1,
 	}, -- [45]
 	{
-		["phase"] = 1,
-		["min_skill"] = 200,
 		["item"] = 7742,
+		["min_skill"] = 200,
+		["id"] = 3971,
 		["name"] = {
-			["Russian"] = "Маскировочный механизм гномов",
-			["Portuguese"] = "Dispositivo Ocultador Gnômico",
-			["Chinese"] = "侏儒隐形装置",
-			["Spanish"] = "Dispositivo de invisibilidad gnomo",
-			["French"] = "Système d'occultation gnome",
 			["German"] = "Gnomisches Verbergungsgerät",
+			["Spanish"] = "Dispositivo de invisibilidad gnomo",
+			["Chinese"] = "侏儒隐形装置",
 			["Korean"] = "노움 은폐 장치",
+			["French"] = "Système d'occultation gnome",
+			["Portuguese"] = "Dispositivo Ocultador Gnômico",
+			["Mexican"] = "Aparato de invisibilidad gnómico",
+			["Russian"] = "Маскировочный механизм гномов",
 			["English"] = "Gnomish Cloaking Device",
 		},
-		["id"] = 3971,
+		["phase"] = 1,
 	}, -- [46]
 	{
-		["phase"] = 1,
-		["min_skill"] = 200,
 		["item"] = 4417,
+		["min_skill"] = 200,
+		["id"] = 3972,
 		["name"] = {
-			["Russian"] = "Большой сефориевый заряд",
-			["Portuguese"] = "Carga Grande de Cequatrum",
-			["Chinese"] = "大型爆盐炸弹",
-			["Spanish"] = "Carga de gran marforio",
-			["French"] = "Grande charge d'hydroglycérine",
 			["German"] = "Große Zephyriumladung",
+			["Spanish"] = "Carga de gran marforio",
+			["Chinese"] = "大型爆盐炸弹",
 			["Korean"] = "대형 시포리움 폭약",
+			["French"] = "Grande charge d'hydroglycérine",
+			["Portuguese"] = "Carga Grande de Cequatrum",
+			["Mexican"] = "Carga de seforio grande",
+			["Russian"] = "Большой сефориевый заряд",
 			["English"] = "Large Seaforium Charge",
 		},
-		["id"] = 3972,
+		["phase"] = 1,
 	}, -- [47]
 	{
-		["phase"] = 1,
-		["min_skill"] = 90,
 		["trainers"] = {
+			["price"] = 270,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -1223,24 +1269,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 270,
 		},
 		["name"] = {
-			["Russian"] = "Серебряный контакт",
-			["Portuguese"] = "Contato de Prata",
-			["Chinese"] = "银触媒",
-			["Spanish"] = "Contacto de plata",
-			["French"] = "Contact en argent",
 			["German"] = "Silberkontakt",
+			["Spanish"] = "Contacto de plata",
+			["Chinese"] = "银触媒",
 			["Korean"] = "은 접지",
+			["French"] = "Contact en argent",
+			["Portuguese"] = "Contato de Prata",
+			["Mexican"] = "Contacto de plata",
+			["Russian"] = "Серебряный контакт",
 			["English"] = "Silver Contact",
 		},
+		["min_skill"] = 90,
+		["phase"] = 1,
 		["id"] = 3973,
 	}, -- [48]
 	{
-		["phase"] = 1,
-		["min_skill"] = 60,
 		["trainers"] = {
+			["price"] = 200,
 			["sources"] = {
 				1702, -- [1]
 				2857, -- [2]
@@ -1260,24 +1307,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11031, -- [16]
 				11037, -- [17]
 			},
-			["price"] = 200,
 		},
 		["name"] = {
-			["Russian"] = "Кустарный прицел",
-			["Portuguese"] = "Mira Rudimentar",
-			["Chinese"] = "粗制瞄准镜",
-			["Spanish"] = "Mira rudimentaria",
-			["French"] = "Lunette basique",
 			["German"] = "Kunstloses Zielfernrohr",
+			["Spanish"] = "Mira rudimentaria",
+			["Chinese"] = "粗制瞄准镜",
 			["Korean"] = "조잡한 조준경",
+			["French"] = "Lunette basique",
+			["Portuguese"] = "Mira Rudimentar",
+			["Mexican"] = "Mira rudimentaria",
+			["Russian"] = "Кустарный прицел",
 			["English"] = "Crude Scope",
 		},
+		["min_skill"] = 60,
+		["phase"] = 1,
 		["id"] = 3977,
 	}, -- [49]
 	{
-		["phase"] = 1,
-		["min_skill"] = 110,
 		["trainers"] = {
+			["price"] = 427,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -1288,40 +1336,42 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 427,
 		},
 		["name"] = {
-			["Russian"] = "Обычный прицел",
-			["Portuguese"] = "Mira Padrão",
-			["Chinese"] = "普通瞄准镜",
-			["Spanish"] = "Mirilla estándar",
-			["French"] = "Lunette standard",
 			["German"] = "Standardzielfernrohr",
+			["Spanish"] = "Mirilla estándar",
+			["Chinese"] = "普通瞄准镜",
 			["Korean"] = "일반 조준경",
+			["French"] = "Lunette standard",
+			["Portuguese"] = "Mira Padrão",
+			["Mexican"] = "Mira estándar",
+			["Russian"] = "Обычный прицел",
 			["English"] = "Standard Scope",
 		},
+		["min_skill"] = 110,
+		["phase"] = 1,
 		["id"] = 3978,
 	}, -- [50]
 	{
-		["phase"] = 1,
-		["min_skill"] = 180,
 		["item"] = 13310,
+		["min_skill"] = 180,
+		["id"] = 3979,
 		["name"] = {
-			["Russian"] = "Точный прицел",
-			["Portuguese"] = "Mira de Precisão",
-			["Chinese"] = "精确瞄准镜",
-			["Spanish"] = "Mira de precisión",
-			["French"] = "Lunette de précision",
 			["German"] = "Genaues Zielfernrohr",
+			["Spanish"] = "Mira de precisión",
+			["Chinese"] = "精确瞄准镜",
 			["Korean"] = "정밀한 조준경",
+			["French"] = "Lunette de précision",
+			["Portuguese"] = "Mira de Precisão",
+			["Mexican"] = "Mira de precisión",
+			["Russian"] = "Точный прицел",
 			["English"] = "Accurate Scope",
 		},
-		["id"] = 3979,
+		["phase"] = 1,
 	}, -- [51]
 	{
-		["phase"] = 1,
-		["min_skill"] = 135,
 		["trainers"] = {
+			["price"] = 360,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -1332,24 +1382,25 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 360,
 		},
 		["name"] = {
-			["Russian"] = "Изысканная подзорная труба",
-			["Portuguese"] = "Luneta Ornada",
-			["Chinese"] = "精制望远镜",
-			["Spanish"] = "Catalejo ornamentado",
-			["French"] = "Longue-vue ornée",
 			["German"] = "Verschnörkeltes Handfernrohr",
+			["Spanish"] = "Catalejo ornamentado",
+			["Chinese"] = "精制望远镜",
 			["Korean"] = "화려한 망원경",
+			["French"] = "Longue-vue ornée",
+			["Portuguese"] = "Luneta Ornada",
+			["Mexican"] = "Catalejo ornamentado",
+			["Russian"] = "Изысканная подзорная труба",
 			["English"] = "Ornate Spyglass",
 		},
+		["min_skill"] = 135,
+		["phase"] = 1,
 		["id"] = 6458,
 	}, -- [52]
 	{
-		["phase"] = 1,
-		["min_skill"] = 50,
 		["trainers"] = {
+			["price"] = 150,
 			["sources"] = {
 				1702, -- [1]
 				2857, -- [2]
@@ -1369,40 +1420,42 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11031, -- [16]
 				11037, -- [17]
 			},
-			["price"] = 150,
 		},
 		["name"] = {
-			["Russian"] = "Тангенциальный вращатель",
-			["Portuguese"] = "Chave de Arco Voltaico",
-			["Chinese"] = "扳手",
-			["Spanish"] = "Llave arqueluz",
-			["French"] = "Clé plate",
 			["German"] = "Bogenlichtschraubenschlüssel",
+			["Spanish"] = "Llave arqueluz",
+			["Chinese"] = "扳手",
 			["Korean"] = "만능 스패너",
+			["French"] = "Clé plate",
+			["Portuguese"] = "Chave de Arco Voltaico",
+			["Mexican"] = "Llave de tuerca arcoluz",
+			["Russian"] = "Тангенциальный вращатель",
 			["English"] = "Arclight Spanner",
 		},
+		["min_skill"] = 50,
+		["phase"] = 1,
 		["id"] = 7430,
 	}, -- [53]
 	{
-		["phase"] = 1,
-		["min_skill"] = 185,
 		["item"] = 6672,
+		["min_skill"] = 185,
+		["id"] = 8243,
 		["name"] = {
-			["Russian"] = "Световая бомба",
-			["Portuguese"] = "Bomba de Clarão",
-			["Chinese"] = "闪光雷",
-			["Spanish"] = "Bomba cegadora",
-			["French"] = "Bombe éclairante",
 			["German"] = "Blitzstrahlbombe",
+			["Spanish"] = "Bomba cegadora",
+			["Chinese"] = "闪光雷",
 			["Korean"] = "섬광탄",
+			["French"] = "Bombe éclairante",
+			["Portuguese"] = "Bomba de Clarão",
+			["Mexican"] = "Bomba cegadora",
+			["Russian"] = "Световая бомба",
 			["English"] = "Flash Bomb",
 		},
-		["id"] = 8243,
+		["phase"] = 1,
 	}, -- [54]
 	{
-		["phase"] = 1,
-		["min_skill"] = 100,
 		["trainers"] = {
+			["price"] = 270,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -1413,79 +1466,76 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 270,
 		},
 		["name"] = {
-			["Russian"] = "Учебный замок",
-			["Portuguese"] = "Fechadura de Exercício",
-			["Chinese"] = "练习锁",
-			["Spanish"] = "Practicar abrir cerradura",
-			["French"] = "Serrure d'entraînement",
 			["German"] = "Übungsschloss",
+			["Spanish"] = "Practicar abrir cerradura",
+			["Chinese"] = "练习锁",
 			["Korean"] = "연습용 자물쇠",
+			["French"] = "Serrure d'entraînement",
+			["Portuguese"] = "Fechadura de Exercício",
+			["Mexican"] = "Cerradura de prácticas",
+			["Russian"] = "Учебный замок",
 			["English"] = "Practice Lock",
 		},
+		["min_skill"] = 100,
+		["phase"] = 1,
 		["id"] = 8334,
 	}, -- [55]
 	{
-		["phase"] = 1,
-		["min_skill"] = 100,
 		["item"] = 6716,
+		["min_skill"] = 100,
+		["id"] = 8339,
 		["name"] = {
-			["Russian"] = "Динамит \"ПРО-бро\"",
-			["Portuguese"] = "Dinamite Taca-fácil",
-			["Chinese"] = "简易投掷炸弹",
-			["Spanish"] = "Dinamita Ez-Thro",
-			["French"] = "Dynamite Ev-Lan",
 			["German"] = "EZ-Thro-Dynamit",
+			["Spanish"] = "Dinamita Ez-Thro",
+			["Chinese"] = "简易投掷炸弹",
 			["Korean"] = "초보자용 다이너마이트",
+			["French"] = "Dynamite Ev-Lan",
+			["Portuguese"] = "Dinamite Taca-fácil",
+			["Mexican"] = "Dinamita para tontos",
+			["Russian"] = "Динамит \"ПРО-бро\"",
 			["English"] = "EZ-Thro Dynamite",
 		},
-		["id"] = 8339,
+		["phase"] = 1,
 	}, -- [56]
 	{
-		["phase"] = 1,
-		["min_skill"] = 225,
-		["trainers"] = {
-			["sources"] = {
-				8126, -- [1]
-				8738, -- [2]
-			},
-			["price"] = 0,
-		},
+		["item"] = 7192,
 		["name"] = {
-			["Russian"] = "Гоблинские реактивные сапоги",
-			["Portuguese"] = "Botas-foguete Goblínicas",
-			["Chinese"] = "地精火箭靴",
-			["Spanish"] = "Botas cohete goblin",
-			["French"] = "Bottes-fusées gobelines",
 			["German"] = "Goblin-Raketenstiefel",
+			["Spanish"] = "Botas cohete goblin",
+			["Chinese"] = "地精火箭靴",
 			["Korean"] = "고블린 로켓 장화",
+			["French"] = "Bottes-fusées gobelines",
+			["Portuguese"] = "Botas-foguete Goblínicas",
+			["Mexican"] = "Botas cohete goblin",
+			["Russian"] = "Гоблинские реактивные сапоги",
 			["English"] = "Goblin Rocket Boots",
 		},
-		["id"] = 8895,
-		["specialization"] = 20222,
+		["min_skill"] = 130,
+		["phase"] = 1,
+		["id"] = 8896,
 	}, -- [57]
 	{
-		["phase"] = 1,
-		["min_skill"] = 125,
 		["item"] = 7560,
+		["min_skill"] = 125,
+		["id"] = 9269,
 		["name"] = {
-			["Russian"] = "Универсальный пульт управления гномов",
-			["Portuguese"] = "Controle Remoto Universal Gnômico",
-			["Chinese"] = "侏儒通用遥控器",
-			["Spanish"] = "Control universal gnomo",
-			["French"] = "Télécommande universelle gnome",
 			["German"] = "Gnomen-Universalfernbedienung",
+			["Spanish"] = "Control universal gnomo",
+			["Chinese"] = "侏儒通用遥控器",
 			["Korean"] = "노움의 만능 원격조종기",
+			["French"] = "Télécommande universelle gnome",
+			["Portuguese"] = "Controle Remoto Universal Gnômico",
+			["Mexican"] = "Mando universal gnómico",
+			["Russian"] = "Универсальный пульт управления гномов",
 			["English"] = "Gnomish Universal Remote",
 		},
-		["id"] = 9269,
+		["phase"] = 1,
 	}, -- [58]
 	{
-		["phase"] = 1,
-		["min_skill"] = 150,
 		["trainers"] = {
+			["price"] = 450,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -1496,40 +1546,42 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 450,
 		},
 		["name"] = {
-			["Russian"] = "Аквадинамический магнит для рыбы",
-			["Portuguese"] = "Pega-peixes Aquadinâmico",
-			["Chinese"] = "水下诱鱼器",
-			["Spanish"] = "Atraepeces acuadinámico",
-			["French"] = "Attracteur de poissons aquadynamique",
 			["German"] = "Aquadynamischer Fischanlocker",
+			["Spanish"] = "Atraepeces acuadinámico",
+			["Chinese"] = "水下诱鱼器",
 			["Korean"] = "액체역학 물고기 유인기",
+			["French"] = "Attracteur de poissons aquadynamique",
+			["Portuguese"] = "Pega-peixes Aquadinâmico",
+			["Mexican"] = "Atraepeces acuadinámico",
+			["Russian"] = "Аквадинамический магнит для рыбы",
 			["English"] = "Aquadynamic Fish Attractor",
 		},
+		["min_skill"] = 150,
+		["phase"] = 1,
 		["id"] = 9271,
 	}, -- [59]
 	{
-		["phase"] = 1,
-		["min_skill"] = 165,
 		["item"] = 7561,
+		["min_skill"] = 165,
+		["id"] = 9273,
 		["name"] = {
-			["Russian"] = "Гоблинский кабельный дефибриллятор",
-			["Portuguese"] = "Cabo de Chupeta Goblínico",
-			["Chinese"] = "地精起搏器",
-			["Spanish"] = "Cables resucitadores goblin",
-			["French"] = "Défibrillateur gobelin",
 			["German"] = "Goblin-Überbrückungskabel",
+			["Spanish"] = "Cables resucitadores goblin",
+			["Chinese"] = "地精起搏器",
 			["Korean"] = "고블린 점퍼 케이블",
+			["French"] = "Défibrillateur gobelin",
+			["Portuguese"] = "Cabo de Chupeta Goblínico",
+			["Mexican"] = "Desfibriladores goblin",
+			["Russian"] = "Гоблинский кабельный дефибриллятор",
 			["English"] = "Goblin Jumper Cables",
 		},
-		["id"] = 9273,
+		["phase"] = 1,
 	}, -- [60]
 	{
-		["phase"] = 1,
-		["min_skill"] = 150,
 		["trainers"] = {
+			["price"] = 900,
 			["sources"] = {
 				1676, -- [1]
 				3412, -- [2]
@@ -1540,1937 +1592,2080 @@ MTSL_DATA["Engineering"]["skills"] = {
 				11029, -- [7]
 				11031, -- [8]
 			},
-			["price"] = 900,
 		},
 		["name"] = {
-			["Russian"] = "Золотое силовое ядро",
-			["Portuguese"] = "Núcleo de Força de Ouro",
-			["Chinese"] = "黄金能量核心",
-			["Spanish"] = "Nucleo de poder de oro",
-			["French"] = "Batterie en or",
 			["German"] = "Goldkraftkern",
+			["Spanish"] = "Nucleo de poder de oro",
+			["Chinese"] = "黄金能量核心",
 			["Korean"] = "황금 동력핵",
+			["French"] = "Batterie en or",
+			["Portuguese"] = "Núcleo de Força de Ouro",
+			["Mexican"] = "Núcleo de poder de oro",
+			["Russian"] = "Золотое силовое ядро",
 			["English"] = "Gold Power Core",
 		},
+		["min_skill"] = 150,
+		["phase"] = 1,
 		["id"] = 12584,
 	}, -- [61]
 	{
-		["phase"] = 1,
-		["min_skill"] = 175,
 		["trainers"] = {
+			["price"] = 900,
 			["sources"] = {
 				5174, -- [1]
 				8736, -- [2]
 				11017, -- [3]
 			},
-			["price"] = 900,
 		},
 		["name"] = {
-			["Russian"] = "Твердое взрывчатое вещество",
-			["Portuguese"] = "Pó Explosivo Maciço",
-			["Chinese"] = "实心炸药",
-			["Spanish"] = "Polvos explosivos puros",
-			["French"] = "Poudre noire solide",
 			["German"] = "Robustes Sprengpulver",
+			["Spanish"] = "Polvos explosivos puros",
+			["Chinese"] = "实心炸药",
 			["Korean"] = "조밀한 화약",
+			["French"] = "Poudre noire solide",
+			["Portuguese"] = "Pó Explosivo Maciço",
+			["Mexican"] = "Pólvora sólida",
+			["Russian"] = "Твердое взрывчатое вещество",
 			["English"] = "Solid Blasting Powder",
 		},
+		["min_skill"] = 175,
+		["phase"] = 1,
 		["id"] = 12585,
 	}, -- [62]
 	{
-		["phase"] = 1,
-		["min_skill"] = 175,
 		["trainers"] = {
+			["price"] = 900,
 			["sources"] = {
 				5174, -- [1]
 				8736, -- [2]
 				11017, -- [3]
 			},
-			["price"] = 900,
 		},
 		["name"] = {
-			["Russian"] = "Плотный динамит",
-			["Portuguese"] = "Dinamite Maciça",
-			["Chinese"] = "实心炸弹",
-			["Spanish"] = "Dinamita pura",
-			["French"] = "Dynamite solide",
 			["German"] = "Robustes Dynamit",
+			["Spanish"] = "Dinamita pura",
+			["Chinese"] = "实心炸弹",
 			["Korean"] = "조밀한 다이너마이트",
+			["French"] = "Dynamite solide",
+			["Portuguese"] = "Dinamite Maciça",
+			["Mexican"] = "Dinamita sólida",
+			["Russian"] = "Плотный динамит",
 			["English"] = "Solid Dynamite",
 		},
+		["min_skill"] = 175,
+		["phase"] = 1,
 		["id"] = 12586,
 	}, -- [63]
 	{
-		["phase"] = 1,
-		["min_skill"] = 175,
 		["item"] = 10601,
+		["min_skill"] = 175,
+		["id"] = 12587,
 		["name"] = {
-			["Russian"] = "Яркоглазые очки",
-			["Portuguese"] = "Óculos Brilho-do-olhar",
-			["Chinese"] = "增亮护目镜",
-			["Spanish"] = "Gafas Brillojo",
-			["French"] = "Lunettes d'oeil brillant",
 			["German"] = "Hellaugenschutzbrille",
+			["Spanish"] = "Gafas Brillojo",
+			["Chinese"] = "增亮护目镜",
 			["Korean"] = "초롱초롱 고글",
+			["French"] = "Lunettes d'oeil brillant",
+			["Portuguese"] = "Óculos Brilho-do-olhar",
+			["Mexican"] = "Gafas ojo brillante",
+			["Russian"] = "Яркоглазые очки",
 			["English"] = "Bright-Eye Goggles",
 		},
-		["id"] = 12587,
+		["phase"] = 1,
 	}, -- [64]
 	{
-		["phase"] = 1,
-		["min_skill"] = 195,
 		["trainers"] = {
+			["price"] = 1170,
 			["sources"] = {
 				5174, -- [1]
 				8736, -- [2]
 				11017, -- [3]
 			},
-			["price"] = 1170,
 		},
 		["name"] = {
-			["Russian"] = "Мифриловая труба",
-			["Portuguese"] = "Tubo de Mithril",
-			["Chinese"] = "秘银管",
-			["Spanish"] = "Tubo de mitril",
-			["French"] = "Tube en mithril",
 			["German"] = "Mithrilrohr",
+			["Spanish"] = "Tubo de mitril",
+			["Chinese"] = "秘银管",
 			["Korean"] = "미스릴관",
+			["French"] = "Tube en mithril",
+			["Portuguese"] = "Tubo de Mithril",
+			["Mexican"] = "Tubo de mitril",
+			["Russian"] = "Мифриловая труба",
 			["English"] = "Mithril Tube",
 		},
+		["min_skill"] = 195,
+		["phase"] = 1,
 		["id"] = 12589,
 	}, -- [65]
 	{
-		["phase"] = 1,
-		["min_skill"] = 175,
 		["trainers"] = {
+			["price"] = 900,
 			["sources"] = {
 				5174, -- [1]
 				8736, -- [2]
 				11017, -- [3]
 			},
-			["price"] = 900,
 		},
 		["name"] = {
-			["Russian"] = "Шлицевой гироинструмент",
-			["Portuguese"] = "Micro-ajustador Giromático",
-			["Chinese"] = "侏儒微调器",
-			["Spanish"] = "Microajustador giromático",
-			["French"] = "Micro-ajusteur gyromatique",
 			["German"] = "Gyromatischer Mikroregler",
+			["Spanish"] = "Microajustador giromático",
+			["Chinese"] = "侏儒微调器",
 			["Korean"] = "자동회전 초정밀조율기",
+			["French"] = "Micro-ajusteur gyromatique",
+			["Portuguese"] = "Micro-ajustador Giromático",
+			["Mexican"] = "Microajustador giromático",
+			["Russian"] = "Шлицевой гироинструмент",
 			["English"] = "Gyromatic Micro-Adjustor",
 		},
+		["min_skill"] = 175,
+		["phase"] = 1,
 		["id"] = 12590,
 	}, -- [66]
 	{
-		["phase"] = 1,
-		["min_skill"] = 200,
 		["trainers"] = {
+			["price"] = 1350,
 			["sources"] = {
 				5174, -- [1]
 				8736, -- [2]
 				11017, -- [3]
 			},
-			["price"] = 1350,
 		},
 		["name"] = {
-			["Russian"] = "Нестабильное пусковое устройство",
-			["Portuguese"] = "Gatilho Instável",
-			["Chinese"] = "不牢固的扳机",
-			["Spanish"] = "Activador inestable",
-			["French"] = "Déclencheur instable",
 			["German"] = "Instabiler Auslöser",
+			["Spanish"] = "Activador inestable",
+			["Chinese"] = "不牢固的扳机",
 			["Korean"] = "유동성 제동장치",
+			["French"] = "Déclencheur instable",
+			["Portuguese"] = "Gatilho Instável",
+			["Mexican"] = "Activador inestable",
+			["Russian"] = "Нестабильное пусковое устройство",
 			["English"] = "Unstable Trigger",
 		},
+		["min_skill"] = 200,
+		["phase"] = 1,
 		["id"] = 12591,
 	}, -- [67]
 	{
-		["phase"] = 1,
-		["min_skill"] = 205,
 		["trainers"] = {
+			["price"] = 1440,
 			["sources"] = {
 				5174, -- [1]
 				8736, -- [2]
 				11017, -- [3]
 			},
-			["price"] = 1440,
 		},
 		["name"] = {
-			["Russian"] = "Огненные очки",
-			["Portuguese"] = "Óculos Ígneos",
-			["Chinese"] = "火焰护目镜",
-			["Spanish"] = "Gafas de Fuego",
-			["French"] = "Lunettes de feu",
 			["German"] = "Feuerschutzbrille",
+			["Spanish"] = "Gafas de Fuego",
+			["Chinese"] = "火焰护目镜",
 			["Korean"] = "화염 고글",
+			["French"] = "Lunettes de feu",
+			["Portuguese"] = "Óculos Ígneos",
+			["Mexican"] = "Gafas de Fuego",
+			["Russian"] = "Огненные очки",
 			["English"] = "Fire Goggles",
 		},
+		["min_skill"] = 205,
+		["phase"] = 1,
 		["id"] = 12594,
 	}, -- [68]
 	{
-		["phase"] = 1,
-		["min_skill"] = 205,
 		["trainers"] = {
+			["price"] = 1440,
 			["sources"] = {
 				5174, -- [1]
 				8736, -- [2]
 				11017, -- [3]
 			},
-			["price"] = 1440,
 		},
 		["name"] = {
-			["Russian"] = "Мифриловый мушкетон",
-			["Portuguese"] = "Bacamarte de Mithril",
-			["Chinese"] = "秘银火枪",
-			["Spanish"] = "Trabuco de mitril",
-			["French"] = "Tromblon en mithril",
 			["German"] = "Mithrildonnerbüchse",
+			["Spanish"] = "Trabuco de mitril",
+			["Chinese"] = "秘银火枪",
 			["Korean"] = "미스릴 나팔총",
+			["French"] = "Tromblon en mithril",
+			["Portuguese"] = "Bacamarte de Mithril",
+			["Mexican"] = "Trabuco de mitril",
+			["Russian"] = "Мифриловый мушкетон",
 			["English"] = "Mithril Blunderbuss",
 		},
+		["min_skill"] = 205,
+		["phase"] = 1,
 		["id"] = 12595,
 	}, -- [69]
 	{
-		["phase"] = 1,
-		["min_skill"] = 210,
 		["trainers"] = {
+			["price"] = 1530,
 			["sources"] = {
 				5174, -- [1]
 				8736, -- [2]
 				11017, -- [3]
 			},
-			["price"] = 1530,
 		},
 		["name"] = {
-			["Russian"] = "Бронебойные мифриловые пули",
-			["Portuguese"] = "Projéteis Mithrílicos de Alto Impacto",
-			["Chinese"] = "高速秘银弹头",
-			["Spanish"] = "Perdigón de mitril de alto impacto",
-			["French"] = "Balles perçantes en mithril",
 			["German"] = "Stark einschlagende Mithrilpatronen",
+			["Spanish"] = "Perdigón de mitril de alto impacto",
+			["Chinese"] = "高速秘银弹头",
 			["Korean"] = "고강도 미스릴 산탄",
+			["French"] = "Balles perçantes en mithril",
+			["Portuguese"] = "Projéteis Mithrílicos de Alto Impacto",
+			["Mexican"] = "Balas de mitril de gran impacto",
+			["Russian"] = "Бронебойные мифриловые пули",
 			["English"] = "Hi-Impact Mithril Slugs",
 		},
+		["min_skill"] = 210,
+		["phase"] = 1,
 		["id"] = 12596,
 	}, -- [70]
 	{
-		["phase"] = 1,
-		["min_skill"] = 210,
 		["item"] = 10602,
+		["min_skill"] = 210,
+		["id"] = 12597,
 		["name"] = {
-			["Russian"] = "Смертоносный прицел",
-			["Portuguese"] = "Mira Letal",
-			["Chinese"] = "致命瞄准镜",
-			["Spanish"] = "Mira mortal",
-			["French"] = "Lunette mortelle",
 			["German"] = "Tödliches Zielfernrohr",
+			["Spanish"] = "Mira mortal",
+			["Chinese"] = "致命瞄准镜",
 			["Korean"] = "초정밀 조준경",
+			["French"] = "Lunette mortelle",
+			["Portuguese"] = "Mira Letal",
+			["Mexican"] = "Mira mortal",
+			["Russian"] = "Смертоносный прицел",
 			["English"] = "Deadly Scope",
 		},
-		["id"] = 12597,
+		["phase"] = 1,
 	}, -- [71]
 	{
-		["phase"] = 1,
-		["min_skill"] = 215,
 		["trainers"] = {
+			["price"] = 1620,
 			["sources"] = {
 				5174, -- [1]
 				8736, -- [2]
 				11017, -- [3]
 			},
-			["price"] = 1620,
 		},
 		["name"] = {
-			["Russian"] = "Мифриловая обшивка",
-			["Portuguese"] = "Carcaça de Mithril",
-			["Chinese"] = "秘银外壳",
-			["Spanish"] = "Envoltura de mitril",
-			["French"] = "Caisse en mithril",
 			["German"] = "Mithrilgehäuse",
+			["Spanish"] = "Envoltura de mitril",
+			["Chinese"] = "秘银外壳",
 			["Korean"] = "미스릴 형틀",
+			["French"] = "Caisse en mithril",
+			["Portuguese"] = "Carcaça de Mithril",
+			["Mexican"] = "Envoltura de mitril",
+			["Russian"] = "Мифриловая обшивка",
 			["English"] = "Mithril Casing",
 		},
+		["min_skill"] = 215,
+		["phase"] = 1,
 		["id"] = 12599,
 	}, -- [72]
 	{
-		["phase"] = 1,
-		["min_skill"] = 215,
 		["trainers"] = {
+			["price"] = 1620,
 			["sources"] = {
 				5174, -- [1]
 				8736, -- [2]
 				11017, -- [3]
 			},
-			["price"] = 1620,
 		},
 		["name"] = {
-			["Russian"] = "Мифриловая осколочная бомба",
-			["Portuguese"] = "Bomba de Fragmentação de Mithril",
-			["Chinese"] = "秘银破片炸弹",
-			["Spanish"] = "Bomba de fragmentación de mitril",
-			["French"] = "Bombe explosive en mithril",
 			["German"] = "Mithrilschrapnellbombe",
+			["Spanish"] = "Bomba de fragmentación de mitril",
+			["Chinese"] = "秘银破片炸弹",
 			["Korean"] = "미스릴 파편 폭탄",
+			["French"] = "Bombe explosive en mithril",
+			["Portuguese"] = "Bomba de Fragmentação de Mithril",
+			["Mexican"] = "Bomba de fragmentación de mitril",
+			["Russian"] = "Мифриловая осколочная бомба",
 			["English"] = "Mithril Frag Bomb",
 		},
+		["min_skill"] = 215,
+		["phase"] = 1,
 		["id"] = 12603,
 	}, -- [73]
 	{
-		["phase"] = 1,
-		["min_skill"] = 220,
 		["item"] = 10603,
+		["min_skill"] = 220,
+		["id"] = 12607,
 		["name"] = {
-			["Russian"] = "Суперочки \"Кошачий глаз\"",
-			["Portuguese"] = "Ultra-óculos Olho-de-gato",
-			["Chinese"] = "猫眼超级护目镜",
-			["Spanish"] = "Ultragafas Ojodegato",
-			["French"] = "Lunettes d'oeil de chat",
 			["German"] = "Katzenaugen-Ultraschutzbrille",
+			["Spanish"] = "Ultragafas Ojodegato",
+			["Chinese"] = "猫眼超级护目镜",
 			["Korean"] = "고양이눈 고글",
+			["French"] = "Lunettes d'oeil de chat",
+			["Portuguese"] = "Ultra-óculos Olho-de-gato",
+			["Mexican"] = "Ultragafas ojo de gato",
+			["Russian"] = "Суперочки \"Кошачий глаз\"",
 			["English"] = "Catseye Ultra Goggles",
 		},
-		["id"] = 12607,
+		["phase"] = 1,
 	}, -- [74]
 	{
-		["phase"] = 1,
-		["min_skill"] = 220,
 		["item"] = 10604,
+		["min_skill"] = 220,
+		["id"] = 12614,
 		["name"] = {
-			["Russian"] = "Мифриловая крупнокалиберная винтовка",
-			["Portuguese"] = "Rifle de Mithril de Grosso Calibre",
-			["Chinese"] = "大口径秘银步枪",
-			["Spanish"] = "Rifle pesado de mitril",
-			["French"] = "Carabine de gros calibre en mithril",
 			["German"] = "Schwerkalibriges Mithrilgewehr",
+			["Spanish"] = "Rifle pesado de mitril",
+			["Chinese"] = "大口径秘银步枪",
 			["Korean"] = "미스릴 중구경 라이플",
+			["French"] = "Carabine de gros calibre en mithril",
+			["Portuguese"] = "Rifle de Mithril de Grosso Calibre",
+			["Mexican"] = "Rifle de gran calibre de mitril",
+			["Russian"] = "Мифриловая крупнокалиберная винтовка",
 			["English"] = "Mithril Heavy-bore Rifle",
 		},
-		["id"] = 12614,
+		["phase"] = 1,
 	}, -- [75]
 	{
-		["phase"] = 1,
-		["min_skill"] = 225,
 		["item"] = 10605,
+		["min_skill"] = 225,
+		["id"] = 12615,
 		["name"] = {
-			["Russian"] = "Экстремальные очки магической силы",
-			["Portuguese"] = "Óculos de Poder Mágico Xtremo",
-			["Chinese"] = "法术能量护目镜超级版",
-			["Spanish"] = "Gafas hechizorosas extremas",
-			["French"] = "Lunettes de fortification des sorts",
 			["German"] = "Zaubermachtschutzbrille Xtrem",
+			["Spanish"] = "Gafas hechizorosas extremas",
+			["Chinese"] = "法术能量护目镜超级版",
 			["Korean"] = "초강력 화력 고글",
+			["French"] = "Lunettes de fortification des sorts",
+			["Portuguese"] = "Óculos de Poder Mágico Xtremo",
+			["Mexican"] = "Gafas de poder con hechizos Xtremo",
+			["Russian"] = "Экстремальные очки магической силы",
 			["English"] = "Spellpower Goggles Xtreme",
 		},
-		["id"] = 12615,
+		["phase"] = 1,
 	}, -- [76]
 	{
-		["phase"] = 1,
-		["min_skill"] = 225,
 		["item"] = 10606,
+		["min_skill"] = 225,
+		["id"] = 12616,
 		["name"] = {
-			["Russian"] = "Плащ-парашют",
-			["Portuguese"] = "Manto Paraquedas",
-			["Chinese"] = "降落伞披风",
-			["Spanish"] = "Capa paracaídas",
-			["French"] = "Cape parachute",
 			["German"] = "Fallschirmumhang",
+			["Spanish"] = "Capa paracaídas",
+			["Chinese"] = "降落伞披风",
 			["Korean"] = "낙하산 망토",
+			["French"] = "Cape parachute",
+			["Portuguese"] = "Manto Paraquedas",
+			["Mexican"] = "Capa paracaídas",
+			["Russian"] = "Плащ-парашют",
 			["English"] = "Parachute Cloak",
 		},
-		["id"] = 12616,
+		["phase"] = 1,
 	}, -- [77]
 	{
-		["phase"] = 1,
-		["min_skill"] = 230,
 		["item"] = 10607,
+		["min_skill"] = 230,
+		["id"] = 12617,
 		["name"] = {
-			["Russian"] = "Шлем ныряльщика",
-			["Portuguese"] = "Capacete das Profundezas",
-			["Chinese"] = "潜水头盔",
-			["Spanish"] = "Casco Lanceprofundo",
-			["French"] = "Casque de scaphandrier",
 			["German"] = "Tiefentaucherhelm",
+			["Spanish"] = "Casco Lanceprofundo",
+			["Chinese"] = "潜水头盔",
 			["Korean"] = "잠수용 헬멧",
+			["French"] = "Casque de scaphandrier",
+			["Portuguese"] = "Capacete das Profundezas",
+			["Mexican"] = "Casco de inmersión",
+			["Russian"] = "Шлем ныряльщика",
 			["English"] = "Deepdive Helmet",
 		},
-		["id"] = 12617,
+		["phase"] = 1,
 	}, -- [78]
 	{
-		["phase"] = 1,
-		["min_skill"] = 230,
 		["trainers"] = {
+			["price"] = 1980,
 			["sources"] = {
 				8736, -- [1]
 			},
-			["price"] = 1980,
 		},
 		["name"] = {
-			["Russian"] = "Розовые очки",
-			["Portuguese"] = "Óculos Cor-de-rosa",
-			["Chinese"] = "玫瑰色护目镜",
-			["Spanish"] = "Gafas rosas de colores",
-			["French"] = "Lunettes roses",
 			["German"] = "Rosarote Schutzbrille",
+			["Spanish"] = "Gafas rosas de colores",
+			["Chinese"] = "玫瑰色护目镜",
 			["Korean"] = "장밋빛 고글",
+			["French"] = "Lunettes roses",
+			["Portuguese"] = "Óculos Cor-de-rosa",
+			["Mexican"] = "Gafas tintadas de rosa",
+			["Russian"] = "Розовые очки",
 			["English"] = "Rose Colored Goggles",
 		},
+		["min_skill"] = 230,
+		["phase"] = 1,
 		["id"] = 12618,
 	}, -- [79]
 	{
-		["phase"] = 1,
-		["min_skill"] = 235,
 		["trainers"] = {
+			["price"] = 2160,
 			["sources"] = {
 				8736, -- [1]
 			},
-			["price"] = 2160,
 		},
 		["name"] = {
-			["Russian"] = "Взрывоопасная бомба",
-			["Portuguese"] = "Bomba de Alto-explosivo",
-			["Chinese"] = "高爆炸弹",
-			["Spanish"] = "Bomba altamente explosiva",
-			["French"] = "Bombe explosive",
 			["German"] = "Hochexplosive Bombe",
+			["Spanish"] = "Bomba altamente explosiva",
+			["Chinese"] = "高爆炸弹",
 			["Korean"] = "고폭탄",
+			["French"] = "Bombe explosive",
+			["Portuguese"] = "Bomba de Alto-explosivo",
+			["Mexican"] = "Bomba altamente explosiva",
+			["Russian"] = "Взрывоопасная бомба",
 			["English"] = "Hi-Explosive Bomb",
 		},
+		["min_skill"] = 235,
+		["phase"] = 1,
 		["id"] = 12619,
 	}, -- [80]
 	{
-		["phase"] = 1,
-		["min_skill"] = 240,
 		["item"] = 10608,
+		["min_skill"] = 240,
+		["id"] = 12620,
 		["name"] = {
-			["Russian"] = "Снайперский прицел",
-			["Portuguese"] = "Mira de Francoatirador",
-			["Chinese"] = "狙击瞄准镜",
-			["Spanish"] = "Mira de francotirador",
-			["French"] = "Lunette de sniper",
 			["German"] = "Heckenschützen-Zielfernrohr",
+			["Spanish"] = "Mira de francotirador",
+			["Chinese"] = "狙击瞄准镜",
 			["Korean"] = "저격용 조준경",
+			["French"] = "Lunette de sniper",
+			["Portuguese"] = "Mira de Francoatirador",
+			["Mexican"] = "Mira de francotirador",
+			["Russian"] = "Снайперский прицел",
 			["English"] = "Sniper Scope",
 		},
-		["id"] = 12620,
+		["phase"] = 1,
 	}, -- [81]
 	{
-		["phase"] = 1,
-		["min_skill"] = 245,
 		["trainers"] = {
+			["price"] = 2800,
 			["sources"] = {
 				8736, -- [1]
 			},
-			["price"] = 2800,
 		},
 		["name"] = {
-			["Russian"] = "Мифриловый гиро-патрон",
-			["Portuguese"] = "Cartuchos Giroscópicos de Mithril",
-			["Chinese"] = "秘银螺旋弹",
-			["Spanish"] = "Girotiro de mitril",
-			["French"] = "Balle gyroscopique en mithril",
 			["German"] = "Gyro-Mithrilgeschoss",
+			["Spanish"] = "Girotiro de mitril",
+			["Chinese"] = "秘银螺旋弹",
 			["Korean"] = "미스릴 회전탄",
+			["French"] = "Balle gyroscopique en mithril",
+			["Portuguese"] = "Cartuchos Giroscópicos de Mithril",
+			["Mexican"] = "Girotiro de mitril",
+			["Russian"] = "Мифриловый гиро-патрон",
 			["English"] = "Mithril Gyro-Shot",
 		},
+		["min_skill"] = 245,
+		["phase"] = 1,
 		["id"] = 12621,
 	}, -- [82]
 	{
-		["phase"] = 1,
-		["min_skill"] = 245,
 		["trainers"] = {
+			["price"] = 2800,
 			["sources"] = {
 				8736, -- [1]
 			},
-			["price"] = 2800,
 		},
 		["name"] = {
-			["Russian"] = "Зеленая линза",
-			["Portuguese"] = "Lente Verde",
-			["Chinese"] = "绿色透镜",
-			["Spanish"] = "Lentes verdes",
-			["French"] = "Lentille verte",
 			["German"] = "Grüne Linse",
+			["Spanish"] = "Lentes verdes",
+			["Chinese"] = "绿色透镜",
 			["Korean"] = "녹색 렌즈",
+			["French"] = "Lentille verte",
+			["Portuguese"] = "Lente Verde",
+			["Mexican"] = "Lente verde",
+			["Russian"] = "Зеленая линза",
 			["English"] = "Green Lens",
 		},
+		["min_skill"] = 245,
+		["phase"] = 1,
 		["id"] = 12622,
 	}, -- [83]
 	{
-		["phase"] = 1,
-		["min_skill"] = 250,
 		["item"] = 10609,
+		["min_skill"] = 250,
+		["id"] = 12624,
 		["name"] = {
-			["Russian"] = "Мифриловый механический дракончик",
-			["Portuguese"] = "Dragonete Mecânico de Mithril",
-			["Chinese"] = "秘银机械幼龙",
-			["Spanish"] = "Dragonizo mecánico de mitril",
-			["French"] = "Petit dragon mécanique en mithril",
 			["German"] = "Mechanischer Mithrildrachling",
+			["Spanish"] = "Dragonizo mecánico de mitril",
+			["Chinese"] = "秘银机械幼龙",
 			["Korean"] = "소형 미스릴 기계용",
+			["French"] = "Petit dragon mécanique en mithril",
+			["Portuguese"] = "Dragonete Mecânico de Mithril",
+			["Mexican"] = "Dragonizo mecánico de mitril",
+			["Russian"] = "Мифриловый механический дракончик",
 			["English"] = "Mithril Mechanical Dragonling",
 		},
-		["id"] = 12624,
+		["phase"] = 1,
 	}, -- [84]
 	{
-		["phase"] = 1,
-		["min_skill"] = 205,
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				8126, -- [1]
 				8738, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Гоблинское ракетное топливо - рецепт",
-			["Portuguese"] = "Receita de Combustível de Foguete Goblínico",
-			["Chinese"] = "地精火箭燃油配方",
-			["Spanish"] = "Receta de gasolina de cohete goblin",
-			["French"] = "Recette du carburant de fusée gobelin",
 			["German"] = "Goblin-Raketentreibstoff-Rezept",
+			["Spanish"] = "Receta de gasolina de cohete goblin",
+			["Chinese"] = "地精火箭燃油配方",
 			["Korean"] = "고블린 로켓 연료",
+			["French"] = "Recette du carburant de fusée gobelin",
+			["Portuguese"] = "Receita de Combustível de Foguete Goblínico",
+			["Mexican"] = "Receta de combustible de cohete goblin",
+			["Russian"] = "Гоблинское ракетное топливо - рецепт",
 			["English"] = "Goblin Rocket Fuel Recipe",
 		},
+		["min_skill"] = 205,
+		["phase"] = 1,
 		["id"] = 12715,
-		["specialization"] = 20222,
+		["specialisation"] = 20222,
 	}, -- [85]
 	{
-		["phase"] = 1,
-		["min_skill"] = 205,
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				8126, -- [1]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Гоблинская мортира",
-			["Portuguese"] = "Morteiro Goblínico",
-			["Chinese"] = "地精迫击炮",
-			["Spanish"] = "Mortero goblin",
-			["French"] = "Mortier des gobelins",
 			["German"] = "Goblin-Mörser",
+			["Spanish"] = "Mortero goblin",
+			["Chinese"] = "地精迫击炮",
 			["Korean"] = "고블린 박격포",
+			["French"] = "Mortier des gobelins",
+			["Portuguese"] = "Morteiro Goblínico",
+			["Mexican"] = "Mortero goblin",
+			["Russian"] = "Гоблинская мортира",
 			["English"] = "Goblin Mortar",
 		},
+		["min_skill"] = 205,
+		["phase"] = 1,
 		["id"] = 12716,
-		["specialization"] = 20222,
+		["specialisation"] = 20222,
 	}, -- [86]
 	{
-		["phase"] = 1,
-		["min_skill"] = 205,
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				8126, -- [1]
 				8738, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Шахтерская гоблинская каска",
-			["Portuguese"] = "Capacete de Mineração Goblínico",
-			["Chinese"] = "地精采矿头盔",
-			["Spanish"] = "Casco de minero goblin",
-			["French"] = "Casque de mineur gobelin",
 			["German"] = "Goblin-Bergbauhelm",
+			["Spanish"] = "Casco de minero goblin",
+			["Chinese"] = "地精采矿头盔",
 			["Korean"] = "고블린 채광용 헬멧",
+			["French"] = "Casque de mineur gobelin",
+			["Portuguese"] = "Capacete de Mineração Goblínico",
+			["Mexican"] = "Casco de minero goblin",
+			["Russian"] = "Шахтерская гоблинская каска",
 			["English"] = "Goblin Mining Helmet",
 		},
+		["min_skill"] = 205,
+		["phase"] = 1,
 		["id"] = 12717,
-		["specialization"] = 20222,
+		["specialisation"] = 20222,
 	}, -- [87]
 	{
-		["phase"] = 1,
-		["min_skill"] = 205,
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				8126, -- [1]
 				8738, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Шлем гоблинской конструкции",
-			["Portuguese"] = "Capacete de Operário Goblínico",
-			["Chinese"] = "地精施工头盔",
-			["Spanish"] = "Casco goblin de construcción",
-			["French"] = "Casque de chantier gobelin",
 			["German"] = "Goblinscher Schutzhelm",
+			["Spanish"] = "Casco goblin de construcción",
+			["Chinese"] = "地精施工头盔",
 			["Korean"] = "고블린 안전모",
+			["French"] = "Casque de chantier gobelin",
+			["Portuguese"] = "Capacete de Operário Goblínico",
+			["Mexican"] = "Casco de albañil goblin",
+			["Russian"] = "Шлем гоблинской конструкции",
 			["English"] = "Goblin Construction Helmet",
 		},
+		["min_skill"] = 205,
+		["phase"] = 1,
 		["id"] = 12718,
-		["specialization"] = 20222,
+		["specialisation"] = 20222,
 	}, -- [88]
 	{
-		["phase"] = 1,
-		["min_skill"] = 225,
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				8126, -- [1]
 				8738, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Великан",
-			["Portuguese"] = "Bomba Bombada",
-			["Chinese"] = "大炸弹",
-			["Spanish"] = "El grande",
-			["French"] = "Le Mastoc",
 			["German"] = "Der Große",
+			["Spanish"] = "El grande",
+			["Chinese"] = "大炸弹",
 			["Korean"] = "왕폭탄",
+			["French"] = "Le Mastoc",
+			["Portuguese"] = "Bomba Bombada",
+			["Mexican"] = "La grande",
+			["Russian"] = "Великан",
 			["English"] = "The Big One",
 		},
-		["id"] = 12754,
-		["specialization"] = 20222,
-	}, -- [90]
-	{
+		["min_skill"] = 225,
 		["phase"] = 1,
-		["min_skill"] = 230,
+		["id"] = 12754,
+		["specialisation"] = 20222,
+	}, -- [89]
+	{
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				8126, -- [1]
 				8738, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Гоблинский бомбомет",
-			["Portuguese"] = "Distribuidor de Bombas Goblínico",
-			["Chinese"] = "地精炸弹箱",
-			["Spanish"] = "Dispensador de bombas goblin",
-			["French"] = "Distributeur de bombes des gobelins",
 			["German"] = "Goblin-Bombenspender",
+			["Spanish"] = "Dispensador de bombas goblin",
+			["Chinese"] = "地精炸弹箱",
 			["Korean"] = "고블린 폭탄 자판기",
+			["French"] = "Distributeur de bombes des gobelins",
+			["Portuguese"] = "Distribuidor de Bombas Goblínico",
+			["Mexican"] = "Dispensador de bombas goblin",
+			["Russian"] = "Гоблинский бомбомет",
 			["English"] = "Goblin Bomb Dispenser",
 		},
-		["id"] = 12755,
-		["specialization"] = 20222,
-	}, -- [91]
-	{
+		["min_skill"] = 230,
 		["phase"] = 1,
-		["min_skill"] = 235,
+		["id"] = 12755,
+		["specialisation"] = 20222,
+	}, -- [90]
+	{
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				8126, -- [1]
 				8738, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Гоблинский реактивный шлем",
-			["Portuguese"] = "Capacete-foguete Goblínico",
-			["Chinese"] = "地精火箭头盔",
-			["Spanish"] = "Casco cohete goblin",
-			["French"] = "Heaume-fusée gobelin",
 			["German"] = "Goblin-Raketenhelm",
+			["Spanish"] = "Casco cohete goblin",
+			["Chinese"] = "地精火箭头盔",
 			["Korean"] = "고블린 로켓 헬멧",
+			["French"] = "Heaume-fusée gobelin",
+			["Portuguese"] = "Capacete-foguete Goblínico",
+			["Mexican"] = "Casco de cohete goblin",
+			["Russian"] = "Гоблинский реактивный шлем",
 			["English"] = "Goblin Rocket Helmet",
 		},
-		["id"] = 12758,
-		["specialization"] = 20222,
-	}, -- [92]
-	{
+		["min_skill"] = 235,
 		["phase"] = 1,
-		["min_skill"] = 240,
+		["id"] = 12758,
+		["specialisation"] = 20222,
+	}, -- [91]
+	{
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				7406, -- [1]
 				7944, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Смертоносный луч гномов",
-			["Portuguese"] = "Raio Gnômico da Morte",
-			["Chinese"] = "侏儒死亡射线",
-			["Spanish"] = "Rayo mortal gnomo",
-			["French"] = "Rayon mortel gnome",
 			["German"] = "Gnomentodesstrahl",
+			["Spanish"] = "Rayo mortal gnomo",
+			["Chinese"] = "侏儒死亡射线",
 			["Korean"] = "노움 즉사 광선",
+			["French"] = "Rayon mortel gnome",
+			["Portuguese"] = "Raio Gnômico da Morte",
+			["Mexican"] = "Rayo mortal gnómico",
+			["Russian"] = "Смертоносный луч гномов",
 			["English"] = "Gnomish Death Ray",
 		},
-		["id"] = 12759,
-		["specialization"] = 20219,
-	}, -- [93]
-	{
+		["min_skill"] = 240,
 		["phase"] = 1,
-		["min_skill"] = 205,
+		["id"] = 12759,
+		["specialisation"] = 20219,
+	}, -- [92]
+	{
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				8126, -- [1]
 				8738, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Гоблинский саперный заряд",
-			["Portuguese"] = "Carga Sapadora Goblínica",
-			["Chinese"] = "地精工兵炸药",
-			["Spanish"] = "Carga zapadora goblin",
-			["French"] = "Charge de sapeur gobelin",
 			["German"] = "Goblinsche Pioniersprengladung",
+			["Spanish"] = "Carga zapadora goblin",
+			["Chinese"] = "地精工兵炸药",
 			["Korean"] = "고블린 공병 폭탄",
+			["French"] = "Charge de sapeur gobelin",
+			["Portuguese"] = "Carga Sapadora Goblínica",
+			["Mexican"] = "Carga de zapador goblin",
+			["Russian"] = "Гоблинский саперный заряд",
 			["English"] = "Goblin Sapper Charge",
 		},
-		["id"] = 12760,
-		["specialization"] = 20222,
-	}, -- [94]
-	{
+		["min_skill"] = 205,
 		["phase"] = 1,
-		["min_skill"] = 200,
+		["id"] = 12760,
+		["specialisation"] = 20222,
+	}, -- [93]
+	{
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				7406, -- [1]
 				7944, -- [2]
 				8738, -- [3]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Инкурстированный мифриловый цилиндр - эскиз",
-			["Portuguese"] = "Instruções de Cilindro Marchetado de Mithril",
-			["Chinese"] = "秘银杆设计图",
-			["Spanish"] = "Planos de cilindro incrustado de mitril",
-			["French"] = "Cylindre damasquiné en mithril",
 			["German"] = "Pläne: Veredelter Mithrilzylinder",
+			["Spanish"] = "Planos de cilindro incrustado de mitril",
+			["Chinese"] = "秘银杆设计图",
 			["Korean"] = "세공된 미스릴 실린더 도면",
+			["French"] = "Cylindre damasquiné en mithril",
+			["Portuguese"] = "Instruções de Cilindro Marchetado de Mithril",
+			["Mexican"] = "Diseño de cilindro de mitril taraceado",
+			["Russian"] = "Инкурстированный мифриловый цилиндр - эскиз",
 			["English"] = "Inlaid Mithril Cylinder Plans",
 		},
-		["id"] = 12895,
-		["specialization"] = 20219,
-	}, -- [95]
-	{
+		["min_skill"] = 200,
 		["phase"] = 1,
-		["min_skill"] = 210,
+		["id"] = 12895,
+		["specialisation"] = 20219,
+	}, -- [94]
+	{
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				7406, -- [1]
 				7944, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Гномьи очки",
-			["Portuguese"] = "Óculos Gnômicos",
-			["Chinese"] = "侏儒护目镜",
-			["Spanish"] = "Gafas gnomas",
-			["French"] = "Lunettes gnomes",
 			["German"] = "Gnomen-Schutzbrille",
+			["Spanish"] = "Gafas gnomas",
+			["Chinese"] = "侏儒护目镜",
 			["Korean"] = "노움 고글",
+			["French"] = "Lunettes gnomes",
+			["Portuguese"] = "Óculos Gnômicos",
+			["Mexican"] = "Gafas gnómicas",
+			["Russian"] = "Гномьи очки",
 			["English"] = "Gnomish Goggles",
 		},
-		["id"] = 12897,
-		["specialization"] = 20219,
-	}, -- [96]
-	{
+		["min_skill"] = 210,
 		["phase"] = 1,
-		["min_skill"] = 205,
+		["id"] = 12897,
+		["specialisation"] = 20219,
+	}, -- [95]
+	{
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				7406, -- [1]
 				7944, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Уменьшающий луч гномов",
-			["Portuguese"] = "Raio Gnômico Encolhedor",
-			["Chinese"] = "侏儒缩小射线",
-			["Spanish"] = "Rayo encogedor gnomo",
-			["French"] = "Rayon réducteur gnome",
 			["German"] = "Gnomen-Schrumpfstrahl",
+			["Spanish"] = "Rayo encogedor gnomo",
+			["Chinese"] = "侏儒缩小射线",
 			["Korean"] = "노움 난쟁이 광선",
+			["French"] = "Rayon réducteur gnome",
+			["Portuguese"] = "Raio Gnômico Encolhedor",
+			["Mexican"] = "Rayo reductor gnómico",
+			["Russian"] = "Уменьшающий луч гномов",
 			["English"] = "Gnomish Shrink Ray",
 		},
-		["id"] = 12899,
-		["specialization"] = 20219,
-	}, -- [97]
-	{
+		["min_skill"] = 205,
 		["phase"] = 1,
-		["min_skill"] = 210,
+		["id"] = 12899,
+		["specialisation"] = 20219,
+	}, -- [96]
+	{
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				7406, -- [1]
 				7944, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Сетемет гномов",
-			["Portuguese"] = "Projetor Gnômico Redomático",
-			["Chinese"] = "侏儒撒网器",
-			["Spanish"] = "Proyector redomático gnomo",
-			["French"] = "Lance-filet automatique gnome",
 			["German"] = "Gnomen-Net-o-Matik-Projektor",
+			["Spanish"] = "Proyector redomático gnomo",
+			["Chinese"] = "侏儒撒网器",
 			["Korean"] = "노움 자동그물발사기",
+			["French"] = "Lance-filet automatique gnome",
+			["Portuguese"] = "Projetor Gnômico Redomático",
+			["Mexican"] = "Proyector redomático gnómico",
+			["Russian"] = "Сетемет гномов",
 			["English"] = "Gnomish Net-o-Matic Projector",
 		},
-		["id"] = 12902,
-		["specialization"] = 20219,
-	}, -- [99]
-	{
+		["min_skill"] = 210,
 		["phase"] = 1,
-		["min_skill"] = 215,
+		["id"] = 12902,
+		["specialisation"] = 20219,
+	}, -- [97]
+	{
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				7406, -- [1]
 				7944, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Пояс гномов, хранящий от вреда",
-			["Portuguese"] = "Cinto Gnômico de Prevenção de Ferimentos",
-			["Chinese"] = "侏儒防护腰带",
-			["Spanish"] = "Cinturón gnomo de prevención de daños",
-			["French"] = "Ceinture de prévention gnome",
 			["German"] = "Gnomen-Unglücksverhinderungsgürtel",
+			["Spanish"] = "Cinturón gnomo de prevención de daños",
+			["Chinese"] = "侏儒防护腰带",
 			["Korean"] = "노움 전투 방어 허리띠",
+			["French"] = "Ceinture de prévention gnome",
+			["Portuguese"] = "Cinto Gnômico de Prevenção de Ferimentos",
+			["Mexican"] = "Cinturón de prevención de daño gnómico",
+			["Russian"] = "Пояс гномов, хранящий от вреда",
 			["English"] = "Gnomish Harm Prevention Belt",
 		},
-		["id"] = 12903,
-		["specialization"] = 20219,
-	}, -- [100]
-	{
+		["min_skill"] = 215,
 		["phase"] = 1,
-		["min_skill"] = 225,
+		["id"] = 12903,
+		["specialisation"] = 20219,
+	}, -- [98]
+	{
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				7406, -- [1]
 				7944, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Гномьи реактивные сапоги",
-			["Portuguese"] = "Botas-foguete Gnômicas",
-			["Chinese"] = "侏儒火箭靴",
-			["Spanish"] = "Botas cohete gnomas",
-			["French"] = "Bottes-fusées gnomes",
 			["German"] = "Gnomen-Raketenstiefel",
+			["Spanish"] = "Botas cohete gnomas",
+			["Chinese"] = "侏儒火箭靴",
 			["Korean"] = "노움 로켓 장화",
+			["French"] = "Bottes-fusées gnomes",
+			["Portuguese"] = "Botas-foguete Gnômicas",
+			["Mexican"] = "Botas cohete gnómicas",
+			["Russian"] = "Гномьи реактивные сапоги",
 			["English"] = "Gnomish Rocket Boots",
 		},
-		["id"] = 12905,
-		["specialization"] = 20219,
-	}, -- [102]
-	{
+		["min_skill"] = 225,
 		["phase"] = 1,
-		["min_skill"] = 230,
+		["id"] = 12905,
+		["specialisation"] = 20219,
+	}, -- [99]
+	{
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				7406, -- [1]
 				7944, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Боевой цыпленок гномов",
-			["Portuguese"] = "Frango de Batalha Gnômico",
-			["Chinese"] = "侏儒作战小鸡",
-			["Spanish"] = "Pollo de batalla gnomo",
-			["French"] = "Coq de combat gnome",
 			["German"] = "Gnomen-Kampfhuhn",
+			["Spanish"] = "Pollo de batalla gnomo",
+			["Chinese"] = "侏儒作战小鸡",
 			["Korean"] = "노움 쌈닭",
+			["French"] = "Coq de combat gnome",
+			["Portuguese"] = "Frango de Batalha Gnômico",
+			["Mexican"] = "Gallo de batalla gnómico",
+			["Russian"] = "Боевой цыпленок гномов",
 			["English"] = "Gnomish Battle Chicken",
 		},
-		["id"] = 12906,
-		["specialization"] = 20219,
-	}, -- [103]
-	{
+		["min_skill"] = 230,
 		["phase"] = 1,
-		["min_skill"] = 215,
+		["id"] = 12906,
+		["specialisation"] = 20219,
+	}, -- [100]
+	{
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				7406, -- [1]
 				7944, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Гномья шапка контроля над разумом",
-			["Portuguese"] = "Casquete Gnômico de Controle Mental",
-			["Chinese"] = "侏儒洗脑帽",
-			["Spanish"] = "Gorra de control mental gnoma",
-			["French"] = "Coiffe de contrôle mental gnome",
 			["German"] = "Gnomen-Gedankenkontrollkappe",
+			["Spanish"] = "Gorra de control mental gnoma",
+			["Chinese"] = "侏儒洗脑帽",
 			["Korean"] = "노움 정신 지배 모자",
+			["French"] = "Coiffe de contrôle mental gnome",
+			["Portuguese"] = "Casquete Gnômico de Controle Mental",
+			["Mexican"] = "Gorro de control mental gnómico",
+			["Russian"] = "Гномья шапка контроля над разумом",
 			["English"] = "Gnomish Mind Control Cap",
 		},
-		["id"] = 12907,
-		["specialization"] = 20219,
-	}, -- [104]
-	{
+		["min_skill"] = 215,
 		["phase"] = 1,
-		["min_skill"] = 240,
+		["id"] = 12907,
+		["specialisation"] = 20219,
+	}, -- [101]
+	{
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				8126, -- [1]
 				8738, -- [2]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Гоблинское драконье ружье",
-			["Portuguese"] = "Pistola Dragônica Goblínica",
-			["Chinese"] = "地精龙枪",
-			["Spanish"] = "Escopeta dragón goblin",
-			["French"] = "Fusil-dragon des gobelins",
 			["German"] = "Goblinscher Drachenwerfer",
+			["Spanish"] = "Escopeta dragón goblin",
+			["Chinese"] = "地精龙枪",
 			["Korean"] = "고블린 용기총",
+			["French"] = "Fusil-dragon des gobelins",
+			["Portuguese"] = "Pistola Dragônica Goblínica",
+			["Mexican"] = "Escopeta dragón goblin",
+			["Russian"] = "Гоблинское драконье ружье",
 			["English"] = "Goblin Dragon Gun",
 		},
-		["id"] = 12908,
-		["specialization"] = 20222,
-	}, -- [105]
-	{
+		["min_skill"] = 240,
 		["phase"] = 1,
-		["min_skill"] = 205,
+		["id"] = 12908,
+		["specialisation"] = 20222,
+	}, -- [102]
+	{
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				8126, -- [1]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Орудие: перезаряжено",
-			["Portuguese"] = "Morteiro: Recarregado",
-			["Chinese"] = "迫击炮：重载",
-			["Spanish"] = "El mortero: recargado",
-			["French"] = "Le mortier : rechargé",
 			["German"] = "Der Mörser: Wieder aufgeladen",
+			["Spanish"] = "El mortero: recargado",
+			["Chinese"] = "迫击炮：重载",
 			["Korean"] = "박격포 재장전",
+			["French"] = "Le mortier : rechargé",
+			["Portuguese"] = "Morteiro: Recarregado",
+			["Mexican"] = "El mortero: recargado",
+			["Russian"] = "Орудие: перезаряжено",
 			["English"] = "The Mortar: Reloaded",
 		},
-		["id"] = 13240,
-		["specialization"] = 20222,
-	}, -- [106]
-	{
+		["min_skill"] = 205,
 		["phase"] = 1,
-		["min_skill"] = 200,
+		["id"] = 13240,
+		["specialisation"] = 20222,
+	}, -- [103]
+	{
 		["trainers"] = {
+			["price"] = 1350,
 			["sources"] = {
 				5174, -- [1]
 				8736, -- [2]
 				11017, -- [3]
 			},
-			["price"] = 1350,
 		},
 		["name"] = {
-			["Russian"] = "Автоматический ремонтный набор",
-			["Portuguese"] = "Kit de Reparos Mecânicos",
-			["Chinese"] = "机械修理包",
-			["Spanish"] = "Juego de reparación mecánico",
-			["French"] = "Trousse de réparation mécanique",
 			["German"] = "Mechanisches Reparierset",
+			["Spanish"] = "Juego de reparación mecánico",
+			["Chinese"] = "机械修理包",
 			["Korean"] = "기계 수리 장비",
+			["French"] = "Trousse de réparation mécanique",
+			["Portuguese"] = "Kit de Reparos Mecânicos",
+			["Mexican"] = "Equipo de reparación mecánica",
+			["Russian"] = "Автоматический ремонтный набор",
 			["English"] = "Mechanical Repair Kit",
 		},
-		["id"] = 15255,
-	}, -- [107]
-	{
+		["min_skill"] = 200,
 		["phase"] = 1,
-		["min_skill"] = 205,
+		["id"] = 15255,
+	}, -- [104]
+	{
 		["item"] = 11828,
+		["min_skill"] = 205,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Зверюшка-бомбист",
-			["Portuguese"] = "Bombinha de Estimação",
-			["Chinese"] = "炸弹宠物",
-			["Spanish"] = "Bombardeo de mascota",
-			["French"] = "Bombinette",
 			["German"] = "Winzige wandelnde Bombe",
+			["Spanish"] = "Bombardeo de mascota",
+			["Chinese"] = "炸弹宠物",
 			["Korean"] = "작은 꼬마 폭탄",
+			["French"] = "Bombinette",
+			["Portuguese"] = "Bombinha de Estimação",
+			["Mexican"] = "Bombita",
+			["Russian"] = "Зверюшка-бомбист",
 			["English"] = "Pet Bombling",
 		},
 		["id"] = 15628,
-		["specialization"] = 20222,
-	}, -- [108]
+		["specialisation"] = 20222,
+	}, -- [105]
 	{
-		["phase"] = 1,
-		["min_skill"] = 205,
 		["item"] = 11827,
+		["min_skill"] = 205,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Крошка Дымок",
-			["Portuguese"] = "Fumacinho",
-			["Chinese"] = "发条娃娃",
-			["Spanish"] = "El peque humitos",
-			["French"] = "Petit fumant",
 			["German"] = "Lil' Smoky",
+			["Spanish"] = "El peque humitos",
+			["Chinese"] = "发条娃娃",
 			["Korean"] = "릴 스모키",
+			["French"] = "Petit fumant",
+			["Portuguese"] = "Fumacinho",
+			["Mexican"] = "Humillo",
+			["Russian"] = "Крошка Дымок",
 			["English"] = "Lil' Smoky",
 		},
 		["id"] = 15633,
-		["specialization"] = 20219,
-	}, -- [109]
+		["specialisation"] = 20219,
+	}, -- [106]
 	{
-		["phase"] = 1,
-		["min_skill"] = 250,
 		["trainers"] = {
+			["price"] = 4000,
 			["sources"] = {
 				8736, -- [1]
 			},
-			["price"] = 4000,
 		},
 		["name"] = {
-			["Russian"] = "Солонка",
-			["Portuguese"] = "Refinador de Sal",
-			["Chinese"] = "筛盐器",
-			["Spanish"] = "Salero",
-			["French"] = "Tamis à sel",
 			["German"] = "Salzstreuer",
+			["Spanish"] = "Salero",
+			["Chinese"] = "筛盐器",
 			["Korean"] = "소금 정제기",
+			["French"] = "Tamis à sel",
+			["Portuguese"] = "Refinador de Sal",
+			["Mexican"] = "Salero",
+			["Russian"] = "Солонка",
 			["English"] = "Salt Shaker",
 		},
-		["id"] = 19567,
-	}, -- [110]
-	{
-		["phase"] = 1,
 		["min_skill"] = 250,
+		["phase"] = 1,
+		["id"] = 19567,
+	}, -- [107]
+	{
 		["trainers"] = {
+			["price"] = 4000,
 			["sources"] = {
 				8736, -- [1]
 			},
-			["price"] = 4000,
 		},
 		["name"] = {
-			["Russian"] = "Концентрированное взрывчатое вещество",
-			["Portuguese"] = "Pó Explosivo Denso",
-			["Chinese"] = "致密炸药粉",
-			["Spanish"] = "Pólvora densa",
-			["French"] = "Poudre d'explosion dense",
 			["German"] = "Dichtes Sprengpulver",
+			["Spanish"] = "Pólvora densa",
+			["Chinese"] = "致密炸药粉",
 			["Korean"] = "강도 높은 화약",
+			["French"] = "Poudre d'explosion dense",
+			["Portuguese"] = "Pó Explosivo Denso",
+			["Mexican"] = "Pólvora densa",
+			["Russian"] = "Концентрированное взрывчатое вещество",
 			["English"] = "Dense Blasting Powder",
 		},
+		["min_skill"] = 250,
+		["phase"] = 1,
 		["id"] = 19788,
-	}, -- [111]
+	}, -- [108]
 	{
+		["item"] = 16041,
+		["min_skill"] = 260,
 		["phase"] = 1,
 		["id"] = 19790,
-		["item"] = 16041,
 		["name"] = {
-			["Russian"] = "Ториевая граната",
-			["Portuguese"] = "Granada de Tório",
-			["Chinese"] = "瑟银手榴弹",
-			["Spanish"] = "Grabada de torio",
-			["French"] = "Grenade en thorium",
 			["German"] = "Thoriumgranate",
+			["Spanish"] = "Grabada de torio",
+			["Chinese"] = "瑟银手榴弹",
 			["Korean"] = "토륨 수류탄",
+			["French"] = "Grenade en thorium",
+			["Portuguese"] = "Granada de Tório",
+			["Mexican"] = "Granada de torio",
+			["Russian"] = "Ториевая граната",
 			["English"] = "Thorium Grenade",
 		},
-		["min_skill"] = 260,
-	}, -- [112]
+	}, -- [109]
 	{
+		["item"] = 16042,
+		["min_skill"] = 260,
 		["phase"] = 1,
 		["id"] = 19791,
-		["item"] = 16042,
 		["name"] = {
-			["Russian"] = "Ториевое устройство",
-			["Portuguese"] = "Treco de Tório",
-			["Chinese"] = "瑟银零件",
-			["Spanish"] = "Trasto de torio",
-			["French"] = "Rouage en thorium",
 			["German"] = "Thoriumapparat",
+			["Spanish"] = "Trasto de torio",
+			["Chinese"] = "瑟银零件",
 			["Korean"] = "토륨 부품",
+			["French"] = "Rouage en thorium",
+			["Portuguese"] = "Treco de Tório",
+			["Mexican"] = "Trasto de torio",
+			["Russian"] = "Ториевое устройство",
 			["English"] = "Thorium Widget",
 		},
-		["min_skill"] = 260,
-	}, -- [113]
+	}, -- [110]
 	{
-		["phase"] = 1,
-		["min_skill"] = 260,
 		["item"] = 16043,
+		["min_skill"] = 260,
+		["id"] = 19792,
 		["name"] = {
-			["Russian"] = "Ториевая винтовка",
-			["Portuguese"] = "Rifle de Tório",
-			["Chinese"] = "瑟银火枪",
-			["Spanish"] = "Rifle de torio",
-			["French"] = "Carabine en thorium",
 			["German"] = "Thoriumgewehr",
+			["Spanish"] = "Rifle de torio",
+			["Chinese"] = "瑟银火枪",
 			["Korean"] = "토륨 소총",
+			["French"] = "Carabine en thorium",
+			["Portuguese"] = "Rifle de Tório",
+			["Mexican"] = "Rifle de torio",
+			["Russian"] = "Ториевая винтовка",
 			["English"] = "Thorium Rifle",
 		},
-		["id"] = 19792,
-	}, -- [114]
-	{
 		["phase"] = 1,
-		["min_skill"] = 265,
+	}, -- [111]
+	{
 		["item"] = 16044,
+		["min_skill"] = 265,
+		["id"] = 19793,
 		["name"] = {
-			["Russian"] = "Механическая жаба",
-			["Portuguese"] = "Sapo Mecânico Realista",
-			["Chinese"] = "仿真机械蛙",
-			["Spanish"] = "Sapo mecánico semivivo",
-			["French"] = "Crapaud mécanique",
 			["German"] = "Lebensechte mechanische Kröte",
+			["Spanish"] = "Sapo mecánico semivivo",
+			["Chinese"] = "仿真机械蛙",
 			["Korean"] = "감쪽같은 기계개구리",
+			["French"] = "Crapaud mécanique",
+			["Portuguese"] = "Sapo Mecânico Realista",
+			["Mexican"] = "Sapo mecánico casi vivo",
+			["Russian"] = "Механическая жаба",
 			["English"] = "Lifelike Mechanical Toad",
 		},
-		["id"] = 19793,
-	}, -- [115]
-	{
 		["phase"] = 1,
-		["min_skill"] = 270,
+	}, -- [112]
+	{
 		["item"] = 16045,
+		["min_skill"] = 270,
+		["id"] = 19794,
 		["name"] = {
-			["Russian"] = "Экстремальные очки магической силы",
-			["Portuguese"] = "Óculos de Poder Mágico Xtremo Plus",
-			["Chinese"] = "法术能量护目镜超级改良版",
-			["Spanish"] = "Gafas hechizorosas extremas plus",
-			["French"] = "Lunettes de concentration extrême",
 			["German"] = "Zaubermachtschutzbrille Xtrem Plus",
+			["Spanish"] = "Gafas hechizorosas extremas plus",
+			["Chinese"] = "法术能量护目镜超级改良版",
 			["Korean"] = "최신형 주문증폭 고글",
+			["French"] = "Lunettes de concentration extrême",
+			["Portuguese"] = "Óculos de Poder Mágico Xtremo Plus",
+			["Mexican"] = "Gafas de poder con hechizos Xtremo Plus",
+			["Russian"] = "Экстремальные очки магической силы",
 			["English"] = "Spellpower Goggles Xtreme Plus",
 		},
-		["id"] = 19794,
-	}, -- [116]
-	{
 		["phase"] = 1,
-		["min_skill"] = 275,
+	}, -- [113]
+	{
 		["item"] = 16047,
+		["min_skill"] = 275,
+		["id"] = 19795,
 		["name"] = {
-			["Russian"] = "Ториевая труба",
-			["Portuguese"] = "Tubo de Tório",
-			["Chinese"] = "瑟银管",
-			["Spanish"] = "Tubo de torio",
-			["French"] = "Tube en thorium",
 			["German"] = "Thoriumröhre",
+			["Spanish"] = "Tubo de torio",
+			["Chinese"] = "瑟银管",
 			["Korean"] = "토륨관",
+			["French"] = "Tube en thorium",
+			["Portuguese"] = "Tubo de Tório",
+			["Mexican"] = "Tubo de torio",
+			["Russian"] = "Ториевая труба",
 			["English"] = "Thorium Tube",
 		},
-		["id"] = 19795,
-	}, -- [117]
-	{
 		["phase"] = 1,
-		["min_skill"] = 275,
+	}, -- [114]
+	{
 		["item"] = 16048,
+		["min_skill"] = 275,
+		["id"] = 19796,
 		["name"] = {
-			["Russian"] = "Винтовка из черного железа",
-			["Portuguese"] = "Rifle Ferro Negro",
-			["Chinese"] = "黑铁步枪",
-			["Spanish"] = "Rifle Hierro Negro",
-			["French"] = "Carabine en sombrefer",
 			["German"] = "Dunkeleisengewehr",
+			["Spanish"] = "Rifle Hierro Negro",
+			["Chinese"] = "黑铁步枪",
 			["Korean"] = "검은무쇠 소총",
+			["French"] = "Carabine en sombrefer",
+			["Portuguese"] = "Rifle Ferro Negro",
+			["Mexican"] = "Rifle Hierro Negro",
+			["Russian"] = "Винтовка из черного железа",
 			["English"] = "Dark Iron Rifle",
 		},
-		["id"] = 19796,
-	}, -- [118]
-	{
 		["phase"] = 1,
-		["min_skill"] = 285,
+	}, -- [115]
+	{
 		["item"] = 16049,
+		["min_skill"] = 285,
+		["id"] = 19799,
 		["name"] = {
-			["Russian"] = "Бомба из черного железа",
-			["Portuguese"] = "Bomba de Ferro Negro",
-			["Chinese"] = "黑铁炸弹",
-			["Spanish"] = "Bomba Hierro Negro",
-			["French"] = "Bombe en sombrefer",
 			["German"] = "Dunkeleisenbombe",
+			["Spanish"] = "Bomba Hierro Negro",
+			["Chinese"] = "黑铁炸弹",
 			["Korean"] = "검은무쇠 폭탄",
+			["French"] = "Bombe en sombrefer",
+			["Portuguese"] = "Bomba de Ferro Negro",
+			["Mexican"] = "Bomba Hierro Negro",
+			["Russian"] = "Бомба из черного железа",
 			["English"] = "Dark Iron Bomb",
 		},
-		["id"] = 19799,
-	}, -- [119]
-	{
 		["phase"] = 1,
-		["min_skill"] = 285,
+	}, -- [116]
+	{
 		["item"] = 16051,
+		["min_skill"] = 285,
+		["id"] = 19800,
 		["name"] = {
-			["Russian"] = "Ториевые гильзы",
-			["Portuguese"] = "Cartuchos de Tório",
-			["Chinese"] = "瑟银弹",
-			["Spanish"] = "Balas de torio",
-			["French"] = "Obus en thorium",
 			["German"] = "Thoriumpatronen",
+			["Spanish"] = "Balas de torio",
+			["Chinese"] = "瑟银弹",
 			["Korean"] = "토륨 탄환",
+			["French"] = "Obus en thorium",
+			["Portuguese"] = "Cartuchos de Tório",
+			["Mexican"] = "Proyectiles de torio",
+			["Russian"] = "Ториевые гильзы",
 			["English"] = "Thorium Shells",
 		},
-		["id"] = 19800,
-	}, -- [120]
-	{
 		["phase"] = 1,
-		["min_skill"] = 275,
+	}, -- [117]
+	{
 		["item"] = 16046,
+		["min_skill"] = 275,
+		["id"] = 19814,
 		["name"] = {
-			["Russian"] = "Манекен-мишень искусной работы",
-			["Portuguese"] = "Boneco-alvo Magistral",
-			["Chinese"] = "高级活动假人",
-			["Spanish"] = "Muñeco-diana obra maestra",
-			["French"] = "Leurre ouvragé",
 			["German"] = "Meisterliche Zielattrappe",
+			["Spanish"] = "Muñeco-diana obra maestra",
+			["Chinese"] = "高级活动假人",
 			["Korean"] = "일급 표적 허수아비",
+			["French"] = "Leurre ouvragé",
+			["Portuguese"] = "Boneco-alvo Magistral",
+			["Mexican"] = "Muñeco-diana magistral",
+			["Russian"] = "Манекен-мишень искусной работы",
 			["English"] = "Masterwork Target Dummy",
 		},
-		["id"] = 19814,
-	}, -- [121]
-	{
 		["phase"] = 1,
-		["min_skill"] = 285,
+	}, -- [118]
+	{
 		["item"] = 16050,
+		["min_skill"] = 285,
+		["id"] = 19815,
 		["name"] = {
-			["Russian"] = "Сверхточный арканитовый преобразователь",
-			["Portuguese"] = "Conversor Delicado de Arcanita",
-			["Chinese"] = "精密奥金转换器",
-			["Spanish"] = "Convertidor arcanita delicado",
-			["French"] = "Convertisseur d'arcanite délicat",
 			["German"] = "Empfindlicher Arkanitwandler",
+			["Spanish"] = "Convertidor arcanita delicado",
+			["Chinese"] = "精密奥金转换器",
 			["Korean"] = "정교한 아케이나이트 변환기",
+			["French"] = "Convertisseur d'arcanite délicat",
+			["Portuguese"] = "Conversor Delicado de Arcanita",
+			["Mexican"] = "Conversor de arcanita delicado",
+			["Russian"] = "Сверхточный арканитовый преобразователь",
 			["English"] = "Delicate Arcanite Converter",
 		},
-		["id"] = 19815,
-	}, -- [122]
-	{
 		["phase"] = 1,
-		["min_skill"] = 290,
+	}, -- [119]
+	{
 		["item"] = 16052,
+		["min_skill"] = 290,
+		["id"] = 19819,
 		["name"] = {
-			["Russian"] = "Голосовой преобразователь",
-			["Portuguese"] = "Modulador de Amplificação de Voz",
-			["Chinese"] = "语音增强模组",
-			["Spanish"] = "Modulador de amplificación de voz",
-			["French"] = "Modulateur d'amplification vocale",
 			["German"] = "Modularer Stimmenverstärker",
+			["Spanish"] = "Modulador de amplificación de voz",
+			["Chinese"] = "语音增强模组",
 			["Korean"] = "주문 확성 변조기",
+			["French"] = "Modulateur d'amplification vocale",
+			["Portuguese"] = "Modulador de Amplificação de Voz",
+			["Mexican"] = "Modulador de amplificación de voz",
+			["Russian"] = "Голосовой преобразователь",
 			["English"] = "Voice Amplification Modulator",
 		},
-		["id"] = 19819,
-	}, -- [123]
-	{
 		["phase"] = 1,
-		["min_skill"] = 290,
+	}, -- [120]
+	{
 		["item"] = 16053,
+		["min_skill"] = 290,
+		["id"] = 19825,
 		["name"] = {
-			["Russian"] = "Очки старшего инженера",
-			["Portuguese"] = "Óculos do Mestre Engenheiro",
-			["Chinese"] = "高级技师护目镜",
-			["Spanish"] = "Protección de ingeniero jefe",
-			["French"] = "Lunettes de maître ingénieur",
 			["German"] = "Schutzbrille des Meisteringenieurs",
+			["Spanish"] = "Protección de ingeniero jefe",
+			["Chinese"] = "高级技师护目镜",
 			["Korean"] = "전문 기술자의 고글",
+			["French"] = "Lunettes de maître ingénieur",
+			["Portuguese"] = "Óculos do Mestre Engenheiro",
+			["Mexican"] = "Gafas de maestro ingeniero",
+			["Russian"] = "Очки старшего инженера",
 			["English"] = "Master Engineer's Goggles",
 		},
-		["id"] = 19825,
-	}, -- [124]
-	{
 		["phase"] = 1,
-		["min_skill"] = 300,
+	}, -- [121]
+	{
 		["item"] = 16054,
+		["min_skill"] = 300,
+		["id"] = 19830,
 		["name"] = {
-			["Russian"] = "Арканитовый дракончик",
-			["Portuguese"] = "Dragonete de Arcanita",
-			["Chinese"] = "奥金幼龙",
-			["Spanish"] = "Dragonizo de arcanita",
-			["French"] = "Petit dragon en arcanite",
 			["German"] = "Arkanitdrachling",
+			["Spanish"] = "Dragonizo de arcanita",
+			["Chinese"] = "奥金幼龙",
 			["Korean"] = "아케이나이트 기계용",
+			["French"] = "Petit dragon en arcanite",
+			["Portuguese"] = "Dragonete de Arcanita",
+			["Mexican"] = "Dragonizo de arcanita",
+			["Russian"] = "Арканитовый дракончик",
 			["English"] = "Arcanite Dragonling",
 		},
-		["id"] = 19830,
-	}, -- [125]
-	{
 		["phase"] = 1,
-		["min_skill"] = 300,
+	}, -- [122]
+	{
 		["item"] = 16055,
+		["min_skill"] = 300,
+		["id"] = 19831,
 		["name"] = {
-			["Russian"] = "Чародейская бомба",
-			["Portuguese"] = "Bomba Arcana",
-			["Chinese"] = "奥术炸弹",
-			["Spanish"] = "Bomba Arcana",
-			["French"] = "Bombe des arcanes",
 			["German"] = "Arkane Bombe",
+			["Spanish"] = "Bomba Arcana",
+			["Chinese"] = "奥术炸弹",
 			["Korean"] = "신비의 폭탄",
+			["French"] = "Bombe des arcanes",
+			["Portuguese"] = "Bomba Arcana",
+			["Mexican"] = "Bomba Arcana",
+			["Russian"] = "Чародейская бомба",
 			["English"] = "Arcane Bomb",
 		},
-		["id"] = 19831,
-	}, -- [126]
-	{
 		["phase"] = 1,
-		["min_skill"] = 300,
+	}, -- [123]
+	{
 		["item"] = 16056,
+		["min_skill"] = 300,
+		["id"] = 19833,
 		["name"] = {
-			["Russian"] = "Отличная арканитовая винтовка",
-			["Portuguese"] = "Rifle Impecável de Arcanita",
-			["Chinese"] = "完美的奥金步枪",
-			["Spanish"] = "Rifle arcanita impecable",
-			["French"] = "Carabine en arcanite sans défaut",
 			["German"] = "Fehlerloses Arkanitgewehr",
+			["Spanish"] = "Rifle arcanita impecable",
+			["Chinese"] = "完美的奥金步枪",
 			["Korean"] = "정교한 아케이나이트 소총",
+			["French"] = "Carabine en arcanite sans défaut",
+			["Portuguese"] = "Rifle Impecável de Arcanita",
+			["Mexican"] = "Rifle de arcanita impecable",
+			["Russian"] = "Отличная арканитовая винтовка",
 			["English"] = "Flawless Arcanite Rifle",
 		},
-		["id"] = 19833,
-	}, -- [127]
-	{
 		["phase"] = 1,
-		["min_skill"] = 190,
-		["item"] = 17720,
+	}, -- [124]
+	{
 		["name"] = {
-			["Russian"] = "\"Снегодел-9000\"",
-			["Portuguese"] = "Mestreneves 9000",
-			["Chinese"] = "雪王9000型",
-			["Spanish"] = "Nevemaese 9001",
-			["French"] = "Maître-neige 9000",
+			["German"] = "Gnomen-Ingenieur",
+			["Spanish"] = "Ingeniero gnomo",
+			["Chinese"] = "侏儒工程学",
+			["Korean"] = "노움 기계공학",
+			["French"] = "Ingénieur gnome",
+			["Portuguese"] = "Engenheiro gnome",
+			["Mexican"] = "Ingeniero gnómico",
+			["Russian"] = "Гномский механик",
+			["English"] = "Gnomish engineer",
+		},
+		["min_skill"] = 200,
+		["phase"] = 1,
+		["quests"] = {
+			3630, -- [1]
+		},
+		["id"] = 20219,
+	}, -- [125]
+	{
+		["name"] = {
+			["German"] = "Goblin-Ingenieur",
+			["Spanish"] = "Ingeniero goblin",
+			["Chinese"] = "地精工程师",
+			["Korean"] = "고블린 기계공학",
+			["French"] = "Ingénieur goblin",
+			["Portuguese"] = "Engenheiro goblin",
+			["Mexican"] = "Ingeniero goblin",
+			["Russian"] = "Гоблинский механик",
+			["English"] = "Goblin engineer",
+		},
+		["min_skill"] = 200,
+		["phase"] = 1,
+		["quests"] = {
+			3629, -- [1]
+		},
+		["id"] = 20222,
+	}, -- [126]
+	{
+		["item"] = 17720,
+		["min_skill"] = 190,
+		["id"] = 21940,
+		["name"] = {
 			["German"] = "Schneemeister 9000",
+			["Spanish"] = "Nevemaese 9001",
+			["Chinese"] = "雪王9000型",
 			["Korean"] = "눈뭉치제조기 9000",
+			["French"] = "Maître-neige 9000",
+			["Portuguese"] = "Mestreneves 9000",
+			["Mexican"] = "Señor de las nieves 9000",
+			["Russian"] = "\"Снегодел-9000\"",
 			["English"] = "SnowMaster 9000",
 		},
-		["id"] = 21940,
-	}, -- [128]
-	{
 		["phase"] = 1,
-		["min_skill"] = 300,
-		["id"] = 22704,
+	}, -- [127]
+	{
 		["item"] = 18235,
+		["min_skill"] = 300,
+		["phase"] = 1,
+		["id"] = 22704,
 		["name"] = {
-			["Russian"] = "Полевой ремонтный робот 74A",
-			["Portuguese"] = "Robô de Reparos em Campo 74A",
-			["Chinese"] = "修理机器人74A型",
-			["Spanish"] = "Robot de reparación de campo 74A",
-			["French"] = "Robot réparateur 74A",
 			["German"] = "Feldreparaturbot-74A",
+			["Spanish"] = "Robot de reparación de campo 74A",
+			["Chinese"] = "修理机器人74A型",
 			["Korean"] = "야전수리로봇 74A",
+			["French"] = "Robot réparateur 74A",
+			["Portuguese"] = "Robô de Reparos em Campo 74A",
+			["Mexican"] = "Robot de reparación de campo 74A",
+			["Russian"] = "Полевой ремонтный робот 74A",
 			["English"] = "Field Repair Bot 74A",
 		},
 		["special_action"] = {
-			["English"] = "Loot schematic on the floor near Golem Lord Argelmach in Blackrock Depths",
-			["Portuguese"] = "Diagrama esquemático no chão perto de Lorde Golem Argelmach em Abismo Rocha Negra",
-			["Russian"] = "Схема добычи на полу возле Повелитель големов Аргелмах в Глубины Черной горы",
-			["Chinese"] = "在傀儡统帅阿格曼奇 黑石深渊附近的地板上掠夺原理图",
-			["Spanish"] = "Esquema de botín en el piso cerca de Señor Gólem Argelmach en Profundidades de Roca Negra",
-			["French"] = "Schéma de butin sur le sol près de Seigneur golem Argelmach en Profondeurs de Blackrock",
-			["Korean"] = "골렘 군주 아젤마크의 검은바위 나락 근처 바닥에있는 전리품 도식",
 			["German"] = "Erbeute schematisch auf dem Boden in der Nähe von Golemlord Argelmach in Blackrocktiefen",
+			["Spanish"] = "Esquema de botín en el piso cerca de Señor Gólem Argelmach en Profundidades de Roca Negra",
+			["English"] = "Loot schematic on the floor near Golem Lord Argelmach in Blackrock Depths",
+			["Chinese"] = "在傀儡统帅阿格曼奇 黑石深渊附近的地板上掠夺原理图",
+			["Russian"] = "Схема добычи на полу возле Повелитель големов Аргелмах в Глубины Черной горы",
+			["Korean"] = "골렘 군주 아젤마크의 검은바위 나락 근처 바닥에있는 전리품 도식",
+			["French"] = "Schéma de butin sur le sol près de Seigneur golem Argelmach en Profondeurs de Blackrock",
+			["Portuguese"] = "Diagrama esquemático no chão perto de Lorde Golem Argelmach em Abismo Rocha Negra",
 		},
-	}, -- [129]
+	}, -- [128]
 	{
-		["phase"] = 1,
-		["min_skill"] = 300,
 		["item"] = 18290,
+		["min_skill"] = 300,
+		["id"] = 22793,
 		["name"] = {
-			["Russian"] = "Прицел \"Бизникс\" 247x128",
-			["Portuguese"] = "Precisoscópio 247x128 Biznicks",
-			["Chinese"] = "比兹尼克247x128精确瞄准镜",
-			["Spanish"] = "Acurascopio 247x128 Biznicks",
-			["French"] = "Hyperviseur Biznicks 247 x 128",
 			["German"] = "Biznicks 247x128 treffsicheres Zielfernrohr",
+			["Spanish"] = "Acurascopio 247x128 Biznicks",
+			["Chinese"] = "比兹尼克247x128精确瞄准镜",
 			["Korean"] = "비즈닉스 247x128 조준경",
+			["French"] = "Hyperviseur Biznicks 247 x 128",
+			["Portuguese"] = "Precisoscópio 247x128 Biznicks",
+			["Mexican"] = "Acurascopio 247x128 de Biznicks",
+			["Russian"] = "Прицел \"Бизникс\" 247x128",
 			["English"] = "Biznicks 247x128 Accurascope",
 		},
-		["id"] = 22793,
-	}, -- [130]
-	{
 		["phase"] = 1,
-		["min_skill"] = 300,
+	}, -- [129]
+	{
 		["item"] = 18292,
+		["min_skill"] = 300,
+		["id"] = 22795,
 		["name"] = {
-			["Russian"] = "Снайперская винтовка Центра",
-			["Portuguese"] = "Rifle Nuclear de Atirador Perito",
-			["Chinese"] = "火核狙击步枪",
-			["Spanish"] = "Rifle de precisión del núcleo",
-			["French"] = "Carabine de tireur d'élite endurci",
 			["German"] = "Kernscharfschützengewehr",
+			["Spanish"] = "Rifle de precisión del núcleo",
+			["Chinese"] = "火核狙击步枪",
 			["Korean"] = "명사수의 라이플",
+			["French"] = "Carabine de tireur d'élite endurci",
+			["Portuguese"] = "Rifle Nuclear de Atirador Perito",
+			["Mexican"] = "Rifle de tirador del Núcleo",
+			["Russian"] = "Снайперская винтовка Центра",
 			["English"] = "Core Marksman Rifle",
 		},
-		["id"] = 22795,
-	}, -- [131]
-	{
 		["phase"] = 1,
-		["min_skill"] = 300,
+	}, -- [130]
+	{
 		["item"] = 18291,
+		["min_skill"] = 300,
+		["id"] = 22797,
 		["name"] = {
-			["Russian"] = "Реактивный диск Силы",
-			["Portuguese"] = "Disco de Força Reativa",
-			["Chinese"] = "力反馈盾牌",
-			["Spanish"] = "Forzar disco reactivo",
-			["French"] = "Disque de force réactif",
 			["German"] = "Machtreaktive Scheibe",
+			["Spanish"] = "Forzar disco reactivo",
+			["Chinese"] = "力反馈盾牌",
 			["Korean"] = "마력장 원반",
+			["French"] = "Disque de force réactif",
+			["Portuguese"] = "Disco de Força Reativa",
+			["Mexican"] = "Disco reactivo a la fuerza",
+			["Russian"] = "Реактивный диск Силы",
 			["English"] = "Force Reactive Disk",
 		},
-		["id"] = 22797,
-	}, -- [132]
-	{
 		["phase"] = 1,
-		["min_skill"] = 150,
+	}, -- [131]
+	{
 		["item"] = 18647,
+		["min_skill"] = 150,
+		["id"] = 23066,
 		["name"] = {
-			["Russian"] = "Красная петарда",
-			["Portuguese"] = "Fogos de Artifício Vermelhos",
-			["Chinese"] = "红色焰火",
-			["Spanish"] = "Fuegos artificiales rojos",
-			["French"] = "Fusée rouge",
 			["German"] = "Rotes Feuerwerk",
+			["Spanish"] = "Fuegos artificiales rojos",
+			["Chinese"] = "红色焰火",
 			["Korean"] = "붉은 폭죽",
+			["French"] = "Fusée rouge",
+			["Portuguese"] = "Fogos de Artifício Vermelhos",
+			["Mexican"] = "Fuegos artificiales rojos",
+			["Russian"] = "Красная петарда",
 			["English"] = "Red Firework",
 		},
-		["id"] = 23066,
-	}, -- [133]
-	{
 		["phase"] = 1,
-		["min_skill"] = 150,
+	}, -- [132]
+	{
 		["item"] = 18649,
+		["min_skill"] = 150,
+		["id"] = 23067,
 		["name"] = {
-			["Russian"] = "Голубая петарда",
-			["Portuguese"] = "Fogos de Artifício Azuis",
-			["Chinese"] = "蓝色焰火",
-			["Spanish"] = "Fuego artificial azul",
-			["French"] = "Fusée bleue",
 			["German"] = "Blaues Feuerwerk",
+			["Spanish"] = "Fuego artificial azul",
+			["Chinese"] = "蓝色焰火",
 			["Korean"] = "푸른 폭죽",
+			["French"] = "Fusée bleue",
+			["Portuguese"] = "Fogos de Artifício Azuis",
+			["Mexican"] = "Fuegos artificiales azules",
+			["Russian"] = "Голубая петарда",
 			["English"] = "Blue Firework",
 		},
-		["id"] = 23067,
-	}, -- [134]
-	{
 		["phase"] = 1,
-		["min_skill"] = 150,
+	}, -- [133]
+	{
 		["item"] = 18648,
+		["min_skill"] = 150,
+		["id"] = 23068,
 		["name"] = {
-			["Russian"] = "Зеленая петарда",
-			["Portuguese"] = "Fogos de Artifício Verdes",
-			["Chinese"] = "绿色焰火",
-			["Spanish"] = "Fuegos artificiales verdes",
-			["French"] = "Fusée verte",
 			["German"] = "Grünes Feuerwerk",
+			["Spanish"] = "Fuegos artificiales verdes",
+			["Chinese"] = "绿色焰火",
 			["Korean"] = "녹색 폭죽",
+			["French"] = "Fusée verte",
+			["Portuguese"] = "Fogos de Artifício Verdes",
+			["Mexican"] = "Fuegos artificiales verdes",
+			["Russian"] = "Зеленая петарда",
 			["English"] = "Green Firework",
 		},
-		["id"] = 23068,
-	}, -- [135]
-	{
 		["phase"] = 1,
-		["min_skill"] = 200,
+	}, -- [134]
+	{
 		["item"] = 18650,
+		["min_skill"] = 200,
+		["id"] = 23069,
 		["name"] = {
-			["Russian"] = "Ez-Thro динамит II",
-			["Portuguese"] = "Dinamite Taca-fácil II",
-			["Chinese"] = "简易投掷炸弹II",
-			["Spanish"] = "Dinamita EZ-Thro II",
-			["French"] = "Dynamite Ev-Lan II",
 			["German"] = "EZ-Thro-Dynamit II",
+			["Spanish"] = "Dinamita EZ-Thro II",
+			["Chinese"] = "简易投掷炸弹II",
 			["Korean"] = "초보자용 다이너마이트 II",
+			["French"] = "Dynamite Ev-Lan II",
+			["Portuguese"] = "Dinamite Taca-fácil II",
+			["Mexican"] = "Dinamita para tontos II",
+			["Russian"] = "Ez-Thro динамит II",
 			["English"] = "EZ-Thro Dynamite II",
 		},
-		["id"] = 23069,
-	}, -- [136]
-	{
 		["phase"] = 1,
-		["min_skill"] = 250,
+	}, -- [135]
+	{
 		["trainers"] = {
+			["price"] = 5000,
 			["sources"] = {
 				8736, -- [1]
 			},
-			["price"] = 5000,
 		},
 		["name"] = {
-			["Russian"] = "Концентрированный динамит",
-			["Portuguese"] = "Dinamite Densa",
-			["Chinese"] = "致密炸药",
-			["Spanish"] = "Dinamita densa",
-			["French"] = "Dynamite dense",
 			["German"] = "Dichtes Dynamit",
+			["Spanish"] = "Dinamita densa",
+			["Chinese"] = "致密炸药",
 			["Korean"] = "강도 높은 다이너마이트",
+			["French"] = "Dynamite dense",
+			["Portuguese"] = "Dinamite Densa",
+			["Mexican"] = "Dinamita densa",
+			["Russian"] = "Концентрированный динамит",
 			["English"] = "Dense Dynamite",
 		},
-		["id"] = 23070,
-	}, -- [137]
-	{
+		["min_skill"] = 250,
 		["phase"] = 1,
-		["min_skill"] = 260,
+		["id"] = 23070,
+	}, -- [136]
+	{
 		["item"] = 18651,
+		["min_skill"] = 260,
+		["id"] = 23071,
 		["name"] = {
-			["Russian"] = "Трансформатор истинного серебра",
-			["Portuguese"] = "Transformador Veraprata",
-			["Chinese"] = "真银变压器",
-			["Spanish"] = "Transformador de veraplata",
-			["French"] = "Altérateur de vrai-argent",
 			["German"] = "Echtsilber-Umwandler",
+			["Spanish"] = "Transformador de veraplata",
+			["Chinese"] = "真银变压器",
 			["Korean"] = "진은 변환기",
+			["French"] = "Altérateur de vrai-argent",
+			["Portuguese"] = "Transformador Veraprata",
+			["Mexican"] = "Transformador de veraplata",
+			["Russian"] = "Трансформатор истинного серебра",
 			["English"] = "Truesilver Transformer",
 		},
-		["id"] = 23071,
-	}, -- [138]
-	{
 		["phase"] = 1,
-		["min_skill"] = 260,
+	}, -- [137]
+	{
 		["item"] = 18652,
+		["min_skill"] = 260,
+		["id"] = 23077,
 		["name"] = {
-			["Russian"] = "Отражатель Льда",
-			["Portuguese"] = "Refletor de Gelo Girogélido",
-			["Chinese"] = "寒冰偏斜器",
-			["Spanish"] = "Reflector de hielo girocongelador",
-			["French"] = "Réflectoglace gyrogivre",
 			["German"] = "Gyrofrosteisreflektor",
+			["Spanish"] = "Reflector de hielo girocongelador",
+			["Chinese"] = "寒冰偏斜器",
 			["Korean"] = "회전냉각식 냉기 반사기",
+			["French"] = "Réflectoglace gyrogivre",
+			["Portuguese"] = "Refletor de Gelo Girogélido",
+			["Mexican"] = "Reflector de hielo girohielo",
+			["Russian"] = "Отражатель Льда",
 			["English"] = "Gyrofreeze Ice Reflector",
 		},
-		["id"] = 23077,
-	}, -- [139]
-	{
 		["phase"] = 1,
-		["min_skill"] = 265,
+	}, -- [138]
+	{
 		["item"] = 18653,
+		["min_skill"] = 265,
+		["id"] = 23078,
 		["name"] = {
-			["Russian"] = "Гоблинский кабельный макси-дефибриллятор",
-			["Portuguese"] = "Cabo de Chupeta Goblínico XG",
-			["Chinese"] = "地精起搏器XL型",
-			["Spanish"] = "Cables resucitadores goblin",
-			["French"] = "Défibrillateur gobelin XL",
 			["German"] = "Goblin-Überbrückungskabel XL",
+			["Spanish"] = "Cables resucitadores goblin",
+			["Chinese"] = "地精起搏器XL型",
 			["Korean"] = "고블린 점퍼 케이블 XL",
+			["French"] = "Défibrillateur gobelin XL",
+			["Portuguese"] = "Cabo de Chupeta Goblínico XG",
+			["Mexican"] = "Desfibriladores goblin XL",
+			["Russian"] = "Гоблинский кабельный макси-дефибриллятор",
 			["English"] = "Goblin Jumper Cables XL",
 		},
-		["id"] = 23078,
-	}, -- [140]
-	{
 		["phase"] = 1,
-		["min_skill"] = 275,
+	}, -- [139]
+	{
 		["item"] = 18655,
+		["min_skill"] = 275,
+		["id"] = 23079,
 		["name"] = {
-			["Russian"] = "Большой атомарный перенаправлятор",
-			["Portuguese"] = "Rebotocador Maior",
-			["Chinese"] = "强力净化器",
-			["Spanish"] = "Recombobulador sublime",
-			["French"] = "Recombobulateur majeur",
 			["German"] = "Großer Rekombobulator",
+			["Spanish"] = "Recombobulador sublime",
+			["Chinese"] = "强力净化器",
 			["Korean"] = "상급 유전자 역결합기",
+			["French"] = "Recombobulateur majeur",
+			["Portuguese"] = "Rebotocador Maior",
+			["Mexican"] = "Recombobulador sublime",
+			["Russian"] = "Большой атомарный перенаправлятор",
 			["English"] = "Major Recombobulator",
 		},
-		["id"] = 23079,
-	}, -- [141]
-	{
 		["phase"] = 1,
-		["min_skill"] = 275,
+	}, -- [140]
+	{
 		["item"] = 18656,
+		["min_skill"] = 275,
+		["id"] = 23080,
 		["name"] = {
-			["Russian"] = "Мощный сефориевый заряд",
-			["Portuguese"] = "Carga Poderosa de Cequatrum",
-			["Chinese"] = "强力爆盐炸弹",
-			["Spanish"] = "Carga potente de seforio",
-			["French"] = "Puissante charge d'hydroglycérine",
 			["German"] = "Mächtige Zephyriumladung",
+			["Spanish"] = "Carga potente de seforio",
+			["Chinese"] = "强力爆盐炸弹",
 			["Korean"] = "강력한 시포리움 폭약",
+			["French"] = "Puissante charge d'hydroglycérine",
+			["Portuguese"] = "Carga Poderosa de Cequatrum",
+			["Mexican"] = "Carga de seforio potente",
+			["Russian"] = "Мощный сефориевый заряд",
 			["English"] = "Powerful Seaforium Charge",
 		},
-		["id"] = 23080,
-	}, -- [142]
-	{
 		["phase"] = 1,
-		["min_skill"] = 290,
+	}, -- [141]
+	{
 		["item"] = 18657,
+		["min_skill"] = 290,
+		["id"] = 23081,
 		["name"] = {
-			["Russian"] = "Сверхизлучатель Отражения огня",
-			["Portuguese"] = "Refletor de Chamas Hiper-radiante",
-			["Chinese"] = "高辐射烈焰反射器",
-			["Spanish"] = "Reflector de llamas hiper-radiante",
-			["French"] = "Réflectoflamme hyper-radiant",
 			["German"] = "Hyperstrahlender Flammenreflektor",
+			["Spanish"] = "Reflector de llamas hiper-radiante",
+			["Chinese"] = "高辐射烈焰反射器",
 			["Korean"] = "극고온 화염 반사기",
+			["French"] = "Réflectoflamme hyper-radiant",
+			["Portuguese"] = "Refletor de Chamas Hiper-radiante",
+			["Mexican"] = "Reflector de llamas hiperradiante",
+			["Russian"] = "Сверхизлучатель Отражения огня",
 			["English"] = "Hyper-Radiant Flame Reflector",
 		},
-		["id"] = 23081,
-	}, -- [143]
-	{
 		["phase"] = 1,
-		["min_skill"] = 300,
+	}, -- [142]
+	{
 		["item"] = 18658,
+		["min_skill"] = 300,
+		["id"] = 23082,
 		["name"] = {
-			["Russian"] = "Ультра-вспышечный отражатель тьмы",
-			["Portuguese"] = "Refletor de Sombras Ultrafulgurante",
-			["Chinese"] = "快速暗影反射器",
-			["Spanish"] = "Reflector de las Sombras ultradeslumbrante",
-			["French"] = "Réflectombre ultra-flash",
 			["German"] = "Ultrablendender Schattenreflektor",
+			["Spanish"] = "Reflector de las Sombras ultradeslumbrante",
+			["Chinese"] = "快速暗影反射器",
 			["Korean"] = "초광자 암흑 반사기",
+			["French"] = "Réflectombre ultra-flash",
+			["Portuguese"] = "Refletor de Sombras Ultrafulgurante",
+			["Mexican"] = "Reflector de las Sombras ultradeslumbrante",
+			["Russian"] = "Ультра-вспышечный отражатель тьмы",
 			["English"] = "Ultra-Flash Shadow Reflector",
 		},
-		["id"] = 23082,
-	}, -- [144]
-	{
 		["phase"] = 1,
-		["min_skill"] = 265,
+	}, -- [143]
+	{
 		["item"] = 18654,
+		["min_skill"] = 265,
+		["id"] = 23096,
 		["name"] = {
-			["Russian"] = "Тревого-бот",
-			["Portuguese"] = "Alarmobô",
-			["Chinese"] = "报警机器人",
-			["Spanish"] = "Roboalarma",
-			["French"] = "Robot d'alarme",
 			["German"] = "Alarm-O-Bot",
+			["Spanish"] = "Roboalarma",
+			["Chinese"] = "报警机器人",
 			["Korean"] = "노움 자동경보기",
+			["French"] = "Robot d'alarme",
+			["Portuguese"] = "Alarmobô",
+			["Mexican"] = "Roboalarma",
+			["Russian"] = "Тревого-бот",
 			["English"] = "Alarm-O-Bot",
 		},
-		["id"] = 23096,
-	}, -- [145]
-	{
 		["phase"] = 1,
-		["min_skill"] = 260,
+	}, -- [144]
+	{
 		["item"] = 18661,
+		["min_skill"] = 260,
+		["phase"] = 1,
 		["name"] = {
-			["Russian"] = "Увеличитель мира",
-			["Portuguese"] = "Aumentador de Mundo",
-			["Chinese"] = "世界放大器",
-			["Spanish"] = "Agrandador de mundo",
-			["French"] = "Agrandisseur de monde",
 			["German"] = "Weltvergrößerer",
+			["Spanish"] = "Agrandador de mundo",
+			["Chinese"] = "世界放大器",
 			["Korean"] = "아제로스 확대기",
+			["French"] = "Agrandisseur de monde",
+			["Portuguese"] = "Aumentador de Mundo",
+			["Mexican"] = "Amplificador de mundo",
+			["Russian"] = "Увеличитель мира",
 			["English"] = "World Enlarger",
 		},
 		["id"] = 23129,
-		["specialization"] = 20219,
-	}, -- [146]
+		["specialisation"] = 20219,
+	}, -- [145]
 	{
-		["phase"] = 1,
-		["min_skill"] = 260,
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				8736, -- [1]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Пространственный проходчик - Круговзор",
-			["Portuguese"] = "Estripador Dimensional - Visteterna",
-			["Chinese"] = "空间撕裂器 - 永望镇",
-			["Spanish"] = "Destripador dimensional: Vista eterna",
-			["French"] = "Déchiqueteur dimensionnel - Long-guet",
 			["German"] = "Dimensionszerfetzer-Everlook",
+			["Spanish"] = "Destripador dimensional: Vista eterna",
+			["Chinese"] = "空间撕裂器 - 永望镇",
 			["Korean"] = "차원 분할기: 눈망루 마을",
+			["French"] = "Déchiqueteur dimensionnel - Long-guet",
+			["Portuguese"] = "Estripador Dimensional - Visteterna",
+			["Mexican"] = "Desgarrador dimensional: Vista Eterna",
+			["Russian"] = "Пространственный проходчик - Круговзор",
 			["English"] = "Dimensional Ripper - Everlook",
 		},
-		["id"] = 23486,
-		["specialization"] = 20222,
-	}, -- [147]
-	{
-		["phase"] = 1,
 		["min_skill"] = 260,
+		["phase"] = 1,
+		["id"] = 23486,
+		["specialisation"] = 20222,
+	}, -- [146]
+	{
 		["trainers"] = {
+			["price"] = 0,
 			["sources"] = {
 				8736, -- [1]
 			},
-			["price"] = 0,
 		},
 		["name"] = {
-			["Russian"] = "Сверхбезопасный транспортер: Прибамбасск",
-			["Portuguese"] = "Transportador Ultrasseguro: Geringontzan",
-			["Chinese"] = "安全传送器 - 加基森",
-			["Spanish"] = "Transportador utraseguro - Gadgetzan",
-			["French"] = "Transporteur ultra-sécurisé : Gadgetzan",
 			["German"] = "Extrem sicherer Transporter nach Gadgetzan",
+			["Spanish"] = "Transportador utraseguro - Gadgetzan",
+			["Chinese"] = "安全传送器 - 加基森",
 			["Korean"] = "안전보증 순간이동기: 가젯잔",
+			["French"] = "Transporteur ultra-sécurisé : Gadgetzan",
+			["Portuguese"] = "Transportador Ultrasseguro: Geringontzan",
+			["Mexican"] = "Transportador ultraseguro: Gadgetzan",
+			["Russian"] = "Сверхбезопасный транспортер: Прибамбасск",
 			["English"] = "Ultrasafe Transporter - Gadgetzan",
 		},
-		["id"] = 23489,
-		["specialization"] = 20219,
-	}, -- [148]
-	{
+		["min_skill"] = 260,
 		["phase"] = 1,
-		["min_skill"] = 250,
+		["id"] = 23489,
+		["specialisation"] = 20219,
+	}, -- [147]
+	{
 		["item"] = 19027,
+		["min_skill"] = 250,
+		["id"] = 23507,
 		["name"] = {
-			["Russian"] = "Петарда \"Змеиное жало\"",
-			["Portuguese"] = "Rojão Rabo-de-cobra",
-			["Chinese"] = "长蛇焰火",
-			["Spanish"] = "Fuegos artificiales de ráfaga de serpiente",
-			["French"] = "Feu d'artifice \"Explosion serpentine\"",
 			["German"] = "Schlangenexplosionsfeuerwerk",
+			["Spanish"] = "Fuegos artificiales de ráfaga de serpiente",
+			["Chinese"] = "长蛇焰火",
 			["Korean"] = "뱀꼬리 폭죽",
+			["French"] = "Feu d'artifice \"Explosion serpentine\"",
+			["Portuguese"] = "Rojão Rabo-de-cobra",
+			["Mexican"] = "Fuegos artificiales serpenteantes",
+			["Russian"] = "Петарда \"Змеиное жало\"",
 			["English"] = "Snake Burst Firework",
 		},
-		["id"] = 23507,
-	}, -- [149]
-	{
 		["phase"] = 1,
-		["min_skill"] = 300,
+	}, -- [148]
+	{
 		["item"] = 20000,
+		["min_skill"] = 300,
+		["id"] = 24356,
 		["name"] = {
-			["Russian"] = "Очки Кровавой Лозы",
-			["Portuguese"] = "Óculos Vinassangre",
-			["Chinese"] = "血藤护目镜",
-			["Spanish"] = "Gafas vid de sangre",
-			["French"] = "Lunettes en vignesang",
 			["German"] = "Blutrebenschutzbrille",
+			["Spanish"] = "Gafas vid de sangre",
+			["Chinese"] = "血藤护目镜",
 			["Korean"] = "붉은덩굴 고글",
+			["French"] = "Lunettes en vignesang",
+			["Portuguese"] = "Óculos Vinassangre",
+			["Mexican"] = "Gafas vid de sangre",
+			["Russian"] = "Очки Кровавой Лозы",
 			["English"] = "Bloodvine Goggles",
 		},
-		["id"] = 24356,
-	}, -- [150]
-	{
 		["phase"] = 1,
-		["min_skill"] = 300,
+	}, -- [149]
+	{
 		["item"] = 20001,
+		["min_skill"] = 300,
+		["id"] = 24357,
 		["name"] = {
-			["Russian"] = "Линза Кровавой Лозы",
-			["Portuguese"] = "Lente Vinassangre",
-			["Chinese"] = "血藤透镜",
-			["Spanish"] = "Lentes vid de sangre",
-			["French"] = "Lentille en vignesang",
 			["German"] = "Blutrebenlinse",
+			["Spanish"] = "Lentes vid de sangre",
+			["Chinese"] = "血藤透镜",
 			["Korean"] = "붉은덩굴 렌즈",
+			["French"] = "Lentille en vignesang",
+			["Portuguese"] = "Lente Vinassangre",
+			["Mexican"] = "Lente vid de sangre",
+			["Russian"] = "Линза Кровавой Лозы",
 			["English"] = "Bloodvine Lens",
 		},
-		["id"] = 24357,
-	}, -- [151]
+		["phase"] = 1,
+	}, -- [150]
 	{
+		["name"] = {
+			["German"] = "Ruhiger mechanischer Yeti",
+			["Spanish"] = "Yeti mecánico sosegado",
+			["Chinese"] = "安静的机械雪人",
+			["Korean"] = "온순한 기계설인",
+			["French"] = "Yéti mécanique paisible",
+			["Portuguese"] = "Yeti Mecânico Pacato",
+			["Mexican"] = "Yeti mecánico tranquilo",
+			["Russian"] = "Спокойный механический йети",
+			["English"] = "Tranquil Mechanical Yeti",
+		},
+		["min_skill"] = 250,
+		["phase"] = 1,
 		["quests"] = {
 			8798, -- [1]
 		},
-		["phase"] = 1,
-		["min_skill"] = 250,
-		["name"] = {
-			["Russian"] = "Спокойный механический йети",
-			["Portuguese"] = "Yeti Mecânico Pacato",
-			["Chinese"] = "安静的机械雪人",
-			["Spanish"] = "Yeti mecánico sosegado",
-			["French"] = "Yéti mécanique paisible",
-			["German"] = "Ruhiger mechanischer Yeti",
-			["Korean"] = "온순한 기계설인",
-			["English"] = "Tranquil Mechanical Yeti",
-		},
 		["id"] = 26011,
-	}, -- [152]
+	}, -- [151]
 	{
-		["phase"] = 1,
-		["min_skill"] = 125,
 		["item"] = 21724,
+		["min_skill"] = 125,
+		["id"] = 26416,
 		["name"] = {
-			["Russian"] = "Маленькая синяя ракета",
-			["Portuguese"] = "Foguete Azul Pequeno",
-			["Chinese"] = "小型蓝色烟花",
-			["Spanish"] = "Cohete pequeño azul",
-			["French"] = "Petite comète bleue",
 			["German"] = "Kleine blaue Rakete",
+			["Spanish"] = "Cohete pequeño azul",
+			["Chinese"] = "小型蓝色烟花",
 			["Korean"] = "작은 파란색 폭죽",
+			["French"] = "Petite comète bleue",
+			["Portuguese"] = "Foguete Azul Pequeno",
+			["Mexican"] = "Cohete azul pequeño",
+			["Russian"] = "Маленькая синяя ракета",
 			["English"] = "Small Blue Rocket",
 		},
-		["id"] = 26416,
-	}, -- [153]
-	{
 		["phase"] = 1,
-		["min_skill"] = 125,
+	}, -- [152]
+	{
 		["item"] = 21725,
+		["min_skill"] = 125,
+		["id"] = 26417,
 		["name"] = {
-			["Russian"] = "Маленькая зеленая ракета",
-			["Portuguese"] = "Foguete Verde Pequeno",
-			["Chinese"] = "小型绿色烟花",
-			["Spanish"] = "Cohete pequeño verde",
-			["French"] = "Petite comète verte",
 			["German"] = "Kleine grüne Rakete",
+			["Spanish"] = "Cohete pequeño verde",
+			["Chinese"] = "小型绿色烟花",
 			["Korean"] = "작은 녹색 폭죽",
+			["French"] = "Petite comète verte",
+			["Portuguese"] = "Foguete Verde Pequeno",
+			["Mexican"] = "Cohete verde pequeño",
+			["Russian"] = "Маленькая зеленая ракета",
 			["English"] = "Small Green Rocket",
 		},
-		["id"] = 26417,
-	}, -- [154]
-	{
 		["phase"] = 1,
-		["min_skill"] = 125,
+	}, -- [153]
+	{
 		["item"] = 21726,
+		["min_skill"] = 125,
+		["id"] = 26418,
 		["name"] = {
-			["Russian"] = "Маленькая красная ракета",
-			["Portuguese"] = "Foguete Vermelho Pequeno",
-			["Chinese"] = "小型红色烟花",
-			["Spanish"] = "Cohete pequeño rojo",
-			["French"] = "Petite comète rouge",
 			["German"] = "Kleine rote Rakete",
+			["Spanish"] = "Cohete pequeño rojo",
+			["Chinese"] = "小型红色烟花",
 			["Korean"] = "작은 빨간색 폭죽",
+			["French"] = "Petite comète rouge",
+			["Portuguese"] = "Foguete Vermelho Pequeno",
+			["Mexican"] = "Cohete rojo pequeño",
+			["Russian"] = "Маленькая красная ракета",
 			["English"] = "Small Red Rocket",
 		},
-		["id"] = 26418,
-	}, -- [155]
-	{
 		["phase"] = 1,
-		["min_skill"] = 175,
+	}, -- [154]
+	{
 		["item"] = 21727,
+		["min_skill"] = 175,
+		["id"] = 26420,
 		["name"] = {
-			["Russian"] = "Большая синяя ракета",
-			["Portuguese"] = "Foguete Azul Grande",
-			["Chinese"] = "大型蓝色烟花",
-			["Spanish"] = "Cohete grande azul",
-			["French"] = "Grande comète bleue",
 			["German"] = "Große blaue Rakete",
+			["Spanish"] = "Cohete grande azul",
+			["Chinese"] = "大型蓝色烟花",
 			["Korean"] = "큰 파란색 폭죽",
+			["French"] = "Grande comète bleue",
+			["Portuguese"] = "Foguete Azul Grande",
+			["Mexican"] = "Cohete azul grande",
+			["Russian"] = "Большая синяя ракета",
 			["English"] = "Large Blue Rocket",
 		},
-		["id"] = 26420,
-	}, -- [156]
-	{
 		["phase"] = 1,
-		["min_skill"] = 175,
+	}, -- [155]
+	{
 		["item"] = 21728,
+		["min_skill"] = 175,
+		["id"] = 26421,
 		["name"] = {
-			["Russian"] = "Большая зеленая ракета",
-			["Portuguese"] = "Foguete Verde Grande",
-			["Chinese"] = "大型绿色烟花",
-			["Spanish"] = "Cohete grande verde",
-			["French"] = "Grande comète verte",
 			["German"] = "Große grüne Rakete",
+			["Spanish"] = "Cohete grande verde",
+			["Chinese"] = "大型绿色烟花",
 			["Korean"] = "큰 녹색 폭죽",
+			["French"] = "Grande comète verte",
+			["Portuguese"] = "Foguete Verde Grande",
+			["Mexican"] = "Cohete verde grande",
+			["Russian"] = "Большая зеленая ракета",
 			["English"] = "Large Green Rocket",
 		},
-		["id"] = 26421,
-	}, -- [157]
-	{
 		["phase"] = 1,
-		["min_skill"] = 175,
+	}, -- [156]
+	{
 		["item"] = 21729,
+		["min_skill"] = 175,
+		["id"] = 26422,
 		["name"] = {
-			["Russian"] = "Большая красная ракета",
-			["Portuguese"] = "Foguete Vermelho Grande",
-			["Chinese"] = "大型红色烟花",
-			["Spanish"] = "Cohete grande rojo",
-			["French"] = "Grande comète rouge",
 			["German"] = "Große rote Rakete",
+			["Spanish"] = "Cohete grande rojo",
+			["Chinese"] = "大型红色烟花",
 			["Korean"] = "큰 빨간색 폭죽",
+			["French"] = "Grande comète rouge",
+			["Portuguese"] = "Foguete Vermelho Grande",
+			["Mexican"] = "Cohete rojo grande",
+			["Russian"] = "Большая красная ракета",
 			["English"] = "Large Red Rocket",
 		},
-		["id"] = 26422,
-	}, -- [158]
-	{
 		["phase"] = 1,
-		["min_skill"] = 225,
+	}, -- [157]
+	{
 		["item"] = 21730,
+		["min_skill"] = 225,
+		["id"] = 26423,
 		["name"] = {
-			["Russian"] = "Синий фейерверк",
-			["Portuguese"] = "Salva de Foguetes Azuis",
-			["Chinese"] = "蓝色烟花束",
-			["Spanish"] = "Conjunto de cohetes azules",
-			["French"] = "Chapelet de comètes bleues",
 			["German"] = "Blaues Raketenbündel",
+			["Spanish"] = "Conjunto de cohetes azules",
+			["Chinese"] = "蓝色烟花束",
 			["Korean"] = "파란색 연발탄",
+			["French"] = "Chapelet de comètes bleues",
+			["Portuguese"] = "Salva de Foguetes Azuis",
+			["Mexican"] = "Traca de cohetes azules",
+			["Russian"] = "Синий фейерверк",
 			["English"] = "Blue Rocket Cluster",
 		},
-		["id"] = 26423,
-	}, -- [159]
-	{
 		["phase"] = 1,
-		["min_skill"] = 225,
+	}, -- [158]
+	{
 		["item"] = 21731,
+		["min_skill"] = 225,
+		["id"] = 26424,
 		["name"] = {
-			["Russian"] = "Зеленый фейерверк",
-			["Portuguese"] = "Salva de Foguetes Verdes",
-			["Chinese"] = "绿色烟花束",
-			["Spanish"] = "Conjunto de cohetes verdes",
-			["French"] = "Chapelet de comètes vertes",
 			["German"] = "Grünes Raketenbündel",
+			["Spanish"] = "Conjunto de cohetes verdes",
+			["Chinese"] = "绿色烟花束",
 			["Korean"] = "녹색 연발탄",
+			["French"] = "Chapelet de comètes vertes",
+			["Portuguese"] = "Salva de Foguetes Verdes",
+			["Mexican"] = "Traca de cohetes verdes",
+			["Russian"] = "Зеленый фейерверк",
 			["English"] = "Green Rocket Cluster",
 		},
-		["id"] = 26424,
-	}, -- [160]
-	{
 		["phase"] = 1,
-		["min_skill"] = 225,
+	}, -- [159]
+	{
 		["item"] = 21732,
+		["min_skill"] = 225,
+		["id"] = 26425,
 		["name"] = {
-			["Russian"] = "Красный фейерверк",
-			["Portuguese"] = "Salva de Foguetes Vermelhos",
-			["Chinese"] = "红色烟花束",
-			["Spanish"] = "Conjunto de cohetes rojos",
-			["French"] = "Chapelet de comètes rouges",
 			["German"] = "Rotes Raketenbündel",
+			["Spanish"] = "Conjunto de cohetes rojos",
+			["Chinese"] = "红色烟花束",
 			["Korean"] = "빨간색 연발탄",
+			["French"] = "Chapelet de comètes rouges",
+			["Portuguese"] = "Salva de Foguetes Vermelhos",
+			["Mexican"] = "Traca de cohetes rojos",
+			["Russian"] = "Красный фейерверк",
 			["English"] = "Red Rocket Cluster",
 		},
-		["id"] = 26425,
-	}, -- [161]
-	{
 		["phase"] = 1,
-		["min_skill"] = 275,
+	}, -- [160]
+	{
 		["item"] = 21733,
+		["min_skill"] = 275,
+		["id"] = 26426,
 		["name"] = {
-			["Russian"] = "Большой синий фейерверк",
-			["Portuguese"] = "Grande Salva de Foguetes Azuis",
-			["Chinese"] = "大型蓝色烟花束",
-			["Spanish"] = "Conjunto de cohetes grandes azules",
-			["French"] = "Chapelet de grandes comètes bleues",
 			["German"] = "Großes blaues Raketenbündel",
+			["Spanish"] = "Conjunto de cohetes grandes azules",
+			["Chinese"] = "大型蓝色烟花束",
 			["Korean"] = "큰 파란색 연발탄",
+			["French"] = "Chapelet de grandes comètes bleues",
+			["Portuguese"] = "Grande Salva de Foguetes Azuis",
+			["Mexican"] = "Traca de cohetes azules grandes",
+			["Russian"] = "Большой синий фейерверк",
 			["English"] = "Large Blue Rocket Cluster",
 		},
-		["id"] = 26426,
-	}, -- [162]
-	{
 		["phase"] = 1,
-		["min_skill"] = 275,
+	}, -- [161]
+	{
 		["item"] = 21734,
+		["min_skill"] = 275,
+		["id"] = 26427,
 		["name"] = {
-			["Russian"] = "Большой зеленый фейерверк",
-			["Portuguese"] = "Grande Salva de Foguetes Verdes",
-			["Chinese"] = "大型绿色烟花束",
-			["Spanish"] = "Conjunto de cohetes grandes verdes",
-			["French"] = "Chapelet de grandes comètes vertes",
 			["German"] = "Großes grünes Raketenbündel",
+			["Spanish"] = "Conjunto de cohetes grandes verdes",
+			["Chinese"] = "大型绿色烟花束",
 			["Korean"] = "큰 녹색 연발탄",
+			["French"] = "Chapelet de grandes comètes vertes",
+			["Portuguese"] = "Grande Salva de Foguetes Verdes",
+			["Mexican"] = "Traca de cohetes verdes grandes",
+			["Russian"] = "Большой зеленый фейерверк",
 			["English"] = "Large Green Rocket Cluster",
 		},
-		["id"] = 26427,
-	}, -- [163]
-	{
 		["phase"] = 1,
-		["min_skill"] = 275,
+	}, -- [162]
+	{
 		["item"] = 21735,
+		["min_skill"] = 275,
+		["id"] = 26428,
 		["name"] = {
-			["Russian"] = "Большой красный фейерверк",
-			["Portuguese"] = "Grande Salva de Foguetes Vermelhos",
-			["Chinese"] = "大型红色烟花束",
-			["Spanish"] = "Conjunto de cohetes grandes rojos",
-			["French"] = "Chapelet de grandes comètes rouges",
 			["German"] = "Großes rotes Raketenbündel",
+			["Spanish"] = "Conjunto de cohetes grandes rojos",
+			["Chinese"] = "大型红色烟花束",
 			["Korean"] = "큰 빨간색 연발탄",
+			["French"] = "Chapelet de grandes comètes rouges",
+			["Portuguese"] = "Grande Salva de Foguetes Vermelhos",
+			["Mexican"] = "Traca de cohetes rojos grandes",
+			["Russian"] = "Большой красный фейерверк",
 			["English"] = "Large Red Rocket Cluster",
 		},
-		["id"] = 26428,
-	}, -- [164]
-	{
 		["phase"] = 1,
-		["min_skill"] = 225,
+	}, -- [163]
+	{
 		["item"] = 21738,
+		["min_skill"] = 225,
+		["id"] = 26442,
 		["name"] = {
-			["Russian"] = "Установка для фейерверка",
-			["Portuguese"] = "Lançador de Fogos de Artifício",
-			["Chinese"] = "烟花发射器",
-			["Spanish"] = "LanzaFuegos artificiales",
-			["French"] = "Lanceur de fusées",
 			["German"] = "Zünder für Feuerwerk",
+			["Spanish"] = "LanzaFuegos artificiales",
+			["Chinese"] = "烟花发射器",
 			["Korean"] = "폭죽 발사대",
+			["French"] = "Lanceur de fusées",
+			["Portuguese"] = "Lançador de Fogos de Artifício",
+			["Mexican"] = "Lanzador de fuegos artificiales",
+			["Russian"] = "Установка для фейерверка",
 			["English"] = "Firework Launcher",
 		},
-		["id"] = 26442,
-	}, -- [165]
-	{
 		["phase"] = 1,
-		["min_skill"] = 275,
+	}, -- [164]
+	{
 		["item"] = 21737,
+		["min_skill"] = 275,
+		["id"] = 26443,
 		["name"] = {
-			["Russian"] = "Запуск множественного фейерверка",
-			["Portuguese"] = "Lançador de Salva de Fogos de Artifício",
-			["Chinese"] = "烟花束发射器",
-			["Spanish"] = "LanzaFuegos artificiales",
-			["French"] = "Lanceur de chapelets de fusées",
 			["German"] = "Zünder für Raketenbündel",
+			["Spanish"] = "LanzaFuegos artificiales",
+			["Chinese"] = "烟花束发射器",
 			["Korean"] = "연발탄 발사대",
+			["French"] = "Lanceur de chapelets de fusées",
+			["Portuguese"] = "Lançador de Salva de Fogos de Artifício",
+			["Mexican"] = "Lanzatracas de fuegos de artificio",
+			["Russian"] = "Запуск множественного фейерверка",
 			["English"] = "Firework Cluster Launcher",
 		},
-		["id"] = 26443,
-	}, -- [166]
-	{
 		["phase"] = 1,
+	}, -- [165]
+	{
+		["item"] = 22729,
 		["min_skill"] = 275,
-		["quest"] = 9249,
+		["id"] = 28327,
 		["name"] = {
-			["Russian"] = "Пульт управления паровым танком",
-			["Portuguese"] = "Controlador de Tonque a Vapor",
-			["Chinese"] = "蒸汽车控制器",
-			["Spanish"] = "Mando de tonque a vapor",
-			["French"] = "Commande de chariotte à vapeur",
 			["German"] = "Dampfpanzersteuerung",
+			["Spanish"] = "Mando de tonque a vapor",
+			["Chinese"] = "蒸汽车控制器",
 			["Korean"] = "통통 전차 조종기",
+			["French"] = "Commande de chariotte à vapeur",
+			["Portuguese"] = "Controlador de Tonque a Vapor",
+			["Mexican"] = "Mando de tonque de vapor",
+			["Russian"] = "Пульт управления паровым танком",
 			["English"] = "Steam Tonk Controller",
 		},
-		["id"] = 28327,
-	}, -- [167]
+		["phase"] = 1,
+	}, -- [166]
 }

@@ -40,7 +40,7 @@ MTSLUI_PLAYER_FILTER_FRAME = {
         -- create the container frame
         self.ui_frame = MTSLUI_TOOLS:CreateBaseFrame("Frame", "", parent_frame, nil, self.FRAME_WIDTH, self.FRAME_HEIGHT, false)
         -- create a filter for sorting
-        self.ui_frame.sort_by_text = MTSLUI_TOOLS:CreateLabel(self.ui_frame, MTSLUI_LOCALES_LABELS["sort"][MTSLUI_CURRENT_LANGUAGE], 5, -5, "LABEL", "TOPLEFT")
+        self.ui_frame.sort_by_text = MTSLUI_TOOLS:CreateLabel(self.ui_frame, MTSLUI_TOOLS:GetLocalisedLabel("sort"), 5, -5, "LABEL", "TOPLEFT")
         self.ui_frame.sort_drop_down = CreateFrame("Frame", filter_frame_name .. "_DD_SORTS", self.ui_frame, "UIDropDownMenuTemplate")
         self.ui_frame.sort_drop_down:SetPoint("TOPRIGHT", self.ui_frame, "TOPRIGHT", 10, 3)
         self.ui_frame.sort_drop_down.filter_frame_name = filter_frame_name
@@ -48,7 +48,7 @@ MTSLUI_PLAYER_FILTER_FRAME = {
         UIDropDownMenu_SetWidth(self.ui_frame.sort_drop_down, self.WIDTH_DD)
         UIDropDownMenu_SetText(self.ui_frame.sort_drop_down, self.sorts[self.current_sort]["name"])
         -- create a filter for realms
-        self.ui_frame.realm_text = MTSLUI_TOOLS:CreateLabel(self.ui_frame, MTSLUI_LOCALES_LABELS["realm"][MTSLUI_CURRENT_LANGUAGE], 5, -35, "LABEL", "TOPLEFT")
+        self.ui_frame.realm_text = MTSLUI_TOOLS:CreateLabel(self.ui_frame, MTSLUI_TOOLS:GetLocalisedLabel("realm"), 5, -35, "LABEL", "TOPLEFT")
         self.ui_frame.realm_drop_down = CreateFrame("Frame", filter_frame_name .. "_DD_REALMS", self.ui_frame, "UIDropDownMenuTemplate")
         self.ui_frame.realm_drop_down:SetPoint("TOPLEFT", self.ui_frame.sort_drop_down, "BOTTOMLEFT", 0, 2)
         self.ui_frame.realm_drop_down.filter_frame_name = filter_frame_name
@@ -57,7 +57,7 @@ MTSLUI_PLAYER_FILTER_FRAME = {
         if self.current_realm > 0 then
             UIDropDownMenu_SetText(self.ui_frame.realm_drop_down, MTSL_TOOLS:GetItemFromArrayByKeyValue(self.realms, "id", self.current_realms)["name"])
         else
-            UIDropDownMenu_SetText(self.ui_frame.realm_drop_down, MTSLUI_LOCALES_LABELS["any"][MTSLUI_CURRENT_LANGUAGE])
+            UIDropDownMenu_SetText(self.ui_frame.realm_drop_down, MTSLUI_TOOLS:GetLocalisedLabel("any"))
         end
         -- enable filtering by default
         self:EnableFiltering()
@@ -78,15 +78,15 @@ MTSLUI_PLAYER_FILTER_FRAME = {
     InitialiseData = function(self)
         self.sorts = {
             {
-                ["name"] = MTSLUI_LOCALES_LABELS["level"][MTSLUI_CURRENT_LANGUAGE],
+                ["name"] = MTSLUI_TOOLS:GetLocalisedLabel("level"),
                 ["id"] = 1,
             },
             {
-                ["name"] = MTSLUI_LOCALES_LABELS["name"][MTSLUI_CURRENT_LANGUAGE],
+                ["name"] = MTSLUI_TOOLS:GetLocalisedLabel("name"),
                 ["id"] = 2,
             },
             {
-                ["name"] = MTSLUI_LOCALES_LABELS["realm"][MTSLUI_CURRENT_LANGUAGE],
+                ["name"] = MTSLUI_TOOLS:GetLocalisedLabel("realm"),
                 ["id"] = 3,
             },
         }
@@ -101,7 +101,7 @@ MTSLUI_PLAYER_FILTER_FRAME = {
         -- build the arrays with contintents and zones
         self.realms = {
             {
-                ["name"] = MTSLUI_LOCALES_LABELS["any"][MTSLUI_CURRENT_LANGUAGE],
+                ["name"] = MTSLUI_TOOLS:GetLocalisedLabel("any"),
                 ["id"] = "any",
             }
         }

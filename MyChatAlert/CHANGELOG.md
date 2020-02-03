@@ -1,5 +1,17 @@
 # MyChatAlert
 
+## 2.5.1.4
+
+- Disabled in instance is now working correctly
+
+## 2.5.1.3
+
+- Bug fix - tied to previous fix
+
+## 2.5.1.2
+
+- Bug fix - disableInInstance now functions correctly
+
 ## 2.5.1.1
 
 - Bug fix - tweak number delimiter localization to avoid a hard-coded space in the hope of fixing [Github issue #36](https://github.com/brodyreeves/MyChatAlert/issues/36)

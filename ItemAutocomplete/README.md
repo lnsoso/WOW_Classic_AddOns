@@ -1,6 +1,6 @@
 # ItemAutocomplete
 
-This is an autocomplete addon for item links in WoW Classic. It integrates with your chat and is triggered with a single character (default `[`), making every single item in the game available with a few key strokes.
+This is an autocomplete addon for item links in WoW Classic. It integrates with your chat and is triggered with a single character (default <kbd>[</kbd>), making every single item in the game available with a few key strokes.
 
 ![In-game demo](https://i.imgur.com/H70fus7.gif)
 
@@ -48,6 +48,6 @@ Not a keyboard person? No worries, just use the mouse.
 
 - `/iaupdate` — Update the item database. If for some reason the item database becomes corrupt or obsolete, you can manually trigger an update with this command.
 
-## Languages other than English
+## Internationalization
 
-Due to the scarce amount of UTF-8 compatible APIs accessible for addons, only English clients are supported at this time.
+Since version 1.0.4 Unicode support has been implemented, allowing any language to be used.

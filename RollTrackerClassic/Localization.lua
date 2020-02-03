@@ -1,6 +1,8 @@
 local RTC_TOCNAME,RTC = ...
 
 -- Basic localizations
+
+RTC.PassTags={}
 function RTC.GetLocale()
 	local ColRed="|cffff4040"
 	
@@ -154,7 +156,7 @@ function RTC.GetLocale()
 		}
 		
 	local locales = {
-		deDE = {
+		deDE =  {
 			["AboutInfo"] = "Hast du jemals versucht, um den 'Rucksack aus Onyxias Haut' in Raid zu verwürfeln? RTC sammelt alle Würfelergebnisse und sortiert sie. Schon mal überlegt, ob du was für dein Zweit-Equip haben wolltest, aber nicht wusstest, ob wer bedarf hat? RTC kann dir automatisch das Blizzard 'Beuteverteilung' Window öffnen. Dort siehst du sofort wer bedarf oder gier hat.|nIn Raid jemals die Übersicht verloren, wer was bekommen hat? Auch hier kann RTC dir helfen. Auf Wunsch zeichnet es alle Gegenstände auf, inklusive einer variablen Export-Funktion.",
 			["AboutSlashCommand"] = "<value> kann true,1,enable,false,0,disable sein. Wird <value> weggelassen, schaltet der aktuelle Status um.",
 			["AboutUsage"] = "RTC wird sich automatisch öffnen, wenn jemand würfelt. Doppelte Würfel oder würfe außerhalb des Standard-Bereichs werden auf wunsch ignoriert.|nStandardmäßig ist das automatische öffnen von 'Beuteverteilung' deaktivert. Genauso muss der 'Loot Tracker' manuell eingeschaltet werden.",
@@ -700,6 +702,13 @@ function RTC.GetLocale()
 	
 	
 	locales.esES=locales.esMX
+	
+	for lkey,loc in pairs(locales) do
+		if loc.pass then
+			RTC.PassTags[loc.pass]=true
+		end
+	end
+	RTC.PassTags[DefaultEnGB.pass]=true
 	
 	if RollTrackerClassicDB and RollTrackerClassicDB.OnDebug then
 		for lkey,loc in pairs(locales) do

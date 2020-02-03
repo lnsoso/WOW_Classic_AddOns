@@ -18,7 +18,7 @@ MTSL_LOGIC_QUEST = {
             -- Check if q started from NPC
             if quest ~= nil then
                 if quest.npcs ~= nil then
-                    npcs = MTSL_LOGIC_PLAYER_NPC:GetNpcsByIds(quest.npcs)
+                    local npcs = MTSL_LOGIC_PLAYER_NPC:GetNpcsByIds(quest.npcs)
                     if npcs == nil  then
                         print(MTSLUI_FONTS.COLORS.TEXT.ERROR .. "MTSL - Could not find NPCs for Quest with id " .. ids[i] .. ". Report this bug!")
                     else
@@ -28,6 +28,8 @@ MTSL_LOGIC_QUEST = {
                         if npc ~= nil then
                             if npc.reacts == "Neutral" or npc.reacts == MTSL_CURRENT_PLAYER.FACTION then
                                 return quest
+                            else
+                                print(npc.name["English"] .. " (" .. npc.reacts ..") does not react to " .. MTSL_CURRENT_PLAYER.FACTION)
                             end
                         end
                     end
@@ -43,5 +45,16 @@ MTSL_LOGIC_QUEST = {
         end
 
         return nil
+    end,
+
+    -----------------------------------------------------------------------------------------------
+    -- Gets a quest based on its id
+    --
+    -- @quest_id		Number		The id of the quest to search
+    --
+    -- return			Object		Found quest
+    ------------------------------------------------------------------------------------------------
+    GetQuestById = function(self, id)
+        return MTSL_TOOLS:GetItemFromSortedListById(MTSL_DATA["quests"], id)
     end,
 }

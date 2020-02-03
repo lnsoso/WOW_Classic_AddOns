@@ -1,7 +1,5 @@
 --[[
-	English Localization
-		This file must be present to have partial translations
-		***
+  English Localization (default)
 --]]
 
 local CONFIG = ...
@@ -89,6 +87,7 @@ L.GlowQuest = 'Color Quest Items'
 L.GlowUnusable = 'Color Unusable Items'
 L.GlowSets = 'Color Equipment Sets'
 L.GlowNew = 'Flash New Items'
+L.GlowPoor = 'Mark Poor Items'
 L.GlowAlpha = 'Glow Brightness'
 
 L.EmptySlots = 'Display Background'

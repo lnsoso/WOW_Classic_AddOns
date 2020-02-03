@@ -24,7 +24,7 @@ MTSLOPTUI_RESET_FRAME = {
         self:BuildRealmList()
         self:BuildPlayersOnCurrentRealmList()
 
-        self.ui_frame.realm_text = MTSLUI_TOOLS:CreateLabel(self.ui_frame, MTSLUI_LOCALES_LABELS["realm"][MTSLUI_CURRENT_LANGUAGE], 22, -30, "LABEL", "TOPLEFT")
+        self.ui_frame.realm_text = MTSLUI_TOOLS:CreateLabel(self.ui_frame, MTSLUI_TOOLS:GetLocalisedLabel("realm"), 22, -30, "LABEL", "TOPLEFT")
         -- add drop down list for realm & characters
         self.ui_frame.realm_drop_down = CreateFrame("Frame", "MTSLOPTUI_RESET_FRAME_DD_REALM", self.ui_frame, "UIDropDownMenuTemplate")
         self.ui_frame.realm_drop_down:SetPoint("TOPLEFT", self.ui_frame, "TOPLEFT", 70, -22)
@@ -32,7 +32,7 @@ MTSLOPTUI_RESET_FRAME = {
         UIDropDownMenu_SetWidth(self.ui_frame.realm_drop_down, 150)
         UIDropDownMenu_SetText(self.ui_frame.realm_drop_down, self.current_realm)
 
-        self.ui_frame.player_text = MTSLUI_TOOLS:CreateLabel(self.ui_frame, MTSLUI_LOCALES_LABELS["character"][MTSLUI_CURRENT_LANGUAGE], 280, -30, "LABEL", "TOPLEFT")
+        self.ui_frame.player_text = MTSLUI_TOOLS:CreateLabel(self.ui_frame, MTSLUI_TOOLS:GetLocalisedLabel("character"), 280, -30, "LABEL", "TOPLEFT")
         self.ui_frame.player_drop_down = CreateFrame("Frame", "MTSLOPTUI_RESET_FRAME_DD_PLAYER", self.ui_frame, "UIDropDownMenuTemplate")
         self.ui_frame.player_drop_down:SetPoint("TOPLEFT", self.ui_frame.realm_drop_down, "TOPRIGHT", 65, 0)
         self.ui_frame.player_drop_down.initialize = self.CreateDropDownPlayersOnRealm
@@ -44,7 +44,7 @@ MTSLOPTUI_RESET_FRAME = {
         -- Remove character button
         self.remove_btn = MTSLUI_TOOLS:CreateBaseFrame("Button", "MTSLOPTUI_RemoveChar_Button", self.ui_frame, "UIPanelButtonTemplate", self.BUTTON_WIDTH - 50, self.BUTTON_HEIGHT)
         self.remove_btn:SetPoint("TOPLEFT", self.ui_frame, "TOPLEFT", left + 50, -21)
-        self.remove_btn:SetText(MTSLUI_LOCALES_LABELS["delete"][MTSLUI_CURRENT_LANGUAGE])
+        self.remove_btn:SetText(MTSLUI_TOOLS:GetLocalisedLabel("delete"))
         self.remove_btn:SetScript("OnClick", function ()
             -- only remove if realm & player chosen
             if MTSLOPTUI_RESET_FRAME.current_realm ~= nil and MTSLOPTUI_RESET_FRAME.current_player ~= nil then
@@ -69,10 +69,10 @@ MTSLOPTUI_RESET_FRAME = {
             end
         end)
         -- Reset all
-        self.ui_frame.reset_text = MTSLUI_TOOLS:CreateLabel(self.ui_frame, MTSLUI_FONTS.COLORS.TEXT.ERROR .. MTSLUI_LOCALES_LABELS["permanent"][MTSLUI_CURRENT_LANGUAGE], 25, -75, "TITLE", "TOPLEFT")
+        self.ui_frame.reset_text = MTSLUI_TOOLS:CreateLabel(self.ui_frame, MTSLUI_FONTS.COLORS.TEXT.ERROR .. MTSLUI_TOOLS:GetLocalisedLabel("permanent"), 25, -75, "TITLE", "TOPLEFT")
         self.reset_btn = MTSLUI_TOOLS:CreateBaseFrame("Button", "MTSLOPTUI_ResetAll_Button", self.ui_frame, "UIPanelButtonTemplate",  self.BUTTON_WIDTH + 50, self.BUTTON_HEIGHT)
         self.reset_btn:SetPoint("TOPLEFT", self.ui_frame, "TOPLEFT", left - 50, -65)
-        self.reset_btn:SetText(MTSLUI_LOCALES_LABELS["delete all"][MTSLUI_CURRENT_LANGUAGE])
+        self.reset_btn:SetText(MTSLUI_TOOLS:GetLocalisedLabel("delete all"))
         self.reset_btn:SetScript("OnClick", function ()
             MTSL_LOGIC_SAVED_VARIABLES:RemoveAllCharacters()
         end)
@@ -94,7 +94,7 @@ MTSLOPTUI_RESET_FRAME = {
             end
         end
         -- sort on realm name
-        table.sort(self.realms, function(a, b)  return a.name < b.name end)
+        MTSL_TOOLS:SortArrayByProperty(self.realms, "name")
         -- build list for "first" realm
         if MTSL_TOOLS:CountItemsInArray(self.realms) <= 0 and self.ui_frame.realm_drop_down ~= nil then
             self.player_on_realms = {}
@@ -119,13 +119,12 @@ MTSLOPTUI_RESET_FRAME = {
                 table.insert(self.player_on_realms, new_player)
             end
             -- sort on player name
-            table.sort(self.player_on_realms, function(a, b)  return a.name < b.name end)
+            MTSL_TOOLS:SortArrayByProperty(self.player_on_realms, "name")
             -- Auto select first one
             local key, player = next(self.player_on_realms)
             self.current_player = player.name
         end
     end,
-
 
     ----------------------------------------------------------------------------------------------------------
     -- Intialises drop down for players on a realm

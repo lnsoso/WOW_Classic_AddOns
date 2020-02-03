@@ -3,22 +3,23 @@
 ----------------------
 MTSL_DATA["First Aid"]["levels"] = {
 	{
+		["id"] = 3273,
 		["trainers"] = {
 			["price"] = 100,
 			["sources"] = {
-				2326, -- [1]
-				2327, -- [2]
-				2329, -- [3]
-				2798, -- [4]
-				3181, -- [5]
-				3373, -- [6]
-				4211, -- [7]
-				4591, -- [8]
-				5150, -- [9]
-				5759, -- [10]
-				5939, -- [11]
-				5943, -- [12]
-				6094, -- [13]
+				2326,
+				2327,
+				2329,
+				2798,
+				3181,
+				3373,
+				4211,
+				4591,
+				5150,
+				5759,
+				5939,
+				5943,
+				6094,
 			},
 		},
 		["name"] = {
@@ -30,29 +31,31 @@ MTSL_DATA["First Aid"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["First Aid"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["First Aid"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["First Aid"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["First Aid"],
 		},
 		["min_skill"] = 0,
-		["id"] = 3273,
 		["max_skill"] = 75,
 		["rank"] = 1,
-	}, -- [1]
+		["min_xp_level"] = 1,
+	},
 	{
+		["id"] = 3274,
 		["trainers"] = {
 			["price"] = 500,
 			["sources"] = {
-				2326, -- [1]
-				2327, -- [2]
-				2329, -- [3]
-				2798, -- [4]
-				3181, -- [5]
-				3373, -- [6]
-				4211, -- [7]
-				4591, -- [8]
-				5150, -- [9]
-				5759, -- [10]
-				5939, -- [11]
-				5943, -- [12]
-				6094, -- [13]
+				2326,
+				2327,
+				2329,
+				2798,
+				3181,
+				3373,
+				4211,
+				4591,
+				5150,
+				5759,
+				5939,
+				5943,
+				6094,
 			},
 		},
 		["name"] = {
@@ -64,13 +67,15 @@ MTSL_DATA["First Aid"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["First Aid"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["First Aid"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["First Aid"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["First Aid"],
 		},
 		["min_skill"] = 50,
-		["id"] = 3274,
 		["max_skill"] = 150,
 		["rank"] = 2,
-	}, -- [2]
+		["min_xp_level"] = 1,
+	},
 	{
+		["id"] = 7924,
 		["name"] = {
 			["German"] = MTSLUI_LOCALES_PROFESSION_RANKS["German"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["German"]["First Aid"],
 			["Spanish"] = MTSLUI_LOCALES_PROFESSION_RANKS["Spanish"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Spanish"]["First Aid"],
@@ -80,15 +85,16 @@ MTSL_DATA["First Aid"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["First Aid"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["First Aid"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["First Aid"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["First Aid"],
 		},
 		["min_skill"] = 125,
-		["id"] = 7924,
 		["max_skill"] = 225,
 		["rank"] = 3,
 		["item"] = 16084,
-	}, -- [3]
+		["min_xp_level"] = 1,
+	},
 	{
-		["min_xp_level"] = 35,
+		["id"] = 10846,
 		["name"] = {
 			["German"] = MTSLUI_LOCALES_PROFESSION_RANKS["German"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["German"]["First Aid"],
 			["Spanish"] = MTSLUI_LOCALES_PROFESSION_RANKS["Spanish"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Spanish"]["First Aid"],
@@ -98,14 +104,15 @@ MTSL_DATA["First Aid"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["First Aid"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["First Aid"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["First Aid"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["First Aid"],
 		},
-		["min_skill"] = 200,
-		["id"] = 10846,
-		["quests"] = {
-			6622, -- [1]
-			6624, -- [2]
-		},
+		["min_skill"] = 225,
 		["max_skill"] = 300,
+		["quests"] = {
+			6622,
+			6624,
+		},
 		["rank"] = 4,
-	}, -- [4]
+		["min_xp_level"] = 35,
+	},
 }

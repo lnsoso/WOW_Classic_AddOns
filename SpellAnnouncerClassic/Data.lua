@@ -12,12 +12,14 @@ Auras =
 	["HUNTER"] =
 	{
 		19263,	-- Deterrence
+
 	},
 	["MAGE"] =
 	{
 		11958,	-- Ice Block
 		12042,	-- Arcane Power
 		--12043,-- Presence Of Mind
+		19574,	-- Bestial Wrath - Pet
 	},
 	["PALADIN"] =
 	{
@@ -47,12 +49,12 @@ Auras =
 	{
 		19443,	-- Sacrifice
 		20765,	-- Soulstone Ressurection
+		--6307,	-- Blood Pakt - Pet
 	},
 	["WARRIOR"] =
 	{
 		871,	-- Shield Wall
 		12975,	-- Last Stand
-		--2565,	-- Shield Block
 		12328,	-- Death Wish
 		1719,	-- Recklessness
 		20230,	-- Retaliation
@@ -71,16 +73,21 @@ Spells =
 		9853,	-- Entangling root
 		20748,	-- Rebirth
 		5211,	-- Bash
+		9907,	-- Faerie Fire
+		17392,	-- Faerie Fire (Feral)
 	},
 	["HUNTER"] =
 	{
 		5384,	-- Feign Death
 		19801,	-- Tranquilizing Shot
+		2649,	-- Growl - Pet
+		19577,	-- Intimidation - Pet
 	},
 	["MAGE"] =
 	{
 		2139,	-- Counter Spell
 		10230,	-- Frost Nova
+		28272,	-- Polymorph
 	},
 	["PALADIN"] =
 	{
@@ -113,6 +120,10 @@ Spells =
 		6215,	-- Fear
 		17928,	-- Howl of Terror
 		17926,	-- Death Coil
+		3716,	-- Torment - Pet
+		19244,	-- Spell Lock - Pet
+		6358,	-- Seduction - Pet
+		19505,	-- Devour Magic - Pet
 	},
 	["WARRIOR"] =
 	{
@@ -129,6 +140,7 @@ Spells =
 EnemySpells =
 {
 	6770,	-- Sap
+	28272,	-- Polymorph
 }
 EnemyItems =
 {

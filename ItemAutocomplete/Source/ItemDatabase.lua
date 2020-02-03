@@ -1,7 +1,6 @@
 select(2, ...) 'ItemDatabase'
 
 -- Imports
-local utf8 = require 'Shared.UTF8'
 local util = require 'Utility.Functions'
 local FuzzyMatcher = require 'Utility.FuzzyMatcher'
 
@@ -33,6 +32,7 @@ function ItemDatabase.New(persistence, eventSource, taskScheduler)
   self.eventSource = eventSource
   self.eventSource:AddListener('GET_ITEM_INFO_RECEIVED', self.methods._OnItemInfoReceived)
   self.itemsById = persistence:GetAccountItem('itemDatabase')
+  self.databaseInfo = persistence:GetAccountItem('itemDatabaseInfo')
   self.taskScheduler = taskScheduler
 
   return self
@@ -47,7 +47,7 @@ function ItemDatabase:AddItemById(itemId)
 
   -- The item info may not yet exist, in that case it's received asynchronously
   -- from the server via the GET_ITEM_INFO_RECEIVED event.
-  if itemName ~= nil then
+  if itemName ~= nil and not self:_IsDevItem(itemId, itemName) then
     self.itemsById[itemId] = {
       id = itemId,
       name = itemName,
@@ -63,7 +63,10 @@ function ItemDatabase:GetItemById(itemId)
   return self.itemsById[itemId]
 end
 
-function ItemDatabase:FindItemsAsync(text, limit, callback)
+function ItemDatabase:FindItemsAsync(options, callback)
+  -- This is a balance between responsiveness and frame drops
+  options.itemsPerYield = const.itemsSearchedPerUpdate
+
   -- Only one item query may be running at a time, therefore replace any
   -- scheduled task since the result will most likely be obsolete when it's
   -- complete.
@@ -71,15 +74,14 @@ function ItemDatabase:FindItemsAsync(text, limit, callback)
 
   self.findItemsTaskId = self.taskScheduler:Queue({
     onFinish = callback,
-    task = function() return self:_TaskFindItems(text, limit, const.itemsSearchedPerUpdate) end,
+    task = function() return self:_TaskFindItems(options) end,
   })
 end
 
 function ItemDatabase:UpdateItemsAsync(callback)
-  if self:IsUpdating() then
-    return
-  end
+  if self:IsUpdating() then return end
 
+  wipe(self.itemsById)
   for _, itemId in ipairs(const.disjunctItemIds) do
     self:AddItemById(itemId)
   end
@@ -88,6 +90,11 @@ function ItemDatabase:UpdateItemsAsync(callback)
     onFinish = callback,
     task = function() return self:_TaskUpdateItems(const.itemsQueriedPerUpdate) end,
   })
+end
+
+function ItemDatabase:IsObsolete()
+  local latestVersion = tonumber(util.GetAddonMetadata('X-ItemDatabaseVersion'))
+  return (self.databaseInfo.version or 0) < latestVersion
 end
 
 function ItemDatabase:IsEmpty()
@@ -106,6 +113,25 @@ end
 -- Private methods
 ------------------------------------------
 
+function ItemDatabase:_IsDevItem(itemId, itemName)
+  if itemId == 19971 then return false end
+  if itemName:match('Monster %-') then return true end
+  if itemName:match('DEPRECATED') then return true end
+  if itemName:match('Dep[rt][ie]cated') then return true end
+  if itemName:match('DEP') then return true end
+  if itemName:match('DEBUG') then return true end
+  if itemName:match('%(old%d?%)') then return true end
+  if itemName:match('OLD') then return true end
+  if itemName:match('[ %(]test[%) ]') then return true end
+  if itemName:match('^test ') then return true end
+  if itemName:match('Testing ?%d?$') then return true end
+  if itemName:match('Test[%u) ]') then return true end
+  if itemName:match('Test$') then return true end
+  if itemName:match('TEST') then return true end
+  if itemName == 'test' then return true end
+  return false
+end
+
 function ItemDatabase:_OnItemInfoReceived(itemId, success)
   if success then
     self:AddItemById(itemId)
@@ -123,24 +149,22 @@ function ItemDatabase:_TaskUpdateItems(itemsPerYield)
     end
   end
 
+  self.databaseInfo.version = tonumber(util.GetAddonMetadata('X-ItemDatabaseVersion'))
   return 1
 end
 
-function ItemDatabase:_TaskFindItems(pattern, limit, itemsPerYield)
-  limit = limit or 1 / 0
-  local foundItems = {}
-  local iterations = 0
+function ItemDatabase:_TaskFindItems(options)
+  local limit = options.limit or 1 / 0
+  local caseInsensitive = options.caseInsensitive
 
-  -- Use smart case (i.e only check casing if the pattern contains uppercase letters)
-  local caseInsensitive = true
-  for _, codePoint in utf8.CodePoints(pattern) do
-    if utf8.IsUpperCaseLetter(codePoint) then
-      caseInsensitive = false
-      break
-    end
+  if caseInsensitive == nil then
+    -- Use smart case (i.e only check casing if the pattern contains uppercase letters)
+    caseInsensitive = not util.ContainsUppercase(options.pattern)
   end
 
-  local fuzzyMatcher = FuzzyMatcher.New(pattern, caseInsensitive)
+  local fuzzyMatcher = FuzzyMatcher.New(options.pattern, caseInsensitive)
+  local foundItems = {}
+  local iterations = 0
 
   -- The following is a trade-off between execution time & memory. Adding all
   -- items to an array and sorting afterwards is O(nlogn), but requires a
@@ -167,7 +191,7 @@ function ItemDatabase:_TaskFindItems(pattern, limit, itemsPerYield)
     end
 
     iterations = iterations + 1
-    if iterations % itemsPerYield == 0 then
+    if iterations % options.itemsPerYield == 0 then
       coroutine.yield()
     end
   end

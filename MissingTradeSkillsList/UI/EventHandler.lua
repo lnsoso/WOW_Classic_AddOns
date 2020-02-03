@@ -21,6 +21,10 @@ MTSLUI_EVENT_HANDLER = {
 				end
 				-- load the data for the player
 				MTSL_LOGIC_PLAYER_NPC:LoadPlayer()
+
+				-- Initialise the minimap button
+				MTSLUI_MINIMAP:Initialise()
+
 				-- Try to load the saved variables
 				MTSLUI_SAVED_VARIABLES:Initialise()
 				-- make the data for dropdowns in sort frames
@@ -30,22 +34,23 @@ MTSLUI_EVENT_HANDLER = {
 				MTSLUI_TOGGLE_BUTTON:Initialise()
 				-- Create the MTSL window expanding tradeskill/craft window)
 				MTSLUI_MISSING_TRADESKILLS_FRAME:Initialise()
-				-- Create char window acountwide (Disabled for now)
+				-- Initialise the explorer frames
 				MTSLUI_ACCOUNT_EXPLORER_FRAME:Initialise()
-				-- Create database explorer window
 				MTSLUI_DATABASE_EXPLORER_FRAME:Initialise()
+				MTSLUI_NPC_EXPLORER_FRAME:Initialise()
 				-- Create the options menu
 				MTSLUI_OPTIONS_MENU_FRAME:Initialise()
 				-- Load the saved variables for UI
                 MTSLUI_SAVED_VARIABLES:LoadSavedUIScales()
 				MTSLUI_SAVED_VARIABLES:LoadSavedSplitModes()
+
 				self.addon_loaded = 1
 			else
 				print(MTSLUI_FONTS.COLORS.TEXT.ERROR .. "MTSL: Your locale " .. GetLocale() .. " is not supported!")
 				self.addon_loaded = 0
 			end
 		else
-			print(MTSLUI_FONTS.COLORS.TEXT.ERROR .. "MTSL: Data for addon coult not load. Please reinstall addon!")
+			print(MTSLUI_FONTS.COLORS.TEXT.ERROR .. "MTSL: Data for addon could not load. Please reinstall addon!")
 			self.addon_loaded = 0
 		end
 	end,
@@ -128,14 +133,14 @@ MTSLUI_EVENT_HANDLER = {
 	-- Event started when a trade skill windows is opened
 	---------------------------------------------------------------------------------------
 	TRADE_SKILL_SHOW = function (self)
-		-- check if we are allowed to swap (this skips poisons)
+		-- If we have a tradeskillframe
 		if TradeSkillFrame then
 			-- make it drageable
 			MTSLUI_TOOLS:AddDragToFrame(TradeSkillFrame)
 			local localised_name, current_skill_level, max_level = GetTradeSkillLine()
 			local profession_name = MTSLUI_LOCALES_PROFESSIONS[MTSLUI_CURRENT_LANGUAGE][localised_name]
 			-- only trigger event if its a trade_skill supported by the addon
-			if profession_name ~= nil and profession_name ~= "Poisons" then
+			if profession_name ~= nil then
 				self:SwapToProfession(profession_name, current_skill_level, max_level)
 				MTSLUI_MISSING_TRADESKILLS_FRAME:RefreshUI()
 			end
@@ -150,7 +155,7 @@ MTSLUI_EVENT_HANDLER = {
 		local localised_name, current_skill_level, max_level = GetTradeSkillLine()
 		local profession_name = MTSLUI_LOCALES_PROFESSIONS[MTSLUI_CURRENT_LANGUAGE][localised_name]
 		-- only trigger event if its a different but supported tradeskill in addon
-		if TradeSkillFrame and profession_name ~= nil and profession_name ~= "Poisons" then
+		if TradeSkillFrame and profession_name ~= nil then
 			self:RefreshSkills(profession_name, current_skill_level, max_level)
 		end
 	end,
@@ -197,11 +202,37 @@ MTSLUI_EVENT_HANDLER = {
 	end,
 
 	---------------------------------------------------------------------------------------
+    -- Event thrown when player changes zones in the world
+	---------------------------------------------------------------------------------------
+    ZONE_CHANGED_NEW_AREA = function(self)
+        -- Get the text of the new zone
+        local zone_name = GetRealZoneText()
+        -- if we actually fond one, update the filter frames
+        if zone_name ~= nil then
+            MTSLUI_MISSING_TRADESKILLS_FRAME.skill_list_filter_frame:UpdateCurrentZone(zone_name)
+            MTSLUI_ACCOUNT_EXPLORER_FRAME.skill_list_filter_frame:UpdateCurrentZone(zone_name)
+            MTSLUI_DATABASE_EXPLORER_FRAME.skill_list_filter_frame:UpdateCurrentZone(zone_name)
+        end
+	end,
+
+	---------------------------------------------------------------------------------------
+	-- Update the current XP level of the char when he "dings"
+	---------------------------------------------------------------------------------------
+	CHARACTER_POINTS_CHANGED = function (self)
+		MTSL_LOGIC_PLAYER_NPC:UpdatePlayerInfo()
+		-- TODO refresh player info show in ACC or DB explorer
+	end,
+
+	---------------------------------------------------------------------------------------
 	-- Handles a slash command for this addon
 	--
 	-- @msg:			string		The argument for the slash command
 	---------------------------------------------------------------------------------------
     SLASH_COMMAND = function (self, msg)
+		-- remove case sensitive options by setting all passed text to lowercase
+		if msg ~= nil then
+			msg = string.lower(msg)
+		end
 		if msg == "acc" or msg == "account" then
 			-- only execute if not yet shown
 			if not MTSLUI_ACCOUNT_EXPLORER_FRAME:IsShown() then
@@ -209,7 +240,14 @@ MTSLUI_EVENT_HANDLER = {
 				MTSLUI_ACCOUNT_EXPLORER_FRAME:RefreshUI()
 			end
 		elseif msg == "db" or msg == "database" then
-			MTSLUI_DATABASE_EXPLORER_FRAME:Show()
+			-- only execute if not yet shown
+			if not MTSLUI_DATABASE_EXPLORER_FRAME:IsShown() then
+				MTSLUI_DATABASE_EXPLORER_FRAME:Show()
+				MTSLUI_DATABASE_EXPLORER_FRAME:RefreshUI()
+			end
+		elseif msg == "npc" then
+			MTSLUI_NPC_EXPLORER_FRAME:Show()
+			MTSLUI_NPC_EXPLORER_FRAME:RefreshUI()
 		elseif msg == "about" then
             MTSLUI_TOOLS:PrintAboutMessage()
 		elseif msg == nil or msg == "" or msg == "options" or msg == "config" then
@@ -247,6 +285,10 @@ MTSLUI_EVENT_HANDLER = {
 		event_frame:RegisterEvent("TRADE_SKILL_UPDATE")
 		-- Learned Skill from trainer
 		event_frame:RegisterEvent("TRAINER_UPDATE")
+		-- Event to update current zone in filterframe
+		event_frame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+		-- Capture a "ding" of a player
+		event_frame:RegisterEvent("CHARACTER_POINTS_CHANGED")
 	end,
 
 	---------------------------------------------------------------------------------------
@@ -278,5 +320,10 @@ MTSLUI_EVENT_HANDLER = {
 		MTSL_LOGIC_PLAYER_NPC:UpdateMissingSkillsForProfessionCurrentPlayer(profession_name, current_skill_level, max_level)
 		MTSLUI_MISSING_TRADESKILLS_FRAME:SetCurrentProfessionDetails(profession_name, current_skill_level, MTSL_CURRENT_PLAYER.XP_LEVEL)
 		MTSLUI_MISSING_TRADESKILLS_FRAME:NoSkillSelected()
+		-- Show the frame if option is selected "auto"
+		if MTSLUI_SAVED_VARIABLES:GetAutoShowMTSL() == 1 then
+			MTSLUI_MISSING_TRADESKILLS_FRAME:Show()
+			MTSLUI_MISSING_TRADESKILLS_FRAME:RefreshUI(1)
+		end
 	end,
 }

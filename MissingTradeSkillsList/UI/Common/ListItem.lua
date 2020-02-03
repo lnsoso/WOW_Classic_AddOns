@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------
 -- Name: ListItem												    --
--- Description: List item for scroll frame that is actualy a button --
+-- Description: List item for scroll frame that is actually a button --
 ----------------------------------------------------------------------
 
 MTSLUI_LIST_ITEM = {

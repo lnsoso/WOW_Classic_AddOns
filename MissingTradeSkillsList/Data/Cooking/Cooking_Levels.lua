@@ -6,20 +6,20 @@ MTSL_DATA["Cooking"]["levels"] = {
 		["trainers"] = {
 			["price"] = 100,
 			["sources"] = {
-				1355, -- [1]
-				1382, -- [2]
-				1430, -- [3]
-				1699, -- [4]
-				3026, -- [5]
-				3067, -- [6]
-				3087, -- [7]
-				3399, -- [8]
-				4210, -- [9]
-				4552, -- [10]
-				5159, -- [11]
-				5482, -- [12]
-				6286, -- [13]
-				8306, -- [14]
+				1355,
+				1382,
+				1430,
+				1699,
+				3026,
+				3067,
+				3087,
+				3399,
+				4210,
+				4552,
+				5159,
+				5482,
+				6286,
+				8306,
 			},
 		},
 		["name"] = {
@@ -31,30 +31,32 @@ MTSL_DATA["Cooking"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Cooking"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Cooking"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Cooking"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Cooking"],
 		},
 		["min_skill"] = 0,
 		["id"] = 2550,
 		["max_skill"] = 75,
 		["rank"] = 1,
-	}, -- [1]
+		["min_xp_level"] = 1,
+	},
 	{
 		["trainers"] = {
 			["price"] = 500,
 			["sources"] = {
-				1355, -- [1]
-				1382, -- [2]
-				1430, -- [3]
-				1699, -- [4]
-				3026, -- [5]
-				3067, -- [6]
-				3087, -- [7]
-				3399, -- [8]
-				4210, -- [9]
-				4552, -- [10]
-				5159, -- [11]
-				5482, -- [12]
-				6286, -- [13]
-				8306, -- [14]
+				1355,
+				1382,
+				1430,
+				1699,
+				3026,
+				3067,
+				3087,
+				3399,
+				4210,
+				4552,
+				5159,
+				5482,
+				6286,
+				8306,
 			},
 		},
 		["name"] = {
@@ -66,12 +68,14 @@ MTSL_DATA["Cooking"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Cooking"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Cooking"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Cooking"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Cooking"],
 		},
 		["min_skill"] = 50,
 		["id"] = 3102,
 		["max_skill"] = 150,
 		["rank"] = 2,
-	}, -- [2]
+		["min_xp_level"] = 1,
+	},
 	{
 		["name"] = {
 			["German"] = MTSLUI_LOCALES_PROFESSION_RANKS["German"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["German"]["Cooking"],
@@ -82,15 +86,16 @@ MTSL_DATA["Cooking"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Cooking"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Cooking"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Cooking"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Cooking"],
 		},
 		["min_skill"] = 125,
 		["id"] = 3413,
 		["max_skill"] = 225,
 		["rank"] = 3,
 		["item"] = 16072,
-	}, -- [3]
+		["min_xp_level"] = 1,
+	},
 	{
-		["min_xp_level"] = 35,
 		["name"] = {
 			["German"] = MTSLUI_LOCALES_PROFESSION_RANKS["German"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["German"]["Cooking"],
 			["Spanish"] = MTSLUI_LOCALES_PROFESSION_RANKS["Spanish"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Spanish"]["Cooking"],
@@ -100,13 +105,15 @@ MTSL_DATA["Cooking"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Cooking"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Cooking"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Cooking"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Cooking"],
 		},
-		["min_skill"] = 200,
+		["min_skill"] = 225,
 		["id"] = 18260,
 		["quests"] = {
-			6610, -- [1]
+			6610,
 		},
 		["max_skill"] = 300,
 		["rank"] = 4,
-	}, -- [4]
+		["min_xp_level"] = 35,
+	},
 }

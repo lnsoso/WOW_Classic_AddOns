@@ -6,27 +6,27 @@ MTSL_DATA["Tailoring"]["levels"] = {
 		["trainers"] = {
 			["price"] = 10,
 			["sources"] = {
-				1103, -- [1]
-				1300, -- [2]
-				1346, -- [3]
-				1703, -- [4]
-				2399, -- [5]
-				2627, -- [6]
-				2855, -- [7]
-				3004, -- [8]
-				3363, -- [9]
-				3484, -- [10]
-				3523, -- [11]
-				4193, -- [12]
-				4576, -- [13]
-				5153, -- [14]
-				5567, -- [15]
-				11048, -- [16]
-				11049, -- [17]
-				11050, -- [18]
-				11051, -- [19]
-				11052, -- [20]
-				11557, -- [21]
+				1103,
+				1300,
+				1346,
+				1703,
+				2399,
+				2627,
+				2855,
+				3004,
+				3363,
+				3484,
+				3523,
+				4193,
+				4576,
+				5153,
+				5567,
+				11048,
+				11049,
+				11050,
+				11051,
+				11052,
+				11557,
 			},
 		},
 		["name"] = {
@@ -38,30 +38,31 @@ MTSL_DATA["Tailoring"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Tailoring"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Tailoring"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Tailoring"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Tailoring"],
 		},
 		["min_skill"] = 0,
 		["id"] = 3908,
 		["max_skill"] = 75,
 		["rank"] = 1,
 		["min_xp_level"] = 5,
-	}, -- [1]
+	},
 	{
 		["trainers"] = {
 			["price"] = 500,
 			["sources"] = {
-				1346, -- [1]
-				2399, -- [2]
-				2627, -- [3]
-				3004, -- [4]
-				3363, -- [5]
-				3704, -- [6]
-				4159, -- [7]
-				4576, -- [8]
-				5153, -- [9]
-				5567, -- [10]
-				11049, -- [11]
-				11052, -- [12]
-				11557, -- [13]
+				1346,
+				2399,
+				2627,
+				3004,
+				3363,
+				3704,
+				4159,
+				4576,
+				5153,
+				5567,
+				11049,
+				11052,
+				11557,
 			},
 		},
 		["name"] = {
@@ -73,21 +74,23 @@ MTSL_DATA["Tailoring"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Tailoring"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Tailoring"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Tailoring"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Tailoring"],
 		},
 		["min_skill"] = 50,
 		["id"] = 3909,
 		["max_skill"] = 150,
 		["rank"] = 2,
-	}, -- [2]
+		["min_xp_level"] = 10,
+	},
 	{
 		["trainers"] = {
 			["price"] = 5000,
 			["sources"] = {
-				1346, -- [1]
-				2399, -- [2]
-				4576, -- [3]
-				11052, -- [4]
-				11557, -- [5]
+				1346,
+				2399,
+				4576,
+				11052,
+				11557,
 			},
 		},
 		["name"] = {
@@ -99,20 +102,22 @@ MTSL_DATA["Tailoring"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Tailoring"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Tailoring"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Tailoring"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Tailoring"],
 		},
 		["min_skill"] = 125,
 		["id"] = 3910,
 		["max_skill"] = 225,
 		["rank"] = 3,
-	}, -- [3]
+		["min_xp_level"] = 20,
+	},
 	{
 		["min_xp_level"] = 35,
 		["trainers"] = {
 			["price"] = 50000,
 			["sources"] = {
-				2399, -- [1]
-				11052, -- [2]
-				11557, -- [3]
+				2399,
+				11052,
+				11557,
 			},
 		},
 		["name"] = {
@@ -124,10 +129,12 @@ MTSL_DATA["Tailoring"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Tailoring"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Tailoring"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Tailoring"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Tailoring"],
 		},
 		["min_skill"] = 200,
 		["id"] = 12180,
 		["max_skill"] = 300,
 		["rank"] = 4,
-	}, -- [4]
+		["min_xp_level"] = 35,
+	},
 }

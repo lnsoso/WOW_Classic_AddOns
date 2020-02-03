@@ -1,36 +1,35 @@
-﻿## Interface: 11302
+﻿## Interface: 11303
 ## Title: Missing TradeSkills List
 ## Author: Thumbkin
 ## Notes: Shows missing skills & recipes for a profession and where to get them.
 ## SavedVariables: MTSL_PLAYERS, MTSLUI_PLAYER
-## Version: 1.13.24
+## Version: 1.13.34
 
-
-##
-## Load all global variables, saved variables & locale
-##
+#
+# Load all global variables, saved variables & locale
+#
 
 Data\GlobalVariables.lua
 
-Logic\GlobalVariables.lua
 Logic\SavedVariables.lua
 
 UI\GlobalVariables.lua
 UI\Locales.lua
 UI\SavedVariables.lua
 
-##
-## Load the data
-##
+#
+# Load the data
+#
 
 # Shared data
 Data\Factions.lua
+Data\Holidays.lua
 Data\Npcs.lua
 Data\Objects.lua
 Data\Quests.lua
 Data\Continents.lua
 Data\Zones.lua
-Data\Specializations.lua
+Data\Specialisations.lua
 
 # Alchemy
 Data\Alchemy\Alchemy_Levels.lua
@@ -72,14 +71,19 @@ Data\Mining\Mining_Levels.lua
 Data\Mining\Mining_Skills.lua
 Data\Mining\Mining_Items.lua
 
+# Poisons
+Data\Poisons\Poisons_Levels.lua
+Data\Poisons\Poisons_Skills.lua
+Data\Poisons\Poisons_Items.lua
+
 # Tailoring
 Data\Tailoring\Tailoring_Levels.lua
 Data\Tailoring\Tailoring_Skills.lua
 Data\Tailoring\Tailoring_Items.lua
 
-##
-## Load the logic
-##
+#
+# Load the logic
+#
 Logic\Tools.lua
 Logic\FactionReputation.lua
 Logic\ItemObject.lua
@@ -89,9 +93,9 @@ Logic\Quest.lua
 Logic\Skill.lua
 Logic\World.lua
 
-##
-## Load the UI
-##
+#
+# Load the UI
+#
 
 # Shared functions
 UI\Fonts.lua
@@ -105,6 +109,9 @@ UI\Common\ListItem.lua
 UI\Common\ListFrame.lua
 UI\Common\PlayerListFrame.lua
 UI\Common\FilterFrame.lua
+UI\Common\NpcFilterFrame.lua
+UI\Common\NpcListFrame.lua
+UI\Common\NpcSkillListFrame.lua
 UI\Common\PlayerFilterFrame.lua
 UI\Common\ProfessionListFrame.lua
 UI\Common\ProgressBar.lua
@@ -120,10 +127,17 @@ UI\Options\ResetFrame.lua
 # MainFrames
 UI\MainFrames\AccountExplorerFrame.lua
 UI\MainFrames\DatabaseExplorerFrame.lua
+UI\MainFrames\NpcExplorerFrame.lua
 UI\MainFrames\OptionsMenuFrame.lua
 UI\MainFrames\ToggleButton.lua
 UI\MainFrames\MissingTradeSkillsFrame.lua
 
-## Initialise the frames & start the addon
+# MinimapButton
+UI\MinimapButton.lua
+
+# Tooltip
+UI\Tooltip.lua
+
+# Initialise the frames & start the addon
 MissingTradeSkillsList.lua
 

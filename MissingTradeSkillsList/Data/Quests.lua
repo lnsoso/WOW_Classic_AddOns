@@ -11,15 +11,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Пирог из печени жутеклыка",
 			["Chinese"] = "猪肝馅饼",
 			["Spanish"] = "Pastel de hígado de dentosangre",
+			["Mexican"] = "Pastel de hígado de dentosangre",
 			["French"] = "La tourte au foie de Broche-tripes",
 			["English"] = "Goretusk Liver Pie",
 			["Korean"] = "뿔엄니멧돼지 간 파이",
 			["German"] = "Pastete aus Geiferzahnleber",
 		},
 		["npcs"] = {
-			235, -- [1]
+			235,
 		},
-	}, -- [1]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 38,
@@ -29,15 +30,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Похлебка Западного Края",
 			["Chinese"] = "杂味炖肉",
 			["Spanish"] = "Estofado de los Páramos de Poniente",
+			["Mexican"] = "Estofado de los Páramos de Poniente",
 			["French"] = "Le ragoût de la marche de l'Ouest",
 			["English"] = "Westfall Stew",
 			["Korean"] = "서부정통 스튜 조리",
 			["German"] = "Westfall-Eintopf",
 		},
 		["npcs"] = {
-			235, -- [1]
+			235,
 		},
-	}, -- [2]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 90,
@@ -47,15 +49,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Пряные котлеты из волчатины",
 			["Chinese"] = "干烤狼肉串",
 			["Spanish"] = "Kebab de lobo salpimentado",
+			["Mexican"] = "Kebab de lobo salpimentado",
 			["French"] = "Kébab de loup assaisonné",
 			["English"] = "Seasoned Wolf Kabobs",
 			["Korean"] = "늑대 양념 케밥",
 			["German"] = "Gewürzter Wolfskebab",
 		},
 		["npcs"] = {
-			272, -- [1]
+			272,
 		},
-	}, -- [3]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 92,
@@ -65,15 +68,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Гуляш по-красногорски",
 			["Chinese"] = "赤脊山炖肉",
 			["Spanish"] = "Estofado de Crestagrana",
+			["Mexican"] = "Estofado de Crestagrana",
 			["French"] = "Goulash des Carmines",
 			["English"] = "Redridge Goulash",
 			["Korean"] = "붉은마루산 굴라시 스튜",
 			["German"] = "Rotkammgulasch",
 		},
 		["npcs"] = {
-			343, -- [1]
+			343,
 		},
-	}, -- [4]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 93,
@@ -83,15 +87,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Темные пирожки с крабами",
 			["Chinese"] = "黑蟹蛋糕",
 			["Spanish"] = "Las croquetas de cangrejo",
+			["Mexican"] = "Las croquetas de cangrejo",
 			["French"] = "Gâteaux au crabe brun",
 			["English"] = "Dusky Crab Cakes",
 			["Korean"] = "갈색 게살 케이크",
 			["German"] = "Schwärzliche Krebsküchlein",
 		},
 		["npcs"] = {
-			272, -- [1]
+			272,
 		},
-	}, -- [5]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 127,
@@ -101,15 +106,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Продажа рыбы",
 			["Chinese"] = "卖鱼",
 			["Spanish"] = "Pescado a la venta",
+			["Mexican"] = "Pescado a la venta",
 			["French"] = "Criée aux poissons",
 			["English"] = "Selling Fish",
 			["Korean"] = "물고기 매매",
 			["German"] = "Fischhandel",
 		},
 		["npcs"] = {
-			381, -- [1]
+			381,
 		},
-	}, -- [6]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 296,
@@ -117,17 +123,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "A revanche de Ormer",
 			["Russian"] = "Месть Ормера",
-			["Chinese"] = "[Ormer's Revenge]",
+			["Chinese"] = "奥莫尔的复仇",
 			["Spanish"] = "La venganza de Ormer",
+			["Mexican"] = "La venganza de Ormer",
 			["French"] = "La vengeance d'Ormer",
 			["English"] = "Ormer's Revenge",
 			["Korean"] = "오머의 복수",
 			["German"] = "Ormers Rache",
 		},
 		["npcs"] = {
-			1078, -- [1]
+			1078,
 		},
-	}, -- [7]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 384,
@@ -137,15 +144,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Кабаньи ребрышки в пиве",
 			["Chinese"] = "啤酒烤猪排",
 			["Spanish"] = "Costillas de jabalí a la cerveza",
+			["Mexican"] = "Costillas de jabalí a la cerveza",
 			["French"] = "Côtes de sanglier à la bière",
 			["English"] = "Beer Basted Boar Ribs",
 			["Korean"] = "맥주로 양념한 멧돼지 갈비",
 			["German"] = "Eberrippchen in Biersauce",
 		},
 		["npcs"] = {
-			1267, -- [1]
+			1267,
 		},
-	}, -- [8]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 385,
@@ -155,15 +163,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Охота на кроколисков",
 			["Chinese"] = "捕猎鳄鱼",
 			["Spanish"] = "La caza de crocoliscos",
+			["Mexican"] = "La caza de crocoliscos",
 			["French"] = "Chasse aux crocilisques",
 			["English"] = "Crocolisk Hunting",
 			["Korean"] = "악어 사냥",
 			["German"] = "Krokiliskenjagd",
 		},
 		["npcs"] = {
-			1154, -- [1]
+			1154,
 		},
-	}, -- [9]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 418,
@@ -173,15 +182,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Телcамарские кровяные колбаски",
 			["Chinese"] = "塞尔萨玛血肠",
 			["Spanish"] = "Morcillas de Thelsamar",
+			["Mexican"] = "Morcillas de Thelsamar",
 			["French"] = "Les boudins de Thelsamar",
 			["English"] = "Thelsamar Blood Sausages",
 			["Korean"] = "텔사마 선지 소시지",
 			["German"] = "Thelsamar-Blutwurst",
 		},
 		["npcs"] = {
-			1963, -- [1]
+			1963,
 		},
-	}, -- [10]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 429,
@@ -191,15 +201,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Звериные сердца",
 			["Chinese"] = "荒野之心",
 			["Spanish"] = "Corazones salvajes",
+			["Mexican"] = "Corazones salvajes",
 			["French"] = "Cœurs sauvages",
 			["English"] = "Wild Hearts",
 			["Korean"] = "늑대의 심장",
 			["German"] = "Wilde Herzen",
 		},
 		["npcs"] = {
-			1950, -- [1]
+			1950,
 		},
-	}, -- [11]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 471,
@@ -207,17 +218,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Deveres de aprendiz",
 			["Russian"] = "Тяжкая судьба помощника",
-			["Chinese"] = "[Apprentice's Duties]",
+			["Chinese"] = "学徒的职责",
 			["Spanish"] = "Deberes de aprendiz",
+			["Mexican"] = "Deberes de aprendiz",
 			["French"] = "Les devoirs de l'apprenti",
 			["English"] = "Apprentice's Duties",
 			["Korean"] = "수습생의 임무",
 			["German"] = "Lehrlingspflichten",
 		},
 		["npcs"] = {
-			2094, -- [1]
+			2094,
 		},
-	}, -- [12]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 498,
@@ -227,15 +239,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Спасение",
 			["Chinese"] = "拯救行动",
 			["Spanish"] = "El rescate",
+			["Mexican"] = "El rescate",
 			["French"] = "Sauvetage",
 			["English"] = "The Rescue",
 			["Korean"] = "포로 구출",
 			["German"] = "Die Rettung",
 		},
 		["npcs"] = {
-			2229, -- [1]
+			2229,
 		},
-	}, -- [13]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 501,
@@ -245,15 +258,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Эликсир боли",
 			["Chinese"] = "痛苦药剂",
 			["Spanish"] = "Elixir del dolor",
+			["Mexican"] = "Elixir del dolor",
 			["French"] = "L'élixir de douleur",
 			["English"] = "Elixir of Pain",
 			["Korean"] = "고통의 비약",
 			["German"] = "Elixier der Schmerzen",
 		},
 		["npcs"] = {
-			2216, -- [1]
+			2216,
 		},
-	}, -- [14]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 555,
@@ -263,15 +277,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Нежный черепаховый суп",
 			["Chinese"] = "海龟汤",
 			["Spanish"] = "Sopa de tortuga calmante",
+			["Mexican"] = "Sopa de tortuga calmante",
 			["French"] = "Bisque de tortue apaisante",
 			["English"] = "Soothing Turtle Bisque",
 			["Korean"] = "독특한 거북이 비스크",
 			["German"] = "Milde Schildkrötensuppe",
 		},
 		["npcs"] = {
-			2430, -- [1]
+			2430,
 		},
-	}, -- [15]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 564,
@@ -281,15 +296,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Серьезная угроза",
 			["Chinese"] = "损失惨重",
 			["Spanish"] = "Una amenaza costosa",
+			["Mexican"] = "Una amenaza costosa",
 			["French"] = "Un problème très coûteux",
 			["English"] = "Costly Menace",
 			["Korean"] = "크나큰 위협",
 			["German"] = "Teure Bedrohung",
 		},
 		["npcs"] = {
-			2382, -- [1]
+			2382,
 		},
-	}, -- [16]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 703,
@@ -299,33 +315,35 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Жареные крылышки канюка",
 			["Chinese"] = "烧烤秃鹰翅膀",
 			["Spanish"] = "Alas de águila ratonera a la parrilla",
+			["Mexican"] = "Alas de águila ratonera a la parrilla",
 			["French"] = "Ailes de busard grillées",
 			["English"] = "Barbecued Buzzard Wings",
 			["Korean"] = "대머리수리 날개 구이",
 			["German"] = "Gegrillte Bussardflügel",
 		},
 		["npcs"] = {
-			2817, -- [1]
+			2817,
 		},
-	}, -- [17]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 715,
-		["min_xp_level"] = 36,
+		["min_xp_level"] = 35,
 		["name"] = {
 			["Portuguese"] = "Pedra líquida",
 			["Russian"] = "Жидкий камень",
-			["Chinese"] = "[Liquid Stone]",
+			["Chinese"] = "卢希恩的药水",
 			["Spanish"] = "Piedra líquida",
+			["Mexican"] = "Piedra líquida",
 			["French"] = "Pierre liquide",
 			["English"] = "Liquid Stone",
 			["Korean"] = "액체 돌",
 			["German"] = "Flüssigstein",
 		},
 		["npcs"] = {
-			2920, -- [1]
+			2920,
 		},
-	}, -- [18]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 769,
@@ -335,15 +353,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Сумка из шкуры кодо",
 			["Chinese"] = "科多兽皮包",
 			["Spanish"] = "Bolsa de pellejo de kodo",
+			["Mexican"] = "Bolsa de pellejo de kodo",
 			["French"] = "Sac en peau de kodo",
 			["English"] = "Kodo Hide Bag",
 			["Korean"] = "코도 가죽 자루",
 			["German"] = "Kodobalgtasche",
 		},
 		["npcs"] = {
-			3050, -- [1]
+			3050,
 		},
-	}, -- [19]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 862,
@@ -353,15 +372,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Крысиная похлебка",
 			["Chinese"] = "[Dig Rat Stew]",
 			["Spanish"] = "Estofado de ratas de escavación",
+			["Mexican"] = "Estofado de ratas de escavación",
 			["French"] = "Brouet de rat",
 			["English"] = "Dig Rat Stew",
 			["Korean"] = "들쥐 고기 스튜",
 			["German"] = "Grubenratteneintopf",
 		},
 		["npcs"] = {
-			3443, -- [1]
+			3443,
 		},
-	}, -- [20]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 1487,
@@ -371,15 +391,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Искоренение Скверны",
 			["Chinese"] = "清除变异者",
 			["Spanish"] = "Erradicación de descarriados",
+			["Mexican"] = "Erradicación de descarriados",
 			["French"] = "L'éradication des Déviants",
 			["English"] = "Deviate Eradication",
 			["Korean"] = "돌연변이 짐승 섬멸",
 			["German"] = "Ausrottung der Deviat",
 		},
 		["npcs"] = {
-			5768, -- [1]
+			5768,
 		},
-	}, -- [21]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 1559,
@@ -387,17 +408,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Receita de bomba de clarão",
 			["Russian"] = "Секрет изготовления световой бомбы",
-			["Chinese"] = "[Flash Bomb Recipe]",
+			["Chinese"] = "闪光弹的制法",
 			["Spanish"] = "Receta de bomba cegadora",
+			["Mexican"] = "Receta de bomba cegadora",
 			["French"] = "La recette de la bombe éclairante",
 			["English"] = "Flash Bomb Recipe",
 			["Korean"] = "섬광탄 제조법",
 			["German"] = "Blitzstrahlbombenanleitung",
 		},
 		["npcs"] = {
-			2817, -- [1]
+			2817,
 		},
-	}, -- [22]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 1582,
@@ -405,17 +427,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "O colete brilho da lua",
 			["Russian"] = "Жилет Лунного сияния",
-			["Chinese"] = "[Moonglow Vest]",
+			["Chinese"] = "月光外衣",
 			["Spanish"] = "El jubón de brillo lunar",
+			["Mexican"] = "El jubón de brillo lunar",
 			["French"] = "Veste de Moonglow",
 			["English"] = "Moonglow Vest",
-			["Korean"] = "[Moonglow Vest]",
+			["Korean"] = "달빛 조끼",
 			["German"] = "Mondscheinweste",
 		},
 		["npcs"] = {
-			6034, -- [1]
+			6034,
 		},
-	}, -- [23]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 1618,
@@ -423,17 +446,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Armamentos para Cristarrubra",
 			["Russian"] = "Экипирование Красногорья",
-			["Chinese"] = "[Gearing Redridge]",
+			["Chinese"] = "赤脊山的补给",
 			["Spanish"] = "Equipar a los Crestagrana",
+			["Mexican"] = "Equipar a los Crestagrana",
 			["French"] = "Le rééquipement des Carmines",
 			["English"] = "Gearing Redridge",
 			["Korean"] = "붉은마루산맥 무기 조달",
 			["German"] = "Die Aufrüstung im Rotkammgebirge",
 		},
 		["npcs"] = {
-			6031, -- [1]
+			6031,
 		},
-	}, -- [24]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2178,
@@ -443,15 +467,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Спокойная жизнь долгоногов",
 			["Chinese"] = "炖陆行鸟",
 			["Spanish"] = "Guiso de zancudo",
+			["Mexican"] = "Guiso de zancudo",
 			["French"] = "Brouet de trotteur",
 			["English"] = "Easy Strider Living",
 			["Korean"] = "간단한 타조 요리",
 			["German"] = "Schreitereintopf",
 		},
 		["npcs"] = {
-			3702, -- [1]
+			3702,
 		},
-	}, -- [25]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2203,
@@ -461,15 +486,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Пробежка по Бесплодным землям-2",
 			["Chinese"] = "荒芜之地的试剂 II",
 			["Spanish"] = "Componentes de Tierras Inhóspitas II",
+			["Mexican"] = "Componentes de Tierras Inhóspitas II",
 			["French"] = "Les réactifs des Terres ingrates II",
 			["English"] = "Badlands Reagent Run II",
 			["Korean"] = "황야의 땅에서 재료 찾기",
 			["German"] = "Reagenzien-Suche im Ödland II",
 		},
 		["npcs"] = {
-			6868, -- [1]
+			6868,
 		},
-	}, -- [26]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2359,
@@ -479,15 +505,35 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Башня Клейвена",
 			["Chinese"] = "克拉文之塔",
 			["Spanish"] = "La torre de Klaven",
+			["Mexican"] = "La torre de Klaven",
 			["French"] = "La Tour de Klaven",
 			["English"] = "Klaven's Tower",
 			["Korean"] = "클라벤의 탑",
 			["German"] = "Klavens Turm",
 		},
 		["npcs"] = {
-			7024, -- [1]
+			7024,
 		},
-	}, -- [27]
+	},
+	{
+		["phase"] = 1,
+		["id"] = 2360,
+		["min_xp_level"] = 20,
+		["name"] = {
+			["Portuguese"] = "Mathias e os Défias",
+			["Russian"] = "Матиас и Братство Справедливости",
+			["Chinese"] = "马迪亚斯和迪菲亚潜行者",
+			["Spanish"] = "Mathias y los Defias",
+			["Mexican"] = "Mathias y los Defias",
+			["French"] = "Mathias et les Défias",
+			["English"] = "Mathias and the Defias",
+			["Korean"] = "마티아스와 데피아즈단",
+			["German"] = "Mathias und die Defias",
+		},
+		["npcs"] = {
+			332,
+		},
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2478,
@@ -497,15 +543,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Миссия: выполнима, но с трудом",
 			["Chinese"] = "基本不可能的任务",
 			["Spanish"] = "Misión: posible, pero no probable",
+			["Mexican"] = "Misión: posible, pero no probable",
 			["French"] = "Mission : possible mais non probable",
 			["English"] = "Mission: Possible But Not Probable",
 			["Korean"] = "미션 임파서블: 잘하면 가능",
 			["German"] = "Mission: möglich, aber nicht sehr wahrscheinlich",
 		},
 		["npcs"] = {
-			7233, -- [1]
+			7233,
 		},
-	}, -- [28]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2501,
@@ -513,17 +560,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Busca pelos reagentes dos Ermos, parte II",
 			["Russian"] = "За реактивами в Бесплодные земли II",
-			["Chinese"] = "[Badlands Reagent Run II]",
+			["Chinese"] = "荒芜之地的材料 II",
 			["Spanish"] = "Componentes de Tierras Inhóspitas II",
+			["Mexican"] = "Componentes de Tierras Inhóspitas II",
 			["French"] = "Les réactifs des Terres ingrates II",
 			["English"] = "Badlands Reagent Run II",
 			["Korean"] = "황야의 땅에서 재료 찾기",
 			["German"] = "Reagenzien-Suche im Ödland II",
 		},
 		["npcs"] = {
-			1470, -- [1]
+			1470,
 		},
-	}, -- [29]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2751,
@@ -533,15 +581,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Варварские доспехи",
 			["Chinese"] = "[Barbaric Battlements]",
 			["Spanish"] = "Almenas barbáricas",
+			["Mexican"] = "Almenas barbáricas",
 			["French"] = "Remparts barbares",
 			["English"] = "Barbaric Battlements",
 			["Korean"] = "야만전사의 갑옷",
 			["German"] = "Barbarische Waffenschmiedekunst",
 		},
 		["npcs"] = {
-			7790, -- [1]
+			7790,
 		},
-	}, -- [30]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2752,
@@ -551,69 +600,73 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "За железными наплечниками",
 			["Chinese"] = "[On Iron Pauldrons]",
 			["Spanish"] = "Espaldares de hierro",
+			["Mexican"] = "Espaldares de hierro",
 			["French"] = "Épaulettes en fer",
 			["English"] = "On Iron Pauldrons",
-			["Korean"] = "[On Iron Pauldrons]",
+			["Korean"] = "강철 어깨갑옷",
 			["German"] = "Über Eisenschulterstücke",
 		},
 		["npcs"] = {
-			7790, -- [1]
+			7790,
 		},
-	}, -- [31]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2753,
-		["min_xp_level"] = 33,
+		["min_xp_level"] = 32,
 		["name"] = {
 			["Portuguese"] = "Esmagado sob os calcanhares",
 			["Russian"] = "Тяжелая поступь",
 			["Chinese"] = "[Trampled Under Foot]",
 			["Spanish"] = "¡Aplástalos!",
+			["Mexican"] = "¡Aplástalos!",
 			["French"] = "Piétinés",
 			["English"] = "Trampled Under Foot",
 			["Korean"] = "발 밑의 적",
 			["German"] = "In den Boden getrampelt",
 		},
 		["npcs"] = {
-			7790, -- [1]
+			7790,
 		},
-	}, -- [32]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2754,
-		["min_xp_level"] = 33,
+		["min_xp_level"] = 32,
 		["name"] = {
 			["Portuguese"] = "Trompas de frenesi",
 			["Russian"] = "Рога безумия",
 			["Chinese"] = "[Horns of Frenzy]",
 			["Spanish"] = "Cuernos de frenesí",
+			["Mexican"] = "Cuernos de frenesí",
 			["French"] = "Les cornes de Frénésie",
 			["English"] = "Horns of Frenzy",
-			["Korean"] = "[Horns of Frenzy]",
+			["Korean"] = "광란의 뿔",
 			["German"] = "Hörner der Raserei",
 		},
 		["npcs"] = {
-			7790, -- [1]
+			7790,
 		},
-	}, -- [33]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2755,
-		["min_xp_level"] = 33,
+		["min_xp_level"] = 32,
 		["name"] = {
 			["Portuguese"] = "Alegria dos Omosh",
 			["Russian"] = "Радости Омоша",
 			["Chinese"] = "[Joys of Omosh]",
 			["Spanish"] = "Las alegrías de los Omosh",
+			["Mexican"] = "Las alegrías de los Omosh",
 			["French"] = "Les joies des Omosh",
 			["English"] = "Joys of Omosh",
-			["Korean"] = "[Joys of Omosh]",
+			["Korean"] = "오모쉬의 기쁨",
 			["German"] = "Freude der Omoshs",
 		},
 		["npcs"] = {
-			7790, -- [1]
+			7790,
 		},
-	}, -- [34]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2756,
@@ -623,15 +676,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Старые обычаи",
 			["Chinese"] = "[The Old Ways]",
 			["Spanish"] = "Los viejos hábitos",
+			["Mexican"] = "Los viejos hábitos",
 			["French"] = "Les vieilles voies",
 			["English"] = "The Old Ways",
 			["Korean"] = "과거의 방식",
 			["German"] = "Die alten Traditionen",
 		},
 		["npcs"] = {
-			7792, -- [1]
+			7792,
 		},
-	}, -- [35]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2758,
@@ -639,17 +693,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "As origens da ferraria",
 			["Russian"] = "Происхождение кузнечного искусства",
-			["Chinese"] = "[The Origins of Smithing]",
+			["Chinese"] = "锻造的本源",
 			["Spanish"] = "El origen de la herrería",
+			["Mexican"] = "El origen de la herrería",
 			["French"] = "Les origines de la forge",
 			["English"] = "The Origins of Smithing",
 			["Korean"] = "대장기술의 근원",
 			["German"] = "Die Herkunft der Schmiedekunst",
 		},
 		["npcs"] = {
-			7798, -- [1]
+			7798,
 		},
-	}, -- [36]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2761,
@@ -659,15 +714,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Плавим, не плавим, плавим, не плавим…",
 			["Chinese"] = "[Smelt On, Smelt Off]",
 			["Spanish"] = "Funde o no funde",
+			["Mexican"] = "Funde o no funde",
 			["French"] = "Ça fond, ça ne fond pas",
 			["English"] = "Smelt On, Smelt Off",
-			["Korean"] = "[Smelt On, Smelt Off]",
+			["Korean"] = "대장기술과 채광",
 			["German"] = "Hier verhütten, da verhütten",
 		},
 		["npcs"] = {
-			7802, -- [1]
+			7802,
 		},
-	}, -- [37]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2762,
@@ -677,15 +733,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Обманное серебро",
 			["Chinese"] = "[The Great Silver Deceiver]",
 			["Spanish"] = "La veraplata no es verídica",
+			["Mexican"] = "La veraplata no es verídica",
 			["French"] = "Le vif-argent n’est pas de l'argent",
 			["English"] = "The Great Silver Deceiver",
-			["Korean"] = "[The Great Silver Deceiver]",
+			["Korean"] = "훌륭한 가짜배기 은",
 			["German"] = "Der große silberne Betrüger",
 		},
 		["npcs"] = {
-			7802, -- [1]
+			7802,
 		},
-	}, -- [38]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2763,
@@ -695,15 +752,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Могущество камней",
 			["Chinese"] = "[The Art of the Imbue]",
 			["Spanish"] = "El arte de imbuir",
+			["Mexican"] = "El arte de imbuir",
 			["French"] = "L'art de l'imprégnation",
 			["English"] = "The Art of the Imbue",
-			["Korean"] = "[The Art of the Imbue]",
+			["Korean"] = "보석 채취",
 			["German"] = "Die Kunst der Magieerfüllung",
 		},
 		["npcs"] = {
-			7802, -- [1]
+			7802,
 		},
-	}, -- [39]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2771,
@@ -711,17 +769,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "A ótima cabeça sobre os ombros",
 			["Russian"] = "Голова на плечах",
-			["Chinese"] = "[A Good Head On Your Shoulders]",
+			["Chinese"] = "罩帽和护肩",
 			["Spanish"] = "La cabeza sobre los hombros",
+			["Mexican"] = "La cabeza sobre los hombros",
 			["French"] = "Une tête bien faite sur les épaules",
 			["English"] = "A Good Head On Your Shoulders",
 			["Korean"] = "지혜로운 스승",
 			["German"] = "Ein schlauer Kopf auf den Schultern",
 		},
 		["npcs"] = {
-			7804, -- [1]
+			7804,
 		},
-	}, -- [40]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2772,
@@ -729,17 +788,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "O mundo a seus pés",
 			["Russian"] = "Мир у твоих ног",
-			["Chinese"] = "[The World At Your Feet]",
+			["Chinese"] = "世界在你脚下",
 			["Spanish"] = "El mundo a tus pies",
+			["Mexican"] = "El mundo a tus pies",
 			["French"] = "Le monde à vos pieds",
 			["English"] = "The World At Your Feet",
 			["Korean"] = "화려한 미스릴 장화",
 			["German"] = "Die Welt zu Euren Füßen",
 		},
 		["npcs"] = {
-			7804, -- [1]
+			7804,
 		},
-	}, -- [41]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2773,
@@ -747,17 +807,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Kid Mithril",
 			["Russian"] = "Мифриловый парень",
-			["Chinese"] = "[The Mithril Kid]",
+			["Chinese"] = "秘银小子",
 			["Spanish"] = "El chico de mitril",
+			["Mexican"] = "El chico de mitril",
 			["French"] = "Le gars du mithril",
 			["English"] = "The Mithril Kid",
 			["Korean"] = "미스릴 천재",
 			["German"] = "Mithril-Kid",
 		},
 		["npcs"] = {
-			7804, -- [1]
+			7804,
 		},
-	}, -- [42]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2848,
@@ -765,17 +826,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Omoplatas de couro silvestre",
 			["Russian"] = "Дикарские кожаные наплечники",
-			["Chinese"] = "[Wild Leather Shoulders]",
+			["Chinese"] = "蛮皮护肩",
 			["Spanish"] = "Hombreras de cuero salvaje",
+			["Mexican"] = "Hombreras de cuero salvaje",
 			["French"] = "Les épaulières en cuir sauvage",
 			["English"] = "Wild Leather Shoulders",
-			["Korean"] = "[Wild Leather Shoulders]",
+			["Korean"] = "야생 가죽 조끼",
 			["German"] = "Wildlederschultern",
 		},
 		["npcs"] = {
-			7852, -- [1]
+			7852,
 		},
-	}, -- [43]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2849,
@@ -783,17 +845,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Colete de couro silvestre",
 			["Russian"] = "Дикарский кожаный жилет",
-			["Chinese"] = "[Wild Leather Vest]",
+			["Chinese"] = "蛮皮外衣",
 			["Spanish"] = "Jubones de cuero salvaje",
+			["Mexican"] = "Jubones de cuero salvaje",
 			["French"] = "Le gilet en cuir sauvage",
 			["English"] = "Wild Leather Vest",
-			["Korean"] = "[Wild Leather Vest]",
+			["Korean"] = "야생 가죽 조끼",
 			["German"] = "Wildlederweste",
 		},
 		["npcs"] = {
-			7852, -- [1]
+			7852,
 		},
-	}, -- [44]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2850,
@@ -801,17 +864,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Capacete de couro silvestre",
 			["Russian"] = "Дикарский кожаный шлем",
-			["Chinese"] = "[Wild Leather Helmet]",
+			["Chinese"] = "蛮皮头盔",
 			["Spanish"] = "Casco de cuero salvaje",
+			["Mexican"] = "Casco de cuero salvaje",
 			["French"] = "Le casque en cuir sauvage",
 			["English"] = "Wild Leather Helmet",
-			["Korean"] = "[Wild Leather Helmet]",
+			["Korean"] = "야생 가죽 투구",
 			["German"] = "Wildlederhelm",
 		},
 		["npcs"] = {
-			7852, -- [1]
+			7852,
 		},
-	}, -- [45]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2851,
@@ -819,17 +883,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Botas de couro silvestre",
 			["Russian"] = "Дикарские кожаные сапоги",
-			["Chinese"] = "[Wild Leather Boots]",
+			["Chinese"] = "蛮皮战靴",
 			["Spanish"] = "Botas de cuero salvaje",
+			["Mexican"] = "Botas de cuero salvaje",
 			["French"] = "Les bottes en cuir sauvage",
 			["English"] = "Wild Leather Boots",
-			["Korean"] = "[Wild Leather Boots]",
+			["Korean"] = "야생 가죽 장화",
 			["German"] = "Wildlederstiefel",
 		},
 		["npcs"] = {
-			7852, -- [1]
+			7852,
 		},
-	}, -- [46]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2852,
@@ -837,17 +902,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Perneiras de couro silvestre",
 			["Russian"] = "Дикарские кожаные поножи",
-			["Chinese"] = "[Wild Leather Leggings]",
+			["Chinese"] = "蛮皮护腿",
 			["Spanish"] = "Leotardos de cuero salvaje",
+			["Mexican"] = "Leotardos de cuero salvaje",
 			["French"] = "Les jambières en cuir sauvage",
 			["English"] = "Wild Leather Leggings",
-			["Korean"] = "[Wild Leather Leggings]",
+			["Korean"] = "야생 가죽 다리보호구",
 			["German"] = "Wildledergamaschen",
 		},
 		["npcs"] = {
-			7852, -- [1]
+			7852,
 		},
-	}, -- [47]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2853,
@@ -855,17 +921,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Mestre do couro silvestre",
 			["Russian"] = "Мастер школы Дикаря",
-			["Chinese"] = "[Master of the Wild Leather]",
+			["Chinese"] = "蛮皮护甲大师",
 			["Spanish"] = "Maestro de cuero salvaje",
+			["Mexican"] = "Maestro de cuero salvaje",
 			["French"] = "Maître du cuir sauvage",
 			["English"] = "Master of the Wild Leather",
-			["Korean"] = "[Master of the Wild Leather]",
+			["Korean"] = "야생 가죽 세공의 대가",
 			["German"] = "Meister des Wildleders",
 		},
 		["npcs"] = {
-			7852, -- [1]
+			7852,
 		},
-	}, -- [48]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2855,
@@ -873,17 +940,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Omoplatas de couro silvestre",
 			["Russian"] = "Дикарские кожаные наплечники",
-			["Chinese"] = "[Wild Leather Shoulders]",
+			["Chinese"] = "蛮皮护甲",
 			["Spanish"] = "Sobrehombros de cuero salvaje",
+			["Mexican"] = "Sobrehombros de cuero salvaje",
 			["French"] = "Les épaulières en cuir sauvage",
 			["English"] = "Wild Leather Shoulders",
 			["Korean"] = "야생 가죽 어깨보호구",
 			["German"] = "Wildlederschultern",
 		},
 		["npcs"] = {
-			7854, -- [1]
+			7854,
 		},
-	}, -- [49]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2856,
@@ -891,17 +959,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Colete de couro silvestre",
 			["Russian"] = "Дикарский кожаный жилет",
-			["Chinese"] = "[Wild Leather Vest]",
+			["Chinese"] = "蛮皮外衣",
 			["Spanish"] = "El Jubón de cuero salvaje",
+			["Mexican"] = "El Jubón de cuero salvaje",
 			["French"] = "Le gilet en cuir sauvage",
 			["English"] = "Wild Leather Vest",
 			["Korean"] = "야생 가죽 조끼",
 			["German"] = "Wildlederweste",
 		},
 		["npcs"] = {
-			7854, -- [1]
+			7854,
 		},
-	}, -- [50]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2857,
@@ -909,17 +978,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Capacete de couro silvestre",
 			["Russian"] = "Дикарский кожаный шлем",
-			["Chinese"] = "[Wild Leather Helmet]",
+			["Chinese"] = "蛮皮头盔",
 			["Spanish"] = "Casco de cuero salvaje",
+			["Mexican"] = "Casco de cuero salvaje",
 			["French"] = "Le casque en cuir sauvage",
 			["English"] = "Wild Leather Helmet",
 			["Korean"] = "야생 가죽 투구",
 			["German"] = "Wildlederhelm",
 		},
 		["npcs"] = {
-			7854, -- [1]
+			7854,
 		},
-	}, -- [51]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2858,
@@ -927,17 +997,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Botas de couro silvestre",
 			["Russian"] = "Дикарские кожаные сапоги",
-			["Chinese"] = "[Wild Leather Boots]",
+			["Chinese"] = "蛮皮战靴",
 			["Spanish"] = "Botas de cuero salvaje",
+			["Mexican"] = "Botas de cuero salvaje",
 			["French"] = "Les bottes en cuir sauvage",
 			["English"] = "Wild Leather Boots",
-			["Korean"] = "[Wild Leather Boots]",
+			["Korean"] = "야생 가죽 장화",
 			["German"] = "Wildlederstiefel",
 		},
 		["npcs"] = {
-			7854, -- [1]
+			7854,
 		},
-	}, -- [52]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2859,
@@ -945,17 +1016,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Perneiras de couro silvestre",
 			["Russian"] = "Дикарские кожаные поножи",
-			["Chinese"] = "[Wild Leather Leggings]",
+			["Chinese"] = "蛮皮护腿",
 			["Spanish"] = "Leotardos de cuero salvaje",
+			["Mexican"] = "Leotardos de cuero salvaje",
 			["French"] = "Les jambières en cuir sauvage",
 			["English"] = "Wild Leather Leggings",
-			["Korean"] = "[Wild Leather Leggings]",
+			["Korean"] = "야생 가죽 다리보호구",
 			["German"] = "Wildledergamaschen",
 		},
 		["npcs"] = {
-			7854, -- [1]
+			7854,
 		},
-	}, -- [53]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 2860,
@@ -963,17 +1035,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Mestre do couro silvestre",
 			["Russian"] = "Мастер школы Дикаря",
-			["Chinese"] = "[Master of the Wild Leather]",
+			["Chinese"] = "蛮皮护甲大师",
 			["Spanish"] = "Maestro de cuero salvaje",
+			["Mexican"] = "Maestro de cuero salvaje",
 			["French"] = "Maître du cuir sauvage",
 			["English"] = "Master of the Wild Leather",
-			["Korean"] = "[Master of the Wild Leather]",
+			["Korean"] = "야생 가죽 세공의 대가",
 			["German"] = "Meister des Wildleders",
 		},
 		["npcs"] = {
-			7854, -- [1]
+			7854,
 		},
-	}, -- [54]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 3402,
@@ -981,17 +1054,63 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "O submercado",
 			["Russian"] = "Черный рынок",
-			["Chinese"] = "[The Undermarket]",
+			["Chinese"] = "黑市交易",
 			["Spanish"] = "El Mercado Negro",
+			["Mexican"] = "El Mercado Negro",
 			["French"] = "Le Sous-marché",
 			["English"] = "The Undermarket",
 			["Korean"] = "암거래상단",
 			["German"] = "Der Untermarkt",
 		},
 		["npcs"] = {
-			8439, -- [1]
+			8439,
 		},
-	}, -- [55]
+	},
+	{
+		["phase"] = 1,
+		["id"] = 3629,
+		["npcs"] = {
+			5518,
+			5174,
+			3494,
+			4586,
+		},
+		["name"]  = {
+			["English"] = "Goblin engineering",
+			["Russian"] = "Гоблинское инженерное дело",
+			["French"] = "Ingénierie des gobelins",
+			["Portuguese"] = "Engenharia goblínica",
+			["Korean"] = "고블린 기계공학",
+			["Chinese"] = "地精工程",
+			["German"] = "Goblin-Ingenieurskunst",
+			["Spanish"] = "Ingeniería goblin",
+			["Mexican"] = "Ingeniería goblin",
+		},
+		["min_skill"] = 200,
+		["min_xp_level"] = 30,
+	},
+	{
+		["phase"] = 1,
+		["id"] = 3630,
+		["min_xp_level"] = 30,
+		["name"] = {
+			["Portuguese"] = "Engenharia gnômica",
+			["Russian"] = "Гномское инженерное дело",
+			["Chinese"] = "侏儒工程",
+			["Spanish"] = "Ingeniería gnómica",
+			["Mexican"] = "Ingeniería gnómica",
+			["French"] = "Ingénierie des gnomes",
+			["English"] = "Gnome Engineering",
+			["Korean"] = "노움 기계공학",
+			["German"] = "Gnomen-Ingenieurskunst",
+		},
+		["npcs"] = {
+			5518,
+			5174,
+			3494,
+			4586,
+		},
+	},
 	{
 		["phase"] = 1,
 		["id"] = 4083,
@@ -999,17 +1118,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Cálice Espectral",
 			["Russian"] = "Призрачный кубок",
-			["Chinese"] = "[The Spectral Chalice]",
+			["Chinese"] = "鬼魂之杯",
 			["Spanish"] = "El cáliz espectral",
+			["Mexican"] = "El cáliz espectral",
 			["French"] = "Le Calice spectral",
 			["English"] = "The Spectral Chalice",
-			["Korean"] = "[The Spectral Chalice]",
+			["Korean"] = "유령의 성배",
 			["German"] = "Der spektrale Kelch",
 		},
 		["objects"] = {
-			164869, -- [1]
+			164869,
 		},
-	}, -- [56]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 4161,
@@ -1019,51 +1139,111 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Рецепт кальдораев",
 			["Chinese"] = "卡多雷的菜谱",
 			["Spanish"] = "La receta de los Kaldorei",
+			["Mexican"] = "La receta de los Kaldorei",
 			["French"] = "Une recette kaldorei",
 			["English"] = "Recipe of the Kaldorei",
 			["Korean"] = "칼도레이 조리법",
 			["German"] = "Rezept der Kaldorei",
 		},
 		["npcs"] = {
-			6286, -- [1]
+			6286,
 		},
-	}, -- [57]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 5124,
-		["min_xp_level"] = 60,
+		["min_xp_level"] = 55,
 		["name"] = {
-			["Portuguese"] = "[Fiery Plate Gauntlets]",
-			["Russian"] = "[Fiery Plate Gauntlets]",
-			["Chinese"] = "[Fiery Plate Gauntlets]",
-			["Spanish"] = "[Fiery Plate Gauntlets]",
-			["French"] = "[Fiery Plate Gauntlets]",
+			["Portuguese"] = "Manoplas de Placa Ardente",
+			["Russian"] = "Огненные латные рукавицы",
+			["Chinese"] = "炽热板甲护手",
+			["Spanish"] = "Guanteletes de placas ardientes",
+			["Mexican"] = "Guanteletes de placas ardientes",
+			["French"] = "Gantelets en plaque de feu",
 			["English"] = "Fiery Plate Gauntlets",
-			["Korean"] = "[Fiery Plate Gauntlets]",
+			["Korean"] = "불꽃의 판금 건틀릿",
 			["German"] = "Feurige Plattenstulpen",
 		},
 		["npcs"] = {
-			10637, -- [1]
+			10637,
 		},
-	}, -- [58]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 5127,
-		["min_xp_level"] = 58,
+		["min_xp_level"] = 55,
 		["name"] = {
 			["Portuguese"] = "A forja demoníaca",
-			["Russian"] = "[The Demon Forge]",
-			["Chinese"] = "[The Demon Forge]",
+			["Russian"] = "Демонова кузня",
+			["Chinese"] = "恶魔熔炉",
 			["Spanish"] = "La forja demoníaca",
+			["Mexican"] = "La forja demoníaca",
 			["French"] = "La forge démoniaque",
 			["English"] = "The Demon Forge",
-			["Korean"] = "[The Demon Forge]",
+			["Korean"] = "악마의 룬",
 			["German"] = "Die Dämonenschmiede",
 		},
 		["npcs"] = {
-			10918, -- [1]
+			10918,
 		},
-	}, -- [59]
+	},
+	{
+		["id"] = 5141,
+		["name"]  = {
+			["English"] = "Dragonscale leatherworking",
+			["Russian"] = "Кожевничество: чешуя драконов",
+			["French"] = "Travail du cuir d'écailles de dragon",
+			["Portuguese"] = "Couraria Dragônica",
+			["Korean"] = "용비늘 가죽세공",
+			["Chinese"] = "龙鳞制皮",
+			["German"] = "Drachenlederverarbeitung",
+			["Spanish"] = "Peletería dragontina",
+			["Mexican"] = "Peletería dragontina",
+		},
+		["npcs"] = {
+			7866,
+			7867,
+		},
+		["min_xp_level"] = 40,
+	},
+	{
+		["id"] = 5143,
+		["name"]  = {
+			["English"] = "Tribal leatherworking",
+			["Russian"] = "Кожевничество: традиции предков",
+			["French"] = "Travail du cuir tribal",
+			["Portuguese"] = "Couraria tribal",
+			["Korean"] = "전통 가죽세공",
+			["Chinese"] = "部族制皮",
+			["German"] = "Stammeslederverarbeitung",
+			["Spanish"] = "Peletería tribal",
+			["Mexican"] = "Peletería tribal",
+		},
+		["npcs"] = {
+			7870,
+			7871,
+		},
+		["min_xp_level"] = 40,
+	},
+	{
+		["id"] = 5144,
+		["name"]  = {
+			["English"] = "Elemental leatherworking",
+			["Russian"] = "Кожевничество: сила стихий",
+			["French"] = "Travail du cuir élémentaire",
+			["Portuguese"] = "Couraria Elemental",
+			["Korean"] = "원소 가죽세공",
+			["Chinese"] = "元素制皮",
+			["German"] = "Elementarlederverarbeitung",
+			["Spanish"] = "Peletería elemental",
+			["Mexican"] = "Peletería elemental",
+		},
+		["npcs"] = {
+			7868,
+			7869,
+		},
+		["min_xp_level"] = 40,
+	},
 	{
 		["phase"] = 1,
 		["id"] = 5150,
@@ -1073,69 +1253,111 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Даданга проголодалась!",
 			["Chinese"] = "达丹加饿了！",
 			["Spanish"] = "¡Dadanga tiene hambre!",
+			["Mexican"] = "¡Dadanga tiene hambre!",
 			["French"] = "Dadanga a faim !",
 			["English"] = "Dadanga is Hungry!",
 			["Korean"] = "배고픈 다단가!",
 			["German"] = "Dadanga ist hungrig!",
 		},
 		["npcs"] = {
-			9274, -- [1]
+			9274,
 		},
-	}, -- [60]
+	},
+	{
+		["id"] = 5283,
+		["name"]  = {
+			["English"] = "The Art of the Armorsmith",
+			["Russian"] = "Искусство школы Брони",
+			["French"] = "L'art de l'armurier",
+			["Portuguese"] = "A arte de forjar armaduras",
+			["Korean"] = "기갑 세공 기술",
+			["Chinese"] = "盔甲匠的艺术",
+			["German"] = "Die Kunst des Rüstungsschmiedes",
+			["Spanish"] = "El arte del forjador de armaduras",
+			["Mexican"] = "El arte del forjador de armaduras",
+		},
+		["npcs"] = {
+			5164,
+			11177,
+		},
+		["min_xp_level"] = 40,
+	},
+	{
+		["id"] = 5284,
+		["name"]  = {
+			["English"] = "The Way of the Weaponsmith",
+			["Russian"] = "Путь оружейника",
+			["French"] = "La voie du Forgeron d'armes",
+			["Portuguese"] = "O caminho do armeiro",
+			["Korean"] = "무기제작자의 길",
+			["Chinese"] = "武器铸造师之道",
+			["German"] = "Der Weg des Waffenschmieds",
+			["Spanish"] = "El arte del forjador de armas",
+			["Mexican"] = "El arte del forjador de armas",
+		},
+		["npcs"] = {
+			11146,
+			11178,
+		},
+		["min_xp_level"] = 40,
+	},
 	{
 		["phase"] = 1,
 		["id"] = 5305,
 		["min_xp_level"] = 50,
 		["name"] = {
-			["Portuguese"] = "[Sweet Serenity]",
+			["Portuguese"] = "Doce Serenidade",
 			["Russian"] = "Секрет безмятежности",
-			["Chinese"] = "[Sweet Serenity]",
-			["Spanish"] = "[Sweet Serenity]",
+			["Chinese"] = "甜美的平静",
+			["Spanish"] = "Dulce serenidad",
+			["Mexican"] = "Dulce serenidad",
 			["French"] = "Douce sérénité",
 			["English"] = "Sweet Serenity",
-			["Korean"] = "[Sweet Serenity]",
-			["German"] = "[Sweet Serenity]",
+			["Korean"] = "달콤한 평온",
+			["German"] = "Süße Beschaulichkeit",
 		},
 		["npcs"] = {
-			11191, -- [1]
+			11191,
 		},
-	}, -- [61]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 5306,
 		["min_xp_level"] = 50,
 		["name"] = {
 			["Portuguese"] = "A litofídia da caçadora sombria",
-			["Russian"] = "[Snakestone of the Shadow Huntress]",
-			["Chinese"] = "[Snakestone of the Shadow Huntress]",
+			["Russian"] = "Змеиный камень Теневой Охотницы",
+			["Chinese"] = "沃什加斯的菊石",
 			["Spanish"] = "Piedra Serpiente de la Cazadora de las Sombras",
+			["Mexican"] = "Piedra Serpiente de la Cazadora de las Sombras",
 			["French"] = "Pierre du serpent de la chasseresse des ombres",
 			["English"] = "Snakestone of the Shadow Huntress",
 			["Korean"] = "어둠사냥꾼의 뱀돌",
 			["German"] = "Schlangenstein der Schattenjägerin",
 		},
 		["npcs"] = {
-			11192, -- [1]
+			11192,
 		},
-	}, -- [62]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 5307,
 		["min_xp_level"] = 50,
 		["name"] = {
-			["Portuguese"] = "[Corruption]",
+			["Portuguese"] = "Corrupção",
 			["Russian"] = "Скверна",
-			["Chinese"] = "[Corruption]",
-			["Spanish"] = "[Corruption]",
+			["Chinese"] = "腐蚀",
+			["Spanish"] = "Corrupción",
+			["Mexican"] = "Corrupción",
 			["French"] = "Corruption",
 			["English"] = "Corruption",
-			["Korean"] = "[Corruption]",
-			["German"] = "[Corruption]",
+			["Korean"] = "부패의 검",
+			["German"] = "Verderbnis",
 		},
 		["npcs"] = {
-			11193, -- [1]
+			11193,
 		},
-	}, -- [63]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 5518,
@@ -1145,15 +1367,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Броня огров Гордока",
 			["Chinese"] = "戈多克食人魔装",
 			["Spanish"] = "El disfraz de ogro Gordok",
+			["Mexican"] = "El disfraz de ogro Gordok",
 			["French"] = "La tenue d'ogre gordok",
 			["English"] = "The Gordok Ogre Suit",
 			["Korean"] = "고르독 오우거 위장복",
 			["German"] = "Der Ogeranzug der Gordok",
 		},
 		["npcs"] = {
-			14338, -- [1]
+			14338,
 		},
-	}, -- [64]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 5519,
@@ -1163,15 +1386,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Броня огров Гордока",
 			["Chinese"] = "戈多克食人魔装",
 			["Spanish"] = "El disfraz de ogro Gordok",
+			["Mexican"] = "El disfraz de ogro Gordok",
 			["French"] = "La tenue d'ogre gordok",
 			["English"] = "The Gordok Ogre Suit",
-			["Korean"] = "[The Gordok Ogre Suit]",
+			["Korean"] = "고르독 오우거 위장복",
 			["German"] = "Der Ogeranzug der Gordok",
 		},
 		["npcs"] = {
-			14338, -- [1]
+			14338,
 		},
-	}, -- [65]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 6032,
@@ -1179,17 +1403,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Tecido sagrado",
 			["Russian"] = "Священная ткань",
-			["Chinese"] = "[Sacred Cloth]",
+			["Chinese"] = "神圣的月布",
 			["Spanish"] = "Tela sagrada",
+			["Mexican"] = "Tela sagrada",
 			["French"] = "Le vêtement sacré",
 			["English"] = "Sacred Cloth",
 			["Korean"] = "신성한 옷감",
 			["German"] = "Hochheiliger Stoff",
 		},
 		["npcs"] = {
-			11557, -- [1]
+			11557,
 		},
-	}, -- [66]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 6610,
@@ -1197,17 +1422,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Escondidinho Marisquete",
 			["Russian"] = "Мидии с сюрпризом",
-			["Chinese"] = "[Clamlette Surprise]",
+			["Chinese"] = "蚌肉大餐",
 			["Spanish"] = "Sorpresa de almejate",
+			["Mexican"] = "Sorpresa de almejate",
 			["French"] = "Surprise de palourdes",
 			["English"] = "Clamlette Surprise",
 			["Korean"] = "조개 별미",
 			["German"] = "Muschelette Surprise",
 		},
 		["npcs"] = {
-			8125, -- [1]
+			8125,
 		},
-	}, -- [67]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 6622,
@@ -1217,15 +1443,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Очередь на медобслуживание",
 			["Chinese"] = "救死扶伤",
 			["Spanish"] = "La selección",
+			["Mexican"] = "La selección",
 			["French"] = "Triage",
 			["English"] = "Triage",
 			["Korean"] = "응급 치료",
 			["German"] = "Triage",
 		},
 		["npcs"] = {
-			12920, -- [1]
+			12920,
 		},
-	}, -- [68]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 6624,
@@ -1235,15 +1462,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Очередность перевязки",
 			["Chinese"] = "救死扶伤",
 			["Spanish"] = "Atenciones médicas",
+			["Mexican"] = "Atenciones médicas",
 			["French"] = "Triage",
 			["English"] = "Triage",
 			["Korean"] = "응급 치료",
 			["German"] = "Triage",
 		},
 		["npcs"] = {
-			12939, -- [1]
+			12939,
 		},
-	}, -- [69]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 7321,
@@ -1253,15 +1481,16 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Нежный черепаховый суп",
 			["Chinese"] = "海龟汤",
 			["Spanish"] = "Sopa balsámica de tortuga",
+			["Mexican"] = "Sopa balsámica de tortuga",
 			["French"] = "Bisque de tortue apaisante",
 			["English"] = "Soothing Turtle Bisque",
 			["Korean"] = "독특한 거북이 비스크",
 			["German"] = "Milde Schildkrötensuppe",
 		},
 		["npcs"] = {
-			2393, -- [1]
+			2393,
 		},
-	}, -- [70]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 7493,
@@ -1271,36 +1500,38 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Все еще только начинается!",
 			["Chinese"] = "一切才刚刚开始",
 			["Spanish"] = "El viaje acaba de empezar",
+			["Mexican"] = "El viaje acaba de empezar",
 			["French"] = "Le voyage commence à peine",
 			["English"] = "The Journey Has Just Begun",
 			["Korean"] = "모험은 이제부터",
 			["German"] = "Die Reise beginnt erst",
 		},
 		["npcs"] = {
-			14392, -- [1]
+			14392,
 		},
-	}, -- [71]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 7497,
 		["min_xp_level"] = 60,
 		["name"] = {
 			["Portuguese"] = "[The Journey Has Just Begun]",
-			["Russian"] = "[The Journey Has Just Begun]",
+			["Russian"] = "Это только начало пути",
 			["Chinese"] = "[The Journey Has Just Begun]",
-			["Spanish"] = "[The Journey Has Just Begun]",
-			["French"] = "[The Journey Has Just Begun]",
+			["Spanish"] = "El viaje acaba de empezar",
+			["Mexican"] = "El viaje acaba de empezar",
+			["French"] = "Le voyage commence à peine",
 			["English"] = "The Journey Has Just Begun",
-			["Korean"] = "[The Journey Has Just Begun]",
-			["German"] = "[The Journey Has Just Begun]",
+			["Korean"] = "모험은 이제부터",
+			["German"] = "Die Reise beginnt erst",
 		},
 		["npcs"] = {
-			14394, -- [1]
+			14394,
 		},
-	}, -- [72]
+	},
 	{
 		["items"] = {
-			18628, -- [1]
+			18628,
 		},
 		["id"] = 7604,
 		["min_xp_level"] = 60,
@@ -1309,67 +1540,71 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Заключение договора",
 			["Chinese"] = "瑟银兄弟会契约",
 			["Spanish"] = "Un contrato vinculante",
+			["Mexican"] = "Un contrato vinculante",
 			["French"] = "Un contrat contraignant",
 			["English"] = "A Binding Contract",
 			["Korean"] = "대장조합 계약서",
 			["German"] = "Ein verbindlicher Vertrag",
 		},
 		["phase"] = 1,
-	}, -- [73]
+	},
 	{
 		["items"] = {
-			18769, -- [1]
+			18769,
 		},
 		["id"] = 7649,
-		["min_xp_level"] = 60,
+		["min_xp_level"] = 50,
 		["name"] = {
 			["Portuguese"] = "Malha de Placas de Tório Encantado: volume I",
 			["Russian"] = "\"Зачарованная ториевая броня\", том I",
-			["Chinese"] = "[Enchanted Thorium Platemail: Volume I]",
+			["Chinese"] = "魔化瑟银板甲：第一卷",
 			["Spanish"] = "Las mallas de placas en torio encantado: volumen I",
+			["Mexican"] = "Las mallas de placas en torio encantado: volumen I",
 			["French"] = "Les plates en thorium enchanté - Volume I",
 			["English"] = "Enchanted Thorium Platemail: Volume I",
-			["Korean"] = "[Enchanted Thorium Platemail: Volume I]",
+			["Korean"] = "마력깃든 토륨 갑옷 I",
 			["German"] = "Verzauberter Thoriumplattenpanzer: Band I",
 		},
-		["phase"] = 1,
-	}, -- [74]
+		["phase"] = 2,
+	},
 	{
 		["items"] = {
-			18770, -- [1]
+			18770,
 		},
 		["id"] = 7650,
-		["min_xp_level"] = 60,
+		["min_xp_level"] = 50,
 		["name"] = {
 			["Portuguese"] = "Malha de Placas de Tório Encantado: volume II",
 			["Russian"] = "\"Зачарованная ториевая броня\", том II",
-			["Chinese"] = "[Enchanted Thorium Platemail: Volume II]",
+			["Chinese"] = "魔化瑟银板甲：第二卷",
 			["Spanish"] = "Las mallas de placas en torio encantado: volumen II",
+			["Mexican"] = "Las mallas de placas en torio encantado: volumen II",
 			["French"] = "Les plates en thorium enchanté - Volume II",
 			["English"] = "Enchanted Thorium Platemail: Volume II",
 			["Korean"] = "마력 깃든 토륨 갑옷 II",
 			["German"] = "Verzauberter Thoriumplattenpanzer: Band II",
 		},
-		["phase"] = 1,
-	}, -- [75]
+		["phase"] = 2,
+	},
 	{
 		["items"] = {
-			18771, -- [1]
+			18771,
 		},
 		["id"] = 7651,
-		["min_xp_level"] = 55,
+		["min_xp_level"] = 50,
 		["name"] = {
 			["Portuguese"] = "Malha de Placas de Tório Encantado: volume III",
 			["Russian"] = "\"Зачарованная ториевая броня\", том III",
-			["Chinese"] = "[Enchanted Thorium Platemail: Volume III]",
+			["Chinese"] = "魔化瑟银板甲：第三卷]",
 			["Spanish"] = "Las mallas de placas en torio encantado: volumen III",
+			["Mexican"] = "Las mallas de placas en torio encantado: volumen III",
 			["French"] = "Les plates en thorium enchanté - Volume III",
 			["English"] = "Enchanted Thorium Platemail: Volume III",
-			["Korean"] = "[Enchanted Thorium Platemail: Volume III]",
+			["Korean"] = "마력 깃든 토륨 갑옷 III",
 			["German"] = "Verzauberter Thoriumplattenpanzer: Band III",
 		},
-		["phase"] = 1,
-	}, -- [76]
+		["phase"] = 2,
+	},
 	{
 		["phase"] = 1,
 		["id"] = 7653,
@@ -1377,35 +1612,37 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Cinto de Placa Imperial",
 			["Russian"] = "Императорский латный пояс",
-			["Chinese"] = "[Imperial Plate Belt]",
+			["Chinese"] = "君王板甲腰带",
 			["Spanish"] = "Cinturón imperial de placas",
+			["Mexican"] = "Cinturón imperial de placas",
 			["French"] = "La ceinture impériale en plaques",
 			["English"] = "Imperial Plate Belt",
-			["Korean"] = "[Imperial Plate Belt]",
+			["Korean"] = "황제의 판금 허리띠",
 			["German"] = "Imperialer Plattengürtel",
 		},
 		["npcs"] = {
-			14567, -- [1]
+			14567,
 		},
-	}, -- [77]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 7654,
 		["min_xp_level"] = 50,
 		["name"] = {
 			["Portuguese"] = "Botas de Placa Imperial",
-			["Russian"] = "[Imperial Plate Boots]",
-			["Chinese"] = "[Imperial Plate Boots]",
+			["Russian"] = "Императорские латные сапоги",
+			["Chinese"] = "君王板甲战靴",
 			["Spanish"] = "Botas imperiales de placas",
+			["Mexican"] = "Botas imperiales de placas",
 			["French"] = "Les bottes impériales en plaques",
 			["English"] = "Imperial Plate Boots",
-			["Korean"] = "[Imperial Plate Boots]",
+			["Korean"] = "황제의 판금 장화",
 			["German"] = "Imperiale Plattenstiefel",
 		},
 		["npcs"] = {
-			14567, -- [1]
+			14567,
 		},
-	}, -- [78]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 7655,
@@ -1413,17 +1650,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Braçadeira de Placa Imperial",
 			["Russian"] = "Императорские латные наручи",
-			["Chinese"] = "[Imperial Plate Bracer]",
+			["Chinese"] = "君王板甲护腕",
 			["Spanish"] = "Brazales imperiales de placas",
+			["Mexican"] = "Brazales imperiales de placas",
 			["French"] = "Les bracelets impériaux en plaques",
 			["English"] = "Imperial Plate Bracer",
-			["Korean"] = "[Imperial Plate Bracer]",
+			["Korean"] = "황제의 판금 팔보호구",
 			["German"] = "Imperiale Plattenarmschienen",
 		},
 		["npcs"] = {
-			14567, -- [1]
+			14567,
 		},
-	}, -- [79]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 7656,
@@ -1431,17 +1669,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Torso de Placa Imperial",
 			["Russian"] = "Императорское Зерцало",
-			["Chinese"] = "[Imperial Plate Chest]",
+			["Chinese"] = "君王板甲护胸",
 			["Spanish"] = "Peto imperial de placas",
+			["Mexican"] = "Peto imperial de placas",
 			["French"] = "La pansière impériale",
 			["English"] = "Imperial Plate Chest",
-			["Korean"] = "[Imperial Plate Chest]",
+			["Korean"] = "황제의 판금 흉갑",
 			["German"] = "Imperiale Plattenrüstung",
 		},
 		["npcs"] = {
-			14567, -- [1]
+			14567,
 		},
-	}, -- [80]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 7657,
@@ -1449,35 +1688,37 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Elmo de Placa Imperial",
 			["Russian"] = "Императорский латный шлем",
-			["Chinese"] = "[Imperial Plate Helm]",
+			["Chinese"] = "君王板甲头盔",
 			["Spanish"] = "Yelmo imperial de placas",
+			["Mexican"] = "Yelmo imperial de placas",
 			["French"] = "Le heaume impérial en plaques",
 			["English"] = "Imperial Plate Helm",
-			["Korean"] = "[Imperial Plate Helm]",
+			["Korean"] = "황제의 판금 투구",
 			["German"] = "Imperialer Plattenhelm",
 		},
 		["npcs"] = {
-			14567, -- [1]
+			14567,
 		},
-	}, -- [81]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 7658,
 		["min_xp_level"] = 50,
 		["name"] = {
 			["Portuguese"] = "Perneiras de Placa Imperial",
-			["Russian"] = "[Imperial Plate Leggings]",
-			["Chinese"] = "[Imperial Plate Leggings]",
+			["Russian"] = "Императорские латные поножи]",
+			["Chinese"] = "君王板甲护腿",
 			["Spanish"] = "Leotardos imperiales de placas",
+			["Mexican"] = "Leotardos imperiales de placas",
 			["French"] = "Les jambières impériales en plaques",
 			["English"] = "Imperial Plate Leggings",
-			["Korean"] = "[Imperial Plate Leggings]",
+			["Korean"] = "황제의 판금 다리보호구",
 			["German"] = "Imperiale Plattengamaschen",
 		},
 		["npcs"] = {
-			14567, -- [1]
+			14567,
 		},
-	}, -- [82]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 7659,
@@ -1485,17 +1726,18 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Omoplatas de Placa Imperial",
 			["Russian"] = "Императорские латные наплечники",
-			["Chinese"] = "[Imperial Plate Shoulders]",
+			["Chinese"] = "君王板甲护肩",
 			["Spanish"] = "Hombreras imperiales de placas",
+			["Mexican"] = "Hombreras imperiales de placas",
 			["French"] = "Les épaulières impériales en plaques",
 			["English"] = "Imperial Plate Shoulders",
-			["Korean"] = "[Imperial Plate Shoulders]",
+			["Korean"] = "황제의 판금 어깨보호구",
 			["German"] = "Imperiale Plattenschultern",
 		},
 		["npcs"] = {
-			14567, -- [1]
+			14567,
 		},
-	}, -- [83]
+	},
 	{
 		["phase"] = 1,
 		["id"] = 8313,
@@ -1505,15 +1747,35 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Наделение знаниями",
 			["Chinese"] = "分享知识",
 			["Spanish"] = "Compartir el conocimiento",
+			["Mexican"] = "Compartir el conocimiento",
 			["French"] = "Partager la connaissance",
 			["English"] = "Sharing the Knowledge",
 			["Korean"] = "지식 공유",
 			["German"] = "Geteiltes Wissen",
 		},
 		["objects"] = {
-			180503, -- [1]
+			180503,
 		},
-	}, -- [84]
+	},
+	{
+		["phase"] = 1,
+		["id"] = 8323,
+		["min_xp_level"] = 40,
+		["name"] = {
+			["German"] = "Wahrer Glauben",
+			["English"] = "True Believers",
+			["Spanish"] = "El creyente verdadero",
+			["Mexican"] = "El creyente verdadero",
+			["French"] = "Les vrais croyants",
+			["Portuguese"] = "Crentes Fiéis",
+			["Russian"] = "Истинно верующие",
+			["Korean"] = "진정한 신봉자",
+			["Chinese"] = "真正的信徒",
+		},
+		["npcs"] = {
+			15194,
+		},
+	},
 	{
 		["phase"] = 1,
 		["id"] = 8586,
@@ -1523,15 +1785,43 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "Зажигательные отбивные Могиля из химерока",
 			["Chinese"] = "[Dirge's Kickin' Chimaerok Chops]",
 			["Spanish"] = "Fabulosas chuletillas de quimerok de Dirge",
+			["Mexican"] = "Fabulosas chuletillas de quimerok de Dirge",
 			["French"] = "Pyro-côtelettes de chimaerok à la Dirge",
 			["English"] = "Dirge's Kickin' Chimaerok Chops",
 			["Korean"] = "[Dirge's Kickin' Chimaerok Chops]",
 			["German"] = "Dirges abgefahrene Chimaerokkoteletts",
 		},
 		["npcs"] = {
-			8125, -- [1]
+			8125,
 		},
-	}, -- [85]
+	},
+	{
+		["phase"] = 1,
+		["id"] = 8769,
+		["min_xp_level"] = 40,
+		["name"] = {
+			["Portuguese"] = "Um presente tiquetaquean",
+			["Russian"] = "Тикающий подарок",
+			["Chinese"] = "条纹礼物盒",
+			["Spanish"] = "Un presente que hace tic tac",
+			["Mexican"] = "Un presente que hace tic tac",
+			["French"] = "Un cadeau tic-taquant",
+			["English"] = "A Ticking Present",
+			["Korean"] = "꿈틀거리는 선물상자",
+			["German"] = "Ein tickendes Geschenk",
+		},
+		["special_action"] = {
+			["Portuguese"] = "Começa com um presente debaixo da árvore de Natal",
+			["Russian"] = "Начинается с подарка под елку",
+			["Chinese"] = "从圣诞树下的礼物开始",
+			["Spanish"] = "Comienza desde un regalo debajo del árbol de Navidad",
+			["Mexican"] = "Comienza desde un regalo debajo del árbol de Navidad",
+			["French"] = "Commence par un cadeau sous le sapin",
+			["English"] = "Starts from a present under the Christmas tree",
+			["Korean"] = "크리스마스 트리 아래 선물에서 시작",
+			["German"] = "Beginnt mit einem Geschenk unter dem Weihnachtsbaum",
+		},
+	},
 	{
 		["phase"] = 1,
 		["id"] = 8798,
@@ -1539,40 +1829,42 @@ MTSL_DATA["quests"] = {
 		["name"] = {
 			["Portuguese"] = "Um yeti para chamar de seu",
 			["Russian"] = "Твой собственный Йети.",
-			["Chinese"] = "[A Yeti of Your Own]",
+			["Chinese"] = "你自己的机械雪人",
 			["Spanish"] = "Un yeti propio",
+			["Mexican"] = "Un yeti propio",
 			["French"] = "Un yéti rien que pour vous",
 			["English"] = "A Yeti of Your Own",
 			["Korean"] = "나만의 기계설인",
 			["German"] = "Euer eigener Yeti",
 		},
 		["npcs"] = {
-			10305, -- [1]
+			10305,
 		},
-	}, -- [86]
+	},
 	{
-		["phase"] =6,
-		["id"] = 9236,
+		["phase"] = 6,
+		["id"] = 9233,
 		["min_xp_level"] = 60,
 		["name"] = {
-			["Portuguese"] = "Icebane Breastplate",
-			["Russian"] = "Кираса ледяной погибели",
-			["Chinese"] = "破冰胸甲",
-			["Spanish"] = "La coraza Deliriohelado",
-			["French"] = "La cuirasse plaie-de-glace",
-			["English"] = "Icebane Breastplate",
-			["Korean"] = "[Icebane Breastplate]",
-			["German"] = "Eisfluchbrustplatte",
+			["German"] = "Omarions Leitfaden",
+			["English"] = "Omarion's Handbook",
+			["Spanish"] = "Vademécum de Omarion",
+			["Mexican"] = "Vademécum de Omarion",
+			["French"] = "Le recueil d'Omarion",
+			["Portuguese"] = "Omarion's Handbook",
+			["Russian"] = "Руководство Омариона",
+			["Korean"] = "[Omarion's Handbook]",
+			["Chinese"] = "奥玛里恩的手册",
 		},
-		-- Special reference to Darkmoon faire NPCs
 		["npcs"] = {
-			16376, -- [1]
+			16365,
 		},
 		["reputation"] = {
 			["faction_id"] = 529,
-			["level_id"] = 8,
+			["level_id"] = 7,
 		},
-	}, -- [87]
+		["min_skill"] = 290,
+	},
 	{
 		["phase"] = 1,
 		["id"] = 9249,
@@ -1582,6 +1874,7 @@ MTSL_DATA["quests"] = {
 			["Russian"] = "40 купонов – пульт управления паровым танком",
 			["Chinese"] = "40张奖券 - 结构图：蒸汽坦克控制器",
 			["Spanish"] = "40 vales: esquema (mando de tonque de vapor)",
+			["Mexican"] = "40 vales: esquema (mando de tonque de vapor)",
 			["French"] = "40 bons - Schéma : Commande de chariotte à vapeur",
 			["English"] = "40 Tickets - Schematic: Steam Tonk Controller",
 			["Korean"] = "상품권 40매 - 설계도: 통통 전차 조종기",
@@ -1589,8 +1882,8 @@ MTSL_DATA["quests"] = {
 		},
 		-- Special reference to Darkmoon faire NPCs
 		["npcs"] = {
-			909909, -- [1]
-			909910, -- [2]
+			909909,
+			909910,
 		},
-	}, -- [87]
+	},
 }

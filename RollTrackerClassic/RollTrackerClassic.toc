@@ -1,8 +1,8 @@
 ## Interface: 11303
 ## Title: RollTracker Classic
 ## Notes: Keeps tracks of /rolls, loot and more
-## Version: 2.10
-## Author: GPI
+## Version: 2.20
+## Author: GPI / Erytheia-Razorfen
 ## DefaultState: enabled
 ## SavedVariables: RollTrackerClassicDB,RollTrackerClassicLoot
 

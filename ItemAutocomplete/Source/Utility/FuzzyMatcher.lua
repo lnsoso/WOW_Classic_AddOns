@@ -21,11 +21,8 @@ function FuzzyMatcher.New(pattern, caseInsensitive)
   self.patternCodePoints = {}
   self.textBuffer = {}
 
-  if caseInsensitive then
-    pattern = utf8.ToLower(pattern)
-  end
-
   for _, codePoint in utf8.CodePoints(pattern) do
+    codePoint = caseInsensitive and utf8.ToLower(codePoint) or codePoint
     self.patternCodePoints[#self.patternCodePoints + 1] = codePoint
   end
 
@@ -177,7 +174,8 @@ function FuzzyMatcher:_EvaluateBonus(textCodePoints, textLength, sidx, eidx)
       end
 
       if pidx == 1 then
-        score = score + bonus * bonusFirstCharMultiplier
+        local additionalBonus = index == 1 and 2 or 1
+        score = score + bonus * math.pow(bonusFirstCharMultiplier, additionalBonus)
       else
         score = score + bonus
       end

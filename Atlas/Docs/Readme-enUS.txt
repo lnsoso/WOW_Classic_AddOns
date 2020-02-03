@@ -1,141 +1,116 @@
 Atlas, a World of Warcraft instance map browser
-Copyright 2005 - 2008 Dan Gilbert
-Email me at loglow@gmail.com
-
-
-
-Note: This readme file is just slightly out of date.
-Expect a completely rewritten version in the very near future!
-
+Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert at gmail dot com>
+Copyright 2010 - Lothaer <lothayer at gmail dot com>, Atlas Team
+Copyright 2011 ~ 2020 - Arith Hsu, Atlas Team <atlas.addon at gmail dot com>
 
 
 ===============
 = About Atlas =
 ===============
 
-For some reason, Blizzard decided to include beautiful maps for every
-area of Azeroth except instances. You can still see the area
-surrounding you in the minimap when you're in an instance, but never
-the overall layout of the entire dungeon. This is where Atlas comes
-in. The core of Atlas is basically an image viewer. However, it's the
-images that come with Atlas that make it worthwhile: a map for every
-instance in the game. Furthermore, the maps are marked with the
-locations of bosses and other points of interest. Atlas also includes
-maps of battlegrounds, dungeon locations, flight points, and outdoor
-raid bosses.
+Atlas is an addon for World of Warcraft that includes detailed maps for every 
+instance in the game. Originally, Blizzard neglected to include maps for 
+instances. However, after a number of years Blizzard began to include official 
+maps for some instances. These official maps are in the same hand-drawn style 
+as the built-in world maps. Conversely, the Atlas maps are based on data used 
+by the minimap, which provides a more detailed, accurate, and colorful 
+representation. You can think of this as the difference between a street map 
+and a satellite image.
 
-After installing Atlas, you'll notice a new icon on the minimap that
-looks like part of a little globe (you can right-click the icon to
-drag it around the minimap's frame). Click this icon to open up the
-main Atlas window, which displays the maps and legend. You can
-alternatively use the slash-command /atlas. The drop-downs at the top
-of the window enable you to navigate between the maps. You can also
-drag the Atlas window around the screen. Lock it in place with the
-little lock button in the upper-right corner.
+Furthermore, while the built-in maps mark the locations of some major bosses, 
+Atlas provides detailed and accurate information about all of the creatures, 
+NPCs, objects, and events you'll encounter in each dungeon. General information 
+about each zone is provided as well, including its location, level range, 
+player limit, attenuation requirement, and associated faction. All entrances, 
+exits, portals, and connections are labelled clearly. Because there are so many 
+instances in the game, you can categorize them by type, level, number of 
+players, continent, or expansion.
 
-At the bottom of the legend is a small text-entry field as well as
-Search and Reset buttons. Type part of a word or name in the box and
-click the Search button, and the legend's entries are reduced to only
-those that match your text. Note that the search is performed only on
-the entries for the current map, not all the entries in the database.
-While not so useful for instances with only a few entries like
-Ragefire Chasm, the search comes in handy when there are a ton of
-entries, like for Blackrock Depths or the AtlasMajorCities plug-in. If
-you want to get the whole list back, just click Reset.
+Finally, in addition to instances, Atlas comes with a handful of optional 
+components that add even more maps. These include outdoor encounter maps, 
+global transportation maps, dungeon location maps, and battleground maps. Each 
+optional component can be enabled, disabled or removed individually. A number 
+of third-party Atlas extensions are available as well, which further augment 
+the functionality of Atlas. AtlasLoot is the most popular of these, providing 
+detailed drop and item information for every encounter, but there are also 
+packages for quest information and major city maps as well.
 
 
+==================
+= Recent Changes =
+==================
 
-=================
-= Configuration =
-=================
+You should always check our change logs to see the list of changes in each 
+release, although in most of cases we are only list it briefly.
 
-Atlas has a few simple options, accessible from the Options button in
-the upper-right corner of the main window, or with the slash-command
-/atlas options. A few of the settings aren't very self-explanatory so
-here's some more information about them. "Auto-Select Instance Map"
-detects the instance that you're in when you open Atlas, and then
-automatically switches to the appropriate map. This feature doesn't
-work in instances that have more than one map, like Blackrock Spire,
-Dire Maul, or many of the Outland instances. In this case, Atlas
-remembers the last map you had open. "Right-Click for World Map" makes
-the World Map open when you right-click anywhere on the Atlas window.
-This is useful when you want to quickly switch from Atlas to the World
-Map. "Clamp Window to Screen" makes it so that you can't drag the
-Atlas window off the edge of the screen. The rest of the options are
-pretty straightforward. The Reset Position button is useful if the
-Atlas window ever gets dragged completely off-screen and you can't get
-it back.
+Note that started from v1.21.0, due to the total size of our addon is 
+increasing bigger and bigger since we are having more and more maps, we have 
+heard many users complaining about the download issue, and suggested us to 
+find some workaround.
 
+We have discussed internally and also discuss with Curse team, our final 
+decision is to separate our built-in plugins into individual addon packages 
+(also individual addon projects).
 
+Also, we have moved out the old dungeon maps and re-categorized them based on 
+the expansion set. For example, Burning Crusade dungeon maps are now only 
+available in another addon package.
 
-=================
-= Atlas Plugins =
-=================
+This provide the flexibility of addon downloading. Users who don't need any 
+specific plugin or expansion dungeon maps can decide not to download them. 
+Or, those plugins and old dungeon maps won't get frequently updated, therefore, 
+users who have download all the Atlas addon packages don't need to download 
+all the packages each time when there is a new release. 
 
-Atlas has a built-in plugin system allowing for the easy addition of
-map packs. In fact, Atlas ships with four of these plugins (for
-battlegrounds, dungeon locations, flight points, and outdoor raid
-bosses). If you're interested in making your own Atlas map pack, I
-suggest you start with one of these four as a guide. You can contact
-me or post on the Atlas forums if you need help, however I suggest you
-do as much research as possible beforehand. Furthermore, there are
-several Atlas plugins that do more than simply provide additional
-maps. AtlasLoot provides a loot table for each boss, and AtlasQuest
-displays the quests associated with each instance. Note that I don't
-develop these plugins myself; they have their own project leads.
-
-
-
-=====================
-= Before Installing =
-=====================
-
-* Any previous versions of Atlas must be deleted prior to installation.
-* Atlas plugins (AtlasLoot, AtlasQuest, etc.) designed for any version
-of Atlas prior to this one must be deleted.
-* Map packs supplied by Daviesh for Atlas 1.8.6 must be deleted prior
-to installation (they're unnecessary now anyway).
-
+Please read below our forum post for the core addon, modules, and plugins' 
+download path:
+http://www.atlasmod.com/phpBB3/viewtopic.php?t=1522
 
 
 ==================
 = How to Install =
 ==================
 
-* Unzip the package into your World of Warcraft folder.
-* Your zip software must preserve directory structures.
-* If you're having trouble, please visit the Atlas FAQ:
-* http://www.atlasmod.com/phpBB3/viewtopic.php?t=3
+Unzip the package into your World of Warcraft folder. Your zip software must 
+preserve directory structures. 
+
+For example, assuming your WoW was installed on your C:\Games\WoW, then you
+should extract the ZIP into C:\Games\WoW\Interface\Addons.
+
+So you should have below folder after extracted:
+C:\Games\WoW\Interface\Addons\Atlas
+
+If you're having trouble, please visit the Atlas FAQ:
+http://www.atlasmod.com/phpBB3/viewtopic.php?t=3 
 
 
+=============
+= Resources =
+=============
 
-===============
-= Integration =
-===============
-
-* Titan Panel
-* myAddOns
-* CTMod
-* Cosmos
-
-
-
-===========
-= Website =
-===========
-
+The official Atlas website is:
 http://www.atlasmod.com/
 
+For questions or support, please visit the forums:
+http://www.atlasmod.com/phpBB3/
 
 
 ===========
 = Contact =
 ===========
 
-Name: Dan Gilbert
-Email: loglow@gmail.com
-AIM: dan5981
+You may contact the project owner in below address:
+atlas.addon at gmail dot com
+Or visit our forum and leave your message.
 
+
+================
+= Authors Team =
+================
+* Arith - Project Manager
+* dubcat - Artist
+* Dynaletik - Co-author
+* Resike - Co-author
 
 
 ===========
@@ -145,4 +120,12 @@ AIM: dan5981
 Atlas is released under the GNU General Public License (GPL).
 For the full license text please see: gpl-v2-enUS.txt
 
-
+We also included several languages' translation of GNU GPL license document in 
+our addon, so that you will be easier to understand it in your preferred 
+language. 
+You can use this addon without any charge. If you would like to make some 
+donation, you are welcome to do so.
+You can also distribute this addon but only with no charge to your users. 
+If you are going to include part of the codes, graphics, or any file(s) from 
+this addon in your own product(s), please write us an email to inform us, and 
+please also to include our team members¡¦ name as part of your product credits.

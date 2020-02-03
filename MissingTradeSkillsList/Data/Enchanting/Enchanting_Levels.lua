@@ -6,23 +6,23 @@ MTSL_DATA["Enchanting"]["levels"] = {
 		["trainers"] = {
 			["price"] = 10,
 			["sources"] = {
-				1317, -- [1]
-				3011, -- [2]
-				3345, -- [3]
-				3606, -- [4]
-				4616, -- [5]
-				5157, -- [6]
-				5695, -- [7]
-				7949, -- [8]
-				11065, -- [9]
-				11066, -- [10]
-				11067, -- [11]
-				11068, -- [12]
-				11070, -- [13]
-				11071, -- [14]
-				11072, -- [15]
-				11073, -- [16]
-				11074, -- [17]
+				1317,
+				3011,
+				3345,
+				3606,
+				4616,
+				5157,
+				5695,
+				7949,
+				11065,
+				11066,
+				11067,
+				11068,
+				11070,
+				11071,
+				11072,
+				11073,
+				11074,
 			},
 		},
 		["name"] = {
@@ -34,27 +34,28 @@ MTSL_DATA["Enchanting"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Enchanting"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Enchanting"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Enchanting"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Enchanting"],
 		},
 		["min_skill"] = 0,
 		["id"] = 7411,
 		["max_skill"] = 75,
 		["rank"] = 1,
 		["min_xp_level"] = 5,
-	}, -- [1]
+	},
 	{
 		["trainers"] = {
 			["price"] = 500,
 			["sources"] = {
-				1317, -- [1]
-				3011, -- [2]
-				3345, -- [3]
-				4213, -- [4]
-				4616, -- [5]
-				5157, -- [6]
-				7949, -- [7]
-				11072, -- [8]
-				11073, -- [9]
-				11074, -- [10]
+				1317,
+				3011,
+				3345,
+				4213,
+				4616,
+				5157,
+				7949,
+				11072,
+				11073,
+				11074,
 			},
 		},
 		["name"] = {
@@ -66,19 +67,21 @@ MTSL_DATA["Enchanting"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Enchanting"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Enchanting"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Journeyman"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Enchanting"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Apprentice"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Enchanting"],
 		},
 		["min_skill"] = 50,
 		["id"] = 7412,
 		["max_skill"] = 150,
 		["rank"] = 2,
-	}, -- [2]
+		["min_xp_level"] = 10,
+	},
 	{
 		["trainers"] = {
 			["price"] = 5000,
 			["sources"] = {
-				11072, -- [1]
-				11073, -- [2]
-				11074, -- [3]
+				11072,
+				11073,
+				11074,
 			},
 		},
 		["name"] = {
@@ -90,18 +93,20 @@ MTSL_DATA["Enchanting"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Enchanting"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Enchanting"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Enchanting"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Expert"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Enchanting"],
 		},
 		["min_skill"] = 125,
 		["id"] = 7413,
 		["max_skill"] = 225,
 		["rank"] = 3,
-	}, -- [3]
+		["min_xp_level"] = 20,
+	},
 	{
 		["min_xp_level"] = 35,
 		["trainers"] = {
 			["price"] = 50000,
 			["sources"] = {
-				11073, -- [1]
+				11073,
 			},
 		},
 		["name"] = {
@@ -113,10 +118,12 @@ MTSL_DATA["Enchanting"]["levels"] = {
 			["English"] = MTSLUI_LOCALES_PROFESSION_RANKS["English"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["English"]["Enchanting"],
 			["Korean"] = MTSLUI_LOCALES_PROFESSION_RANKS["Korean"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Korean"]["Enchanting"],
 			["Chinese"] = MTSLUI_LOCALES_PROFESSION_RANKS["Chinese"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Chinese"]["Enchanting"],
+			["Mexican"] = MTSLUI_LOCALES_PROFESSION_RANKS["Mexican"]["Artisan"] .. " " .. MTSLUI_LOCALES_PROFESSIONS["Mexican"]["Enchanting"],
 		},
 		["min_skill"] = 200,
 		["id"] = 13920,
 		["max_skill"] = 300,
 		["rank"] = 4,
-	}, -- [4]
+		["min_xp_level"] = 35,
+	},
 }
